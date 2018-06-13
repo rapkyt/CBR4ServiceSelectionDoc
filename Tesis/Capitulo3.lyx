@@ -75,7 +75,8 @@
 \begin_body
 
 \begin_layout Chapter
-Metamodelo para Descripción y Evaluación de Contratos de Servicios Web
+Un modelo unificado para evaluar y seleccionar de servicios heterogéneos
+ utilizando Razonamiento basado en casos (CBR)
 \begin_inset CommandInset label
 LatexCommand label
 name "chap:Metamodelo-para-descipción"
@@ -86,10 +87,18 @@ name "chap:Metamodelo-para-descipción"
 \end_layout
 
 \begin_layout Section
-Introducción 
+Introducción
 \end_layout
 
 \begin_layout Standard
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
 Como se mencionó en la Sección 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -160,7 +169,7 @@ key "narayanan2002simulation,chan2008dynamic"
 .
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 Con el fin de satisfacer el objetivo mencionado, la Herramienta de Evaluación
  de Servicios Web que da soporte al Método de Selección de Servicios presentado
  en la Sección 
@@ -182,7 +191,7 @@ reference "cap:SOApp"
  de documentos WSDL hacia instanciaciones de dicho metamodelo.
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 El resto del capítulo se distribuye de la siguiente manera: en la Sección
 \begin_inset space ~
 \end_inset
@@ -221,9 +230,14 @@ reference "sec:Intregracion-a-Testooj"
  a la Herramienta de Evaluación de Servicios Web.
 \end_layout
 
+\end_inset
+
+
+\end_layout
+
 \begin_layout Standard
 \begin_inset Note Note
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Float figure
