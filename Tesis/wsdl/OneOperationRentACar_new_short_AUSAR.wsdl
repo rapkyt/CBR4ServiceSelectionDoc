@@ -1,0 +1,65 @@
+  <description>
+    <types>
+      <xsd:schema>
+        <xsd:element name="getCarFeeInput">
+          <xsd:complexType>
+            <xsd:sequence maxOccurs="1" minOccurs="1">
+              <xsd:element maxOccurs="1" name="supplements">
+                <xsd:complexType>
+                  <xsd:sequence maxOccurs="1" minOccurs="1">
+                    <xsd:element maxOccurs="1" minOccurs="1" name="airCondition" type="xsd:boolean"/>
+                    <xsd:element maxOccurs="1" minOccurs="1" name="automatic" type="xsd:boolean"/>
+                  </xsd:sequence>
+                </xsd:complexType>
+              </xsd:element>
+            </xsd:sequence>
+          </xsd:complexType>
+  	    </xsd:element>
+        <xsd:element name="getCarFeeOutput">
+          <xsd:complexType>
+            <xsd:sequence maxOccurs="1" minOccurs="1">
+  			  <xsd:element maxOccurs="1" name="cost">
+                <xsd:complexType>
+                  <xsd:sequence maxOccurs="1" minOccurs="1">
+                    <xsd:element minOccurs="1" maxOccurs="1" name="chargeCost" type="xsd:double"/>
+                    <xsd:element minOccurs="1" maxOccurs="1" name="currency" type="xsd:normalizedString"/>
+  				  </xsd:sequence>
+                </xsd:complexType>
+              </xsd:element>
+            </xsd:sequence>
+          </xsd:complexType>
+        </xsd:element>
+  	    <xsd:element name="getAvailableCarsInput">
+          <xsd:complexType>
+            <xsd:sequence maxOccurs="1" minOccurs="1">
+  			  <xsd:element minOccurs="1" maxOccurs="1" name="initDate" type="xsd:date"/>
+              <xsd:element minOccurs="1" maxOccurs="1" name="endDate" type="xsd:date"/>
+  			</xsd:sequence>
+          </xsd:complexType>
+        </xsd:element>
+	    <xsd:element name="getAvailableCarsOutput">
+		  <xsd:complexType>
+		    <xsd:sequence maxOccurs="unbounded" minOccurs="0">
+			  <xsd:element name="car">
+			    <xsd:sequence maxOccurs="1" minOccurs="1">
+				  <xsd:element minOccurs="1" maxOccurs="1" name="brand" type="xsd:string"/>
+				  <xsd:element minOccurs="1" maxOccurs="1" name="model" type="xsd:int"/>
+				  <xsd:element minOccurs="1" maxOccurs="1" name="description" type="xsd:string"/>
+			    </xsd:sequence>
+			  </xsd:element>
+		    </xsd:sequence>
+		  </xsd:complexType>
+	    </xsd:element>
+  	  </xsd:schema>
+    </types>
+    <interface name="RentaCar">
+      <operation name="getCarFee">
+        <input messageLabel="In" element="tns:getCarFeeInput"/>
+    	<output messageLabel="Out" element="tns:getCarFeeOutput"/>
+      </operation>
+      <operation name="getAvailableCars">
+        <input messageLabel="In" element="tns:getAvailableCarsInput"/>
+    	<output messageLabel="Out" element="tns:getAvailableCarsOutput"/>
+      </operation>
+    </interface>
+  </description>

@@ -1,0 +1,8 @@
+64private static String obtenerNombreTipoSimple(Nodo nodo)
+65{
+66 String type = element.getAttribute("type");
+67 if(type!=null)
+68	if(type.contains(":"))
+69		type=type.obtenerTipoDeDato();
+70 return type;
+71}

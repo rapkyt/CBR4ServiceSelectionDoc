@@ -1,0 +1,19 @@
+<description>
+  <types>
+    <xsd:schema>
+      <xsd:element name="...">
+        <xsd:complexType>
+          <xsd:sequence maxOccurs="1" minOccurs="1">
+             <xsd:element maxOccurs="1" name="..."/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+	</xsd:schema>
+  </types>
+  <interface name="...">
+    <operation name="...">
+       <input messageLabel=".." element="..."/>
+	     <output messageLabel="..." element="..."/>
+    </operation>
+  </interface>
+</description>

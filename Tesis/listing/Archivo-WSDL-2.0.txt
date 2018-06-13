@@ -1,0 +1,96 @@
+1<description>
+2  <types>
+3    <xsd:schema attributeFormDefault="unqualified" xmlns:tns="" 
+elementFormDefault="unqualified" targetNamespace="" xmlns:xsd="">
+4      <xsd:element name="getReservationInput">
+5        <xsd:complexType>
+6          <xsd:sequence maxOccurs="1" minOccurs="1">
+7            <xsd:element maxOccurs="1" name="number" 
+type="int" xmlns="xsd"/>
+8          </xsd:sequence>
+9        </xsd:complexType>
+10      </xsd:element>
+11      <xsd:element name="getReservationOutput">
+12        <xsd:complexType>
+13          <xsd:sequence maxOccurs="1" minOccurs="1">
+14            <xsd:element maxOccurs="1" name="reservationResponse" 
+type="xsd:string"/>
+15          </xsd:sequence>
+16        </xsd:complexType>
+17      </xsd:element>
+18      <xsd:element name="getCarFeeInput">
+19        <xsd:complexType>
+20          <xsd:sequence maxOccurs="1" minOccurs="1">
+21            <xsd:element maxOccurs="unbounded" name="supplements">
+22              <xsd:complexType>
+23                <xsd:sequence maxOccurs="1" minOccurs="1">
+24                  <xsd:element maxOccurs="1" minOccurs="1" 
+name="airCondition" type="xsd:boolean"/>
+25                  <xsd:element maxOccurs="1" minOccurs="1" 
+name="automatic" type="xsd:boolean"/>
+26                </xsd:sequence>
+27              </xsd:complexType>
+28            </xsd:element>
+29          </xsd:sequence>
+30        </xsd:complexType>
+31	  </xsd:element>
+32      <xsd:element name="getCarFeeOutput">
+33        <xsd:complexType>
+34          <xsd:sequence maxOccurs="1" minOccurs="1">
+35			<xsd:element maxOccurs="unbounded" 
+name="supplements">
+36              <xsd:complexType>
+37                <xsd:sequence maxOccurs="1" minOccurs="1">
+38                  <xsd:element minOccurs="1" maxOccurs="1" 
+name="chargeCost" type="xsd:double"/>
+39                  <xsd:element minOccurs="1" maxOccurs="1" 
+name="currency" type="xsd:normalizedString"/>
+40				</xsd:sequence>
+41              </xsd:complexType>
+42            </xsd:element>
+43          </xsd:sequence>
+44        </xsd:complexType>
+45      </xsd:element>
+46	  <xsd:element name="getAvailableCarsInput">
+47	   <xsd:complexType>
+48	    <xsd:sequence maxOccurs="1" minOccurs="1">
+49		  <xsd:element minOccurs="1" maxOccurs="1" name="initDate"
+type="xsd:date"/>
+50	      <xsd:element minOccurs="1" maxOccurs="1" name="endDate"
+type="xsd:date"/>
+51		</xsd:sequence>
+52	   </xsd:complexType>
+53	  </xsd:element>
+54  	<xsd:element name="getAvailableCarsOutput">
+55	    <xsd:complexType>
+56	      <xsd:sequence maxOccurs="unbounded" minOccurs="0">
+57		    <xsd:element name="car">
+58		      <xsd:sequence maxOccurs="1" minOccurs="1">
+59		  	  <xsd:element minOccurs="1" maxOccurs="1" 
+name="brand" type="xsd:string"/>
+60		  	  <xsd:element minOccurs="1" maxOccurs="1" 
+name="model" type="xsd:int"/>
+61		  	  <xsd:element minOccurs="1" maxOccurs="1" 
+name="description" type="xsd:string"/>
+62		      </xsd:sequence>
+63	  	  </xsd:element>
+64	      </xsd:sequence>
+65	    </xsd:complexType>
+66  	</xsd:element>	  
+67	</xsd:schema>
+68  </types>
+69  <interface name="RentACar">
+70    <operation name="getReservation">
+71     <input messageLabel="In" element="tns:getReservationInput"/>
+72 	<output messageLabel="Out" element="tns:getReservationOutput"/>
+73    </operation>
+74	<operation name="getCarFee">
+75     <input messageLabel="In" element="tns:getCarFeeInput"/>
+76 	<output messageLabel="Out" element="tns:getCarFeeOutput"/>
+77    </operation>
+78    <operation name="getAvailableCars">
+79     <input messageLabel="In" element="tns:getAvailableCarsInput"/>
+80     <output messageLabel="Out" element="tns:getAvailableCarsOutput"/>
+81    </operation>
+82  </interface>
+83</description>

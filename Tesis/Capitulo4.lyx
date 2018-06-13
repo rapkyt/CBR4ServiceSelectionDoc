@@ -1,0 +1,2403 @@
+#LyX 2.2 created this file. For more info see http://www.lyx.org/
+\lyxformat 508
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass myBook
+\begin_preamble
+\usepackage{fancyhdr}
+\end_preamble
+\use_default_options false
+\maintain_unincluded_children false
+\language spanish
+\language_package babel
+\inputencoding auto
+\fontencoding default
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 0
+\use_package cancel 0
+\use_package esint 1
+\use_package mathdots 0
+\use_package mathtools 0
+\use_package mhchem 0
+\use_package stackrel 0
+\use_package stmaryrd 0
+\use_package undertilde 0
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 2
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Chapter
+Evaluación Experimental
+\begin_inset CommandInset label
+LatexCommand label
+name "cap:evaluacion experimental"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+En el presente capítulo se detalla la evaluación experimental realizada
+ a la plataforma de selección de servicios luego de integrar el metamodelo
+ para descripción de Servicios Web.
+ La evaluación experimental ha permitido estudiar el alcance del la integración
+ del metamodelo propuesto en el Capítulo
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "chap:Metamodelo-para-descipción"
+
+\end_inset
+
+ a la plataforma de selección de servicios.
+ Para llevar a cabo esta experimentación se utilizó un conjunto (data-set)
+ de servicios candidatos, dos versiones de un registro de descubrimiento
+ de servicios y la plataforma de selección de servicios derivada de este
+ trabajo, en la cual se integra el metamodelo definido.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+En este experimento se compara la visibilidad de Servicios Web candidatos
+ utilizando la nueva versión del Proceso de Selección de Servicios Web,
+ la cual incorpora el metamodelo presentado en el Capítulo
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "chap:Metamodelo-para-descipción"
+
+\end_inset
+
+.
+ Para esta evaluación se utilizó un conjunto de servicios compuesto por
+ 1146 descripciones WSDL de Servicios Web obtenidos de la plataforma Mashape.
+ En la Figura
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Proceso-experimental"
+
+\end_inset
+
+ se resume el proceso experimental que se encuentra conformado por tres
+ fases: Generación de consultas, Ejecución experimental y Resultados.
+ 
+\end_layout
+
+\begin_layout Standard
+Para realizar este experimento, inicialmente dos grupos de ingenieros de
+ software seleccionaron aleatoriamente 30 descripciones de servicios (de
+ las 1146 anteriormente mencionadas).
+ Estas descripciones fueron consideradas como servicios relevantes en el
+ contexto de este experimento (Fase de Generación de Consultas de la Figura
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Proceso-experimental"
+
+\end_inset
+
+ de la Sección
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Generacion-de-consultas"
+
+\end_inset
+
+).
+ Las descripciones de servicios que no fueron marcadas como relevantes para
+ ninguna consulta fueron utilizadas como 
+\begin_inset Quotes eld
+\end_inset
+
+ruido
+\begin_inset Quotes erd
+\end_inset
+
+ con el objetivo de incrementar la dimensión del experimento, en términos
+ del número de descripciones WSDL.
+ Luego, un conjunto de 42 consultas fueron generadas manualmente por los
+ dos grupos de expertos, utilizando como base los 30 servicios relevantes
+ (Sección
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Generacion-de-consultas"
+
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Standard
+En la Fase de Ejecución Experimental (Figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Proceso-experimental"
+
+\end_inset
+
+) se utilizó el conjunto de 1146 Servicios Web para poblar un registro de
+ descubrimiento.
+ Los resultados brindados por este registro de descubrimiento proveen una
+ base para comparar otros enfoques de selección de servicios mas exhaustivos.
+ De este modo, consultamos el registro de descubrimento con las 42 consultas
+ generadas manualmente por los expertos.
+ Luego, el registro retornó los 10 servicios mas relevantes para cada consulta,
+ conteniendo potencialmente al servicio objetivo (comunmente denominado
+ 
+\emph on
+gold standard
+\emph default
+) para la consulta de acuerdo a una simple evaluación sintáctica.
+ Sobre los resultados retornados por el registro de descubrimiento, fue
+ ejecutado el enfoque de selección de servicios.
+\end_layout
+
+\begin_layout Standard
+Finalmente, en la Fase de Resultados (Figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Proceso-experimental"
+
+\end_inset
+
+) se comparan los resultados en términos de visibilidad del servicio relevante
+ entre nuestro enfoque y el registro de descubrimiento de servicios.
+ Los resultados del experimento fueron evaluados de acuerdo a una popular
+ métrica perteneciente al campo de Recuperación de Información – 
+\emph on
+Precision-at-n
+\emph default
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ImgChapter5/experimento-proceso.png
+	width 90text%
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Proceso-experimental"
+
+\end_inset
+
+Proceso experimental
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+El resto del Capítulo se distribuye de la siguiente manera: En la Sección
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Generacion-de-consultas"
+
+\end_inset
+
+ se explica cómo han sido generadas las consultas utilizando el conjunto
+ de 1146 Servicios Web.
+ En la Sección
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:EjecucionExperimental"
+
+\end_inset
+
+ se detalla cómo fue llevada a cabo la ejecución experimental.
+ En la Sección
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Resultados"
+
+\end_inset
+
+ se explican los pasos que se llevaron a cabo para obtener los resultados
+ esperados, incluyendo la decisión de utilizar ciertas métricas para medir
+ los resultados del experimento.
+ 
+\end_layout
+
+\begin_layout Section
+Generación de consultas
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Generacion-de-consultas"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Como se mencionó anteriormente, para este experimento se generaron manualmente
+ 42 consultas, donde cada una representa una funcionalidad esperada por
+ una aplicación cliente (consumer).
+ Éstas consultas no han sido automáticamente generadas por un algoritmo
+ de mutación (a diferencia de trabajos anteriores
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "DeRenzis13,garriga2013service"
+
+\end_inset
+
+), sino que fueron construidas por dos grupos de ingenieros de software
+ (GrupoA y GrupoB).
+ El dataset utilizado está compuesto por más de 1146 descripciones de Servicios
+ Web en formato WSDL 2.0.
+ Estas especificaciones fueron entregadas a los grupos de profesionales,
+ donde cada grupo seleccionó 15 servicios como los servicios candidatos
+ para generar las consultas (Paso 1 de la Figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Proceso-experimental"
+
+\end_inset
+
+).
+ Con el objetivo de ser lo más imparcial posible, a la hora de seleccionar
+ los candidatos se intercambiaron los documentos seleccionados por cada
+ grupo (Paso 2).
+ 
+\end_layout
+
+\begin_layout Standard
+Luego, cada grupo, reescribió sus documentos (descripciones de servicios)
+ asignados, alterando los elementos incluidos en los mismos (Paso 3).
+ La única condición a la hora de reescribirlos fue que la semántica tenía
+ que ser preservada, es decir, la reescritura de la descripción no debería
+ cambiar las funcionalidades que ofrecía el servicio ni la intencionalidad
+ de las funciones involucradas.
+ Los elementos alterados incluyeron identificadores (por ejemplo los nombres
+ de las operaciones, nombres de parámetros, campos de los tipos complejos,
+ entre otros) y los tipos de datos (incluidos en parámetros, retornos y
+ atributos de tipos complejos).
+ Luego de reescribir los documentos, se dividieron los mismos agrupando
+ en nuevos documentos de una, dos y tres operaciones (Paso 4).
+ Estos nuevos documentos conformaron las consultas utilizadas en esta evaluación
+ experimental.
+ De esta forma, cada consulta estuvo compuesta como máximo por tres operaciones
+ relacionadas.
+ 
+\end_layout
+
+\begin_layout Paragraph
+Ejemplo
+\end_layout
+
+\begin_layout Standard
+Utilizaremos el servicio RentACar presentado en la sección 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Vision-Detallada"
+
+\end_inset
+
+, Capítulo 3, para dar un ejemplo de cómo fue el proceso de generación de
+ consultas.
+ Este servicio ofrece las siguientes tres operaciones: 
+\end_layout
+
+\begin_layout Description
+getReservation: dado un número de identificador (
+\emph on
+reservationCode
+\emph default
+), retorna un String que representa la reserva correspondiente (
+\emph on
+reservationReturn
+\emph default
+).
+\end_layout
+
+\begin_layout Description
+getCarFee: dados ciertos accesorios con los que cuenta un vehículo (
+\emph on
+supplements
+\emph default
+) retorna el valor correspondiente al alquiler del mismo.
+ Las características del vehículo son 
+\emph on
+airCondition
+\emph default
+ y 
+\emph on
+automatic
+\emph default
+.
+ Como salida de la operación 
+\emph on
+GetCarFee
+\emph default
+ es el costo del alquiler (
+\emph on
+chargeCost
+\emph default
+) y la moneda (
+\emph on
+currency
+\emph default
+) en que se encuentra expresado dicho monto.
+\end_layout
+
+\begin_layout Description
+getAvailableCars: dadas dos fechas (
+\emph on
+initDate
+\emph default
+ y 
+\emph on
+endDate
+\emph default
+), retorna los automóviles disponibles en dicho período.
+ Cada automóvil (
+\emph on
+Car
+\emph default
+) esta compuesto por su marca 
+\emph on
+(brand
+\emph default
+), modelo 
+\emph on
+(model)
+\emph default
+ y descripción
+\emph on
+ (description).
+\end_layout
+
+\begin_layout Standard
+Para explicar de una manera mas completa este proceso, añadimos 2 operaciones
+ extra al servicio de ejemplo:
+\end_layout
+
+\begin_layout Description
+getInformationMonth: dado el mes y el año (
+\emph on
+month 
+\emph default
+e 
+\emph on
+year 
+\emph default
+respectivamente) retorna qué autos se han alquilado en dicho período, y
+ las fechas en las que fueron alquilados (CarsAndDates).
+ 
+\end_layout
+
+\begin_layout Description
+disableCarForRental: dado un auto (
+\emph on
+Car
+\emph default
+), el mismo se da de baja y retorna un valor booleano; verdadero en caso
+ de poder darlo de baja, y falso en caso contrario (response).
+\end_layout
+
+\begin_layout Standard
+El siguiente paso es modificar la sintaxis, pero sin cambiar la semántica.
+ Para ello, los ingenieros utilizaron sinónimos y palabras relacionadas
+ a las incluidas en identificadores como nombres de operaciones, campos
+ de los tipos complejos, etc.
+ Además, estaba permitido modificar las estructuras de datos, agregando
+ atributos que resultasen necesarios o eliminando los que ellos consideraron
+ prescindibles.
+\end_layout
+
+\begin_layout Standard
+La Tabla 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:Comparativa-entre-identificadores"
+
+\end_inset
+
+ detalla un ejemplo de modificación de identificadores (Id) para este ejemplo.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+placement h
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="19" columns="5">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size scriptsize
+Id original
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size scriptsize
+Operación original
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size scriptsize
+Rol
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size scriptsize
+Modificado
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size scriptsize
+Id modificado
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+getReservation
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+getReservation
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+Nombre de operación
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+Si
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+getReservationNumber
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+\emph on
+reservationCode
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+getReservation
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+Nombre parám.
+ entrada
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+Si
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+\emph on
+reservationNumber
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+\emph on
+reservationReturn
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+getReservation
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+Nombre parám.
+ salida
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+Si
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+\emph on
+reservationResponse
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+getCarFee
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+getCarFee
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+Nombre operación
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+Si
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+getCarWage
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+\emph on
+supplements
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+getCarFee
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+Nombre parám.
+ entrada
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+Si
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+airCondition, automatic
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+\emph on
+chargeCost
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+getCarFee
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+Nombre parám.
+ salida
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+No
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+\emph on
+-
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+\emph on
+currency
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+getCarFee
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+Nombre parám.
+ salida
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+No
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+\emph on
+-
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+getAvailableCars
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+getAvailableCars
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+Nombre operación
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+No
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+- 
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+\emph on
+initDate
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+getAvailableCars
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+Nombre parám.
+ entrada
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+Si
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+\emph on
+initialDate
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+\emph on
+endDate
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+getAvailableCars
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+Nombre parám.
+ entrada
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+Si
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+\emph on
+finalDate
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+cars
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+getAvailableCars
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+Nombre parám.
+ salida
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+Si
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+\emph on
+listOfCar
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+getInformationMonth
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+getInformationMonth
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+Nombre operación
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+No
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+- 
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+\emph on
+month
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+getInformationMonth
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+Nombre parám.
+ entrada
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+No
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+\emph on
+-
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+\emph on
+year
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+getInformationMonth
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+Nombre parám.
+ entrada
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+No
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+\emph on
+-
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+carsAndDates
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+getInformationMonth
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+Nombre parám.
+ salida
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+Si
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+arrayOfCarsAndDates
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+disableCarForRental
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+disableCarForRental
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+Nombre operación
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+No
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+-
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+\emph on
+car
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+disableCarForRental
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+Nombre parám.
+ entrada
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+No
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+\emph on
+-
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+response
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+disableCarForRental
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+Nombre parám.
+ salida
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+Si
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+iCouldDeleteTheCar
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:Comparativa-entre-identificadores"
+
+\end_inset
+
+Comparativa entre identificadores
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Description
+
+\series medium
+Las
+\series default
+ operaciones modificadas quedarían con la siguiente estructura:
+\end_layout
+
+\begin_layout Description
+getReservationNumber (
+\emph on
+reservationNumber
+\emph default
+) : 
+\emph on
+(reservationResponse)
+\end_layout
+
+\begin_layout Description
+getCarWage (airCondition, automatic) : (
+\emph on
+chargeCost
+\emph default
+, 
+\emph on
+currency
+\emph default
+)
+\end_layout
+
+\begin_layout Description
+getAvailableCars (
+\emph on
+initialDate
+\emph default
+, 
+\emph on
+finalDate
+\emph default
+) : (
+\emph on
+listOfCar
+\emph default
+)
+\emph on
+.
+\end_layout
+
+\begin_layout Description
+getInformationMonth (
+\emph on
+month, year
+\emph default
+) : (arrayOfCarsAndDates).
+ 
+\end_layout
+
+\begin_layout Description
+disableCarForRental (
+\emph on
+Car
+\emph default
+) : (iCouldDeleteTheCar).
+\end_layout
+
+\begin_layout Standard
+Luego el servicio modificado consiste de cinco operaciones, por lo tanto
+ podemos desglosar el mismo en dos servicios de 3 y 2 operaciones respectivament
+e.
+ Por ejemplo, el primer servicio puede incluir las operaciones getReservationNum
+ber, getCarWage y getAvailableCars, mientras que el segundo, getInformationMonth
+ y disableCarForRental.
+ 
+\end_layout
+
+\begin_layout Standard
+Finalmente, para cada consulta generada se registró el 
+\emph on
+gold standard
+\emph default
+ (el servicio más relevante) de la misma, siendo este el Servicio Web a
+ partir del cual fue generada cada una de ellas.
+ Con esta metodología, podemos simular que la funcionalidad requerida por
+ el desarrollador (consulta) se satisface con el servicio web que ofrece
+ la misma funcionalidad, o sea del que dicha consulta fue generada.
+ 
+\end_layout
+
+\begin_layout Section
+Ejecución experimental 
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:EjecucionExperimental"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Para la Fase de Ejecución Experimental (Figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Proceso-experimental"
+
+\end_inset
+
+), se utilizaron dos versiones del registro de descubrimiento de servicios
+ EasySOC como base: la versión original basada en VSM
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "crasso2008easy"
+
+\end_inset
+
+ y la versión mejorada (Enhanced EasySOC) que aplica la técnica de expansión
+ de consultas (
+\emph on
+query expansion
+\emph default
+)
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "agichtein2006learning,crasso2014easysoc"
+
+\end_inset
+
+.
+ EasySOC provee un soporte simple para descubrimiento de servicios basado
+ en técnicas de matching de documentos, explotando solo aspectos sintáticos,
+ tanto de consultas como de descripciones de servicios.
+ Ambos registros fueron poblados con los 1146 servicios obtenidos de la
+ plataforma Mashape (Paso 5).
+ Las consultas sintácticas (que son las que se le hacen a los registros
+ de descubrimiento) fueron generadas concatenando los nombres de las operaciones
+ extraídas de las instanciaciones del metamodelo (particularmente de las
+ consultas generadas por los expertos).
+ Estas consultas sintácticas luego se convirtieron en la entrada para el
+ registro de descubrimiento de servicios (Paso 6).
+\end_layout
+
+\begin_layout Standard
+Luego, cada consulta generada por los expertos (documento WSDL 2.0 modificado)
+ fue instanciada de acuerdo al metamodelo definido, utilizando el modulo
+ Conversor presentado en la Sección
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Relación-entre-WSDL"
+
+\end_inset
+
+.
+ Por último, las consultas instanciadas fueron ejecutadas utilizando la
+ Herramienta de Evaluación de Servicios Web (Paso 7).
+ Finalmente, los resultados obtenidos, tanto para las consultas ejecutadas
+ sobre los registros de descubrimiento de servicios (EasySOC y Enhanced
+ EasySOC), como sobre la herramienta de Evaluación de Servicios Web, fueron
+ evaluados utilizando las métricas que se presentan en la Sección
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Métricas-Utilizadas"
+
+\end_inset
+
+ (Paso 8).
+ 
+\end_layout
+
+\begin_layout Section
+Resultados
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Resultados"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Para este escenario experimental, se consultaron ambas versiones del registro
+ EasySOC con las consultas sintácticas.
+ Luego, se ejecutó la Herramienta de Evaluación de Servicios Web con el
+ metamodelo implementado en el mismo, utilizando las consultas generadas
+ por los ingenieros.
+ Finalmente se compararon los resultados considerando los 
+\emph on
+gold standard 
+\emph default
+para cada consulta, de acuerdo a la métrica Precisión-en-n Acumulada que
+ se presenta a continuación.
+\end_layout
+
+\begin_layout Subsection
+Métrica Utilizada
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:Métricas-Utilizadas"
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+El presente experimento fue diseñado para medir, en términos comparativos,
+ el desempeño de la Herramienta de Evaluación de Servicios Web.
+ Con este objetivo, se utilizó una métrica ampliamente reconocida del área
+ de Recuperación de Información: Precisión-en-n la cual ha sido usada exitosamen
+te en el contexto de la selección y el descubrimiento de Servicios Web 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "pasley2006avoid,guizzardi2005ontological"
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+Dicha métrica calcula la precisión en diferentes puntos de la lista de candidato
+s retornados durante la selección.
+ Formalmente, la métrica Precisión-en-n para una consulta individual se
+ define como:
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\size small
+\begin_inset Formula 
+\begin{equation}
+Precision\text{\,−}\,en\,\text{−\,}n\,=\,\frac{RetRel_{n}}{n}\label{eq:presicionEnN}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Donde 
+\begin_inset Formula $RetRel_{n}$
+\end_inset
+
+ es el número de servicios relevantes recuperados en las primeras 
+\begin_inset Formula $n$
+\end_inset
+
+ posiciones.
+ Por ejemplo, si los 5 primeros servicios de la lista de candidatos son
+ relevantes y los 5 siguientes son no relevantes, se tiene una precisión
+ del 100 % en la quinta posición de la lista, pero una precisión del 50
+ % en la décima.
+ En el contexto del presente experimento, la Precisión-en-n se mide para
+ cada consulta con una ventana de 
+\begin_inset Formula $n∈[1,10]$
+\end_inset
+
+, luego se promedia para el total de las consultas y finalmente se obtiene
+ el valor acumulado a medida que 
+\begin_inset Formula $n$
+\end_inset
+
+ tiende a 10, denominado Precisión-en-n Acumulada (
+\emph on
+Cumulative Precisión-at-n
+\emph default
+).
+ Este valor permite saber, para cada posición 
+\emph on
+
+\begin_inset Formula $i$
+\end_inset
+
+
+\emph default
+ (con 
+\begin_inset Formula $i∈[1,10]$
+\end_inset
+
+) de la lista, el porcentaje de consultas para los cuales el servicio relevante
+ aparece en las primeras 
+\begin_inset Formula $n$
+\end_inset
+
+ posiciones.
+\end_layout
+
+\begin_layout Standard
+La Figura
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Presición-en-N"
+
+\end_inset
+
+ detalla los valores de Precisión-en-n Acumulada correspondientes a ambas
+ versiones de EasySOC y a la Herramienta de Evaluación de Servicios Web.
+ Los resultados muestran que esta última incrementa el valor Precisión-en-n
+ Acumulada entre 19% y 34% para las primeras tres posiciones de la lista
+ (con n ∈[1,3]) con respecto a los resultados originales de los registros
+ de descubrimiento.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ImgChapter5/PresicionEnN2.PNG
+	lyxscale 60
+	width 90text%
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Comparativa de Presición-en-n Acumulada para diferentes herramientas evaluadas
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Presición-en-N"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+La Tabla
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:PrecisiónregistroDescubrimientoProcAnalCompInterf"
+
+\end_inset
+
+ resume los resultados para los registros EasySOC, Enhanced EasySOC y la
+ Herramienta de Evaluación de Servicios Web, utilizando las primeras 4 posicione
+s (con 
+\begin_inset Formula $n∈[1,4]$
+\end_inset
+
+) de los resultados obtenidos.
+ 
+\end_layout
+
+\begin_layout Standard
+En conclusión, los experimentos muestran que la utilización de la Herramienta
+ de Evaluación de Servicios Web mejora la visibilidad de los servicios relevante
+s – estas mejoras se expresan en términos de ganancias en Precisión.
+ Considerando que la selección de servicios candidatos se realiza luego
+ de algún proceso de descubrimiento, incrementar la visibilidad de los candidato
+s más adecuados puede facilitar en gran medida el desarrollo de Aplicaciones
+ Orientadas a Servicios.
+\begin_inset Float table
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="5" columns="4">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+EasySOC
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Enhanced EasySOC
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Herramienta de Eval.
+ de Serv.
+ Web
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Precisión en 1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.49
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.50
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.85
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Precisión en 2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.58
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.61
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.87
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Precisión en 3
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.65
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.67
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.89
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Precisión en 4
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.70
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.73
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.91
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:PrecisiónregistroDescubrimientoProcAnalCompInterf"
+
+\end_inset
+
+Precisión para los Registros de Descubrimiento y el Procedimiento de Análisis
+ de Compatibilidad de Interfaces
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Note Note
+status open
+
+\begin_layout Section
+Conclusión
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Conclusión"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+Para el experimento presentado se utilizó un dataset de más de 1000 Servicios
+ Web reales.
+ Inicialmente, tres grupos de desarrolladores generaron manualmente consultas
+ multi-operacionales.
+ Luego, las consultas generadas se ejecutaron utilizando los registros de
+ descubrimiento de servicios y la Herramienta de Evaluación de Servicios
+ Web.
+ Los resultados obtenidos siguiendo la métrica Precisión-en-n Acumulada
+ mostraron una mejora en la precisión para los primeros resultados de la
+ lista.
+ De esta manera, el servicio candidato para una consulta tiene una alta
+ probabilidad de que pueda ser evaluado con un resultado aceptable en el
+ subsiguiente procedimiento de Compatibilidad de Comportamiento (Capítulo
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "cap:SOApp"
+
+\end_inset
+
+ Sección 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Compatibilidad-ComportamientoOld"
+
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Plain Layout
+Es importante aclarar que los experimentos son empíricos, y que esta práctica
+ es común para el área de conocimiento usada en el descubrimiento y selección
+ de Servicios Web.
+ Configuraciones experimentales similares son usados no solo en los papers
+ fundacionales 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "stroulia2005structural,hess2004assam,crasso2008easy"
+
+\end_inset
+
+ sino que en publicaciones recientes de este campo 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "garriga2013service,tibermacine2013wssim,crasso2014easysoc,mateos2015tool"
+
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

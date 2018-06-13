@@ -1,0 +1,90 @@
+<description>
+  <types>
+    <xsd:schema attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="" xmlns:tns="" xmlns:xsd="">
+      <xsd:element name="getReservationInput">
+        <xsd:complexType>
+          <xsd:sequence maxOccurs="1" minOccurs="1">
+            <xsd:element maxOccurs="1" name="number" type="int" xmlns="xsd"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getReservationOutput">
+        <xsd:complexType>
+          <xsd:sequence maxOccurs="1" minOccurs="1">
+            <xsd:element maxOccurs="1" name="reservationResponse" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getCarFeeInput">
+        <xsd:complexType>
+          <xsd:sequence maxOccurs="1" minOccurs="1">
+            <xsd:element maxOccurs="1" name="supplements">
+              <xsd:complexType>
+                <xsd:sequence maxOccurs="1" minOccurs="1">
+                  <xsd:element maxOccurs="1" minOccurs="1" name="airCondition" type="xsd:boolean"/>
+                  <xsd:element maxOccurs="1" minOccurs="1" name="automatic" type="xsd:boolean"/>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+	  </xsd:element>
+      <xsd:element name="getCarFeeOutput">
+        <xsd:complexType>
+          <xsd:sequence maxOccurs="1" minOccurs="1">
+			<xsd:element maxOccurs="unbounded" name="supplements">
+              <xsd:complexType>
+                <xsd:sequence maxOccurs="1" minOccurs="1">
+                  <xsd:element minOccurs="1" maxOccurs="1" name="chargeCost" type="xsd:double"/>
+                  <xsd:element minOccurs="1" maxOccurs="1" name="currency" type="xsd:normalizedString"/>
+				</xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+	  <xsd:element name="cancelInformationInput">
+        <xsd:complexType>
+          <xsd:sequence maxOccurs="1" minOccurs="1">
+			<xsd:element maxOccurs="1" name="cancelInformation">
+              <xsd:complexType>
+                <xsd:sequence maxOccurs="1" minOccurs="1">
+                  <xsd:element minOccurs="1" maxOccurs="1" name="reservationCodeState" type="xsd:normalizedString"/>
+				  <xsd:element minOccurs="1" maxOccurs="1" name="reservationCancelCost" type="xsd:decimal"/>
+                  <xsd:element minOccurs="1" maxOccurs="1" name="reservationCancelCostCurrency" type="xsd:normalizedString"/>
+				</xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+	  <xsd:element name="cancelInformationOutput">
+        <xsd:complexType>
+          <xsd:sequence maxOccurs="1" minOccurs="1">
+			<xsd:element maxOccurs="1" minOccurs="1" name="cancelResponse" type="xsd:boolean"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+	</xsd:schema>
+  </types>
+  <interface name="RentaCar">
+    <operation name="getReservation">
+    <input messageLabel="In" element="tns:getReservationInput"/>
+	<output messageLabel="Out" element="tns:getReservationOutput"/>
+    </operation>
+	<operation name="getCarFee">
+    <input messageLabel="In" element="tns:getCarFeeInput"/>
+	<output messageLabel="Out" element="tns:getCarFeeOutput"/>
+    </operation>
+    <operation name="cancelReservation">
+    <input messageLabel="In" element="tns:cancelInformationInput"/>
+	<output messageLabel="Out" element="tns:cancelInformationOutput"/>
+    </operation>
+  </interface>
+</description>
+
+
+
+Hacer operacion getCarFee entrada tipo complejo con airCond boolean y auutomatic boolean. Salida Complejo con precio double y moneda string
+
+Operation getAvailableCars entrada dos simples date fecha inicio y fin, salida arreglo de Car, tipo complejo car

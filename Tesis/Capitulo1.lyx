@@ -1,0 +1,3765 @@
+#LyX 2.2 created this file. For more info see http://www.lyx.org/
+\lyxformat 508
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass myBook
+\use_default_options false
+\maintain_unincluded_children false
+\language spanish
+\language_package babel
+\inputencoding auto
+\fontencoding default
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 0
+\use_package cancel 0
+\use_package esint 1
+\use_package mathdots 0
+\use_package mathtools 0
+\use_package mhchem 0
+\use_package stackrel 0
+\use_package stmaryrd 0
+\use_package undertilde 0
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 2
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language french
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\author 1894756425 "lenovo1"
+\end_header
+
+\begin_body
+
+\begin_layout Chapter
+Motivación
+\begin_inset CommandInset label
+LatexCommand label
+name "cap:motivacion"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Introducción
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:introMotivacion"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+El paradigma de Computación Orientada a Servicios (SOC
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+SOC: 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+em
+\end_layout
+
+\end_inset
+
+ Service-Oriented Computing
+\end_layout
+
+\end_inset
+
+) se percibe como un campo interdisciplinar para el estudio, diseño, e implement
+ación de sistemas orientados a servicios, y actúa como un paraguas que cubre
+ todos los aspectos de computación utilizados – especificación y diseño
+ orientado a servicios, Arquitectura Orientada a Servicios (SOA
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+SOA: Service Oriented Architecture
+\end_layout
+
+\end_inset
+
+), Servicios Web, etc.
+ – siendo actualmente una de las áreas de investigación más activas en el
+ ámbito de la informática.
+ La provisión de servicios y la innovación de los mismos están basadas sobre
+ todo en las tecnologías de la información
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "ruiz2011ingenieria"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Una práctica común para el desarrollo de software es reusar funcionalidad
+ provista por terceras partes, lo cual no sólo ayuda a reducir los costos,
+ sino también a enfocar el proceso de desarrollo en la funcionalidad principal
+ del sistema.
+ En este contexto, el crecimiento de la Web habilita a los desarrolladores
+ a ofrecer software no sólo en forma de bibliotecas, sino como servicios
+ – componentes software que se pueden invocar de forma dinámica.
+ En particular, la tecnología de Servicios Web es uno de los principales
+ motivos para la adopción del paradigma SOC
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Bichler06"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+El sector de los servicios representa el mayor porcentaje de la economía
+ en los países desarrollados, y es innegable que una gran parte de la innovación
+ en servicios se basa en la tecnología informática, que ha contribuido con
+ aportes concretos que configuran la base tecnológica para la implementación
+ de servicios: SOA, Servicios Web o Computación en la Nube (
+\emph on
+Cloud Computing
+\emph default
+).
+ Estos conceptos obligan a revisar los paradigmas de desarrollo de software,
+ del mismo modo que en el ámbito de la gestión de proyectos se está evolucionand
+o de una lógica basada en el producto a una basada en el servicio
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "vargo2004evolving"
+
+\end_inset
+
+, obligando a reformular conceptos como marketing, innovación, sostenibilidad,
+ ciclo de vida, etc., de producto a servicio.
+ En el ámbito de la informática también es necesario revisar todo lo existente
+ en ingeniería de software para el desarrollo de sistemas de información
+ clásicos, y adaptarlo para el desarrollo de sistemas orientados a servicios
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "ruiz2011ingenieria"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+El paradigma SOC está siendo ampliamente aceptado como medio para abordar
+ la actualización y automatización de un proceso de negocio abierto y colaborati
+vo, principalmente porque permite exponer las competencias de una organización
+ de manera estándar, programática y bajo pautas de celeridad y reducción
+ de costos
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Papazoglou07"
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+En general, las Aplicaciones Orientadas a Servicios se basan en la tecnología
+ de Servicios Web: programas con una interfaz bien definida que puede ser
+ localizada, publicada e invocada utilizando la infraestructura estándar
+ de la Web
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Bichler06"
+
+\end_inset
+
+.
+ El paradigma SOC se presenta como una evolución de la construcción tradicional
+ de sistemas desde cero hacia la reutilización masiva de software, generando
+ un proceso de desarrollo basado en el descubrimiento y combinación de piezas
+ de software provistas por terceras partes
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Sivashanmugam03"
+
+\end_inset
+
+.
+ Su principal objetivo es el desarrollo de aplicaciones distribuidas en
+ ambientes heterogéneos, donde los sistemas se construyen ensamblando o
+ componiendo funcionalidad existente, denominada servicio.
+ Estos servicios se publican a través de una red y es posible su acceso
+ mediante protocolos específicos
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Erickson08"
+
+\end_inset
+
+.
+ La infraestructura tecnológica de soporte al paradigma SOC está provisto
+ por SOA, donde se define la interacción entre clientes o consumidores y
+ los proveedores de servicios a través del intercambio de mensajes.
+ Una entidad de descubrimiento puede ser vista como un registro o directorio
+ de servicios.
+ Permite que un proveedor publique sus servicios y que luego un consumidor
+ pueda realizar un descubrimiento de tales servicios.
+\end_layout
+
+\begin_layout Standard
+El paradigma SOC provee ventajas muy claras, dado que genera un bajo grado
+ de acoplamiento entre consumidor/proveedor de un determinado servicio y
+ además promueve fuertemente la reusabilidad de componentes software.
+ Sin embargo, se produce un incremento de esfuerzo en dos etapas de un proyecto
+ de desarrollo de software: implementación y mantenimiento
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Huhns05"
+
+\end_inset
+
+.
+ En primer lugar, la búsqueda de servicios publicados en un registro requiere
+ invertir mucho tiempo, en particular considerando el registro UDDI
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+UDDI: 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+em
+\end_layout
+
+\end_inset
+
+ http://uddi.xml.org/
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+ (Universal Description, Discovery, and Integration) para la tecnología
+ de Servicios Web
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "UDDI04"
+
+\end_inset
+
+.
+ Esto impacta directamente en los costos de la fase de implementación, ya
+ que el paradigma SOC reemplaza el desarrollo de piezas específicas por
+ el descubrimiento y contratación de las mismas.
+ En segundo lugar, al introducir servicios externos a una aplicación, en
+ general se produce un efecto colateral donde la lógica del negocio queda
+ 
+\begin_inset Quotes eld
+\end_inset
+
+contaminada
+\begin_inset Quotes erd
+\end_inset
+
+ con aspectos no funcionales, tales como localización, comunicación de datos
+ sobre la red, etc.
+ Esto no es un atributo de calidad deseable, dado que produce sistemas difíciles
+ de entender, mantener y extender
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Erickson08"
+
+\end_inset
+
+.
+ Además, los frameworks actuales para invocar servicios, por ejemplo WSIF
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+WSIF: Web Services Invocation Framework, 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+em
+\end_layout
+
+\end_inset
+
+ http://ws.apache.org/wsif/
+\end_layout
+
+\end_inset
+
+, producen código fuente subordinado a un determinado proveedor de servicios
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Duftler01"
+
+\end_inset
+
+.
+ En consecuencia, ante los cambios en las interfaces de los servicios externos
+ o su reemplazo por nuevos proveedores, se requiere reconstruir el código
+ para efectuar la invocación de los mismos, lo cual propaga cambios por
+ las partes 
+\begin_inset Quotes eld
+\end_inset
+
+contaminadas
+\begin_inset Quotes erd
+\end_inset
+
+ de la aplicación
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Mateos10"
+
+\end_inset
+
+.
+ Esta situación, por lo tanto, genera un alto impacto sobre los costos en
+ la etapa de mantenimiento de software.
+\end_layout
+
+\begin_layout Standard
+Si bien existen esfuerzos actuales en la identificación de servicios
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "garriga2015web"
+
+\end_inset
+
+, que poseen mecanismos semi-automáticos para facilitar la tarea de un desarroll
+ador, en general proveen resultados parciales compuestos de conjuntos de
+ servicios candidatos, donde aún deben efectuarse tareas manuales de análisis
+ para realizar la selección definitiva del servicio candidato más adecuado.
+ Tales conjuntos de servicios candidatos pueden variar tanto en la interfaz
+ esperada como en el comportamiento que se requiere dentro de una aplicación
+ de destino.
+ En general, la búsqueda de servicios se resuelve mediante un conjunto específic
+o de palabras clave, considerando que las mismas fueron utilizadas para
+ categorizar y ubicar los servicios dentro de un registro.
+ Sin embargo, esto significa que se está confiando en que el criterio de
+ publicación y categorización del Servicio Web será el mismo (o similar)
+ al utilizado por el desarrollador (o consumidor) que busca dicho servicio.
+ Por otra parte, el conjunto de servicios candidatos puede asumir un tamaño
+ considerable, a partir de lo cual la tarea de selección de un servicio
+ adecuado demanda un esfuerzo desproporcionado, que afecta seriamente los
+ costos de la fase de desarrollo de una aplicación y por lo tanto incrementa
+ los costos totales.
+\end_layout
+
+\begin_layout Standard
+La motivación de esta tesis se basa en que, por un lado, cada proveedor
+ de servicios utiliza diferentes versiones de WSDL para especificar las
+ interfaces de sus servicios, las cuales presentan una gran diferencia en
+ estructuras y elementos de marcado
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "chinnici2007web,christensen2001web"
+
+\end_inset
+
+.
+ Por otro lado, al experimentar con diferentes herramientas – tal como EasyWSDL
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+http://easywsdl.ow2.org/easywsdl-features.html
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+, JWSDL
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+http://www.w3.org/TR/2001/NOTE-wsdl-20010315
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+, WODEN
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+http://ws.apache.org/woden/
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+, y SOA Membrane
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://www.membrane-soa.org/soa-model/
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+ entre otras – hemos detectado que debido a las variaciones en versiones
+ de especificación, en algunos casos resulta imposible explorar los documentos
+ WSDL para un proceso de evaluación de Servicios Web.
+ En general estos procesos requieren que se deriven estructuras intermedias
+ en el lenguaje de desarrollo del proceso de evaluación (por ejemplo, en
+ la plataforma Java).
+ Sin embargo, tales estructuras intermedias (tal como, interfaces Java),
+ se derivan en forma parcial, errónea, o directamente se frustra la derivación.
+ Por lo tanto, las diferencias en versiones de WSDLs producen importantes
+ inconvenientes en su tratamiento generalizado y limitan la evaluación y
+ consumo de un gran número de servicios.
+ 
+\end_layout
+
+\begin_layout Standard
+A estos desafíos, se le agrega una necesidad creciente en el paradigma SOC,
+ que conduce al desarrollo y utilización de servicios heterogéneos.
+ Además del modelo de servicios con descripciones WSDL, ha surgido en los
+ últimos años otro modelo que posee una descripción distintiva: los servicios
+ RESTful (Representational State Transfer) 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "fielding2000architectural,garriga2015web"
+
+\end_inset
+
+.
+ Los servicios RESTful proveen una alternativa ligera y económica debido
+ a su escalabilidad y la simplicidad para ser publicado y consumido 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "pautasso2009restful"
+
+\end_inset
+
+.
+ Las interfaces de servicios RESTful se describen con métodos sencillos
+ del protocolo HTTP 
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+HTTP: Hyper Text Transfer Protocol
+\end_layout
+
+\end_inset
+
+, y en algunas propuestas se utiliza WADL 
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+WADL: Web Application Description Language
+\end_layout
+
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "hadley2006web"
+
+\end_inset
+
+.
+ Por lo tanto, es necesario contar con una especificación de contratos de
+ Servicios Web, que sea independiente de cualquier tecnología de implementación,
+ y que cubra convenientemente la existencia de servicios heterogéneos.
+ Esto permitiría ampliar la oferta de servicios accesibles a un proceso
+ de evaluación, evitando las limitaciones tanto en versiones de WSDL como
+ de cualquier otro formato de descripción en servicios heterogéneos, permitiendo
+ una amplia gama de servicios que podrían ser integrados, compuestos y consumido
+s para satisfacer los requerimientos de las Aplicaciones Orientadas a Servicios.
+\end_layout
+
+\begin_layout Subsection
+Solución propuesta
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:Solución-propuesta"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+En esta tesis se profundiza la investigación sobre el enfoque que ha sido
+ definido en
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "castro16,Cors12,DeRenzis13,Garriga10"
+
+\end_inset
+
+, cuyo objetivo es la mejora del desarrollo de Aplicaciones Orientadas a
+ Servicios; asistiendo a los ingenieros de software por medio de una serie
+ de procesos semi-automáticos para la Selección de Servicios Web, que posee
+ soporte de una herramienta desarrollada en la plataforma Java.
+ En este sentido, el trabajo de esta tesis propone una extensión del proceso
+ de selección y de su herramienta de soporte, enfocando en la especificación
+ de contratos de Servicios Web para lograr una independencia respecto de
+ la tecnología y que se pudieran abarcar servicios heterogéneos.
+ Para ello se ha decidido desarrollar un Metamodelo utilizando como base
+ un conjunto de estándares para descripción de contratos/responsabilidades
+ de Servicios Web heterogéneos.
+ La propuesta consiste de tres actividades: 
+\emph on
+desarrollo e implementación del Metamodelo para Descripción de Contratos
+ de Servicios Web, integración a la herramienta de evaluación de Servicios
+ Web y construcción de un Conversor de descripciones WSDL 
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+WSDL: Web Service Description Language
+\end_layout
+
+\end_inset
+
+ hacia instanciaciones del metamodelo.
+\end_layout
+
+\begin_layout Itemize
+
+\emph on
+Desarrollo e implementación del Metamodelo para Descripción de Contratos
+ de Servicios Web: 
+\emph default
+establecer una base estructurada, que permita definir la interrelación entre
+ los elementos involucrados en la descripción del conjunto de responsabilidades
+ (operaciones y mensajes de entrada/salida simples/complejos) de los contratos
+ de servicios.
+ Para ello, se tomar como base distintos estándares de descripción de servicios,
+ tales como el Perfil UML SoaML
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+SoaML: Service oriented architecture Modeling Language 
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+http://www.omg.org/spec/SoaML/About-SoaML/
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+
+, y el lenguaje WSDL versión 2.0 
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+WSDL versión 2.0 
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://www.w3.org/TR/2007/REC-wsdl20-20070626/
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+ – ambos son estándares de OMG
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+OMG: Object Management Group 
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+http://www.omg.org/
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+.
+ Al contar con un metamodelo donde se describen contratos ofrecidos por
+ Servicios Web, resulta necesario que la evaluación de servicios candidatos
+ se realice en función de instanciaciones del metamodelo.
+ Para que esto sea posible, es necesario desarrollar un componente de software
+ que contenga el metamodelo, y que permita la exploración de la información
+ de contratos de servicios sobre las instancias del metamodelo mismo.
+
+\emph on
+ 
+\end_layout
+
+\begin_layout Itemize
+
+\emph on
+Integración a la herramienta de evaluación de Servicios Web: 
+\emph default
+en el nuevo enfoque, tanto los requerimientos funcionales por parte de desarroll
+adores de Aplicaciones Orientadas a Servicios, como los propios servicios
+ candidatos, son representados y comparados mediante instanciaciones del
+ metamodelo desarrollado.
+ Para realizar la integración del nuevo componente de software es necesario
+ adaptar las estrategias de evaluación subyacentes, que incluyen dos niveles:
+ estructural o de tipos de datos en los mensajes de entrada/salida; y semántica
+ o de nombres en los identificadores de operaciones y mensajes
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "castro16,Garriga10"
+
+\end_inset
+
+.
+ Esta adaptación se realiza de acuerdo a los elementos del metamodelo definido
+ y su correspondencia respecto a la descripción sencilla de contratos de
+ servicios, mediante interfaces Java, utilizadas en el enfoque anterior.
+\end_layout
+
+\begin_layout Itemize
+
+\emph on
+Construcción de un Conversor de descripciones WSDL hacia instanciaciones
+ del metamodelo: 
+\emph default
+como primera aproximación hacia servicios heterogéneos se considera la conversió
+n de Servicios Web descriptos en el lenguaje WSDL.
+ Así el conversor recibe como entrada un documento WSDL (generalmente por
+ medio de la URL) y devuelve como salida una instanciación del metamodelo.
+ 
+\end_layout
+
+\begin_layout Paragraph
+Objetivos
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+En función de lo anteriormente expuesto, se puede entonces enunciar el objetivo
+ general de esta tesis, de la siguiente manera:
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align center
+\begin_inset Box Boxed
+position "c"
+hor_pos "c"
+has_inner_box 1
+inner_pos "c"
+use_parbox 1
+use_makebox 0
+width "13cm"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+
+\emph on
+\begin_inset Quotes eld
+\end_inset
+
+Evaluación de Servicios Web, mediante un Metamodelo de Contratos de servicios,
+ basado en el estándar SoaML
+\begin_inset Quotes erd
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+Para la consecución de este objetivo general, se propusieron los siguientes
+ objetivos específicos:
+\end_layout
+
+\begin_layout Enumerate
+Desarrollar un Metamodelo para especificación de Servicios Web basado en
+ el estándar OMG SoaML, con su implementación en la plataforma Java.
+\end_layout
+
+\begin_layout Enumerate
+Modificar la herramienta para evaluación de Servicios Web integrando el
+ Metamodelo de Servicios Web.
+\end_layout
+
+\begin_layout Enumerate
+Desarrollar un Componente Conversor de descripciones WSDL hacia instanciaciones
+ del Metamodelo propuesto.
+\end_layout
+
+\begin_layout Standard
+En la Sección
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:soc"
+
+\end_inset
+
+ se introducen algunos conceptos relacionados a Aplicaciones Orientadas
+ a Servicios y el paradigma SOC, y la tecnología de Servicios Web.
+ En la Sección 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Descripción-de-Servicios"
+
+\end_inset
+
+ se presentan los estándares que han sido considerados como base para la
+ descripción de servicios en SOA.
+ Finalmente en la Sección
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:organizacion"
+
+\end_inset
+
+ se describe la organización del resto de los capítulos de esta tesis.
+\end_layout
+
+\begin_layout Section
+Aplicaciones Orientadas a Servicios
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Aplicaciones-Orientadas-a-Servicios"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:soc"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+En el paradigma SOC, un 
+\emph on
+servicio
+\emph default
+ se considera un contenedor de capacidades para un propósito común que define
+ un contexto funcional distintivo.
+ Tales capacidades se expresan de acuerdo con un contrato de servicio
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Erl08"
+
+\end_inset
+
+, y se encuentran encapsuladas como funciones autónomas que interactúan
+ a través de una interfaz bien definida.
+ Una definición de servicio debe incluir un identificador (ID), la interfaz
+ (que describe los medios para comunicarse con el entorno del servicio)
+ y su comportamiento operacional (un conjunto de operaciones a ser ejecutadas
+ de acuerdo con alguna estructura interna de control)
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Massuthe05"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Desde una perspectiva de negocios, una Aplicación Orientada a Servicios
+ implica una solución de cara a un negocio, la cual consume servicios de
+ uno o más proveedores y los integra en un proceso de negocios
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Sprott04"
+
+\end_inset
+
+.
+ Desde una perspectiva arquitectónica, puede ser vista como una aplicación
+ basada en componentes, la cual es creada a partir de ensamblar dos tipos
+ de componentes: 
+\emph on
+internos
+\emph default
+, que son embebidos dentro de la aplicación, y 
+\emph on
+externos
+\emph default
+, que se encuentran estática ó dinámicamente vinculados al servicio – ambos
+ exponiendo una clara interfaz de sus capacidades funcionales
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Mateos10"
+
+\end_inset
+
+.
+ Cuando se construye una nueva aplicación, el ingeniero de software debe
+ tomar la decisión de proveer una implementación para algún componente de
+ la aplicación, ó bien, utilizar una implementación ya existente.
+ Esto se denomina 
+\emph on
+tercerización
+\emph default
+, es decir llenar el espacio que deja una funcionalidad faltante, con la
+ implementación de un servicio existente, desarrollado por terceras partes
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Papazoglou07"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+El paradigma SOC reemplaza el desarrollo de un componente software dado
+ con una combinación de distintas actividades: 
+\emph on
+descubrimiento
+\emph default
+ de servicios, 
+\emph on
+selección
+\emph default
+ de servicios e 
+\emph on
+integración
+\emph default
+ de servicios en aplicaciones
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Huhns05,Bichler06"
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+SOA es una manera de describir y entender a las organizaciones, comunidades
+ y sistemas que buscan agilidad, escalabilidad e interoperabilidad.
+ El enfoque SOA es simple: personas, organizaciones y sistemas proveen servicios
+ unos a los otros.
+ Estos servicios permiten acceder a funcionalidades sin la necesidad de
+ conocer la implementación de las mismas, asegurando el encapsulamiento
+ de dichas funcionalidades.
+ SOA es un paradigma arquitectural para definir como las personas, sistemas
+ y organizaciones proveen y usan servicios para alcanzar resultados.
+\end_layout
+
+\begin_layout Standard
+La arquitectura básica de un sistema orientado a servicios (SOA) incluye
+ componentes capaces de: 1) intercambiar mensajes, 2) describir los servicios,
+ 3) publicar y descubrir las descripciones de los servicios
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Stevens03"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+En SOA se define la interacción entre componentes software como un intercambio
+ de mensajes entre 
+\emph on
+solicitantes
+\emph default
+ y 
+\emph on
+proveedores
+\emph default
+ de servicios, mediante un 
+\emph on
+agente de servicios
+\emph default
+, como se muestra en la Figura
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:SOA"
+
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Erickson08,Gorton06"
+
+\end_inset
+
+.
+ Un componente 
+\emph on
+solicitante
+\emph default
+ realiza la búsqueda de un servicio en el registro que provee un 
+\emph on
+agente de servicios
+\emph default
+ de acuerdo a sus necesidades y solicita la ejecución del mismo.
+ Un componente 
+\emph on
+proveedor
+\emph default
+ es responsable de publicar la descripción de un servicio en el registro
+ de un 
+\emph on
+agente de servicios
+\emph default
+, así como aceptar y ejecutar las solicitudes de dichos servicios.
+ Un componente puede asumir tanto el rol de proveedor como de solicitante
+ de servicios.
+ Un 
+\emph on
+agente de servicios
+\emph default
+ es un componente en el cual el servicio es publicado, puede ser descubierto
+ y/o ser ser visto como un registro o directorio de servicios.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+%
+\backslash
+vspace*{.2cm}
+\end_layout
+
+\end_inset
+
+
+\begin_inset Float figure
+placement ht
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ImgChapter1/SOC.pdf
+	width 70text%
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset VSpace -0.3cm*
+\end_inset
+
+ 
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:SOA"
+
+\end_inset
+
+Arquitectura básica de un sistema orientado a servicios
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+%
+\backslash
+vspace*{-.3cm}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Tecnología de Servicios Web
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:Tecnología-de-Servicios"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+En su mayoría, la industria del software ha adoptado el paradigma SOC utilizando
+ la tecnología de Servicios Web, donde el concepto de servicio se implementa
+ mediante una interfaz especificada en WSDL y un identificador dado por
+ un URI
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Massuthe05,Papazoglou07"
+
+\end_inset
+
+.
+ En el mismo sentido, la W3C
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+W3C: 
+\emph on
+World Wide Web Consortium
+\end_layout
+
+\end_inset
+
+ define que ``
+\emph on
+un servicio Web es un sistema software (identificado por un URI), diseñado
+ para soportar la interacción máquina-a-maquina sobre una red interoperable.
+ Tiene una interfaz descripta en un formato procesable por máquina (específicame
+nte WSDL), y otros sistemas interactúan con el Servicio Web de la manera
+ que prescribe su descripción, utilizando (por lo general) mensajes SOAP
+ transmitidos mediante HTTP con una serialización XML, junto con otros estándare
+s de la Web
+\emph default
+''
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Booth04"
+
+\end_inset
+
+.
+ La arquitectura de Servicios Web
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Weerawarana05"
+
+\end_inset
+
+ consta de una serie de protocolos de acceso, que si bien se encuentran
+ en constante evolución, se los puede agrupar actualmente en cuatro capas
+ principales, como se observa en la Figura
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:swProtocols"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement ht
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset VSpace 0.2cm*
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ImgChapter1/SW_Protocols.pdf
+	width 8cm
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset VSpace -0.3cm*
+\end_inset
+
+ 
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Arquitectura de Protocolos de Servicios Web
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:swProtocols"
+
+\end_inset
+
+ 
+\begin_inset VSpace -0.3cm*
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+La capa inferior, denominada capa de 
+\shape slanted
+Transporte
+\shape default
+, es la responsable de transportar los mensajes entre los componentes software,
+ y actualmente incluye los protocolos HTTP (
+\emph on
+Hyper Text Transfer Protocol
+\emph default
+), SMTP (
+\emph on
+Simple Mail Transfer Protocol
+\emph default
+), y FTP (
+\emph on
+File Transfer Protocol
+\emph default
+), entre otros.
+ La capa de 
+\shape slanted
+Mensajes
+\shape default
+ es la responsable de codificar los mensajes en un único formato XML (
+\emph on
+eXtensible Markup Language
+\emph default
+), para lograr un entendimiento común.
+ Esta capa incluye protocolos como XML-RPC (
+\emph on
+XML-Remote Procedure Call
+\emph default
+) y SOAP (
+\emph on
+Simple Object Access Protocol
+\emph default
+).
+ La capa de 
+\shape slanted
+Descripción
+\shape default
+ de servicios es la responsable de describir la interfaz pública de un Servicio
+ Web específico, que actualmente se logra a través del protocolo WSDL.
+ Por último, la capa de 
+\shape slanted
+Descubrimiento
+\shape default
+ de servicios es la responsable de centralizar servicios y proveer una interfaz
+ para la búsqueda y publicación de servicios.
+ Actualmente, el descubrimiento de servicios se encuentra materializado
+ por UDDI.
+ En la Figura
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:swSOA"
+
+\end_inset
+
+ se muestra la implementación de la arquitectura SOA, utilizando las tecnologías
+ de Servicios Web, UDDI, WSDL y SOAP.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement ht
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ImgChapter1/SOA_.pdf
+	width 70text%
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset VSpace -0.3cm*
+\end_inset
+
+ 
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Infraestructura estándar de un Sistema orientado a Servicios
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:swSOA"
+
+\end_inset
+
+ 
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Subsection
+Componentes Software y Servicios Web
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:dscb-1-1"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+Un paradigma ampliamente relacionado a SOC y SOA es el 
+\emph on
+Desarrollo de Software basado en Componentes
+\emph default
+ (CBSD
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+CBSD:
+\emph on
+ Component-based Software Development
+\end_layout
+
+\end_inset
+
+), donde la construcción de sistemas se basa principalmente en la 
+\emph on
+selección
+\emph default
+ e 
+\emph on
+integración
+\emph default
+ de componentes software
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Heineman01,Cechich03"
+
+\end_inset
+
+.
+ Un componente software es una unidad reutilizable de composición, con interface
+s y cualidades explícitamente especificadas, que denota una abstracción
+ simple y puede ser sujeto de composición por terceras partes, sin necesidad
+ de modificación
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Szyperski02,Gross05"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Plain Layout
+Dado que los componentes están completamente desarrollados y se encuentran
+ disponibles para su reutilización, se los conoce comúnmente como 
+\emph on
+off-the-shelf
+\emph default
+ (OTS).
+ Los componentes OTS poseen una variada procedencia: aquellos desarrollados
+ en algún proyecto previo, denominados 
+\emph on
+in-house
+\emph default
+, entre los cuales se pueden mencionar los sistemas heredados (
+\emph on
+legacy
+\emph default
+), y en conjunto con los componentes de código abierto denominados FOSS
+ (
+\emph on
+free open source software
+\emph default
+), presentan como posibilidad el acceso al código fuente.
+ Mientras que otros componentes OTS que se adquieren de terceras partes
+ (usualmente de proveedores comerciales), denominados COTS
+\begin_inset space ~
+\end_inset
+
+(
+\emph on
+commercial-off-the-shelf
+\emph default
+), no cuentan en general con tal disponibilidad de código fuente.
+\end_layout
+
+\begin_layout Paragraph
+Modelo de Componentes
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+Existe una amplia diversidad de tecnologías involucradas en la construcción
+ de sistemas basados en componentes, cada una con requisitos y restricciones
+ particulares que establecen el aspecto concreto que adopta un componente
+ y los mecanismos para su integración en un sistema software.
+ El 
+\emph on
+Modelo de Componentes
+\emph default
+ define la estructura y morfología de los componentes, así como también
+ las reglas de creación, composición y comunicación de los mismos
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Kung07"
+
+\end_inset
+
+.
+ Los modelos establecen por ejemplo la forma de definición e invocación
+ de las interfaces de los componentes, estableciendo en algunos casos una
+ clara separación entre las interfaces y la implementación (encapsulada)
+ del comportamiento de un componente
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Stuckenholz05,Kung07"
+
+\end_inset
+
+.
+ La Tabla
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:ComponentModels-1-1"
+
+\end_inset
+
+ presenta una clasificación de los modelos de componentes según una base
+ de orientación a objetos
+\begin_inset space ~
+\end_inset
+
+(OO).
+ 
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+setlength{
+\backslash
+extrarowheight}{.07cm}
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+
+\size small
+\begin_inset Tabular
+<lyxtabular version="3" rows="8" columns="4">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell multirow="3" alignment="center" valignment="middle" topline="true" bottomline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size small
+Tipo
+\end_layout
+
+\end_inset
+</cell>
+<cell multirow="3" alignment="center" valignment="middle" topline="true" bottomline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size small
+Modelo
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="1" alignment="center" valignment="top" topline="true" usebox="none" special="c">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size small
+Lenguaje
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multirow="4" alignment="center" valignment="top" topline="true" bottomline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multirow="4" alignment="center" valignment="top" topline="true" bottomline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size small
+\emph on
+Definición
+\emph default
+ 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size small
+\emph on
+Implementación
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multirow="3" alignment="left" valignment="middle" topline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size small
+Clase
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family sans
+\size small
+EJB 
+\end_layout
+
+\end_inset
+</cell>
+<cell multirow="3" alignment="center" valignment="middle" topline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family sans
+\size small
+Java 
+\end_layout
+
+\end_inset
+</cell>
+<cell multirow="3" alignment="center" valignment="middle" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family sans
+\size small
+Java
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multirow="4" alignment="center" valignment="top" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family sans
+\size small
+J2EE 
+\end_layout
+
+\end_inset
+</cell>
+<cell multirow="4" alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multirow="4" alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multirow="3" alignment="left" valignment="middle" topline="true" bottomline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size small
+Objeto
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family sans
+\size small
+CCM 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family sans
+\size small
+OMG IDL 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family sans
+\size small
+CORBA 
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multirow="4" alignment="center" valignment="top" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family sans
+\size small
+COM 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family sans
+\size small
+Microsoft IDL 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size small
+actualmente 
+\family sans
+C
+\family default
+, 
+\family sans
+C
+\family default
+++ y 
+\family sans
+Ada
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multirow="4" alignment="center" valignment="top" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family sans
+\size small
+.Net 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family sans
+\size small
+Microsoft IDL 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size small
+cualquier lenguaje 
+\family sans
+.Net
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multirow="4" alignment="center" valignment="top" bottomline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family sans
+\size small
+Servicios Web 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family sans
+\size small
+WSDL 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size small
+cualquier lenguaje 
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+
+\size small
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:ComponentModels-1-1"
+
+\end_inset
+
+Modelos de Componentes Orientados a Objetos
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+Considerando la separación entre interfaces e implementación, para los component
+es que son en realidad clases Java, el lenguaje de definición coincide con
+ el de implementación, como en el caso de EJB y J2EE (Java 2 Enterprise
+ Edition)
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "J2EE"
+
+\end_inset
+
+.
+ Por otro lado, para el caso donde los componentes son en realidad objetos,
+ puede existir un lenguaje de descripción de interfaces
+\begin_inset space ~
+\end_inset
+
+(IDL
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+IDL: 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+em
+\end_layout
+
+\end_inset
+
+ Interface Description Language
+\end_layout
+
+\end_inset
+
+) y otro de implementación, como en el caso de COM (Component Object Model)
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "COM03"
+
+\end_inset
+
+, CCM (Corba Component Model)
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "OMGCORBA02"
+
+\end_inset
+
+, la tecnología .Net
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "NET"
+
+\end_inset
+
+, y los Servicios Web.
+\end_layout
+
+\begin_layout Plain Layout
+Aquí se observa claramente la vinculación de la tecnología de componentes
+ software con el paradigma SOC, a través de la tecnología de Servicios Web,
+ que justamente se considera una forma específica de componente software.
+ La interfaz de un Servicio Web que se describe en WSDL es comparable a
+ una interfaz de programación de aplicaciones
+\begin_inset space ~
+\end_inset
+
+(API
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+API: 
+\emph on
+Application Programming Interface
+\end_layout
+
+\end_inset
+
+), pero sin ataduras a frameworks de comunicación propietarios.
+ La lógica encapsulada por un Servicio Web (su implementación) podría además
+ adoptar la forma de un componente software o bien de una aplicación heredada
+ (
+\emph on
+legacy
+\emph default
+).
+ 
+\end_layout
+
+\begin_layout Plain Layout
+La interfaz pública de un Servicio Web se define como un 
+\emph on
+contrato
+\emph default
+ que permite su integración en una Aplicación Orientada a Servicios a través
+ del uso de componentes adaptadores.
+ El contrato de un Servicio Web es esencialmente una colección de metadatos
+ que describe varios aspectos del programa software subyacente, que incluye
+ el propósito y función de sus operaciones; los mensajes que necesitan ser
+ intercambiados para activar las operaciones; los modelos de datos usados
+ para definir la estructura de los mensajes; un conjunto de condiciones
+ bajo las cuales se proveen las operaciones; e información acerca de cómo
+ y dónde puede ser accedido el servicio
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Erl08"
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph
+Servicios RESTFul
+\begin_inset CommandInset label
+LatexCommand label
+name "par:Servicios-RESTFul"
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+En los últimos años, los servicios RESTful – REpresentational State Transfer
+ – 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "fielding2000architectural"
+
+\end_inset
+
+ aparecieron como una alternativa ligera y rentable para los servicios basados
+ en SOAP.
+ Los servicios RESTful livianos están diseñados para facilitar el consumo,
+ la composición y la creación de servicios dirigidos por la comunidad (denominad
+os 
+\emph on
+mashups
+\emph default
+).
+ Los servicios REST ofrecen una alternativa simple, liviana y escalable
+ a los servicios basados en SOAP.
+ REST utiliza los métodos intrínsecos básicos integrados HTTP (PUT, POST,
+ GET y DELETE) que aplican su semántica intencionada para acceder a cualquier
+ recurso referenciable mediante un identificador unificado (URI)
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "fielding2000architectural"
+
+\end_inset
+
+, por ejemplo, un recurso puede ser cualquier pieza de datos de la Web,
+ como un documento, un tweet o un pronóstico del tiempo.
+ Además, los servicios RESTful exhiben cuatro propiedades: 
+\end_layout
+
+\begin_layout Enumerate
+Los recursos representan una abstracción para las aplicaciones de estado
+ del servidor, es decir, un elemento puede ser una referencia de hipertexto.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Cada recurso se puede enviar usando su URI.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Todos los recursos comparten una interfaz uniforme – métodos HTTP – para
+ interactuar con aplicaciones cliente.
+ 
+\end_layout
+
+\begin_layout Enumerate
+La interacción con un recurso es sin estado (
+\emph on
+stateless
+\emph default
+) 
+\end_layout
+
+\begin_layout Standard
+La primer fortaleza de los servicios RESTful es que son más simples que
+ los servicios SOAP porque REST aprovecha los estándares Web conocidos,
+ como son HTTP de la capa de aplicación o transporte y XML de la capa de
+ sesión (Figura
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:swProtocols"
+
+\end_inset
+
+), además cuenta con el URI y la única infraestructura necesaria es la Web.
+ Los clientes y servidores HTTP están disponibles para todos los principales
+ lenguajes de programación y sistemas operativos/plataformas de hardware.
+ Esto lleva a la segunda fortaleza de los servicios RESTful, ligereza, donde
+ los servicios se pueden construir con herramientas mínimas y poco costosas
+ de adquirir 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "pautasso2008restful"
+
+\end_inset
+
+.
+ Los servicios son fáciles de consumir y son interesantes para los servicios
+ de la comunidad 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "lanthaler2010towards"
+
+\end_inset
+
+, dado el creciente entorno informático generalizado, donde los dispositivos
+ móviles con diferentes capacidades pueden actuar como clientes e incluso
+ servidores o hosts para Servicios Web.
+ Las nociones de simplicidad y ligereza hacen que sea escalable, ya que
+ un servicio RESTful puede escalar para mantener un gran número de clientes,
+ gracias al soporte integrado para el almacenamiento de caché y el manejo
+ de carga – load balance – de REST.
+ El hecho de no tener que almacenar el estado entre las solicitudes permite
+ que el servidor libere rápidamente los recursos de la empresa y simplifique
+ la implementación porque el mismo no tiene que ceder con el uso de recursos
+ “conversacionales” a través de solicitudes 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "fielding2000architectural"
+
+\end_inset
+
+.
+ Además, los servidores sin estado permiten al usuario del servicio (humano
+ o máquina) manipular directamente el estado de la aplicación a través del
+ hipervínculo, lo que se conoce como el principio de HATEOAS (Hypermedia
+ As The Engine of the Application State).
+ La Web, como la arquitectura RESTful por excelencia, potencia la escalabilidad
+ de REST.
+\end_layout
+
+\begin_layout Standard
+En relación con WADL, el objetivo del mismo es definir contratos, que especifica
+n cómo es la comunicación entre los socios de negocios.
+ Si se crease una aplicación hogareña desde cero, no sería necesario definir
+ contratos mediante WADL; pero el enfoque que se espera en el presente trabajo
+ es para desarrollos de software extensos tipo empresariales o gubernamentales,
+ donde sí es necesario contratos que definan lo más estrictamente posible
+ la manera en que los mensajes serán eviados/recibidos.
+ Además de definir contratos, mediante los documentos WADL se permite generar
+ código, testeo y documentación con herramientas de software ya disponibles
+ como lo sería un generador de cliente REST en base a un documento WADL
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://www.npmjs.com/package/rest-client-generator
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+Descripción de Servicios en SOA
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Descripción-de-Servicios"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Este trabajo posee como eje principal la necesidad de describir contratos
+ de servicios heterogéneos, para lo cual se propuso desarrollar un Metamodelo,
+ utilizando como base un conjunto de estándares para descripción de contratos/re
+sponsabilidades de Aplicaciones orientadas a Servicios.
+ Los estándares que fueron considerados para tal fin pertenecen a OMG: WSDL,
+ WADL y SoaML.
+ En la Sección 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Background"
+
+\end_inset
+
+ se detallan los aspectos principales de cada uno, los cuales fueron considerado
+s como pilares para el desarrollo del metamodelo propuesto.
+ Luego, en la Sección 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Detalle-de-selección"
+
+\end_inset
+
+ se detallan las herramientas evaluadas para ser utilizadas potencialmente
+ por el componente Conversor del Metamodelo.
+ En principio, resultó necesario satisfacer la necesidad de parsear un documento
+ WSDL, para lo cual se analizaron distintas herramientas, tales como 
+\emph on
+JWSDL
+\emph default
+, 
+\emph on
+WODEN
+\emph default
+, 
+\emph on
+EasyWSDL
+\emph default
+ y 
+\emph on
+SOA
+\emph default
+ 
+\emph on
+Membrane
+\emph default
+.
+ De cada una se explican las características principales.
+\end_layout
+
+\begin_layout Subsection
+Estándares para descripción de servicios en SOA
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:Background"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Los estándares que fueron considerados para la descripción de contratos/responsa
+bilidades de Aplicaciones orientadas a Servicios pertenecen a OMG: WSDL,
+ WADL y SoaML, los cuales se explican a continuación.
+ 
+\end_layout
+
+\begin_layout Paragraph
+WSDL
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+WSDL
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+Web Services Description Language.
+ 
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://www.w3.org/TR/wsdl
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+ es un lenguaje basado en XML utilizado para describir la funcionalidad
+ que proporciona un Servicio Web.
+ Un documento WSDL proporciona una descripción de la interfaz de un Servicio
+ Web entendible por la máquina, indicando cómo se debe invocar al servicio,
+ qué parámetros espera, y qué estructuras de datos retorna.
+ Un documento WSDL define servicios como una colección de puertos de la
+ red.
+ En el WSDL la definición abstracta de los puertos y mensajes son separados
+ de su red concreta o ligadura (
+\emph on
+binding
+\emph default
+) al formato.
+ Esto permite el reuso de definiciones abstractas.
+ Los mensajes son descripciones abstractas de los datos que serán intercambiados
+ en los distintos tipos de puertos que existen.
+ Estos últimos son colecciones abstractas de operaciones.
+ Al usar un lenguaje de programación, se puede crear la parte concreta implement
+ando la parte abstracta.
+ De esta manera, los WSDL tendrán dos componentes principales: 
+\end_layout
+
+\begin_layout Standard
+• Información de ligadura sobre el protocolo a utilizar
+\end_layout
+
+\begin_layout Standard
+• La dirección en donde localizar el servicio
+\end_layout
+
+\begin_layout Standard
+La versión actual del estándar WSDL es la 2.0
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://www.w3.org/TR/wsdl20/ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+, donde se cambió el significado de 
+\emph on
+Definition,
+\emph default
+ y se plantearon cambios de nomenclatura y estructura del archivo XML que
+ contiene la descripción del servicio.
+ En la Figura
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "DiferenciaEntreWSDL1.1YWSDL2.0"
+
+\end_inset
+
+ se muestra la estructura que siguen los archivos WSDL en las versiones
+ 1.1 y 2.0, en donde se observa el cambio de nomenclatura para la versión
+ 2.0.
+ Además, en WSDL 2.0 puede usarse para servicios REST de ser requeridos/necesario
+s.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename ImgChapter1/diferenciaEntreWSDLUnoYDosII.png
+	lyxscale 80
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Diferencia estructural entre WSDL 1.1 y WSDL 2.0
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "DiferenciaEntreWSDL1.1YWSDL2.0"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph
+WSDL Versión 1.1
+\change_inserted 1894756425 1522271060
+
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\change_unchanged
+
+\end_layout
+
+\begin_layout Standard
+En concreto, un documento WSDL versión 1.1 usa los siguientes elementos para
+ la definición de los servicios de red: 
+\end_layout
+
+\begin_layout Itemize
+Types: un contenedor para la definición de tipos que posteriormente se utiliza
+ en el intercambio de mensajes usando algún sistema de tipos.
+ Podemos definir dichos tipos directamente dentro de este elemento, o importar
+ la definición de un archivo de esquema (XSD).
+ La definición de tipos puede verse, por ejemplo, como las definiciones
+ de clases Java, con variables que pueden ser de tipo primitivo o referencias
+ a otras clases u objetos.
+ Los tipos primitivos se definen en los espacios de nombres del Schema (namespac
+es) e incluyen tipos simples tales como string, int, double, etc.
+ 
+\end_layout
+
+\begin_layout Itemize
+Message: una definición abstracta de tipos de datos que van a a ser comunicados.
+ Un mensaje consiste en partes lógicas, cada una asociada con una definición
+ encuadrada en un sistema de tipos.
+ Es necesario definir los mensajes de entrada y salida para cada operación
+ que ofrezca el servicio.
+ 
+\end_layout
+
+\begin_layout Itemize
+Operation: una descripción abstracta de las acciones que soporta el servicio.
+ 
+\end_layout
+
+\begin_layout Itemize
+Port Type: colecciones abstractas de operaciones soportadas por más de un
+ punto de acceso (
+\emph on
+endpoint
+\emph default
+).
+ Cada punto de acceso indica una localización específica para acceder a
+ un Servicio Web usando un protocolo y formato de datos específico.
+ Un punto de acceso es una entidad o recurso referenciable al que se puede
+ enviar mensajes.
+ Una referencia a un punto de acceso debe proporcionar toda la información
+ necesaria para direccionar un punto de acceso.
+ Cada operación refiere a mensajes de entrada y mensajes de salida, utilizando
+ para ello los mensajes definidos en el apartado anterior.
+ 
+\end_layout
+
+\begin_layout Itemize
+Binding: especifica el protocolo de red concreto y el formato de los datos
+ para las operaciones y mensajes definidos en un PortType en particular.
+ Un portType puede tener múltiples bindings asociados.
+ El formato de datos utilizado para los mensajes de las operaciones del
+ portType puede ser orientado al documento u orientado a RPC (Remote Procedure
+ Call)
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+https://technet.microsoft.com/en-us/library/cc787851(v=ws.10).aspx
+\end_layout
+
+\end_inset
+
+.
+ Si es orientado al documento tanto el mensaje de entrada como el de salida
+ contendrán un documento XML.
+ Si es orientado a RPC el mensaje de entrada contendrá el método invocado
+ y sus parámetros, y el de salida el resultado de invocar dicho método,
+ siguiendo una estructura más restrictiva.
+ 
+\end_layout
+
+\begin_layout Itemize
+Port: un punto de acceso definido como una combinación de ligadura y dirección
+ de red.
+ Dicha dirección de red es la dirección (URL) donde el servicio actúa, y
+ por lo tanto, será la dirección a la que las aplicaciones deberán conectarse
+ para acceder al servicio.
+ 
+\end_layout
+
+\begin_layout Itemize
+Service: una colección de punto de acceso relacionados.
+\end_layout
+
+\begin_layout Paragraph
+WSDL 2.0
+\change_inserted 1894756425 1522271063
+
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\change_unchanged
+
+\end_layout
+
+\begin_layout Standard
+Un documento WSDL versión 2.0 usa los siguientes elementos para la definición
+ de los servicios de red:
+\end_layout
+
+\begin_layout Itemize
+Interface: describe una secuencia de mensajes que un servicio envía y/o
+ recibe.
+ Esto lo hace agrupando los mensajes relacionados en las operaciones.
+ 
+\end_layout
+
+\begin_layout Itemize
+Operation: es una secuencia de mensajes de entrada y salida, y una Interface
+ es un conjunto de operaciones.
+ 
+\end_layout
+
+\begin_layout Itemize
+Interface Fault: provee un claro mecanismo para nombrar y describir un conjunto
+ de faltas que una interfaz puede generar.
+ Esto permite a las operaciones identificar de manera sencilla las faltas
+ individuales que puedan generar por el nombre.
+ Este mecanismo permite la identificación de la misma falta a través de
+ múltiples operaciones y referenciados por la ligadura así como también
+ reducir la duplicación de descripciones de una falta individual.
+ 
+\end_layout
+
+\begin_layout Itemize
+Binding: describe concretamente el formato de mensajes de transmisión de
+ protocolos que pueden ser usados para definir el punto final.
+ Es decir definir la implementación necesaria para acceder al servicio.
+ 
+\end_layout
+
+\begin_layout Itemize
+Type: define el contenido de mensajes y faltas, que se basan en un modelo
+ de dato específico, y se expresan usando un lenguaje de esquema en particular.
+ Aunque una variedad de modelos de datos pueden ser expresados mediante
+ extensiones WSDL 2.0, esta especificación sólo define restricciones basadas
+ en esquema XML.
+ 
+\end_layout
+
+\begin_layout Itemize
+Service: describe un conjunto de puntos de acceso en el cual se desarrolla
+ una implementación del servicio.
+ Estos endpoints son lugares alternativos donde el servicio es provisto.
+ Los servicios son llamados constructores y pueden ser referenciados por
+ su nombre que debe ser único.
+\end_layout
+
+\begin_layout Paragraph
+WADL
+\change_inserted 1894756425 1522270686
+
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\change_unchanged
+
+\end_layout
+
+\begin_layout Standard
+Web Application Description Language (WADL)
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://www.w3.org/Submission/wadl/
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+ es una descripción XML entendible por la computadora, utilizada en aplicaciones
+ Web basadas en HTTP -- con un uso más orientado hacia los servicios REST.
+ WADL es independiente de la plataforma y del lenguaje de programación que
+ se quiera usar, y su objetivo es promover la reutilización de aplicaciones
+ más allá del uso básico en un navegador Web.
+ WADL permite modelar los recursos proporcionados por un servicio y las
+ relaciones entre ellos, y está definido para simplificar la reutilización
+ de Servicios Web basados en la arquitectura HTTP existente de la Web.
+ WADL es el equivalente de REST al lenguaje WSDL de SOAP y su aspecto distintivo
+ es que los Servicios Web se describen mediante un conjunto de elementos
+ 
+\emph on
+resource
+\emph default
+ (recursos).
+ El Listado de código
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "Ejemplo de Estructura WADL"
+
+\end_inset
+
+ muestra un ejemplo de la estructura de un documento WADL, donde se pueden
+ desatacar los siguientes elementos:
+\end_layout
+
+\begin_layout Itemize
+un elemento 
+\emph on
+resources
+\emph default
+ que actúa como contenedor de los recursos que provee el servicio.
+\end_layout
+
+\begin_layout Itemize
+elementos
+\emph on
+ resource
+\emph default
+ que representan a cada uno de los recursos del servicio y contienen su
+ descripción
+\end_layout
+
+\begin_layout Itemize
+elementos 
+\emph on
+param
+\emph default
+ (parámetros) que describen las entradas 
+\end_layout
+
+\begin_layout Itemize
+elementos 
+\emph on
+method
+\emph default
+ que describen la 
+\emph on
+request
+\emph default
+ y 
+\emph on
+response
+\emph default
+ del recurso
+\end_layout
+
+\begin_layout Itemize
+
+\emph on
+request
+\emph default
+: especifica cómo representar la entrada, qué tipos son requeridos y las
+ cabeceras HTTP específicas que son requeridas
+\end_layout
+
+\begin_layout Itemize
+
+\emph on
+response
+\emph default
+ (respuesta) describe la representación de la respuesta del servicio, así
+ como cualquier información de fallos, para hacer frente a errores.
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "listing/wadlExample.txt"
+lstparams "caption={Ejemplo de Estructura WADL},label={Ejemplo de Estructura WADL}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph
+SoaML
+\change_inserted 1894756425 1522270710
+
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\change_unchanged
+ 
+\end_layout
+
+\begin_layout Standard
+SoaML (Service-oriented architecture Modelling Language)
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+http://www.omg.org/spec/SoaML/1.0.1/PDF
+\end_layout
+
+\end_inset
+
+ es un Perfil UML (Unified Modelling Language) de reciente desarrollo, que
+ provee una manera estándar para definir la arquitectura y modelado de solucione
+s SOA.
+ El Perfil SoaML permite crear un modelo de servicios como una derivación
+ de un modelo de proceso de negocio.
+ Un analista de negocio puede crear un modelo de proceso de negocio como
+ forma de comunicar requisitos a un equipo de Tecnologías de la Información
+ (TI) y puede utilizar este modelo para comprobar la forma en que los requisitos
+ de negocio a nivel genérico pueden convertirse en un modelo más detallado
+ orientado a TI.
+ Cuando se manipula un modelo de SoaML y sus artefactos relacionados, se
+ pueden explorar y examinar los elementos siguientes: 
+\end_layout
+
+\begin_layout Itemize
+Servicios candidatos (conocidos como posibilidades en SoaML), que ayudan
+ a priorizar los servicios que deben diseñarse e implementarse.
+ 
+\end_layout
+
+\begin_layout Itemize
+Interfaces para servicios, que incluyen sus operaciones y las reglas, expectativ
+as o restricciones relacionadas.
+ 
+\end_layout
+
+\begin_layout Itemize
+Estructuras de datos, que se pasan como parámetros y se devuelven como resultado
+s.
+ 
+\end_layout
+
+\begin_layout Itemize
+Servicios atómicos, que muestran cómo deben ensamblarse los servicios para
+ formar servicios compuestos.
+\end_layout
+
+\begin_layout Standard
+El Perfil UML SoaML se enfoca en los conceptos básicos de SOA y en el modelado
+ de servicios, incluyendo sus capacidades funcionales, aquellas que deberían
+ proveer los consumidores de servicios, los protocolos o reglas para el
+ uso de los servicios, y la información a intercambiar entre consumidores
+ y proveedores de servicios.
+ Además permite especificar cómo tales capacidades funcionales de servicios
+ (requeridas/provistas) son consistentes con los protocolos de interacción
+ de los mismos.
+ Un modelo de Diagrama de Modelado SoaML es representado en la Figura
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Schema-of-Passage"
+
+\end_inset
+
+.
+ En la misma se muestra un modelo de negocios relacionado a la industria
+ de barcos cargueros, en la cual hay organizadores (
+\emph on
+dealer
+\emph default
+), estados del translado (
+\emph on
+Ship
+\emph default
+ 
+\emph on
+Status
+\emph default
+), los encargados de la exportación (
+\emph on
+shipper
+\emph default
+), entre otros agentes.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename ImgChapter1/schema-of-passage.png
+	lyxscale 30
+	width 100text%
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Schema-of-Passage"
+
+\end_inset
+
+Diagrama de Modelo SoaML para industria de transporte marítimo
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Cada servicio definido en la arquitectura posee información específica de
+ sí mismo que suele ser representada en el modelo de negocio.
+ A través de un contrato de servicio (
+\emph on
+ServiceContract
+\emph default
+) se puede definir tanto la coreografía del servicio como su contrato de
+ invocación e interfaces – como se muestra en la Figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Schema-of-Passage-1"
+
+\end_inset
+
+.
+ Se puede apreciar que el recuadro “Opt” dentro de la coreografía representa
+ que el componente 
+\emph on
+Quote
+\emph default
+ es opcional, a diferencia de 
+\emph on
+Order
+\emph default
+ que no lo es.
+ Las líneas existentes en la coreografía corresponden a los diferentes tipos
+ de mensajes que participan de la invocación del servicio (Figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Schema-of-Passage-1-1"
+
+\end_inset
+
+), que pueden ser representados a través de un modelo de clases.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename ImgChapter1/schema-of-pasagge-1.png
+	lyxscale 40
+	width 110text%
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Schema-of-Passage-1"
+
+\end_inset
+
+Esquema de coreografías y contratos de invocación
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ImgChapter1/messagesSoaMl.png
+	lyxscale 50
+	width 70col%
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Schema-of-Passage-1-1"
+
+\end_inset
+
+Modelo de Diagrama SoaML
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:Detalle-de-selección"
+
+\end_inset
+
+Herramientas para Procesamiento de Descripciones de Servicios en SOA
+\end_layout
+
+\begin_layout Standard
+En la presente subsección se detallan las herramientas evaluadas para ser
+ utilizadas por el módulo de software Conversor del Metamodelo para parsear
+ un documento WSDL.
+ En la actualidad existen varias herramientas para manipular/crear documentos
+ WSDL, cuyas características difieren en funcionalidad, alcance, y versión
+ de WSDL soportada, entre otras características.
+ 
+\end_layout
+
+\begin_layout Paragraph
+JWSDL 
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Soporta WSDL versión 1.1, cumpliendo las bases de W3C del 15 de marzo 2001
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+http://www.w3.org/TR/2001/NOTE-wsdl-20010315
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+.
+ Su funcionalidad principal es permitir la lectura, escritura y modificación
+ de documentos WSDL.
+ Esta herramienta está desarrollada en lenguaje Java y especifica a las
+ APIs la manera de agregar elementos para su extensibilidad funcional en
+ cuanto a lectura, escritura y modificación.
+ JWSDL no valida los documentos más allá de la validez sintáctica.
+ Para que esto se cumpla, debe estar correcta la especificación del esquema
+ WSDL.
+ Algunas implementaciones pueden soportar la lectura no ordenada, sin errores
+ ni excepciones
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+ http://wsdl4j.sourceforge.net/downloads/JSR110_proposed_final_draft.pdf
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Paragraph
+SOA Membrane
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+SOA Membrane
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://www.membrane-soa.org/soa-model/
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+ es una API de Java que se utiliza documentos WSDL 2.0 y XML.
+ Tiene varias funciones, entre las más importantes se encuentran las de
+ crear, parsear, manipular y/o comparar dos documentos de la versión previamente
+ descrita.
+ Inicialmente, entre sus funciones se encuentra la comparación y manipulación
+ de los elementos del documento WSDL.
+\end_layout
+
+\begin_layout Paragraph
+EasyWSDL
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+EasyWSDL
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+http://easywsdl.ow2.org/easywsdl-features.html
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+ permite a los usuarios leer, escribir, editar y crear documentos WSDL 1.1,
+ WSDL 2.0 y esquemas XML (siguiendo las recomendaciones de la W3C) en el
+ lenguaje Java.
+ Provee los bindings mas usados por las dos versiones del WSDL, al igual
+ que todos los métodos necesarios para retornarlos.
+ Una característica que lo identifica es que permite no usar conversiones
+ de objetos, estrategia que lo diferencia de la herramienta WODEN.
+ 
+\end_layout
+
+\begin_layout Paragraph
+\begin_inset CommandInset label
+LatexCommand label
+name "par:WODEN"
+
+\end_inset
+
+WODEN
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+WODEN
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+http://ws.apache.org/woden/
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+ es una herramienta que provee una API Java, que permite la lectura, manipulació
+n creación y escritura de documentos WSDL, soportando versiones 1.1 y 2.0.
+ Adicionalmente, posee un componente validador que permite una validación
+ estructural y semántica de los WSDL.
+ El proyecto se encuentra en desarrollo, y todavía no está en su etapa madura
+ de producción.
+ 
+\end_layout
+
+\begin_layout Paragraph
+\begin_inset CommandInset label
+LatexCommand label
+name "par:DOM"
+
+\end_inset
+
+DOM 
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Document Object Model
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://docs.oracle.com/javase/7/docs/api/org/w3c/dom/package-summary.html
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+ es una plataforma y un lenguaje neutral que permite a los programas y scripts
+ acceder dinámicamente y modificar el contenido, estructura y estilo de
+ un documento.
+ Proporciona un conjunto estándar de objetos para representar documentos
+ HTML, XHTML y XML, un modelo estándar sobre cómo pueden combinarse dichos
+ objetos, y una interfaz estándar para acceder a ellos y manipularlos.
+ DOM define el estándar de acceso y manipulación de documentos.
+ Conforme a DOM, el contenido del documento se representa como una estructura
+ de árbol conformado de nodos, interconectados y relacionados de acuerdo
+ con una jerarquía.
+ DOM, define como nodo padre (tambien llamado inicial o principal) al tag
+ 
+\emph on
+document
+\emph default
+ (en WSDL versión 2.0)
+\emph on
+.
+ Document, 
+\emph default
+es el nodo que encapsula todas las estructuras definidas dentro de un documento
+ XML.
+ A su vez, cada nodo puede tener uno o varios hijos hasta llegar a los nodos
+ hoja (puntos terminales que no poseen más descendientes).
+\end_layout
+
+\begin_layout Paragraph
+
+\series bold
+WORDNET
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+WordNet
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+http://wordnet.princeton.edu
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+ es una base de datos léxico-semántica del idioma inglés.
+ Sustantivos, verbos, adjetivos y adverbios se agrupan en conjuntos de sinónimos
+ cognitivos (synsets), cada una expresando un concepto distinto.
+ Estos conjuntos están vinculados entre sí por medio de relaciones semánticas
+ y léxicas.
+ El árbol resultante de las palabras y los conceptos relacionados por su
+ semántica queda a disposición para ser utilizado.
+ Esta base de datos se encuentra presente en todo el trabajo realizado,
+ por ser de condición base para realizar comparaciones.
+ La principal relación que se tiene en cuenta es la sinonimia, donde dos
+ palabras son sinónimos si denotan el mismo significado.
+ Además, se pueden establecer relaciones jerárquicas (del tipo todo-partes
+ o es-un) como la hiponimia y la hiperonimia.
+ La estructura de WordNet hace que sea una herramienta útil para la lingüística
+ computacional y procesamiento del lenguaje natural.
+\end_layout
+
+\begin_layout Section
+Organización de la Tesis
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:organizacion"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+A continuación se describe en forma sintética el contenido del resto de
+ los capítulos que comprenden la estructura de esta Tesis:
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Description
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+Capítulo 2
+\end_layout
+
+\end_inset
+
+ Se presenta la descripción general del enfoque completo para asistir a
+ un ingeniero de software en la construcción de Aplicaciones Orientadas
+ a Servicios.
+ Este enfoque consiste de un Método de 
+\emph on
+Selección
+\emph default
+ de Servicios Web, que posee una herramienta de soporte semi-automático.
+\end_layout
+
+\begin_layout Description
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+Capítulo 3
+\end_layout
+
+\end_inset
+
+ Se presenta el Metamodelo para Descripción de Contratos de Servicios Web,
+ y cómo el mismo fue integrado a la herramienta de evaluación de servicios.
+ Además, se detalla el dieseño e implementación del componente conversor
+ de descripciones WSDL de Servicios Web para derivar instanciaciones del
+ metamodelo propuesto.
+\end_layout
+
+\begin_layout Description
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+Capítulo 4
+\end_layout
+
+\end_inset
+
+ Se presenta una evaluación experimental de la herramienta de evaluación
+ de Servicios Web, en función de las extensiones desarrolladas.
+\end_layout
+
+\begin_layout Description
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+Capítulo 5
+\end_layout
+
+\end_inset
+
+ Finalmente, se presentan las conclusiones de todo el trabajo de tesis,
+ las inferencias que surgen de la evaluación experimental, y la posibilidad
+ efectiva de utilización de la herramienta de evaluación de Servicios Web.
+ Se identifican futuras líneas de acción basadas en los resultados obtenidos.
+ 
+\change_deleted 1894756425 1522271193
+
+\begin_inset CommandInset bibtex
+LatexCommand bibtex
+bibfiles "Biblio_Lic"
+options "plain"
+
+\end_inset
+
+
+\change_unchanged
+
+\end_layout
+
+\end_body
+\end_document

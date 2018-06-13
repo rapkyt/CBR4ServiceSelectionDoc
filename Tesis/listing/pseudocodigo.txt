@@ -1,0 +1,29 @@
+function convertir_Wsdl_A_SoaML (DocumentoWSDL documentoWSDL){
+	documentoXML = (DocumentoXML) documentoWSDL;
+	Elemento raiz = documento.obtenerNodoRaiz();
+	Lista<Nodo> nodos = raiz.obtenerNodosHijos();
+	SoaMLInterface interface = new SoaMLInterface();
+	for(Nodo nodo: nodos){
+		if(nodo.getTagNodo()=="types"){
+			List<Type> metamodelTypes = "instanciar todos los tipos definidos en types" 
+		} 
+		if(nodo.getTagNodo()=="interface"){
+			Interface metamodelInteface = "crear interface SoaMl" 
+			List<Nodo> wsdlOperations = nodo.obtenerNodosHijos()
+			for(Nodo wsdlOperations: wsdlOperation){
+				Operation metamodelOperation = "instanciar operacion metamodelo" 
+				List<Nodo> wsdlInOuts = wsdlOperation.obtenerNodosHijos();
+				for(Nodo inOut: wsldInOuts){
+					if(inOut.getTagNodo=="input"){
+						Input entrada= "creo input según metamodelo" metamodelOperation.setInput (entrada); 
+					} 
+					else if(inOut.getTagNodo=="output"){
+						Output salida= "creo output según metamodelo" metamodelOperation.setOutput(salida); 
+					}
+				}
+				metamodelInterface.agregarOperation(metamodelOperation); 
+			}
+		} 
+	}
+	return metamodelInterface; 
+}

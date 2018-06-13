@@ -1,0 +1,3963 @@
+#LyX 2.2 created this file. For more info see http://www.lyx.org/
+\lyxformat 508
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass myBook
+\begin_preamble
+
+\end_preamble
+\use_default_options false
+\maintain_unincluded_children false
+\language spanish
+\language_package babel
+\inputencoding auto
+\fontencoding default
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 0
+\use_package cancel 0
+\use_package esint 1
+\use_package mathdots 0
+\use_package mathtools 0
+\use_package mhchem 0
+\use_package stackrel 0
+\use_package stmaryrd 0
+\use_package undertilde 0
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 2
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Chapter
+Metamodelo para Descripción y Evaluación de Contratos de Servicios Web
+\begin_inset CommandInset label
+LatexCommand label
+name "chap:Metamodelo-para-descipción"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Introducción 
+\end_layout
+
+\begin_layout Standard
+Como se mencionó en la Sección 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Solución-propuesta"
+
+\end_inset
+
+ (Capítulo 1), el objetivo principal de este trabajo es mejorar el Método
+ de Selección de Servicios Web presentado en la Sección 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:SelectionMethodOld"
+
+\end_inset
+
+ (Capítulo
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "cap:SOApp"
+
+\end_inset
+
+).
+ En este contexto, uno de los desafíos más importantes a la hora de evaluar
+ Servicios Web, es contar con una especificación de contratos de servicios
+ que sea lo suficientemente descriptiva en cuanto a las funcionalidades
+ que ofrece cada Servicio Web.
+ Para lidiar con este desafío, se propuso definir y desarrollar una especificaci
+ón de contratos de Servicios Web, que sea independiente de cualquier tecnología
+ de implementación.
+ Algunas soluciones para problemas similares
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "garriga2015web"
+
+\end_inset
+
+ se basan en estándares existentes como WSDL
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "d2006model"
+
+\end_inset
+
+, o bien proponen especificaciones ad-hoc
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "narayanan2002simulation,chan2008dynamic"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Con el fin de satisfacer el objetivo mencionado, la Herramienta de Evaluación
+ de Servicios Web que da soporte al Método de Selección de Servicios presentado
+ en la Sección 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:SelectionMethodOld"
+
+\end_inset
+
+ (Capítulo 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "cap:SOApp"
+
+\end_inset
+
+) fue ajustada y extendida, incluyendo dos nuevos componentes: un Metamodelo
+ de descripciones de Servicios Web heterogéneos y un nuevo componente Conversor
+ de documentos WSDL hacia instanciaciones de dicho metamodelo.
+\end_layout
+
+\begin_layout Standard
+El resto del capítulo se distribuye de la siguiente manera: en la Sección
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Metamodelo-para-descripción"
+
+\end_inset
+
+ se presenta el Metamodelo para Descripción de Servicios Web desde dos perspecti
+vas: general y específica.
+ En la Sección 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:-Conversor de WSDLs"
+
+\end_inset
+
+ se detalla el Componente Conversor de WSDLs para instanciar el Metamodelo
+ de Servicios Web.
+ Finalmente, en la Sección
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Intregracion-a-Testooj"
+
+\end_inset
+
+ se presenta cómo se ha modificado el proceso de descubrimiento y selección
+ de servicios, mediante la integración del metamodelo y el componente conversor
+ a la Herramienta de Evaluación de Servicios Web.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename ImgChapter3/ASCO DIAGRAMA.png
+	lyxscale 70
+	width 100col%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Esquema-de-proceso"
+
+\end_inset
+
+Esquema de proceso propuesto
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Metamodelo-para-descripción"
+
+\end_inset
+
+Metamodelo para descripción de Servicios Web
+\end_layout
+
+\begin_layout Standard
+Como se mencionó en la Sección
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:SelectionMethodOld"
+
+\end_inset
+
+ (Capítulo 2), anteriormente el Método de Selección de Servicios Web tomaba
+ como entrada interfaces Java generadas a partir de documentos WSDL.
+ Cuando estas interfaces se generan, por ejemplo, mediante la utilización
+ de herramientas como EasyWSDL
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+http://easywsdl.com/
+\end_layout
+
+\end_inset
+
+, se pueden observar diversos inconvenientes y limitaciones.
+ Como se explicó en el Capítulo 1, existen diversas versiones de WSDL que
+ los proveedores de servicios utilizan y esto dificulta generalizar los
+ procedimientos para parsear y explorar documentos WSDL.
+ Al experimentar con diferentes herramientas hemos detectado que debido
+ a tales diferencias, en algunos casos resulta imposible derivar interfaces
+ Java, y en otros casos se derivan interfaces erróneas.
+ Además, al considerar el surgimiento de otro tipo de Servicios Web como
+ los servicios RESTful, que presentan interfaces distintivas mediante HTTP
+ o WADL, se incrementa el desafío en el tratamiento generalizado de interfaces
+ de servicios.
+ Por lo tanto, es necesario contar con una especificación de contratos de
+ Servicios Web, que sea independiente de cualquier tecnología de implementación.
+ Por este motivo, utilizando como base los estándares mencionados en la
+ Sección 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Background"
+
+\end_inset
+
+, SoaML, WSDL y WADL, se ha definido e implementado un Metamodelo para Descripci
+ón de Contratos de Servicios Web.
+ La Figura
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Diagrama-de-clases"
+
+\end_inset
+
+ muestra el diagrama de clases del metamodelo definido, que se explicará
+ en la Sección 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Vision-Detallada"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ImgChapter3/InterfaceMetamodel.png
+	lyxscale 50
+	width 90text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Diagrama de clases del Metamodelo propuesto
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Diagrama-de-clases"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Como se mencionó previamente, el metamodelo surge de la conjunción de estándares
+ y criterios, a partir de los cuales se han definido las clases involucradas.
+ En la Figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Diagrama-de-Venn"
+
+\end_inset
+
+ se aprecia la distribución de las clases en base al origen de cada una.
+ Del estándar SoaML provienen las clases 
+\emph on
+Consumer
+\emph default
+,
+\emph on
+ Provider
+\emph default
+,
+\emph on
+ Interface
+\emph default
+ y 
+\emph on
+Choreography
+\emph default
+.
+ Del estándar WSDL 2.0 se definieron las clases 
+\emph on
+Operation
+\emph default
+, 
+\emph on
+Input
+\emph default
+, 
+\emph on
+Output
+\emph default
+, 
+\emph on
+Fault
+\emph default
+, 
+\emph on
+SimpleType
+\emph default
+, 
+\emph on
+ComplexType
+\emph default
+ e 
+\emph on
+Interface
+\emph default
+.
+ Se destaca que 
+\emph on
+Interface
+\emph default
+ se encuentra en ambos estándares, convirtiéndose en el nexo entre las mismas.
+ Para denotar la semántica esperada que permitirá realizar evaluaciones
+ exhaustivas de servicios, se han creado clases adicionales, como son 
+\emph on
+Parameter
+\emph default
+, 
+\emph on
+Type
+\emph default
+, 
+\emph on
+ArrayType
+\emph default
+ y 
+\emph on
+Attribute
+\emph default
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ImgChapter3/DiagramaDeVennAnalisisDeClases.png
+	lyxscale 40
+	width 75col%
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Diagrama-de-Venn"
+
+\end_inset
+
+Diagrama de Venn para categorización de clases de acuerdo a los estándares
+ utilizados 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:Vision-Detallada"
+
+\end_inset
+
+Visión Detallada
+\end_layout
+
+\begin_layout Standard
+En esta sección se describe cada 
+\emph on
+clase
+\emph default
+ que compone al diagrama de clases de la Figura
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Diagrama-de-clases"
+
+\end_inset
+
+.
+ El mismo comienza por dos clases principales, que son las desencadenantes
+ del comienzo del proceso de descubrimiento y selección de servicios, la
+ clase 
+\emph on
+Consumer
+\emph default
+, y la clase 
+\emph on
+Provider
+\emph default
+.
+ La clase 
+\emph on
+Consumer
+\emph default
+ (Figura
+\begin_inset space ~
+\end_inset
+
+3.3) reemplaza la especificación de 
+\begin_inset Formula $I_{R}$
+\end_inset
+
+ de la Sección
+\emph on
+ 
+\emph default
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:SelectionMethodOld"
+
+\end_inset
+
+ por una interfaz – que denominamos 
+\begin_inset Formula $I_{C}$
+\end_inset
+
+ (Interfaz a Consumir) – que representa las funcionalidades que necesita
+ satisfacer cuando se consume el Servicio Web adecuado.
+
+\emph on
+ 
+\emph default
+Por otro lado, la clase 
+\emph on
+Provider
+\emph default
+ (Figura
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Diagrama-de-Provider"
+
+\end_inset
+
+) reemplaza a la especificación 
+\begin_inset Formula $I_{S}$
+\end_inset
+
+ (de la Sección 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:SelectionMethodOld"
+
+\end_inset
+
+) por la interfaz que denominamos 
+\begin_inset Formula $I_{P}$
+\end_inset
+
+ (Interfaz Provista), que representa al proveedor del servicio cuyas responsabil
+idades incluyen conocer el nombre del servicio (por ejemplo, servicio de
+ alquiler de coches), y eventualmente podría contener datos propios del
+ proveedor que se consideren relevantes.
+ De esta forma, las especificaciones de la interfaz requerida (
+\begin_inset Formula $I_{R}$
+\end_inset
+
+) y de la interfaz del servicio (
+\begin_inset Formula $I_{S}$
+\end_inset
+
+), fueron reemplazadas por instancias de las clases 
+\emph on
+Consumer
+\emph default
+ y 
+\emph on
+Provider
+\emph default
+ respectivamente, para adherir a la convención de nombrado del estándar
+ SoaML.
+ 
+\end_layout
+
+\begin_layout Standard
+La clase 
+\emph on
+Choreography 
+\emph default
+(Figura
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Diagrama-de-Choreography"
+
+\end_inset
+
+) denota los pasos que se deben respetar a la hora de representar secuencias
+ válidas de llamadas a operaciones de un servicio en particular.
+ Durante el desarrollo de este trabajo se tomará como soporte a la explicación,
+ un Servicio Web perteneciente al dominio de alquiler de automóviles (RentACar).
+ Por ejemplo, una secuencia válida en dicho dominio sería llamar primero
+ a una operación para comprobar si un auto está disponible para luego invocar
+ a la operación para alquilar el mismo.
+ Al momento de evaluar las responsabilidades del servicio, este aspecto
+ secuencial resulta irrelevante.
+ Sin embargo creemos que tiene mucho potencial a la hora de evaluar el comportam
+iento del servicio, puesto que la lógica que representa permite agregar
+ claridad en el comportamiento esperado de la secuencialidad de llamadas
+ a funciones específicas.
+ Complementario a la clase 
+\emph on
+Choreography
+\emph default
+ se debería proveer un diagrama auxiliar (por ejemplo, diagrama de secuencia
+ UML) para denotar la lógica del orden de llamados para el uso de una función
+ específica.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{figure}[!htb]
+\end_layout
+
+\begin_layout Plain Layout
+
+   
+\backslash
+begin {minipage}{0.3
+\backslash
+textwidth}
+\end_layout
+
+\begin_layout Plain Layout
+
+     
+\backslash
+centering
+\end_layout
+
+\begin_layout Plain Layout
+
+     
+\backslash
+includegraphics[width=1.0
+\backslash
+linewidth]{ImgChapter3/Consumer.png}
+\end_layout
+
+\begin_layout Plain Layout
+
+     
+\backslash
+caption{Diagrama de clase Consumer}
+\backslash
+label{Fig:Diagrama-de-Consumer}
+\end_layout
+
+\begin_layout Plain Layout
+
+   
+\backslash
+end{minipage}
+\backslash
+hfill
+\end_layout
+
+\begin_layout Plain Layout
+
+   
+\backslash
+begin{minipage}{0.3
+\backslash
+textwidth}
+\end_layout
+
+\begin_layout Plain Layout
+
+     
+\backslash
+centering
+\end_layout
+
+\begin_layout Plain Layout
+
+     
+\backslash
+includegraphics[width=1.0
+\backslash
+linewidth]{ImgChapter3/Provider.png}
+\end_layout
+
+\begin_layout Plain Layout
+
+     
+\backslash
+caption{Diagrama de clase Provider}
+\backslash
+label{fig:Diagrama-de-Provider}
+\end_layout
+
+\begin_layout Plain Layout
+
+   
+\backslash
+end{minipage}
+\backslash
+hfill
+\end_layout
+
+\begin_layout Plain Layout
+
+   
+\backslash
+begin {minipage}{0.3
+\backslash
+textwidth}
+\end_layout
+
+\begin_layout Plain Layout
+
+     
+\backslash
+centering
+\end_layout
+
+\begin_layout Plain Layout
+
+     
+\backslash
+includegraphics[width=1.0
+\backslash
+linewidth]{ImgChapter3/choreography.png}
+\end_layout
+
+\begin_layout Plain Layout
+
+     
+\backslash
+caption{Diagrama de clase Choreography}
+\backslash
+label{fig:Diagrama-de-Choreography}
+\end_layout
+
+\begin_layout Plain Layout
+
+   
+\backslash
+end{minipage}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{figure}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+La clase 
+\emph on
+Interface
+\emph default
+ (Figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Diagrama-de-Interfaz Interface"
+
+\end_inset
+
+) es la responsable de encapsular las operaciones que ofrece cada servicio,
+ y cada instancia de 
+\emph on
+Interface
+\emph default
+ está intimamente vinculada con 
+\emph on
+Consumer
+\emph default
+ o 
+\emph on
+Provider
+\emph default
+ dependiendo con quién se relacione explícitamente.
+ El procedimiento de Análisis de Compatibilidad de Interfaces compara la
+ instancia Interface del 
+\emph on
+Consumer 
+\emph default
+(lo esperado por el consumidor) con las instancias de cada Interface del
+ servicio candidato 
+\emph on
+Provider
+\emph default
+.
+ A su vez, 
+\emph on
+Interface 
+\emph default
+está compuesta por una lista de al menos una operación (
+\emph on
+Operation
+\emph default
+, Figura
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Diagrama-de-Interfaz-Operation"
+
+\end_inset
+
+).
+
+\emph on
+ 
+\begin_inset Newline newline
+\end_inset
+
+
+\emph default
+La clase 
+\emph on
+Operation 
+\emph default
+representa a cada una de las funciones operacionales provistas/solicitadas
+ por cada proveedor/consumidor de un servicio.
+ Cada operación está compuesta por su nombre (un identificador que describe
+ semánticamente la función de la operación), puede o no tener una entrada
+ (
+\emph on
+Input
+\emph default
+, Figura
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Diagrama-de-Interfaz-Input"
+
+\end_inset
+
+) y puede o no tener una salida (
+\emph on
+Output
+\emph default
+, Figura
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Diagrama-de-Interfaz-output"
+
+\end_inset
+
+).
+ A su vez, podría o no tener una o más excepciones o fallas (
+\emph on
+Faults
+\emph default
+, Figura
+\begin_inset space ~
+\end_inset
+
+3.10).
+ 
+\begin_inset Newline newline
+\end_inset
+
+La clase 
+\emph on
+Input
+\emph default
+ (Figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Diagrama-de-Interfaz-Input"
+
+\end_inset
+
+) representa los datos que la operación espera como entrada y está compuesto
+ por un nombre y una lista de al menos un parámetro (
+\emph on
+Parameter
+\emph default
+, Figura
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Diagrama-de-Interfaz-parameter"
+
+\end_inset
+
+) que actúa como entrada de la operación.
+ 
+\begin_inset Newline newline
+\end_inset
+
+Inversamente, la clase 
+\emph on
+Output
+\emph default
+ (Figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Diagrama-de-Interfaz-output"
+
+\end_inset
+
+) representa la salida/retorno de una operación.
+ En el metamodelo propuesto, la salida de una operación (
+\emph on
+Output
+\emph default
+) está compuesta por un nombre, que puede ser cualquier tipo de identificador
+ que represente a la salida de la operación y un conjunto de parámetros
+ que determina cada uno de los datos que son retornados por la operación
+ del servicio.
+ En la versión anterior de la Herramienta de Evaluación de Servicios Web,
+ utilizando interfaces Java, las operaciones cuentan simplemente con un
+ tipo de retorno, ya sea un tipo simple o un tipo complejo, y en caso de
+ que la operación retorne distintos elementos, este deberá encapsular cada
+ uno de estos, siendo que no necesariamente en conjunto conformen una entidad
+ única.
+ Por ejemplo, utilizando la clase 
+\emph on
+Fee
+\emph default
+ (pago de tarifa) como salida de la operación, al agregarle un nombre de
+ retorno, podremos dar información semántica del tipo de retorno que estamos
+ brindando, si se instancia el nombre del parámetro con 
+\begin_inset Quotes eld
+\end_inset
+
+
+\emph on
+carFee
+\emph default
+
+\begin_inset Quotes erd
+\end_inset
+
+ estamos diciendo que el pago será de autos.
+ 
+\begin_inset Newline newline
+\end_inset
+
+En el contexto de los Servicios Web, la definición de excepciones representadas
+ por la clase
+\emph on
+ Fault
+\emph default
+ no se han convertido en una práctica común 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "rodriguez2013best"
+
+\end_inset
+
+ y de hecho, la mayoría de los WSDL no incluyen el detalle del manejo de
+ excepciones.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{figure}[!htb]
+\end_layout
+
+\begin_layout Plain Layout
+
+   
+\backslash
+begin{minipage}{0.3
+\backslash
+textwidth}
+\end_layout
+
+\begin_layout Plain Layout
+
+     
+\backslash
+centering
+\end_layout
+
+\begin_layout Plain Layout
+
+     
+\backslash
+includegraphics[width=1.0
+\backslash
+linewidth]{ImgChapter3/Interface.png}
+\end_layout
+
+\begin_layout Plain Layout
+
+     
+\backslash
+caption{Diagrama de clase Interface}
+\backslash
+label{fig:Diagrama-de-Interfaz Interface}
+\end_layout
+
+\begin_layout Plain Layout
+
+   
+\backslash
+end{minipage}
+\backslash
+hfill
+\end_layout
+
+\begin_layout Plain Layout
+
+   
+\backslash
+begin {minipage}{0.3
+\backslash
+textwidth}
+\end_layout
+
+\begin_layout Plain Layout
+
+     
+\backslash
+centering
+\end_layout
+
+\begin_layout Plain Layout
+
+     
+\backslash
+includegraphics[width=1.0
+\backslash
+linewidth]{ImgChapter3/Operation.png}
+\end_layout
+
+\begin_layout Plain Layout
+
+     
+\backslash
+caption{Diagrama de clase Operation}
+\backslash
+label{fig:Diagrama-de-Interfaz-Operation}
+\end_layout
+
+\begin_layout Plain Layout
+
+   
+\backslash
+end{minipage}
+\backslash
+hfill
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{figure}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{figure}[!htb]
+\end_layout
+
+\begin_layout Plain Layout
+
+   
+\backslash
+begin{minipage}{0.3
+\backslash
+textwidth}
+\end_layout
+
+\begin_layout Plain Layout
+
+     
+\backslash
+centering
+\end_layout
+
+\begin_layout Plain Layout
+
+     
+\backslash
+includegraphics[width=1.0
+\backslash
+linewidth]{ImgChapter3/Input.png}
+\end_layout
+
+\begin_layout Plain Layout
+
+     
+\backslash
+caption{Diagrama de clase Input}
+\backslash
+label{fig:Diagrama-de-Interfaz-Input}
+\end_layout
+
+\begin_layout Plain Layout
+
+   
+\backslash
+end{minipage}
+\backslash
+hfill
+\end_layout
+
+\begin_layout Plain Layout
+
+   
+\backslash
+begin {minipage}{0.3
+\backslash
+textwidth}
+\end_layout
+
+\begin_layout Plain Layout
+
+     
+\backslash
+centering
+\end_layout
+
+\begin_layout Plain Layout
+
+     
+\backslash
+includegraphics[width=1.0
+\backslash
+linewidth]{ImgChapter3/output.png}
+\end_layout
+
+\begin_layout Plain Layout
+
+     
+\backslash
+caption{Diagrama de clase Output}
+\backslash
+label{fig:Diagrama-de-Interfaz-output}
+\end_layout
+
+\begin_layout Plain Layout
+
+   
+\backslash
+end{minipage}
+\backslash
+hfill
+\end_layout
+
+\begin_layout Plain Layout
+
+   
+\backslash
+begin {minipage}{0.3
+\backslash
+textwidth}
+\end_layout
+
+\begin_layout Plain Layout
+
+     
+\backslash
+centering
+\end_layout
+
+\begin_layout Plain Layout
+
+     
+\backslash
+includegraphics[width=1.0
+\backslash
+linewidth]{ImgChapter3/Fault.png}
+\end_layout
+
+\begin_layout Plain Layout
+
+     
+\backslash
+caption{Diagrama de clase Fault}
+\backslash
+label{fig:Diagrama-de-fault}
+\end_layout
+
+\begin_layout Plain Layout
+
+   
+\backslash
+end{minipage}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{figure}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Para los tipos de datos se definió una clase abstracta llamada 
+\emph on
+Type
+\emph default
+ (Figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Diagrama-de-Interfaz-type"
+
+\end_inset
+
+), la cual es la superclase de todos los posibles tipos de datos.
+ La clase 
+\emph on
+Type
+\emph default
+ tiene tres subclases concretas: 
+\end_layout
+
+\begin_layout Itemize
+
+\emph on
+SimpleType
+\emph default
+ (Figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Diagrama-de-Interfaz-sympletype"
+
+\end_inset
+
+) representa todos los posibles tipos simples o primitivos como un valor
+ numérico entero secuencial.
+ La clase cuenta con las siguientes propiedades públicas y estáticas: 
+\emph on
+STRING, INTEGER, BOOLEAN, LONG, SHORT, DECIMAL, FLOAT, DOUBLE, BYTE, DATE_TIME,
+ DATE, BASE64_BINARY, HEX_BINARY, BASE64, ANY_TYPE, NORMALIZEDSTRING, ANY_URI.
+
+\emph default
+ Por convención, todas las variables se encuentran en mayúsculas por ser
+ constantes.
+ El atributo privado 
+\emph on
+type
+\emph default
+ de la clase descrita sólo puede tomar el valor de alguna de dichas constantes.
+ Por ejemplo para crear una instancia de un 
+\emph on
+SimpleType
+\emph default
+ del tipo 
+\emph on
+short 
+\emph default
+hay que escribir la sentencia en el lenguaje Java correspondiente a 
+\emph on
+SimpleType shortType = new SimpleType (SimpleType.SHORT); 
+\emph default
+y de esta manera se evita que el programador tenga que saber cuál número
+ entero representa la variable 
+\emph on
+SHORT, 
+\emph default
+lo que reduce posibles errores por parte del desarrollador.
+\end_layout
+
+\begin_layout Itemize
+La clase 
+\emph on
+ComplexType
+\emph default
+ (Figura
+\begin_inset space ~
+\end_inset
+
+3.15) representa los tipos complejos utilizados en la operación de servicio.
+ Los tipos complejos están compuestos por atributos (
+\emph on
+Attribute
+\emph default
+, Figura
+\begin_inset space ~
+\end_inset
+
+3.16), formados por un nombre (por ejemplo DNI, nombre, posición, etc) y
+ un tipo que representa propiamente al tipo de atributo, puede ser de tipo
+ simple, complejo o array.
+ Es importante mencionar que la implementación propuesta permite el anidamiento
+ de tipos complejos de distintos tipos, no exigiendo que sean todos de la
+ misma clase.
+\end_layout
+
+\begin_layout Itemize
+
+\emph on
+ArrayType
+\emph default
+ (Figura
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Diagrama-de-Interfaz-arraytype"
+
+\end_inset
+
+) representa las colecciones tales como listas y arrays.
+ Compuesto por el nombre del tipo propiamente dicho y el tipo de dato de
+ los elementos contenidos.
+ Si bien, a primera vista, 
+\emph on
+ArrayType 
+\emph default
+podría haberse representado con la clase 
+\emph on
+ComplexType,
+\emph default
+ cabe destacar que la clase 
+\emph on
+ArrayType
+\emph default
+ presenta un fuerte significado semántico y estructural, ya que indica que
+ en su interior habrá una colección de objetos del mismo tipo.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{figure}[!htb]
+\end_layout
+
+\begin_layout Plain Layout
+
+   
+\backslash
+begin{minipage}{0.3
+\backslash
+textwidth}
+\end_layout
+
+\begin_layout Plain Layout
+
+     
+\backslash
+centering
+\end_layout
+
+\begin_layout Plain Layout
+
+     
+\backslash
+includegraphics[width=1.0
+\backslash
+linewidth]{ImgChapter3/Parameter.png}
+\end_layout
+
+\begin_layout Plain Layout
+
+     
+\backslash
+caption{Diagrama de clase Parameter}
+\backslash
+label{fig:Diagrama-de-Interfaz-parameter}
+\end_layout
+
+\begin_layout Plain Layout
+
+   
+\backslash
+end{minipage}
+\backslash
+hfill
+\end_layout
+
+\begin_layout Plain Layout
+
+   
+\backslash
+begin {minipage}{0.3
+\backslash
+textwidth}
+\end_layout
+
+\begin_layout Plain Layout
+
+     
+\backslash
+centering
+\end_layout
+
+\begin_layout Plain Layout
+
+     
+\backslash
+includegraphics[width=1.0
+\backslash
+linewidth]{ImgChapter3/Type.png}
+\end_layout
+
+\begin_layout Plain Layout
+
+     
+\backslash
+caption{Diagrama de clase Type}
+\backslash
+label{fig:Diagrama-de-Interfaz-type}
+\end_layout
+
+\begin_layout Plain Layout
+
+   
+\backslash
+end{minipage}
+\backslash
+hfill
+\end_layout
+
+\begin_layout Plain Layout
+
+   
+\backslash
+begin{minipage}{0.3
+\backslash
+textwidth}
+\end_layout
+
+\begin_layout Plain Layout
+
+     
+\backslash
+centering
+\end_layout
+
+\begin_layout Plain Layout
+
+     
+\backslash
+includegraphics[width=1.0
+\backslash
+linewidth]{ImgChapter3/SimpleType.png}
+\end_layout
+
+\begin_layout Plain Layout
+
+     
+\backslash
+caption{Diagrama de clase SimpleType}
+\backslash
+label{fig:Diagrama-de-Interfaz-sympletype}
+\end_layout
+
+\begin_layout Plain Layout
+
+   
+\backslash
+end{minipage}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{figure}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{figure}[!htb]
+\end_layout
+
+\begin_layout Plain Layout
+
+   
+\backslash
+begin {minipage}{0.3
+\backslash
+textwidth}
+\end_layout
+
+\begin_layout Plain Layout
+
+     
+\backslash
+centering
+\end_layout
+
+\begin_layout Plain Layout
+
+     
+\backslash
+includegraphics[width=1.0
+\backslash
+linewidth]{ImgChapter3/ComplexType.png}
+\end_layout
+
+\begin_layout Plain Layout
+
+     
+\backslash
+caption{Diagrama de clase ComplexType}
+\backslash
+label{fig:Diagrama-de-Interfaz-complextype}
+\end_layout
+
+\begin_layout Plain Layout
+
+   
+\backslash
+end{minipage}
+\backslash
+hfill
+\end_layout
+
+\begin_layout Plain Layout
+
+   
+\backslash
+begin {minipage}{0.3
+\backslash
+textwidth}
+\end_layout
+
+\begin_layout Plain Layout
+
+     
+\backslash
+centering
+\end_layout
+
+\begin_layout Plain Layout
+
+     
+\backslash
+includegraphics[width=1.0
+\backslash
+linewidth]{ImgChapter3/Attribute.png}
+\end_layout
+
+\begin_layout Plain Layout
+
+     
+\backslash
+caption{Diagrama de clase Attribute}
+\backslash
+label{fig:Diagrama-de-Interfaz-attribute}
+\end_layout
+
+\begin_layout Plain Layout
+
+   
+\backslash
+end{minipage}
+\backslash
+hfill
+\end_layout
+
+\begin_layout Plain Layout
+
+   
+\backslash
+begin {minipage}{0.3
+\backslash
+textwidth}
+\end_layout
+
+\begin_layout Plain Layout
+
+     
+\backslash
+centering
+\end_layout
+
+\begin_layout Plain Layout
+
+     
+\backslash
+includegraphics[width=1.0
+\backslash
+linewidth]{ImgChapter3/ArrayType.png}
+\end_layout
+
+\begin_layout Plain Layout
+
+     
+\backslash
+caption{Diagrama de clase ArrayType}
+\backslash
+label{fig:Diagrama-de-Interfaz-arraytype}
+\end_layout
+
+\begin_layout Plain Layout
+
+   
+\backslash
+end{minipage}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{figure}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:-Conversor de WSDLs"
+
+\end_inset
+
+Conversor de WSDLs para instanciar el Metamodelo de Servicios Web
+\end_layout
+
+\begin_layout Standard
+En la Sección 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Relación-entre-WSDL"
+
+\end_inset
+
+ se analiza la relación existente entre el estándar WSDL y el metamodelo
+ propuesto, usando como soporte a la explicación un caso de estudio del
+ dominio de alquileres de autos (RentACar).
+ Esta relación será analizada en profundidad, detallando la funcionalidad
+ de cada operación WSDL y la forma en la que se relacionan con el metamodelo.
+ Finalmente se muestra un diagrama de objetos instanciados de acuerdo al
+ caso de estudio.
+\end_layout
+
+\begin_layout Standard
+En la Sección
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Proceso-de-selección"
+
+\end_inset
+
+, se explica como se construyó el componente Conversor del metamodelo propuesto,
+ detallando las estructuras de datos analizadas y el proceso de análisis
+ que se realiza para poder instanciar el metamodelo a partir de una descripción
+ WSDL.
+\end_layout
+
+\begin_layout Subsection
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:Relación-entre-WSDL"
+
+\end_inset
+
+Relación entre WSDL y Metamodelo
+\end_layout
+
+\begin_layout Standard
+En esta subsección se detalla la correlación entre el Metamodelo de Servicios
+ Web y el estándar WSDL 2.0, para lo cual se utilizará un caso de estudio
+ sencillo como soporte a la explicación.
+ 
+\end_layout
+
+\begin_layout Paragraph*
+\begin_inset CommandInset label
+LatexCommand label
+name "par:Caso-de-estudio"
+
+\end_inset
+
+Caso de estudio
+\end_layout
+
+\begin_layout Standard
+Durante el desarrollo de este trabajo se tomará como soporte a la explicación,
+ un Servicio Web perteneciente al dominio de alquiler de automóviles (RentACar).
+ El diagrama de clases UML para este dominio es presentado en la Figura
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig: caso de estudio-1"
+
+\end_inset
+
+.
+ En el dominio de alquiler de autos, el servicio está compuesto por 3 operacione
+s encapsuladas en la interfaz 
+\emph on
+RentACar
+\emph default
+: 
+\emph on
+getReservation
+\emph default
+, 
+\emph on
+getCarFee
+\emph default
+ y 
+\emph on
+getAvailableCars
+\emph default
+.
+ La operación 
+\emph on
+getReservation
+\emph default
+ es utilizada para buscar reservas a partir de un número de identificador,
+ retornando un string con la reserva correspondiente.
+ Para 
+\emph on
+getCarFee
+\emph default
+, dada una serie de comodidades que se desean que el vehículo a alquilar
+ posea, retorna el costo del alquiler de un vehículo con estas características,
+ a su vez 
+\emph on
+getCarFee 
+\emph default
+conoce las clases 
+\emph on
+Fee 
+\emph default
+y 
+\emph on
+CarSupplements
+\emph default
+.
+ Finalmente, 
+\emph on
+getAvailableCars
+\emph default
+ es una operación que retorna la lista de vehículos disponibles entre un
+ rango de fechas dado.
+ En el Listado de Código 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "Documento WSDL 2.0 RentACar"
+
+\end_inset
+
+ se muestra un fragmento del documento WSDL 2.0 que describe el servicio
+ 
+\emph on
+RentACar
+\emph default
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement h
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ImgChapter3/casoDeEstudio.png
+	lyxscale 50
+	width 80text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig: caso de estudio-1"
+
+\end_inset
+
+Visión esquemática UML del Caso de estudio
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "listing/Archivo-WSDL-2.0Recortado.txt"
+lstparams "caption={Documento WSDL 2.0 RentACar},label={Documento WSDL 2.0 RentACar}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph
+WSDL 2.0 vs.
+ Metamodelo
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+En el fragmento de WSDL 2.0 – Listado de Código
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "Documento WSDL 2.0 RentACar"
+
+\end_inset
+
+, línea 78 a 81 –, se define para la interfaz (
+\emph on
+interface
+\emph default
+) del servicio, la operación (
+\emph on
+operation
+\emph default
+) 
+\emph on
+getAvailableCars
+\emph default
+, indicando la entrada y salida de la misma utilizando los tags 
+\emph on
+input
+\emph default
+ y 
+\emph on
+output 
+\emph default
+respectivamente.
+ Cada entrada y cada salida se representa como un elemento (
+\emph on
+element
+\emph default
+) del documento WSDL.
+ Los elementos (
+\emph on
+elements
+\emph default
+) que conforman las entradas y salidas de las operaciones se detallan dentro
+ del apartado 
+\emph on
+types
+\emph default
+ del documento.
+ Entre las líneas 2 y 68, se aprecia como se encuentra conformada la sección
+ 
+\emph on
+types.
+
+\emph default
+ A su vez, la operación 
+\emph on
+getAvailableCars
+\emph default
+ se detalla desde la línea 46 hasta la 66 inclusive.
+ 
+\emph on
+
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+
+\emph on
+getCarFee
+\emph default
+.
+\end_layout
+
+\begin_layout Plain Layout
+La estructura de entradas de la operación y salidas de la misma (
+\emph on
+getCarFeeInput
+\emph default
+ y 
+\emph on
+getCarFeeOutput
+\emph default
+) se definen como dos elementos (element) etiquetados como 
+\emph on
+tns:getCarFeeInput
+\emph default
+ y 
+\emph on
+tns:getCarFeeOutput
+\emph default
+ respectivamente.
+ 
+\end_layout
+
+\begin_layout Plain Layout
+Como se puede observar 
+\emph on
+getCarFeeInput
+\emph default
+ se define como un tipo de dato complejo, en el cual se encapsulan los datos
+ que recibe como entrada la operación.
+ Dentro de 
+\emph on
+getCarFeeInput 
+\emph default
+se definen los accesorios (
+\emph on
+supplements
+\emph default
+) que tiene el vehículo, siendo 
+\emph on
+supplements 
+\emph default
+un tipo complejo compuesto por dos 
+\emph on
+elements
+\emph default
+, 
+\emph on
+airCondition 
+\emph default
+y 
+\emph on
+automatic
+\emph default
+, ambos de tipo 
+\emph on
+boolean
+\emph default
+.
+ 
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+A su vez, al ser hijo directo del primer complexType (reescribir en caso
+ de ser necesario) 
+\emph on
+supplements 
+\emph default
+es de la clase parameter del metamodelo propuesto.
+ Además esta entidad compleja posee dos atributos (Attributes en el metamodelo),
+ cada uno de los cuales contiene un tipo simple de datos: 
+\emph on
+airCondition
+\emph default
+ de la categoría booleano, que representa si el auto posee o no aire acondiciona
+do y 
+\emph on
+automatic
+\emph default
+ de la categoría arreglo de caracteres, que indica si el auto tiene caja
+ manual o automática.
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+Similar a 
+\emph on
+getCarFeeInput
+\emph default
+, 
+\emph on
+getCarFeeOutput 
+\emph default
+encapsula la salida de la operación 
+\emph on
+getCarFee
+\emph default
+.
+ Dentro de esta salida se define el tipo complejo 
+\emph on
+cost
+\emph default
+, compuesto por dos 
+\emph on
+elements
+\emph default
+: 
+\emph on
+chargeCost
+\emph default
+ y 
+\emph on
+currency
+\emph default
+, de tipo 
+\emph on
+double 
+\emph default
+y 
+\emph on
+normalizedString 
+\emph default
+respectivamente.
+\end_layout
+
+\end_inset
+
+
+\emph default
+
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+Para concluir con los tipos de datos presentados en el metamodelo, se explica
+ el tipo de dato ArrayType en el siguiente fragmento de documento WSLD.
+ La operación getAvailableCars nos entrega los autos disponibles dado un
+ periodo de tiempo conformado por dos fechas.
+ La salida de dicha operación, 
+\emph on
+GetAvailableCarsOutput
+\emph default
+ retorna un arreglo de tipos complejos 
+\emph on
+car.
+ 
+\emph default
+Cada auto a su vez se encuentra conformado por tres atributos: 
+\emph on
+brand
+\emph default
+, 
+\emph on
+model
+\emph default
+ y 
+\emph on
+description
+\emph default
+ siendo respectivamente la marca, el modelo (año de fábrica) y una breve
+ descripción del vehículo.
+ 
+\emph on
+Brand
+\emph default
+ y 
+\emph on
+description
+\emph default
+ son de tipo de dato simple string mientras que 
+\emph on
+model
+\emph default
+ es un número entero.
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Por un lado, 
+\emph on
+getAvailableCarsInput 
+\emph default
+– línea 46 – es un tipo complejo que encapsula la entrada de dicha operación.
+ La misma está compuesta por dos elementos (
+\emph on
+element
+\emph default
+), 
+\emph on
+initDate
+\emph default
+ y 
+\emph on
+endDate
+\emph default
+, ambos del tipo fecha (
+\emph on
+simple date
+\emph default
+).
+ Por otro lado, 
+\emph on
+getAvailableCarsOutput 
+\emph default
+– línea 54 – es un tipo complejo que encapsula la salida de la operación,
+ compuesta por una colección de autos (
+\emph on
+car
+\emph default
+), donde cada auto es definido por tres elementos (
+\emph on
+element
+\emph default
+), 
+\emph on
+brand, model y description
+\emph default
+.
+ Nótese que dicho tipo de dato es una colección de 
+\emph on
+car 
+\emph default
+ya que la propiedad 
+\emph on
+maxOccurs 
+\emph default
+dentro del tag 
+\emph on
+sequence 
+\emph default
+tiene el valor 
+\emph on
+unbounded
+\emph default
+, lo que significa que la máxima ocurrencia de objetos para este tipo de
+ dato es ilimitada.
+ 
+\end_layout
+
+\begin_layout Standard
+En la Figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:EjemploVersionInstanciadaConDOM"
+
+\end_inset
+
+ se muesta el diagrama de objetos que representa la salida (instancia del
+ metamodelo) generada por el componente Conversor para el documento WSDL
+ utilizado como ejemplo.
+ Es importante destacar que la estructura de datos utilizada generará una
+ sola vez los tipos de datos, y si fuera necesario realizar otra instancia
+ de la misma clase, se fija la dirección de memoria mediante un puntero
+ a aquella que fue creada por primera vez.
+ Esto quiere decir que sólo existirá una instancia por cada tipo definido
+ dentro del documento.
+ Por ejemplo sólo va a existir una instancia que representa al tipo simple
+ 
+\emph on
+string
+\emph default
+, y cada elemento relacionado con este tendrá una referencia a dicha instancia.
+\end_layout
+
+\begin_layout Standard
+En el diagrama de objetos de la Figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:EjemploVersionInstanciadaConDOM"
+
+\end_inset
+
+ se puede observar una instancia de la clase 
+\emph on
+Interface
+\emph default
+, llamada 
+\emph on
+RentACar
+\emph default
+ la cual agrupa las operaciones que ofrece el servicio.
+ Recordamos que este servicio cuenta con tres operaciones, 
+\emph on
+getReservation, getCarFee
+\emph default
+ y 
+\emph on
+getAvailableCars
+\emph default
+, cada una asociada a su respectiva entrada y salida (
+\emph on
+input
+\emph default
+/
+\emph on
+output
+\emph default
+).
+ A su vez cada entrada/salida está relacionada con los parámetros que las
+ componen.
+ A fines de mostrar resumidamente como quedaría el grafo, solo se detalla
+ la función getAvailableCars.
+ Podemos destacar que 
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+el parámetro 
+\emph on
+supplements
+\emph default
+, correspondiente a la entrada (
+\emph on
+Input
+\emph default
+) de la operación 
+\emph on
+getCarFee
+\emph default
+, es un tipo complejo formado por los atributos (
+\emph on
+Attribute
+\emph default
+) 
+\emph on
+automatic
+\emph default
+ y 
+\emph on
+airCondition
+\emph default
+, ambos asociados al tipo simple (
+\emph on
+SimpleType
+\emph default
+) boolean.
+ El parámetro 
+\emph on
+cost
+\emph default
+ (incluido en la salida de la operación 
+\emph on
+getCarFee
+\emph default
+) también es un tipo complejo y se encuentra conformado por los atributos
+ 
+\emph on
+chargeCost
+\emph default
+ (asociado al tipo simple 
+\emph on
+double
+\emph default
+) y 
+\emph on
+currency
+\emph default
+ (asociado al tipo simple 
+\emph on
+String
+\emph default
+).
+ Por otro lado,
+\end_layout
+
+\end_inset
+
+ para la operación 
+\emph on
+getAvailableCars
+\emph default
+ se define como entrada el objeto llamado 
+\emph on
+getAvailableCarInput
+\emph default
+ de la clase 
+\emph on
+Input
+\emph default
+.
+ Dicha entrada se encuentra conformada por dos parámentros asociados al
+ tipo simple 
+\emph on
+date
+\emph default
+, que hacen referencia a la fecha de inicio y fin respectivamente.
+ La salida de esta operación está compuesta por un parámetro llamado 
+\emph on
+cars
+\emph default
+, que representa a los autos disponibles entre las fechas ingresadas como
+ entrada de la operación.
+ El parámetro 
+\emph on
+cars
+\emph default
+, es asociado a una instancia de la clase 
+\emph on
+ArrayType
+\emph default
+ llamada de la misma manera, que a su vez posee como 
+\emph on
+contentType
+\emph default
+ una instancia de la clase 
+\emph on
+ComplexType
+\emph default
+ llamada 
+\emph on
+Car
+\emph default
+ (que representa a cada automovil individualmente).
+ En resumen, la salida de esta operación es un arreglo (
+\emph on
+ArrayType
+\emph default
+) de automoviles (
+\emph on
+Car
+\emph default
+).
+ De cada auto (
+\emph on
+Car
+\emph default
+) conoce su modelo, marca y una breve descripción.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ImgChapter3/ejemploDeWsdlInstanciadoMetamodelo.png
+	lyxscale 50
+	width 70text%
+	scaleBeforeRotation
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:EjemploVersionInstanciadaConDOM"
+
+\end_inset
+
+Ejemplo de metamodelo instanciado para el caso de estudio
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:Construcción-del-instanciador"
+
+\end_inset
+
+Construcción del Conversor
+\end_layout
+
+\begin_layout Standard
+En los párrafos siguientes se detallan los pasos principales para la construcció
+n del Conversor.
+ Primeramente fue necesario analizar las herramientas que se encuentran
+ disponibles que podrían ser potencialmente útiles a la hora de implementar
+ el módulo de software Conversor del Metamodelo.
+ Luego se explica en detalle el proceso de conversión de documentos WSDL
+ 2.0 a instancias del metamodelo junto con los algoritmos involucrados para
+ realizar dichas operaciones.
+ 
+\end_layout
+
+\begin_layout Paragraph
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:Proceso-de-selección"
+
+\end_inset
+
+Selección de herramientas para construcción de módulo de software Conversor
+ del Metamodelo
+\end_layout
+
+\begin_layout Standard
+Tomando como base la explicación detallada en la Sección 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Detalle-de-selección"
+
+\end_inset
+
+, donde se analizaron las herramientas evaluadas para ser utilizadas potencialme
+nte por el módulo de software Conversor del Metamodelo, en la presente sección
+ se pretende destacar ventajas y desventajas de dichas herramientas.
+ En principio, resultó necesario satisfacer la necesidad de parsear un documento
+ WSDL.
+ Para ello se analizaron las herramientas
+\emph on
+ JWSDL
+\emph default
+, 
+\emph on
+WODEN
+\emph default
+, 
+\emph on
+EasyWSDL, DOM
+\emph default
+ y 
+\emph on
+SOA
+\emph default
+ 
+\emph on
+Membrane
+\emph default
+.
+ Luego de este análisis, WODEN y DOM resultaron ser los candidatos más apropiado
+s para la construcción del módulo de software Conversor.
+ 
+\end_layout
+
+\begin_layout Paragraph
+Motivos principales por los cuales no se utilizaron las siguientes herramientas
+ 
+\begin_inset CommandInset label
+LatexCommand label
+name "par:UtilizacionHerramientasProcWSDL"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+JWSDL:
+\series default
+ posee un inconveniente fundamental (éste figura en la documentación y se
+ pudo comprobar en la práctica) por el cual no se utilizó esta herramienta
+ para manipular documentos WSDL.
+ Cualquier hijo de <types> (dentro del documento) es tratado como elemento
+ de una extensión que no se encuentra implementada entre sus funciones.
+ Debido a esto resulta imposible poder analizar las estructuras de los tipos
+ complejos, y por consiguiente las entradas y salidas de las operaciones
+ dentro de un documento WSDL.
+ En otras palabras, no se utilizó ya que no era posible analizar los datos
+ definidos en el 
+\emph on
+tag
+\emph default
+ 
+\emph on
+types 
+\emph default
+de los documentos.
+ Además no soporta documentos WSDL 2.0, y la intención es concentrarse en
+ las tecnologías más actuales que dispone el mercado.
+ 
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+SOA Membrane
+\series default
+: cuando se intentó acceder a los atributos, se dificultó el acceso a los
+ tipos complejos de datos.
+ Esto es porque no se pudo profundizar en su contenido con el detalle necesario
+ para el componente de software que se pretendía desarrollar.
+ 
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+EasyWSDL:
+\series default
+ en la teoría soporta versiones de WSDL 1.1 y 2.0, pero al intentar cargar
+ el conjunto de documentos de la plataforma Mashape, un porcentaje no pudo
+ ser utilizado porque no eran sintácticamente válidos según el metamodelo
+ propuesto por esta herramienta.
+ Debido a esto, el proceso de análisis para los documentos afectados no
+ pudo continuar.
+ Además, el alcance de la herramienta es extenso, coordinar con los mensajes
+ de entrada y salida para la creación y/o manipulación de datos lleva un
+ proceso de aprendizaje muy grande.
+ Por estas razones se decidió no utilizar esta herramienta.
+ 
+\end_layout
+
+\begin_layout Paragraph
+\begin_inset CommandInset label
+LatexCommand label
+name "par:Herramientas-util-instanciador"
+
+\end_inset
+
+Herramientas utilizadas en el Conversor
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Para la creación del módulo de software Conversor, se utilizaron dos herramienta
+s que fueron de principal relevancia a la hora de poder concretar la creación
+ de dicho módulo.
+ WODEN y DOM permitieron, gracias a sus diferentes funcionalidades, abarcar
+ los distintos aspectos que se detallan a continuación.
+ 
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+WODEN:
+\series default
+ utilizada para validar que los documentos WSDL utilizados como entrada
+ al Conversor del metamodelo estuvieran bien formados.
+ Esto quiere decir que con WODEN se validó que los documentos utilicen las
+ etiquetas (tags) definidas por la W3C para documentos WSDL, que haya correspond
+encia entre mensajes, la definición de los mismos, etc.
+ De esta manera, a la hora de testear la Herramienta de Evaluación de Servicios
+ Web, se trabajó con documentos bien formados desde un principio.
+ Además esta herramienta permitió poder trabajar con documentos WSDL versión
+ 1.1.
+ Básicamente si se necesita trabajar con documentos WSDL 1.1, se utiliza
+ una función que convierte documentos de la versión WSDL 1.1 a la versión
+ de WSDL 2.0 para luego si procesarlo como entrada al componente Conversor
+ del metamodelo.
+ Como un ejemplo, en el Capítulo
+\begin_inset space ~
+\end_inset
+
+ 4, se pudo experimentar con un conjunto de 1146 archivos WSDL versión 1.1
+ de Servicios Web reales que provienen de la plataforma Mashape
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+http://mashape.com
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+DOM: 
+\series default
+acorde con DOM, cualquier elemento perteneciente al proyecto de un documento
+ XML es un nodo.
+ De esta manera se pudo acceder a todos los detalles específicos dentro
+ de un documento WSDL sin ningún tipo de restricción.
+ Esta librería es una de las herramientas más usadas y populares a la hora
+ de manipular documentos XML.
+ En el presente trabajo se hizo énfasis en las estructuras del documento
+ relevantes para el módulo de software Conversor del Metamodelo.
+ Por esta razón, se prestó especial atención a la sección 
+\emph on
+types
+\emph default
+ e 
+\emph on
+interface
+\emph default
+ que son parte de los elementos que conforman un WSDL 2.0 bien formado.
+ Para esto resultó especialmente útil contar con una herramienta que permitiera
+ recorrer y analizar un documento WSDL de forma confiable y robusta, sin
+ nigun tipo de restricción, es decir, permitiendo el acceso a la totalidad
+ del documento.
+ DOM cumple con las características necesarias para llevar adelante el objetivo
+ de construir un instanciador automático.
+ Además, DOM nos permite gracias a una de sus funciones de navegación en
+ el código fuente, analizar si el documento está bien formado, es decir
+ que no tenga errores sintácticos.
+ 
+\end_layout
+
+\begin_layout Paragraph
+Conversión de documentos WSDL 2.0 a instancias del metamodelo
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+El Conversor desarrollado recibe como entrada un documento WSDL (generalmente
+ por medio de la URL) y devuelve como salida una instancia del metamodelo
+ propuesto, tratando al documento WSDL como un XML.
+ Tratarlo de tal manera nos permite que el mismo sea parseado utilizando
+ la herramienta DOM previamente mencionada.
+ Los elementos del XML son vistos como nodos, y cada nodo se encuentra en
+ un determinado nivel en la estructura de arbol, siendo N
+\begin_inset script subscript
+
+\begin_layout Plain Layout
+0
+\end_layout
+
+\end_inset
+
+ el nivel inicial, y cada vez que se desciende un nivel, el subíndice de
+ N aumenta en 1 unidad.
+ El nodo 
+\emph on
+document
+\emph default
+, es el nodo padre y se encuentra en el nivel N
+\begin_inset script subscript
+
+\begin_layout Plain Layout
+0
+\end_layout
+
+\end_inset
+
+.
+ En el nivel N
+\begin_inset script subscript
+
+\begin_layout Plain Layout
+1 
+\end_layout
+
+\end_inset
+
+se encuentran los nodos 
+\emph on
+interface 
+\emph default
+y 
+\emph on
+types.
+
+\emph default
+ En 
+\emph on
+types 
+\emph default
+se definen todos los tipos de datos existentes en el documento.
+ En 
+\emph on
+interface 
+\emph default
+se encuentran detalladas las operaciones (
+\emph on
+operation
+\emph default
+) que ofrece el servicio (N
+\begin_inset script subscript
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+
+).
+ En el nivel N
+\begin_inset script subscript
+
+\begin_layout Plain Layout
+3
+\end_layout
+
+\end_inset
+
+ tenemos los mensajes de entrada (
+\emph on
+input
+\emph default
+) y de salida (
+\emph on
+output
+\emph default
+).
+ 
+\end_layout
+
+\begin_layout Standard
+Siguiendo nuestro ejemplo de base del dominio RentACar,
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+, se transforma el WSDL versión 2.0, a una estructura de árbol autocontenida
+ que sólo almacena la información que se considera relevante para su posterior
+ uso gracias a la herramienta DOM.
+ A medida que se recorre el documento, se construye en tiempo de ejecución
+ la estructura de árbol con sus nodos y para una mayor eficiencia de cómputo,
+ se instancian las estructuras del metamodelo propuesto simultáneamente.
+ En
+\end_layout
+
+\end_inset
+
+ la Figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Ejemplo-versión-Dom-1"
+
+\end_inset
+
+ muestra un esquema de como quedaría la estructura con los distintos niveles
+ que conforman un documento WSDL 2.0 al parsearla con la herramienta DOM.
+ Cabe destacar que en esta figura, solo se detalla la operación getAvailableCars
+, con el objetivo de dar un ejemplo gráfico de fácil comprensión.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ImgChapter3/DomEnEjemplo2.png
+	lyxscale 30
+	width 100text%
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Ejemplo-versión-Dom-1"
+
+\end_inset
+
+Ejemplo de objetos que se analizan del documento WSDL parseado con la herramient
+a DOM
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Subsubsection
+\begin_inset CommandInset label
+LatexCommand label
+name "subsubsec:Ejemplo-de-instanciación"
+
+\end_inset
+
+Ejemplo de instanciación
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+parece que esto está de más! Actualmentee quedó igual que la figura 7
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+YA NO VA ESTO; QUEDÓ VIEJO
+\end_layout
+
+\begin_layout Plain Layout
+A continuación se presenta un diagrama de objetos que muestra una posible
+ instanciación del Metamodelo propuesto considerando el caso de estudio
+ RentACar, presentado en la Sección 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "par:Caso-de-estudio"
+
+\end_inset
+
+.
+ Para esto se utilizó un diagrama de instanciación de objetos de UML.
+ Podemos destacar tres instancias de las operaciones del servicio: 
+\emph on
+getReservation
+\emph default
+, 
+\emph on
+getCarFee
+\emph default
+ y 
+\emph on
+getAvailableCars
+\emph default
+.
+ 
+\emph on
+GetReservation
+\emph default
+ es la más sencilla de las operaciones ya que utiliza solo tipos simples
+ en sus entrada/salidas.
+ Sin embargo, 
+\emph on
+getCarFee
+\emph default
+ y 
+\emph on
+getAvailableCars
+\emph default
+ utilizan entradas y salidas (
+\emph on
+Input
+\emph default
+ y 
+\emph on
+Output
+\emph default
+ respectivamente) que contienen parámetros de tipos complejos.
+ Se puede apreciar en la Figura
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Instancia-de-RentaCar"
+
+\end_inset
+
+, que a pesar de que en el caso de estudio la cantidad de funciones es acotada
+ solo a tres, el árbol de expansión de objetos si se hubiese hecho con las
+ tres funciones instanciadas en la Figura
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Instancia-de-RentaCar"
+
+\end_inset
+
+ ubiese cobrado una gran cantidad de objetos.
+ De esta manera, intentar evaluar tales descripciones de una manera manual
+ resulta completamente inviable, teniendo en cuenta que sería necesario
+ evaluar tantas descripciones como posibles servicios candidatos existiera.
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename ImgChapter3/ejemploDeWsdlInstanciadoMetamodelo2.png
+	lyxscale 40
+	width 100col%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Instancia de RentACar
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Instancia-de-RentaCar"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+A continuación se detalla el pseudocódigo del módulo de software de conversión
+ de documentos WSDL 2.0 a instancias del metamodelo propuesto.
+ En el Algoritmo
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:Pseudocódigo-del-tool"
+
+\end_inset
+
+ la función propuesta recibe como entrada el documento WSDL – línea 1.
+ El primer paso es tratarlo como un documento XML, en cuanto a las propiedades
+ del mismo – línea 2.
+ Inicialmente obtenemos el primer nodo del árbol (la raíz del documento)
+ siendo el 
+\emph on
+nodo cero 
+\emph default
+de la Figura
+\emph on
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Ejemplo-versión-Dom-1"
+
+\end_inset
+
+
+\emph default
+ y luego sus hijos directos.
+ Para el metamodelo propuesto, en este nivel estructural sólo nos interesan
+ los nodos que contienen a 
+\emph on
+types
+\emph default
+ e 
+\emph on
+interface
+\emph default
+.
+ Si el nodo es 
+\emph on
+types, 
+\emph default
+se instancian los tipos definidos en esta clase.
+ Los detalles de este procedimiento son presentados en el Algoritmo 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "Obtener tipo de dato"
+
+\end_inset
+
+.
+ Si el nodo es 
+\emph on
+interface
+\emph default
+, al obtener sus descendientes directos obtendremos las 
+\emph on
+operations
+\emph default
+ –O1, O2 y O3 de la Figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:EjemploVersionInstanciadaConDOM"
+
+\end_inset
+
+
+\emph on
+.
+ 
+\emph default
+Los hijos de 
+\emph on
+operation 
+\emph default
+pueden ser 
+\emph on
+input 
+\emph default
+y/u
+\emph on
+ output
+\emph default
+.
+ En caso de ser el primero se crea la estructura de 
+\emph on
+input
+\emph default
+ y se setea la misma al metamodelo – 
+\emph on
+I1: Input
+\emph default
+ de la Figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:EjemploVersionInstanciadaConDOM"
+
+\end_inset
+
+.
+ En caso de ser la segunda opción, se crea la estructura 
+\emph on
+output – S1: Output
+\emph default
+ 
+\emph on
+–
+\emph default
+ y se setea al metamodelo.
+ Una vez terminado de recorrer los hijos de la última 
+\emph on
+operation
+\emph default
+ se agregan a la interfaz del metamodelo.
+ Este procedimiento finaliza cuando se termina de recorrer todas las operaciones
+\emph on
+ 
+\emph default
+existentes.
+ Finalmente es retornada una instancia del metamodelo generado a partir
+ del documento WSDL utilizado como entrada.
+\begin_inset Float algorithm
+placement h
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+1 function convertir_Wsdl_A_Metamodelo (DocumentoWSDL documentoWSDL){
+\end_layout
+
+\begin_layout Plain Layout
+
+2  documentoXML = DOM.leerDocumento(documentoWSDL);
+\end_layout
+
+\begin_layout Plain Layout
+
+3  Elemento raiz = documentoXML.obtenerNodoRaiz();
+\end_layout
+
+\begin_layout Plain Layout
+
+4  Lista<Nodo> nodos = raiz.obtenerNodosHijos();
+\end_layout
+
+\begin_layout Plain Layout
+
+5  SoaMLInterface interface = new SoaMLInterface();
+\end_layout
+
+\begin_layout Plain Layout
+
+6  for(Nodo nodo: nodos){
+\end_layout
+
+\begin_layout Plain Layout
+
+7   if(nodo.getTagNodo()=='types'){
+\end_layout
+
+\begin_layout Plain Layout
+
+8	List<Type> metamodelTypes = 
+\end_layout
+
+\begin_layout Plain Layout
+
+     'instanciar todos los tipos definidos en types' 
+\end_layout
+
+\begin_layout Plain Layout
+
+9   } 
+\end_layout
+
+\begin_layout Plain Layout
+
+10  if(nodo.getTagNodo()=='interface'){
+\end_layout
+
+\begin_layout Plain Layout
+
+11   Interface metamodelInteface = 'crear interface SoaMl' 
+\end_layout
+
+\begin_layout Plain Layout
+
+12   List<Nodo> wsdlOperations = nodo.obtenerNodosHijos()
+\end_layout
+
+\begin_layout Plain Layout
+
+13   for(Nodo wsdlOperations: wsdlOperation){
+\end_layout
+
+\begin_layout Plain Layout
+
+14    Operation metamodelOperation = 'instanciar operacion metamodelo' 
+\end_layout
+
+\begin_layout Plain Layout
+
+15    List<Nodo> wsdlInOuts = wsdlOperation.obtenerNodosHijos();
+\end_layout
+
+\begin_layout Plain Layout
+
+16    for(Nodo inOut: wsldInOuts){
+\end_layout
+
+\begin_layout Plain Layout
+
+17     if(inOut.getTagNodo=='input'){
+\end_layout
+
+\begin_layout Plain Layout
+
+18   	Input entrada= 'creo input según metamodelo';
+\end_layout
+
+\begin_layout Plain Layout
+
+19   	metamodelOperation.setInput (entrada); 
+\end_layout
+
+\begin_layout Plain Layout
+
+20     } 
+\end_layout
+
+\begin_layout Plain Layout
+
+21     else if(inOut.getTagNodo=='output'){
+\end_layout
+
+\begin_layout Plain Layout
+
+22   	Output salida= 'creo output según metamodelo';
+\end_layout
+
+\begin_layout Plain Layout
+
+23   	metamodelOperation.setOutput(salida); 
+\end_layout
+
+\begin_layout Plain Layout
+
+24     }
+\end_layout
+
+\begin_layout Plain Layout
+
+25    }
+\end_layout
+
+\begin_layout Plain Layout
+
+26    metamodelInterface.agregarOperation(metamodelOperation); 
+\end_layout
+
+\begin_layout Plain Layout
+
+27   }
+\end_layout
+
+\begin_layout Plain Layout
+
+28  } 
+\end_layout
+
+\begin_layout Plain Layout
+
+29 }
+\end_layout
+
+\begin_layout Plain Layout
+
+30 return metamodelInterface; 
+\end_layout
+
+\begin_layout Plain Layout
+
+31}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:Pseudocódigo-del-tool"
+
+\end_inset
+
+Convertir WSDL a Metamodelo 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Para evaluar los tipos de datos nos basamos principalmente en los Algoritmos
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "Obtener tipo de dato"
+
+\end_inset
+
+, 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "Es tipo complejo"
+
+\end_inset
+
+, 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "Es tipo simple"
+
+\end_inset
+
+, 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "Obtener nombre tipo simple"
+
+\end_inset
+
+, donde en el primero se encuentra la lógica principal, y los restantes
+ describen las funciones auxiliares.
+ Los mismos cumplen la función de discriminar la estructura sintáctica de
+ los programas involucrados.
+ Dado un nodo como entrada a la función del primero, el análisis retorna
+ si se tiene tipos de datos simples, complejos o arreglos.
+\end_layout
+
+\begin_layout Standard
+En los dos párrafos siguientes se explicará brevemente el funcionamiento
+ del Algoritmo 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "Obtener tipo de dato"
+
+\end_inset
+
+.
+ En la línea 3, se verifica si el nodo es de tipo simple, en cuyo caso se
+ crea el objeto de tipo simple con sus respectivos datos.
+ Luego, se analiza en la línea 5, si estamos ante la presencia de un tipo
+ de dato arreglo, para lo cual consultamos sobre un atributo llamado 
+\emph on
+unbounded
+\emph default
+.
+ En caso de no ser 
+\emph on
+unbounded
+\emph default
+, se retorna el tipo simple que se creó en la línea 4.
+ Caso contrario, nos encontramos ante un tipo de dato arreglo (
+\emph on
+ArrayType
+\emph default
+), el cual contendrá al tipo simple previamente mencionado, siendo una colección
+ de tipos simples.
+ 
+\end_layout
+
+\begin_layout Standard
+Ahora bien, si tenemos un tipo de dato complejo
+\emph on
+ – ComplexType
+\emph default
+ (línea 13) –, debemos indagar en su estructura interna, puesto que puede
+ estar compuesto por más tipos de datos complejos, arreglos o tipos simples.
+ Mediante llamados recursivos se construirá la estructura del tipo de dato
+ complejo.
+ Una vez que creamos el tipo de dato complejo, resta preguntar si el mismo
+ se encuentra contenido en una estructura de arreglo, lo que nos llevará
+ en caso afirmativo a crear un arreglo asociado al tipo complejo recientemente
+ creado y retornarlo; caso contrario retornamos el tipo complejo previamente
+ instanciado.
+ 
+\end_layout
+
+\begin_layout Standard
+Para saber si estamos ante la presencia de un tipo de dato complejo se creó
+ la función 
+\emph on
+esTipoComplejo(Nodo nodo)
+\emph default
+ (Algoritmo 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "Es tipo complejo"
+
+\end_inset
+
+), en la cual se obtiene los hijos del 
+\emph on
+nodo 
+\emph default
+que entra por parámetro de la función , en caso de que por lo menos tenga
+ uno, y el nombre del mismo contenga la palabra compuesta 
+\emph on
+ComplexType
+\emph default
+ estamos en presencia de un tipo de dato complejo.
+ Para saber si tenemos un tipo de dato simple recurrimos a la función 
+\emph on
+esTipoSimple(Nodo nodo) 
+\emph default
+(Algoritmo 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "Es tipo simple"
+
+\end_inset
+
+).
+ Se obtiene el atributo 
+\emph on
+type
+\emph default
+ del 
+\emph on
+nodo
+\emph default
+ y si coincide con algún tipo de dato simple de los definidos en la Sección
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Vision-Detallada"
+
+\end_inset
+
+ 
+\emph on
+SimpleType
+\emph default
+, entonces efectivamente es un tipo simple.
+ Por último tenemos la función 
+\emph on
+obtenerNombreTipoSimple(Nodo nodo) 
+\emph default
+(Algoritmo 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "Obtener nombre tipo simple"
+
+\end_inset
+
+) que retorna el nombre de un tipo de dato simple.
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "listing/Obtener tipo de dato.txt"
+lstparams "caption={Obtener tipo de dato},label={Obtener tipo de dato}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "listing/Es tipo complejo.txt"
+lstparams "caption={Es tipo complejo},label={Es tipo complejo}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "listing/Es tipo simple.txt"
+lstparams "caption={Es tipo simple},label={Es tipo simple}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "listing/Obtener nombre tipo simple.txt"
+lstparams "caption={Obtener nombre tipo simple},label={Obtener nombre tipo simple}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Intregracion-a-Testooj"
+
+\end_inset
+
+Integración a la Herramienta de Evaluación de Servicios Web 
+\end_layout
+
+\begin_layout Standard
+El objetivo principal del desarrollo del Metamodelo para descripción de
+ Contratos de Servicios Web es contar con una especificación de la funcionalidad
+ que ofrece cada servicio (independientemente de la tecnología en la cual
+ esté implementado).
+ Al contar con dicho metamodelo resulta necesario que la evaluación de servicios
+ candidatos se realice en función de instanciaciones del metamodelo.
+ Para ello, se desarrolló un componente de software que contiene al metamodelo.
+ En el nuevo enfoque, tanto los requerimientos funcionales por parte de
+ desarrolladores de aplicaciones orientadas a servicios, como los propios
+ servicios candidatos, serán representados y comparados mediante instanciaciones
+ del metamodelo desarrollado.
+ 
+\end_layout
+
+\begin_layout Subsection
+Proceso de selección y descubrimiento modificado
+\end_layout
+
+\begin_layout Standard
+En la Figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Esquema-propuesto"
+
+\end_inset
+
+ se presenta de manera esquemática la modificación sobre el proceso de descubrim
+iento y selección de Servicios Web, al considerar los dos nuevos componentes
+ (metamodelo y conversor), que son parte de la nueva Herramienta de Evaluación
+ de Servicios Web.
+ El nuevo proceso consiste inicialmente en generar instancias del metamodelo
+ propuesto a partir de los documentos WSDL correspondientes a los Servicios
+ Web candidatos.
+ En el Paso 1.1 se generan las instancias del metamodelo que corresponden
+ al requerimiento funcional del servicio que se espera consumir por la aplicació
+n – que ahora denominamos 
+\begin_inset Formula $I_{C}$
+\end_inset
+
+ (Interfaz a Consumir), en vez de 
+\begin_inset Formula $I_{R}$
+\end_inset
+
+ – a partir de la cual se generan consultas (
+\emph on
+queries
+\emph default
+).
+ Luego en el Paso 1.2 se realizan las consultas en el registro de descubrimiento
+ (tal como el de EasySOC), para obtener los documentos WSDL de los servicios
+ del Proveedor, que pueden corresponder a versiones 1.1 y 2.0.
+ Con estos documentos, se generan las instancias del metamodelo – que ahora
+ denominamos 
+\begin_inset Formula $I_{P}$
+\end_inset
+
+ (Interfaz Provista), en vez de 
+\begin_inset Formula $I_{S}$
+\end_inset
+
+ – utilizando el componente Conversor para obtener el conjunto que servirá
+ de entrada al Paso 2, que es la selección del servicio candidato más apto.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ImgChapter3/EsquemaMetodoNuevo.png
+	lyxscale 50
+	width 100col%
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Esquema-propuesto"
+
+\end_inset
+
+Modificación del Proceso de Descubrimiento y Selección de Servicios Web
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+En el procedimiento de Análisis de Compatibilidad de Interfaces, que es
+ parte del Método de Selección de Servicios Web (Paso 2), se realizó una
+ actualización con respecto al componente del Metamodelo.
+ En la presente versión (Figura
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Análisis-de-Compatibilidad-Interfcaes"
+
+\end_inset
+
+), se cuentan con las instancias del metamodelo, mediante el ingreso de
+ los objetos 
+\begin_inset Formula $I_{P}$
+\end_inset
+
+ e 
+\begin_inset Formula $I_{C}$
+\end_inset
+
+, por lo que se puede acceder a todos sus atributos en una forma directa
+ para el proceso de obtención de datos de signatura y evaluación tanto semántica
+ como estructural.
+ Si bien en la versión anterior ilustrada en la Figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Análisis-de-Compatibilidad"
+
+\end_inset
+
+, desde los archivos WSDL versión 1.1 se extraían los elementos de signatura,
+ ingresaban las clases 
+\begin_inset Formula $I_{S}$
+\end_inset
+
+ e 
+\begin_inset Formula $I_{R}$
+\end_inset
+
+ y actualmente 
+\begin_inset Formula $I_{P}$
+\end_inset
+
+ e 
+\begin_inset Formula $I_{C}$
+\end_inset
+
+, las herramientas de soporte son las mismas: WordNet y el listado de Stop
+ words.
+ 
+\begin_inset Float figure
+placement h
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ImgChapter3/Análisis-de-Compatibilidad-Interfaces.png
+	lyxscale 50
+	width 98text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Análisis-de-Compatibilidad-Interfcaes"
+
+\end_inset
+
+Análisis de Compatibilidad de Interfaces
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Al realizar la integración del componente del metamodelo se adaptaron las
+ estrategias subyacentes para la evaluación de servicios desde el punto
+ de vista estructural y semántico presentadas en la Sección
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Compatibilidad-InterfacesOld"
+
+\end_inset
+
+ (Capítulo
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "cap:SOApp"
+
+\end_inset
+
+).
+ Para ello se estableció una correspondencia entre los elementos del metamodelo
+ definido y las interfaces Java utilizadas en el enfoque anterior.
+\end_layout
+
+\begin_layout Subsection
+Ventajas sobre implementacion anterior 
+\end_layout
+
+\begin_layout Standard
+En las versiones anteriores de la plataforma para selección de Servicios
+ Web
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "DeRenzis13,castro16"
+
+\end_inset
+
+, la evaluación a nivel de contratos se realizaba analizando interfaces
+ Java generadas a partir de documentos WSDL.
+ Como se mencionó en la Sección 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:introMotivacion"
+
+\end_inset
+
+, cada proveedor de servicios utiliza diferentes versiones de WSDL para
+ describir las interfaces de sus servicios.
+ A la hora de evaluar Servicios Web descritos mediante archivos WSDL, era
+ necesario contar con herramientas externas, para cada servicio, generar
+ las clases Java en archivos separados porque se utilizaba la herramienta
+ Java Reflection
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+http://www.oracle.com/technetwork/articles/java/javareflection-1536171.html
+ 
+\end_layout
+
+\end_inset
+
+ como soporte para el análisis.
+ Java Reflection es un mecanismo poderoso que provee el lenguaje de programación
+ Java (que no existe en otros lenguajes, tal como Pascal, C o C++) el cual
+ permite al programa examinarse a sí mismo (introspección), y manipular
+ propiedades internas.
+ Se utilizaba para acceder y explorar los archivos Java compilados (.class)
+ y extraer la información de cada interfaz.
+ Junto a Java Reflection, se utilizaba Paranamer
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+https://github.com/paul-hammant/paranamer
+\end_layout
+
+\end_inset
+
+, cuya función era permitir obtener el acceso a los nombres de los parámetros
+ de los métodos no privados y constructores en tiempo de ejecución.
+ Normalmente esta información se pierde en el proceso de compilación.
+ 
+\end_layout
+
+\begin_layout Standard
+Con la implementación actual sólo es necesario disponer de las instanciaciones
+ del metamodelo sin la necesidad de que existan archivos vinculados entre
+ sí.
+ Esa es una importante diferencia con respecto a una herramienta externa
+ para el procesamiento de WSDL como podría ser EasyWSDL, puesto que para
+ cada Servicio Web se generarían los siguientes archivos Java: 
+\end_layout
+
+\begin_layout Itemize
+Un archivo que incluye la definición de todas las operaciones, el cual represent
+a a la clase utilizada para invocar al servicio.
+\end_layout
+
+\begin_layout Itemize
+Dos archivos Java por cada operación en el servicio.
+ Uno de los archivos representa un tipo complejo que encapsula las entradas
+ de la operación y el otro archivo representa otro tipo de dato complejo
+ que encapsula las salidas de la operación.
+ 
+\end_layout
+
+\begin_layout Itemize
+Un archivo Java por cada tipo de dato complejo propio del dominio específico
+ del servicio.
+ 
+\end_layout
+
+\begin_layout Standard
+Además, el metamodelo propuesto ofrece mas información 
+\begin_inset Quotes eld
+\end_inset
+
+semántica
+\begin_inset Quotes erd
+\end_inset
+
+ correspondiente al servicio.
+ Un claro ejemplo se ve en la representación de las salidas de una operación.
+ En el metamodelo propuesto, la salida de una operación (output) esta compuesta
+ por un nombre, que puede ser cualquier tipo de identificador que represente
+ a la salida de la operación y un conjunto de parámetros que determina cada
+ uno de los datos que son retornados por la operación del servicio.
+ En la versión anterior de la herramienta, utilizando interfaces Java, las
+ operaciones cuentan simplemente con un tipo de retorno, y en el caso de
+ que la operación retorne distintos elementos, se deberá encapsular cada
+ uno de ellos, aún cuando en conjunto no conformen una entidad única y distintiv
+a del dominio.
+\end_layout
+
+\end_body
+\end_document

@@ -1,0 +1,12 @@
+<resources base="...">
+  <resource path="/">
+    <method name="GET">
+      <request>
+        <param name="page" style="query" type="xs:int"/>
+      </request>
+      <response>
+        <representation mediaType="app/json"/>
+      </response>
+    </method>
+  </resource> 
+</resources>

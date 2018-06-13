@@ -1,0 +1,46 @@
+1 function Type obtenerTipoDeDato(Nodo nodo) {  
+2 String unArreglo = nodo.getAttribute("maxOccurs");
+3 if (esTipoSimple(nodo)) {
+4  SimpleType tipoSimple = new SimpleType(obtenerNombreTipoSimple(nodo));
+5  if (unArreglo.equalsIgnoreCase("unbounded")) {
+6   ArrayType array = new ArrayType();
+7   array.setearTipoDeContenido(tipoSimple);
+8   array.setearNombre("ArrayOf" + tipoSimple.obtenerNombre());
+9   return array; 
+10 }
+11  else return tipoSimple; 
+12 } else {
+13  if (esTipoComplejo(nodo)) { 
+14   ComplexType metamodeloComplexType = new ComplexType();
+15   metamodeloComplexType.setearNombre(nodo.getAttribute("name"));
+16   NodeList nodoSecuencia = nodo.obtenerNodosHijos();
+17   if (nodoSecuencia != null) {
+18    ArrayList<Attribute> atributos = new ArrayList<Attribute>();
+19    Node nodosDeTipoComplejo = nodoSecuencia.obtenerNodosHijos();
+20    if (nodosDeTipoComplejo != null) {
+21     NodeList elementosDeTiposComplejos = 
+       nodosDeTipoComplejo.obtenerNodosHijos();
+22     for (int i = 0; i < elementosDeTiposComplejos.getLength(); i++) {
+23      Attribute atributoMetamodelo = new Attribute();
+24      Nodo atributoACrear = elementosDeTiposComplejos.item(i);
+25      atributoMetamodelo.setearNombre(
+atributoACrear.getAttribute("name"));
+26      atributoMetamodelo.setearTipo(obtenerTipoDeDato
+elementosDeTiposComplejos.item(i)));
+27      atributos.añadir(atributoMetamodelo);
+28     }
+29     metamodeloComplexType.setearAtributos(atributos);
+30    }
+31   }
+32   if (unArreglo.equalsIgnoreCase("unbounded")) {
+33    ArrayType array = new ArrayType();
+34    array.setearContentType(metamodeloComplexType);
+35    array.setearNombre("ArrayOf"+metamodeloComplexType.getName());
+36    return array; //retorno el tipo de dato arreglo
+37   }
+38   else return metamodeloComplexType; 
+//retorno el tipo de dato ComplexType
+39  }
+40 }
+41 return null; // no es tipo simple, complejo ni arreglo
+42}

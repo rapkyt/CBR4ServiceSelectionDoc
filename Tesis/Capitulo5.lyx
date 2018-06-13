@@ -1,0 +1,498 @@
+#LyX 2.2 created this file. For more info see http://www.lyx.org/
+\lyxformat 508
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass myBook
+\begin_preamble
+\usepackage{fancyhdr}
+\end_preamble
+\use_default_options false
+\maintain_unincluded_children false
+\language spanish
+\language_package babel
+\inputencoding auto
+\fontencoding default
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 0
+\use_package cancel 0
+\use_package esint 1
+\use_package mathdots 0
+\use_package mathtools 0
+\use_package mhchem 0
+\use_package stackrel 0
+\use_package stmaryrd 0
+\use_package undertilde 0
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 2
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Chapter
+Conclusiones y Trabajo Futuro
+\begin_inset CommandInset label
+LatexCommand label
+name "cap:concYTrabajosFut"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Introducción
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Generacion-de-consultas"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+En la presente tesis se profundizó acerca del Método de Selección de Servicios
+ Web que tiene como objetivo asistir a los ingenieros de software en la
+ construcción de Aplicaciones Orientadas a Servicios.
+ En particular, se propusieron mejoras sobre el procedimiento de Análisis
+ de Compatibilidad de Interfaces (validación contractual) completamente
+ basado en la especificación funcional (descripta en WSDL) de los Servicios
+ Web, que permitió extraer toda la información disponible en dicha especificació
+n sin requerir de un marcado semántico adicional (se utilizaron los 
+\emph on
+tags 
+\emph default
+propios de un documento WSDL).
+ 
+\end_layout
+
+\begin_layout Standard
+Actualmente, los servicios están siendo fuertemente considerados como la
+ mejor elección para la integración transparente e inter-organizacional
+ de activos de software.
+ Sin embargo, los distintos problemas identificados evidencian la necesidad
+ de mecanismos que soporten la selección de servicios.
+ Los consumidores de servicios primero deben estudiar los servicios candidatos,
+ sus funcionalidades, y las operaciones soportadas, para luego identificar
+ la forma de invocación, la interconexión de operaciones, y los mapeos de
+ mensajes.
+ Sumado a esto, los documentos WSDL en general carecen de información significat
+iva para soportar este proceso, debido a la proliferación de los Servicios
+ Web
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "mateos2011detecting"
+
+\end_inset
+
+ cuyos contratos se generan de manera automática, disminuyendo su expresividad
+ y por ende la precisión de los registros de descubrimiento de servicios.
+ 
+\begin_inset Newline newline
+\end_inset
+
+En este capítulo se analiza en la Sección 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Objetivos-Alcanzados"
+
+\end_inset
+
+ el alcance de los objetivos planteados en el Capítulo 1, en función del
+ desarrollo del trabajo que se describe en esta tesis.
+ Luego en la Sección 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Trabajo-Futuro"
+
+\end_inset
+
+ se identifican potenciales líneas futuras de acción que pueden complementar
+ el trabajo que ha sido desarrollado.
+\end_layout
+
+\begin_layout Section
+Objetivos Alcanzados
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Objetivos-Alcanzados"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+En función de lo anteriormente expuesto, se definió el objetivo general
+ de esta tesis, de la siguiente manera:
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Box Boxed
+position "c"
+hor_pos "c"
+has_inner_box 1
+inner_pos "c"
+use_parbox 1
+use_makebox 0
+width "80text%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+
+\emph on
+\begin_inset Quotes eld
+\end_inset
+
+Evaluación de Servicios Web, mediante un Metamodelo de Contratos de servicios,
+ basado en el estándar SoaML
+\begin_inset Quotes erd
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+En este sentido, se propuso que la contribución materialice una extensión
+ del proceso de selección y de su herramienta de soporte, enfocando en que
+ las especificaciones de contratos de Servicios Web sean independientes
+ de tecnología y que puedan abarcar servicios heterogéneos.
+ Para ello se desarrollo un Metamodelo utilizando como base un conjunto
+ de estándares para descripción de contratos/responsabilidades de Servicios
+ Web.
+ En el contexto de este objetivo general, destacan distintos objetivos específic
+os cuya consecución se detalla a continuación.
+\end_layout
+
+\begin_layout Standard
+Para la consecución de este objetivo general, se propusieron los siguientes
+ objetivos específicos:
+\end_layout
+
+\begin_layout Paragraph*
+Objetivo 1: Desarrollar un Metamodelo para especificación de Servicios Web
+ basado en el estándar OMG SoaML, con su implementación en la plataforma
+ Java
+\end_layout
+
+\begin_layout Standard
+Como se mencionó en el Capítulo 3, resultaba necesario contar con una especifica
+ción de contratos de Servicios Web, que sea independiente de cualquier tecnologí
+a de implementación.
+ Por este motivo, utilizando como base los estándares SoaML, WSDL y WADL,
+ se definió e implementó un Metamodelo para Descripción de Contratos de
+ Servicios Web.
+ El Metamodelo desarrollado ofrece mas información 
+\begin_inset Quotes eld
+\end_inset
+
+semántica
+\begin_inset Quotes erd
+\end_inset
+
+ correspondiente a un Servicio Web en comparación con las clases Java generadas
+ en las anteriores versiones de la Herramienta de Evaluación de Servicios
+ Web.
+ El enfoque semántico-estructural contempla el análisis exhaustivo de tipos
+ complejos, cuyo tratamiento no era trivial por el hecho del anidamiento
+ de objetos.
+ Además se planteó la estructura 
+\emph on
+ArrayType
+\emph default
+ que presenta un fuerte significado semántico y estructural, ya que indica
+ que en su interior habrá una colección de objetos del mismo tipo.
+ Se permitió el análisis de Tipos Complejos contra Tipos Simples puesto
+ que se indaga dentro de sus estructuras y cantidad de parámetros de los
+ mismos sin ser este último un condicionante taxativo a la hora de evaluar
+ la similitud esperada.
+\end_layout
+
+\begin_layout Paragraph*
+Objetivo 2: Modificar la Herramienta de Evaluación de Servicios Web integrando
+ el Metamodelo de Servicios Web
+\end_layout
+
+\begin_layout Standard
+Al contar con el Metamodelo desarrollado, resultó necesario que la evaluación
+ de servicios candidatos se realice en función de instanciaciones del Metamodelo.
+ Para ello, se diseño y desarrolló un componente de software que contiene
+ al Metamodelo, el cual fue integrado a la Herramienta de Evaluación de
+ Servicios Web.
+ En la nueva versión de la plataforma, tanto los requerimientos funcionales
+ por parte de desarrolladores de aplicaciones orientadas a servicios, como
+ los propios servicios candidatos, son representados y comparados mediante
+ instanciaciones del Metamodelo.
+ 
+\end_layout
+
+\begin_layout Standard
+Para validar la Herramienta de Selección de Servicios Web con el Metamodelo
+ integrado, se llevo a cabo una evaluación experimental.
+ Para el experimento presentado se utilizó un conjunto de más de 1000 Servicios
+ Web reales.
+ Inicialmente, tres grupos de desarrolladores generaron manualmente consultas
+ multi-operacionales.
+ Luego, las consultas generadas se ejecutaron utilizando los registros de
+ descubrimiento de servicios y la Herramienta de Evaluación de Servicios
+ Web.
+ Los resultados obtenidos siguiendo la métrica Precisión-en-n Acumulada
+ mostraron una mejora en la precisión para los primeros resultados de la
+ lista.
+ De esta manera, el servicio candidato para una consulta tiene una alta
+ probabilidad que resulte con un nivel aceptable en el subsiguiente procedimient
+o de Compatibilidad de Comportamiento (Capítulo 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "cap:SOApp"
+
+\end_inset
+
+ Sección 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:SelectionMethodOld"
+
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Paragraph*
+Objetivo 3: Desarrollar un Componente Conversor de descripciones WSDL hacia
+ instanciaciones del Metamodelo propuesto
+\end_layout
+
+\begin_layout Standard
+Se desarrolló un componente Conversor que recibe como entrada un documento
+ WSDL (generalmente por medio de la URL) y devuelve como salida una instancia
+ del Metamodelo.
+ Contar con este conversor nos permitio trabajar con servicios SOAP de una
+ manera transparente, sin necesidad de instanciar manualmente, de acuerdo
+ al metamodelo desarrollado, cada descripcion del servicio.
+ 
+\end_layout
+
+\begin_layout Standard
+El primer beneficio concreto de contar con el componente conversor lo obtuvimos
+ a la hora de realizar la evaluación experimental, ya que para los más de
+ 1000 servicios utilizados como dataset, fueron generadas sus correspondientes
+ instancias del metamodelo para poder evaluar los mismos en un tiempo que
+ se considera ínfimo en comparación a realizar la tarea manualmente.
+ 
+\end_layout
+
+\begin_layout Section
+Trabajo Futuro
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Trabajo-Futuro"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+En función de lo estudiado en esta tesis, se identificaron algunos aspectos
+ para continuar la optimización del Método de Selección de Servicios Web.
+ Estos aspectos se detallan a continuación: 
+\end_layout
+
+\begin_layout Itemize
+Un aspecto a tener en cuenta a la hora de seleccionar un Servicio Web candidato
+ a integrar en una aplicación en desarrollo son las secuencias de ejecución
+ de operaciones válidas que el mismo ofrece.
+ Para esto, podría extenderse el procedimento de Análisis de Compatibilidad
+ de Interfaces, incluyendo una evaluación sobre la coregrafia de los mismos.
+ Aspecto que ahora es considerado en el nuevo metamodelo desarrollado, pero
+ en el cual no se ha profundizado en su tratamiento, ya que sería necesario
+ contar con un diagrama auxiliar (por ejemplo, diagrama de secuencia UML)
+ para denotar la lógica del orden de llamados para el uso de una función
+ específica.
+ 
+\end_layout
+
+\begin_layout Itemize
+Desarrollar otros conversores, para otras descripciones de servicios como
+ WADL
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "medvidovic2000classification"
+
+\end_inset
+
+, OpenAPI
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://www.openapis.org/
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+ o Swagger
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://swagger.io/
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+, le daría un valor agregado a la herramienta muy grande, ya que nos permitiría
+ eventualmente trabajar con los servicios más utilizados en la industria.
+ 
+\end_layout
+
+\begin_layout Itemize
+Sería de gran utilidad explotar la información que ofrece el metamodelo
+ desarrollado considerando el procedimiento de Evaluación de Compatibilidad
+ de Comportamiento de los servicios (Sección 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:SelectionMethodOld"
+
+\end_inset
+
+).
+ Para esto es necesario definir nuevos esquemas y analizar cómo impacta
+ esta información a la hora de la evaluación de comportamiento.
+ 
+\end_layout
+
+\begin_layout Itemize
+Definir un proceso de generación de adaptadores (
+\emph on
+Wrappers
+\emph default
+) en función del Metamodelo.
+ Cada 
+\emph on
+Wrapper
+\emph default
+ representa una posible correspondencia de las operaciones de la interfaz
+ requerida 
+\begin_inset Formula $I_{R}$
+\end_inset
+
+ – que se denomina Interfaz a Consumir (
+\begin_inset Formula $I_{C}$
+\end_inset
+
+) en el Metamodelo – con respecto a las operaciones de la interfaz 
+\begin_inset Formula $I_{S}$
+\end_inset
+
+ – que se denomina Interfaz Provista (
+\begin_inset Formula $I_{P}$
+\end_inset
+
+) – de un servicio candidato.
+ Esto permitiría comunicarnos con el Servicio Web candidato, de la forma
+ más sencilla y automática posible.
+ 
+\end_layout
+
+\end_body
+\end_document

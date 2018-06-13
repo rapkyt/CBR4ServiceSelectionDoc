@@ -1,0 +1,5034 @@
+#LyX 2.2 created this file. For more info see http://www.lyx.org/
+\lyxformat 508
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass myBook
+\begin_preamble
+
+\end_preamble
+\use_default_options false
+\maintain_unincluded_children false
+\language spanish
+\language_package babel
+\inputencoding auto
+\fontencoding default
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 0
+\use_package cancel 0
+\use_package esint 1
+\use_package mathdots 0
+\use_package mathtools 0
+\use_package mhchem 0
+\use_package stackrel 0
+\use_package stmaryrd 0
+\use_package undertilde 0
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 2
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Chapter
+Desarrollo de Aplicaciones Orientadas a Servicios
+\begin_inset CommandInset label
+LatexCommand label
+name "cap:SOApp"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Introducción
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:introCap2"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+En el capítulo previo se describió la motivación principal de esta tesis
+ que consiste en la creación e instanciación de un metamodelo para comparación
+ de Servicios Web, considerado una mejora de suma importancia para el Proceso
+ de Selección de Servicios Web.
+ Este último se basa actualmente en especificaciones sencillas derivadas
+ de las descripciones WSDL de servicios; para evaluar el nivel de compatibilidad
+ y también estimar el esfuerzo de adaptación de un servicio candidato para
+ su integración en una aplicación en desarrollo específica.
+ Las especificaciones actuales de servicios son interfaces Java, las cuales
+ no permiten considerar la amplia heterogeniedad tecnológica de Servicios
+ Web, es decir, WSDL, WADL, REST, entre otros.
+\end_layout
+
+\begin_layout Standard
+La evaluación de interfaces es un tema muy estudiado en el paradigma de
+ Desarrollo de Software Basado en Componentes (CSBD
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Component-based Software Development
+\end_layout
+
+\end_inset
+
+), y gran parte del trabajo alcanzado en este área ha sido adaptado para
+ la evaluación de interfaces de servicios.
+ Un ejemplo es el Algoritmo de Stroulia-Wang analizado en 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "stroulia2005structural,Wang03b,Wang03a"
+
+\end_inset
+
+.
+ En el presente Capítulo se describe el enfoque para facilitar el desarrollo
+ de Aplicaciones Orientadas a Servicios, que se constituye como un 
+\emph on
+Proceso de
+\emph default
+ 
+\emph on
+Selección
+\emph default
+ 
+\emph on
+de Servicios Web
+\emph default
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "castro16,Cors12,DeRenzis13"
+
+\end_inset
+
+ y posee una herramienta como soporte semi-automático.
+ 
+\end_layout
+
+\begin_layout Section
+Método de Selección de Servicios Web
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:SelectionMethodOld"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Durante el desarrollo de una Aplicación Orientada a Servicios, un ingeniero
+ de software puede decidir la implementación de algunas partes específicas
+ de un sistema en la forma de componentes 
+\emph on
+in-house
+\emph default
+.
+ Sin embargo, para otras piezas del sistema se podría optar por la adquisición
+ de componentes de terceras partes, que a su vez podrían ser resueltos por
+ medio de Servicios Web.
+ Luego, una Aplicación Orientada a Servicios generalmente posee funcionalidades
+ que no están implementadas de manera local.
+ Esto se ilustra en la Figura
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Esquema-de-funcionamiento"
+
+\end_inset
+
+, que presenta un proceso posible de desarrollo en SOA, basado en el enfoque
+ EasySOC 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Rodriguez10a"
+
+\end_inset
+
+que incluye el descubrimiento y la selección de Servicios Web candidatos.
+ Para este proceso se requiere que los diseñadores especifiquen la (potencial)
+ interfaz (en el lenguaje Java) del componente de la aplicación que se desea
+ tercerizar, que denominaremos 
+\begin_inset Formula $I_{R}$
+\end_inset
+
+ (Interfaz Requerida), agregando opcionalmente alguna anotación en la forma
+ de comentarios Javadoc
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Javadoc: 
+\begin_inset CommandInset href
+LatexCommand href
+target "http://www.oracle.com/technetwork/articles/java/index-137868.html"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+ – herramienta mediante la cual se genera documentación a partir de comentarios
+ en el código fuente Java.
+ 
+\begin_inset Newline newline
+\end_inset
+
+Luego en el enfoque EasySOC se extrae información relevante del servicio
+ requerido a partir del código fuente de la aplicación, incluyendo la mencionada
+ interfaz 
+\begin_inset Formula $I_{R}$
+\end_inset
+
+ y los comentarios de dicho código, y para ello utiliza ciertas técnicas
+ de minería de textos, para la generación inicial de una consulta (
+\emph on
+query
+\emph default
+) compuesta de términos relevantes
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Crasso10"
+
+\end_inset
+
+ – Paso 1.1 de la Figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Esquema-de-funcionamiento"
+
+\end_inset
+
+.
+ Esta consulta permite buscar en descripciones de servicios WSDL en un registro
+ de descubrimiento de servicios (repositorio local) mediante el motor de
+ búsqueda de EasySOC 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "crasso2008easy"
+
+\end_inset
+
+ – Paso 1.2.
+ 
+\end_layout
+
+\begin_layout Standard
+Luego de la búsqueda en el registro, se obtiene un conjunto de documentos
+ candidatos WSDL versión 1.1, cuyas operaciones se asemejan en signatura
+ a las que contiene la 
+\begin_inset Formula $I_{R}$
+\end_inset
+
+, los cuales son usados de base por el Paso 1.3 para convertir dichas operaciones
+ en interfaces Java, que individualmente se denominan 
+\begin_inset Formula $I_{S}$
+\end_inset
+
+ (Interfaz Servicio).
+ Este proceso puede ser realizado de manera manual o bien con una herramienta
+ externa (por ejemplo AXIS
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+AXIS: 
+\begin_inset CommandInset href
+LatexCommand href
+target "http://axis.apache.org/axis/java/"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+).
+ De esta manera las operaciones ya transformadas al lenguaje Java, representan
+ a las operaciones que se encuentran en los documentos asociados (en formato
+ WSDL versión 1.1).
+ Es importante destacar que para generar las interfaces Java, es necesario
+ generar todos los archivos correspondientes a los servicios requeridos
+ y candidatos, más los archivos de Tipos Complejos de datos que se encuentran
+ en los WSDL utilizados en los servicios, para luego compilarlos, obteniendo
+ los archivos .class necesarios para hacer el análisis (este proceso se hace
+ para cada WSDL involucrado).
+ El conjunto de interfaces Java (
+\begin_inset Formula $I_{S}$
+\end_inset
+
+) derivadas de los WSDL de servicios candidatos, son evaluadas en el Método
+ de Selección de Servicios Web – Paso 2, Figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Esquema-de-funcionamiento"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement h
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ImgChapter2/EsquemaMetodoNuevo.png
+	lyxscale 70
+	width 100col%
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Proceso de Descubrimiento y Selección de Servicios Web
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Esquema-de-funcionamiento"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace*{-.2cm}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Cuando más de un Servicio Web es recuperado del registro de descubrimiento,
+ el ingeniero de software necesita evaluar cuál sería el servicio candidato
+ más apropiado – Paso 2 de la Figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Esquema-de-funcionamiento"
+
+\end_inset
+
+ – y para eso se vale de la asistencia semi-automática del Método de Selección
+ de Servicios Web, que consiste de tres procedimientos según se muestra
+ en la Figura
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Pasos-del-método"
+
+\end_inset
+
+, los cuales se describen a continuación:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement h
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ImgChapter2/seleccion.png
+	width 100text%
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Método de Selección de Servicios Web 
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Pasos-del-método"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace*{-.2cm}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Nuevamente la interfaz Java 
+\begin_inset Formula $I_{R}$
+\end_inset
+
+ (que está en dependencia de un componente 
+\begin_inset Formula $C$
+\end_inset
+
+ de la aplicación cliente) provee la especificación de requerimiento funcional
+ y servirá de entrada a sus tres procedimientos.
+ 
+\end_layout
+
+\begin_layout Standard
+El procedimiento de 
+\shape slanted
+Análisis de Compatibilidad de Interfaces 
+\shape default
+(Paso 1 de la Figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Pasos-del-método"
+
+\end_inset
+
+) se realiza a nivel estructural y semántico, por medio de un esquema exhaustivo
+, para evaluar la interfaz requerida (
+\begin_inset Formula $I_{R}$
+\end_inset
+
+) y la interfaz provista por los servicios candidatos (
+\begin_inset Formula $I_{S}$
+\end_inset
+
+), para luego caracterizar los elementos de signatura de las operaciones
+ (retorno, nombre, parámetros, excepciones) de acuerdo a distintos niveles
+ de compatibilidad.
+ Dicho análisis es explicado en detalle en la Sección 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Compatibilidad-InterfacesOld"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+El procedimiento de 
+\shape slanted
+Construcción de Test Suite de Comportamiento
+\shape default
+ (Paso 2 de la Figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Pasos-del-método"
+
+\end_inset
+
+) se aplica al identificar que un requerimiento funcional de una aplicación
+ (en la forma de una interfaz requerida 
+\begin_inset Formula $I_{R}$
+\end_inset
+
+) podría ser cubierto por un potencial Servicio Web candidato.
+ Para ello, se construye un conjunto de casos de test o Test Suite (TS),
+ que se ha denominado 
+\emph on
+TS de Comportamiento
+\emph default
+, para ser ejercitado sobre un conjunto de servicios candidatos previamente
+ descubiertos.
+ El objetivo es cumplir la métrica de testing 
+\emph on
+Facilidad de Observación
+\emph default
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Freedman91,Jaffar07"
+
+\end_inset
+
+ que identifica el comportamiento operacional de un componente, al analizar
+ las transformaciones funcionales de datos (input/output) que realiza un
+ componente.
+ Desde ello, se podría exponer una compatibilidad potencial de un servicio
+ candidato, como se ha analizado en
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Cechich07,Flores10,Alexander99"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+El procedimiento de 
+\shape slanted
+Evaluación de Compatibilidad de Comportamiento
+\shape default
+ (Paso 3 de la Figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Pasos-del-método"
+
+\end_inset
+
+) evalúa el comportamiento requerido de los Servicios Web candidatos mediante
+ la ejecución del 
+\emph on
+TS de Comportamiento.
+
+\emph default
+ Para esta evaluación, se efectúa un procesamiento de los mapeos de interfaces
+ obtenidos del Paso 1, para generar un conjunto de 
+\emph on
+wrappers
+\emph default
+ (o adaptadores) que permiten la ejecución del TS contra los servicios candidato
+s (a través de la interfaz provista 
+\begin_inset Formula $I_{S}$
+\end_inset
+
+) y así poder evaluar el grado de compatibilidad de comportamiento alcanzado.
+ Cada 
+\emph on
+wrapper
+\emph default
+ representa una posible correspondencia de las operaciones de la interfaz
+ requerida 
+\begin_inset Formula $I_{R}$
+\end_inset
+
+ con respecto a las operaciones de la interfaz 
+\begin_inset Formula $I_{S}$
+\end_inset
+
+ de un servicio candidato.
+ Las invocaciones remotas al servicio 
+\begin_inset Formula $S$
+\end_inset
+
+ se resuelven mediante un proxy (
+\begin_inset Formula $P_{S}$
+\end_inset
+
+).
+ Luego de la ejecución del TS, al menos uno de los wrappers deberá pasar
+ exitosamente los tests para confirmar una compatibilidad de comportamiento,
+ y además este 
+\emph on
+wrapper
+\emph default
+ exitoso permitirá que un componente 
+\begin_inset Formula $C$
+\end_inset
+
+ pueda invocar en forma segura al servicio candidato 
+\begin_inset Formula $S$
+\end_inset
+
+ (a través de 
+\begin_inset Formula $P_{S}$
+\end_inset
+
+), una vez integrado en la aplicación cliente.
+\end_layout
+
+\begin_layout Standard
+Se enfatiza que de los tres procedimientos mencionados, en la sección siguiente
+ se explica en particular el procedimiento de Análisis de Compatibilidad
+ de Interfaces, ya que resulta ser el enfoque central del trabajo de esta
+ tesis.
+ Para más información dirigirse a las tesis que se enuncian a continuación:
+ 
+\end_layout
+
+\begin_layout Itemize
+El procedimiento de 
+\shape slanted
+Evaluación de Compatibilidad de Comportamiento 
+\shape default
+puede ser analizado en detalle en la tesis 
+\emph on
+Test Suite basado en Matching de Interfaces para Evaluación de Comportamiento
+ de Servicios Web
+\emph default
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Anabalon15"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Detalles sobre Evaluación Estructural y Semántica de Servicios Web en la
+ tesis 
+\emph on
+Extensión a la Evaluación Estructural y Semántica de Servicios Web Orientada
+ a la Adaptabilidad
+\emph default
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "castro16"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Análisis de Compatibilidad de Interfaces
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Compatibilidad-InterfacesOld"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+El procedimiento completo para el análisis semántico estructural de compatibilid
+ad de interfaces se resume en la Figura
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Análisis-de-Compatibilidad"
+
+\end_inset
+
+.
+ Como paso inicial se necesita la especificación sencilla de la funcionalidad
+ requerida en forma de una interfaz requerida (
+\begin_inset Formula $I_{R}$
+\end_inset
+
+).
+ El procedimiento de compatibilidad de interfaces evalúa la interfaz requerida
+ 
+\begin_inset Formula $I_{R}$
+\end_inset
+
+ y la interfaz candidata 
+\begin_inset Formula $I_{S}$
+\end_inset
+
+ provista por un servicio candidato 
+\begin_inset Formula $S$
+\end_inset
+
+.
+ A través de un análisis estructural y semántico, los elementos de signatura
+ de las operaciones (tipo de retorno, nombre operación, parámetros, excepciones)
+ se caracterizan de acuerdo a distintos niveles de compatibilidad.
+ A continuación se introducen los pasos principales del Análisis de Compatibilid
+ad de Interfaces.
+\begin_inset Newline newline
+\end_inset
+
+ El primer paso que se realiza es la extracción de elementos de signatura:
+ por cada una de las interfaces bajo análisis, se extraen tipos y nombres
+ de la operación, parámetros, retornos y excepciones para ser comparados
+ contra los de la interfaz requerida.
+ Luego de recuperados cada uno de los elementos de signatura, se procede
+ a realizar la extracción de información estructural y semántica.
+ 
+\begin_inset Newline newline
+\end_inset
+
+Respecto a los nombres de operaciones, se generan las listas de términos
+ respectivas para los nombres de operación de 
+\begin_inset Formula $op_{R}$
+\end_inset
+
+ ∈ 
+\begin_inset Formula $I_{R}$
+\end_inset
+
+ y de 
+\begin_inset Formula $op_{S}$
+\end_inset
+
+ ∈ 
+\begin_inset Formula $I_{S}$
+\end_inset
+
+ que se estén comparando, se eliminan términos sin significado (stop words)
+ y finalmente se identifica la raíz o lema (stem) de los términos significativos
+ – en un proceso denominado stemming.
+ De manera similar, se procesan los identificadores y se extraen los tipos
+ de cada parámetro incorporando además el análisis exhaustivo de parámetros
+ de tipo complejo.
+ 
+\begin_inset Newline newline
+\end_inset
+
+Para el análisis estructural se comparan los tipos de datos de los elementos
+ de signatura de las operaciones 
+\begin_inset Formula $op_{R}$
+\end_inset
+
+ ∈ 
+\begin_inset Formula $I_{R}$
+\end_inset
+
+ contra las operaciones 
+\begin_inset Formula $op_{S}$
+\end_inset
+
+ ∈ 
+\begin_inset Formula $I_{S}$
+\end_inset
+
+.
+ Para la comparación entre dos tipos de datos entre sí se utilizan las nociones
+ de equivalencia de tipos de datos y subtipificación, definidas en la Sección
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Equivalencia-de-Tipos"
+
+\end_inset
+
+.
+ Para el análisis semántico de parámetros, se comparan los nombres de los
+ parámetros y, en caso que se trate de parámetros complejos, también se
+ comparan los nombres de los campos que lo componen.
+ Análogamente, se aplica análisis semántico de retorno de tipo complejo.
+ No se realiza análisis semántico para las excepciones, ya que en el contexto
+ de Servicios Web la definición de excepciones (faults de acuerdo a la terminolo
+gía para WSDL) no es una práctica común
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "garriga2013service"
+
+\end_inset
+
+.
+ Por ello el análisis semántico de excepciones no afecta de manera crítica
+ la compatiblidad de interfaces.
+ 
+\begin_inset Newline newline
+\end_inset
+
+Luego de las etapas de análisis, se realiza el cálculo de los valores de
+ compatibilidad estructural y semántica entre las operaciones, que serán
+ utilizados para determinar el valor de compatibilidad final entre la interfaz
+ requerida y la candidata.
+ El resultado principal del análisis de compatibilidad de interfaces es
+ una lista de mapeos de interfaces identificando correspondencias entre
+ las operaciones de la interfaz requerida 
+\begin_inset Formula $I_{R}$
+\end_inset
+
+ y las operaciones de la interfaz 
+\begin_inset Formula $I_{S}$
+\end_inset
+
+ de un Servicio Web candidato S.
+ Además, se obtiene una lista de sugerencias de correspondencias de parámetros
+ que permite distinguir, para cada par de operaciones compatibles (
+\begin_inset Formula $op_{R}$
+\end_inset
+
+ ∈ 
+\begin_inset Formula $I_{R}$
+\end_inset
+
+, 
+\begin_inset Formula $op_{S}$
+\end_inset
+
+ ∈ 
+\begin_inset Formula $I_{S}$
+\end_inset
+
+) en la lista de mapeos de interfaces, qué parámetro de la interfaz candidata
+ le corresponde a cada parámetro de la interfaz requerida para que la compatibil
+idad de las operaciones sea la mayor.
+ Finalmente se obtienen un valor de compatibilidad (relativo a aspectos
+ funcionales) y un valor de adaptabilidad que refleja el esfuerzo que se
+ requiere para adaptar e integrar la interfaz candidata a la aplicación
+ cliente.
+ Los aspectos más relevantes sobre los procedimientos de evaluación estructural
+ y semántica, serán detallados en la Sección
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Parámetros"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename ImgChapter2/figAnálisis-de-Compatibilidad-Interfaces-viejo.png
+	lyxscale 50
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Análisis-de-Compatibilidad"
+
+\end_inset
+
+Análisis de Compatibilidad de Interfaces
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+Se podría decir que el 
+\emph on
+Análisis Semántico-Estructural de Compatibilidad de Interfaces
+\emph default
+ es un Esquema de Evaluación que cubre comprensivamente un rango de casos
+ de mapeo, abarcando tanto los aspectos 
+\emph on
+estructurales
+\emph default
+ como los aspectos 
+\emph on
+semánticos
+\emph default
+ de las interfaces de servicios, explotando todas las fuentes de información
+ disponible y mejorando los procesos definidos para analizar dicha información.
+ El esquema caracteriza la similitud estructural y semántica en cuatro niveles
+ de compatibilidad: 
+\emph on
+exacto
+\emph default
+, 
+\emph on
+moderado,
+\emph default
+ 
+\emph on
+casi-moderado
+\emph default
+ e
+\emph on
+ incompatible
+\emph default
+.
+ Esto permite describir los casos de similitud que representan diferentes
+ restricciones estructurales y semánticas para pares de operaciones 
+\begin_inset Formula $(op_{R}\in I_{R},op_{S}\in I_{S})$
+\end_inset
+
+.
+ Particularmente, estas restricciones se basan en condiciones individuales
+ para cada elemento de signatura de las operaciones: 
+\emph on
+Tipo de Retorno
+\emph default
+ (
+\family typewriter
+R
+\family default
+), 
+\emph on
+Nombre de Operación
+\emph default
+ (
+\family typewriter
+N
+\family default
+), 
+\emph on
+Lista de parámetros
+\emph default
+ (
+\family typewriter
+P
+\family default
+) y 
+\emph on
+Lista de excepciones
+\emph default
+ (
+\family typewriter
+E
+\family default
+).
+ La Tabla
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:Condiciones-de-Equivalencia"
+
+\end_inset
+
+ resume las condiciones para los elementos de signatura consideradas en
+ este Esquema de Evaluación.
+ El cálculo para las condiciones estructurales para el Tipo de Retorno y
+ Excepciones es directo y será detallado en la Sección
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Condiciones-de-Equivalencia"
+
+\end_inset
+
+.
+ Las condiciones semántico-estructurales para 
+\emph on
+compNombres
+\emph default
+ y 
+\emph on
+compParam
+\emph default
+ se corresponden con los valores de las fórmulas para calcular similitud
+ entre Nombres de Operaciones y Listas de Parámetros respectivamente, que
+ serán detalladas en la Subsección
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Parámetros"
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Plain Layout
+El conjunto de restricciones estructurales de la Tabla 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:Condiciones-de-Equivalencia"
+
+\end_inset
+
+ identifica los distintos grados de equivalencia entre las signaturas de
+ las operaciones.
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Float table
+placement h
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="17" columns="3">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top" width="0pt">
+<column alignment="center" valignment="top">
+<column alignment="left" valignment="top" width="0pt">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size small
+Elemento
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size small
+Cond.
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size small
+Descripción
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multirow="3" alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size small
+Retorno
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size small
+R0
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size small
+No Compatible
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multirow="4" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+R1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Igual tipo de retorno
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multirow="4" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size small
+R2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size small
+Equivalente (subtipos, Strings o Tipos Complejos)
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multirow="4" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size small
+R3
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size small
+Tipos Complejos no equivalentes o pérdida de precisión
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multirow="3" alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size small
+Nombre
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size small
+N0
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size small
+No compatibles
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multirow="4" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size small
+N1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size small
+Igual nombre de operación
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multirow="4" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size small
+N2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size small
+Equivalente nombre de operación (substring)
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multirow="4" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size small
+N3
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Nombre de la operación no considerado
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multirow="3" alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size small
+Parámetros
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size small
+P0
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size small
+No compatible
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multirow="4" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size small
+P1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size small
+Igual número, tipo y orden de parámentros
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multirow="4" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size small
+P2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size small
+Igual número, tipo de parámetros pero diferente orden
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multirow="4" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size small
+P3
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size small
+Igual número de parámetros, con al menos un parámetro con tipo compatible
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multirow="3" alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size small
+Excepciones
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size small
+E0
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size small
+No compatible
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multirow="4" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size small
+E1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size small
+Igual cantidad, tipo y orden de excepciones
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multirow="4" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size small
+E2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size small
+Igual número y tipo de excepciones
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multirow="4" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size small
+E3
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Si la excepción original no está vacia, la candidata tampoco
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Condiciones de equivalencia Estructural y Semántica por elemento de signatura
+ 
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:Condiciones-de-Equivalencia"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Equivalencia Estructural y Semántica
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:Condiciones-de-Equivalencia"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Sea 
+\begin_inset Formula $I_{R}$
+\end_inset
+
+ la interfaz de cierta funcionalidad requerida para una aplicación cliente,
+ e 
+\begin_inset Formula $I_{S}$
+\end_inset
+
+ la interfaz de un Servicio Web candidato 
+\begin_inset Formula $S$
+\end_inset
+
+.
+ Para cada par de operaciones 
+\begin_inset Formula $(op_{R},op_{S})$
+\end_inset
+
+, las probables equivalencias entre esas operaciones se basan, en primera
+ instancia, en las condiciones estructurales y semánticas para cada elemento
+ de signatura.
+ Nótese que dichos elementos se nombran de acuerdo a la terminología Java,
+ en vez de usar la convención WSDL para interfaces de Servicios Web.
+ Esto se debe a que las evaluaciones se realizan sobre interfaces Java previamen
+te derivadas de especificaciones WSDL.
+ Los aspectos principales en cuanto a las condiciones estructurales son
+ detallados a continuación.
+ 
+\end_layout
+
+\begin_layout Subsection
+Equivalencia de Tipos de Datos
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:Equivalencia-de-Tipos"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+La equivalencia de los tipos de datos ha sido establecida en función de
+ la relación de subsumción conocida como 
+\emph on
+subtipificación
+\emph default
+ (se escribe
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset Formula $<:$
+\end_inset
+
+)
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Zaremski97,Gosling05"
+
+\end_inset
+
+ para tipos primitivos de datos, de acuerdo a la relación 
+\emph on
+directa
+\emph default
+ de subtipos (se escribe
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset Formula $<_{1}$
+\end_inset
+
+) del lenguaje Java
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Gosling05"
+
+\end_inset
+
+, que se muestra en la Tabla
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:Equivalencia-de-Subtipos"
+
+\end_inset
+
+.
+ Para más información dirigirse a la Tesis
+\begin_inset space ~
+\end_inset
+
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "castro16"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Así para las signaturas de las operaciones se consideran relaciones de subtipos
+ como se muestra en la Tabla
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:Equivalencia-de-Subtipos"
+
+\end_inset
+
+, donde los tipos en 
+\begin_inset Formula $op_{S}$
+\end_inset
+
+ deben al menos tener tanta precisión como los tipos en 
+\begin_inset Formula $op_{R}$
+\end_inset
+
+.
+ Por ejemplo si la operación 
+\begin_inset Formula $op_{R}$
+\end_inset
+
+ incluye un tipo 
+\family typewriter
+int
+\family default
+, una operación correspondiente 
+\begin_inset Formula $op_{S}$
+\end_inset
+
+ no puede tener una precisión menor como 
+\family typewriter
+short
+\family default
+ o 
+\family typewriter
+byte
+\family default
+ (entre los tipos numéricos).
+ Sin embargo, se da un caso especial con el tipo 
+\family typewriter
+String
+\family default
+, que se considera un tipo 
+\emph on
+comodín
+\emph default
+ dado que es usado comúnmente en la práctica para alojar virtualmente cualquier
+ tipo de dato
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Pasley06"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename ImgChapter2/EquivalenciaDeSubtipos.PNG
+	lyxscale 50
+	width 65text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:Equivalencia-de-Subtipos"
+
+\end_inset
+
+Equivalencia de Subtipos
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+El procedimiento se basa actualmente en un Esquema de Evaluación que distingue
+ entre diferentes niveles de compatibilidad que permiten estimar el esfuerzo
+ de adaptación de un componente para su integración en la aplicación en
+ desarrollo.
+\end_layout
+
+\begin_layout Plain Layout
+Comprende tanto aspectos estructurales como semánticos de las interfaces
+ de servicios y permite explotar todas las fuentes de información disponibles.
+ Se evalúan los elementos de signatura de las interfaces – nombres de operacione
+s, tipos de retorno, excepciones y nombres; tipos y cantidad de parámetros
+ – de manera sintáctica, estructural y semántica.
+ Para realizar este procedimiento se analiza la información extraída de
+ los elementos de signatura de las interfaces involucradas mediante diferentes
+ heurísticas, que han sido definidas en base a posibilidades concretas que
+ proveen las siguientes herramientas utilizadas.
+\end_layout
+
+\begin_layout Plain Layout
+
+\series bold
+WordNet
+\series default
+ WordNet 
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+http://wordnet.princeton.edu
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+ es una base de datos léxico-semántica del idioma inglés.
+ Sustantivos, verbos, adjetivos y adverbios se agrupan en conjuntos de sinónimos
+ cognitivos (synsets), cada una expresando un concepto distinto.
+ Estos conjuntos están vinculados entre sí por medio de relaciones semánticas
+ y léxicas.
+ El árbol resultante de las palabras y los conceptos relacionados por su
+ semántica quedan a disposición para ser utilizadas.
+ Particularmente, se utilizó como base semántica el diccionario WordNet
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+http://wordnet.princeton.edu
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Fellbaum90"
+
+\end_inset
+
+.
+ La principal relación que se tiene en cuenta es la sinonimia, donde dos
+ palabras son sinónimos si denotan el mismo significado.
+ Además, se pueden establecer relaciones jerárquicas (del tipo todo-partes
+ o es-un) como la hiponimia y la hiperonimia.
+ La estructura de WordNet hace que sea una herramienta útil para la lingüística
+ computacional y procesamiento del lenguaje natural.
+\end_layout
+
+\begin_layout Plain Layout
+
+\series bold
+JWI
+\series default
+ JWI 
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+http://projects.csail.mit.edu/jwi/
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+ (Java Wordnet Interface) es una librería Java desarrollada por el MIT que
+ provee una interfaz con WordNet.
+ Soporta el acceso a las versiones WordNet 1.6 hasta 3.0 y otras extensiones
+ relacionadas con WordNet.
+ JWI se destaca de otras librerías disponibles para acceder a WordNet porque
+ es una de las más fáciles de usar, soporta todas las versiones estables
+ y su API expone todas las relaciones implementadas por WordNet.
+ Por estos motivos, JWI fue la libería elegida para acceder a WordNet en
+ las extensiones realizadas a la herramienta TestOOJ y en los experimentos
+ del Capítulo 4.
+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+\series bold
+Paranamer 
+\series default
+Como TestOOJ asiste en la selección de componentes OTS, particularmente
+ Servicios Web, asume la no disponibilidad del código de estos componentes
+ por lo que se requiere de un mecanismo para recuperar la información de
+ nombres de parámetros del código compilado de los componentes.
+ Por tal motivo, es necesario la utilización de una librería que permita
+ tener acceso a los nombres de los parámetros de los métodos no probados
+ y constructores en tiempo de ejecución, ya que esta información se pierde
+ en el proceso de compilación.
+ Paranamer 
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://github.com/paul-hammant/paranamer
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+ es una librería que permite realizar esas acciones y se optó por utilizarla
+ ya que se encuentra desarrollada para el lenguaje Java, es fácil de usar
+ y no introduce complejidad adicional al proceso.
+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+\series bold
+Método Hungarian
+\series default
+ El método Hungarian, es un algoritmo de optimización que resuelve problemas
+ de asignación en tiempo O(n3).
+ En el contexto de esta tesis, el método es utilizado para determinar la
+ mejor asignación de parámetros entre las listas de parámetros de dos interfaces
+ de servicios.
+ Esto se realiza en base a los valores de compatibilidad de cada correspondencia
+ de parámetros (P) de acuerdo a la Tabla 2.1, como se verá más adelante.
+ En las siguientes secciones se detalla cómo son utilizadas y combinadas
+ estas herramientas durante el procedimiento de Análisis Semántico-Estructural
+ de Compatibilidad de Interfaces.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Evaluación de Identificadores
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:Algoritmo-para-Evaluacion-Identificadores"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+El algoritmo para la Evaluación de Identificadores compara el nombre de
+ una operación 
+\begin_inset Formula $op_{R}$
+\end_inset
+
+ con el nombre de una operación 
+\begin_inset Formula $op_{S}$
+\end_inset
+
+.
+ Los pasos principales para la comparación son:
+\end_layout
+
+\begin_layout Itemize
+
+\emph on
+Separación de Términos
+\emph default
+: Los identificadores se restringen normalmente a secuencias de una o más
+ letras en código ASCII, caracteres numéricos y guiones bajos ('_') o medios
+ ('-').
+ El paso de 
+\emph on
+Separación de Términos
+\emph default
+ analiza los identificadores reconociendo términos potenciales (secuencias
+ y/o cambios de mayúsculas a minúsculas y visceversa, caracteres especiales).
+ Luego WordNet es utilizado para analizar todos los potenciales términos
+ y determinar la separación de palabras más adecuada.
+ Cuando un identificador no sigue estrictamente las convenciones de nombrado,
+ algunas suposiciones son realizadas, por ejemplo una secuencia de mayúsculas
+ podría representar un acrónimo, al que se le buscará una definición.
+ Sea el caso de la palabra 
+\emph on
+SQLLogin
+\emph default
+, que no cumple con las convenciones de nombrado de Java.
+ El análisis preliminar de términos representativos diría que hay dos secuencias
+ factibles, 
+\emph on
+SQLL
+\emph default
+ y 
+\emph on
+ogin.
+ 
+\emph default
+De acuerdo con el algoritmo de 
+\emph on
+Separación de Términos 
+\emph default
+las secuencias previamente nombradas serían analizadas de esta manera con
+ WordNet.
+ Como no son palabras válidas, el algoritmo analiza la última mayúscula
+ junto con la secuencia de minúsculas 
+\emph on
+L
+\emph default
+ + 
+\emph on
+ogin = Login.
+ 
+\emph default
+Como esta palabra si existe en el diccionario WordNet, 
+\emph on
+SQL
+\emph default
+ es considerada un acrónimo para su análisis (que actualmente significa
+ Structured Query Language).
+ 
+\end_layout
+
+\begin_layout Itemize
+
+\emph on
+Eliminación de Stop Words: 
+\emph default
+es el nombre que reciben las palabras sin significado tales como artículos,
+ pronombres, preposiciones, etc.
+ Estas palabras son filtradas antes o después del procesamiento de datos
+ (texto) en lenguaje natural 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Casamayor10"
+
+\end_inset
+
+, por no ayudar a determinar la semántica de la operación, siendo irrelevantes
+ para determinar si un conjunto de términos es similar a otro.
+ El paso de 
+\emph on
+Eliminación de Stop Words
+\emph default
+ toma una lista de términos y elimina cada ocurrencia de una palabra pertenecien
+te a la lista de stop words.
+ En 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "DeRenzis13"
+
+\end_inset
+
+, se determinó que la lista de stop words debía ser extendida agregando
+ el alfabeto completo (mayúsculas y minúsculas) y también los dígitos.
+ La razón es que el vector resultante del algoritmo de separación de términos
+ puede incluir letras y/o dígitos como términos individuales.
+ Ejemplos comunes del uso de dígitos en los identificadores son: 4 (four)
+ y 2 (two), para referirse a las palabras for y to respectivamente, por
+ tener una pronunciación parecida en el idioma inglés.
+\end_layout
+
+\begin_layout Itemize
+
+\emph on
+Stemming: 
+\emph default
+es el proceso de reducir un término a su forma base, raíz o 
+\emph on
+stem.
+ 
+\emph default
+Inicialmente, se consideró la utilización de un stemmer estándar (frecuentemente
+ usado en Recuperación de Información) como el Algoritmo de Porter
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Willett06"
+
+\end_inset
+
+, pero dichos stemmers pueden generar datos semánticamente incorrectos,
+ siendo los principales errores el 
+\emph on
+overstemming
+\emph default
+ y 
+\emph on
+understemming
+\emph default
+.
+ 
+\emph on
+Overstemming
+\emph default
+ es un error en el que dos palabras derivan en la misma raíz (
+\emph on
+stem
+\emph default
+), pero no deberían ya que son semánticamente diferentes (falso positivo).
+ 
+\emph on
+Understemming
+\emph default
+ es un error en el que dos palabras deben derivar en la misma raíz, pero
+ derivan en raíces distintas (falso negativo).
+ El algoritmo de 
+\emph on
+Stemming
+\emph default
+ utilizado recibe como entrada una lista de términos, y para cada término
+ en la lista, se verifica si pertenece al diccionario de WordNet.
+ Si eso ocurre, se agrega su stem a la lista resultante; en caso contrario,
+ se agrega el término original que puede ser un acrónimo o abreviatura.
+\end_layout
+
+\begin_layout Itemize
+
+\emph on
+Comparación semántica de listas de terminos
+\emph default
+: luego de generar las listas de términos de 
+\begin_inset Formula $op_{R}$
+\end_inset
+
+ y 
+\begin_inset Formula $op_{S}$
+\end_inset
+
+ (con sus respectivos acrónimos y 
+\emph on
+stems
+\emph default
+) se extrae la información para la comparación semántica, que incluye: (1)
+ Términos idénticos (exactos) entre 
+\begin_inset Formula $op_{R}$
+\end_inset
+
+ y 
+\begin_inset Formula $op_{S}$
+\end_inset
+
+; (2) Sinónimos de los términos de 
+\begin_inset Formula $op_{R}$
+\end_inset
+
+ que pertenezcan a la lista de términos de 
+\begin_inset Formula $op_{S}$
+\end_inset
+
+; (3) Hiperónimos (padres) de los términos de 
+\begin_inset Formula $op_{R}$
+\end_inset
+
+ que pertenezcan a 
+\begin_inset Formula $op_{S}$
+\end_inset
+
+; y (4) Hipónimos (hijos) de los términos de 
+\begin_inset Formula $op_{R}$
+\end_inset
+
+ que pertenezcan a la lista de 
+\begin_inset Formula $op_{S}$
+\end_inset
+
+.
+ Para evaluar sinónimos, hiperónimos e hipónimos, se consideraron los siguientes
+ aspectos.
+ En primer lugar, se utilizó un nivel único de hipo/hiperonimia para evitar
+ alterar demasiado el significado de las palabras.
+ Por ejemplo, 
+\emph on
+house
+\emph default
+ es un hipónimo de primer nivel de construcción (por lo tanto, esa relación
+ es considerada por el algoritmo).
+ Segundo, se considera la sinonimia total, donde dos términos son sinónimos
+ si son intercambiables en el mismo contexto sin afectar la semántica.
+ Por ejemplo, 
+\emph on
+land (tierra)
+\emph default
+ y 
+\emph on
+ground (suelo)
+\emph default
+ son sinónimos totales ya que son semánticamente intercambiables.
+\end_layout
+
+\begin_layout Itemize
+
+\emph on
+Cálculo de compatibilidad de nombres: 
+\emph default
+en este punto, con la información obtenida se puede calcular la compatibilidad
+ de nombres de acuerdo a la Fórmula
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:nameComp"
+
+\end_inset
+
+, donde 
+\begin_inset Formula $terms$
+\end_inset
+
+ es el total de términos entre 
+\begin_inset Formula $op_{R}$
+\end_inset
+
+ y 
+\begin_inset Formula $op_{S}$
+\end_inset
+
+ (terms = #({termsOpR} ∪ {termsOpS})), 
+\begin_inset Formula $exact$
+\end_inset
+
+ es el total de términos idénticos, y 
+\begin_inset Formula $sin$
+\end_inset
+
+, 
+\begin_inset Formula $hipo$
+\end_inset
+
+ e 
+\begin_inset Formula $hiper$
+\end_inset
+
+ son los totales de sinónimos, hipónimos e hiperónimos respectivamente.
+ Luego, este valor es discretizado para corresponderse con las condiciones
+ para nombres de operación.
+ A los hiperónimos e hipónimos se le da la mitad del peso de los términos
+ exactos y sinónimos, ya que los primeros implican una semántica ligeramente
+ diferente entre los términos del segundo.
+\end_layout
+
+\begin_layout Standard
+
+\size small
+\lang english
+\begin_inset Formula 
+\begin{equation}
+compNombres=\frac{exact+sin+0.5*(hipo+hiper)}{terms-sin}\label{eq:nameComp}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Evaluación de Parámetros
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:Parámetros"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Para la comparación de parámetros, la cantidad de parámetros no constituye
+ un factor de incompatibilidad cuando 
+\begin_inset Formula $op_{R}\in I_{R}$
+\end_inset
+
+ tiene menos parámetros que una operación 
+\begin_inset Formula $op_{S}\in I_{S}$
+\end_inset
+
+.
+ Ambas operaciones aún son potencialmente compatibles si los campos de algún
+ parámetro complejo resultan compatibles con los parámetros simples en su
+ contraparte.
+ El algoritmo de análisis de compatibilidad de parámetros entre las dos
+ operaciones se basa en calcular tres matrices y realizar dos cálculos que
+ maximizan los resultados obtenidos: 
+\end_layout
+
+\begin_layout Itemize
+La matriz de compatibilidad de tipos (T): se utilizan las nociones de equivalenc
+ias de tipos de datos y subtipificación detalladas en la Tabla 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:Equivalencia-de-Subtipos"
+
+\end_inset
+
+, para evaluar tipos de parámetros.
+ El objetivo de la matriz 
+\begin_inset Formula $T$
+\end_inset
+
+ es almacenar la relación entre todos los pares de tipos de parámetros en
+ 
+\begin_inset Formula $op_{R}$
+\end_inset
+
+ y 
+\begin_inset Formula $op_{S}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+La matriz de compatibilidad de nombres (N): la matriz 
+\begin_inset Formula $N$
+\end_inset
+
+ contiene los valores de compatibilidad entre el nombre de cada parámetro
+ de 
+\begin_inset Formula $op_{R}$
+\end_inset
+
+ y cada parámetro de 
+\begin_inset Formula $op_{S}$
+\end_inset
+
+.
+ La lógica subyacente a este paso es similar a la matriz de tipos.
+ La celda 
+\begin_inset Formula $N_{ij}$
+\end_inset
+
+ de la matriz de nombres 
+\begin_inset Formula $N$
+\end_inset
+
+ contiene el valor de compatibilidad entre el nombre del i-ésimo parámetro
+ de 
+\begin_inset Formula $op_{R}$
+\end_inset
+
+ y el j-ésimo parámetro de 
+\begin_inset Formula $op_{S}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+La matriz de compatibilidad (C): la matriz 
+\begin_inset Formula $C$
+\end_inset
+
+
+\emph on
+ 
+\emph default
+se genera a partir de las matrices 
+\begin_inset Formula $T$
+\end_inset
+
+ y 
+\begin_inset Formula $N$
+\end_inset
+
+
+\emph on
+.
+ 
+\emph default
+El objetivo de esta matriz es almacenar el valor de compatibilidad entre
+ todos los pares de parámetros de 
+\begin_inset Formula $op_{R}$
+\end_inset
+
+ y 
+\begin_inset Formula $op_{S}$
+\end_inset
+
+, considerando aspectos estructurales (resumidos en la matriz 
+\begin_inset Formula $T$
+\end_inset
+
+) y semánticos (resumidos en la matriz 
+\begin_inset Formula $N$
+\end_inset
+
+).
+ La celda 
+\begin_inset Formula $C_{ij}$
+\end_inset
+
+ de la matriz 
+\begin_inset Formula $C$
+\end_inset
+
+ contiene el producto entre 
+\begin_inset Formula $T_{ij}$
+\end_inset
+
+ y 
+\begin_inset Formula $N_{ij}$
+\end_inset
+
+ – luego: 
+\begin_inset Formula $C_{ij}=T_{ij}*N_{ij}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Itemize
+
+\emph on
+Maximización de mapeo de parámetros: 
+\emph default
+Luego de calcular la matriz 
+\begin_inset Formula $C$
+\end_inset
+
+, se debe seleccionar el mejor mapeo de parámetros entre todas las posibles
+ combinaciones de pares de parámetros – es decir, la asignación de parámetros
+ que maximiza la compatibilidad entre 
+\begin_inset Formula $op_{R}$
+\end_inset
+
+ y 
+\begin_inset Formula $op_{S}$
+\end_inset
+
+.
+ Cada posible asignación de parámetros consiste en tomar cada fila de la
+ matriz 
+\begin_inset Formula $C$
+\end_inset
+
+ y elegir una columna, con la condición de no utilizar cada columna más
+ de una vez (no asignar más de una vez cada parámetro).
+ Luego, esto asegura un mapeo uno-a-uno entre los parámetros de 
+\begin_inset Formula $op_{R}$
+\end_inset
+
+ y 
+\begin_inset Formula $op_{S}$
+\end_inset
+
+.
+ El mapeo con el mayor valor total (sumando cada celda elegida) será el
+ más compatible.
+ Dicho mapeo se obtiene aplicando el método Hungarian
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Kuhn55"
+
+\end_inset
+
+, que modela el problema de la asignación como una matriz de costos de 
+\begin_inset Formula $n*m$
+\end_inset
+
+ – en este caso 
+\begin_inset Formula $n$
+\end_inset
+
+ y 
+\begin_inset Formula $m$
+\end_inset
+
+ son los números de parámetros de 
+\begin_inset Formula $op_{R}$
+\end_inset
+
+ y 
+\begin_inset Formula $op_{S}$
+\end_inset
+
+ respectivamente.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Itemize
+
+\emph on
+Maximización de mapeo de parámetros: 
+\emph default
+Luego de calcular la matriz 
+\begin_inset Formula $C$
+\end_inset
+
+, se debe seleccionar el mejor mapeo de parámetros entre todas las posibles
+ combinaciones de pares de parámetros – es decir, la asignación de parámetros
+ que maximiza la compatibilidad entre 
+\begin_inset Formula $op_{R}$
+\end_inset
+
+ y 
+\begin_inset Formula $op_{S}$
+\end_inset
+
+.
+ Cada posible asignación de parámetros consiste en tomar cada fila de la
+ matriz 
+\begin_inset Formula $C$
+\end_inset
+
+ y elegir una columna, con la condición de no utilizar cada columna más
+ de una vez (no asignar más de una vez cada parámetro).
+ Luego, esto asegura un mapeo uno-a-uno entre los parámetros de 
+\begin_inset Formula $op_{R}$
+\end_inset
+
+ y 
+\begin_inset Formula $op_{S}$
+\end_inset
+
+.
+ El mapeo con el mayor valor total (sumando cada celda elegida) será el
+ más compatible.
+ Dicho mapeo se obtiene aplicando el método Hungarian
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Kuhn55"
+
+\end_inset
+
+, que modela el problema de la asignación como una matriz de costos de 
+\begin_inset Formula $n*m$
+\end_inset
+
+ – en este caso 
+\begin_inset Formula $n$
+\end_inset
+
+ y 
+\begin_inset Formula $m$
+\end_inset
+
+ son los números de parámetros de 
+\begin_inset Formula $op_{R}$
+\end_inset
+
+ y 
+\begin_inset Formula $op_{S}$
+\end_inset
+
+ respectivamente.
+\end_layout
+
+\begin_layout Itemize
+C
+\emph on
+álculo de Compatibilidad de Parámetros: 
+\emph default
+Una vez calculada la matriz de compatibilidad C, se analiza la misma en
+ busca de la correspondencia que maximice el valor de compatibilidad de
+ acuerdo a la Fórmula
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:paramComp-1"
+
+\end_inset
+
+, donde 
+\begin_inset Formula $C$
+\end_inset
+
+
+\emph on
+ 
+\emph default
+es la matriz de compatibilidad maximizada, y 
+\begin_inset Formula $p$
+\end_inset
+
+ es una constante configurable para penalizar la cantidad de parámetros
+ no utilizados de 
+\begin_inset Formula $op_{S}$
+\end_inset
+
+ (
+\begin_inset Formula $paramNoUsadosOps$
+\end_inset
+
+).
+ Luego, este valor es discretizado para corresponderse con las condiciones
+ para parámetros mostradas en la Tabla
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:Condiciones-de-Equivalencia"
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Plain Layout
+Luego, el valor de compatibilidad de parámetros se calcula de acuerdo a
+ la Fórmula 
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:compParam-1"
+
+\end_inset
+
+,
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\size small
+\lang english
+\begin_inset Formula 
+\begin{equation}
+compParam=\frac{\sum M_{ij}}{#(parCamposOps)}\text{ −}penalizacion\text{ ∗ }#(paramNoUsadosOps)\label{eq:compParam-1}
+\end{equation}
+
+\end_inset
+
+
+\size default
+\lang spanish
+ Donde M es la matriz de compatibilidad que maximiza los valores de compatibilid
+ad, y la penalización es un valor que depende de si los parámetros de 
+\begin_inset Formula $op_{R}$
+\end_inset
+
+ y 
+\begin_inset Formula $op_{S}$
+\end_inset
+
+ son de tipos simples o complejos, y de un valor configurable que penaliza
+ los parámetros no usados.
+ Esto es, si la 
+\begin_inset Formula $op_{R}$
+\end_inset
+
+ consta de un parámetro complejo y la 
+\begin_inset Formula $op_{S}$
+\end_inset
+
+ es un lista de parámetros simples o viceversa entonces la penalización
+ tiene un coste mayor que si ambas interfaces tuvieran una lista de parámetros
+ simples o un único parámetro complejo.
+ Además, podrían penalizarse los parámetros extra a través del valor.
+ 
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename ImgChapter2/EvaluacionParametrosComplejos.PNG
+	lyxscale 70
+	width 110col%
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+C
+\emph on
+álculo de Compatibilidad de Parámetros: 
+\emph default
+se calcula un valor mediante la ya calculada matriz de compatibilidad 
+\begin_inset Formula $C$
+\end_inset
+
+, analizando la misma en busca de la correspondencia que maximice el valor
+ de compatibilidad de acuerdo a la Fórmula
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:compParam"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+
+\size small
+\lang english
+\begin_inset Formula 
+\begin{equation}
+compParam=\frac{\sum C_{ij}}{\#(parCamposOps)}\text{ −}penalizacion\text{ ∗ }\#(paramNoUsadosOps)\label{eq:compParam}
+\end{equation}
+
+\end_inset
+
+
+\size default
+\lang spanish
+ Donde 
+\begin_inset Formula $C$
+\end_inset
+
+ es la matriz de compatibilidad que maximiza los valores de compatibilidad,
+ y 
+\begin_inset Formula $penalizacion$
+\end_inset
+
+ es un valor que depende de si los parámetros de 
+\begin_inset Formula $op_{R}$
+\end_inset
+
+ y 
+\begin_inset Formula $op_{S}$
+\end_inset
+
+ son de tipos simples o complejos, y de un valor configurable que penaliza
+ los parámetros no usados.
+ Esto es, si la 
+\begin_inset Formula $op_{R}$
+\end_inset
+
+ consta de un parámetro complejo y la 
+\begin_inset Formula $op_{S}$
+\end_inset
+
+ es una lista de parámetros simples o viceversa entonces la penalización
+ tiene un coste mayor que si ambas interfaces tuvieran una lista de parámetros
+ simples o un único parámetro complejo.
+ Además, podrían penalizarse los parámetros extra a través del valor.
+ Por último, este valor es discretizado para corresponderse con las condiciones
+ para parámetros.
+\end_layout
+
+\end_deeper
+\begin_layout Paragraph
+Parámetros complejos
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+El algoritmo de análisis de compatibilidad de parámetros para tipos de datos
+ complejos entre 
+\begin_inset Formula $op_{R}$
+\end_inset
+
+ y 
+\begin_inset Formula $op_{S}$
+\end_inset
+
+ consiste en determinar tres valores:
+\end_layout
+
+\begin_layout Enumerate
+Valor de compatibilidad de los campos (basado en nombres y tipos) que componen
+ los tipos de datos complejos de los parámetros de 
+\begin_inset Formula $op_{R}$
+\end_inset
+
+ y 
+\begin_inset Formula $op_{S}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Valor de compatibilidad de los nombres de los tipos de datos complejos de
+ los parámetros de 
+\begin_inset Formula $op_{R}$
+\end_inset
+
+ y 
+\begin_inset Formula $op_{S}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Valor final de compatibilidad entre los tipos de datos complejos de los
+ parámetros de 
+\begin_inset Formula $op_{R}$
+\end_inset
+
+ y 
+\begin_inset Formula $op_{S}$
+\end_inset
+
+ en base a los valores de compatibilidad obtenidos en los puntos (1) y (2).
+ 
+\end_layout
+
+\begin_layout Paragraph
+
+\series bold
+Compatibilidad de campos
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Para poder realizar una comparación entre parámetros complejos, es necesario
+ conocer la estructura interna de cada uno de ellos y realizar una comparación
+ entre los nombres y tipos de cada uno de los campos que lo componen.
+ Si la cantidad de campos del parámetro complejo de la 
+\begin_inset Formula $op_{R}$
+\end_inset
+
+ es menor a la cantidad de campos del parámetro complejo de la 
+\begin_inset Formula $op_{S}$
+\end_inset
+
+ entonces se puede proceder con la comparación entre ellos.
+\end_layout
+
+\begin_layout Standard
+En caso contrario no se puede avanzar con la comparación, puesto que quedarían
+ campos del tipo complejo en 
+\begin_inset Formula $op_{R}$
+\end_inset
+
+ que no se podrían instanciar con ningún campo en 
+\begin_inset Formula $op_{S}$
+\end_inset
+
+.
+ El algoritmo para el análisis de compatibilidad de los campos es análogo
+ al que se presenta en la Sección
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Evaluación-del-Retorno"
+
+\end_inset
+
+ para el análisis de nombres de los tipos de retorno.
+ 
+\end_layout
+
+\begin_layout Paragraph
+
+\series bold
+Compatibilidad de nombres de parámetros
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Se compara directamente parámetro contra parámetro o campo contra campo
+ en caso de que se traten tipos complejos.
+ En ambas situaciones también se tiene en cuenta que la cantidad de parámetros
+ (o campos del tipo complejo) de la 
+\begin_inset Formula $op_{R}$
+\end_inset
+
+ sea menor o igual a la cantidad de parámetros (o campos del tipo complejo)
+ de la 
+\begin_inset Formula $op_{S}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Una vez determinado el caso que corresponda, la comparación entre los nombres
+ propiamente dichos se realiza de acuerdo al algoritmo de comparación de
+ identificadores presentado en la Sección 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Algoritmo-para-Evaluacion-Identificadores"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Paragraph
+Comparación de parámetros simples contra complejos 
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Cuando se comparan dos operaciones donde una presenta una lista de parámetros
+ de tipo primitivo y la otra un único parámetro complejo, el algoritmo de
+ análisis de compatibilidad aplana
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Budd81"
+
+\end_inset
+
+ el parámetro de tipo complejo y compara los campos con los parámetros primitivo
+s.
+ El aplanado (
+\emph on
+flatten
+\emph default
+) es un operador de mutación de interfaces que permite desencapsular los
+ tipos de datos complejos o registros en una lista de sus tipos componentes.
+ Por lo tanto, el análisis de compatibilidad se reduce al mismo caso que
+ cuando se comparan operaciones con listas de parámetros primitivos, sin
+ tener en cuenta el nombre del tipo complejo.
+\end_layout
+
+\begin_layout Paragraph
+Valor final de compatibilidad de parámetros 
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+El valor de compatibilidad de parámetros de 
+\begin_inset Formula $op_{R}$
+\end_inset
+
+ y 
+\begin_inset Formula $op_{S}$
+\end_inset
+
+ se realiza teniendo en cuenta el valor obtenido con la compatibilidad de
+ nombres y de tipos de todos los parámetros de las operaciones de acuerdo
+ a la siguiente Fórmula: 
+\begin_inset Newline newline
+\end_inset
+
+
+\size small
+
+\begin_inset Formula 
+\begin{equation}
+compParamFinal=compNombres*(1+compTipos)\label{eq:compParamFinal}
+\end{equation}
+
+\end_inset
+
+
+\size default
+ 
+\end_layout
+
+\begin_layout Paragraph
+Generación de la Sugerencia de Correspondencias de Parámetros 
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Una vez obtenidos los mapeos de parámetros, de acuerdo al mejor mapeo encontrado
+ para cada operación, se genera una sugerencia de correspondencias de parámetros.
+ Esto es, se almacena aquella correspondencia que maximiza la compatibilidad
+ entre un par de operaciones (
+\begin_inset Formula $op_{R}$
+\end_inset
+
+ , 
+\begin_inset Formula $op_{S}$
+\end_inset
+
+).
+ Luego, este procedimiento debe ser extendido para contemplar las mejoras
+ realizadas al análisis de compatibilidad de interfaces.
+ Partiendo de una matriz de compatibilidad C ya calculada, cada mapeo posible
+ consiste en tomar cada fila (parámetro/campo de 
+\begin_inset Formula $op_{R}$
+\end_inset
+
+) y elegir una columna (un parámetro/campo de 
+\begin_inset Formula $op_{S}$
+\end_inset
+
+) para ese elemento.
+ Luego, para cada posible asignación de parámetros entre 
+\begin_inset Formula $op_{R}$
+\end_inset
+
+ y 
+\begin_inset Formula $op_{S}$
+\end_inset
+
+, se calcula el valor de compatibilidad que posee esta asignación.
+ Este es el valor que corresponde al mapeo dentro de la matriz de compatibilidad
+ de parámetros.
+ El resultado final de cada posible combinación de parámetros es la suma
+ de todos los pesos de los mapeos que componen la misma.
+ Luego, la asignación que posea el mayor valor, será la más compatible.
+ 
+\end_layout
+
+\begin_layout Subsection
+Evaluación del Retorno
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:Evaluación-del-Retorno"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Si la operación requerida 
+\begin_inset Formula $op_{R}$
+\end_inset
+
+ ∈ 
+\begin_inset Formula $I_{R}$
+\end_inset
+
+ y la operación del servicio 
+\begin_inset Formula $op_{S}$
+\end_inset
+
+∈ 
+\begin_inset Formula $I_{S}$
+\end_inset
+
+ tienen tipos de retorno complejos, se realiza un análisis exhaustivo teniendo
+ en cuenta la parte semántica de cada retorno.
+ Implicando un análisis estructural y semántico del identificador y los
+ campos que componen los tipos complejos.
+ El algoritmo de evaluación de retornos complejos compara los tipos de retorno
+ de una operación de la interfaz requerida 
+\begin_inset Formula $op_{R}$
+\end_inset
+
+ ∈ 
+\begin_inset Formula $I_{R}$
+\end_inset
+
+ y una operación de la interfaz del servicio candidato 
+\begin_inset Formula $op_{S}$
+\end_inset
+
+ ∈ 
+\begin_inset Formula $I_{S}$
+\end_inset
+
+ y realiza distintas evaluaciones: 
+\end_layout
+
+\begin_layout Enumerate
+Compatibilidad de campos comparando los tipos y nombres de cada uno (todos
+ contra todos) y maximizando el valor de compatibilidad.
+\end_layout
+
+\begin_layout Enumerate
+Compatibilidad de los nombres del tipo complejo de retorno en 
+\begin_inset Formula $op_{R}$
+\end_inset
+
+ y 
+\begin_inset Formula $op_{S}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Valor de compatibilidad final entre los tipos de retorno complejo de 
+\begin_inset Formula $op_{R}$
+\end_inset
+
+ y 
+\begin_inset Formula $op_{S}$
+\end_inset
+
+ en base a las determinaciones obtenidas en los puntos anteriores.
+\end_layout
+
+\begin_layout Standard
+El análisis del tipo de retorno primero verifica si el tipo de retorno de
+ 
+\begin_inset Formula $op_{R}$
+\end_inset
+
+ y 
+\begin_inset Formula $op_{S}$
+\end_inset
+
+ es idéntico.
+ En tal caso, la compatibilidad del tipo de retorno es exacta.
+ Si los tipos de retornos son diferentes, se analiza si el tipo de retorno
+ de 
+\begin_inset Formula $op_{R}$
+\end_inset
+
+ es subtipo del tipo de retorno de 
+\begin_inset Formula $op_{S}$
+\end_inset
+
+ – de acuerdo a los criterios de subtipificación para el lenguaje Java (Tabla
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:Equivalencia-de-Subtipos"
+
+\end_inset
+
+).
+ Si se cumple alguno de esos criterios entonces la compatibilidad del tipo
+ de retorno es equivalente.
+ Si ninguna de las condiciones anteriores se cumple, entonces al menos uno
+ de los retornos es complejo y se requiere un análisis exhaustivo.
+ 
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+La Figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "Evaluación de tipo de retorno complejo"
+
+\end_inset
+
+ resume los pasos para el análisis de tipos de retorno complejos.
+ Los mismos se detallan a continuación.
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename ImgChapter2/EvaluacionDeTipoDeRetornoComplejo.PNG
+	width 120col%
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "Evaluación de tipo de retorno complejo"
+
+\end_inset
+
+Evaluación de tipo de retorno complejo
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph
+Comparación de tipos de retorno complejos 
+\begin_inset CommandInset label
+LatexCommand label
+name "par:Comparación-de-tipos"
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Para poder realizar una comparación entre tipos de retorno complejo, en
+ un principio es necesario conocer la estructura interna de cada uno de
+ ellos y realizar una comparación del tipo “todos contra todos” entre los
+ nombres y tipos de cada uno de los campos que lo componen.
+ La 
+\emph on
+compatibilidad de nombres para tipos de retornos complejos
+\emph default
+ se evalua utilizando el algoritmo de evaluación de identificadores presentado
+ en la Sección 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Algoritmo-para-Evaluacion-Identificadores"
+
+\end_inset
+
+.
+ Si la cantidad de campos en 
+\begin_inset Formula $op_{R}$
+\end_inset
+
+ es menor o igual a la cantidad de campos en 
+\begin_inset Formula $op_{S}$
+\end_inset
+
+ entonces se puede proceder con la comparación entre ellos.
+ En caso contrario se consideran incompatibles, ya que quedarían campos
+ requeridos en 
+\begin_inset Formula $op_{R}$
+\end_inset
+
+ que no se podrían corresponder con ninguno de la operación candidata 
+\begin_inset Formula $op_{S}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Paragraph
+Comparación de retorno simple contra retorno complejo
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Para realizar el análisis de un tipo de retorno simple respecto a uno complejo,
+ es necesario aplanar este último, trabajando directamente con los campos
+ que lo componen.
+ Luego se compara directamente el tipo de dato del retorno simple contra
+ todos los tipos de datos de los campos del complejo, seleccionando aquel
+ que maximice el valor de compatibilidad entre los retornos.
+ Nótese que el análisis en este caso es puramente estructural, ya que el
+ tipo de retorno simple no contiene información semántica que pueda ser
+ analizada.
+\end_layout
+
+\begin_layout Paragraph
+Valor final de compatibilidad de retorno
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+El valor final de compatibilidad entre los tipos de retorno complejo para
+ 
+\begin_inset Formula $op_{R}$
+\end_inset
+
+ y 
+\begin_inset Formula $op_{S}$
+\end_inset
+
+ se calcula de acuerdo a la Fórmula 3.2 teniendo en cuenta el valor obtenido
+ comparando campos y el valor de compatibilidad de nombres de los tipos
+ propiamente dichos.
+\begin_inset Newline newline
+\end_inset
+
+
+\size small
+
+\begin_inset Formula 
+\begin{equation}
+compRetComplejo=\frac{compCampos*(1+compNombres)}{2}\label{eq:compRetComplejo}
+\end{equation}
+
+\end_inset
+
+
+\size default
+Donde 
+\emph on
+compCampos
+\emph default
+ representa el valor de compatibilidad estructural y semántica entre los
+ campos del tipo complejo, y 
+\emph on
+compNombres
+\emph default
+ representa el valor de compatibilidad semántica de los nombres de los tipos
+ de retorno.
+ A este último valor se le suma 1 ya que se pretende que no se genere una
+ incompatibilidad sólo por la ausencia de correspondencia semántica entre
+ nombres.
+ Luego, se divide el valor final por 2 para normalizar el valor de retorno
+ complejo.
+\end_layout
+
+\begin_layout Paragraph
+Distancia de Adaptabilidad
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Considerando las condiciones semántico-estructurales para compatibilidad
+ de interfaces, es posible definir un valor numérico que refleje el esfuerzo
+ de adaptación requerido para integrar un servicio candidato en una Aplicación
+ Orientada a Servicios.
+ Dicho valor se denomina 
+\emph on
+Distancia de Adaptabilidad 
+\emph default
+y se calcula de acuerdo a la Fórmula
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:adapGap"
+
+\end_inset
+
+, donde 
+\begin_inset Formula $N$
+\end_inset
+
+ es el tamaño de la interfaz 
+\begin_inset Formula $I_{R}$
+\end_inset
+
+ y 
+\begin_inset Formula $AdapMap$
+\end_inset
+
+ es el mejor valor entre los valores de equivalencia 
+\begin_inset Formula $adaptValue(op_{R},op_{S})$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+
+\size small
+\lang english
+\begin_inset Formula 
+\begin{equation}
+DistAdap(I_{R},I_{S})=\frac{\sum_{i=1}^{N}(Min(AdapMap(op_{Ri},I_{S})))}{N}+1\label{eq:adapGap}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+El valor de adaptabilidad (
+\begin_inset Formula $adapValue$
+\end_inset
+
+) entre una operación 
+\begin_inset Formula $op_{R}$
+\end_inset
+
+ y una operación 
+\begin_inset Formula $op_{S}$
+\end_inset
+
+ potencialmente compatibles se calcula de acuerdo a la Fórmula
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:adapValue"
+
+\end_inset
+
+, donde 
+\begin_inset Formula $R$
+\end_inset
+
+, 
+\begin_inset Formula $E$
+\end_inset
+
+ son los valores de equivalencia estructural para Retorno y Excepciones,
+ y 
+\begin_inset Formula $compNombre$
+\end_inset
+
+ y 
+\begin_inset Formula $compParam$
+\end_inset
+
+ son los valores de equivalencia semántico-estructural para Nombres y Parámetros.
+\end_layout
+
+\begin_layout Standard
+
+\size small
+\lang english
+\begin_inset Formula 
+\begin{equation}
+adapValue(op_{R},op_{S})=R+E-(compNombre+compParam)\label{eq:adapValue}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Cuanto mayor sea el esfuerzo de adaptación necesario para integrar un servicio
+ candidato, mayor será el valor de la 
+\emph on
+distancia de adaptabilidad.
+
+\emph default
+ En el caso en que todas las operaciones requeridas tengan una equivalencia
+ 
+\emph on
+exacta, 
+\emph default
+la distancia de adaptabilidad entre 
+\begin_inset Formula $I_{R}$
+\end_inset
+
+ e 
+\begin_inset Formula $I_{S}$
+\end_inset
+
+ es cero.
+ Aunque esto puede parecer una correspondencia perfecta entre las interfaces,
+ inicialmente significa que 
+\begin_inset Formula $I_{R}$
+\end_inset
+
+ está incluida en 
+\begin_inset Formula $I_{S}$
+\end_inset
+
+, y que la correspondencia entre ambas requiere de un esfuerzo de adaptación
+ nulo o trivial – por ejemplo, conversiones (
+\emph on
+casting
+\emph default
+) entre tipos compatibles sin pérdida de precisión.
+ 
+\end_layout
+
+\begin_layout Standard
+La fórmula de 
+\emph on
+distancia de adaptabilidad
+\emph default
+ incorpora la información estructural y semántica extraída de las interfaces
+ en un valor numérico preciso, que refleja adecuadamente el esfuerzo de
+ adaptación e integración del servicio candidato.
+ Esto hace que el Método de 
+\emph on
+Selección
+\emph default
+ de Servicios pueda ser considerado como 
+\shape slanted
+orientado a la adaptabilidad
+\shape default
+\emph on
+.
+\emph default
+
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Section
+Construcción de Test Suite de Comportamiento
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Test-Suite-de"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+El 
+\emph on
+TS de Comportamiento
+\emph default
+ tiene el propósito de representar aspectos de comportamiento esperados
+ del servicio a tercerizar – de acuerdo a lo que funcionalmente se define
+ en la interfaz requerida 
+\begin_inset Formula $I_{R}$
+\end_inset
+
+ – para luego poder comprobar que alguno de los Servicios Web candidatos
+ coincida con este comportamiento requerido.
+ 
+\end_layout
+
+\begin_layout Plain Layout
+El TS está compuesto de casos de test que consisten de un conjunto de invocacion
+es a operaciones de la interfaz requerida 
+\begin_inset Formula $I_{R}$
+\end_inset
+
+.
+ En base a estos criterios, se puede mencionar que el 
+\emph on
+TS de Comportamiento
+\emph default
+ ha sido definido como de 
+\emph on
+dependencia intra-componente
+\emph default
+, es decir que los eventos (invocaciones a operaciones o la ocurrencia de
+ excepciones) en la interfaz requerida 
+\begin_inset Formula $I_{R}$
+\end_inset
+
+ presentan dependencia con otros eventos de la misma interfaz, y por lo
+ tanto el comportamiento de cada evento puede variar dependiendo de cuáles
+ eventos (de la misma interfaz) ocurrieron previamente.
+ 
+\end_layout
+
+\begin_layout Plain Layout
+Además, el 
+\emph on
+TS de Comportamiento
+\emph default
+ ha sido definido para cubrir el 
+\emph on
+criterio de dependencia del contexto
+\emph default
+ (o 
+\shape slanted
+de flujo de operaciones
+\shape default
+), el cual ayuda a describir las interdependencias dentro de la interfaz
+ requerida 
+\begin_inset Formula $I_{R}$
+\end_inset
+
+ por medio de secuencias de eventos (operaciones y excepciones).
+ Tales secuencias de eventos (o secuencias operacionales) definen un 
+\emph on
+protocolo de interacción
+\emph default
+ (o protocolo de uso)
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Kirani94,Kirani94a"
+
+\end_inset
+
+, que en este enfoque se formaliza por medio de 
+\emph on
+expresiones regulares
+\emph default
+, las cuales permiten la automatización de la generación de casos de test.
+ El alfabeto requerido por las expresiones regulares se compone de las signatura
+s de las operaciones de los componentes (o servicios).
+ 
+\end_layout
+
+\begin_layout Subsection
+Criterios base para el TS de Comportamiento
+\end_layout
+
+\begin_layout Plain Layout
+Esta formalización del 
+\emph on
+protocolo de interacción
+\emph default
+ por medio de expresiones regulares se basa en la definición de un conjunto
+ de criterios de cubrimiento para expresiones regulares, que presentan una
+ relación concreta con los criterios para componentes y servicios, y permiten
+ alcanzar una implementación válida para el 
+\emph on
+criterio de dependencia del contexto
+\emph default
+.
+ En la Tabla
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:Criterios-de-Cobertura"
+
+\end_inset
+
+ se listan los criterios de cubrimiento para expresiones regulares, cuya
+ relación con los criterios para componentes y servicios se explica a continuaci
+ón:
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $Alfabeto\equiv Métodos$
+\end_inset
+
+.
+ El alfabeto de las expresiones regulares se basa en las operaciones de
+ un componente.
+ Así el 
+\emph on
+criterio de alfabeto
+\emph default
+ permite invocar todas las operaciones de un componente, y resulta equivalente
+ al 
+\emph on
+criterio de métodos
+\emph default
+ (o 
+\shape slanted
+de operaciones
+\shape default
+).
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $Operadores\geq Eventos$
+\end_inset
+
+.
+ El conjunto de operadores para expresiones regulares (tales como '
+\begin_inset Formula $|$
+\end_inset
+
+', '
+\begin_inset Formula $*$
+\end_inset
+
+', etc), ayudan a describir patrones generales que incluyen los distintos
+ casos de secuencias operacionales.
+ Como el 
+\emph on
+protocolo de interacción
+\emph default
+ considera únicamente las operaciones de un componente (servicio), inicialmente
+ no alcanza a cubrir el 
+\emph on
+criterio de eventos
+\emph default
+ que también incluye las excepciones (eventos asíncronos).
+ En este enfoque, las excepciones se describen posteriormente mediante su
+ vinculación a la invocación de una operación que está incluída en alguna
+ secuencia operacional.
+ De esta manera se cubre el 
+\emph on
+criterio de excepciones 
+\emph default
+y por tanto el 
+\emph on
+criterio de eventos
+\emph default
+.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $Expresiones\equiv Dependencia\,del\,Contexto$
+\end_inset
+
+.
+ El 
+\emph on
+criterio de expresiones
+\emph default
+ implica cubrir otros casos significativos que involucran combinaciones
+ adicionales de operadores, y considerando la invocación a operaciones y
+ excepciones, implica que se cubren adecuadamente las secuencias operacionales
+ que describen el comportamiento de un componente (servicio).
+ Así se logra equivalencia con el 
+\emph on
+criterio de dependencia del contexto
+\emph default
+ (o 
+\shape slanted
+de flujo de operaciones
+\shape default
+).
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Float table
+placement h
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Criterios de cubrimiento para Expresiones Regulares
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:Criterios-de-Cobertura"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="8" columns="2">
+<features tabularvalignment="middle" tabularwidth="100text%">
+<column alignment="left" valignment="top" width="12cm">
+<column alignment="left" valignment="middle" width="4cm">
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size small
+Criterios
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size small
+Ejemplo:
+\series default
+ 
+\begin_inset Formula $a∗b(b|c)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size small
+\emph on
+Alfabeto
+\emph default
+: Para cada símbolo en el alfabeto debe haber un caso de test que lo contenga
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size small
+TS= {
+\emph on
+abc
+\emph default
+} 
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size small
+\emph on
+Operadores
+\emph default
+: Para cada operador:
+\end_layout
+
+\end_inset
+</cell>
+<cell multirow="3" alignment="left" valignment="middle" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size small
+TS= {
+\emph on
+bb, abc, aabb
+\emph default
+} 
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size small
+‘
+\begin_inset Formula $|$
+\end_inset
+
+’ (alternativa) debe existir al menos un caso de test que contenga el primer
+ operando y algún otro que contenga el segundo operando
+\end_layout
+
+\end_inset
+</cell>
+<cell multirow="4" alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size small
+‘+’ debe existir al menos un caso de test que corresponda a exactamente
+ una iteración y al menos otro para más de una iteración del operando
+\end_layout
+
+\end_inset
+</cell>
+<cell multirow="4" alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size small
+‘∗’ (kleen) similar al anterior y además debe existir al menos un caso de
+ test que corresponda a ninguna iteración del operando
+\end_layout
+
+\end_inset
+</cell>
+<cell multirow="4" alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size small
+‘?’ debe existir al menos un caso de test que corresponda a exactamente
+ una iteración y al menos otro que corresponda a ninguna iteración del operando
+\end_layout
+
+\end_inset
+</cell>
+<cell multirow="4" alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size small
+\emph on
+Expresiones
+\emph default
+: Para cada elección de operadores que resulta en diferentes sentencias
+ con longitudes distintas, debe existir al menos un caso de test que las
+ cubra
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size small
+TS= {
+\emph on
+bb, bc, abb, abc, aabb, aabc
+\emph default
+} 
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Generación de Casos de Test
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Generación-de-CasosOld"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+Para la generación de casos de test se definió una serie de pasos que tienen
+ soporte semi-automático por medio de la herramienta TestOOJ, que permite
+ en particular tratar con componentes Java.
+ Uno de los primeros pasos para construir el TS involucra definir el 
+\emph on
+protocolo de interacción
+\emph default
+ (en la forma de una expresión regular).
+ Además, dado que se necesita describir un comportamiento esperado para
+ la evaluación de los servicios candidatos, el ingeniero de software necesita
+ crear una clase concreta que implemente la interfaz requerida 
+\begin_inset Formula $I_{R}$
+\end_inset
+
+, que se denomina 
+\emph on
+Clase Shadow
+\emph default
+, y permite especificar el comportamiento requerido en la forma de los resultado
+s esperados para algún 
+\emph on
+dato de test
+\emph default
+ representativo.
+ A partir de la expresión regular se derivan sentencias que permiten crear
+ 
+\emph on
+plantillas de test
+\emph default
+, las cuales describen las diferentes secuencias operacionales del 
+\emph on
+protocolo de interacción
+\emph default
+.
+ 
+\end_layout
+
+\begin_layout Plain Layout
+Luego se deben establecer otros aspectos como excepciones y datos de test.
+ Para definir los 
+\emph on
+datos de test
+\emph default
+ se debería realizar un análisis para seleccionar un conjunto representativo
+ de valores, para lo cual existen algunas técnicas útiles como Partición
+ en Clases de Equivalencia y Análisis de Valores Límites, entre otras
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Binder00,Myers04"
+
+\end_inset
+
+.
+ Los 
+\emph on
+datos de test
+\emph default
+ se combinan con las 
+\emph on
+plantillas de test
+\emph default
+ (secuencias operacionales), y para esto se utiliza alguno de los algoritmos
+ de la herramienta TestOOJ: 
+\shape slanted
+each choice
+\shape default
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Ammann94"
+
+\end_inset
+
+, 
+\shape slanted
+antirandom
+\shape default
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Malaiya95"
+
+\end_inset
+
+, 
+\shape slanted
+pairwise
+\shape default
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Czerwonka06"
+
+\end_inset
+
+, y 
+\shape slanted
+all combinations
+\shape default
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Grindal05"
+
+\end_inset
+
+.
+ Cada uno de estos algoritmos genera un TS con un volumen de casos de test
+ determinado.
+ Cada combinación de datos y plantillas se convierte en un caso de test,
+ que asume la forma de un método dentro de una clase de test.
+ 
+\end_layout
+
+\begin_layout Paragraph
+Formato del TS de Comportamiento
+\end_layout
+
+\begin_layout Plain Layout
+El 
+\emph on
+TS de Comportamiento
+\emph default
+ se genera en un formato específico en función del framework MuJava
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "MuJava"
+
+\end_inset
+
+, que se enfoca en las técnicas de test basadas en defectos (explicado en
+ la Sección
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:tecnicasTesting"
+
+\end_inset
+
+ – 
+\size small
+pág.
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand pageref
+reference "sec:tecnicasTesting"
+
+\end_inset
+
+, Capítulo 1
+\size default
+) y que ha sido originalmente definido, entre otros propósitos, para medir
+ el cubrimiento de un TS mediante el criterio de mutantes muertos
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Polo08"
+
+\end_inset
+
+.
+ Los casos de test en formato MuJava retornan un valor de tipo 
+\family typewriter
+String
+\family default
+ que puede ser utilizado para analizar los datos resultantes de ejercitar
+ el TS sobre los servicios candidatos, comparándolos con los resultados
+ esperados que se especifican en la interfaz requerida 
+\begin_inset Formula $I_{R}$
+\end_inset
+
+ (a través de la 
+\emph on
+Clase Shadow
+\emph default
+).
+ 
+\end_layout
+
+\begin_layout Plain Layout
+Es importante notar que el 
+\emph on
+TS de Comportamiento
+\emph default
+ intenta satisfacer los criterios de cubrimiento mencionados con el objetivo
+ de abarcar en forma exhausitva las áreas funcionales de mayor prioridad
+ en un dominio, pero enfocando concretamente en comprobar el comportamiento
+ establecido por los requerimientos de la aplicación cliente, y no así en
+ descubrir defectos o errores de codificación – es decir, que se trata de
+ una técnica de Testing de Conformancia
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "SWEBOK04T"
+
+\end_inset
+
+.
+ Así, el factor de confiabilidad que impone la técnica, generalmente fuerza
+ a generar un TS con un gran volumen, que posee una alta redundancia en
+ el cubrimiento de las áreas funcionales requeridas.
+ Como consecuencia se realiza un gran esfuerzo (costo) no solamente en la
+ generación de este TS exhaustivo, sino también en la ejecución del mismo
+ contra los servicios candidatos.
+ Además, algunos aspectos del diseño del 
+\emph on
+TS de Comportamiento
+\emph default
+ son responsabilidad de un ingeniero de software, quien debe estar en conocimien
+to de los criterios de cubrimiento a aplicar (en función del dominio de
+ la aplicación y los requerimientos funcionales), y también de las estrategias
+ de implementación mencionadas (por ejemplo, la expresión regular y la Clase
+ Shadow, entre otros).
+ En este sentido, en el Capítulo 3 se introducirán algunas optimizaciones
+ para la generación de un 
+\emph on
+TS de Comportamiento
+\emph default
+ 
+\emph on
+Reducido
+\emph default
+.
+\end_layout
+
+\begin_layout Section
+Evaluación de Compatibilidad de Comportamiento
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Compatibilidad-ComportamientoOld"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+El objetivo principal de este procedimiento es comprobar que las operaciones
+ en la interfaz 
+\begin_inset Formula $I_{S}$
+\end_inset
+
+ (de un servicio candidato 
+\begin_inset Formula $S$
+\end_inset
+
+) expongan un comportamiento similar con respecto a la funcionalidad definida
+ en la interfaz requerida 
+\begin_inset Formula $I_{R}$
+\end_inset
+
+ (con su implementación en la Clase Shadow).
+ Luego de un análisis de interfaces se identifican correspondencias de operacion
+es estructuralmente similares, para las cuales en este procedimiento se
+ asegura que tales correspondencias sean válidas en términos del comportamiento
+ esperado para la funcionalidad requerida.
+ En este enfoque, esto implica ejercitar el 
+\emph on
+TS de Comportamiento
+\emph default
+ contra el servicio candidato 
+\begin_inset Formula $S$
+\end_inset
+
+ (a través de su interfaz 
+\begin_inset Formula $I_{S}$
+\end_inset
+
+).
+ 
+\end_layout
+
+\begin_layout Plain Layout
+La automatización de este procedimiento se basa en el 
+\emph on
+Mapeo de Interfaces
+\emph default
+ generado en el procedimiento de 
+\shape slanted
+Análisis de Compatibilidad de Interfaces
+\shape default
+, que se utiliza para construir un conjunto de wrappers 
+\begin_inset Formula $W$
+\end_inset
+
+ para el servicio candidato.
+ Cada wrapper será una clase que podrá ser invocada desde el componente
+ cliente 
+\begin_inset Formula $C$
+\end_inset
+
+ interno a la aplicación en desarrollo, dado que implementa a la interfaz
+ requerida 
+\begin_inset Formula $I_{R}$
+\end_inset
+
+.
+ Un wrapper posee por lo tanto el comportamiento establecido por el 
+\emph on
+patrón de diseño Adaptador
+\emph default
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "GoF"
+
+\end_inset
+
+, recibiendo los requerimientos del cliente 
+\begin_inset Formula $C$
+\end_inset
+
+ y reenviándolos al servicio candidato 
+\begin_inset Formula $S$
+\end_inset
+
+ (a través de su interfaz 
+\begin_inset Formula $I_{S}$
+\end_inset
+
+).
+ La cantidad de wrappers se establece en función de las combinaciones de
+ correspondencias de las operaciones.
+ En vez de realizar una combinación ciega, se puede obtener un conjunto
+ más reducido a través del 
+\emph on
+Mapeo de Interfaces
+\emph default
+.
+ Sin embargo, es importante aclarar que este procedimiento aún no considera
+ los aspectos semánticos incluídos actualmente en el 
+\emph on
+Mapeo de Interfaces
+\emph default
+, lo cual produce en ciertos casos conjuntos de wrappers que escalan a cantidade
+s inmanejables, tanto en su generación como en su evaluación mediante la
+ ejecución del TS.
+\end_layout
+
+\begin_layout Plain Layout
+El enfoque de wrappers hace uso de aspectos provenientes de la técnica de
+ 
+\emph on
+Mutación de Interfaces
+\emph default
+, aplicando operadores de mutación para cambiar invocaciones a operaciones
+ y también para cambiar valores de los argumentos para los parámetros.
+ El primer operador de mutación se aplica en función de las listas de correspond
+encias (puramente estructurales) de operaciones del 
+\emph on
+Mapeo de Interfaces
+\emph default
+, mientras que el segundo operador de mutación se aplica mediante la variación
+ de los argumentos en los parámetros con respecto a sus tipos de datos (en
+ una invocación a una operación del servicio candidato).
+ En este sentido, el factor de escalabilidad mencionado anteriormente sobre
+ la generación de wrappers es una consecuencia de la aplicación de una técnica
+ de Testing de Mutación
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Harman11"
+
+\end_inset
+
+, para lo cual es necesario identificar estrategias de solución.
+\end_layout
+
+\begin_layout Plain Layout
+Luego de construir el conjunto de wrappers 
+\begin_inset Formula $W$
+\end_inset
+
+ se procede a tomar cada wrapper como el componente bajo test para ejecutar
+ el 
+\emph on
+TS de Comportamiento
+\emph default
+.
+ Primero, se ejercita el TS contra la interfaz requerida 
+\begin_inset Formula $I_{R}$
+\end_inset
+
+ (a través de la 
+\emph on
+Clase
+\emph default
+ 
+\emph on
+Shadow
+\emph default
+), luego se testean los wrappers 
+\begin_inset Formula $w\in W$
+\end_inset
+
+ del servicio candidato a través de su interfaz 
+\begin_inset Formula $I_{S}$
+\end_inset
+
+, desde donde se generan todos los resultados de ejecución para ser luego
+ evaluados en comparación con aquellos obtenidos para 
+\begin_inset Formula $I_{R}$
+\end_inset
+
+.
+ La evaluación de los casos de test del TS, que son de tipo 
+\emph on
+MuJava
+\emph default
+, se realiza comparando los valores de retorno (de tipo 
+\family typewriter
+\size small
+String
+\family default
+\size default
+), lo que genera un resultado binario: éxito ó falla.
+ El porcentaje de tests exitosos de cada wrapper determina su aceptación
+ o rechazo, es decir si se permite o no que sobreviva el wrapper (como un
+ caso de mutación).
+ Cuanto mayor sea la cantidad de wrappers muertos, mejor es el resultado
+ final, dado que facilita la toma de decisiones sobre la compatibilidad
+ del componente en evaluación.
+\end_layout
+
+\begin_layout Subsection
+Generación de Wrappers
+\end_layout
+
+\begin_layout Plain Layout
+Para la generación de wrappers se construye una estructura de árbol donde
+ cada camino desde el nodo raíz hasta un nodo hoja implica una correspondencia
+ específica de operaciones.
+ El árbol se construye en función de los resultados del 
+\emph on
+Mapeo de Interfaces
+\emph default
+, donde la cantidad de nodos en el nivel de las hojas corresponde al tamaño
+ del conjunto de wrappers 
+\begin_inset Formula $W$
+\end_inset
+
+.
+ Esto proviene de aquellas operaciones que obtuvieron más de una correspondencia
+ en el 
+\emph on
+Mapeo de Interfaces
+\emph default
+, y también de las correspondencias en las listas de parámetros.
+
+\emph on
+ 
+\emph default
+Cada wrapper es nombrado como la interfaz requerida 
+\begin_inset Formula $I_{R}$
+\end_inset
+
+, dado que debería representarla apropiadamente, y esto facilita el mecanismo
+ de evaluación del conjunto de wrappers 
+\begin_inset Formula $W$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Plain Layout
+Dado que los wrappers han sido generados con un propósito específico que
+ implica la invocación de un Servicio Web 
+\begin_inset Formula $S$
+\end_inset
+
+, para que se haga efectiva la ejecución de la operaciones en la interfaz
+ 
+\begin_inset Formula $I_{S}$
+\end_inset
+
+, se requiere de la conexión física para llamadas remotas.
+ Esto fue planteado inicialmente en
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Ferrando10,Cors12"
+
+\end_inset
+
+ mediante la aplicación de la librería WSDL2Java
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+http://cxf.apache.org/docs/wsdl-to-java.html
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+ del framework Axis (de la Plataforma Java), que además de derivar una versión
+ Java de la interfaz WSDL del Servicio Web, también permite generar clases
+ adicionales que corresponden a un 
+\emph on
+Proxy
+\emph default
+ de conexión remota (
+\begin_inset Formula $P_{S}$
+\end_inset
+
+).
+ Al código generado se lo denomina 
+\begin_inset Quotes eld
+\end_inset
+
+Stub
+\begin_inset Quotes erd
+\end_inset
+
+ y forma parte del patrón de diseño 
+\emph on
+Proxy
+\emph default
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "GoF"
+
+\end_inset
+
+ para encapsular el mecanismo de comunicación con el Servicio Web remoto,
+ según se muestra en la Figura
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand pageref
+reference "fig:Proxy-para-la"
+
+\end_inset
+
+.
+ 
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Proxy para la invocación de Servicios Web
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Proxy-para-la"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Evaluación de Wrappers
+\end_layout
+
+\begin_layout Plain Layout
+El siguiente paso es ejecutar el 
+\emph on
+TS de Comportamiento
+\emph default
+ generado en función de la interfaz requerida 
+\begin_inset Formula $I_{R}$
+\end_inset
+
+ (Sección
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Generación-de-CasosOld"
+
+\end_inset
+
+), sobre cada wrapper 
+\begin_inset Formula $w\in W$
+\end_inset
+
+ para así evaluar la compatibilidad de comportamiento del servicio candidato
+ 
+\begin_inset Formula $S$
+\end_inset
+
+.
+ Durante la construcción del 
+\emph on
+TS de Comportamiento
+\emph default
+ se crea manualmente la Clase Shadow que asume el mismo nombre de la interfaz
+ requerida 
+\begin_inset Formula $I_{R}$
+\end_inset
+
+, y esto posibilita que el TS pueda ser ejercitado contra la Clase Shadow
+ y también contra los wrappers – que también poseen el mismo nombre.
+ Bajo una estructura de carpetas, donde en cada una se almacena un wrapper
+ distinto, es posible ejecutar el TS en diferentes instancias contra cada
+ uno de los wrappers y también contra la Clase Shadow.
+ 
+\end_layout
+
+\begin_layout Plain Layout
+Se utiliza una facilidad de la herramienta TestOOJ, que permite tomar el
+ archivo del TS e iterar a través del conjunto de wrappers, para después
+ realizar el análisis de resultados.
+ A los wrappers que han tenido un alto porcentaje de casos de test fallidos
+ se los considera como rechazados y por lo tanto se corresponden con mutantes
+ muertos, de acuerdo a la técnica de 
+\emph on
+Mutación de Interfaces
+\emph default
+.
+ Para que un wrapper sobreviva (como caso de mutación) debería superar el
+ 70% de casos de test exitosos, lo cual permitiría confirmar la compatibilidad
+ de comportamiento del servicio candidato 
+\begin_inset Formula $S$
+\end_inset
+
+.
+ Además el wrapper que sobreviva puede ser seleccionado como artefacto adaptador
+ para lograr una comunicación segura del componente cliente 
+\begin_inset Formula $C$
+\end_inset
+
+ con el Servicio Web 
+\begin_inset Formula $S$
+\end_inset
+
+ y por lo tanto su integración en la Aplicación Orientada a Servicios en
+ desarrollo.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

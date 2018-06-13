@@ -1,0 +1,11 @@
+43 private static boolean esTipoComplejo(Nodo nodo) {
+44 boolean retorno = false;
+45 NodeList hijos = nodo.obtenerNodosHijos();
+46 if (hijos != null) {
+47  Node ComplexType = hijos.item(1);
+48 if (ComplexType != null && 
+       ComplexType.getNodeName().contains("complextype"))   
+49  retorno = true;
+50 }
+51return retorno;
+52}

@@ -1,0 +1,638 @@
+#LyX 2.2 created this file. For more info see http://www.lyx.org/
+\lyxformat 508
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass myBook
+\use_default_options false
+\maintain_unincluded_children false
+\language spanish
+\language_package default
+\inputencoding iso8859-1
+\fontencoding default
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize 11
+\spacing single
+\use_hyperref false
+\papersize a4paper
+\use_geometry true
+\use_package amsmath 2
+\use_package amssymb 2
+\use_package cancel 0
+\use_package esint 1
+\use_package mathdots 0
+\use_package mathtools 0
+\use_package mhchem 0
+\use_package stackrel 0
+\use_package stmaryrd 0
+\use_package undertilde 0
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 2
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+
+\series bold
+\size giant
+\lang english
+Prefacio
+\series default
+\size default
+
+\begin_inset VSpace 0.5cm
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Esta tesis es presentada como parte de los requisitos finales para optar
+ al grado Académico de 
+\shape italic
+Licenciado en Ciencias de la Computación
+\shape default
+, otorgado por la Universidad Nacional del Comahue, y no ha sido presentada
+ previamente para la obtención de otro título en esta Universidad u otras.
+ La misma es el resultado de la investigación llevada a cabo en la 
+\shape italic
+Facultad de Informática
+\shape default
+ en el periodo comprendido entre Noviembre de 2016 y Abril de 2018, bajo
+ la dirección del Dr.
+ Andrés Flores y del Lic.
+ Alan De Renzis.
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace 3cm
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align right
+\begin_inset Box Frameless
+position "c"
+hor_pos "c"
+has_inner_box 1
+inner_pos "c"
+use_parbox 0
+use_makebox 0
+width "8cm"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+
+\series bold
+\size large
+Lucas Nahuel Cavaliere
+\size default
+
+\begin_inset Newline newline
+\end_inset
+
+
+\series default
+Facultad de Informática
+\begin_inset Newline newline
+\end_inset
+
+ 
+\shape smallcaps
+Universidad Nacional del Comahue
+\shape default
+
+\begin_inset Newline newline
+\end_inset
+
+ 
+\emph on
+Neuquén, 30 de Mayo de 2018
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace vfill
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Box Boxed
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "95col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+\align left
+\begin_inset Graphics
+	filename unco.pdf
+	scale 35
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align left
+\begin_inset VSpace -2.5cm
+\end_inset
+
+ 
+\size large
+
+\begin_inset space \hspace{}
+\length 5cm
+\end_inset
+
+
+\shape smallcaps
+universidad nacional del comahue
+\size default
+ 
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset space \hspace{}
+\length 3cm
+\end_inset
+
+ Facultad de Informática
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset VSpace 1cm
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+indent
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+La presente tesis ha sido aprobada el día ........................., mereciendo la 
+\begin_inset Newline newline
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+indent
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+calificación de .............................
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset VSpace 1cm
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+clearemptydoublepage
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\size giant
+\lang english
+Resumen
+\series default
+\size default
+
+\begin_inset VSpace 0.5cm
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Una práctica común para el desarrollo de software es reusar funcionalidad
+ provista por terceras partes, lo cual no sólo ayuda a reducir los costos,
+ sino también a enfocar el proceso de desarrollo en la funcionalidad principal
+ del sistema.
+ En esta tesis se profundizó sobre un Método de Selección de Servicios Web
+ que tiene como objetivo asistir a los ingenieros de software en la construcción
+ de Aplicaciones Orientadas a Servicios, proponiendo una extensión del proceso
+ de Selección y de su herramienta de soporte.
+ En particular, se propusieron mejoras sobre el procedimiento de análisis
+ de interfaces (validación contractual) completamente basado en la especificació
+n funcional (descripta en WSDL versiones 1.1 y 2.0) de los Servicios Web,
+ que permite extraer toda la información disponible en dicha especificación
+ sin requerir de un marcado semántico adicional.
+ En la actualidad, es necesario contar con una especificación de contratos
+ de Servicios Web, que sea independiente de cualquier tecnología de implementaci
+ón, y que cubra convenientemente la existencia de servicios heterogéneos.
+ En consecuencia, se ha decidido como primera etapa del trabajo, desarrollar
+ un Metamodelo utilizando como base un conjunto de estándares para descripción
+ de contratos/responsabilidades de Servicios Web heterogéneos.
+ Se tomaron como base distintos estándares de descripción de servicios,
+ tal como el Perfil UML SoaML, y el lenguaje WSDL versión 2.0 ambos estándares
+ de OMG
+\emph on
+.
+
+\emph default
+ Al contar con un Metamodelo donde se describen contratos ofrecidos por
+ Servicios Web, resultaba necesario que la evaluación de servicios candidatos
+ se realizara en función de instanciaciones del Metamodelo.
+ Para ello, se diseñó e implementó un componente de software en la plataforma
+ Java que contiene el Metamodelo permitiendo la exploración de la información
+ de contratos de servicios sobre las instancias de este último.
+
+\emph on
+ 
+\emph default
+La segunda etapa fue integrar el componente del Metamodelo en la Herramienta
+ de Evaluación de Servicios Web adaptando las estrategias de evaluación
+ subyacentes, tanto a nivel estructural o de tipos de datos en los mensajes
+ de entrada/salida, como a nivel semántico o de nombres en los identificadores
+ de operaciones y mensajes.
+ Esta adaptación se realizó de acuerdo a los elementos del Metamodelo definido
+ y su correspondencia mediante interfaces Java.
+ Como tercera etapa se creó un Conversor de descripciones
+\emph on
+ 
+\emph default
+WSDL hacia instanciaciones del Metamodelo, el cual explora los elementos
+ que forman un documento WSDL y produce instanciaciones correspondientes
+ a los elementos que componen el Metamodelo.
+ 
+\end_layout
+
+\begin_layout Standard
+Finalmente se realizó una evaluación experimental a partir de la cual comprobamo
+s que la utilización de la Herramienta de Evaluación de Servicios Web mejora
+ la visibilidad de los servicios relevantes – estas mejoras se expresan
+ en términos de ganancias en Precisión.
+ Considerando que la selección de servicios candidatos se realiza luego
+ de algún proceso de descubrimiento, incrementar la visibilidad de los candidato
+s más adecuados facilita en gran medida el desarrollo de Aplicaciones Orientadas
+ a Servicios.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+clearemptydoublepage
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\size giant
+\lang english
+Abstract
+\series default
+\size default
+
+\begin_inset VSpace 0.5cm
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+A common practice for software development is to reuse functionality provided
+ by third parties, which not only helps to reduce costs, but also to focus
+ the development process on the main functionality of the system.
+ This thesis is focused in a Web Services Selection Method that aims to
+ assist software engineers building Service Oriented Applications.
+ We propose an extension to improve the Selection process and its support
+ tool.
+ Improvements mainly concern the interface analysis procedure (contractual
+ validation) completely based on the functional specification (described
+ in WSDL versions 1.1 and 2.0) of Web Services.
+ Such functional specification allows extracting all the information available
+ without the need of an additional semantic markup.
+ Nowadays, the existence of heterogeneous services makes it necessary to
+ count with a specification of Web Services contracts, conveniently featured
+ as independent of any implementation technology.
+ Consequently, as a first step was decided to develop a Metamodel under
+ the basis of a set of standards to describe contracts/responsibilities
+ of heterogeneous Web Services.
+ Different service description standards, such as the SoaML UML Profile,
+ and the WSDL version 2.0 language – both OMG standards – were applied to
+ define the Metamodel.
+ As a consequence, the evaluation of candidate services should be now under
+ Metamodel instantiations.
+ Thereby, the Metamodel was designed as a software component with a Java
+ implementation.
+ This component allows to explore the information of service contracts upon
+ the Metamodel’s instances.
+ The second step was to integrate the Metamodel component into the Web Services
+ Evaluation Tool adapting the underlying evaluation strategies.
+ This involves the structural level with data types in the input/output
+ messages; and the semantic level with names from identifiers of operations
+ and messages.
+ This adaptation was made according to the elements of the defined Metamodel
+ and their correspondence to those from Java interfaces.
+ As a third step, a Converter component was built from WSDL descriptions
+ towards instantiations of the Metamodel.
+ The converter explores elements comprising a WSDL document and produces
+ instantiations of corresponding elements from within the Metamodel.
+\begin_inset Newline newline
+\end_inset
+
+Finally, an experimental evaluation was carried out, from which we verified
+ that the use of the Web Services Evaluation Tool improves the visibility
+ of the relevant services.
+ These improvements are expressed in terms of Precision gains.
+ Considering that the selection of candidate services is made after a discovery
+ process, increasing the visibility of the most suitable candidates greatly
+ facilitates the development of Service-Oriented Applications.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+clearemptydoublepage
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\size giant
+Agradecimientos
+\series default
+\size default
+
+\begin_inset VSpace 0.5cm
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+Agradezco en especial a mis padres Rosa Panetta y Pascual Cavaliere y a
+ mi pareja Yesica Riquelme que siempre insistieron y se empeñaron a que
+ terminara la carrera de Licenciado en Ciencias de la Computación, por todo
+ el apoyo incondicional y comprensión a la hora de suspender actividades
+ por temas de estudio.
+ Sumado a las horas de ausencia que tuvieron que tolerar tanto para la producció
+n de la tesis, como para la carrera universitaria en si misma.
+ A todos mis amigos y compañeros que me acompañaron durante los distintos
+ momentos universitarios, con los cuales compartimos gratos momentos.
+ 
+\end_layout
+
+\begin_layout Standard
+Al Dr.
+ Andrés Flores por permitirme realizar este trabajo bajo su dirección, y
+ por estar siempre atento y disponible en cada momento requerido aportando
+ visiones estructurales claras y correcciones a la altura esperada.
+ 
+\end_layout
+
+\begin_layout Standard
+Al Lic.
+ Alan De Renzis, por su gran dedicación y arduo esfuerzo tanto en tiempos
+ de correción, como de guia en el desarrollo de mi tesis.
+ Por la asistencia técnica, respuesta fuera de horarios laborales y excelente
+ predisposición por sobre todas las cosas.
+ 
+\end_layout
+
+\begin_layout Standard
+Al Instituto PROBIEN-CONICET por apoyar la finalización de mis estudios.
+ Especialmente al Dr.
+ Germán Mazza, que con convicción en mi persona, ha impulsado el crecimiento
+ de mi carrera hacia una especialización destacable.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+clearemptydoublepage
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

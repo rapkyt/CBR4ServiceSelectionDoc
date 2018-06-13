@@ -1,0 +1,11 @@
+53 private static boolean esTipoSimple(Nodo nodo) {
+54 boolean retorno = false;
+55 String type = nodo.getAttribute("type");
+56 if (type != null) {
+57  if (type.contains(":"))
+58  type = type.obtenerTipoDeDato();
+59  if (SimpleType.esTipoSimple(type))
+60   retorno = true; 
+61 } 
+62 return retorno;
+63}
