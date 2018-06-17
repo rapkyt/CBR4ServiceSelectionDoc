@@ -231,6 +231,10 @@ Razonamiento Basado en Casos para selección de Servicios Web
 \end_layout
 
 \begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
 Como se mencionó en la Sección
 \begin_inset space ~
 \end_inset
@@ -300,6 +304,11 @@ reference "subsec:Vision-Detallada"
 .
 \end_layout
 
+\end_inset
+
+
+\end_layout
+
 \begin_layout Standard
 \begin_inset Float figure
 wide false
@@ -323,134 +332,11 @@ status open
 \begin_layout Plain Layout
 \begin_inset CommandInset label
 LatexCommand label
-name "fig:Esquema-de-proceso-1"
+name "fig:Esquema-de-proceso"
 
 \end_inset
 
 Esquema de proceso propuesto
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Como se mencionó previamente, el metamodelo surge de la conjunción de estándares
- y criterios, a partir de los cuales se han definido las clases involucradas.
- En la Figura 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:Diagrama-de-Venn"
-
-\end_inset
-
- se aprecia la distribución de las clases en base al origen de cada una.
- Del estándar SoaML provienen las clases 
-\emph on
-Consumer
-\emph default
-,
-\emph on
- Provider
-\emph default
-,
-\emph on
- Interface
-\emph default
- y 
-\emph on
-Choreography
-\emph default
-.
- Del estándar WSDL 2.0 se definieron las clases 
-\emph on
-Operation
-\emph default
-, 
-\emph on
-Input
-\emph default
-, 
-\emph on
-Output
-\emph default
-, 
-\emph on
-Fault
-\emph default
-, 
-\emph on
-SimpleType
-\emph default
-, 
-\emph on
-ComplexType
-\emph default
- e 
-\emph on
-Interface
-\emph default
-.
- Se destaca que 
-\emph on
-Interface
-\emph default
- se encuentra en ambos estándares, convirtiéndose en el nexo entre las mismas.
- Para denotar la semántica esperada que permitirá realizar evaluaciones
- exhaustivas de servicios, se han creado clases adicionales, como son 
-\emph on
-Parameter
-\emph default
-, 
-\emph on
-Type
-\emph default
-, 
-\emph on
-ArrayType
-\emph default
- y 
-\emph on
-Attribute
-\emph default
-.
- 
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-placement H
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename ImgChapter3/DiagramaDeVennAnalisisDeClases.png
-	lyxscale 40
-	width 75col%
-
-\end_inset
-
-
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:Diagrama-de-Venn"
-
-\end_inset
-
-Diagrama de Venn para categorización de clases de acuerdo a los estándares
- utilizados 
 \end_layout
 
 \end_inset
@@ -476,21 +362,117 @@ Visión Detallada
 \begin_layout Standard
 En esta sección se describe cada 
 \emph on
-clase
+paso
 \emph default
- que compone al diagrama de clases de la Figura
+ que compone al diagrama de flujo de la Figura
 \begin_inset space ~
 \end_inset
 
 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "fig:Diagrama-de-clases"
+reference "fig:Esquema-de-proceso"
 
 \end_inset
 
 .
- El mismo comienza por dos clases principales, que son las desencadenantes
+ El mismo comienza cuando se ingresa al sistema una consulta, un caso, conproble
+ma y sin solución, éste es llamado 
+\emph on
+New Case
+\emph default
+, lo que sucede a continuación es que se compara uno a uno con los casos
+ de la base de conocimiento (
+\emph on
+Knowledge Base
+\emph default
+), de los cuales ya se tiene la solución.
+ Se calcula cuán distinto es el problema del nuevo caso con cada uno de
+ los demás problemas, para ésto se utiliza la funcion de distancia del 
+\emph on
+Metamodelo.
+ 
+\emph default
+La distancia entre dos casos nos indica cuán parecido son sus problemas,
+ una distancia de 0.0 nos indica que los problemas son exactamente iguales,
+ por el contrario una distancia de 4.0 nos indica que ambas interfaces son
+ totalmente incompatibles.
+ La distancia nos indica además, el esfuerzo que va a requerir adaptar ambas
+ interfaces, siendo 0.0 ningún esfuerzo, y 4.0 imposible.
+ Una distancia entre esos dos valores, nos indica que deberemos crear componente
+s para utilizar el patrón de diseño adapter y, de esta manera permitir la
+ compatibilidad entre ambos servicios.
+ Para seleccionar el servicio adecuado se útilizan métodos de selección
+ como 
+\emph on
+KNN 
+\emph default
+y derivados 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Explicar los demas casos
+\end_layout
+
+\end_inset
+
+.
+ 
+\emph on
+KNN 
+\emph default
+consiste en tomar los 
+\emph on
+K
+\emph default
+ casos que tengan menor distancia con el caso requerido, una vez obtenido
+ estos K casos se realiza una votación por solución (puesto a que dos casos
+ en la base de conocimiento pueden tener la misma solución) y el caso de
+ menor distancia dentro de la solución 
+\begin_inset Quotes eld
+\end_inset
+
+ganadora
+\begin_inset Quotes erd
+\end_inset
+
+ pasa a ser el caso candidato (
+\emph on
+Solved Case
+\emph default
+), en caso de que la hubiese un empate en la votación, la misma se desempata
+ tomando como caso candidato al que tuviese ménos distancia, dentro de las
+ soluciones que hayan empatado.
+ El caso candidato se presenta al consumidor y éste decide si la solución
+ es compatible o no, en caso de que no lo sea, dicha solución es descartada
+ y el consumidor puede volver a iniciar el proceso de resolución si éste
+ lo desea.
+ 
+\end_layout
+
+\begin_layout Standard
+Si la solución les compatible, se evalúa la calidad de la respuesta, para
+ ésto se compara un valor de 
+\emph on
+threshold
+\emph default
+, si la solución tiene un valor mayor que el establecido, el nuevo caso
+ con su solución son agregados a la base de conocimiento y, de ésta manera,
+ es tomada en cuenta para nuevos casos.
+ En caso de que el valor sea menor que el establecido, éste caso no se agrega,
+ debido a que generaría ruidos y posiblemente haría overfitting al proceso,
+ haciendo que al llegar un nuevo caso, genere falsos positivos, es decir
+ que diga que no hay distancia entre el caso requerido y uno de la base
+ de conocimiento, cuando en realidad hay una distancia.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+El mismo comienza por dos clases principales, que son las desencadenantes
  del comienzo del proceso de descubrimiento y selección de servicios, la
  clase 
 \emph on
@@ -589,7 +571,7 @@ Provider
  
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 La clase 
 \emph on
 Choreography 
@@ -625,6 +607,11 @@ Choreography
  se debería proveer un diagrama auxiliar (por ejemplo, diagrama de secuencia
  UML) para denotar la lógica del orden de llamados para el uso de una función
  específica.
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -756,755 +743,6 @@ linewidth]{ImgChapter3/choreography.png}
 caption{Diagrama de clase Choreography}
 \backslash
 label{fig:Diagrama-de-Choreography}
-\end_layout
-
-\begin_layout Plain Layout
-
-   
-\backslash
-end{minipage}
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-end{figure}
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-La clase 
-\emph on
-Interface
-\emph default
- (Figura 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:Diagrama-de-Interfaz Interface"
-
-\end_inset
-
-) es la responsable de encapsular las operaciones que ofrece cada servicio,
- y cada instancia de 
-\emph on
-Interface
-\emph default
- está intimamente vinculada con 
-\emph on
-Consumer
-\emph default
- o 
-\emph on
-Provider
-\emph default
- dependiendo con quién se relacione explícitamente.
- El procedimiento de Análisis de Compatibilidad de Interfaces compara la
- instancia Interface del 
-\emph on
-Consumer 
-\emph default
-(lo esperado por el consumidor) con las instancias de cada Interface del
- servicio candidato 
-\emph on
-Provider
-\emph default
-.
- A su vez, 
-\emph on
-Interface 
-\emph default
-está compuesta por una lista de al menos una operación (
-\emph on
-Operation
-\emph default
-, Figura
-\begin_inset space ~
-\end_inset
-
-
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:Diagrama-de-Interfaz-Operation"
-
-\end_inset
-
-).
-
-\emph on
- 
-\begin_inset Newline newline
-\end_inset
-
-
-\emph default
-La clase 
-\emph on
-Operation 
-\emph default
-representa a cada una de las funciones operacionales provistas/solicitadas
- por cada proveedor/consumidor de un servicio.
- Cada operación está compuesta por su nombre (un identificador que describe
- semánticamente la función de la operación), puede o no tener una entrada
- (
-\emph on
-Input
-\emph default
-, Figura
-\begin_inset space ~
-\end_inset
-
-
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:Diagrama-de-Interfaz-Input"
-
-\end_inset
-
-) y puede o no tener una salida (
-\emph on
-Output
-\emph default
-, Figura
-\begin_inset space ~
-\end_inset
-
-
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:Diagrama-de-Interfaz-output"
-
-\end_inset
-
-).
- A su vez, podría o no tener una o más excepciones o fallas (
-\emph on
-Faults
-\emph default
-, Figura
-\begin_inset space ~
-\end_inset
-
-3.10).
- 
-\begin_inset Newline newline
-\end_inset
-
-La clase 
-\emph on
-Input
-\emph default
- (Figura 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:Diagrama-de-Interfaz-Input"
-
-\end_inset
-
-) representa los datos que la operación espera como entrada y está compuesto
- por un nombre y una lista de al menos un parámetro (
-\emph on
-Parameter
-\emph default
-, Figura
-\begin_inset space ~
-\end_inset
-
-
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:Diagrama-de-Interfaz-parameter"
-
-\end_inset
-
-) que actúa como entrada de la operación.
- 
-\begin_inset Newline newline
-\end_inset
-
-Inversamente, la clase 
-\emph on
-Output
-\emph default
- (Figura 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:Diagrama-de-Interfaz-output"
-
-\end_inset
-
-) representa la salida/retorno de una operación.
- En el metamodelo propuesto, la salida de una operación (
-\emph on
-Output
-\emph default
-) está compuesta por un nombre, que puede ser cualquier tipo de identificador
- que represente a la salida de la operación y un conjunto de parámetros
- que determina cada uno de los datos que son retornados por la operación
- del servicio.
- En la versión anterior de la Herramienta de Evaluación de Servicios Web,
- utilizando interfaces Java, las operaciones cuentan simplemente con un
- tipo de retorno, ya sea un tipo simple o un tipo complejo, y en caso de
- que la operación retorne distintos elementos, este deberá encapsular cada
- uno de estos, siendo que no necesariamente en conjunto conformen una entidad
- única.
- Por ejemplo, utilizando la clase 
-\emph on
-Fee
-\emph default
- (pago de tarifa) como salida de la operación, al agregarle un nombre de
- retorno, podremos dar información semántica del tipo de retorno que estamos
- brindando, si se instancia el nombre del parámetro con 
-\begin_inset Quotes eld
-\end_inset
-
-
-\emph on
-carFee
-\emph default
-
-\begin_inset Quotes erd
-\end_inset
-
- estamos diciendo que el pago será de autos.
- 
-\begin_inset Newline newline
-\end_inset
-
-En el contexto de los Servicios Web, la definición de excepciones representadas
- por la clase
-\emph on
- Fault
-\emph default
- no se han convertido en una práctica común 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "rodriguez2013best"
-
-\end_inset
-
- y de hecho, la mayoría de los WSDL no incluyen el detalle del manejo de
- excepciones.
-\end_layout
-
-\begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-begin{figure}[!htb]
-\end_layout
-
-\begin_layout Plain Layout
-
-   
-\backslash
-begin{minipage}{0.3
-\backslash
-textwidth}
-\end_layout
-
-\begin_layout Plain Layout
-
-     
-\backslash
-centering
-\end_layout
-
-\begin_layout Plain Layout
-
-     
-\backslash
-includegraphics[width=1.0
-\backslash
-linewidth]{ImgChapter3/Interface.png}
-\end_layout
-
-\begin_layout Plain Layout
-
-     
-\backslash
-caption{Diagrama de clase Interface}
-\backslash
-label{fig:Diagrama-de-Interfaz Interface}
-\end_layout
-
-\begin_layout Plain Layout
-
-   
-\backslash
-end{minipage}
-\backslash
-hfill
-\end_layout
-
-\begin_layout Plain Layout
-
-   
-\backslash
-begin {minipage}{0.3
-\backslash
-textwidth}
-\end_layout
-
-\begin_layout Plain Layout
-
-     
-\backslash
-centering
-\end_layout
-
-\begin_layout Plain Layout
-
-     
-\backslash
-includegraphics[width=1.0
-\backslash
-linewidth]{ImgChapter3/Operation.png}
-\end_layout
-
-\begin_layout Plain Layout
-
-     
-\backslash
-caption{Diagrama de clase Operation}
-\backslash
-label{fig:Diagrama-de-Interfaz-Operation}
-\end_layout
-
-\begin_layout Plain Layout
-
-   
-\backslash
-end{minipage}
-\backslash
-hfill
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-end{figure}
-\end_layout
-
-\end_inset
-
-
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-begin{figure}[!htb]
-\end_layout
-
-\begin_layout Plain Layout
-
-   
-\backslash
-begin{minipage}{0.3
-\backslash
-textwidth}
-\end_layout
-
-\begin_layout Plain Layout
-
-     
-\backslash
-centering
-\end_layout
-
-\begin_layout Plain Layout
-
-     
-\backslash
-includegraphics[width=1.0
-\backslash
-linewidth]{ImgChapter3/Input.png}
-\end_layout
-
-\begin_layout Plain Layout
-
-     
-\backslash
-caption{Diagrama de clase Input}
-\backslash
-label{fig:Diagrama-de-Interfaz-Input}
-\end_layout
-
-\begin_layout Plain Layout
-
-   
-\backslash
-end{minipage}
-\backslash
-hfill
-\end_layout
-
-\begin_layout Plain Layout
-
-   
-\backslash
-begin {minipage}{0.3
-\backslash
-textwidth}
-\end_layout
-
-\begin_layout Plain Layout
-
-     
-\backslash
-centering
-\end_layout
-
-\begin_layout Plain Layout
-
-     
-\backslash
-includegraphics[width=1.0
-\backslash
-linewidth]{ImgChapter3/output.png}
-\end_layout
-
-\begin_layout Plain Layout
-
-     
-\backslash
-caption{Diagrama de clase Output}
-\backslash
-label{fig:Diagrama-de-Interfaz-output}
-\end_layout
-
-\begin_layout Plain Layout
-
-   
-\backslash
-end{minipage}
-\backslash
-hfill
-\end_layout
-
-\begin_layout Plain Layout
-
-   
-\backslash
-begin {minipage}{0.3
-\backslash
-textwidth}
-\end_layout
-
-\begin_layout Plain Layout
-
-     
-\backslash
-centering
-\end_layout
-
-\begin_layout Plain Layout
-
-     
-\backslash
-includegraphics[width=1.0
-\backslash
-linewidth]{ImgChapter3/Fault.png}
-\end_layout
-
-\begin_layout Plain Layout
-
-     
-\backslash
-caption{Diagrama de clase Fault}
-\backslash
-label{fig:Diagrama-de-fault}
-\end_layout
-
-\begin_layout Plain Layout
-
-   
-\backslash
-end{minipage}
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-end{figure}
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Para los tipos de datos se definió una clase abstracta llamada 
-\emph on
-Type
-\emph default
- (Figura 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:Diagrama-de-Interfaz-type"
-
-\end_inset
-
-), la cual es la superclase de todos los posibles tipos de datos.
- La clase 
-\emph on
-Type
-\emph default
- tiene tres subclases concretas: 
-\end_layout
-
-\begin_layout Itemize
-
-\emph on
-SimpleType
-\emph default
- (Figura 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:Diagrama-de-Interfaz-sympletype"
-
-\end_inset
-
-) representa todos los posibles tipos simples o primitivos como un valor
- numérico entero secuencial.
- La clase cuenta con las siguientes propiedades públicas y estáticas: 
-\emph on
-STRING, INTEGER, BOOLEAN, LONG, SHORT, DECIMAL, FLOAT, DOUBLE, BYTE, DATE_TIME,
- DATE, BASE64_BINARY, HEX_BINARY, BASE64, ANY_TYPE, NORMALIZEDSTRING, ANY_URI.
-
-\emph default
- Por convención, todas las variables se encuentran en mayúsculas por ser
- constantes.
- El atributo privado 
-\emph on
-type
-\emph default
- de la clase descrita sólo puede tomar el valor de alguna de dichas constantes.
- Por ejemplo para crear una instancia de un 
-\emph on
-SimpleType
-\emph default
- del tipo 
-\emph on
-short 
-\emph default
-hay que escribir la sentencia en el lenguaje Java correspondiente a 
-\emph on
-SimpleType shortType = new SimpleType (SimpleType.SHORT); 
-\emph default
-y de esta manera se evita que el programador tenga que saber cuál número
- entero representa la variable 
-\emph on
-SHORT, 
-\emph default
-lo que reduce posibles errores por parte del desarrollador.
-\end_layout
-
-\begin_layout Itemize
-La clase 
-\emph on
-ComplexType
-\emph default
- (Figura
-\begin_inset space ~
-\end_inset
-
-3.15) representa los tipos complejos utilizados en la operación de servicio.
- Los tipos complejos están compuestos por atributos (
-\emph on
-Attribute
-\emph default
-, Figura
-\begin_inset space ~
-\end_inset
-
-3.16), formados por un nombre (por ejemplo DNI, nombre, posición, etc) y
- un tipo que representa propiamente al tipo de atributo, puede ser de tipo
- simple, complejo o array.
- Es importante mencionar que la implementación propuesta permite el anidamiento
- de tipos complejos de distintos tipos, no exigiendo que sean todos de la
- misma clase.
-\end_layout
-
-\begin_layout Itemize
-
-\emph on
-ArrayType
-\emph default
- (Figura
-\begin_inset space ~
-\end_inset
-
-
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:Diagrama-de-Interfaz-arraytype"
-
-\end_inset
-
-) representa las colecciones tales como listas y arrays.
- Compuesto por el nombre del tipo propiamente dicho y el tipo de dato de
- los elementos contenidos.
- Si bien, a primera vista, 
-\emph on
-ArrayType 
-\emph default
-podría haberse representado con la clase 
-\emph on
-ComplexType,
-\emph default
- cabe destacar que la clase 
-\emph on
-ArrayType
-\emph default
- presenta un fuerte significado semántico y estructural, ya que indica que
- en su interior habrá una colección de objetos del mismo tipo.
- 
-\end_layout
-
-\begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-begin{figure}[!htb]
-\end_layout
-
-\begin_layout Plain Layout
-
-   
-\backslash
-begin{minipage}{0.3
-\backslash
-textwidth}
-\end_layout
-
-\begin_layout Plain Layout
-
-     
-\backslash
-centering
-\end_layout
-
-\begin_layout Plain Layout
-
-     
-\backslash
-includegraphics[width=1.0
-\backslash
-linewidth]{ImgChapter3/Parameter.png}
-\end_layout
-
-\begin_layout Plain Layout
-
-     
-\backslash
-caption{Diagrama de clase Parameter}
-\backslash
-label{fig:Diagrama-de-Interfaz-parameter}
-\end_layout
-
-\begin_layout Plain Layout
-
-   
-\backslash
-end{minipage}
-\backslash
-hfill
-\end_layout
-
-\begin_layout Plain Layout
-
-   
-\backslash
-begin {minipage}{0.3
-\backslash
-textwidth}
-\end_layout
-
-\begin_layout Plain Layout
-
-     
-\backslash
-centering
-\end_layout
-
-\begin_layout Plain Layout
-
-     
-\backslash
-includegraphics[width=1.0
-\backslash
-linewidth]{ImgChapter3/Type.png}
-\end_layout
-
-\begin_layout Plain Layout
-
-     
-\backslash
-caption{Diagrama de clase Type}
-\backslash
-label{fig:Diagrama-de-Interfaz-type}
-\end_layout
-
-\begin_layout Plain Layout
-
-   
-\backslash
-end{minipage}
-\backslash
-hfill
-\end_layout
-
-\begin_layout Plain Layout
-
-   
-\backslash
-begin{minipage}{0.3
-\backslash
-textwidth}
-\end_layout
-
-\begin_layout Plain Layout
-
-     
-\backslash
-centering
-\end_layout
-
-\begin_layout Plain Layout
-
-     
-\backslash
-includegraphics[width=1.0
-\backslash
-linewidth]{ImgChapter3/SimpleType.png}
-\end_layout
-
-\begin_layout Plain Layout
-
-     
-\backslash
-caption{Diagrama de clase SimpleType}
-\backslash
-label{fig:Diagrama-de-Interfaz-sympletype}
 \end_layout
 
 \begin_layout Plain Layout
