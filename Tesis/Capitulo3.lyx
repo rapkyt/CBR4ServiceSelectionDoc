@@ -1054,46 +1054,36 @@ OPERACIONES
 .
  La operación 
 \emph on
-getReservation
+POST_/pet
 \emph default
- es utilizada para buscar reservas a partir de un número de identificador,
- retornando un string con la reserva correspondiente.
+ es utilizada para agregar mascotas a la base de datos, devolviendo los
+ datos de la mascota, y un id único.
  Para 
 \emph on
-getCarFee
+GET_/pet/{petId}
 \emph default
-, dada una serie de comodidades que se desean que el vehículo a alquilar
- posea, retorna el costo del alquiler de un vehículo con estas características,
- a su vez 
+, dado un id de una mascota, retorna la información de esa mascota, a su
+ vez 
 \emph on
-getCarFee 
-\emph default
-conoce las clases 
-\emph on
-Fee 
-\emph default
-y 
-\emph on
-CarSupplements
+POST_/pet/{petId} recibe el mísmo id de la mascota, más los datos a actualizar
+ de la misma
 \emph default
 .
  Finalmente, 
 \emph on
-getAvailableCars
+POST_/pet/{petId}/uploadImage
 \emph default
- es una operación que retorna la lista de vehículos disponibles entre un
- rango de fechas dado.
+ es una operación que permite subir fotos de la mascota dado su id.
  En el Listado de Código 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "Documento WSDL 2.0 RentACar"
+reference "Documento OAS PetStore"
 
 \end_inset
 
- se muestra un fragmento del documento WSDL 2.0 que describe el servicio
- 
+ se muestra un fragmento del documento OAS que describe el servicio 
 \emph on
-RentACar
+PetStore
 \emph default
 .
 \end_layout
@@ -1143,8 +1133,8 @@ Visión esquemática UML del Caso de estudio
 \begin_layout Standard
 \begin_inset CommandInset include
 LatexCommand lstinputlisting
-filename "listing/Archivo-WSDL-2.0Recortado.txt"
-lstparams "caption={Documento WSDL 2.0 RentACar},label={Documento WSDL 2.0 RentACar}"
+filename "listing/petStore (ejemplo).txt"
+lstparams "caption={Documento OAS PetStore},label={Documento OAS PetStore}"
 
 \end_inset
 
@@ -1169,18 +1159,28 @@ OAS vs.
 \end_layout
 
 \begin_layout Standard
-En el fragmento de WSDL 2.0 – Listado de Código
+En el fragmento de OAS – Listado de Código
 \begin_inset space ~
 \end_inset
 
 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "Documento WSDL 2.0 RentACar"
+reference "Documento OAS PetStore"
 
 \end_inset
 
-, línea 78 a 81 –, se define para la interfaz (
+, línea 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+DEFINIR
+\end_layout
+
+\end_inset
+
+ –, se define para la interfaz (
 \emph on
 interface
 \emph default
@@ -1190,317 +1190,154 @@ operation
 \emph default
 ) 
 \emph on
-getAvailableCars
+GET_/pet/{petId}
 \emph default
-, indicando la entrada y salida de la misma utilizando los tags 
+, indicando la entrada y salida de la misma utilizando las keys 
 \emph on
-input
+parameters
 \emph default
  y 
 \emph on
-output 
+responses[200] 
 \emph default
 respectivamente.
- Cada entrada y cada salida se representa como un elemento (
-\emph on
-element
-\emph default
-) del documento WSDL.
- Los elementos (
-\emph on
-elements
-\emph default
-) que conforman las entradas y salidas de las operaciones se detallan dentro
- del apartado 
+ Cada entrada y cada salida se representa como una entrada del documento
+ OAS.
+ Los elementos que conforman las entradas y salidas de las operaciones se
+ detallan dentro del apartado 
 \emph on
 types
 \emph default
  del documento.
- Entre las líneas 2 y 68, se aprecia como se encuentra conformada la sección
- 
+ Entre las líneas 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+DEFINIR
+\end_layout
+
+\end_inset
+
+, se aprecia como se encuentra conformada la sección 
 \emph on
-types.
+definitions.
 
 \emph default
  A su vez, la operación 
 \emph on
-getAvailableCars
+GET_/pet/{petId}
 \emph default
- se detalla desde la línea 46 hasta la 66 inclusive.
- 
-\emph on
-
+ se detalla desde la línea 
 \begin_inset Note Note
-status collapsed
+status open
 
 \begin_layout Plain Layout
-
-\emph on
-getCarFee
-\emph default
-.
-\end_layout
-
-\begin_layout Plain Layout
-La estructura de entradas de la operación y salidas de la misma (
-\emph on
-getCarFeeInput
-\emph default
- y 
-\emph on
-getCarFeeOutput
-\emph default
-) se definen como dos elementos (element) etiquetados como 
-\emph on
-tns:getCarFeeInput
-\emph default
- y 
-\emph on
-tns:getCarFeeOutput
-\emph default
- respectivamente.
- 
-\end_layout
-
-\begin_layout Plain Layout
-Como se puede observar 
-\emph on
-getCarFeeInput
-\emph default
- se define como un tipo de dato complejo, en el cual se encapsulan los datos
- que recibe como entrada la operación.
- Dentro de 
-\emph on
-getCarFeeInput 
-\emph default
-se definen los accesorios (
-\emph on
-supplements
-\emph default
-) que tiene el vehículo, siendo 
-\emph on
-supplements 
-\emph default
-un tipo complejo compuesto por dos 
-\emph on
-elements
-\emph default
-, 
-\emph on
-airCondition 
-\emph default
-y 
-\emph on
-automatic
-\emph default
-, ambos de tipo 
-\emph on
-boolean
-\emph default
-.
- 
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Plain Layout
-A su vez, al ser hijo directo del primer complexType (reescribir en caso
- de ser necesario) 
-\emph on
-supplements 
-\emph default
-es de la clase parameter del metamodelo propuesto.
- Además esta entidad compleja posee dos atributos (Attributes en el metamodelo),
- cada uno de los cuales contiene un tipo simple de datos: 
-\emph on
-airCondition
-\emph default
- de la categoría booleano, que representa si el auto posee o no aire acondiciona
-do y 
-\emph on
-automatic
-\emph default
- de la categoría arreglo de caracteres, que indica si el auto tiene caja
- manual o automática.
- 
+46 hasta la 66
 \end_layout
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Plain Layout
-Similar a 
-\emph on
-getCarFeeInput
-\emph default
-, 
-\emph on
-getCarFeeOutput 
-\emph default
-encapsula la salida de la operación 
-\emph on
-getCarFee
-\emph default
-.
- Dentro de esta salida se define el tipo complejo 
-\emph on
-cost
-\emph default
-, compuesto por dos 
-\emph on
-elements
-\emph default
-: 
-\emph on
-chargeCost
-\emph default
- y 
-\emph on
-currency
-\emph default
-, de tipo 
-\emph on
-double 
-\emph default
-y 
-\emph on
-normalizedString 
-\emph default
-respectivamente.
-\end_layout
-
-\end_inset
-
-
-\emph default
-
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Plain Layout
-Para concluir con los tipos de datos presentados en el metamodelo, se explica
- el tipo de dato ArrayType en el siguiente fragmento de documento WSLD.
- La operación getAvailableCars nos entrega los autos disponibles dado un
- periodo de tiempo conformado por dos fechas.
- La salida de dicha operación, 
-\emph on
-GetAvailableCarsOutput
-\emph default
- retorna un arreglo de tipos complejos 
-\emph on
-car.
- 
-\emph default
-Cada auto a su vez se encuentra conformado por tres atributos: 
-\emph on
-brand
-\emph default
-, 
-\emph on
-model
-\emph default
- y 
-\emph on
-description
-\emph default
- siendo respectivamente la marca, el modelo (año de fábrica) y una breve
- descripción del vehículo.
- 
-\emph on
-Brand
-\emph default
- y 
-\emph on
-description
-\emph default
- son de tipo de dato simple string mientras que 
-\emph on
-model
-\emph default
- es un número entero.
- 
-\end_layout
-
-\end_inset
-
-
+ inclusive.
 \end_layout
 
 \begin_layout Standard
 Por un lado, 
 \emph on
-getAvailableCarsInput 
+parameters 
 \emph default
-– línea 46 – es un tipo complejo que encapsula la entrada de dicha operación.
- La misma está compuesta por dos elementos (
+– línea 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+46
+\end_layout
+
+\end_inset
+
+ – define la entrada de dicha operación.
+ La misma está compuesta por un objeto del tipo entero (
 \emph on
-element
-\emph default
-), 
-\emph on
-initDate
-\emph default
- y 
-\emph on
-endDate
-\emph default
-, ambos del tipo fecha (
-\emph on
-simple date
+integer - int64
 \emph default
 ).
- Por otro lado, 
+ Por otro lado, el objeto dentro de la clave 
 \emph on
-getAvailableCarsOutput 
+200
 \emph default
-– línea 54 – es un tipo complejo que encapsula la salida de la operación,
- compuesta por una colección de autos (
+, dentro del objeto 
 \emph on
-car
+response 
 \emph default
-), donde cada auto es definido por tres elementos (
+– línea 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+54
+\end_layout
+
+\end_inset
+
+ – es un objeto que encapsula la salida de la operación, cuyo esquema es
+ una referencia a 
 \emph on
-element
+#/definitions/Pet
 \emph default
-), 
+, lo que nos indica que debemos ver la definición en la propiedad 
 \emph on
-brand, model y description
+Pet
+\emph default
+ del objeto 
+\emph on
+definitions
+\emph default
+, la misma define sus propiedades en el atributo 
+\emph on
+properties
+\emph default
+, compuesto por: un identificador 
+\emph on
+id
+\emph default
+, una categoría 
+\emph on
+category
+\emph default
+, un nombre 
+\emph on
+name
+\emph default
+ y un listado de fotos 
+\emph on
+photoUrls
 \emph default
 .
- Nótese que dicho tipo de dato es una colección de 
-\emph on
-car 
-\emph default
-ya que la propiedad 
-\emph on
-maxOccurs 
-\emph default
-dentro del tag 
-\emph on
-sequence 
-\emph default
-tiene el valor 
-\emph on
-unbounded
-\emph default
-, lo que significa que la máxima ocurrencia de objetos para este tipo de
- dato es ilimitada.
- 
 \end_layout
 
 \begin_layout Standard
 En la Figura 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "fig:EjemploVersionInstanciadaConDOM"
+reference "fig:EjemploVersionInstanciada"
 
 \end_inset
 
  se muesta el diagrama de objetos que representa la salida (instancia del
- metamodelo) generada por el componente Conversor para el documento WSDL
+ metamodelo) generada por el componente Conversor para el documento OAS
  utilizado como ejemplo.
- Es importante destacar que la estructura de datos utilizada generará una
+ 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Es singleton O lo saco?
+\end_layout
+
+\end_inset
+
+Es importante destacar que la estructura de datos utilizada generará una
  sola vez los tipos de datos, y si fuera necesario realizar otra instancia
  de la misma clase, se fija la dirección de memoria mediante un puntero
  a aquella que fue creada por primera vez.
@@ -1518,7 +1355,7 @@ string
 En el diagrama de objetos de la Figura 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "fig:EjemploVersionInstanciadaConDOM"
+reference "fig:EjemploVersionInstanciada"
 
 \end_inset
 
@@ -1528,16 +1365,24 @@ Interface
 \emph default
 , llamada 
 \emph on
-RentACar
+PetStore
 \emph default
  la cual agrupa las operaciones que ofrece el servicio.
- Recordamos que este servicio cuenta con tres operaciones, 
+ Recordamos que este servicio cuenta con cuatro operaciones, 
 \emph on
-getReservation, getCarFee
-\emph default
- y 
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
 \emph on
-getAvailableCars
+DEFINIR
+\end_layout
+
+\end_inset
+
+
 \emph default
 , cada una asociada a su respectiva entrada y salida (
 \emph on
@@ -1550,133 +1395,13 @@ output
 ).
  A su vez cada entrada/salida está relacionada con los parámetros que las
  componen.
- A fines de mostrar resumidamente como quedaría el grafo, solo se detalla
- la función getAvailableCars.
- Podemos destacar que 
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Plain Layout
-el parámetro 
+ Con el fin de mostrar a manera resumida como queda la instancia del metamodelo,
+ solo se detalla la función 
 \emph on
-supplements
-\emph default
-, correspondiente a la entrada (
-\emph on
-Input
-\emph default
-) de la operación 
-\emph on
-getCarFee
-\emph default
-, es un tipo complejo formado por los atributos (
-\emph on
-Attribute
-\emph default
-) 
-\emph on
-automatic
-\emph default
- y 
-\emph on
-airCondition
-\emph default
-, ambos asociados al tipo simple (
-\emph on
-SimpleType
-\emph default
-) boolean.
- El parámetro 
-\emph on
-cost
-\emph default
- (incluido en la salida de la operación 
-\emph on
-getCarFee
-\emph default
-) también es un tipo complejo y se encuentra conformado por los atributos
- 
-\emph on
-chargeCost
-\emph default
- (asociado al tipo simple 
-\emph on
-double
-\emph default
-) y 
-\emph on
-currency
-\emph default
- (asociado al tipo simple 
-\emph on
-String
-\emph default
-).
- Por otro lado,
-\end_layout
-
-\end_inset
-
- para la operación 
-\emph on
-getAvailableCars
-\emph default
- se define como entrada el objeto llamado 
-\emph on
-getAvailableCarInput
-\emph default
- de la clase 
-\emph on
-Input
+GET_/pet/{petId}
 \emph default
 .
- Dicha entrada se encuentra conformada por dos parámentros asociados al
- tipo simple 
-\emph on
-date
-\emph default
-, que hacen referencia a la fecha de inicio y fin respectivamente.
- La salida de esta operación está compuesta por un parámetro llamado 
-\emph on
-cars
-\emph default
-, que representa a los autos disponibles entre las fechas ingresadas como
- entrada de la operación.
- El parámetro 
-\emph on
-cars
-\emph default
-, es asociado a una instancia de la clase 
-\emph on
-ArrayType
-\emph default
- llamada de la misma manera, que a su vez posee como 
-\emph on
-contentType
-\emph default
- una instancia de la clase 
-\emph on
-ComplexType
-\emph default
- llamada 
-\emph on
-Car
-\emph default
- (que representa a cada automovil individualmente).
- En resumen, la salida de esta operación es un arreglo (
-\emph on
-ArrayType
-\emph default
-) de automoviles (
-\emph on
-Car
-\emph default
-).
- De cada auto (
-\emph on
-Car
-\emph default
-) conoce su modelo, marca y una breve descripción.
+ 
 \end_layout
 
 \begin_layout Standard
@@ -1701,7 +1426,7 @@ status open
 \begin_layout Plain Layout
 \begin_inset CommandInset label
 LatexCommand label
-name "fig:EjemploVersionInstanciadaConDOM"
+name "fig:EjemploVersionInstanciada"
 
 \end_inset
 
@@ -2355,7 +2080,7 @@ operations
  –O1, O2 y O3 de la Figura 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "fig:EjemploVersionInstanciadaConDOM"
+reference "fig:EjemploVersionInstanciada"
 
 \end_inset
 
@@ -2388,7 +2113,7 @@ I1: Input
  de la Figura 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "fig:EjemploVersionInstanciadaConDOM"
+reference "fig:EjemploVersionInstanciada"
 
 \end_inset
 
