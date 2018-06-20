@@ -452,7 +452,7 @@ Solved Case
 \end_layout
 
 \begin_layout Standard
-Si la solución les compatible, se evalúa la calidad de la respuesta, para
+Si la solución es compatible, se evalúa la calidad de la respuesta, para
  ésto se compara un valor de 
 \emph on
 threshold
@@ -928,15 +928,25 @@ Conversor de OAS para instanciar el Metamodelo de Servicios Web
 En la Sección 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "subsec:Relación-entre-WSDL"
+reference "subsec:Relación-entre-OAS"
 
 \end_inset
 
- se analiza la relación existente entre el estándar WSDL y el metamodelo
- propuesto, usando como soporte a la explicación un caso de estudio del
- dominio de alquileres de autos (RentACar).
- Esta relación será analizada en profundidad, detallando la funcionalidad
- de cada operación WSDL y la forma en la que se relacionan con el metamodelo.
+ se analiza la relación existente entre el estándar OAS (Open Api Specification)
+ y el metamodelo utilizado como modelador de problema, usando como soporte
+ a la explicación un caso de estudio 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Agregar caso de estudio
+\end_layout
+
+\end_inset
+
+.
+ Esta relación se analizará en profundidad, detallando la relación entre
+ los componentes del Metamodelo y los de OAS.
  Finalmente se muestra un diagrama de objetos instanciados de acuerdo al
  caso de estudio.
 \end_layout
@@ -949,29 +959,42 @@ En la Sección
 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "subsec:Proceso-de-selección"
+reference "subsec:Construcción-del-instanciador"
 
 \end_inset
 
 , se explica como se construyó el componente Conversor del metamodelo propuesto,
  detallando las estructuras de datos analizadas y el proceso de análisis
  que se realiza para poder instanciar el metamodelo a partir de una descripción
- WSDL.
+ OAS.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Casi todo lucas
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection
 \begin_inset CommandInset label
 LatexCommand label
-name "subsec:Relación-entre-WSDL"
+name "subsec:Relación-entre-OAS"
 
 \end_inset
 
-Relación entre WSDL y Metamodelo
+Relación entre OAS y Metamodelo
 \end_layout
 
 \begin_layout Standard
-En esta subsección se detalla la correlación entre el Metamodelo de Servicios
- Web y el estándar WSDL 2.0, para lo cual se utilizará un caso de estudio
+En esta subsección se detalla la correlación entre el estándar OAS y el
+ Metamodelo de Servicios Web, para lo cual se utilizará un caso de estudio
  sencillo como soporte a la explicación.
  
 \end_layout
@@ -984,11 +1007,21 @@ name "par:Caso-de-estudio"
 \end_inset
 
 Caso de estudio
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+TODO
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
 Durante el desarrollo de este trabajo se tomará como soporte a la explicación,
- un Servicio Web perteneciente al dominio de alquiler de automóviles (RentACar).
+ un Servicio Web perteneciente al dominio de veterinaria (PetStore).
  El diagrama de clases UML para este dominio es presentado en la Figura
 \begin_inset space ~
 \end_inset
@@ -1001,22 +1034,22 @@ reference "fig: caso de estudio-1"
 \end_inset
 
 .
- En el dominio de alquiler de autos, el servicio está compuesto por 3 operacione
-s encapsuladas en la interfaz 
+ En el dominio de veterinaria, el servicio está compuesto por 5 operaciones
+ encapsuladas en la interfaz petStore: 
 \emph on
-RentACar
-\emph default
-: 
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
 \emph on
-getReservation
-\emph default
-, 
-\emph on
-getCarFee
-\emph default
- y 
-\emph on
-getAvailableCars
+OPERACIONES
+\end_layout
+
+\end_inset
+
+
 \emph default
 .
  La operación 
@@ -1075,7 +1108,7 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename ImgChapter3/casoDeEstudio.png
+	filename ImgChapter3/OAS vs Metamodelo.png
 	lyxscale 50
 	width 80text%
 
@@ -1119,7 +1152,7 @@ lstparams "caption={Documento WSDL 2.0 RentACar},label={Documento WSDL 2.0 RentA
 \end_layout
 
 \begin_layout Paragraph
-WSDL 2.0 vs.
+OAS vs.
  Metamodelo
 \begin_inset Newline newline
 \end_inset
@@ -1655,7 +1688,7 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename ImgChapter3/ejemploDeWsdlInstanciadoMetamodelo.png
+	filename ImgChapter3/OAS vs Metamodelo (instancia).png
 	lyxscale 50
 	width 70text%
 	scaleBeforeRotation
