@@ -390,7 +390,14 @@ Knowledge Base
  Se calcula cuán distinto es el problema del nuevo caso con cada uno de
  los demás problemas, para ésto se utiliza la funcion de distancia del 
 \emph on
-Metamodelo.
+Metamodelo
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Garriga10,baresi2017microservices"
+
+\end_inset
+
+.
  
 \emph default
 La distancia entre dos casos nos indica cuán parecido son sus problemas,
@@ -1159,6 +1166,16 @@ OAS vs.
 \end_layout
 
 \begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Explicar metodos HTTP y nomenclatura de nombre de operación, y que el evaluador
+ no incluye los simbolos
+\end_layout
+
+\end_inset
+
 En el fragmento de OAS – Listado de Código
 \begin_inset space ~
 \end_inset
@@ -1402,6 +1419,19 @@ GET_/pet/{petId}
 \emph default
 .
  
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Cuadro con json marcando las distintas partes
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -2900,6 +2930,17 @@ semántica
  que la operación retorne distintos elementos, se deberá encapsular cada
  uno de ellos, aún cuando en conjunto no conformen una entidad única y distintiv
 a del dominio.
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset bibtex
+LatexCommand bibtex
+bibfiles "Biblio_Lic"
+options "plain"
+
+\end_inset
+
+
 \end_layout
 
 \end_body
