@@ -390,14 +390,7 @@ Knowledge Base
  Se calcula cuán distinto es el problema del nuevo caso con cada uno de
  los demás problemas, para ésto se utiliza la funcion de distancia del 
 \emph on
-Metamodelo
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Garriga10,baresi2017microservices"
-
-\end_inset
-
-.
+Metamodelo.
  
 \emph default
 La distancia entre dos casos nos indica cuán parecido son sus problemas,
@@ -472,153 +465,6 @@ threshold
  haciendo que al llegar un nuevo caso, genere falsos positivos, es decir
  que diga que no hay distancia entre el caso requerido y uno de la base
  de conocimiento, cuando en realidad hay una distancia.
-\end_layout
-
-\begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-El mismo comienza por dos clases principales, que son las desencadenantes
- del comienzo del proceso de descubrimiento y selección de servicios, la
- clase 
-\emph on
-Consumer
-\emph default
-, y la clase 
-\emph on
-Provider
-\emph default
-.
- La clase 
-\emph on
-Consumer
-\emph default
- (Figura
-\begin_inset space ~
-\end_inset
-
-3.3) reemplaza la especificación de 
-\begin_inset Formula $I_{R}$
-\end_inset
-
- de la Sección
-\emph on
- 
-\emph default
-
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "sec:SelectionMethodOld"
-
-\end_inset
-
- por una interfaz – que denominamos 
-\begin_inset Formula $I_{C}$
-\end_inset
-
- (Interfaz a Consumir) – que representa las funcionalidades que necesita
- satisfacer cuando se consume el Servicio Web adecuado.
-
-\emph on
- 
-\emph default
-Por otro lado, la clase 
-\emph on
-Provider
-\emph default
- (Figura
-\begin_inset space ~
-\end_inset
-
-
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:Diagrama-de-Provider"
-
-\end_inset
-
-) reemplaza a la especificación 
-\begin_inset Formula $I_{S}$
-\end_inset
-
- (de la Sección 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "sec:SelectionMethodOld"
-
-\end_inset
-
-) por la interfaz que denominamos 
-\begin_inset Formula $I_{P}$
-\end_inset
-
- (Interfaz Provista), que representa al proveedor del servicio cuyas responsabil
-idades incluyen conocer el nombre del servicio (por ejemplo, servicio de
- alquiler de coches), y eventualmente podría contener datos propios del
- proveedor que se consideren relevantes.
- De esta forma, las especificaciones de la interfaz requerida (
-\begin_inset Formula $I_{R}$
-\end_inset
-
-) y de la interfaz del servicio (
-\begin_inset Formula $I_{S}$
-\end_inset
-
-), fueron reemplazadas por instancias de las clases 
-\emph on
-Consumer
-\emph default
- y 
-\emph on
-Provider
-\emph default
- respectivamente, para adherir a la convención de nombrado del estándar
- SoaML.
- 
-\end_layout
-
-\begin_layout Plain Layout
-La clase 
-\emph on
-Choreography 
-\emph default
-(Figura
-\begin_inset space ~
-\end_inset
-
-
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:Diagrama-de-Choreography"
-
-\end_inset
-
-) denota los pasos que se deben respetar a la hora de representar secuencias
- válidas de llamadas a operaciones de un servicio en particular.
- Durante el desarrollo de este trabajo se tomará como soporte a la explicación,
- un Servicio Web perteneciente al dominio de alquiler de automóviles (RentACar).
- Por ejemplo, una secuencia válida en dicho dominio sería llamar primero
- a una operación para comprobar si un auto está disponible para luego invocar
- a la operación para alquilar el mismo.
- Al momento de evaluar las responsabilidades del servicio, este aspecto
- secuencial resulta irrelevante.
- Sin embargo creemos que tiene mucho potencial a la hora de evaluar el comportam
-iento del servicio, puesto que la lógica que representa permite agregar
- claridad en el comportamiento esperado de la secuencialidad de llamadas
- a funciones específicas.
- Complementario a la clase 
-\emph on
-Choreography
-\emph default
- se debería proveer un diagrama auxiliar (por ejemplo, diagrama de secuencia
- UML) para denotar la lógica del orden de llamados para el uso de una función
- específica.
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Standard
@@ -919,6 +765,145 @@ end{figure}
 \end_inset
 
 
+\end_layout
+
+\begin_layout Section
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Cambios-necesarios"
+
+\end_inset
+
+Cambios necesarios
+\end_layout
+
+\begin_layout Standard
+En el diagrama de flujo de la Figura
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Esquema-de-proceso"
+
+\end_inset
+
+ se puede observar dentro del cuadro con bordes punteados como se componen
+ las clases pertenecientes al Metamodelo SoaML, el mismo cumple su función
+ como descriptor de interfaces, pero no tiene toda la información necesaria
+ que necesita un CBR para operar.
+\end_layout
+
+\begin_layout Standard
+Por lo tanto fueron necesarios hacer adaptaciones para poder operar dentro
+ del marco de 
+\emph on
+Razonamiento Basado en Casos (CBR)
+\emph default
+.
+\end_layout
+
+\begin_layout Standard
+Dichos cambios consisten en la creación de una nueva clase contenedora llamada
+ 
+\emph on
+Case
+\emph default
+, la misma posee un atributo llamado 
+\emph on
+problem
+\emph default
+, referenciando a la 
+\emph on
+Interface 
+\emph default
+descriptora del servicio, y otro atributo nombrado 
+\emph on
+solution
+\emph default
+, siendo éste un string que referencia unequivocamente la solución del problema
+ descripto, el mismo puede ser cadena nula si se trata de un nuevo caso
+ a consultar.
+\end_layout
+
+\begin_layout Standard
+Es de gran importancia para el funcionamiento del 
+\emph on
+Razonamiento Basado en Casos (CBR)
+\emph default
+ almacenar los casos en una 
+\emph on
+Base de Conocimiento 
+\emph default
+(
+\emph on
+Knowledge Base
+\emph default
+ o KB), en la cual luego podremos hacer consultas, para la implementación
+ de dicha base de conocimiento se decidió utilizar una Base de Datos sin
+ esquema (NoSQL) llamada 
+\emph on
+Mongo 
+\emph default
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Apartado mongo?
+\end_layout
+
+\end_inset
+
+.
+ Para poder almacenar nuestro caso en una base de datos lo ideal es serializarlo
+, para obtener el valor de la base de datos se debe des serializar.
+ Para realizar ambas acciones se optó por utilizar la librería 
+\emph on
+Jackson
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+
+\emph on
+https://github.com/FasterXML/jackson-module-kotlin
+\end_layout
+
+\end_inset
+
+
+\emph default
+, que es el estardar de facto para realizar dichas tareas en Kotlin.
+ Debido a que 
+\emph on
+Parameter
+\emph default
+ referencia al tipo de dato abstracto 
+\emph on
+Type
+\emph default
+, la librería intenta instanciar ésta última, resultando en eror, por lo
+ tanto fue necesario modificar sus constructores, añadiendo anotaciones
+ 
+\emph on
+Annotations
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+
+\emph on
+https://docs.oracle.com/javase/7/docs/technotes/guides/language/annotations.html
+\end_layout
+
+\end_inset
+
+
+\emph default
+ para especificar unequivocamente a que clase concreta pertenecía el dato
+ en cuestión al momento de des serializarlo.
 \end_layout
 
 \begin_layout Section
