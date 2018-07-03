@@ -884,11 +884,15 @@ Parameter
 \emph on
 Type
 \emph default
-, la librería intenta instanciar ésta última, resultando en eror, por lo
- tanto fue necesario modificar sus constructores, añadiendo anotaciones
- 
+, al momento de des serializarlo es necesario especificar a qué clase concreta
+ pertenece el dato en cuestión, para ésto fue necesario modificar los constructo
+res de la clase 
 \emph on
-Annotations
+Type
+\emph default
+, añadiendo anotaciones 
+\emph on
+(Annotations
 \begin_inset Foot
 status open
 
@@ -900,10 +904,25 @@ https://docs.oracle.com/javase/7/docs/technotes/guides/language/annotations.html
 
 \end_inset
 
-
+) 
 \emph default
- para especificar unequivocamente a que clase concreta pertenecía el dato
- en cuestión al momento de des serializarlo.
+a los mismos, las anotaciones siguen el patrón decorator
+\begin_inset CommandInset citation
+LatexCommand cite
+key "GoF"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Con estos cambios fue posible la utilización del Metamodelo SoaML dentro
+ del contexto de 
+\emph on
+Razonamiento Basado en Casos (CBR)
+\emph default
+.
 \end_layout
 
 \begin_layout Section
