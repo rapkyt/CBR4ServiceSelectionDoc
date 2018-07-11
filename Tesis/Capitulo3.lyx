@@ -792,11 +792,11 @@ reference "fig:Esquema-de-proceso"
  se puede observar dentro del cuadro con bordes punteados como se componen
  las clases pertenecientes al Metamodelo SoaML, el mismo cumple su función
  como descriptor de interfaces, pero no tiene toda la información necesaria
- que necesita un CBR para operar.
+ para operar dentro del contexto de un CBR.
 \end_layout
 
 \begin_layout Standard
-Por lo tanto fueron necesarios hacer adaptaciones para poder operar dentro
+Por lo tanto fue necesario realizar adaptaciones con el fin de operar dentro
  del marco de 
 \emph on
 Razonamiento Basado en Casos (CBR)
@@ -944,18 +944,8 @@ reference "subsec:Relación-entre-OAS"
 \end_inset
 
  se analiza la relación existente entre el estándar OAS (Open Api Specification)
- y el metamodelo utilizado como modelador de problema, usando como soporte
- a la explicación un caso de estudio 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Agregar caso de estudio
-\end_layout
-
-\end_inset
-
-.
+ y el metamodelo utilizado como modelador de problema, utilizando como soporte
+ a la explicación un caso de estudio.
  Esta relación se analizará en profundidad, detallando la relación entre
  los componentes del Metamodelo y los de OAS.
  Finalmente se muestra un diagrama de objetos instanciados de acuerdo al
@@ -1018,16 +1008,6 @@ name "par:Caso-de-estudio"
 \end_inset
 
 Caso de estudio
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-TODO
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Standard
@@ -1044,23 +1024,16 @@ reference "fig: caso de estudio-1"
 
 \end_inset
 
-.
+ en donde referenciaremos las operaciones con el formato 
+\emph on
+{Método HTTP}_{URI}
+\emph default
+ para que puedan ser identificadas inequívocamente.
  En el dominio de veterinaria, el servicio está compuesto por 5 operaciones
- encapsuladas en la interfaz petStore: 
+ encapsuladas en la interfaz petStore, 
 \emph on
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-
-\emph on
-OPERACIONES
-\end_layout
-
-\end_inset
-
-
+POST_/pet, GET_/pet/{petId}, POST_/pet/{petId}, DELETE_/pet/{petId} y POST_/pet/
+{petId}/uploadImage
 \emph default
 .
  La operación 
@@ -1076,10 +1049,14 @@ GET_/pet/{petId}
 , dado un id de una mascota, retorna la información de esa mascota, a su
  vez 
 \emph on
-POST_/pet/{petId} recibe el mísmo id de la mascota, más los datos a actualizar
- de la misma
+POST_/pet/{petId} 
 \emph default
-.
+recibe el mísmo id de la mascota, más los datos a actualizar de la misma,
+ 
+\emph on
+DELETE_/pet/{petId}
+\emph default
+ recibe el id de la mascota a eliminar.
  Finalmente, 
 \emph on
 POST_/pet/{petId}/uploadImage
@@ -1174,8 +1151,7 @@ OAS vs.
 status open
 
 \begin_layout Plain Layout
-Explicar metodos HTTP y nomenclatura de nombre de operación, y que el evaluador
- no incluye los simbolos
+Explicar el evaluador no incluye los simbolos
 \end_layout
 
 \end_inset
