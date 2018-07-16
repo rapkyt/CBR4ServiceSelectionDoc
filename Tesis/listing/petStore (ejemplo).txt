@@ -32,12 +32,8 @@
   "paths": {
     "/pet": {
       "post": {
-        "tags": [
-          "pet"
-        ],
         "summary": "Add a new pet to the store",
         "description": "",
-        "operationId": "addPet",
         "consumes": [
           "application/json",
           "application/xml"
@@ -67,25 +63,13 @@
           "405": {
             "description": "Invalid input"
           }
-        },
-        "security": [
-          {
-            "petstore_auth": [
-              "write:pets",
-              "read:pets"
-            ]
-          }
-        ]
+        }
       }
     },
     "/pet/{petId}": {
       "get": {
-        "tags": [
-          "pet"
-        ],
         "summary": "Find pet by ID",
         "description": "Returns a single pet",
-        "operationId": "getPetById",
         "produces": [
           "application/xml",
           "application/json"
@@ -113,20 +97,11 @@
           "404": {
             "description": "Pet not found"
           }
-        },
-        "security": [
-          {
-            "api_key": []
-          }
-        ]
+        }
       },
       "post": {
-        "tags": [
-          "pet"
-        ],
         "summary": "Updates a pet in the store with form data",
         "description": "",
-        "operationId": "updatePetWithForm",
         "consumes": [
           "application/x-www-form-urlencoded"
         ],
@@ -163,23 +138,11 @@
           "405": {
             "description": "Invalid input"
           }
-        },
-        "security": [
-          {
-            "petstore_auth": [
-              "write:pets",
-              "read:pets"
-            ]
-          }
-        ]
+        }
       },
       "delete": {
-        "tags": [
-          "pet"
-        ],
         "summary": "Deletes a pet",
         "description": "",
-        "operationId": "deletePet",
         "produces": [
           "application/xml",
           "application/json"
@@ -210,25 +173,13 @@
           "404": {
             "description": "Pet not found"
           }
-        },
-        "security": [
-          {
-            "petstore_auth": [
-              "write:pets",
-              "read:pets"
-            ]
-          }
-        ]
+        }
       }
     },
     "/pet/{petId}/uploadImage": {
       "post": {
-        "tags": [
-          "pet"
-        ],
         "summary": "uploads an image",
         "description": "",
-        "operationId": "uploadFile",
         "consumes": [
           "multipart/form-data"
         ],
@@ -259,32 +210,8 @@
               "$ref": "#/definitions/ApiResponse"
             }
           }
-        },
-        "security": [
-          {
-            "petstore_auth": [
-              "write:pets",
-              "read:pets"
-            ]
-          }
-        ]
+        }
       }
-    }
-  },
-  "securityDefinitions": {
-    "petstore_auth": {
-      "type": "oauth2",
-      "authorizationUrl": "https://petstore.swagger.io/oauth/dialog",
-      "flow": "implicit",
-      "scopes": {
-        "write:pets": "modify pets in your account",
-        "read:pets": "read your pets"
-      }
-    },
-    "api_key": {
-      "type": "apiKey",
-      "name": "api_key",
-      "in": "header"
     }
   },
   "definitions": {
@@ -298,9 +225,6 @@
         "name": {
           "type": "string"
         }
-      },
-      "xml": {
-        "name": "Category"
       }
     },
     "Pet": {
@@ -323,17 +247,10 @@
         },
         "photoUrls": {
           "type": "array",
-          "xml": {
-            "name": "photoUrl",
-            "wrapped": true
-          },
           "items": {
             "type": "string"
           }
         }
-      },
-      "xml": {
-        "name": "Pet"
       }
     },
     "ApiResponse": {
@@ -351,9 +268,5 @@
         }
       }
     }
-  },
-  "externalDocs": {
-    "description": "Find out more about Swagger",
-    "url": "http://swagger.io"
   }
 }

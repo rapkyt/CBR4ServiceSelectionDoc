@@ -317,7 +317,7 @@ status open
 
 \begin_layout Plain Layout
 \begin_inset Graphics
-	filename ImgChapter3/CBR 4SS.png
+	filename ImgChapter3/usadas/CBR 4SS.png
 	lyxscale 70
 	width 100col%
 
@@ -465,306 +465,6 @@ threshold
  haciendo que al llegar un nuevo caso, genere falsos positivos, es decir
  que diga que no hay distancia entre el caso requerido y uno de la base
  de conocimiento, cuando en realidad hay una distancia.
-\end_layout
-
-\begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-begin{figure}[!htb]
-\end_layout
-
-\begin_layout Plain Layout
-
-   
-\backslash
-begin {minipage}{0.3
-\backslash
-textwidth}
-\end_layout
-
-\begin_layout Plain Layout
-
-     
-\backslash
-centering
-\end_layout
-
-\begin_layout Plain Layout
-
-     
-\backslash
-includegraphics[width=1.0
-\backslash
-linewidth]{ImgChapter3/Consumer.png}
-\end_layout
-
-\begin_layout Plain Layout
-
-     
-\backslash
-caption{Diagrama de clase Consumer}
-\backslash
-label{Fig:Diagrama-de-Consumer}
-\end_layout
-
-\begin_layout Plain Layout
-
-   
-\backslash
-end{minipage}
-\backslash
-hfill
-\end_layout
-
-\begin_layout Plain Layout
-
-   
-\backslash
-begin{minipage}{0.3
-\backslash
-textwidth}
-\end_layout
-
-\begin_layout Plain Layout
-
-     
-\backslash
-centering
-\end_layout
-
-\begin_layout Plain Layout
-
-     
-\backslash
-includegraphics[width=1.0
-\backslash
-linewidth]{ImgChapter3/Provider.png}
-\end_layout
-
-\begin_layout Plain Layout
-
-     
-\backslash
-caption{Diagrama de clase Provider}
-\backslash
-label{fig:Diagrama-de-Provider}
-\end_layout
-
-\begin_layout Plain Layout
-
-   
-\backslash
-end{minipage}
-\backslash
-hfill
-\end_layout
-
-\begin_layout Plain Layout
-
-   
-\backslash
-begin {minipage}{0.3
-\backslash
-textwidth}
-\end_layout
-
-\begin_layout Plain Layout
-
-     
-\backslash
-centering
-\end_layout
-
-\begin_layout Plain Layout
-
-     
-\backslash
-includegraphics[width=1.0
-\backslash
-linewidth]{ImgChapter3/choreography.png}
-\end_layout
-
-\begin_layout Plain Layout
-
-     
-\backslash
-caption{Diagrama de clase Choreography}
-\backslash
-label{fig:Diagrama-de-Choreography}
-\end_layout
-
-\begin_layout Plain Layout
-
-   
-\backslash
-end{minipage}
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-end{figure}
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-begin{figure}[!htb]
-\end_layout
-
-\begin_layout Plain Layout
-
-   
-\backslash
-begin {minipage}{0.3
-\backslash
-textwidth}
-\end_layout
-
-\begin_layout Plain Layout
-
-     
-\backslash
-centering
-\end_layout
-
-\begin_layout Plain Layout
-
-     
-\backslash
-includegraphics[width=1.0
-\backslash
-linewidth]{ImgChapter3/ComplexType.png}
-\end_layout
-
-\begin_layout Plain Layout
-
-     
-\backslash
-caption{Diagrama de clase ComplexType}
-\backslash
-label{fig:Diagrama-de-Interfaz-complextype}
-\end_layout
-
-\begin_layout Plain Layout
-
-   
-\backslash
-end{minipage}
-\backslash
-hfill
-\end_layout
-
-\begin_layout Plain Layout
-
-   
-\backslash
-begin {minipage}{0.3
-\backslash
-textwidth}
-\end_layout
-
-\begin_layout Plain Layout
-
-     
-\backslash
-centering
-\end_layout
-
-\begin_layout Plain Layout
-
-     
-\backslash
-includegraphics[width=1.0
-\backslash
-linewidth]{ImgChapter3/Attribute.png}
-\end_layout
-
-\begin_layout Plain Layout
-
-     
-\backslash
-caption{Diagrama de clase Attribute}
-\backslash
-label{fig:Diagrama-de-Interfaz-attribute}
-\end_layout
-
-\begin_layout Plain Layout
-
-   
-\backslash
-end{minipage}
-\backslash
-hfill
-\end_layout
-
-\begin_layout Plain Layout
-
-   
-\backslash
-begin {minipage}{0.3
-\backslash
-textwidth}
-\end_layout
-
-\begin_layout Plain Layout
-
-     
-\backslash
-centering
-\end_layout
-
-\begin_layout Plain Layout
-
-     
-\backslash
-includegraphics[width=1.0
-\backslash
-linewidth]{ImgChapter3/ArrayType.png}
-\end_layout
-
-\begin_layout Plain Layout
-
-     
-\backslash
-caption{Diagrama de clase ArrayType}
-\backslash
-label{fig:Diagrama-de-Interfaz-arraytype}
-\end_layout
-
-\begin_layout Plain Layout
-
-   
-\backslash
-end{minipage}
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-end{figure}
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Section
@@ -1086,9 +786,9 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename ImgChapter3/OAS vs Metamodelo.png
+	filename ImgChapter3/usadas/OAS vs Metamodelo.png
 	lyxscale 50
-	width 80text%
+	width 100col%
 
 \end_inset
 
@@ -1365,23 +1065,8 @@ Interface
 PetStore
 \emph default
  la cual agrupa las operaciones que ofrece el servicio.
- Recordamos que este servicio cuenta con cuatro operaciones, 
-\emph on
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-
-\emph on
-DEFINIR
-\end_layout
-
-\end_inset
-
-
-\emph default
-, cada una asociada a su respectiva entrada y salida (
+ Recordamos que este servicio cuenta con cuatro operaciones, cada una asociada
+ a su respectiva entrada y salida (
 \emph on
 input
 \emph default
@@ -1402,19 +1087,6 @@ GET_/pet/{petId}
 \end_layout
 
 \begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Cuadro con json marcando las distintas partes
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
 \begin_inset Float figure
 wide false
 sideways false
@@ -1423,9 +1095,9 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename ImgChapter3/OAS vs Metamodelo (instancia).png
+	filename ImgChapter3/usadas/OAS vs Metamodelo (instancia).png
 	lyxscale 50
-	width 70text%
+	width 100col%
 	scaleBeforeRotation
 
 \end_inset
@@ -1447,6 +1119,783 @@ Ejemplo de metamodelo instanciado para el caso de estudio
 
 
 \end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{figure}[!htb]
+\end_layout
+
+\begin_layout Plain Layout
+
+   
+\backslash
+begin {minipage}{0.5
+\backslash
+textwidth}
+\end_layout
+
+\begin_layout Plain Layout
+
+     
+\backslash
+centering
+\end_layout
+
+\begin_layout Plain Layout
+
+     
+\backslash
+includegraphics[width=1.0
+\backslash
+linewidth]{ImgChapter3/usadas/getPetById-(anotado).png}
+\end_layout
+
+\begin_layout Plain Layout
+
+     
+\backslash
+caption{Componentes de Operación}
+\backslash
+label{fig:Componentes-de-Operacion}
+\end_layout
+
+\begin_layout Plain Layout
+
+   
+\backslash
+end{minipage}
+\backslash
+hfill
+\end_layout
+
+\begin_layout Plain Layout
+
+   
+\backslash
+begin {minipage}{0.5
+\backslash
+textwidth}
+\end_layout
+
+\begin_layout Plain Layout
+
+     
+\backslash
+centering
+\end_layout
+
+\begin_layout Plain Layout
+
+     
+\backslash
+includegraphics[width=1.0
+\backslash
+linewidth]{ImgChapter3/usadas/getPetByIdDefinitions-(anotado).png}
+\end_layout
+
+\begin_layout Plain Layout
+
+     
+\backslash
+caption{Componentes de Tipos de datos}
+\backslash
+label{fig:Componentes-de-Tipos-de-datos}
+\end_layout
+
+\begin_layout Plain Layout
+
+   
+\backslash
+end{minipage}
+\backslash
+hfill
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{figure}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph
+Tipos de datos simple
+\end_layout
+
+\begin_layout Standard
+Todos los tipos de datos simple soportados por OAS se encuentran disponibles
+ en los tipos de datos definidos por el Metamodelo, como se puede observar
+ en la tabla XXXX en la cual, en la columba 
+\emph on
+Nombre
+\emph default
+ se puede observar el nombre coloquial que se le da al tipo de dato, la
+ columna 
+\emph on
+Type
+\emph default
+ y 
+\emph on
+Format
+\emph default
+ es la que definen el dato en el documento, y por último la columna 
+\emph on
+Correspondencia SOAML 
+\emph default
+corresponde al 
+\emph on
+tipo 
+\emph default
+que se le asigna al SimpleType correspondiente.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Tabular
+<lyxtabular version="3" rows="13" columns="5">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Nombre
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Type
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Format
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Comentarios
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Correspondencia SOAML
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+integer
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+integer
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+int32
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+32 bits con signo
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+SimpleType.INTEGER
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+long
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+integer
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+int64
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+64 bits con signo
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+SimpleType.LONG
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+float
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+number
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+float
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+SimpleType.FLOAT
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+double
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+number
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+double
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+SimpleType.DOUBLE
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+string
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+string
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+SimpleType.STRING
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+byte
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+string
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+byte
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Caracteres codificados en base64
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+SimpleType.BASE64
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+binary
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+string
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+binary
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+cualquier secuencia de octales
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+SimpleType.BYTE
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+boolean 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+boolean
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+SimpleType.BOOLEAN
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+date
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+string
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+date
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Como se define full-date - RFC3339
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+referencia?
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+SimpleType.DATE
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+dateTime
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+string
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+date-time
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Como se define date-time - RFC3339
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+SimpleType.DATE_TIME
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+password
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+string 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+password
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Para especificar que la UI debe ofuscar el input
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+SimpleType.STRING
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+file
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+file
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+SimpleType.BASE64_BINARY
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
 
 \end_inset
 
