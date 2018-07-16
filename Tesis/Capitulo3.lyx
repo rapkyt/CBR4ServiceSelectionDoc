@@ -1241,12 +1241,20 @@ Tipos de datos simple
 \begin_layout Standard
 Todos los tipos de datos simple soportados por OAS se encuentran disponibles
  en los tipos de datos definidos por el Metamodelo, como se puede observar
- en la tabla XXXX en la cual, en la columba 
+ en el Cuadro 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:Correspondencia-Tipos-de-datos"
+
+\end_inset
+
+.
+ El mismo contiene cinco columnas, en la columna 
 \emph on
 Nombre
 \emph default
- se puede observar el nombre coloquial que se le da al tipo de dato, la
- columna 
+ se puede observar el nombre coloquial que se le da al tipo de dato, las
+ columnas 
 \emph on
 Type
 \emph default
@@ -1254,11 +1262,12 @@ Type
 \emph on
 Format
 \emph default
- es la que definen el dato en el documento, y por último la columna 
+ son las que definen el dato en la especificación de documento, y por último
+ la columna 
 \emph on
 Correspondencia SOAML 
 \emph default
-corresponde al 
+indica el 
 \emph on
 tipo 
 \emph default
@@ -1266,6 +1275,35 @@ que se le asigna al SimpleType correspondiente.
 \end_layout
 
 \begin_layout Standard
+\begin_inset Float table
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:Correspondencia-Tipos-de-datos"
+
+\end_inset
+
+Correspondencia Tipos de datos Simple con Metamodelo
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
 \begin_inset Tabular
 <lyxtabular version="3" rows="13" columns="5">
 <features tabularvalignment="middle">
@@ -1635,7 +1673,7 @@ binary
 \begin_inset Text
 
 \begin_layout Plain Layout
-cualquier secuencia de octales
+Cualquier secuencia de octales
 \end_layout
 
 \end_inset
@@ -1833,7 +1871,7 @@ password
 \begin_inset Text
 
 \begin_layout Plain Layout
-Para especificar que la UI debe ofuscar el input
+Especifica que la UI debe ofuscar el input
 \end_layout
 
 \end_inset
@@ -1896,6 +1934,11 @@ SimpleType.BASE64_BINARY
 </cell>
 </row>
 </lyxtabular>
+
+\end_inset
+
+
+\end_layout
 
 \end_inset
 
