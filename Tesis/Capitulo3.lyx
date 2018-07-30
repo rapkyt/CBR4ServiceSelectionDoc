@@ -1956,7 +1956,7 @@ Construcción del Conversor
 \end_layout
 
 \begin_layout Standard
-En los párrafos siguientes se detallan los pasos principales para la construcció
+En los siguientes párrafos se detallan los pasos principales para la construcció
 n del Conversor.
  Primeramente fue necesario analizar las herramientas que se encuentran
  disponibles que podrían ser potencialmente útiles a la hora de implementar
@@ -1965,6 +1965,100 @@ n del Conversor.
  2.0 a instancias del metamodelo junto con los algoritmos involucrados para
  realizar dichas operaciones.
  
+\end_layout
+
+\begin_layout Paragraph
+\begin_inset CommandInset label
+LatexCommand label
+name "par:Selección-del-lenguaje"
+
+\end_inset
+
+Selección del lenguaje de programación utilizado
+\end_layout
+
+\begin_layout Standard
+El Metamodelo y la herramienta de evaluación de servicio web están realizadas
+ en Java, Java es un lenguaje muy popular, pero a veces se suele desperdiciar
+ mucho tiempo, o caracteres, en escribir lógica que se podría redactar de
+ manera más simple.
+ Es por ello, entre otras cosas, que se decidió usar Kotlin, un lenguaje
+ que se ejecuta sobre la JVM (Java Virtual Machine) y simplifica el trabajo
+ del desarrollador, el cual pasa menos tiempo escribiendo lógica ajena al
+ dominio.
+ Un aspecto importante que destacar es que Kotlin al compilar a Bytecode
+ y correr sobre la JVM, es totalmente interoperable con Java, es decir,
+ desde nuestro código Kotlin podemos utilizar clases y métodos Java y viceversa,
+ inclusive podemos tener un proyecto mixto, en donde coexistan clases Java
+ y Kotlin.
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset label
+LatexCommand label
+name "ventajas-kotlin"
+
+\end_inset
+
+Entre algunas de las ventajas de Kotlin, se encuentran: 
+\end_layout
+
+\begin_layout Itemize
+Constructores de clase por defecto, sólo es necesario declarar las variables
+ de clase una vez.
+\end_layout
+
+\begin_layout Itemize
+
+\emph on
+Setters
+\emph default
+ y 
+\emph on
+getters
+\emph default
+ implícitos, es decir, a menos que se desee cambiar el comportamiento de
+ los mismos no es necesario escribirlos, además el lenguaje al compilar
+ a Bytecode reemplazará los accesos y asignaciones directas a atributos,
+ por los llamados a las funciones setter y getter, con lo cual el código
+ se vuelve más legible.
+\end_layout
+
+\begin_layout Itemize
+Tipo de clase 
+\emph on
+Data
+\emph default
+, la cual está pensada para almacenar datos, por lo tanto infiere los métodos
+ 
+\emph on
+equals
+\emph default
+,
+\emph on
+ hashCode
+\emph default
+, 
+\emph on
+toString
+\emph default
+ y 
+\emph on
+copy
+\emph default
+ de los atributos.
+\end_layout
+
+\begin_layout Standard
+Sólo con estas ventajas, logramos que nuestra clase 
+\emph on
+Case
+\emph default
+ tenga únicamente 10 lineas de código, cuando su equivalente funcional en
+ Java tendría aproximadamente 121, esto representa un 91.73% ménos de código,
+ sin contar que es semánticamente mas legible.
+ Además, a menos que se especifique lo contrario, ninguna variable puede
+ tomar el valor null, esto nos previene de NullPointerException inesperados.
 \end_layout
 
 \begin_layout Paragraph
