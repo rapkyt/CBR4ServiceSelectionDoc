@@ -1275,43 +1275,25 @@ que se le asigna al SimpleType correspondiente.
 \end_layout
 
 \begin_layout Standard
+us
+\end_layout
+
+\begin_layout Standard
 \begin_inset Float table
 wide false
 sideways false
 status open
 
 \begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-\begin_inset CommandInset label
-LatexCommand label
-name "tab:Correspondencia-Tipos-de-datos"
-
-\end_inset
-
-Correspondencia Tipos de datos Simple con Metamodelo
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
 \align center
 \begin_inset Tabular
 <lyxtabular version="3" rows="13" columns="5">
 <features tabularvalignment="middle">
-<column alignment="center" valignment="top">
-<column alignment="center" valignment="top">
-<column alignment="center" valignment="top">
-<column alignment="center" valignment="top">
-<column alignment="center" valignment="top">
+<column alignment="center" valignment="top" width="12.5col%">
+<column alignment="center" valignment="top" width="10col%">
+<column alignment="center" valignment="top" width="12.5col%">
+<column alignment="center" valignment="top" width="35col%">
+<column alignment="center" valignment="top" width="25col%">
 <row>
 <cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
 \begin_inset Text
@@ -1353,7 +1335,7 @@ Comentarios
 \begin_inset Text
 
 \begin_layout Plain Layout
-Correspondencia SOAML
+SimpleType
 \end_layout
 
 \end_inset
@@ -1387,7 +1369,7 @@ int32
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -1400,7 +1382,7 @@ int32
 \begin_inset Text
 
 \begin_layout Plain Layout
-SimpleType.INTEGER
+INTEGER
 \end_layout
 
 \end_inset
@@ -1434,7 +1416,7 @@ int64
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -1447,7 +1429,7 @@ int64
 \begin_inset Text
 
 \begin_layout Plain Layout
-SimpleType.LONG
+LONG
 \end_layout
 
 \end_inset
@@ -1481,7 +1463,7 @@ float
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -1494,7 +1476,7 @@ float
 \begin_inset Text
 
 \begin_layout Plain Layout
-SimpleType.FLOAT
+FLOAT
 \end_layout
 
 \end_inset
@@ -1528,7 +1510,7 @@ double
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -1541,7 +1523,7 @@ double
 \begin_inset Text
 
 \begin_layout Plain Layout
-SimpleType.DOUBLE
+DOUBLE
 \end_layout
 
 \end_inset
@@ -1575,7 +1557,7 @@ string
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -1588,7 +1570,7 @@ string
 \begin_inset Text
 
 \begin_layout Plain Layout
-SimpleType.STRING
+STRING
 \end_layout
 
 \end_inset
@@ -1622,7 +1604,7 @@ byte
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -1635,7 +1617,7 @@ Caracteres codificados en base64
 \begin_inset Text
 
 \begin_layout Plain Layout
-SimpleType.BASE64
+BASE64
 \end_layout
 
 \end_inset
@@ -1669,7 +1651,7 @@ binary
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -1682,7 +1664,7 @@ Cualquier secuencia de octales
 \begin_inset Text
 
 \begin_layout Plain Layout
-SimpleType.BYTE
+BYTE
 \end_layout
 
 \end_inset
@@ -1716,7 +1698,7 @@ boolean
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -1729,7 +1711,7 @@ boolean
 \begin_inset Text
 
 \begin_layout Plain Layout
-SimpleType.BOOLEAN
+BOOLEAN
 \end_layout
 
 \end_inset
@@ -1763,11 +1745,11 @@ date
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
-Como se define full-date - RFC3339
+Como se define full-date en RFC3339
 \begin_inset Note Note
 status open
 
@@ -1786,7 +1768,7 @@ referencia?
 \begin_inset Text
 
 \begin_layout Plain Layout
-SimpleType.DATE
+DATE
 \end_layout
 
 \end_inset
@@ -1820,11 +1802,11 @@ date-time
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
-Como se define date-time - RFC3339
+Como se define date-time en RFC3339
 \end_layout
 
 \end_inset
@@ -1833,7 +1815,7 @@ Como se define date-time - RFC3339
 \begin_inset Text
 
 \begin_layout Plain Layout
-SimpleType.DATE_TIME
+DATE_TIME
 \end_layout
 
 \end_inset
@@ -1867,7 +1849,7 @@ password
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -1880,7 +1862,7 @@ Especifica que la UI debe ofuscar el input
 \begin_inset Text
 
 \begin_layout Plain Layout
-SimpleType.STRING
+STRING
 \end_layout
 
 \end_inset
@@ -1927,13 +1909,31 @@ file
 \begin_inset Text
 
 \begin_layout Plain Layout
-SimpleType.BASE64_BINARY
+BASE64_BINARY
 \end_layout
 
 \end_inset
 </cell>
 </row>
 </lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:Correspondencia-Tipos-de-datos"
+
+\end_inset
+
+Correspondencia Tipos de datos Simple con Metamodelo
+\end_layout
 
 \end_inset
 
