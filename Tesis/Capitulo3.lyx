@@ -2074,6 +2074,10 @@ Selección de herramientas para construcción de módulo de software Conversor
 
 \begin_layout Standard
 Tomando como base la explicación detallada en la Sección 
+\emph on
+YYYYY
+\emph default
+
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "subsec:Detalle-de-selección"
@@ -2083,31 +2087,23 @@ reference "subsec:Detalle-de-selección"
 , donde se analizaron las herramientas evaluadas para ser utilizadas potencialme
 nte por el módulo de software Conversor del Metamodelo, en la presente sección
  se pretende destacar ventajas y desventajas de dichas herramientas.
- En principio, resultó necesario satisfacer la necesidad de parsear un documento
- WSDL.
+ En principio, resultó necesario satisfacer la necesidad de parsear una
+ especificacón Open API.
  Para ello se analizaron las herramientas
 \emph on
- JWSDL
-\emph default
-, 
-\emph on
-WODEN
-\emph default
-, 
-\emph on
-EasyWSDL, DOM
+ swagger-parser
 \emph default
  y 
 \emph on
-SOA
-\emph default
- 
-\emph on
-Membrane
+KaiZen OpenAPI Parser
 \emph default
 .
- Luego de este análisis, WODEN y DOM resultaron ser los candidatos más apropiado
-s para la construcción del módulo de software Conversor.
+ Luego de este análisis, 
+\emph on
+swagger-parser
+\emph default
+ resultaró ser el candidatos más apropiados para la construcción del módulo
+ de software Conversor.
  
 \end_layout
 
@@ -2116,12 +2112,24 @@ Motivos principales por los cuales no se utilizaron las siguientes herramientas
  
 \begin_inset CommandInset label
 LatexCommand label
-name "par:UtilizacionHerramientasProcWSDL"
+name "par:UtilizacionHerramientasProcSwagger"
 
 \end_inset
 
 
 \end_layout
+
+\begin_layout Itemize
+PONGO UNA LISTA SI DESCARTO UNA SOLA???
+\end_layout
+
+\begin_layout Itemize
+KaiZen OpenAPI Parser: Buscar desventajas
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Note Note
+status open
 
 \begin_layout Itemize
 
@@ -2181,6 +2189,11 @@ EasyWSDL:
  
 \end_layout
 
+\end_inset
+
+
+\end_layout
+
 \begin_layout Paragraph
 \begin_inset CommandInset label
 LatexCommand label
@@ -2196,13 +2209,23 @@ Herramientas utilizadas en el Conversor
 \end_layout
 
 \begin_layout Standard
-Para la creación del módulo de software Conversor, se utilizaron dos herramienta
-s que fueron de principal relevancia a la hora de poder concretar la creación
+Para la creación del módulo de software Conversor, se utilizó una herramienta
+ que fué de principal relevancia a la hora de poder concretar la creación
  de dicho módulo.
- WODEN y DOM permitieron, gracias a sus diferentes funcionalidades, abarcar
- los distintos aspectos que se detallan a continuación.
- 
+ Swagger-parser permitió parsear una especificación Open API en instancias
+ de Objeto Plano de Java (POJO).
+ Utilizando esta herramienta, en lugar de leer y acceder de manera directa
+ a los archivos, podemos ignorar la disposición de los distintos componentes
+ en el mismo y concentrarnos en el mapeo OAS-SOAML.
+ Como así también, tener la posibilidad de utilizar una especificación Open
+ API en archivo YAML o JSON sin tener que realizar ningún refactoring adicional.
+ Otra ventaja que nos brinda ésta herramienta, es la validación a nivel
+ sintáctico de las especificaciones.
 \end_layout
+
+\begin_layout Itemize
+\begin_inset Note Note
+status open
 
 \begin_layout Itemize
 
@@ -2284,9 +2307,23 @@ interface
  
 \end_layout
 
+\end_inset
+
+
+\end_layout
+
 \begin_layout Paragraph
-Conversión de documentos WSDL 2.0 a instancias del metamodelo
-\begin_inset Newline newline
+Conversión de especificaciones Open API a instancias del metamodelo
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+SEGUIR ACÁ
+\end_layout
+
 \end_inset
 
 
