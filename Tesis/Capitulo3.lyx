@@ -2317,26 +2317,27 @@ Conversión de especificaciones Open API a instancias del metamodelo
 \end_layout
 
 \begin_layout Standard
+De acuerdo a la especificación Open API, los archivos que su descripción
+ se representan como objetos JSON, y cumplen con los estándatares JSON.
+ YAML, al ser un superconjunto de JSON, también puede ser utilizado para
+ representar una especificación Open API.
+ 
+\end_layout
+
+\begin_layout Standard
+El Conversor desarrollado recibe como entrada una especificación Open API
+ (específicamente el 
+\emph on
+path 
+\emph default
+o URL de la misma) y devuelve como salida una instancia del metamodelo.
+ 
 \begin_inset Note Note
 status open
 
 \begin_layout Plain Layout
-SEGUIR ACÁ
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-El Conversor desarrollado recibe como entrada un documento WSDL (generalmente
- por medio de la URL) y devuelve como salida una instancia del metamodelo
- propuesto, tratando al documento WSDL como un XML.
- Tratarlo de tal manera nos permite que el mismo sea parseado utilizando
- la herramienta DOM previamente mencionada.
- Los elementos del XML son vistos como nodos, y cada nodo se encuentra en
- un determinado nivel en la estructura de arbol, siendo N
+Los elementos de la especificación son vistos como nodos, y cada nodo se
+ encuentra en un determinado nivel en la estructura de arbol, siendo N
 \begin_inset script subscript
 
 \begin_layout Plain Layout
@@ -2420,27 +2421,15 @@ input
 output
 \emph default
 ).
- 
-\end_layout
-
-\begin_layout Standard
-Siguiendo nuestro ejemplo de base del dominio RentACar,
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Plain Layout
-, se transforma el WSDL versión 2.0, a una estructura de árbol autocontenida
- que sólo almacena la información que se considera relevante para su posterior
- uso gracias a la herramienta DOM.
- A medida que se recorre el documento, se construye en tiempo de ejecución
- la estructura de árbol con sus nodos y para una mayor eficiencia de cómputo,
- se instancian las estructuras del metamodelo propuesto simultáneamente.
- En
 \end_layout
 
 \end_inset
 
- la Figura 
+ 
+\end_layout
+
+\begin_layout Standard
+Siguiendo nuestro ejemplo de base del dominio PetStore, la Figura 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Ejemplo-versión-Dom-1"
@@ -2495,7 +2484,7 @@ a DOM
 
 \begin_layout Standard
 \begin_inset Note Note
-status collapsed
+status open
 
 \begin_layout Subsubsection
 \begin_inset CommandInset label
@@ -3184,6 +3173,10 @@ name "sec:Intregracion-a-Testooj"
 \end_inset
 
 Integración a la Herramienta de Evaluación de Servicios Web 
+\end_layout
+
+\begin_layout Standard
+ÉSTA SECCIÓN 5 VA????
 \end_layout
 
 \begin_layout Standard
