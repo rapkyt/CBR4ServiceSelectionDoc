@@ -194,7 +194,7 @@
             "required": true,
             "type": "integer",
             "format": "int64"
-          }
+          },
           {
             "name": "file",
             "in": "formData",

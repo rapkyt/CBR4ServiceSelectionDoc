@@ -2436,10 +2436,18 @@ reference "fig:Ejemplo-versión-Dom-1"
 
 \end_inset
 
- muestra un esquema de como quedaría la estructura con los distintos niveles
- que conforman un documento WSDL 2.0 al parsearla con la herramienta DOM.
- Cabe destacar que en esta figura, solo se detalla la operación getAvailableCars
+ muestra un esquema de como quedaría la estructura con los distintos atributos
+ que conforman una especificación Open API al parsearla con la herramienta
+ Swagger-parser.
+ Cabe destacar que en esta figura, solo se detalla la operación 
+\emph on
+GET_/pet/{petId}
+\emph default
 , con el objetivo de dar un ejemplo gráfico de fácil comprensión.
+\end_layout
+
+\begin_layout Standard
+ACTUALIZAR IMAGEN
 \end_layout
 
 \begin_layout Standard
@@ -2483,156 +2491,8 @@ a DOM
 \end_layout
 
 \begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Subsubsection
-\begin_inset CommandInset label
-LatexCommand label
-name "subsubsec:Ejemplo-de-instanciación"
-
-\end_inset
-
-Ejemplo de instanciación
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-parece que esto está de más! Actualmentee quedó igual que la figura 7
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-YA NO VA ESTO; QUEDÓ VIEJO
-\end_layout
-
-\begin_layout Plain Layout
-A continuación se presenta un diagrama de objetos que muestra una posible
- instanciación del Metamodelo propuesto considerando el caso de estudio
- RentACar, presentado en la Sección 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "par:Caso-de-estudio"
-
-\end_inset
-
-.
- Para esto se utilizó un diagrama de instanciación de objetos de UML.
- Podemos destacar tres instancias de las operaciones del servicio: 
-\emph on
-getReservation
-\emph default
-, 
-\emph on
-getCarFee
-\emph default
- y 
-\emph on
-getAvailableCars
-\emph default
-.
- 
-\emph on
-GetReservation
-\emph default
- es la más sencilla de las operaciones ya que utiliza solo tipos simples
- en sus entrada/salidas.
- Sin embargo, 
-\emph on
-getCarFee
-\emph default
- y 
-\emph on
-getAvailableCars
-\emph default
- utilizan entradas y salidas (
-\emph on
-Input
-\emph default
- y 
-\emph on
-Output
-\emph default
- respectivamente) que contienen parámetros de tipos complejos.
- Se puede apreciar en la Figura
-\begin_inset space ~
-\end_inset
-
-
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:Instancia-de-RentaCar"
-
-\end_inset
-
-, que a pesar de que en el caso de estudio la cantidad de funciones es acotada
- solo a tres, el árbol de expansión de objetos si se hubiese hecho con las
- tres funciones instanciadas en la Figura
-\begin_inset space ~
-\end_inset
-
-
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:Instancia-de-RentaCar"
-
-\end_inset
-
- ubiese cobrado una gran cantidad de objetos.
- De esta manera, intentar evaluar tales descripciones de una manera manual
- resulta completamente inviable, teniendo en cuenta que sería necesario
- evaluar tantas descripciones como posibles servicios candidatos existiera.
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Float figure
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\begin_inset Graphics
-	filename ImgChapter3/ejemploDeWsdlInstanciadoMetamodelo2.png
-	lyxscale 40
-	width 100col%
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-Instancia de RentACar
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:Instancia-de-RentaCar"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
 A continuación se detalla el pseudocódigo del módulo de software de conversión
- de documentos WSDL 2.0 a instancias del metamodelo propuesto.
+ de especificaciones Open API a instancias del metamodelo.
  En el Algoritmo
 \begin_inset space ~
 \end_inset
@@ -2644,9 +2504,10 @@ reference "alg:Pseudocódigo-del-tool"
 
 \end_inset
 
- la función propuesta recibe como entrada el documento WSDL – línea 1.
- El primer paso es tratarlo como un documento XML, en cuanto a las propiedades
- del mismo – línea 2.
+ la función propuesta recibe como entrada una especificación Open API –
+ línea 1.
+ .SEGUIR ACÁ El primer paso es tratarlo como un documento XML, en cuanto
+ a las propiedades del mismo – línea 2.
  Inicialmente obtenemos el primer nodo del árbol (la raíz del documento)
  siendo el 
 \emph on
