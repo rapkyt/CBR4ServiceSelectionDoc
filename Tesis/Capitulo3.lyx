@@ -6,7 +6,7 @@
 \origin unavailable
 \textclass myBook
 \begin_preamble
-
+\usepackage{url}
 \end_preamble
 \use_default_options false
 \maintain_unincluded_children false
@@ -2313,7 +2313,52 @@ interface
 \end_layout
 
 \begin_layout Paragraph
+Consideraciones generales
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Se consideran las especificaciones Swagger a parsear como válidas, es decir,
+ al parsear el Swagger al Metamodelo, no garantizamos la validación de la
+ api, por ejemplo, en la documentación de Swagger
+\begin_inset CommandInset citation
+LatexCommand cite
+key "swagger2.0"
+
+\end_inset
+
+ se indica:
+\end_layout
+
+\begin_layout Quotation
+El objeto Response 
+\emph on
+DEBE
+\emph default
+ contener al menos algún código de respuesta, y 
+\emph on
+DEBERÍA
+\emph default
+ ser la respuesta del llamado de una operación exitosa.
+\end_layout
+
+\begin_layout Standard
+Por lo tanto, si esta condición no se respeta y se utiliza la herramienta
+ en cuestión, se pueden obtener resultados inesperados.
+ Esto simplifica la herramienta y ayuda a una generar una abstracción de
+ capas.
+ 
+\end_layout
+
+\begin_layout Paragraph
 Conversión de especificaciones Open API a instancias del metamodelo
+\begin_inset Newline newline
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -2506,8 +2551,16 @@ reference "alg:Pseudocódigo-del-tool"
 
  la función propuesta recibe como entrada una especificación Open API –
  línea 1.
- .SEGUIR ACÁ El primer paso es tratarlo como un documento XML, en cuanto
- a las propiedades del mismo – línea 2.
+ .SEGUIR ACÁ 
+\end_layout
+
+\begin_layout Paragraph
+old
+\end_layout
+
+\begin_layout Standard
+El primer paso es tratarlo como un documento XML, en cuanto a las propiedades
+ del mismo – línea 2.
  Inicialmente obtenemos el primer nodo del árbol (la raíz del documento)
  siendo el 
 \emph on
@@ -2635,7 +2688,7 @@ status open
 
 \begin_layout Plain Layout
 
-1 function convertir_Wsdl_A_Metamodelo (DocumentoWSDL documentoWSDL){
+1 function convertir_OAS_A_Metamodelo (OpenApiSpec ){
 \end_layout
 
 \begin_layout Plain Layout
