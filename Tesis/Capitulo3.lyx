@@ -1239,9 +1239,52 @@ Tipos de datos simple
 \end_layout
 
 \begin_layout Standard
-Todos los tipos de datos simple soportados por OAS se encuentran disponibles
- en los tipos de datos definidos por el Metamodelo, como se puede observar
- en el Cuadro 
+Los tipos de datos primitivos en la especificación Open API se basan en
+ los tipos admitidos por la Especificación de esquema JSON (Borrador 00)
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+referencia?
+\end_layout
+
+\end_inset
+
+.
+ Null no es compatible como tipo.
+ 
+\end_layout
+
+\begin_layout Standard
+Los tipos de datos primitivos tienen una propiedad modificadora opcional:
+ 
+\emph on
+format
+\emph default
+.
+ La especificación Open API utiliza varios formatos conocidos para definir
+ en detalle el tipo de datos que se utiliza.
+ Sin embargo, para mantener las necesidades de la documentación, la propiedad
+ format puede tener cualquier valor.
+ Los formatos como "email", "uuid", etc., PUEDEN usarse aunque no estén definidos
+ por esta especificación.
+ Los tipos que no poseen la propiedad format siguen la definición de tipo
+ del esquema JSON.
+ Ésta herramienta, al no encontrarse con un format no especificado PUEDE
+ utilizar el tipo predeterminado.
+\end_layout
+
+\begin_layout Standard
+Adicionalmente, un tipo de dato primitivo “file” es usado por el objeto
+ Parameter y Response para denotar que el tipo del parámetro o de respuesta
+ es un archivo.
+ 
+\end_layout
+
+\begin_layout Standard
+Todos los tipos de datos simple soportados por la especificación Open API
+ están incluidos en los tipos de datos definidos por el Metamodelo, como
+ se puede observar en el Cuadro 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "tab:Correspondencia-Tipos-de-datos"
@@ -1262,20 +1305,16 @@ Type
 \emph on
 Format
 \emph default
- son las que definen el dato en la especificación de documento, y por último
+ son las propiedades que definen el dato en la especificación, y por último
  la columna 
 \emph on
-Correspondencia SOAML 
+SimpleType 
 \emph default
 indica el 
 \emph on
 tipo 
 \emph default
-que se le asigna al SimpleType correspondiente.
-\end_layout
-
-\begin_layout Standard
-us
+que se le asigna a la instancia de SimpleType correspondiente.
 \end_layout
 
 \begin_layout Standard
@@ -2353,12 +2392,29 @@ Por lo tanto, si esta condición no se respeta y se utiliza la herramienta
  
 \end_layout
 
-\begin_layout Paragraph
-Conversión de especificaciones Open API a instancias del metamodelo
-\begin_inset Newline newline
+\begin_layout Standard
+Los códigos de estado HTTP son utilizados para indicar el estado de la operación
+ realizada.
+ 
+\end_layout
+
+\begin_layout Standard
+Los códigos de estado disponibles están definidos por RFC7231
+\begin_inset CommandInset citation
+LatexCommand cite
+key "RFC7231-section-6"
+
 \end_inset
 
+ y los códigos de estado registrados se enumeran en el Registro de códigos
+ de estado de la IANA
+\begin_inset CommandInset citation
+LatexCommand cite
+key "IANA"
 
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard
@@ -2367,6 +2423,57 @@ De acuerdo a la especificación Open API, los archivos que su descripción
  YAML, al ser un superconjunto de JSON, también puede ser utilizado para
  representar una especificación Open API.
  
+\end_layout
+
+\begin_layout Standard
+Todos los nombres en la especificación son sensibles a mayúsculas y minúsculas.
+ 
+\end_layout
+
+\begin_layout Standard
+El esquema expone dos tipos de campos: Campos fijos, que tienen un nombre
+ declarado, y Campos modelados, que declaran un patrón de expresiones regulares
+ para el nombre del campo.
+ Los campos modelados DEBEN tener nombres únicos dentro del objeto contenedor.
+ Para preservar la compatibilidad de ida y vuelta entre los formatos YAML
+ y JSON, se recomienda la versión 1.2 de YAML junto con algunas restricciones
+ adicionales: 
+\end_layout
+
+\begin_layout Itemize
+Las etiquetas DEBEN estar limitadas a aquellas permitidas por el conjunto
+ de reglas de esquema JSON.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Cita o nota al pie?
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Las claves utilizadas en los diccionarios YAML DEBEN estar limitadas a una
+ cadena escalar, según lo definido por el conjunto de reglas de esquema
+ a prueba de fallas YAML.
+\end_layout
+
+\begin_layout Standard
+Si bien las API pueden ser definidas por documentos OpenAPI en formato YAML
+ o JSON, no es requerido que las API en cuestión se limite a utilizar estos
+ formatos, es decir, el body del request y response de dicha API y otros
+ contenidos no requieren ser JSON o YAML.
+\end_layout
+
+\begin_layout Paragraph
+Conversión de especificaciones Open API a instancias del metamodelo
+\begin_inset Newline newline
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -2545,13 +2652,290 @@ A continuación se detalla el pseudocódigo del módulo de software de conversi�
 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "alg:Pseudocódigo-del-tool"
+reference "alg:Convertir-especificación-Open"
 
 \end_inset
 
  la función propuesta recibe como entrada una especificación Open API –
  línea 1.
- .SEGUIR ACÁ 
+ El primer paso es parsearlo a una especificación Open API – línea 2.
+ Luego por cada operación (método HTTP) que tenga cada 
+\emph on
+path, 
+\emph default
+crearemos una operación del metamodelo - línea 32, con los atributos 
+\emph on
+input
+\emph default
+, 
+\emph on
+output
+\emph default
+ y 
+\emph on
+faults 
+\emph default
+obtenidos previamente.
+ Por cada 
+\emph on
+parameter 
+\emph default
+de la operación crearemos un metamodelParameter según el procedimiento detallado
+ en el Algotirmo CREARPARAMETER, con éstos parametros crearemos nuestro
+ input.
+\end_layout
+
+\begin_layout Standard
+Por cada response de la operación se analiza, ya que la misma puede ser
+ una respuesta exitosa o fallida.
+ En caso de ser la primera, es facil evidenciarlo, pues el 
+\emph on
+status code 
+\emph default
+de la misma comenzará con 
+\emph on
+2
+\emph default
+, Sí la respuesta tiene tipo, se creará un parametro que luego será usado
+ con el 
+\emph on
+output
+\emph default
+.
+ En caso de ser la segunda opción, se crea un nuevo 
+\emph on
+Fault 
+\emph default
+con el tipo de la respuesta, y se agregará a la lista de 
+\emph on
+faults
+\emph default
+.
+\end_layout
+
+\begin_layout Standard
+Una vez terminado de recorrer las operaciones de cada 
+\emph on
+path,
+\emph default
+ se crea la interfaz del metamodelo con el listado de operaciones.
+ Finalmente es retornada una instancia del metamodelo generado a partir
+ de la especificación Open API utilizada como entrada.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+1  function convertir_OAS_A_Metamodelo (OpenApiSpecPath ){
+\end_layout
+
+\begin_layout Plain Layout
+
+2   openApiSpec = SwaggerParser().read(OpenApiSpecPath)
+\end_layout
+
+\begin_layout Plain Layout
+
+3   List<Operation> operations = []
+\end_layout
+
+\begin_layout Plain Layout
+
+4   for(path: openApiSpec.paths){
+\end_layout
+
+\begin_layout Plain Layout
+
+5    for(operation: path.methods){
+\end_layout
+
+\begin_layout Plain Layout
+
+6     List<Parameter> parameters = []
+\end_layout
+
+\begin_layout Plain Layout
+
+7     for(parameter: operation.parameters){
+\end_layout
+
+\begin_layout Plain Layout
+
+8      Parameter metamodelParameter = 'Crear metamodelParameter segun parameter'
+\end_layout
+
+\begin_layout Plain Layout
+
+9      parameters.add(metamodelParameter)
+\end_layout
+
+\begin_layout Plain Layout
+
+10    }
+\end_layout
+
+\begin_layout Plain Layout
+
+11    Input input = 'Crear Input con parameters';
+\end_layout
+
+\begin_layout Plain Layout
+
+12    Output output = null
+\end_layout
+
+\begin_layout Plain Layout
+
+13    List<Fault> faults = []
+\end_layout
+
+\begin_layout Plain Layout
+
+14    for(response in operation.reponses){
+\end_layout
+
+\begin_layout Plain Layout
+
+15     Type responseType = 'Crear responseType segun response'
+\end_layout
+
+\begin_layout Plain Layout
+
+16     if(response.statusCode.startsWith("2")){
+\end_layout
+
+\begin_layout Plain Layout
+
+17      List<Parameter> outputParameters = []
+\end_layout
+
+\begin_layout Plain Layout
+
+18      if(responseType != null){
+\end_layout
+
+\begin_layout Plain Layout
+
+19       outputParameter = 'Crear outputParameter con tipo responseType'
+\end_layout
+
+\begin_layout Plain Layout
+
+20       outputParameters.add(outputParameter)
+\end_layout
+
+\begin_layout Plain Layout
+
+21      }
+\end_layout
+
+\begin_layout Plain Layout
+
+22      output = 'Crear output con outputParameters'
+\end_layout
+
+\begin_layout Plain Layout
+
+23     }
+\end_layout
+
+\begin_layout Plain Layout
+
+24     else{
+\end_layout
+
+\begin_layout Plain Layout
+
+25      Fault fault = 'Crear fault con tipo responseType'
+\end_layout
+
+\begin_layout Plain Layout
+
+26      fault.add(fault)
+\end_layout
+
+\begin_layout Plain Layout
+
+27     }
+\end_layout
+
+\begin_layout Plain Layout
+
+28    }
+\end_layout
+
+\begin_layout Plain Layout
+
+29    Operation metamodelOperation = 'Crear operacion con input, output
+ y faults'
+\end_layout
+
+\begin_layout Plain Layout
+
+30    operations.add(metamodelOperation)
+\end_layout
+
+\begin_layout Plain Layout
+
+31   }
+\end_layout
+
+\begin_layout Plain Layout
+
+32  }
+\end_layout
+
+\begin_layout Plain Layout
+
+32  Interface metamodelInterface = 'Crear interface con operations'
+\end_layout
+
+\begin_layout Plain Layout
+
+33  return metamodelInterface
+\end_layout
+
+\begin_layout Plain Layout
+
+34 }
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:Convertir-especificación-Open"
+
+\end_inset
+
+Convertir especificación Open API a Metamodelo
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Paragraph
@@ -2559,9 +2943,7 @@ old
 \end_layout
 
 \begin_layout Standard
-El primer paso es tratarlo como un documento XML, en cuanto a las propiedades
- del mismo – línea 2.
- Inicialmente obtenemos el primer nodo del árbol (la raíz del documento)
+Inicialmente obtenemos el primer nodo del árbol (la raíz del documento)
  siendo el 
 \emph on
 nodo cero 
