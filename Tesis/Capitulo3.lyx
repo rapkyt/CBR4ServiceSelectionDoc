@@ -2945,10 +2945,14 @@ Convertir especificación Open API a Metamodelo
 \end_layout
 
 \begin_layout Paragraph
+\begin_inset Note Note
+status open
+
+\begin_layout Paragraph
 old
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 Para evaluar los tipos de datos nos basamos principalmente en los Algoritmos
  
 \begin_inset CommandInset ref
@@ -2986,7 +2990,7 @@ reference "Obtener nombre tipo simple"
  si se tiene tipos de datos simples, complejos o arreglos.
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 En los dos párrafos siguientes se explicará brevemente el funcionamiento
  del Algoritmo 
 \begin_inset CommandInset ref
@@ -3018,7 +3022,7 @@ ArrayType
  
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 Ahora bien, si tenemos un tipo de dato complejo
 \emph on
  – ComplexType
@@ -3035,7 +3039,7 @@ Ahora bien, si tenemos un tipo de dato complejo
  
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 Para saber si estamos ante la presencia de un tipo de dato complejo se creó
  la función 
 \emph on
@@ -3103,6 +3107,11 @@ reference "Obtener nombre tipo simple"
 \end_inset
 
 ) que retorna el nombre de un tipo de dato simple.
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
