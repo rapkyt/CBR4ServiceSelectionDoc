@@ -65,11 +65,12 @@
 \papercolumns 1
 \papersides 1
 \paperpagestyle default
-\tracking_changes false
+\tracking_changes true
 \output_changes false
 \html_math_output 0
 \html_css_as_file 0
 \html_be_strict false
+\author -746951894 "Tincho"
 \end_header
 
 \begin_body
@@ -218,6 +219,35 @@ reference "sec:Intregracion-a-Testooj"
 \end_inset
 
  
+\change_inserted -746951894 1534196044
+
+\end_layout
+
+\begin_layout Section
+
+\change_inserted -746951894 1534196085
+Ejemplo Ilustrativo
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted -746951894 1534196086
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted -746951894 1534196087
+To Do
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
+
 \end_layout
 
 \begin_layout Section
@@ -357,6 +387,95 @@ name "subsec:Vision-Detallada"
 \end_inset
 
 Visión Detallada
+\change_inserted -746951894 1534194198
+
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted -746951894 1534194200
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted -746951894 1534194877
+Esta 
+\begin_inset Quotes eld
+\end_inset
+
+vision detallada
+\begin_inset Quotes erd
+\end_inset
+
+ es en realidad la intro de la sección.
+ Despues discutir en detalle cada una, ver el paper de CBR.
+ Por ejemplo:
+\end_layout
+
+\begin_layout Plain Layout
+
+\change_inserted -746951894 1534194877
+Numerar los pasos en la figura (find, resolve, revise, retrain, discard,
+ etc).
+ Luego usar esa numeración para describir cada parte del proceso en la visión
+ detallada.
+\end_layout
+
+\begin_layout Plain Layout
+
+\change_inserted -746951894 1534194827
+1.
+ Case Representation.
+ entra un caso (como esta compuesto?) que tiene que ver con el metamodelo?
+ Ejemplificar
+\change_unchanged
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\change_inserted -746951894 1534194837
+2.
+ KB.
+ Persistencia, noSQL , json-oriented.
+ Ejemplo!
+\end_layout
+
+\begin_layout Plain Layout
+
+\change_inserted -746951894 1534194854
+3.
+ Find Similarity (Case retrieval en el paper CBR).
+ se evalua segun la funcion (mostrar la funcion de distanca, explicarla).
+ Ejemplo.
+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+\change_inserted -746951894 1534194991
+4.
+ Resolve Case (Reuse and Revision en CBR): Técnicas (knn, 1-nn) cual se
+ usó, por qué? Es configurable! No se está haciendo la parte de adaptación
+ del caso (debido al dominio de aplicación)
+\end_layout
+
+\begin_layout Plain Layout
+
+\change_inserted -746951894 1534195019
+5.
+ Evaluate and Case Retrain (Case Retraining en el paper de CBR).
+ 
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
+
 \end_layout
 
 \begin_layout Standard
@@ -1090,7 +1209,7 @@ GET_/pet/{petId}
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -1117,6 +1236,28 @@ Ejemplo de metamodelo instanciado para el caso de estudio
 
 \end_inset
 
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted -746951894 1534193993
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted -746951894 1534194049
+Se puede separar en dos imagenes.
+ Para ponerlas una al lado de la otra hacer un float, con dos float adentro
+ (sin espacio en blanco entre ellos) y el ancho de cada figura adentro debe
+ ser 49% o menos
+\change_unchanged
 
 \end_layout
 
@@ -1328,16 +1469,18 @@ status open
 \begin_inset Tabular
 <lyxtabular version="3" rows="13" columns="5">
 <features tabularvalignment="middle">
-<column alignment="center" valignment="top" width="12.5col%">
-<column alignment="center" valignment="top" width="10col%">
-<column alignment="center" valignment="top" width="12.5col%">
-<column alignment="center" valignment="top" width="35col%">
-<column alignment="center" valignment="top" width="25col%">
+<column alignment="center" valignment="top" width="12.5text%">
+<column alignment="center" valignment="top" width="10text%">
+<column alignment="center" valignment="top" width="12.5text%">
+<column alignment="center" valignment="top" width="35text%">
+<column alignment="center" valignment="top" width="25text%">
 <row>
 <cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 Nombre
 \end_layout
 
@@ -1347,6 +1490,8 @@ Nombre
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 Type
 \end_layout
 
@@ -1356,6 +1501,8 @@ Type
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 Format
 \end_layout
 
@@ -1365,6 +1512,8 @@ Format
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 Comentarios
 \end_layout
 
@@ -1374,6 +1523,8 @@ Comentarios
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 SimpleType
 \end_layout
 
@@ -1385,6 +1536,8 @@ SimpleType
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 integer
 \end_layout
 
@@ -1394,6 +1547,8 @@ integer
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 integer
 \end_layout
 
@@ -1403,6 +1558,8 @@ integer
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 int32
 \end_layout
 
@@ -1412,6 +1569,8 @@ int32
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 32 bits con signo
 \end_layout
 
@@ -1421,6 +1580,8 @@ int32
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 INTEGER
 \end_layout
 
@@ -1432,6 +1593,8 @@ INTEGER
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 long
 \end_layout
 
@@ -1441,6 +1604,8 @@ long
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 integer
 \end_layout
 
@@ -1450,6 +1615,8 @@ integer
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 int64
 \end_layout
 
@@ -1459,6 +1626,8 @@ int64
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 64 bits con signo
 \end_layout
 
@@ -1468,6 +1637,8 @@ int64
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 LONG
 \end_layout
 
@@ -1479,6 +1650,8 @@ LONG
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 float
 \end_layout
 
@@ -1488,6 +1661,8 @@ float
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 number
 \end_layout
 
@@ -1497,6 +1672,8 @@ number
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 float
 \end_layout
 
@@ -1515,6 +1692,8 @@ float
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 FLOAT
 \end_layout
 
@@ -1526,6 +1705,8 @@ FLOAT
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 double
 \end_layout
 
@@ -1535,6 +1716,8 @@ double
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 number
 \end_layout
 
@@ -1544,6 +1727,8 @@ number
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 double
 \end_layout
 
@@ -1562,6 +1747,8 @@ double
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 DOUBLE
 \end_layout
 
@@ -1573,6 +1760,8 @@ DOUBLE
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 string
 \end_layout
 
@@ -1582,6 +1771,8 @@ string
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 string
 \end_layout
 
@@ -1609,6 +1800,8 @@ string
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 STRING
 \end_layout
 
@@ -1620,6 +1813,8 @@ STRING
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 byte
 \end_layout
 
@@ -1629,6 +1824,8 @@ byte
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 string
 \end_layout
 
@@ -1638,6 +1835,8 @@ string
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 byte
 \end_layout
 
@@ -1647,6 +1846,8 @@ byte
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 Caracteres codificados en base64
 \end_layout
 
@@ -1656,6 +1857,8 @@ Caracteres codificados en base64
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 BASE64
 \end_layout
 
@@ -1667,6 +1870,8 @@ BASE64
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 binary
 \end_layout
 
@@ -1676,6 +1881,8 @@ binary
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 string
 \end_layout
 
@@ -1685,6 +1892,8 @@ string
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 binary
 \end_layout
 
@@ -1694,6 +1903,8 @@ binary
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 Cualquier secuencia de octales
 \end_layout
 
@@ -1703,6 +1914,8 @@ Cualquier secuencia de octales
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 BYTE
 \end_layout
 
@@ -1714,6 +1927,8 @@ BYTE
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 boolean 
 \end_layout
 
@@ -1723,6 +1938,8 @@ boolean
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 boolean
 \end_layout
 
@@ -1750,6 +1967,8 @@ boolean
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 BOOLEAN
 \end_layout
 
@@ -1761,6 +1980,8 @@ BOOLEAN
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 date
 \end_layout
 
@@ -1770,6 +1991,8 @@ date
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 string
 \end_layout
 
@@ -1779,6 +2002,8 @@ string
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 date
 \end_layout
 
@@ -1788,6 +2013,8 @@ date
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 Como se define full-date en RFC3339
 \begin_inset Note Note
 status open
@@ -1807,6 +2034,8 @@ referencia?
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 DATE
 \end_layout
 
@@ -1818,6 +2047,8 @@ DATE
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 dateTime
 \end_layout
 
@@ -1827,6 +2058,8 @@ dateTime
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 string
 \end_layout
 
@@ -1836,6 +2069,8 @@ string
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 date-time
 \end_layout
 
@@ -1845,6 +2080,8 @@ date-time
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 Como se define date-time en RFC3339
 \end_layout
 
@@ -1854,6 +2091,8 @@ Como se define date-time en RFC3339
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 DATE_TIME
 \end_layout
 
@@ -1865,6 +2104,8 @@ DATE_TIME
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 password
 \end_layout
 
@@ -1874,6 +2115,8 @@ password
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 string 
 \end_layout
 
@@ -1883,6 +2126,8 @@ string
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 password
 \end_layout
 
@@ -1892,6 +2137,8 @@ password
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 Especifica que la UI debe ofuscar el input
 \end_layout
 
@@ -1901,6 +2148,8 @@ Especifica que la UI debe ofuscar el input
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 STRING
 \end_layout
 
@@ -1912,6 +2161,8 @@ STRING
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 file
 \end_layout
 
@@ -1921,6 +2172,8 @@ file
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 file
 \end_layout
 
@@ -1948,6 +2201,8 @@ file
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 BASE64_BINARY
 \end_layout
 
@@ -2400,20 +2655,88 @@ Los códigos de estado HTTP son utilizados para indicar el estado de la operaci�
 
 \begin_layout Standard
 Los códigos de estado disponibles están definidos por RFC7231
+\change_inserted -746951894 1534193436
+
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted -746951894 1534193437
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted -746951894 1534193438
+
+https://tools.ietf.org/ html/rfc7231#section-6
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_deleted -746951894 1534193440
+
 \begin_inset CommandInset citation
 LatexCommand cite
 key "RFC7231-section-6"
 
 \end_inset
 
+
+\change_unchanged
  y los códigos de estado registrados se enumeran en el Registro de códigos
  de estado de la IANA
+\change_inserted -746951894 1534193481
+
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted -746951894 1534193484
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted -746951894 1534193486
+
+https://www.iana.org/ assignments/http-status-codes/http-status-codes.xhtml
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_deleted -746951894 1534193489
+
 \begin_inset CommandInset citation
 LatexCommand cite
 key "IANA"
 
 \end_inset
 
+
+\change_unchanged
 .
 \end_layout
 
@@ -2452,6 +2775,24 @@ Cita o nota al pie?
 
 \end_inset
 
+
+\change_inserted -746951894 1534193499
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted -746951894 1534193502
+footnote
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
 
 \end_layout
 
@@ -2946,7 +3287,7 @@ Convertir especificación Open API a Metamodelo
 
 \begin_layout Paragraph
 \begin_inset Note Note
-status open
+status collapsed
 
 \begin_layout Paragraph
 old
@@ -3181,6 +3522,24 @@ Integración a la Herramienta de Evaluación de Servicios Web
 
 \begin_layout Standard
 ÉSTA SECCIÓN 5 VA????
+\change_inserted -746951894 1534193261
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted -746951894 1534193277
+Esta sección no va
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
+
 \end_layout
 
 \begin_layout Standard
@@ -3259,7 +3618,6 @@ status open
 \align center
 \begin_inset Graphics
 	filename ImgChapter3/EsquemaMetodoNuevo.png
-	lyxscale 50
 	width 100col%
 
 \end_inset
