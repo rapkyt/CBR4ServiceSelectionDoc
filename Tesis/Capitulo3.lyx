@@ -65,7 +65,7 @@
 \papercolumns 1
 \papersides 1
 \paperpagestyle default
-\tracking_changes true
+\tracking_changes false
 \output_changes false
 \html_math_output 0
 \html_css_as_file 0
@@ -681,19 +681,27 @@ Apartado mongo?
  Para realizar ambas acciones se optó por utilizar la librería 
 \emph on
 Jackson
+\emph default
+
 \begin_inset Foot
 status open
 
 \begin_layout Plain Layout
+\begin_inset Flex URL
+status open
 
-\emph on
+\begin_layout Plain Layout
+
 https://github.com/FasterXML/jackson-module-kotlin
 \end_layout
 
 \end_inset
 
 
-\emph default
+\end_layout
+
+\end_inset
+
 , que es el estardar de facto para realizar dichas tareas en Kotlin.
  Debido a que 
 \emph on
@@ -712,17 +720,29 @@ Type
 , añadiendo anotaciones 
 \emph on
 (Annotations
+\emph default
+
 \begin_inset Foot
 status open
 
 \begin_layout Plain Layout
+\begin_inset Flex URL
+status open
 
-\emph on
+\begin_layout Plain Layout
+
 https://docs.oracle.com/javase/7/docs/technotes/guides/language/annotations.html
 \end_layout
 
 \end_inset
 
+
+\end_layout
+
+\end_inset
+
+
+\emph on
 ) 
 \emph default
 a los mismos, las anotaciones siguen el patrón decorator
@@ -1209,7 +1229,7 @@ GET_/pet/{petId}
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -1382,11 +1402,21 @@ Tipos de datos simple
 \begin_layout Standard
 Los tipos de datos primitivos en la especificación Open API se basan en
  los tipos admitidos por la Especificación de esquema JSON (Borrador 00)
-\begin_inset Note Note
+\begin_inset Foot
 status open
 
 \begin_layout Plain Layout
-referencia?
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://tools.ietf.org/html/draft-wright-json-schema-00#section-4.2
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -2016,11 +2046,23 @@ date
 
 \size footnotesize
 Como se define full-date en RFC3339
-\begin_inset Note Note
+\begin_inset Foot
 status open
 
 \begin_layout Plain Layout
-referencia?
+
+\size footnotesize
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://xml2rfc.ietf.org/public/rfc/html/rfc3339.html#anchor14
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -2350,7 +2392,17 @@ Case
 \emph default
  tenga únicamente 10 lineas de código, cuando su equivalente funcional en
  Java tendría aproximadamente 121, esto representa un 91.73% ménos de código,
- sin contar que es semánticamente mas legible.
+ sin contar que es semánticamente mas legible
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Comparación de ambos códigos?
+\end_layout
+
+\end_inset
+
+.
  Además, a menos que se especifique lo contrario, ninguna variable puede
  tomar el valor null, esto nos previene de NullPointerException inesperados.
 \end_layout
@@ -2654,90 +2706,79 @@ Los códigos de estado HTTP son utilizados para indicar el estado de la operaci�
 \end_layout
 
 \begin_layout Standard
-Los códigos de estado disponibles están definidos por RFC7231
-\change_inserted -746951894 1534193436
+Los códigos de estado disponibles están definidos por 
+\emph on
+RFC7231
+\emph default
 
 \begin_inset Foot
 status open
 
 \begin_layout Plain Layout
-
-\change_inserted -746951894 1534193437
 \begin_inset Flex URL
 status open
 
 \begin_layout Plain Layout
-
-\change_inserted -746951894 1534193438
 
 https://tools.ietf.org/ html/rfc7231#section-6
-\change_unchanged
-
 \end_layout
 
 \end_inset
 
 
-\change_unchanged
-
 \end_layout
 
 \end_inset
 
-
-\change_deleted -746951894 1534193440
-
-\begin_inset CommandInset citation
-LatexCommand cite
-key "RFC7231-section-6"
-
-\end_inset
-
-
-\change_unchanged
  y los códigos de estado registrados se enumeran en el Registro de códigos
- de estado de la IANA
-\change_inserted -746951894 1534193481
+ de estado de la 
+\emph on
+IANA
+\emph default
 
 \begin_inset Foot
 status open
 
 \begin_layout Plain Layout
-
-\change_inserted -746951894 1534193484
 \begin_inset Flex URL
 status open
 
 \begin_layout Plain Layout
 
-\change_inserted -746951894 1534193486
-
 https://www.iana.org/ assignments/http-status-codes/http-status-codes.xhtml
-\change_unchanged
-
 \end_layout
 
 \end_inset
 
 
-\change_unchanged
-
 \end_layout
 
 \end_inset
 
+, siguiendo las siguientes convenciones:
+\end_layout
 
-\change_deleted -746951894 1534193489
+\begin_layout Itemize
+1xx (Informacional): El request fue recibido, se continúa procesando.
+\end_layout
 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "IANA"
+\begin_layout Itemize
+2xx (Exitoso): El request fue exitosamente recibido, entendido y aceptado.
+\end_layout
 
-\end_inset
+\begin_layout Itemize
+3xx (Redirección): Se deben tomar medidas adicionales para completar la
+ solicitud.
+\end_layout
 
+\begin_layout Itemize
+4xx (Error del cliente): el request contiene mala sintaxis o no se puede
+ cumplir.
+\end_layout
 
-\change_unchanged
-.
+\begin_layout Itemize
+5xx (Error del servidor): El servidor no cumplió con una solicitud aparentemente
+ válida.
 \end_layout
 
 \begin_layout Standard
@@ -2765,41 +2806,53 @@ El esquema expone dos tipos de campos: Campos fijos, que tienen un nombre
 
 \begin_layout Itemize
 Las etiquetas DEBEN estar limitadas a aquellas permitidas por el conjunto
- de reglas de esquema JSON.
-\begin_inset Note Note
+ de reglas de esquema JSON
+\begin_inset Foot
 status open
 
 \begin_layout Plain Layout
-Cita o nota al pie?
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+http://www.yaml.org/spec/1.2/spec.html#id2803231
 \end_layout
 
 \end_inset
 
 
-\change_inserted -746951894 1534193499
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-
-\change_inserted -746951894 1534193502
-footnote
-\change_unchanged
-
 \end_layout
 
 \end_inset
 
-
-\change_unchanged
-
+.
 \end_layout
 
 \begin_layout Itemize
 Las claves utilizadas en los diccionarios YAML DEBEN estar limitadas a una
  cadena escalar, según lo definido por el conjunto de reglas de esquema
- a prueba de fallas YAML.
+ a prueba de fallas YAML
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+http://yaml.org/spec/1.2/spec.html#id2802346
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard
@@ -3522,23 +3575,15 @@ Integración a la Herramienta de Evaluación de Servicios Web
 
 \begin_layout Standard
 ÉSTA SECCIÓN 5 VA????
-\change_inserted -746951894 1534193261
-
 \begin_inset Note Note
 status open
 
 \begin_layout Plain Layout
-
-\change_inserted -746951894 1534193277
 Esta sección no va
-\change_unchanged
-
 \end_layout
 
 \end_inset
 
-
-\change_unchanged
 
 \end_layout
 
