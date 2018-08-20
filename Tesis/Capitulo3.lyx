@@ -1156,6 +1156,57 @@ photoUrls
 En la Figura 
 \begin_inset CommandInset ref
 LatexCommand ref
+reference "fig:Componentes-de-Operacion"
+
+\end_inset
+
+ se observa la especificación de la operación 
+\emph on
+GET_/pet/{petId} 
+\emph default
+y se encuadran los distintos componentes resultantes del metamodelo.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+agregar texto
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+En la Figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Componentes-de-Tipos-de-datos"
+
+\end_inset
+
+ se observa la especificación de los distintos tipos de datos disponibles
+ en la 
+\emph on
+interfaz
+\emph default
+, y se encuadran los distintos mapeos disponibles en el metamodelo.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+agregar texto
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+En la Figura 
+\begin_inset CommandInset ref
+LatexCommand ref
 reference "fig:EjemploVersionInstanciada"
 
 \end_inset
@@ -1232,6 +1283,81 @@ sideways false
 status open
 
 \begin_layout Plain Layout
+\begin_inset Graphics
+	filename ImgChapter3/usadas/getPetById-(anotado).png
+	width 100col%
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Componentes-de-Operacion"
+
+\end_inset
+
+Componentes de Operación
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename ImgChapter3/usadas/getPetByIdDefinitions-(anotado).png
+	width 100col%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Componentes-de-Tipos-de-datos"
+
+\end_inset
+
+Componentes de Tipos de datos
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
 \align center
 \begin_inset Graphics
 	filename ImgChapter3/usadas/OAS vs Metamodelo (instancia).png
@@ -1257,137 +1383,6 @@ Ejemplo de metamodelo instanciado para el caso de estudio
 \end_inset
 
 
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-
-\change_inserted -746951894 1534193993
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-
-\change_inserted -746951894 1534194049
-Se puede separar en dos imagenes.
- Para ponerlas una al lado de la otra hacer un float, con dos float adentro
- (sin espacio en blanco entre ellos) y el ancho de cada figura adentro debe
- ser 49% o menos
-\change_unchanged
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-begin{figure}[!htb]
-\end_layout
-
-\begin_layout Plain Layout
-
-   
-\backslash
-begin {minipage}{0.5
-\backslash
-textwidth}
-\end_layout
-
-\begin_layout Plain Layout
-
-     
-\backslash
-centering
-\end_layout
-
-\begin_layout Plain Layout
-
-     
-\backslash
-includegraphics[width=1.0
-\backslash
-linewidth]{ImgChapter3/usadas/getPetById-(anotado).png}
-\end_layout
-
-\begin_layout Plain Layout
-
-     
-\backslash
-caption{Componentes de Operación}
-\backslash
-label{fig:Componentes-de-Operacion}
-\end_layout
-
-\begin_layout Plain Layout
-
-   
-\backslash
-end{minipage}
-\backslash
-hfill
-\end_layout
-
-\begin_layout Plain Layout
-
-   
-\backslash
-begin {minipage}{0.5
-\backslash
-textwidth}
-\end_layout
-
-\begin_layout Plain Layout
-
-     
-\backslash
-centering
-\end_layout
-
-\begin_layout Plain Layout
-
-     
-\backslash
-includegraphics[width=1.0
-\backslash
-linewidth]{ImgChapter3/usadas/getPetByIdDefinitions-(anotado).png}
-\end_layout
-
-\begin_layout Plain Layout
-
-     
-\backslash
-caption{Componentes de Tipos de datos}
-\backslash
-label{fig:Componentes-de-Tipos-de-datos}
-\end_layout
-
-\begin_layout Plain Layout
-
-   
-\backslash
-end{minipage}
-\backslash
-hfill
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-end{figure}
 \end_layout
 
 \end_inset
@@ -1496,21 +1491,23 @@ status open
 
 \begin_layout Plain Layout
 \align center
+
+\size scriptsize
 \begin_inset Tabular
 <lyxtabular version="3" rows="13" columns="5">
 <features tabularvalignment="middle">
-<column alignment="center" valignment="top" width="12.5text%">
-<column alignment="center" valignment="top" width="10text%">
-<column alignment="center" valignment="top" width="12.5text%">
+<column alignment="center" valignment="top" width="9text%">
+<column alignment="center" valignment="top" width="8text%">
+<column alignment="center" valignment="top" width="8.5text%">
 <column alignment="center" valignment="top" width="35text%">
-<column alignment="center" valignment="top" width="25text%">
+<column alignment="center" valignment="top" width="18text%">
 <row>
 <cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 Nombre
 \end_layout
 
@@ -1521,7 +1518,7 @@ Nombre
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 Type
 \end_layout
 
@@ -1532,7 +1529,7 @@ Type
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 Format
 \end_layout
 
@@ -1543,7 +1540,7 @@ Format
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 Comentarios
 \end_layout
 
@@ -1554,7 +1551,7 @@ Comentarios
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 SimpleType
 \end_layout
 
@@ -1567,7 +1564,7 @@ SimpleType
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 integer
 \end_layout
 
@@ -1578,7 +1575,7 @@ integer
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 integer
 \end_layout
 
@@ -1589,7 +1586,7 @@ integer
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 int32
 \end_layout
 
@@ -1600,7 +1597,7 @@ int32
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 32 bits con signo
 \end_layout
 
@@ -1611,7 +1608,7 @@ int32
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 INTEGER
 \end_layout
 
@@ -1624,7 +1621,7 @@ INTEGER
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 long
 \end_layout
 
@@ -1635,7 +1632,7 @@ long
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 integer
 \end_layout
 
@@ -1646,7 +1643,7 @@ integer
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 int64
 \end_layout
 
@@ -1657,7 +1654,7 @@ int64
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 64 bits con signo
 \end_layout
 
@@ -1668,7 +1665,7 @@ int64
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 LONG
 \end_layout
 
@@ -1681,7 +1678,7 @@ LONG
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 float
 \end_layout
 
@@ -1692,7 +1689,7 @@ float
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 number
 \end_layout
 
@@ -1703,7 +1700,7 @@ number
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 float
 \end_layout
 
@@ -1723,7 +1720,7 @@ float
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 FLOAT
 \end_layout
 
@@ -1736,7 +1733,7 @@ FLOAT
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 double
 \end_layout
 
@@ -1747,7 +1744,7 @@ double
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 number
 \end_layout
 
@@ -1758,7 +1755,7 @@ number
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 double
 \end_layout
 
@@ -1778,7 +1775,7 @@ double
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 DOUBLE
 \end_layout
 
@@ -1791,7 +1788,7 @@ DOUBLE
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 string
 \end_layout
 
@@ -1802,7 +1799,7 @@ string
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 string
 \end_layout
 
@@ -1831,7 +1828,7 @@ string
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 STRING
 \end_layout
 
@@ -1844,7 +1841,7 @@ STRING
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 byte
 \end_layout
 
@@ -1855,7 +1852,7 @@ byte
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 string
 \end_layout
 
@@ -1866,7 +1863,7 @@ string
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 byte
 \end_layout
 
@@ -1877,7 +1874,7 @@ byte
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 Caracteres codificados en base64
 \end_layout
 
@@ -1888,7 +1885,7 @@ Caracteres codificados en base64
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 BASE64
 \end_layout
 
@@ -1901,7 +1898,7 @@ BASE64
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 binary
 \end_layout
 
@@ -1912,7 +1909,7 @@ binary
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 string
 \end_layout
 
@@ -1923,7 +1920,7 @@ string
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 binary
 \end_layout
 
@@ -1934,7 +1931,7 @@ binary
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 Cualquier secuencia de octales
 \end_layout
 
@@ -1945,7 +1942,7 @@ Cualquier secuencia de octales
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 BYTE
 \end_layout
 
@@ -1958,7 +1955,7 @@ BYTE
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 boolean 
 \end_layout
 
@@ -1969,7 +1966,7 @@ boolean
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 boolean
 \end_layout
 
@@ -1998,7 +1995,7 @@ boolean
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 BOOLEAN
 \end_layout
 
@@ -2011,7 +2008,7 @@ BOOLEAN
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 date
 \end_layout
 
@@ -2022,7 +2019,7 @@ date
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 string
 \end_layout
 
@@ -2033,7 +2030,7 @@ string
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 date
 \end_layout
 
@@ -2044,14 +2041,14 @@ date
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 Como se define full-date en RFC3339
 \begin_inset Foot
 status open
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 \begin_inset Flex URL
 status open
 
@@ -2077,7 +2074,7 @@ https://xml2rfc.ietf.org/public/rfc/html/rfc3339.html#anchor14
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 DATE
 \end_layout
 
@@ -2090,7 +2087,7 @@ DATE
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 dateTime
 \end_layout
 
@@ -2101,7 +2098,7 @@ dateTime
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 string
 \end_layout
 
@@ -2112,7 +2109,7 @@ string
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 date-time
 \end_layout
 
@@ -2123,7 +2120,7 @@ date-time
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 Como se define date-time en RFC3339
 \end_layout
 
@@ -2134,7 +2131,7 @@ Como se define date-time en RFC3339
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 DATE_TIME
 \end_layout
 
@@ -2147,7 +2144,7 @@ DATE_TIME
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 password
 \end_layout
 
@@ -2158,7 +2155,7 @@ password
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 string 
 \end_layout
 
@@ -2169,7 +2166,7 @@ string
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 password
 \end_layout
 
@@ -2180,7 +2177,7 @@ password
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 Especifica que la UI debe ofuscar el input
 \end_layout
 
@@ -2191,7 +2188,7 @@ Especifica que la UI debe ofuscar el input
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 STRING
 \end_layout
 
@@ -2204,7 +2201,7 @@ STRING
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 file
 \end_layout
 
@@ -2215,7 +2212,7 @@ file
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 file
 \end_layout
 
@@ -2244,7 +2241,7 @@ file
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 BASE64_BINARY
 \end_layout
 
@@ -2466,7 +2463,7 @@ name "par:UtilizacionHerramientasProcSwagger"
 \end_layout
 
 \begin_layout Itemize
-PONGO UNA LISTA SI DESCARTO UNA SOLA???
+PONGO UNA LISTA SI DESCARTO UNA SOLA???7
 \end_layout
 
 \begin_layout Itemize
@@ -3574,7 +3571,11 @@ Integración a la Herramienta de Evaluación de Servicios Web
 \end_layout
 
 \begin_layout Standard
-ÉSTA SECCIÓN 5 VA????
+
+\noun on
+ÉSTA SECCIÓN NO VA!!!
+\noun default
+!
 \begin_inset Note Note
 status open
 
