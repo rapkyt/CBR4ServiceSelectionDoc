@@ -463,6 +463,14 @@ Numerar los pasos en la figura (find, resolve, revise, retrain, discard,
 
 \begin_layout Paragraph
 Representación del Caso
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -526,18 +534,66 @@ Caso
 
 \begin_layout Paragraph
 Base de conocimiento
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Para el Razonamiento basado en casos es de suma importancia poseer una buena
+ base de conocimiento, pues, como su nombre lo indica, se realiza razonamiento
+ basado en casos previamente aprendidos.
+ Esta base de conocimientos o 
+\emph on
+KB
+\emph default
+ debe ser persistente entre distintas ejecuciones del 
+\emph on
+CBR
+\emph default
+, de otra manera, no se dispondran de los casos incorporados en futuras
+ ejecuciones.
 \end_layout
 
 \begin_layout Paragraph
 Busqueda de casos similares
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
 \end_layout
 
 \begin_layout Paragraph
 Resolviendo el Caso
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
 \end_layout
 
 \begin_layout Paragraph
 Evaluar y retener
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
@@ -801,6 +857,14 @@ name "par:Caso-de-estudio"
 \end_inset
 
 Caso de estudio
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -1346,6 +1410,14 @@ Ejemplo de metamodelo instanciado para el caso de estudio
 
 \begin_layout Paragraph
 Tipos de datos simple
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -2262,6 +2334,14 @@ name "par:Selección-del-lenguaje"
 \end_inset
 
 Selección del lenguaje de programación utilizado
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -2367,6 +2447,14 @@ name "subsec:Proceso-de-selección"
 
 Selección de herramientas para construcción de módulo de software Conversor
  del Metamodelo
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -2411,6 +2499,14 @@ Motivos principales por los cuales no se utilizaron las siguientes herramientas
 LatexCommand label
 name "par:UtilizacionHerramientasProcSwagger"
 
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Newline newline
 \end_inset
 
 
@@ -2499,6 +2595,10 @@ name "par:Herramientas-util-instanciador"
 \end_inset
 
 Herramientas utilizadas en el Conversor
+\begin_inset Newline newline
+\end_inset
+
+
 \begin_inset Newline newline
 \end_inset
 
@@ -2611,6 +2711,10 @@ interface
 
 \begin_layout Paragraph
 Consideraciones generales
+\begin_inset Newline newline
+\end_inset
+
+
 \begin_inset Newline newline
 \end_inset
 
@@ -2815,6 +2919,10 @@ Si bien las API pueden ser definidas por documentos OpenAPI en formato YAML
 
 \begin_layout Paragraph
 Conversión de especificaciones Open API a instancias del metamodelo
+\begin_inset Newline newline
+\end_inset
+
+
 \begin_inset Newline newline
 \end_inset
 
