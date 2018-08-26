@@ -221,6 +221,12 @@ reference "sec:Intregracion-a-Testooj"
 \end_layout
 
 \begin_layout Section
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Ejemplo-Ilustrativo"
+
+\end_inset
+
 Ejemplo Ilustrativo
 \end_layout
 
@@ -230,6 +236,105 @@ status open
 
 \begin_layout Plain Layout
 To Do
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Durante el desarrollo de este trabajo se tomará como soporte a la explicación,
+ un Servicio Web REST perteneciente al dominio de veterinaria (PetStore).
+ Este servicio nos brinda la posibilidad de realizar altas y consulta de
+ las mascotas cargadas en el sistema, como así también cargar imagenes de
+ las mismas.
+ El diagrama de clases UML para este dominio es presentado en la Figura
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig: caso de estudio-1"
+
+\end_inset
+
+ en donde referenciaremos las operaciones con el formato 
+\emph on
+{Método HTTP}_{URI}
+\emph default
+ para que puedan ser identificadas inequívocamente.
+ En el dominio de veterinaria, el servicio está compuesto por cinco operaciones
+ encapsuladas en la interfaz petStore, 
+\emph on
+POST_/pet, GET_/pet/{petId}, POST_/pet/{petId}, DELETE_/pet/{petId} y POST_/pet/
+{petId}/uploadImage
+\emph default
+.
+ La operación 
+\emph on
+POST_/pet
+\emph default
+ es utilizada para agregar mascotas a la base de datos, devolviendo los
+ datos de la mascota, y un id único.
+ Para 
+\emph on
+GET_/pet/{petId}
+\emph default
+, dado un id de una mascota, retorna la información de esa mascota, a su
+ vez 
+\emph on
+POST_/pet/{petId} 
+\emph default
+recibe el mísmo id de la mascota, más los datos a actualizar de la misma,
+ 
+\emph on
+DELETE_/pet/{petId}
+\emph default
+ recibe el id de la mascota a eliminar.
+ Finalmente, 
+\emph on
+POST_/pet/{petId}/uploadImage
+\emph default
+ es una operación que permite subir fotos de la mascota dado su id.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement h
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ImgChapter3/usadas/OAS vs Metamodelo.png
+	lyxscale 50
+	width 100col%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig: caso de estudio-1"
+
+\end_inset
+
+Visión esquemática UML del Caso de estudio
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -467,15 +572,11 @@ Representación del Caso
 \end_inset
 
 
-\begin_inset Newline newline
-\end_inset
-
-
 \end_layout
 
 \begin_layout Standard
 Como primer paso, es escencial definir como está compuesto un Caso a resolver,
- el mismo consta con dos atributos, 
+ el mismo consta con dos atributos principales, 
 \emph on
 problema
 \emph default
@@ -497,7 +598,7 @@ Metamodelo
 problema
 \emph default
  es una representación de la especificación técnica del servicio que se
- desea resolver, o ha sido resuelto previamente.
+ desea resolver o ha sido resuelto previamente.
  La 
 \emph on
 solución
@@ -506,7 +607,7 @@ solución
 \emph on
 nulo
 \emph default
-, pues el caso no está resuelto, y que, en caso contrario, tendrá como valor
+, pues el caso no está resuelto, y que en caso contrario tendrá como valor
  un 
 \emph on
 String 
@@ -516,7 +617,7 @@ indicando inequívocamente la
 ubicación 
 \emph default
 de la solución para dicho caso, éste puede ser la dirección web donde se
- encuentra alocado el servicio web detallado en el problema, por ejemplo.
+ encuentra alojado el servicio web detallado en el problema, por ejemplo.
 \end_layout
 
 \begin_layout Standard
@@ -532,12 +633,46 @@ Caso
  con la solución más próxima que satisfaga las necesidades del problema.
 \end_layout
 
-\begin_layout Paragraph
-Base de conocimiento
-\begin_inset Newline newline
+\begin_layout Standard
+En la figura XXX
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Hacer figura encapsulando la que ya está hecha
+\end_layout
+
 \end_inset
 
+ podemos observar el driagrama de clases instanciado para la representación
+ de un 
+\emph on
+Caso 
+\emph default
+cuyo problema es la interfaz definida en 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Ejemplo-Ilustrativo"
 
+\end_inset
+
+, en la misma se observa como el problema es la instancia de una interfaz,
+ la misma contiene cinco operaciones, a modo ilustrativo sólo se expandió
+ la operación 
+\emph on
+GET_/pet/{petId}
+\emph default
+ hasta llegar a los 
+\emph on
+tipos 
+\emph default
+utilizados
+\emph on
+.
+\end_layout
+
+\begin_layout Paragraph
+Base de conocimiento
 \begin_inset Newline newline
 \end_inset
 
@@ -546,8 +681,8 @@ Base de conocimiento
 
 \begin_layout Standard
 Para el Razonamiento basado en casos es de suma importancia poseer una buena
- base de conocimiento, pues, como su nombre lo indica, se realiza razonamiento
- basado en casos previamente aprendidos.
+ base de conocimiento, pues justamente, es utilizada para buscar el mejor
+ caso candidato entre los casos previamente aprendidos.
  Esta base de conocimientos o 
 \emph on
 KB
@@ -556,16 +691,272 @@ KB
 \emph on
 CBR
 \emph default
-, de otra manera, no se dispondran de los casos incorporados en futuras
- ejecuciones.
+, de otra manera, no se dispondran de los casos aprendidos en ejecuciones
+ pasadas.
+ Para la carga inicial se utilizaron servicios reales
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+pie de pagina a servicios utilizados?
+\end_layout
+
+\end_inset
+
+, por cada uno se genera una instancia del metamodelo con su especificación,
+ se toma la 
+\emph on
+interface
+\emph default
+ de la misma y se le asigna a como 
+\emph on
+problema 
+\emph default
+a un nuevo 
+\emph on
+caso
+\emph default
+, se le asigna la URL donde se encuentra actualmente el servicio como 
+\emph on
+solución
+\emph default
+ y luego el caso es cargado en la base de conocimiento, de esta manera,
+ el CBR posee una base de conocimiento inicial, con la cual comenzar la
+ comparación e ir incorporando nuevos casos según sea necesario.
+\end_layout
+
+\begin_layout Standard
+Para el almacenamiento de esta base de conocimientos se decidió utilizar
+ una base de datos no-sql basada en documentos (no relacional) llamada MongoDB
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://www.mongodb.com/what-is-mongodb
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+.
+ Se tomó esta desición puesto a que: 
+\end_layout
+
+\begin_layout Itemize
+El 
+\emph on
+Caso
+\emph default
+ que se desea almacenar se puede representar como un sólo documento, u objeto
+ JSON
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://www.json.org/
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+Salvo las instancias de las clases 
+\emph on
+SimpleType
+\emph default
+, 
+\emph on
+ComplexType 
+\emph default
+y 
+\emph on
+ArrayType
+\emph default
+, no vamos a tener otras instancias identicas entre sí 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+¿?
+\end_layout
+
+\end_inset
+
+ que nos haga reducir espacio de almacenamiento al tener el registro cargado
+ una única vez en una tabla, y referenciando al mismo 
+\emph on
+ID 
+\emph default
+desde otra.
+\end_layout
+
+\begin_layout Itemize
+A la hora de consultar un caso siempre lo realizaremos desde la raíz del
+ mismo, y para decidir si es o no compatible tenemos que explorar todas
+ las relaciones, si utilizaramos una base de datos relacional esto se traduce
+ en varios JOINS 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+MUCHOS, calcular
+\end_layout
+
+\end_inset
+
+ que implican consultas o 
+\emph on
+hits
+\emph default
+ a la base de datos, por otro lado, si utilizamos una base de datos orientada
+ a documentos, por cada caso que deseamos comparar con el caso de entrada
+ realizaremos una sola consulta, o 
+\emph on
+hit
+\emph default
+ a la base de datos, utilizando la totalidad del documento, es decir, no
+ se habrán traído datos innecesarios.
+\end_layout
+
+\begin_layout Itemize
+La performance que ofrecen las bases de datos no relacionales frente a las
+ bases de datos relacionales es muy superior como se puede observar en 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+meter estudios de benchmark
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+Por otro lado, una común desventaja que presentan los sistemas de base de
+ datos no-sql frente a uno relacional, es la falta de las propiedades ACID,
+ MongoDB 4.0 CUMPLE ACID???? 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Probar MongoDB 4.0, si cumple acid decir que hasta la v 4.0 no se cumplía
+ acid, que a nosotros no nos importa xq necesitamos transaccion a nivel
+ de documento, en caso que cumpla ACID, decir que en muchos casos no se
+ cumple, que esa es una característica por la cual muchos no lo utilizan,
+ a nosotros no nos importa xq necesitamos transacción a nivel de documento,
+ pero si se cumple así que es lo mismo
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+MongoDB es un Sistema de Base de Datos basado en Documentos Open Source
+ ampliamente utilizada en el mercado, posicionandose dentro de los 10 Sistemas
+ de Base de Datos utilizados independientemente del típo (Relacional, Key-value,
+ basada en Documentos, orientada a Grafos, basada en series de tiempo, basada
+ en RDF, orientada a Objetos, motor de busqueda, basada en Wide column,
+ nativa XML, repositirio de contenidos, basada en eventos y Navigational)
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://db-engines.com/en/ranking
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+ y en el primer puesto dentro de los Sistemas de Base de Datos basados en
+ documentos
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://db-engines.com/en/ranking/document+store
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+.
+ El mismo se eligió ya que es el standar de facto en cuanto a Sistemas de
+ Base de Datos basados en documentos, es Open Source, lo cual nos brinda
+ flexibilidad si necesitaramos modificar su funcionamiento, posee una documentac
+ión muy completa 
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://docs.mongodb.com/manual
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+ y además es gratiuto incluso su última versión, al contrario de 
+\emph on
+Couchbase 
+\emph default
+otro sistema de Base de Datos basado en Documentos Open Source, que la última
+ versión es paga, y la anterior a esa es gratiuta, tageada como CE (Comunity
+ Edition).
 \end_layout
 
 \begin_layout Paragraph
 Busqueda de casos similares
-\begin_inset Newline newline
-\end_inset
-
-
 \begin_inset Newline newline
 \end_inset
 
@@ -578,18 +969,10 @@ Resolviendo el Caso
 \end_inset
 
 
-\begin_inset Newline newline
-\end_inset
-
-
 \end_layout
 
 \begin_layout Paragraph
 Evaluar y retener
-\begin_inset Newline newline
-\end_inset
-
-
 \begin_inset Newline newline
 \end_inset
 
@@ -868,58 +1251,7 @@ Caso de estudio
 \end_layout
 
 \begin_layout Standard
-Durante el desarrollo de este trabajo se tomará como soporte a la explicación,
- un Servicio Web perteneciente al dominio de veterinaria (PetStore).
- El diagrama de clases UML para este dominio es presentado en la Figura
-\begin_inset space ~
-\end_inset
-
-
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig: caso de estudio-1"
-
-\end_inset
-
- en donde referenciaremos las operaciones con el formato 
-\emph on
-{Método HTTP}_{URI}
-\emph default
- para que puedan ser identificadas inequívocamente.
- En el dominio de veterinaria, el servicio está compuesto por 5 operaciones
- encapsuladas en la interfaz petStore, 
-\emph on
-POST_/pet, GET_/pet/{petId}, POST_/pet/{petId}, DELETE_/pet/{petId} y POST_/pet/
-{petId}/uploadImage
-\emph default
-.
- La operación 
-\emph on
-POST_/pet
-\emph default
- es utilizada para agregar mascotas a la base de datos, devolviendo los
- datos de la mascota, y un id único.
- Para 
-\emph on
-GET_/pet/{petId}
-\emph default
-, dado un id de una mascota, retorna la información de esa mascota, a su
- vez 
-\emph on
-POST_/pet/{petId} 
-\emph default
-recibe el mísmo id de la mascota, más los datos a actualizar de la misma,
- 
-\emph on
-DELETE_/pet/{petId}
-\emph default
- recibe el id de la mascota a eliminar.
- Finalmente, 
-\emph on
-POST_/pet/{petId}/uploadImage
-\emph default
- es una operación que permite subir fotos de la mascota dado su id.
- En el Listado de Código 
+En el Listado de Código 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "Documento OAS PetStore"
@@ -930,49 +1262,14 @@ reference "Documento OAS PetStore"
 \emph on
 PetStore
 \emph default
+ descripto en 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Ejemplo-Ilustrativo"
+
+\end_inset
+
 .
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-placement h
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename ImgChapter3/usadas/OAS vs Metamodelo.png
-	lyxscale 50
-	width 100col%
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-\begin_inset CommandInset label
-LatexCommand label
-name "fig: caso de estudio-1"
-
-\end_inset
-
-Visión esquemática UML del Caso de estudio
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Standard
