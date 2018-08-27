@@ -1123,6 +1123,116 @@ Resolviendo el Caso
 
 \end_layout
 
+\begin_layout Standard
+Una vez que se calculan las distancias de cada uno de los casos candidatos
+ con el nuevo 
+\emph on
+Caso
+\emph default
+, los mismos son introducidos a modo de tupla (Caso Candidato, Distancia)
+ 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+formatear de alguna manera en especial?
+\end_layout
+
+\end_inset
+
+ y luego ésta lista es ordenada según la distancia de cada elemento y es
+ utilizada con el fin de encontrar el Caso Candidato final.
+\end_layout
+
+\begin_layout Standard
+Las estrategias para elegir éste Caso Candidato final entre la lista de
+ casos candidatos son 
+\emph on
+1-nn
+\emph default
+, 
+\emph on
+K-nn
+\emph default
+, 
+\emph on
+WK-nn
+\emph default
+ y 
+\emph on
+DWK-nn
+\emph default
+, la elección de la estrategia a utilizar, así como la configuración 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+buscar sinonimo
+\end_layout
+
+\end_inset
+
+ del 
+\emph on
+K 
+\emph default
+se realiza por medio de la configuración de variables de entorno a la hora
+ de ejecutar el algoritmo de CBR.
+\end_layout
+
+\begin_layout Standard
+EXPLICAR CADA ESTRATEGIA, con las formulas de wknn y dwknn, bibliografía.
+\end_layout
+
+\begin_layout Standard
+Una vez que se obtiene el Caso Candidato final mediante la estrategia selecciona
+da, se toma la 
+\emph on
+solución 
+\emph default
+del mismo, y se devuelve.
+ 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+feedback de experto?
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Según la teoría de Case Based Reasoning, se puede realizar una adaptación
+ de la solución para que concuerde con el problema ingresado, 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+poner ejemplo típico de precio de auto-casa?
+\end_layout
+
+\end_inset
+
+.
+ En el dominio en el que se desarrolla nuestro razonador esta adaptación
+ no es necesaria, ya que se deja a la discreción 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+buscar sinonimo
+\end_layout
+
+\end_inset
+
+ des desarrollador que busca una solución a su problema, el mismo deberá
+ realizar los cambios necesarios en su interfaz para que la misma sea compatible
+ con la interfaz de la solución brindada.
+\end_layout
+
 \begin_layout Paragraph
 Evaluar y retener
 \begin_inset Newline newline
