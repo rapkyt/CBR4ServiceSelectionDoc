@@ -901,6 +901,16 @@ https://db-engines.com/en/ranking
 
 \end_inset
 
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+reemplazar por referencia incluyendo fecha de extracción?
+\end_layout
+
+\end_inset
+
  y en el primer puesto dentro de los Sistemas de Base de Datos basados en
  documentos
 \begin_inset Foot
@@ -955,12 +965,154 @@ otro sistema de Base de Datos basado en Documentos Open Source, que la última
  Edition).
 \end_layout
 
+\begin_layout Standard
+En XXX se puede observar un fragmento de como quedaría un objeto JSON conteniend
+o un 
+\emph on
+Caso
+\emph default
+ cuyo 
+\emph on
+problema
+\emph default
+ es la especificacion la instancia del metamodelo del ejemplo 
+\emph on
+PetStore
+\emph default
+ indicado en 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Ejemplo-Ilustrativo"
+
+\end_inset
+
+, dicho objeto JSON es almacenado en la Base de Conocimiento 
+\emph on
+KB
+\emph default
+ en el Sistema de Base de Datos MongoDB.
+\end_layout
+
 \begin_layout Paragraph
 Busqueda de casos similares
 \begin_inset Newline newline
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+Un 
+\emph on
+Caso
+\emph default
+ sin 
+\emph on
+solución
+\emph default
+ va a ser introducido en nuestro CBR, cuyo 
+\emph on
+problema 
+\emph default
+va a constar de la especificación de la funcionalidad requerida.
+ Para obtener una solución a este nuevo 
+\emph on
+Caso
+\emph default
+, lo primero que se debe hacer es calcular la funcion de similitud (DIST),
+ como la distancia entre el nuevo 
+\emph on
+Caso 
+\emph default
+y cada caso perteneciente a la base de conocimientos 
+\emph on
+KB
+\emph default
+, de acuerdo a la formula 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:DIST"
+
+\end_inset
+
+ presentada en YYYY.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+CITAR
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+DIST(C^{n},C^{c})=\sum_{1}^{n}(w_{i}*sim(C_{i}^{n},C_{i}^{c}))\label{eq:DIST}
+\end{equation}
+
+\end_inset
+
+Donde 
+\begin_inset Formula $C^{n}$
+\end_inset
+
+ es el nuevo 
+\emph on
+Caso 
+\emph default
+a evaluar y 
+\begin_inset Formula $C^{C}$
+\end_inset
+
+ es el 
+\emph on
+Caso 
+\emph default
+candidato obtenido de la base de conocimientos 
+\emph on
+KB
+\emph default
+.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Cambiar formato de la aclaración
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Y donde la función de similitud es: ....
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+agregar info de funcion de similitud.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Si comparamos el problema XXX con el ejemplificado en 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Ejemplo-Ilustrativo"
+
+\end_inset
+
+ podemos observar como la función de distancia da...
+ por....
 \end_layout
 
 \begin_layout Paragraph
