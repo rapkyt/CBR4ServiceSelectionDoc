@@ -694,6 +694,26 @@ CBR
 , de otra manera, no se dispondran de los casos aprendidos en ejecuciones
  pasadas.
  Para la carga inicial se utilizaron servicios reales
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://apis.guru/openapi-directory
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \begin_inset Note Note
 status open
 
@@ -993,6 +1013,19 @@ KB
  en el Sistema de Base de Datos MongoDB.
 \end_layout
 
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Se guarda el swagger en mongo sin transformarlo xq es json 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Paragraph
 Busqueda de casos similares
 \begin_inset Newline newline
@@ -1049,6 +1082,25 @@ CITAR
 \end_layout
 
 \begin_layout Standard
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "80col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
 \begin_inset Formula 
 \begin{equation}
 DIST(C^{n},C^{c})=\sum_{1}^{n}(w_{i}*sim(C_{i}^{n},C_{i}^{c}))\label{eq:DIST}
@@ -1056,6 +1108,13 @@ DIST(C^{n},C^{c})=\sum_{1}^{n}(w_{i}*sim(C_{i}^{n},C_{i}^{c}))\label{eq:DIST}
 
 \end_inset
 
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+
+\size small
 Donde 
 \begin_inset Formula $C^{n}$
 \end_inset
@@ -1077,11 +1136,10 @@ candidato obtenido de la base de conocimientos
 KB
 \emph default
 .
-\begin_inset Note Note
-status open
+\begin_inset VSpace 0.5cm
+\end_inset
 
-\begin_layout Plain Layout
-Cambiar formato de la aclaración
+
 \end_layout
 
 \end_inset
@@ -1218,19 +1276,15 @@ poner ejemplo típico de precio de auto-casa?
 
 .
  En el dominio en el que se desarrolla nuestro razonador esta adaptación
- no es necesaria, ya que se deja a la discreción 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-buscar sinonimo
+ se realizaría de forma manual por el desarrollador, que busca una solución
+ a su problema.
+ El mismo deberá realizar los cambios necesarios en su interfaz para que
+ la misma sea compatible con la interfaz de la solución brindada.
 \end_layout
 
-\end_inset
-
- des desarrollador que busca una solución a su problema, el mismo deberá
- realizar los cambios necesarios en su interfaz para que la misma sea compatible
- con la interfaz de la solución brindada.
+\begin_layout Standard
+La adaptación automática de casos es un proceso complejo que queda afuera
+ del alcanze de esta tesis.
 \end_layout
 
 \begin_layout Paragraph
@@ -3621,7 +3675,6 @@ status open
 \align center
 \begin_inset Graphics
 	filename ImgChapter3/usadas/UML OAS.png
-	lyxscale 30
 	width 100text%
 
 \end_inset
