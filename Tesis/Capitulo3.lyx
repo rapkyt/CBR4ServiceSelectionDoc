@@ -311,7 +311,6 @@ status open
 \align center
 \begin_inset Graphics
 	filename ImgChapter3/usadas/OAS vs Metamodelo.png
-	lyxscale 50
 	width 100col%
 
 \end_inset
@@ -713,16 +712,6 @@ https://apis.guru/openapi-directory
 
 \end_inset
 
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-pie de pagina a servicios utilizados?
-\end_layout
-
-\end_inset
-
 , por cada uno se genera una instancia del metamodelo con su especificación,
  se toma la 
 \emph on
@@ -798,6 +787,11 @@ https://www.json.org/
 \end_inset
 
 .
+\end_layout
+
+\begin_layout Itemize
+El lenguaje de marcado con el cual se guardan y editan los documentos es
+ JSON, el mismo que se utiliza en las especificaciones Swagger.
 \end_layout
 
 \begin_layout Itemize
@@ -978,7 +972,31 @@ https://docs.mongodb.com/manual
 
  y además es gratiuto incluso su última versión, al contrario de 
 \emph on
-Couchbase 
+Couchbase
+\emph default
+
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://www.couchbase.com/
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\emph on
+ 
 \emph default
 otro sistema de Base de Datos basado en Documentos Open Source, que la última
  versión es paga, y la anterior a esa es gratiuta, tageada como CE (Comunity
@@ -1182,29 +1200,22 @@ Resolviendo el Caso
 \end_layout
 
 \begin_layout Standard
-Una vez que se calculan las distancias de cada uno de los casos candidatos
- con el nuevo 
+Una vez calculadas las distancias de cada uno de los casos candidatos con
+ el nuevo 
 \emph on
 Caso
 \emph default
-, los mismos son introducidos a modo de tupla (Caso Candidato, Distancia)
- 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-formatear de alguna manera en especial?
-\end_layout
-
+, las mismas son introducidas en una lista a modo de tupla 
+\begin_inset Formula $(Solución,\,Distancia)$
 \end_inset
 
- y luego ésta lista es ordenada según la distancia de cada elemento y es
- utilizada con el fin de encontrar el Caso Candidato final.
+, luego ésta lista es ordenada según la distancia y utilizada con el fin
+ de encontrar el Caso Candidato final.
 \end_layout
 
 \begin_layout Standard
-Las estrategias para elegir éste Caso Candidato final entre la lista de
- casos candidatos son 
+Las estrategias para la selección de éste Caso Candidato final entre la
+ lista de casos candidatos son 
 \emph on
 1-nn
 \emph default
@@ -1220,26 +1231,173 @@ WK-nn
 \emph on
 DWK-nn
 \emph default
-, la elección de la estrategia a utilizar, así como la configuración 
-\begin_inset Note Note
+.
+\end_layout
+
+\begin_layout Itemize
+
+\emph on
+1-nn
+\emph default
+ Consiste en simplemente seleccionar la 
+\emph on
+Solución
+\emph default
+ cuya 
+\emph on
+distancia
+\emph default
+ sea la menor.
+\end_layout
+
+\begin_layout Itemize
+
+\emph on
+k-nn 
+\emph default
+Consiste en tomar las 
+\emph on
+k 
+\emph default
+soluciones con menor distancia y tomar la 
+\emph on
+Solución
+\emph default
+ mas frecuente entre las mismas.
+\end_layout
+
+\begin_layout Itemize
+
+\emph on
+WK-nn
+\emph default
+ o 
+\emph on
+weighted k-NN 
+\emph default
+y
+\emph on
+ DWK-nn 
+\emph default
+o 
+\emph on
+Distance-weighted knn 
+\emph default
+consisten en tomar las k soluciones con menor distancia, ponderar el peso
+ de cada solución con la fórmula 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:WKNN"
+
+\end_inset
+
+ en el caso de 
+\emph on
+WK-nn 
+\emph default
+o 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:DWKNN"
+
+\end_inset
+
+ en el caso de 
+\emph on
+DWK-nn
+\emph default
+, agrupar las mismas por solucion sumando el peso ponderado de cada una
+ y tomar la 
+\emph on
+Solución
+\emph default
+ con mayor peso, ambas estrategias nos permiten ...
+\end_layout
+
+\begin_layout Standard
+Como saco éste texto?
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "80col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
 status open
 
 \begin_layout Plain Layout
-buscar sinonimo
+\begin_inset Formula 
+\begin{equation}
+w(i)=\frac{d^{k}-d^{i}}{d^{k}-d^{1}}\label{eq:WKNN}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula 
+\begin{equation}
+w(i)=\frac{d^{k}-d^{i}}{d^{k}-d^{1}}\times\frac{d^{k}+d^{1}}{d^{k}+d^{i}}\label{eq:DWKNN}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+
+\size small
+Donde 
+\begin_inset Formula $d^{k}$
+\end_inset
+
+ es la distancia de la solución en la posición 
+\emph on
+k
+\emph default
+, 
+\begin_inset Formula $d^{1}$
+\end_inset
+
+ es la distancia de la solución con menor distancia y 
+\begin_inset Formula $d^{i}$
+\end_inset
+
+ es la distancia en la posición a calcular el peso
+\begin_inset VSpace 0.5cm
+\end_inset
+
+
 \end_layout
 
 \end_inset
 
- del 
+
+\end_layout
+
+\begin_layout Standard
+La elección tanto de la estrategia a utilizar, así como del valor de 
 \emph on
 K 
 \emph default
 se realiza por medio de la configuración de variables de entorno a la hora
  de ejecutar el algoritmo de CBR.
-\end_layout
-
-\begin_layout Standard
-EXPLICAR CADA ESTRATEGIA, con las formulas de wknn y dwknn, bibliografía.
 \end_layout
 
 \begin_layout Standard
@@ -1283,8 +1441,12 @@ poner ejemplo típico de precio de auto-casa?
 \end_layout
 
 \begin_layout Standard
-La adaptación automática de casos es un proceso complejo que queda afuera
- del alcanze de esta tesis.
+La adaptación automática de 
+\emph on
+Casos
+\emph default
+ es un proceso complejo que queda fuera del alcanze de esta tesis y disponible
+ como trabajo a futuro.
 \end_layout
 
 \begin_layout Paragraph
@@ -1293,6 +1455,62 @@ Evaluar y retener
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+En esta instancia, el 
+\emph on
+Razonador Basado en Casos 
+\emph default
+ya comparó el caso de entrada con el problema de cada uno de los casos en
+ la base de conocimientos (KB) y, se espera, haya encontrado una solución
+ al mismo en terminos de la similitud de atributos vista anteriormente.
+ Esta solución fue revisada y marcada como válida por el usuario experto,
+ es decir, es una solución válida y el problema introducido, junto con la
+ solución, pasan a ser un caso probado.
+ El siguiente paso consiste en tomar la desición respecto a si éste caso
+ probado será añadido a la base de conocimientos, o no.
+ Por un lado, retener demasiados casos puede generar ruido en la evaluación,
+ disminuyendo la performance del razonador a largo plazo.
+ Por otro lado, si no se agregan casos nuevos, no hay aprendizaje, y el
+ razonador no será capaz de resolver correctamente nuevos casos.
+ Para prevenir que esto suceda se define un valor de threshold 
+\emph on
+(th)
+\emph default
+ o umbral
+\emph on
+ 
+\emph default
+sobre la función de distancia 
+\emph on
+(DIST)
+\emph default
+.
+ Dicho valor de umbral determina si el nuevo caso es retenido (
+\emph on
+caso aprendido
+\emph default
+) en la 
+\emph on
+KB
+\emph default
+.
+ Si el valor de la distancia es MAYOR??? que el valor de threshold, entonces
+ el caso es agregado a la base de conocimientos como un caso relevante,
+ de otro modo es descartado.
+ El objetivo es prevenir el crecimiento incontrolable de la 
+\emph on
+KB,
+\emph default
+ y al mismo tiempo, mejorar la performance del razonador.
+ El valor de threshold o umbral es una constante que se configura mediante
+ una variable de entorno a la hora de ejecutar el algoritmo, la misma debería
+ tomar valores distintos dependiendo de la cantidad de casos iniciales.
+ Si la misma es baja, se debería utilizar un valor BAJO???, permitiendo
+ que el razonador añada casos para enriquecer la KB.
+ Si el número de casos crece en un momento determinado, el valor de threshold
+ puede ser DISMINUIDO? para agregar sólo casos relaventes.
 \end_layout
 
 \begin_layout Section
