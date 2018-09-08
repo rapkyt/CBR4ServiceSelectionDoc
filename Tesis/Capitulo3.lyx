@@ -231,19 +231,6 @@ Ejemplo Ilustrativo
 \end_layout
 
 \begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-To Do
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
 Durante el desarrollo de este trabajo se tomará como soporte a la explicación,
  un Servicio Web REST perteneciente al dominio de veterinaria (PetStore).
  Este servicio nos brinda la posibilidad de realizar altas y consulta de
@@ -571,6 +558,16 @@ Representación del Caso
 \end_inset
 
 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Como numero la imagen?
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -633,13 +630,10 @@ Caso
 \end_layout
 
 \begin_layout Standard
-En la figura XXX
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Hacer figura encapsulando la que ya está hecha
-\end_layout
+En la figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:EjemploVersionCaseInstanciada"
 
 \end_inset
 
@@ -668,6 +662,49 @@ tipos
 utilizados
 \emph on
 .
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ImgChapter3/usadas/OAS vs Metamodelo (instancia Case).png
+	lyxscale 80
+	width 100col%
+	scaleBeforeRotation
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:EjemploVersionCaseInstanciada"
+
+\end_inset
+
+Ejemplo de 
+\emph on
+Caso
+\emph default
+ instanciado para el caso de estudio
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Paragraph
@@ -1004,8 +1041,15 @@ otro sistema de Base de Datos basado en Documentos Open Source, que la última
 \end_layout
 
 \begin_layout Standard
-En XXX se puede observar un fragmento de como quedaría un objeto JSON conteniend
-o un 
+En 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "Documento PetStore almacenado en MongoDB"
+
+\end_inset
+
+ se puede observar un fragmento de como quedaría un objeto JSON conteniendo
+ un 
 \emph on
 Caso
 \emph default
@@ -1032,12 +1076,10 @@ KB
 \end_layout
 
 \begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Se guarda el swagger en mongo sin transformarlo xq es json 
-\end_layout
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "listing/petStore(mongo).txt"
+lstparams "breaklines=true,frame=tb,caption={Documento PetStore almacenado en MongoDB},label={Documento PetStore almacenado en MongoDB}"
 
 \end_inset
 
@@ -1535,10 +1577,14 @@ reference "fig:Esquema-de-proceso"
 
 \end_inset
 
- se puede observar dentro del cuadro con bordes punteados como se componen
- las clases pertenecientes al Metamodelo SoaML, el mismo cumple su función
- como descriptor de interfaces, pero no tiene toda la información necesaria
- para operar dentro del contexto de un CBR.
+ se pued
+\end_layout
+
+\begin_layout Standard
+e observar dentro del cuadro con bordes punteados como se componen las clases
+ pertenecientes al Metamodelo SoaML, el mismo cumple su función como descriptor
+ de interfaces, pero no tiene toda la información necesaria para operar
+ dentro del contexto de un CBR.
 \end_layout
 
 \begin_layout Standard
@@ -1587,21 +1633,11 @@ Base de Conocimiento
 Knowledge Base
 \emph default
  o KB), en la cual luego podremos hacer consultas, para la implementación
- de dicha base de conocimiento se decidió utilizar una Base de Datos sin
- esquema (NoSQL) llamada 
+ de dicha base de conocimiento se decidió utilizar una Base de Datos basada
+ en documentos (NoSQL) llamada 
 \emph on
-Mongo 
+Mongo
 \emph default
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Apartado mongo?
-\end_layout
-
-\end_inset
-
 .
  Para poder almacenar nuestro caso en una base de datos lo ideal es serializarlo
 , para obtener el valor de la base de datos se debe des serializar.
@@ -2063,17 +2099,7 @@ reference "fig:EjemploVersionInstanciada"
  se muesta el diagrama de objetos que representa la salida (instancia del
  metamodelo) generada por el componente Conversor para el documento OAS
  utilizado como ejemplo.
- 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Es singleton O lo saco?
-\end_layout
-
-\end_inset
-
-Es importante destacar que la estructura de datos utilizada generará una
+ Es importante destacar que la estructura de datos utilizada generará una
  sola vez los tipos de datos, y si fuera necesario realizar otra instancia
  de la misma clase, se fija la dirección de memoria mediante un puntero
  a aquella que fue creada por primera vez.
@@ -2210,7 +2236,7 @@ status open
 \align center
 \begin_inset Graphics
 	filename ImgChapter3/usadas/OAS vs Metamodelo (instancia).png
-	lyxscale 50
+	lyxscale 80
 	width 100col%
 	scaleBeforeRotation
 
