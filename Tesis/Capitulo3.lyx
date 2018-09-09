@@ -384,31 +384,24 @@ s para utilizar el patrón de diseño adapter y, de esta manera permitir la
  Para seleccionar el servicio adecuado se útilizan métodos de selección
  como 
 \emph on
-KNN 
+K-nn, WK-nn
 \emph default
-y derivados 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Explicar los demas casos
-\end_layout
-
-\end_inset
-
+ y 
+\emph on
+DWK-nn
+\emph default
 .
  
 \emph on
-KNN 
+K-nn 
 \emph default
-consiste en tomar los 
+consiste en tomar las 
 \emph on
 K
 \emph default
- casos que tengan menor distancia con el caso requerido, una vez obtenido
- estos K casos se realiza una votación por solución (puesto a que dos casos
- en la base de conocimiento pueden tener la misma solución) y el caso de
- menor distancia dentro de la solución 
+ soluciones con menor distancia y seleccionar la mas frecuente (puesto a
+ que dos casos en la base de conocimiento pueden tener la misma solución),
+ la misma pasa a ser la solución 
 \begin_inset Quotes eld
 \end_inset
 
@@ -416,13 +409,27 @@ ganadora
 \begin_inset Quotes erd
 \end_inset
 
- pasa a ser el caso candidato (
+ y es asignada al caso candidato (
 \emph on
 Solved Case
 \emph default
-), en caso de que la hubiese un empate en la votación, la misma se desempata
- tomando como caso candidato al que tuviese ménos distancia, dentro de las
- soluciones que hayan empatado.
+).
+ Los métodos de selección 
+\emph on
+WK-nn
+\emph default
+ y 
+\emph on
+DWK-nn
+\emph default
+ son desarrollados en 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "par:Resolviendo-el-Caso"
+
+\end_inset
+
+.
  El caso candidato se presenta al consumidor y éste decide si la solución
  es compatible o no, en caso de que no lo sea, dicha solución es descartada
  y el consumidor puede volver a iniciar el proceso de resolución si éste
@@ -1078,8 +1085,8 @@ KB
 \begin_layout Standard
 \begin_inset CommandInset include
 LatexCommand lstinputlisting
-filename "listing/petStore(mongo).txt"
-lstparams "breaklines=true,frame=tb,caption={Documento PetStore almacenado en MongoDB},label={Documento PetStore almacenado en MongoDB}"
+filename "listing/petStore(mongo) (short).txt"
+lstparams "breaklines=true,basicstyle={\\ttfamily\\scriptsize},caption={Documento PetStore almacenado en MongoDB},label={Documento PetStore almacenado en MongoDB}"
 
 \end_inset
 
@@ -1128,17 +1135,7 @@ reference "eq:DIST"
 
 \end_inset
 
- presentada en YYYY.
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-CITAR
-\end_layout
-
-\end_inset
-
-
+.
 \end_layout
 
 \begin_layout Standard
@@ -1234,6 +1231,12 @@ reference "sec:Ejemplo-Ilustrativo"
 \end_layout
 
 \begin_layout Paragraph
+\begin_inset CommandInset label
+LatexCommand label
+name "par:Resolviendo-el-Caso"
+
+\end_inset
+
 Resolviendo el Caso
 \begin_inset Newline newline
 \end_inset
@@ -1828,7 +1831,8 @@ reference "Documento OAS PetStore"
 
 \end_inset
 
- se muestra un fragmento del documento OAS que describe el servicio 
+ se muestra un fragmento de la espicificación swagger que describe el servicio
+ 
 \emph on
 PetStore
 \emph default
@@ -1839,6 +1843,18 @@ reference "sec:Ejemplo-Ilustrativo"
 
 \end_inset
 
+, en el mismo se han eliminado las operaciones que no se utilizaran para
+ explicar la relación entre la especificación swagger y el Metamodelo, la
+ especificación completa se encuentra en XXXX
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Apéndice con la especificación completa, no la ofrecemos, o pongo el link?
+\end_layout
+
+\end_inset
+
 .
 \end_layout
 
@@ -1846,7 +1862,7 @@ reference "sec:Ejemplo-Ilustrativo"
 \begin_inset CommandInset include
 LatexCommand lstinputlisting
 filename "listing/petStore (ejemplo).txt"
-lstparams "caption={Documento OAS PetStore},label={Documento OAS PetStore}"
+lstparams "breaklines=true,basicstyle={\\ttfamily\\scriptsize},caption={Documento OAS PetStore},label={Documento OAS PetStore}"
 
 \end_inset
 
