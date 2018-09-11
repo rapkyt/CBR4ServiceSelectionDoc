@@ -171,8 +171,8 @@ Caso
 \begin_inset Quotes erd
 \end_inset
 
- y un nuevo componente Conversor de especificaciónes Swagger (OAS) hacia
- instancia del 
+ y un nuevo componente Conversor de especificaciónes Swagger hacia instancia
+ del 
 \begin_inset Quotes eld
 \end_inset
 
@@ -204,7 +204,7 @@ reference "sec:-Conversor de OAS"
 
 \end_inset
 
- se detalla el Componente Conversor de OAS para instanciar el Metamodelo
+ se detalla el Componente Conversor de Swagger para instanciar el Metamodelo
  de Servicios Web.
  Finalmente, en la Sección
 \begin_inset space ~
@@ -232,10 +232,17 @@ Ejemplo Ilustrativo
 
 \begin_layout Standard
 Durante el desarrollo de este trabajo se tomará como soporte a la explicación,
- un Servicio Web REST perteneciente al dominio de veterinaria (PetStore).
- Este servicio nos brinda la posibilidad de realizar altas y consulta de
- las mascotas cargadas en el sistema, como así también cargar imagenes de
- las mismas.
+ un Servicio Web REST
+\begin_inset CommandInset citation
+LatexCommand cite
+key "thomas2000fielding"
+
+\end_inset
+
+ perteneciente al dominio de veterinaria (PetStore).
+ Este servicio nos brinda la posibilidad de realizar altas, bajas y consulta
+ de las mascotas cargadas en el sistema, como así también cargar imagenes
+ de las mismas.
  El diagrama de clases UML para este dominio es presentado en la Figura
 \begin_inset space ~
 \end_inset
@@ -251,9 +258,14 @@ reference "fig: caso de estudio-1"
 \emph on
 {Método HTTP}_{URI}
 \emph default
- para que puedan ser identificadas inequívocamente.
- En el dominio de veterinaria, el servicio está compuesto por cinco operaciones
- encapsuladas en la interfaz petStore, 
+ para que puedan ser identificadas inequívocamente, además se encapsularán
+ los parametros de entrada por URL con llaves, por ejemplo, 
+\emph on
+{petId}, 
+\emph default
+se reemplazará por el id de la mazcota deseada.
+ Este servicio está compuesto por cinco operaciones encapsuladas en la interfaz
+ petStore, 
 \emph on
 POST_/pet, GET_/pet/{petId}, POST_/pet/{petId}, DELETE_/pet/{petId} y POST_/pet/
 {petId}/uploadImage
@@ -264,13 +276,24 @@ POST_/pet, GET_/pet/{petId}, POST_/pet/{petId}, DELETE_/pet/{petId} y POST_/pet/
 POST_/pet
 \emph default
  es utilizada para agregar mascotas a la base de datos, devolviendo los
- datos de la mascota, y un id único.
+ datos de la misma, y un id único.
  Para 
 \emph on
 GET_/pet/{petId}
 \emph default
-, dado un id de una mascota, retorna la información de esa mascota, a su
- vez 
+, dado un id 
+\emph on
+
+\begin_inset Quotes eld
+\end_inset
+
+petId
+\begin_inset Quotes erd
+\end_inset
+
+
+\emph default
+ de una mascota, retorna la información de esa mascota, a su vez 
 \emph on
 POST_/pet/{petId} 
 \emph default
@@ -279,12 +302,21 @@ recibe el mísmo id de la mascota, más los datos a actualizar de la misma,
 \emph on
 DELETE_/pet/{petId}
 \emph default
- recibe el id de la mascota a eliminar.
+ recibe el id de una mascota y luego la elimina.
  Finalmente, 
 \emph on
 POST_/pet/{petId}/uploadImage
 \emph default
- es una operación que permite subir fotos de la mascota dado su id.
+ es una operación que recibe el id de una mascota y una imagen, almacena
+ la imagen y agrega la 
+\emph on
+URL
+\emph default
+ de la misma a la propiedad 
+\emph on
+photoUrls
+\emph default
+ de la mascota con el mismo id.
 \end_layout
 
 \begin_layout Standard
@@ -356,7 +388,15 @@ reference "fig:Esquema-de-proceso"
 
 .
  El mismo comienza cuando se ingresa al sistema una consulta, un caso, con
- problema y sin solución, éste es llamado 
+ 
+\emph on
+problema
+\emph default
+ y sin 
+\emph on
+solución
+\emph default
+, este es llamado 
 \emph on
 New Case
 \emph default
@@ -365,22 +405,40 @@ New Case
 \emph on
 Knowledge Base
 \emph default
-), de los cuales ya se tiene la solución.
- Se calcula cuán distinto es el problema del nuevo caso con cada uno de
- los demás problemas, para ésto se utiliza la funcion de distancia del 
+), los cuales poseen tanto 
+\emph on
+problema
+\emph default
+ como 
+\emph on
+solución
+\emph default
+.
+ Se calcula cuán distinto es el problema del nuevo 
+\emph on
+caso
+\emph default
+ con cada uno de los demás problemas, para esto se utiliza la funcion de
+ distancia del 
 \emph on
 Metamodelo.
  
 \emph default
 La distancia entre dos casos nos indica cuán parecido son sus problemas,
- una distancia de 0.0 nos indica que los problemas son exactamente iguales,
- por el contrario una distancia de 4.0 nos indica que ambas interfaces son
- totalmente incompatibles.
+ una distancia de 0.0 nos indica que los problemas son idénticos, por el
+ contrario una distancia de 4.0 nos indica que ambas interfaces son totalmente
+ incompatibles.
  La distancia nos indica además, el esfuerzo que va a requerir adaptar ambas
  interfaces, siendo 0.0 ningún esfuerzo, y 4.0 imposible.
  Una distancia entre esos dos valores, nos indica que deberemos crear componente
-s para utilizar el patrón de diseño adapter y, de esta manera permitir la
- compatibilidad entre ambos servicios.
+s para utilizar el patrón de diseño adapter
+\begin_inset CommandInset citation
+LatexCommand cite
+key "GoF"
+
+\end_inset
+
+ y, de esta manera permitir la compatibilidad entre ambos servicios.
  Para seleccionar el servicio adecuado se útilizan métodos de selección
  como 
 \emph on
@@ -399,17 +457,15 @@ consiste en tomar las
 \emph on
 K
 \emph default
- soluciones con menor distancia y seleccionar la mas frecuente (puesto a
- que dos casos en la base de conocimiento pueden tener la misma solución),
- la misma pasa a ser la solución 
-\begin_inset Quotes eld
-\end_inset
-
+ soluciones de los casos con menor distancia distancia y seleccionar la
+ mas frecuente (puesto a que dos casos en la base de conocimiento pueden
+ tener la misma solución), en caso de empate se elige la solución del caso
+ con menor distancia.
+ La misma pasa a ser la solución 
+\emph on
 ganadora
-\begin_inset Quotes erd
-\end_inset
-
- y es asignada al caso candidato (
+\emph default
+ y es asignada al caso candidato (ahora 
 \emph on
 Solved Case
 \emph default
@@ -443,14 +499,15 @@ Si la solución es compatible, se evalúa la calidad de la respuesta, para
 \emph on
 threshold
 \emph default
-, si la solución tiene un valor mayor que el establecido, el nuevo caso
+, si la solución tiene un valor MAYOR que el establecido, el nuevo caso
  con su solución son agregados a la base de conocimiento y, de ésta manera,
- es tomada en cuenta para nuevos casos.
- En caso de que el valor sea menor que el establecido, éste caso no se agrega,
+ es tomada en cuenta para futuras consultas.
+ En caso de que el valor sea menor que el establecido, este caso no se agrega,
  debido a que generaría ruidos y posiblemente haría overfitting al proceso,
  haciendo que al llegar un nuevo caso, genere falsos positivos, es decir
- que diga que no hay distancia entre el caso requerido y uno de la base
- de conocimiento, cuando en realidad hay una distancia.
+ que diga que no hay distancia entre el caso requerido y la solución de
+ un caso de la base de conocimiento, cuando en realidad existe una distancia
+ significativa.
 \end_layout
 
 \begin_layout Standard
@@ -1494,6 +1551,20 @@ Casos
  como trabajo a futuro.
 \end_layout
 
+\begin_layout Standard
+Ejemlo...
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+agregar relación caso study?
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Paragraph
 Evaluar y retener
 \begin_inset Newline newline
@@ -1580,14 +1651,10 @@ reference "fig:Esquema-de-proceso"
 
 \end_inset
 
- se pued
-\end_layout
-
-\begin_layout Standard
-e observar dentro del cuadro con bordes punteados como se componen las clases
- pertenecientes al Metamodelo SoaML, el mismo cumple su función como descriptor
- de interfaces, pero no tiene toda la información necesaria para operar
- dentro del contexto de un CBR.
+ se puede observar dentro del cuadro con bordes punteados como se componen
+ las clases pertenecientes al Metamodelo SoaML, el mismo cumple su función
+ como descriptor de interfaces, pero no tiene toda la información necesaria
+ para operar dentro del contexto de un CBR.
 \end_layout
 
 \begin_layout Standard
@@ -1737,7 +1804,7 @@ name "sec:-Conversor de OAS"
 
 \end_inset
 
-Conversor de OAS para instanciar el Metamodelo de Servicios Web
+Conversor Swagger para instanciar el Metamodelo de Servicios Web
 \end_layout
 
 \begin_layout Standard
@@ -1748,11 +1815,11 @@ reference "subsec:Relación-entre-OAS"
 
 \end_inset
 
- se analiza la relación existente entre el estándar OAS (Open Api Specification)
- y el metamodelo utilizado como modelador de problema, utilizando como soporte
- a la explicación un caso de estudio.
+ se analiza la relación existente entre el estándar Swagger y el metamodelo
+ utilizado como modelador de problema, utilizando como soporte a la explicación
+ un caso de estudio.
  Esta relación se analizará en profundidad, detallando la relación entre
- los componentes del Metamodelo y los de OAS.
+ los componentes del Metamodelo y los de Swagger.
  Finalmente se muestra un diagrama de objetos instanciados de acuerdo al
  caso de estudio.
 \end_layout
@@ -1772,7 +1839,7 @@ reference "subsec:Construcción-del-instanciador"
 , se explica como se construyó el componente Conversor del metamodelo propuesto,
  detallando las estructuras de datos analizadas y el proceso de análisis
  que se realiza para poder instanciar el metamodelo a partir de una descripción
- OAS.
+ swagger.
 \end_layout
 
 \begin_layout Standard
@@ -1795,12 +1862,12 @@ name "subsec:Relación-entre-OAS"
 
 \end_inset
 
-Relación entre OAS y Metamodelo
+Relación entre Swagger y Metamodelo
 \end_layout
 
 \begin_layout Standard
-En esta subsección se detalla la correlación entre el estándar OAS y el
- Metamodelo de Servicios Web, para lo cual se utilizará un caso de estudio
+En esta subsección se detalla la correlación entre el estándar Swagger y
+ el Metamodelo de Servicios Web, para lo cual se utilizará un caso de estudio
  sencillo como soporte a la explicación.
  
 \end_layout
@@ -1870,7 +1937,7 @@ lstparams "breaklines=true,basicstyle={\\ttfamily\\scriptsize},caption={Document
 \end_layout
 
 \begin_layout Paragraph
-OAS vs.
+Swagger vs.
  Metamodelo
 \begin_inset Newline newline
 \end_inset
@@ -1896,7 +1963,7 @@ Explicar el evaluador no incluye los simbolos
 
 \end_inset
 
-En el fragmento de OAS – Listado de Código
+En el fragmento de Swagger – Listado de Código
 \begin_inset space ~
 \end_inset
 
@@ -1939,7 +2006,7 @@ responses[200]
 \emph default
 respectivamente.
  Cada entrada y cada salida se representa como una entrada del documento
- OAS.
+ swagger.
  Los elementos que conforman las entradas y salidas de las operaciones se
  detallan dentro del apartado 
 \emph on
@@ -2113,7 +2180,7 @@ reference "fig:EjemploVersionInstanciada"
 \end_inset
 
  se muesta el diagrama de objetos que representa la salida (instancia del
- metamodelo) generada por el componente Conversor para el documento OAS
+ metamodelo) generada por el componente Conversor para el documento swagger
  utilizado como ejemplo.
  Es importante destacar que la estructura de datos utilizada generará una
  sola vez los tipos de datos, y si fuera necesario realizar otra instancia
@@ -2294,8 +2361,8 @@ Tipos de datos simple
 \end_layout
 
 \begin_layout Standard
-Los tipos de datos primitivos en la especificación Open API se basan en
- los tipos admitidos por la Especificación de esquema JSON (Borrador 00)
+Los tipos de datos primitivos en la especificación Swagger se basan en los
+ tipos admitidos por la Especificación de esquema JSON (Borrador 00)
 \begin_inset Foot
 status open
 
@@ -2327,7 +2394,7 @@ Los tipos de datos primitivos tienen una propiedad modificadora opcional:
 format
 \emph default
 .
- La especificación Open API utiliza varios formatos conocidos para definir
+ La especificación Swagger utiliza varios formatos conocidos para definir
  en detalle el tipo de datos que se utiliza.
  Sin embargo, para mantener las necesidades de la documentación, la propiedad
  format puede tener cualquier valor.
@@ -2347,7 +2414,7 @@ Adicionalmente, un tipo de dato primitivo “file” es usado por el objeto
 \end_layout
 
 \begin_layout Standard
-Todos los tipos de datos simple soportados por la especificación Open API
+Todos los tipos de datos simple soportados por la especificación Swagger
  están incluidos en los tipos de datos definidos por el Metamodelo, como
  se puede observar en el Cuadro 
 \begin_inset CommandInset ref
@@ -3346,7 +3413,7 @@ reference "subsec:Detalle-de-selección"
 nte por el módulo de software Conversor del Metamodelo, en la presente sección
  se pretende destacar ventajas y desventajas de dichas herramientas.
  En principio, resultó necesario satisfacer la necesidad de parsear una
- especificacón Open API.
+ especificacón Swagger.
  Para ello se analizaron las herramientas
 \emph on
  swagger-parser
@@ -3482,13 +3549,13 @@ Herramientas utilizadas en el Conversor
 Para la creación del módulo de software Conversor, se utilizó una herramienta
  que fué de principal relevancia a la hora de poder concretar la creación
  de dicho módulo.
- Swagger-parser permitió parsear una especificación Open API en instancias
+ Swagger-parser permitió parsear una especificación Swagger en instancias
  de Objeto Plano de Java (POJO).
  Utilizando esta herramienta, en lugar de leer y acceder de manera directa
  a los archivos, podemos ignorar la disposición de los distintos componentes
- en el mismo y concentrarnos en el mapeo OAS-SOAML.
- Como así también, tener la posibilidad de utilizar una especificación Open
- API en archivo YAML o JSON sin tener que realizar ningún refactoring adicional.
+ en el mismo y concentrarnos en el mapeo Swagger-SOAML.
+ Como así también, tener la posibilidad de utilizar una especificación Swagger
+ en archivo YAML o JSON sin tener que realizar ningún refactoring adicional.
  Otra ventaja que nos brinda ésta herramienta, es la validación a nivel
  sintáctico de las especificaciones.
 \end_layout
@@ -3710,10 +3777,10 @@ https://www.iana.org/ assignments/http-status-codes/http-status-codes.xhtml
 \end_layout
 
 \begin_layout Standard
-De acuerdo a la especificación Open API, los archivos que su descripción
+De acuerdo a la especificación Swagger, los archivos que su descripción
  se representan como objetos JSON, y cumplen con los estándatares JSON.
  YAML, al ser un superconjunto de JSON, también puede ser utilizado para
- representar una especificación Open API.
+ representar una especificación Swagger.
  
 \end_layout
 
@@ -3784,14 +3851,14 @@ http://yaml.org/spec/1.2/spec.html#id2802346
 \end_layout
 
 \begin_layout Standard
-Si bien las API pueden ser definidas por documentos OpenAPI en formato YAML
+Si bien las API pueden ser definidas por documentos Swagger en formato YAML
  o JSON, no es requerido que las API en cuestión se limite a utilizar estos
  formatos, es decir, el body del request y response de dicha API y otros
  contenidos no requieren ser JSON o YAML.
 \end_layout
 
 \begin_layout Paragraph
-Conversión de especificaciones Open API a instancias del metamodelo
+Conversión de especificaciones Swagger a instancias del metamodelo
 \begin_inset Newline newline
 \end_inset
 
@@ -3803,7 +3870,7 @@ Conversión de especificaciones Open API a instancias del metamodelo
 \end_layout
 
 \begin_layout Standard
-El Conversor desarrollado recibe como entrada una especificación Open API
+El Conversor desarrollado recibe como entrada una especificación Swagger
  (específicamente el 
 \emph on
 path 
@@ -3915,7 +3982,7 @@ reference "fig:Ejemplo-versión-Dom-1"
 \end_inset
 
  muestra un esquema de como quedaría la estructura con los distintos atributos
- que conforman una especificación Open API al parsearla con la herramienta
+ que conforman una especificación Swagger al parsearla con la herramienta
  Swagger-parser.
  Cabe destacar que en esta figura, solo se detalla la operación 
 \emph on
@@ -3964,8 +4031,17 @@ a DOM
 \end_layout
 
 \begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+REEMPLAZAR NUMEROS DE LINEA
+\end_layout
+
+\end_inset
+
 A continuación se detalla el pseudocódigo del módulo de software de conversión
- de especificaciones Open API a instancias del metamodelo.
+ de especificaciones Swagger a instancias del metamodelo.
  En el Algoritmo
 \begin_inset space ~
 \end_inset
@@ -3977,9 +4053,10 @@ reference "alg:Convertir-especificación-Open"
 
 \end_inset
 
- la función propuesta recibe como entrada una especificación Open API –
- línea 1.
- El primer paso es parsearlo a una especificación Open API – línea 2.
+ la función propuesta recibe como entrada una especificación Swagger – línea
+ 1.
+ El primer paso es parsearlo a un objeto que posee la estructura de la especific
+ación Swagger – línea 2.
  Luego por cada operación (método HTTP) que tenga cada 
 \emph on
 path, 
@@ -4047,7 +4124,7 @@ path,
 \emph default
  se crea la interfaz del metamodelo con el listado de operaciones.
  Finalmente es retornada una instancia del metamodelo generado a partir
- de la especificación Open API utilizada como entrada.
+ de la especificación Swagger utilizada como entrada.
 \end_layout
 
 \begin_layout Standard
@@ -4058,183 +4135,190 @@ status open
 
 \begin_layout Plain Layout
 \begin_inset listings
+lstparams "numbers=left,numberstyle={\scriptsize},basicstyle={\scriptsize\ttfamily},breaklines=true,showstringspaces=false,numberstyle={\ttfamily\scriptsize}"
 inline false
 status open
 
 \begin_layout Plain Layout
 
-1  function convertir_OAS_A_Metamodelo (OpenApiSpecPath ){
+function convertir_Swagger_A_Metamodelo(String SwaggerSpecPath){
 \end_layout
 
 \begin_layout Plain Layout
 
-2   openApiSpec = SwaggerParser().read(OpenApiSpecPath)
+ Swagger swaggerSpec = SwaggerParser().read(SwaggerSpecPath)
 \end_layout
 
 \begin_layout Plain Layout
 
-3   List<Operation> operations = []
+ List<Operation> operations = []
 \end_layout
 
 \begin_layout Plain Layout
 
-4   for(path: openApiSpec.paths){
+ for(path: swaggerSpec.paths){
 \end_layout
 
 \begin_layout Plain Layout
 
-5    for(operation: path.methods){
+  for(operation: path.methods){
 \end_layout
 
 \begin_layout Plain Layout
 
-6     List<Parameter> parameters = []
+   List<Parameter> parameters = []
 \end_layout
 
 \begin_layout Plain Layout
 
-7     for(parameter: operation.parameters){
+   for(parameter: operation.parameters){
 \end_layout
 
 \begin_layout Plain Layout
 
-8      Parameter metamodelParameter = 'Crear metamodelParameter segun parameter'
+    Type parameterType = obtenerTipoDeDatoParameter(parameter, swaggerSpec)
 \end_layout
 
 \begin_layout Plain Layout
 
-9      parameters.add(metamodelParameter)
+    Parameter metamodelParameter = 'Crear Parameter con parameter.name y
+ parameterType'
 \end_layout
 
 \begin_layout Plain Layout
 
-10    }
+    parameters.add(metamodelParameter)
 \end_layout
 
 \begin_layout Plain Layout
 
-11    Input input = 'Crear Input con parameters';
+   }
 \end_layout
 
 \begin_layout Plain Layout
 
-12    Output output = null
+   Input input = 'Crear Input con parameters';
 \end_layout
 
 \begin_layout Plain Layout
 
-13    List<Fault> faults = []
+   Output output = null
 \end_layout
 
 \begin_layout Plain Layout
 
-14    for(response in operation.reponses){
+   List<Fault> faults = []
 \end_layout
 
 \begin_layout Plain Layout
 
-15     Type responseType = 'Crear responseType segun response'
+   for(response in operation.reponses){
 \end_layout
 
 \begin_layout Plain Layout
 
-16     if(response.statusCode.startsWith("2")){
+    Type responseType = obtenerTipoDeDatoParameter(response.value.responseSchema,
+ swaggerSpec)
 \end_layout
 
 \begin_layout Plain Layout
 
-17      List<Parameter> outputParameters = []
+    if(response.statusCode.startsWith("2")){
 \end_layout
 
 \begin_layout Plain Layout
 
-18      if(responseType != null){
+     List<Parameter> outputParameters = []
 \end_layout
 
 \begin_layout Plain Layout
 
-19       outputParameter = 'Crear outputParameter con tipo responseType'
+     if(responseType != null){
 \end_layout
 
 \begin_layout Plain Layout
 
-20       outputParameters.add(outputParameter)
+      Parameter outputParameter = 'Crear outputParameter con tipo responseType'
 \end_layout
 
 \begin_layout Plain Layout
 
-21      }
+      outputParameters.add(outputParameter)
 \end_layout
 
 \begin_layout Plain Layout
 
-22      output = 'Crear output con outputParameters'
+     }
 \end_layout
 
 \begin_layout Plain Layout
 
-23     }
+     output = 'Crear output con outputParameters'
 \end_layout
 
 \begin_layout Plain Layout
 
-24     else{
+    }
 \end_layout
 
 \begin_layout Plain Layout
 
-25      Fault fault = 'Crear fault con tipo responseType'
+    else{
 \end_layout
 
 \begin_layout Plain Layout
 
-26      fault.add(fault)
+     Fault fault = "Crear fault con tipo responseType"
 \end_layout
 
 \begin_layout Plain Layout
 
-27     }
+     faults.add(fault)
 \end_layout
 
 \begin_layout Plain Layout
 
-28    }
+    }
 \end_layout
 
 \begin_layout Plain Layout
 
-29    Operation metamodelOperation = 'Crear operacion con input, output
- y faults'
+   }
 \end_layout
 
 \begin_layout Plain Layout
 
-30    operations.add(metamodelOperation)
+   Operation metamodelOperation = 'Crear operacion con input, output y faults'
 \end_layout
 
 \begin_layout Plain Layout
 
-31   }
+   operations.add(metamodelOperation)
 \end_layout
 
 \begin_layout Plain Layout
 
-32  }
+  }
 \end_layout
 
 \begin_layout Plain Layout
 
-32  Interface metamodelInterface = 'Crear interface con operations'
+ }
 \end_layout
 
 \begin_layout Plain Layout
 
-33  return metamodelInterface
+ Interface metamodelInterface = 'Crear interface con operations'
 \end_layout
 
 \begin_layout Plain Layout
 
-34 }
+ return metamodelInterface
+\end_layout
+
+\begin_layout Plain Layout
+
+}
 \end_layout
 
 \end_inset
@@ -4252,7 +4336,7 @@ name "alg:Convertir-especificación-Open"
 
 \end_inset
 
-Convertir especificación Open API a Metamodelo
+Convertir especificación Swagger a Metamodelo
 \end_layout
 
 \end_inset
@@ -4436,10 +4520,147 @@ reference "Obtener nombre tipo simple"
 \end_layout
 
 \begin_layout Standard
-\begin_inset CommandInset include
-LatexCommand lstinputlisting
-filename "listing/Obtener tipo de parameter.txt"
-lstparams "caption={Obtener tipo de parameter},label={Obtener tipo de parameter}"
+\begin_inset Float algorithm
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset listings
+lstparams "numbers=left,basicstyle={\scriptsize\ttfamily},breaklines=true,numberstyle={\ttfamily\scriptsize}"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+function Type obtenerTipoDeDatoParameter(Parameter parameter, Swagger swaggerSpe
+c) {
+\end_layout
+
+\begin_layout Plain Layout
+
+ if(parameter.isInstanceOf(HeaderParameter | QueryParameter | PathParameter)){
+\end_layout
+
+\begin_layout Plain Layout
+
+  SimpleType type = obtenerTipoSimple(parameter.type, parameter.format, null,
+ parameter.items, swaggerSpec)
+\end_layout
+
+\begin_layout Plain Layout
+
+ }
+\end_layout
+
+\begin_layout Plain Layout
+
+ else if(parameter.isInstanceOf(BodyParameter)){
+\end_layout
+
+\begin_layout Plain Layout
+
+  Schema schema = parameter.schema
+\end_layout
+
+\begin_layout Plain Layout
+
+  if(schema.isInstanceOf(ModelImpl)){
+\end_layout
+
+\begin_layout Plain Layout
+
+   SimpleType type = obtenerTipoSimple(schema.type, schema.format, schema,
+ null, swaggerSpec)
+\end_layout
+
+\begin_layout Plain Layout
+
+  }
+\end_layout
+
+\begin_layout Plain Layout
+
+  else if(schema.isInstanceOf(ArrayModel)){
+\end_layout
+
+\begin_layout Plain Layout
+
+   Type arrayType = obtenerTipo(schema.items, swaggerSpec)
+\end_layout
+
+\begin_layout Plain Layout
+
+   ArrayType type = 'Crear type con arrayType'
+\end_layout
+
+\begin_layout Plain Layout
+
+  }
+\end_layout
+
+\begin_layout Plain Layout
+
+  else if(schema.isInstanceOf(RefModel)){
+\end_layout
+
+\begin_layout Plain Layout
+
+   ComplexType type = obtenerTipoComplejo(schema.simpleRef, swaggerSpec)
+\end_layout
+
+\begin_layout Plain Layout
+
+  }
+\end_layout
+
+\begin_layout Plain Layout
+
+  else if(schema is Null){
+\end_layout
+
+\begin_layout Plain Layout
+
+   type = null
+\end_layout
+
+\begin_layout Plain Layout
+
+  }
+\end_layout
+
+\begin_layout Plain Layout
+
+ return type
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:Obtener tipo de parameter"
+
+\end_inset
+
+Obtener tipo de parameter
+\end_layout
+
+\end_inset
+
+
+\end_layout
 
 \end_inset
 
@@ -4447,10 +4668,181 @@ lstparams "caption={Obtener tipo de parameter},label={Obtener tipo de parameter}
 \end_layout
 
 \begin_layout Standard
-\begin_inset CommandInset include
-LatexCommand lstinputlisting
-filename "listing/Obtener tipo de dato.txt"
-lstparams "caption={Obtener tipo de dato},label={Obtener tipo de dato}"
+\begin_inset Float algorithm
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset listings
+lstparams "numbers=left,basicstyle={\scriptsize\ttfamily},breaklines=true,numberstyle={\ttfamily\scriptsize}"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+function Type obtenerTipo(Property property, Swagger swaggerSpec) {
+\end_layout
+
+\begin_layout Plain Layout
+
+ if(property.isInstanceOf(ArrayProperty){
+\end_layout
+
+\begin_layout Plain Layout
+
+  Type arrayType = obtenerTipo(property.items, swaggerSpec)
+\end_layout
+
+\begin_layout Plain Layout
+
+  ArrayType type = 'Crear type con arrayType'
+\end_layout
+
+\begin_layout Plain Layout
+
+ }
+\end_layout
+
+\begin_layout Plain Layout
+
+ else if(property.isInstanceOf(ObjectProperty)){
+\end_layout
+
+\begin_layout Plain Layout
+
+  List<Attribute> attributes = []
+\end_layout
+
+\begin_layout Plain Layout
+
+  for(property in property.properties){
+\end_layout
+
+\begin_layout Plain Layout
+
+   Type type = obtenerTipo(property.value, swaggerSpec)
+\end_layout
+
+\begin_layout Plain Layout
+
+   Attribute attribute = Attribute(property.key, type)
+\end_layout
+
+\begin_layout Plain Layout
+
+   attributes.add(attribute)
+\end_layout
+
+\begin_layout Plain Layout
+
+  }
+\end_layout
+
+\begin_layout Plain Layout
+
+  ComplexType type = 'Crear type con property.name y attributes'
+\end_layout
+
+\begin_layout Plain Layout
+
+ }
+\end_layout
+
+\begin_layout Plain Layout
+
+ else if(property.isInstanceOf(MapProperty)){
+\end_layout
+
+\begin_layout Plain Layout
+
+  Property additionalProperties = property.additionalProperties
+\end_layout
+
+\begin_layout Plain Layout
+
+  Type additionalPropertyType = obtenerTipo(additionalProperties, swaggerSpec)
+\end_layout
+
+\begin_layout Plain Layout
+
+  Attribute attribute = Attribute(additionalProperties.title, additionalPropertyT
+ype)
+\end_layout
+
+\begin_layout Plain Layout
+
+  ComplexType type = 'Crear type con property.name y attribute'
+\end_layout
+
+\begin_layout Plain Layout
+
+ }
+\end_layout
+
+\begin_layout Plain Layout
+
+ else if(property.isInstanceOf(RefProperty){
+\end_layout
+
+\begin_layout Plain Layout
+
+  ComplexType type = obtenerTipoComplejo(property.simpleRef, swaggerSpec)
+\end_layout
+
+\begin_layout Plain Layout
+
+ }
+\end_layout
+
+\begin_layout Plain Layout
+
+ else{
+\end_layout
+
+\begin_layout Plain Layout
+
+  SimpleType type =  obtenerTipoSimple(property.type, property.format, null,
+ null, swaggerSpec)
+\end_layout
+
+\begin_layout Plain Layout
+
+ }
+\end_layout
+
+\begin_layout Plain Layout
+
+ return type
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:Obtener tipo"
+
+\end_inset
+
+Obtener tipo
+\end_layout
+
+\end_inset
+
+
+\end_layout
 
 \end_inset
 
@@ -4458,10 +4850,125 @@ lstparams "caption={Obtener tipo de dato},label={Obtener tipo de dato}"
 \end_layout
 
 \begin_layout Standard
-\begin_inset CommandInset include
-LatexCommand lstinputlisting
-filename "listing/Es tipo complejo.txt"
-lstparams "caption={Es tipo complejo},label={Es tipo complejo}"
+\begin_inset Float algorithm
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset listings
+lstparams "numbers=left,basicstyle={\scriptsize\ttfamily},breaklines=true,numberstyle={\ttfamily\scriptsize}"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+function Type obtenerTipoComplejo(String name, Swagger swaggerSpec) {
+\end_layout
+
+\begin_layout Plain Layout
+
+ List<Attribute> attributes = []
+\end_layout
+
+\begin_layout Plain Layout
+
+ Schema schema = swaggerSpec.definitions[name]
+\end_layout
+
+\begin_layout Plain Layout
+
+ for(property in schema.properties){
+\end_layout
+
+\begin_layout Plain Layout
+
+  Type type = obtenerTipo(property.value, swaggerSpec)
+\end_layout
+
+\begin_layout Plain Layout
+
+  Attribute attribute = Attribute(property.key, type)
+\end_layout
+
+\begin_layout Plain Layout
+
+  attributes.add(attribute)
+\end_layout
+
+\begin_layout Plain Layout
+
+ }
+\end_layout
+
+\begin_layout Plain Layout
+
+ Property additionalProperties = schema.additionalProperties
+\end_layout
+
+\begin_layout Plain Layout
+
+ if(schema.isInstanceOf(ModelImpl) && additionalProperties != null) {
+\end_layout
+
+\begin_layout Plain Layout
+
+  Type additionalPropertyType = obtenerTipo(additionalProperties, swaggerSpec)
+\end_layout
+
+\begin_layout Plain Layout
+
+  Attribute attribute = Attribute(additionalProperties.title, additionalPropertyT
+ype)
+\end_layout
+
+\begin_layout Plain Layout
+
+  attributes.add(attribute)
+\end_layout
+
+\begin_layout Plain Layout
+
+ }
+\end_layout
+
+\begin_layout Plain Layout
+
+ ComplexType type = 'Crear type con property.name y attribute'
+\end_layout
+
+\begin_layout Plain Layout
+
+ return type
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:Obtener tipo complejo"
+
+\end_inset
+
+Obtener tipo complejo
+\end_layout
+
+\end_inset
+
+
+\end_layout
 
 \end_inset
 
@@ -4469,21 +4976,315 @@ lstparams "caption={Es tipo complejo},label={Es tipo complejo}"
 \end_layout
 
 \begin_layout Standard
-\begin_inset CommandInset include
-LatexCommand lstinputlisting
-filename "listing/Es tipo simple.txt"
-lstparams "caption={Es tipo simple},label={Es tipo simple}"
+\begin_inset Float algorithm
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset listings
+lstparams "numbers=left,basicstyle={\scriptsize\ttfamily},breaklines=true,numberstyle={\ttfamily\scriptsize}"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+function Type obtenerTipoSimple(String typeName, String format, ModelImpl
+ schema, Property properties, Swagger swaggerSpec) {
+\end_layout
+
+\begin_layout Plain Layout
+
+ if(typeName=="integer"){
+\end_layout
+
+\begin_layout Plain Layout
+
+  if(format=="int64"){
+\end_layout
+
+\begin_layout Plain Layout
+
+   SimpleType simpleType = SimpleType(SimpleType.LONG)
+\end_layout
+
+\begin_layout Plain Layout
+
+  }
+\end_layout
+
+\begin_layout Plain Layout
+
+  else{
+\end_layout
+
+\begin_layout Plain Layout
+
+   SimpleType simpleType = SimpleType(SimpleType.INTEGER)
+\end_layout
+
+\begin_layout Plain Layout
+
+  }
+\end_layout
+
+\begin_layout Plain Layout
+
+ }
+\end_layout
+
+\begin_layout Plain Layout
+
+ else if(typeName=="number"){
+\end_layout
+
+\begin_layout Plain Layout
+
+  if(format=="double"){
+\end_layout
+
+\begin_layout Plain Layout
+
+   SimpleType simpleType = SimpleType(SimpleType.DOUBLE)
+\end_layout
+
+\begin_layout Plain Layout
+
+  }
+\end_layout
+
+\begin_layout Plain Layout
+
+  else{
+\end_layout
+
+\begin_layout Plain Layout
+
+   SimpleType simpleType = SimpleType(SimpleType.FLOAT)
+\end_layout
+
+\begin_layout Plain Layout
+
+  }
+\end_layout
+
+\begin_layout Plain Layout
+
+ }
+\end_layout
+
+\begin_layout Plain Layout
+
+ else if(typeName=="boolean"){
+\end_layout
+
+\begin_layout Plain Layout
+
+  SimpleType simpleType = SimpleType(SimpleType.BOOLEAN)
+\end_layout
+
+\begin_layout Plain Layout
+
+ }
+\end_layout
+
+\begin_layout Plain Layout
+
+ else if(typeName=="string"){
+\end_layout
+
+\begin_layout Plain Layout
+
+  if(format=="byte" || format=="base64""){
+\end_layout
+
+\begin_layout Plain Layout
+
+   SimpleType simpleType = SimpleType(SimpleType.BASE64)
+\end_layout
+
+\begin_layout Plain Layout
+
+  }
+\end_layout
+
+\begin_layout Plain Layout
+
+  else if(format=="binary"){
+\end_layout
+
+\begin_layout Plain Layout
+
+   SimpleType simpleType = SimpleType(SimpleType.BYTE)
+\end_layout
+
+\begin_layout Plain Layout
+
+  }
+\end_layout
+
+\begin_layout Plain Layout
+
+  else if(format=="date"){
+\end_layout
+
+\begin_layout Plain Layout
+
+   SimpleType simpleType = SimpleType(SimpleType.DATE)
+\end_layout
+
+\begin_layout Plain Layout
+
+  }
+\end_layout
+
+\begin_layout Plain Layout
+
+  else if(format=="date-time"){
+\end_layout
+
+\begin_layout Plain Layout
+
+   SimpleType simpleType = SimpleType(SimpleType.DATE_TIME)
+\end_layout
+
+\begin_layout Plain Layout
+
+  }
+\end_layout
+
+\begin_layout Plain Layout
+
+  else{
+\end_layout
+
+\begin_layout Plain Layout
+
+   SimpleType simpleType = SimpleType(SimpleType.STRING)
+\end_layout
+
+\begin_layout Plain Layout
+
+  }
+\end_layout
+
+\begin_layout Plain Layout
+
+ }
+\end_layout
+
+\begin_layout Plain Layout
+
+ else if(typeName=="file"){
+\end_layout
+
+\begin_layout Plain Layout
+
+  SimpleType simpleType = SimpleType(SimpleType.BASE64_BINARY)
+\end_layout
+
+\begin_layout Plain Layout
+
+ }
+\end_layout
+
+\begin_layout Plain Layout
+
+ else if(typeName=="object"){
+\end_layout
+
+\begin_layout Plain Layout
+
+  List<Attribute> attributes = []
+\end_layout
+
+\begin_layout Plain Layout
+
+  for(property in schema.properties){
+\end_layout
+
+\begin_layout Plain Layout
+
+   Type propertyType = obtenerTipo(property.value, swaggerSpec)
+\end_layout
+
+\begin_layout Plain Layout
+
+   Attribute attribute = Attribute(property.key, propertyType)
+\end_layout
+
+\begin_layout Plain Layout
+
+   attributes.add(attribute)
+\end_layout
+
+\begin_layout Plain Layout
+
+  }
+\end_layout
+
+\begin_layout Plain Layout
+
+  ComplexType type = 'Crear type con schema.name y attributes'
+\end_layout
+
+\begin_layout Plain Layout
+
+ }
+\end_layout
+
+\begin_layout Plain Layout
+
+ else if(typeNamee=="array"){
+\end_layout
+
+\begin_layout Plain Layout
+
+  Type arrayType = obtenerTipo(properties, swaggerSpec)
+\end_layout
+
+\begin_layout Plain Layout
+
+  ArrayType type = ArrayType(arrayType)
+\end_layout
+
+\begin_layout Plain Layout
+
+ }
+\end_layout
+
+\begin_layout Plain Layout
+
+ return type
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
 
 \end_inset
 
 
 \end_layout
 
-\begin_layout Standard
-\begin_inset CommandInset include
-LatexCommand lstinputlisting
-filename "listing/Obtener nombre tipo simple.txt"
-lstparams "caption={Obtener nombre tipo simple},label={Obtener nombre tipo simple}"
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:Obtener tipo simple"
+
+\end_inset
+
+Obtener tipo simple
+\end_layout
+
+\end_inset
+
+
+\end_layout
 
 \end_inset
 
