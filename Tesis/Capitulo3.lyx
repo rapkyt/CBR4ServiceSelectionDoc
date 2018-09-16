@@ -929,18 +929,16 @@ desde otra.
 \begin_layout Itemize
 A la hora de consultar un caso siempre lo realizaremos desde la raíz del
  mismo, y para decidir si es o no compatible tenemos que explorar todas
- las relaciones, si utilizaramos una base de datos relacional esto se traduce
- en varios JOINS 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-MUCHOS, calcular
-\end_layout
-
-\end_inset
-
- que implican consultas o 
+ las relaciones, si utilizaramos una base de datos relacional y consultaramos
+ un 
+\emph on
+Case 
+\emph default
+cuyo problema consiste de una entrada, una salida, una falta y tenga al
+ menos un parametro de cada clase concreta de Type, esto se traduciría en
+ el acceso a todas las tablas (Case, Interface, Operation, Input, Output,
+ Fault, Parameter, ArrayType, SimpleType, ComplexType y Attribute) que implicarí
+a al menos once consultas o 
 \emph on
 hits
 \emph default
