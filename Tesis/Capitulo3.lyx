@@ -517,6 +517,16 @@ sideways false
 status open
 
 \begin_layout Plain Layout
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Reemplazar los números por Paso 1, etc
+\end_layout
+
+\end_inset
+
+
 \begin_inset Graphics
 	filename ImgChapter3/usadas/CBR 4SS.png
 	lyxscale 70
@@ -635,8 +645,15 @@ Como numero la imagen?
 \end_layout
 
 \begin_layout Standard
-Como primer paso, es escencial definir como está compuesto un Caso a resolver,
- el mismo consta con dos atributos principales, 
+Como primer paso (Paso 1 Figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Esquema-de-proceso"
+
+\end_inset
+
+), es escencial definir como está compuesto un Caso a resolver, el mismo
+ consta con dos atributos principales, 
 \emph on
 problema
 \emph default
@@ -1215,7 +1232,7 @@ status open
 \begin_layout Plain Layout
 \begin_inset Formula 
 \begin{equation}
-DIST(C^{n},C^{c})=\sum_{1}^{n}(w_{i}*sim(C_{i}^{n},C_{i}^{c}))\label{eq:DIST}
+DIST(C^{n},C^{c})=\sum_{1}^{n}(w_{i}*sim_{i}(C_{i}^{n},C_{i}^{c}))\label{eq:DIST}
 \end{equation}
 
 \end_inset
@@ -1260,12 +1277,32 @@ KB
 \end_layout
 
 \begin_layout Standard
-Y donde la función de similitud es: ....
+Por cada atributo en la representación del caso definimos funciones de similitud
+ específicas 
+\emph on
+Simi
+\emph default
+, y pesos 
+\emph on
+Wi 
+\emph default
+, que serán detalladas en la sección 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Similitud-de-casos"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Comparamos cantidad de operaciones, 
 \begin_inset Note Note
 status open
 
 \begin_layout Plain Layout
-agregar info de funcion de similitud.
+etc
 \end_layout
 
 \end_inset
@@ -1274,7 +1311,17 @@ agregar info de funcion de similitud.
 \end_layout
 
 \begin_layout Standard
-Si comparamos el problema XXX con el ejemplificado en 
+Si comparamos el problema 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Agregar un problema, pero sólo el UML
+\end_layout
+
+\end_inset
+
+ XXX con el ejemplificado en 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sec:Ejemplo-Ilustrativo"
@@ -1415,10 +1462,7 @@ Solución
 \end_layout
 
 \begin_layout Standard
-Como saco éste texto?
-\end_layout
-
-\begin_layout Standard
+\align center
 \begin_inset Box Frameless
 position "t"
 hor_pos "c"
@@ -1625,6 +1669,32 @@ KB,
  que el razonador añada casos para enriquecer la KB.
  Si el número de casos crece en un momento determinado, el valor de threshold
  puede ser DISMINUIDO? para agregar sólo casos relaventes.
+\end_layout
+
+\begin_layout Subsection
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:Similitud-de-casos"
+
+\end_inset
+
+Similitud de casos
+\end_layout
+
+\begin_layout Standard
+explicamos como se calculan (uando la tesis de lucas y paper CBR)
+\end_layout
+
+\begin_layout Standard
+Nombre de servicios (identificadores lucas)
+\end_layout
+
+\begin_layout Standard
+Cant operaciones
+\end_layout
+
+\begin_layout Standard
+operaciones vs Operacioens
 \end_layout
 
 \begin_layout Section
@@ -2339,6 +2409,28 @@ Ejemplo de metamodelo instanciado para el caso de estudio
 \end_inset
 
 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph
+Estructuras
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Tabla comparando estructuras swagger vs Metamodelo, una definición es una
+ interface, cada uri+metodo http es una operation.
 \end_layout
 
 \end_inset
