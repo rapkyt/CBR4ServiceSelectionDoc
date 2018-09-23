@@ -517,16 +517,6 @@ sideways false
 status open
 
 \begin_layout Plain Layout
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Reemplazar los números por Paso 1, etc
-\end_layout
-
-\end_inset
-
-
 \begin_inset Graphics
 	filename ImgChapter3/usadas/CBR 4SS.png
 	lyxscale 70
@@ -628,20 +618,6 @@ Numerar los pasos en la figura (find, resolve, revise, retrain, discard,
 
 \begin_layout Paragraph
 Representación del Caso
-\begin_inset Newline newline
-\end_inset
-
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Como numero la imagen?
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Standard
@@ -798,8 +774,15 @@ Base de conocimiento
 
 \begin_layout Standard
 Para el Razonamiento basado en casos es de suma importancia poseer una buena
- base de conocimiento, pues justamente, es utilizada para buscar el mejor
- caso candidato entre los casos previamente aprendidos.
+ base de conocimiento (Paso 2 Figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Esquema-de-proceso"
+
+\end_inset
+
+), pues justamente, es utilizada para buscar el mejor caso candidato entre
+ los casos previamente aprendidos.
  Esta base de conocimientos o 
 \emph on
 KB
@@ -1182,7 +1165,14 @@ Caso
 \emph on
 solución
 \emph default
- va a ser introducido en nuestro CBR, cuyo 
+ va a ser introducido en nuestro CBR (Paso 3 Figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Esquema-de-proceso"
+
+\end_inset
+
+), cuyo 
 \emph on
 problema 
 \emph default
@@ -1279,14 +1269,14 @@ KB
 \begin_layout Standard
 Por cada atributo en la representación del caso definimos funciones de similitud
  específicas 
-\emph on
-Simi
-\emph default
-, y pesos 
-\emph on
-Wi 
-\emph default
-, que serán detalladas en la sección 
+\begin_inset Formula $sim_{i}$
+\end_inset
+
+ y pesos 
+\begin_inset Formula $w_{i}$
+\end_inset
+
+ que serán detalladas en la sección 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "subsec:Similitud-de-casos"
@@ -1297,17 +1287,9 @@ reference "subsec:Similitud-de-casos"
 \end_layout
 
 \begin_layout Standard
-Comparamos cantidad de operaciones, 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-etc
-\end_layout
-
-\end_inset
-
-
+Se comparan los nombres de los servicios, cantidad de operaciones de los
+ mismos y luego se compara operación por operación buscando similitud de
+ parametros de entrada y salida, a nivel sintáctico y semántico.
 \end_layout
 
 \begin_layout Standard
@@ -1348,11 +1330,18 @@ Resolviendo el Caso
 
 \begin_layout Standard
 Una vez calculadas las distancias de cada uno de los casos candidatos con
- el nuevo 
+ respecto al nuevo 
 \emph on
 Caso
 \emph default
-, las mismas son introducidas en una lista a modo de tupla 
+ (Paso 4 Figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Esquema-de-proceso"
+
+\end_inset
+
+), las mismas son introducidas en una lista a modo de tupla 
 \begin_inset Formula $(Solución,\,Distancia)$
 \end_inset
 
@@ -1566,20 +1555,9 @@ feedback de experto?
 
 \begin_layout Standard
 Según la teoría de Case Based Reasoning, se puede realizar una adaptación
- de la solución para que concuerde con el problema ingresado, 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-poner ejemplo típico de precio de auto-casa?
-\end_layout
-
-\end_inset
-
-.
- En el dominio en el que se desarrolla nuestro razonador esta adaptación
- se realizaría de forma manual por el desarrollador, que busca una solución
- a su problema.
+ de la solución para que concuerde con el problema ingresado, en el dominio
+ en el que se desarrolla nuestro razonador esta adaptación se realizaría
+ de forma manual por el desarrollador, que busca una solución a su problema.
  El mismo deberá realizar los cambios necesarios en su interfaz para que
  la misma sea compatible con la interfaz de la solución brindada.
 \end_layout
@@ -1594,7 +1572,6 @@ Casos
 \end_layout
 
 \begin_layout Standard
-Ejemlo...
 \begin_inset Note Note
 status open
 
@@ -1616,7 +1593,14 @@ Evaluar y retener
 \end_layout
 
 \begin_layout Standard
-En esta instancia, el 
+En esta instancia (Paso 5 Figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Esquema-de-proceso"
+
+\end_inset
+
+), el 
 \emph on
 Razonador Basado en Casos 
 \emph default
@@ -2022,15 +2006,6 @@ Swagger vs.
 \end_layout
 
 \begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Explicar el evaluador no incluye los simbolos
-\end_layout
-
-\end_inset
-
 En el fragmento de Swagger – Listado de Código
 \begin_inset space ~
 \end_inset
@@ -2425,12 +2400,343 @@ Estructuras
 \end_layout
 
 \begin_layout Standard
-\begin_inset Note Note
+En la tabla 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:Correspondencia-Estructura"
+
+\end_inset
+
+ se ilustra como es el mapeo estructural de una especificación Swagger a
+ la estructura propuesta en el Metamodelo.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+wide false
+sideways false
 status open
 
 \begin_layout Plain Layout
-Tabla comparando estructuras swagger vs Metamodelo, una definición es una
- interface, cada uri+metodo http es una operation.
+\align center
+
+\size footnotesize
+\begin_inset Tabular
+<lyxtabular version="3" rows="12" columns="2">
+<features tabularvalignment="middle">
+<column alignment="left" valignment="top" width="32text%">
+<column alignment="left" valignment="top" width="60text%">
+<row>
+<cell multicolumn="1" alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Swagger
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="1" alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Metamodelo
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Especificación
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Interface
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Definitions
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+ComplexTypes disponibles.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Método HTTP en Path
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Operation
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Parameter
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Parameter del Input
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Type y Format (Parameter)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+SimpleType de Parameter Input
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Schema (Parameter)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+ComplexType o ArrayType de Parameter Input
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Response
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Parameter del Output o Fault
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Type y Format (Response)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+SimpleType de Parameter Output
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Schema (Response)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+ComplexType o ArrayType de Parameter Output
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Property de Definition
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Attribute del ComplexType
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Item de type:array
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Type del ArrayType
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:Correspondencia-Estructura"
+
+\end_inset
+
+Correspondencia estructural Swagger con Metamodelo
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \end_inset

@@ -5,13 +5,9 @@
     "operations": [
       {
         "name": "POST_/pet",
-        "input": {
-          ...
-        },
+        "input": {...},
         "output": null,
-        "faults": [
-          ...
-        ]
+        "faults": [...]
       },
       {
         "name": "GET_/pet/{petId}",
@@ -102,37 +98,23 @@
       },
       {
         "name": "POST_/pet/{petId}",
-        "input": {
-          ...
-        },
+        "input": {...},
         "output": null,
-        "faults": [
-          ...
-        ]
+        "faults": [...]
       },
       {
         "name": "DELETE_/pet/{petId}",
-        "input": {
-          ...
-        },
+        "input": {...},
         "output": null,
-        "faults": [
-          ...
-        ]
+        "faults": [...]
       },
       {
         "name": "POST_/pet/{petId}/uploadImage",
-        "input": {
-          ...
-        },
-        "output": {
-          ...
-        },
-        "faults": [
-        ]
+        "input": {...},
+        "output": {...},
+        "faults": [...]
       }
     ]
   },
-  "solution": "Swagger Petstore - petStore.json",
-  "solutionIsDefined": true
+  "solution": "Swagger Petstore - petStore.json"
 }
