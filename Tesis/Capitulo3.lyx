@@ -618,6 +618,10 @@ Numerar los pasos en la figura (find, resolve, revise, retrain, discard,
 
 \begin_layout Paragraph
 Representación del Caso
+\begin_inset Newline newline
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -1666,19 +1670,214 @@ Similitud de casos
 \end_layout
 
 \begin_layout Standard
-explicamos como se calculan (uando la tesis de lucas y paper CBR)
+A continuación explicaremos como se evalúa, para cada atributo, la función
+ de similitud 
+\begin_inset Formula $sim$
+\end_inset
+
+ presentada en la formula 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:DIST"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Paragraph
+Nombre de servicios
+\begin_inset Newline newline
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
-Nombre de servicios (identificadores lucas)
+La evaluación de los 
+\emph on
+nombres de servicios
+\emph default
+ consiste en comparar el atributo 
+\emph on
+nombre
+\emph default
+ entre el problema del 
+\emph on
+Caso candidato
+\emph default
+ y el el problema del 
+\emph on
+Caso
+\emph default
+ a evaluar.
+ Esta similitud va a ser calculada utilizando el algoritmo para los 
+\emph on
+Identificadores
+\emph default
+, que considera la semantica en termino de identificadores,FFFFF.
 \end_layout
 
 \begin_layout Standard
-Cant operaciones
+El peso 
+\begin_inset Formula $w$
+\end_inset
+
+ que se le da al atributo 
+\emph on
+Nombre de servicios
+\emph default
+ es bajo (
+\begin_inset Formula $w=0.1$
+\end_inset
+
+), puesto a que no expresa de manera diricta aspectos funcionales.
+\end_layout
+
+\begin_layout Paragraph
+Cantidad de Operaciones
+\begin_inset Newline newline
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
-operaciones vs Operacioens
+La evaluación de 
+\emph on
+Cantidad de operaciones
+\emph default
+ consiste en comparar el valor numérico de tal atributo entre el problema
+ del 
+\emph on
+Caso candidato
+\emph default
+ y el problema del 
+\emph on
+Caso
+\emph default
+ a evaluar.
+\end_layout
+
+\begin_layout Standard
+La Similitud es calculada de acuerdo a la formula 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:sim-cantidad-operaciones"
+
+\end_inset
+
+.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+ Los Casos candidatos en la base de conocimiento KB con menos operaciones
+ que la funcionalidad requerida (problema) son consideradas como incompatibles,
+ siendo descartadas como posibles soluciones
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+El peso 
+\begin_inset Formula $w$
+\end_inset
+
+ que se le da al atributo 
+\emph on
+Cantidad de operaciones
+\emph default
+ es alto (
+\begin_inset Formula $w=0.3$
+\end_inset
+
+) puesto a que expresa de manera directa aspectos funcionales (i.e., el número
+ de operaciones requeridas).
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "80col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula 
+\begin{equation}
+sim(\#op^{n},\#op^{c})=\begin{cases}
+\#op^{n}<=\#op^{c} & 1\\
+De\:otra\:manera & 0
+\end{cases}\label{eq:sim-cantidad-operaciones}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+
+\size small
+Donde 
+\begin_inset Formula $\#op^{n}$
+\end_inset
+
+ y 
+\begin_inset Formula $\#op^{c}$
+\end_inset
+
+ son los valores de los atributos 
+\emph on
+cantidad de operaciones
+\emph default
+ para el 
+\emph on
+Caso
+\emph default
+ a evaluar y el 
+\emph on
+Caso candidato
+\emph default
+ de la KB respectivamente
+\begin_inset VSpace 0.5cm
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph
+Operaciones
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+La evaluación de Operaciones consiste
 \end_layout
 
 \begin_layout Section
