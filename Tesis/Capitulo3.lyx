@@ -1787,7 +1787,7 @@ El peso
 \begin_inset Formula $w$
 \end_inset
 
- que se le da al atributo 
+ que se le asigna al atributo 
 \emph on
 Cantidad de operaciones
 \emph default
@@ -1877,7 +1877,46 @@ Operaciones
 \end_layout
 
 \begin_layout Standard
-La evaluación de Operaciones consiste
+La evaluación de Operaciones consiste en evaluar las similitudes entre éste
+ complejo atributo entre el 
+\emph on
+problema
+\emph default
+ del 
+\emph on
+Caso candidato
+\emph default
+ y el 
+\emph on
+propblema
+\emph default
+ del 
+\emph on
+Caso
+\emph default
+ a evaluar.
+ Puesto a que el criterio pincipal de nuestro enfoque en la selección de
+ servicios es la similitud funcional, el peso 
+\begin_inset Formula $w$
+\end_inset
+
+ que se le asigna al atributo 
+\emph on
+Operaciones
+\emph default
+ es el mayor (
+\begin_inset Formula $w=0.6$
+\end_inset
+
+) y la función de similitud 
+\begin_inset Formula $sim$
+\end_inset
+
+ es la más compleja de este 
+\emph on
+Razonador Basado en Casos
+\emph default
+.
 \end_layout
 
 \begin_layout Section
