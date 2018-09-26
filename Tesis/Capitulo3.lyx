@@ -1580,7 +1580,9 @@ Casos
 status open
 
 \begin_layout Plain Layout
-agregar relación caso study?
+agregar relación caso study, presentando el caso con la distancia calculada
+ y tres casos más inventados con distancias inventadadas, para mostrar cual
+ elije cada algoritmo de selección
 \end_layout
 
 \end_inset
@@ -1614,7 +1616,7 @@ ya comparó el caso de entrada con el problema de cada uno de los casos en
  Esta solución fue revisada y marcada como válida por el usuario experto,
  es decir, es una solución válida y el problema introducido, junto con la
  solución, pasan a ser un caso probado.
- El siguiente paso consiste en tomar la desición respecto a si éste caso
+ El siguiente paso consiste en tomar la decisión respecto a si éste caso
  probado será añadido a la base de conocimientos, o no.
  Por un lado, retener demasiados casos puede generar ruido en la evaluación,
  disminuyendo la performance del razonador a largo plazo.
@@ -1657,6 +1659,24 @@ KB,
  que el razonador añada casos para enriquecer la KB.
  Si el número de casos crece en un momento determinado, el valor de threshold
  puede ser DISMINUIDO? para agregar sólo casos relaventes.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Invertir, la idea es quedarse con los casos con distancia MENOR al threshold.
+\end_layout
+
+\begin_layout Plain Layout
+Inventar un threshold que sea mayor a la distancia del caso ganadore del
+ parrafo anterior, concluir que se agrega para experimentos futuros
+\end_layout
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Subsection
@@ -1706,7 +1726,7 @@ nombre
 \emph on
 Caso candidato
 \emph default
- y el el problema del 
+ y el del problema del 
 \emph on
 Caso
 \emph default
@@ -1715,7 +1735,20 @@ Caso
 \emph on
 Identificadores
 \emph default
-, que considera la semantica en termino de identificadores,FFFFF.
+, que considera la semántica en termino de identificadores, la misma considera
+ ..
+ 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+hablar de exactos, sinonimos hiponimos y hiperonimos, mostrar la formula
+ y referenciar a la tesis de lucas para mas detalles
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -1731,7 +1764,7 @@ Nombre de servicios
 \begin_inset Formula $w=0.1$
 \end_inset
 
-), puesto a que no expresa de manera diricta aspectos funcionales.
+), puesto a que no expresa de manera directa aspectos funcionales.
 \end_layout
 
 \begin_layout Paragraph
@@ -1768,18 +1801,9 @@ reference "eq:sim-cantidad-operaciones"
 \end_inset
 
 .
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
  Los Casos candidatos en la base de conocimiento KB con menos operaciones
- que la funcionalidad requerida (problema) son consideradas como incompatibles,
- siendo descartadas como posibles soluciones
-\end_layout
-
-\end_inset
-
-
+ que la funcionalidad requerida (problema) son consideradas como potencialmente
+ incompatibles, siendo penalizados como posibles soluciones.
 \end_layout
 
 \begin_layout Standard
@@ -1823,7 +1847,7 @@ status open
 \begin{equation}
 sim(\#op^{n},\#op^{c})=\begin{cases}
 \#op^{n}<=\#op^{c} & 1\\
-De\:otra\:manera & 0
+Sino & 0
 \end{cases}\label{eq:sim-cantidad-operaciones}
 \end{equation}
 
@@ -1888,14 +1912,14 @@ Caso candidato
 \emph default
  y el 
 \emph on
-propblema
+problema
 \emph default
  del 
 \emph on
 Caso
 \emph default
  a evaluar.
- Puesto a que el criterio pincipal de nuestro enfoque en la selección de
+ Puesto a que el criterio principal de nuestro enfoque en la selección de
  servicios es la similitud funcional, el peso 
 \begin_inset Formula $w$
 \end_inset
@@ -1917,6 +1941,25 @@ Operaciones
 Razonador Basado en Casos
 \emph default
 .
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Intro sección 4 hasta Case Study.
+\end_layout
+
+\begin_layout Plain Layout
+La similityd se calcula (eq.
+ 4.6) el calculo de similitud de elementos de signatura (RET; EXC, NOMBRE
+ Y PARAM) se detalla en XXXXXXXXXX
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
@@ -2660,7 +2703,7 @@ status open
 
 \size footnotesize
 \begin_inset Tabular
-<lyxtabular version="3" rows="12" columns="2">
+<lyxtabular version="3" rows="15" columns="2">
 <features tabularvalignment="middle">
 <column alignment="left" valignment="top" width="32text%">
 <column alignment="left" valignment="top" width="60text%">
@@ -2737,6 +2780,45 @@ ComplexTypes disponibles.
 </cell>
 </row>
 <row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+Property
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Attribute del ComplexType
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
 <cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
@@ -2791,7 +2873,22 @@ Parameter del Input
 \begin_layout Plain Layout
 
 \size footnotesize
-Type y Format (Parameter)
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+Type y Format
 \end_layout
 
 \end_inset
@@ -2815,7 +2912,22 @@ SimpleType de Parameter Input
 \begin_layout Plain Layout
 
 \size footnotesize
-Schema (Parameter)
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+Schema
 \end_layout
 
 \end_inset
@@ -2863,7 +2975,22 @@ Parameter del Output o Fault
 \begin_layout Plain Layout
 
 \size footnotesize
-Type y Format (Response)
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+Type y Format
 \end_layout
 
 \end_inset
@@ -2887,7 +3014,22 @@ SimpleType de Parameter Output
 \begin_layout Plain Layout
 
 \size footnotesize
-Schema (Response)
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+Schema
 \end_layout
 
 \end_inset
@@ -2905,13 +3047,52 @@ ComplexType o ArrayType de Parameter Output
 </cell>
 </row>
 <row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Type=array
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+ArrayType
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
 <cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
 
 \size footnotesize
-Property de Definition
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+items.type
 \end_layout
 
 \end_inset
@@ -2922,31 +3103,70 @@ Property de Definition
 \begin_layout Plain Layout
 
 \size footnotesize
-Attribute del ComplexType
+Type del ArrayType
 \end_layout
 
 \end_inset
 </cell>
 </row>
 <row>
-<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
 
 \size footnotesize
-Item de type:array
+Type=object
 \end_layout
 
 \end_inset
 </cell>
-<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
 
 \size footnotesize
-Type del ArrayType
+ComplexType
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+properties
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Attributes del ComplexType
 \end_layout
 
 \end_inset
