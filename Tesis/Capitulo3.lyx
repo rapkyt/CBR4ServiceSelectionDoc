@@ -1735,15 +1735,20 @@ Caso
 \emph on
 Identificadores
 \emph default
-, que considera la semántica en termino de identificadores, la misma considera
- ..
- 
+ (formula 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:sim-nombre-de-servicio"
+
+\end_inset
+
+), que considera la semántica en termino de identificadores, la misma tiene
+ en cuenta los exactos, sinónimos, hiponimos e hiperonimos.
 \begin_inset Note Note
 status open
 
 \begin_layout Plain Layout
-hablar de exactos, sinonimos hiponimos y hiperonimos, mostrar la formula
- y referenciar a la tesis de lucas para mas detalles
+REFERENCIA TESIS LUCAS
 \end_layout
 
 \end_inset
@@ -1765,6 +1770,51 @@ Nombre de servicios
 \end_inset
 
 ), puesto a que no expresa de manera directa aspectos funcionales.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "80col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula 
+\begin{equation}
+sim(Id^{n},Id^{c})=\frac{exact+sin+0.5*(hipo+hiper)}{terms-sin}\label{eq:sim-nombre-de-servicio}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+
+\size small
+\begin_inset VSpace 0.5cm
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Paragraph
@@ -1920,7 +1970,11 @@ Caso
 \emph default
  a evaluar.
  Puesto a que el criterio principal de nuestro enfoque en la selección de
- servicios es la similitud funcional, el peso 
+ servicios es la similitud funcional.
+\end_layout
+
+\begin_layout Standard
+El peso 
 \begin_inset Formula $w$
 \end_inset
 
@@ -1944,17 +1998,182 @@ Razonador Basado en Casos
 \end_layout
 
 \begin_layout Standard
+La evaluación de similitud entre operaciones considera los aspectos semánticos
+ y estructurales que surgen de las definiciones de la operación.
+ Los aspectos estructurales implican la equivalencia de tipos de datos (subtipif
+icación), mientras que los aspectos semánticos implican conceptos de términos
+ e identificacores.
 \begin_inset Note Note
 status open
 
 \begin_layout Plain Layout
-Intro sección 4 hasta Case Study.
+ Se han definido tres implementaciones para la similitud de operaciones
+ que difieren principalmente en su base semántica.
+ Esto dio como resultado tres funciones diferentes para la evaluación de
+ operaciones.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Esta similitud se calcula de acuerdo a la formula 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:sim-operaciones"
+
+\end_inset
+
+, el calculo de similitud de elementos de signatura (Retorno + Excepciones
+ + Nombre + Parametros) se detalla en XXXXXXXXXXXXXXX.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "80col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula 
+\begin{equation}
+sim(C^{n},C^{c})={\displaystyle \sum_{1}^{n}}\frac{(Max(simOp(op_{i}^{N},C^{C}))}{N}\label{eq:sim-operaciones}
+\end{equation}
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Plain Layout
-La similityd se calcula (eq.
- 4.6) el calculo de similitud de elementos de signatura (RET; EXC, NOMBRE
- Y PARAM) se detalla en XXXXXXXXXX
+\align center
+
+\size small
+Donde 
+\begin_inset Formula $N$
+\end_inset
+
+ es el numero de operaciones en 
+\begin_inset Formula $C^{C}$
+\end_inset
+
+ y 
+\begin_inset Formula $simOp$
+\end_inset
+
+ es el mejor valor de equivalenncia 
+\begin_inset Formula $simOpValue(op_{i}^{C},op_{j}^{C})$
+\end_inset
+
+ para todo 
+\begin_inset Formula $op_{j}^{C}$
+\end_inset
+
+ en 
+\begin_inset Formula $C^{C}$
+\end_inset
+
+ 
+\begin_inset VSpace 0.5cm
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+El valor de similityd entre operaciones (
+\begin_inset Formula $simOpValue$
+\end_inset
+
+) entre una operación 
+\begin_inset Formula $op^{N}$
+\end_inset
+
+ y una operación potencialmente compatible 
+\begin_inset Formula $op^{C}$
+\end_inset
+
+ es calculada de acuerdo a la formula 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:sim-operacionesValue"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "80col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula 
+\begin{equation}
+simOpValue(op^{n},op^{c})=Ret+Exc+Nombre+Par\label{eq:sim-operacionesValue}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+
+\size small
+\begin_inset VSpace 0.5cm
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Cambiar las n por N en las formulas
 \end_layout
 
 \end_inset
