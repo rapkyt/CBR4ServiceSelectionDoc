@@ -994,7 +994,7 @@ Probar MongoDB 4.0, si cumple acid decir que hasta la v 4.0 no se cumplía
 
 \begin_layout Standard
 MongoDB es un Sistema de Base de Datos basado en Documentos Open Source
- ampliamente utilizada en el mercado, posicionandose dentro de los 10 Sistemas
+ ampliamente utilizada en el mercado, posicionándose dentro de los 10 Sistemas
  de Base de Datos utilizados independientemente del típo (Relacional, Key-value,
  basada en Documentos, orientada a Grafos, basada en series de tiempo, basada
  en RDF, orientada a Objetos, motor de busqueda, basada en Wide column,
@@ -1153,7 +1153,7 @@ lstparams "breaklines=true,basicstyle={\\ttfamily\\scriptsize},caption={Document
 \end_layout
 
 \begin_layout Paragraph
-Busqueda de casos similares
+Búsqueda de casos similares
 \begin_inset Newline newline
 \end_inset
 
@@ -1185,7 +1185,7 @@ va a constar de la especificación de la funcionalidad requerida.
 \emph on
 Caso
 \emph default
-, lo primero que se debe hacer es calcular la funcion de similitud (DIST),
+, lo primero que se debe hacer es calcular la función de similitud (DIST),
  como la distancia entre el nuevo 
 \emph on
 Caso 
@@ -1226,7 +1226,7 @@ status open
 \begin_layout Plain Layout
 \begin_inset Formula 
 \begin{equation}
-DIST(C^{n},C^{c})=\sum_{1}^{n}(w_{i}*sim_{i}(C_{i}^{n},C_{i}^{c}))\label{eq:DIST}
+DIST(C^{N},C^{C})=\sum_{1}^{n}(w_{i}*sim_{i}(C_{i}^{N},C_{i}^{C}))\label{eq:DIST}
 \end{equation}
 
 \end_inset
@@ -1239,7 +1239,7 @@ DIST(C^{n},C^{c})=\sum_{1}^{n}(w_{i}*sim_{i}(C_{i}^{n},C_{i}^{c}))\label{eq:DIST
 
 \size small
 Donde 
-\begin_inset Formula $C^{n}$
+\begin_inset Formula $C^{N}$
 \end_inset
 
  es el nuevo 
@@ -1293,7 +1293,7 @@ reference "subsec:Similitud-de-casos"
 \begin_layout Standard
 Se comparan los nombres de los servicios, cantidad de operaciones de los
  mismos y luego se compara operación por operación buscando similitud de
- parametros de entrada y salida, a nivel sintáctico y semántico.
+ parámetros de entrada y salida, a nivel sintáctico y semántico.
 \end_layout
 
 \begin_layout Standard
@@ -1794,7 +1794,7 @@ status open
 \begin_layout Plain Layout
 \begin_inset Formula 
 \begin{equation}
-sim(Id^{n},Id^{c})=\frac{exact+sin+0.5*(hipo+hiper)}{terms-sin}\label{eq:sim-nombre-de-servicio}
+sim(Id^{N},Id^{C})=\frac{exact+sin+0.5*(hipo+hiper)}{terms-sin}\label{eq:sim-nombre-de-servicio}
 \end{equation}
 
 \end_inset
@@ -1895,8 +1895,8 @@ status open
 \begin_layout Plain Layout
 \begin_inset Formula 
 \begin{equation}
-sim(\#op^{n},\#op^{c})=\begin{cases}
-\#op^{n}<=\#op^{c} & 1\\
+sim(\#op^{N},\#op^{C})=\begin{cases}
+\#op^{N}<=\#op^{C} & 1\\
 Sino & 0
 \end{cases}\label{eq:sim-cantidad-operaciones}
 \end{equation}
@@ -1911,11 +1911,11 @@ Sino & 0
 
 \size small
 Donde 
-\begin_inset Formula $\#op^{n}$
+\begin_inset Formula $\#op^{N}$
 \end_inset
 
  y 
-\begin_inset Formula $\#op^{c}$
+\begin_inset Formula $\#op^{C}$
 \end_inset
 
  son los valores de los atributos 
@@ -2002,7 +2002,7 @@ La evaluación de similitud entre operaciones considera los aspectos semánticos
  y estructurales que surgen de las definiciones de la operación.
  Los aspectos estructurales implican la equivalencia de tipos de datos (subtipif
 icación), mientras que los aspectos semánticos implican conceptos de términos
- e identificacores.
+ e identificadores.
 \begin_inset Note Note
 status open
 
@@ -2027,7 +2027,7 @@ reference "eq:sim-operaciones"
 \end_inset
 
 , el calculo de similitud de elementos de signatura (Retorno + Excepciones
- + Nombre + Parametros) se detalla en XXXXXXXXXXXXXXX.
+ + Nombre + Parámetros) se detalla en XXXXXXXXXXXXXXX.
 \end_layout
 
 \begin_layout Standard
@@ -2052,7 +2052,7 @@ status open
 \begin_layout Plain Layout
 \begin_inset Formula 
 \begin{equation}
-sim(C^{n},C^{c})={\displaystyle \sum_{1}^{n}}\frac{(Max(simOp(op_{i}^{N},C^{C}))}{N}\label{eq:sim-operaciones}
+sim(C^{N},C^{C})={\displaystyle \sum_{1}^{n}}\frac{(Max(simOp(op_{i}^{N},C^{C}))}{n}\label{eq:sim-operaciones}
 \end{equation}
 
 \end_inset
@@ -2065,7 +2065,7 @@ sim(C^{n},C^{c})={\displaystyle \sum_{1}^{n}}\frac{(Max(simOp(op_{i}^{N},C^{C}))
 
 \size small
 Donde 
-\begin_inset Formula $N$
+\begin_inset Formula $n$
 \end_inset
 
  es el numero de operaciones en 
@@ -2076,7 +2076,7 @@ Donde
 \begin_inset Formula $simOp$
 \end_inset
 
- es el mejor valor de equivalenncia 
+ es el mejor valor de equivalencia 
 \begin_inset Formula $simOpValue(op_{i}^{C},op_{j}^{C})$
 \end_inset
 
@@ -2101,7 +2101,7 @@ Donde
 \end_layout
 
 \begin_layout Standard
-El valor de similityd entre operaciones (
+El valor de similitud entre operaciones (
 \begin_inset Formula $simOpValue$
 \end_inset
 
@@ -2145,7 +2145,7 @@ status open
 \begin_layout Plain Layout
 \begin_inset Formula 
 \begin{equation}
-simOpValue(op^{n},op^{c})=Ret+Exc+Nombre+Par\label{eq:sim-operacionesValue}
+simOpValue(op^{N},op^{C})=Ret+Exc+Nombre+Par\label{eq:sim-operacionesValue}
 \end{equation}
 
 \end_inset
@@ -2161,19 +2161,6 @@ simOpValue(op^{n},op^{c})=Ret+Exc+Nombre+Par\label{eq:sim-operacionesValue}
 \end_inset
 
 
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Cambiar las n por N en las formulas
 \end_layout
 
 \end_inset
