@@ -1616,7 +1616,7 @@ ya comparó el caso de entrada con el problema de cada uno de los casos en
  Esta solución fue revisada y marcada como válida por el usuario experto,
  es decir, es una solución válida y el problema introducido, junto con la
  solución, pasan a ser un caso probado.
- El siguiente paso consiste en tomar la decisión respecto a si éste caso
+ El siguiente paso consiste en tomar la decisión respecto a si este caso
  probado será añadido a la base de conocimientos, o no.
  Por un lado, retener demasiados casos puede generar ruido en la evaluación,
  disminuyendo la performance del razonador a largo plazo.
@@ -1644,7 +1644,7 @@ caso aprendido
 KB
 \emph default
 .
- Si el valor de la distancia es MAYOR??? que el valor de threshold, entonces
+ Si el valor de la distancia es menor que el valor de threshold, entonces
  el caso es agregado a la base de conocimientos como un caso relevante,
  de otro modo es descartado.
  El objetivo es prevenir el crecimiento incontrolable de la 
@@ -1655,19 +1655,15 @@ KB,
  El valor de threshold o umbral es una constante que se configura mediante
  una variable de entorno a la hora de ejecutar el algoritmo, la misma debería
  tomar valores distintos dependiendo de la cantidad de casos iniciales.
- Si la misma es baja, se debería utilizar un valor BAJO???, permitiendo
- que el razonador añada casos para enriquecer la KB.
+ Si la misma es baja, se debería utilizar un valor alto, permitiendo que
+ el razonador añada casos para enriquecer la KB.
  Si el número de casos crece en un momento determinado, el valor de threshold
- puede ser DISMINUIDO? para agregar sólo casos relaventes.
+ puede ser disminuido para agregar sólo casos relaventes.
 \end_layout
 
 \begin_layout Standard
 \begin_inset Note Note
 status open
-
-\begin_layout Plain Layout
-Invertir, la idea es quedarse con los casos con distancia MENOR al threshold.
-\end_layout
 
 \begin_layout Plain Layout
 Inventar un threshold que sea mayor a la distancia del caso ganadore del
@@ -1951,7 +1947,7 @@ Operaciones
 \end_layout
 
 \begin_layout Standard
-La evaluación de Operaciones consiste en evaluar las similitudes entre éste
+La evaluación de Operaciones consiste en evaluar las similitudes de este
  complejo atributo entre el 
 \emph on
 problema
@@ -1969,32 +1965,6 @@ problema
 Caso
 \emph default
  a evaluar.
- Puesto a que el criterio principal de nuestro enfoque en la selección de
- servicios es la similitud funcional.
-\end_layout
-
-\begin_layout Standard
-El peso 
-\begin_inset Formula $w$
-\end_inset
-
- que se le asigna al atributo 
-\emph on
-Operaciones
-\emph default
- es el mayor (
-\begin_inset Formula $w=0.6$
-\end_inset
-
-) y la función de similitud 
-\begin_inset Formula $sim$
-\end_inset
-
- es la más compleja de este 
-\emph on
-Razonador Basado en Casos
-\emph default
-.
 \end_layout
 
 \begin_layout Standard
@@ -2028,6 +1998,31 @@ reference "eq:sim-operaciones"
 
 , el calculo de similitud de elementos de signatura (Retorno + Excepciones
  + Nombre + Parámetros) se detalla en XXXXXXXXXXXXXXX.
+\end_layout
+
+\begin_layout Standard
+Puesto a que el criterio principal de nuestro enfoque en la selección de
+ servicios es la similitud funcional, el peso 
+\begin_inset Formula $w$
+\end_inset
+
+ que se le asigna al atributo 
+\emph on
+Operaciones
+\emph default
+ es el mayor (
+\begin_inset Formula $w=0.6$
+\end_inset
+
+) y la función de similitud 
+\begin_inset Formula $sim$
+\end_inset
+
+ es la más compleja de este 
+\emph on
+Razonador Basado en Casos
+\emph default
+.
 \end_layout
 
 \begin_layout Standard
@@ -3410,10 +3405,6 @@ Correspondencia estructural Swagger con Metamodelo
 
 \begin_layout Paragraph
 Tipos de datos simple
-\begin_inset Newline newline
-\end_inset
-
-
 \begin_inset Newline newline
 \end_inset
 
