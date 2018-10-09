@@ -1297,25 +1297,94 @@ Se comparan los nombres de los servicios, cantidad de operaciones de los
 \end_layout
 
 \begin_layout Standard
-Si comparamos el problema 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Agregar un problema, pero sólo el UML
-\end_layout
-
-\end_inset
-
- XXX con el ejemplificado en 
+Si tomamos como 
+\emph on
+Caso
+\emph default
+ a evaluar el ejemplo 
+\emph on
+PetStore
+\emph default
+ indicado en 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sec:Ejemplo-Ilustrativo"
 
 \end_inset
 
- podemos observar como la función de distancia da...
- por....
+ y como 
+\emph on
+Caso
+\emph default
+ candidato 
+\emph on
+PetStoreFull
+\emph default
+ especificado en 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig: UML-CasoCandidatoPetStoreFull"
+
+\end_inset
+
+ podemos observar como la función de distancia nos da un valor de 
+\begin_inset Formula $0.153333$
+\end_inset
+
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+lo dejo así o agrego DIST(C,C)=0.153333
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement h
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ImgChapter3/usadas/UML PetStoreFull.png
+	width 100col%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig: UML-CasoCandidatoPetStoreFull"
+
+\end_inset
+
+Visión esquemática UML del Caso candidato 
+\emph on
+PetStoreFull
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Paragraph
@@ -1403,7 +1472,11 @@ soluciones con menor distancia y tomar la
 \emph on
 Solución
 \emph default
- mas frecuente entre las mismas.
+ mas frecuente entre las mismas, en caso de empate se toma la 
+\emph on
+Solución
+\emph default
+ cuya distancia sea la menor.
 \end_layout
 
 \begin_layout Itemize
@@ -1576,15 +1649,163 @@ Casos
 \end_layout
 
 \begin_layout Standard
-\begin_inset Note Note
-status open
+Si tomamos como 
+\emph on
+Caso
+\emph default
+ a evaluar el ejemplo 
+\emph on
+PetStore
+\emph default
+ indicado en 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Ejemplo-Ilustrativo"
 
-\begin_layout Plain Layout
-agregar relación caso study, presentando el caso con la distancia calculada
- y tres casos más inventados con distancias inventadadas, para mostrar cual
- elije cada algoritmo de selección
+\end_inset
+
+, primer 
+\emph on
+Caso
+\emph default
+ candidato 
+\emph on
+PetStoreFull
+\emph default
+ con una distancia de 
+\begin_inset Formula $0.153333$
+\end_inset
+
+, otro 
+\emph on
+Caso
+\emph default
+ candidato 
+\emph on
+ClickMeter
+\emph default
+ y dos casos más cuya solución es 
+\emph on
+MoneyTransfer
+\emph default
+ con distancias de 
+\begin_inset Formula $0.8365$
+\end_inset
+
+, 
+\begin_inset Formula $0.985$
+\end_inset
+
+ y 
+\begin_inset Formula $1.53$
+\end_inset
+
+ respectivamente las estrategias se comportarían de la siguiente manera:
 \end_layout
 
+\begin_layout Itemize
+
+\emph on
+1-nn
+\emph default
+ Seleccionaría 
+\emph on
+PetStoreFull
+\emph default
+, pues es la solución que posee menor distancia
+\end_layout
+
+\begin_layout Itemize
+
+\emph on
+k-nn 
+\emph default
+con 
+\emph on
+k
+\emph default
+<4 Seleccionaría 
+\emph on
+PetStoreFull
+\emph default
+, puesto que cada solución de los 
+\emph on
+k
+\emph default
+ casos de menor distancia tiene una frecuencia igual a uno, por lo tanto,
+ debido al empate, se toma la solución del caso cuya distancia sea la menor.
+\end_layout
+
+\begin_layout Itemize
+k-nn con 
+\emph on
+k
+\emph default
+=4 Seleccionaría 
+\emph on
+MoneyTransfer
+\emph default
+, puesto que dentro de los cuatro casos de menor distancia, la misma es
+ solución en dos de ellos.
+\end_layout
+
+\begin_layout Itemize
+
+\emph on
+WK-nn
+\emph default
+ Seleccionaría 
+\emph on
+PetStoreFull
+\emph default
+ ya que es la solución con mayor peso ponderado seguún la fórmula 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:WKNN"
+
+\end_inset
+
+, donde los pesos ponderados de cada solución son: 
+\begin_inset Formula $w(PetStoreFull)=1$
+\end_inset
+
+, 
+\begin_inset Formula $w(ClickMeter)=0.5737$
+\end_inset
+
+ y 
+\begin_inset Formula $w(MoneyTransfer)=0.3959$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\emph on
+DWK-nn 
+\emph default
+Seleccionaría 
+\emph on
+PetStoreFull
+\emph default
+ ya que es la solución con mayor peso ponderado según la fórmula 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:DWKNN"
+
+\end_inset
+
+, donde los pesos ponderados de cada solución son: 
+\begin_inset Formula $w(PetStoreFull)=1$
+\end_inset
+
+, 
+\begin_inset Formula $w(ClickMeter)=0.3583$
+\end_inset
+
+ y 
+\begin_inset Formula $w(MoneyTransfer)=0.265$
 \end_inset
 
 
@@ -1615,7 +1836,11 @@ ya comparó el caso de entrada con el problema de cada uno de los casos en
  al mismo en terminos de la similitud de atributos vista anteriormente.
  Esta solución fue revisada y marcada como válida por el usuario experto,
  es decir, es una solución válida y el problema introducido, junto con la
- solución, pasan a ser un caso probado.
+ solución, pasan a ser un 
+\emph on
+caso probado
+\emph default
+.
  El siguiente paso consiste en tomar la decisión respecto a si este caso
  probado será añadido a la base de conocimientos, o no.
  Por un lado, retener demasiados casos puede generar ruido en la evaluación,
@@ -1662,17 +1887,35 @@ KB,
 \end_layout
 
 \begin_layout Standard
-\begin_inset Note Note
-status open
+Suponiendo un valor de threshold de 
+\begin_inset Formula $1.0$
+\end_inset
 
-\begin_layout Plain Layout
-Inventar un threshold que sea mayor a la distancia del caso ganadore del
- parrafo anterior, concluir que se agrega para experimentos futuros
-\end_layout
+, si tomamos como 
+\emph on
+Caso probado
+\emph default
+ a 
+\emph on
+PetStore
+\emph default
+, definido en 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Ejemplo-Ilustrativo"
 
 \end_inset
 
-.
+, cuya solución es 
+\emph on
+PetStoreFull
+\emph default
+ con una distancia de 
+\begin_inset Formula $0.153333$
+\end_inset
+
+, el mismo será agregado a nuestra base de conocimientos para experimentos
+ futuros.
 \end_layout
 
 \begin_layout Subsection
@@ -2418,10 +2661,6 @@ Caso de estudio
 \end_inset
 
 
-\begin_inset Newline newline
-\end_inset
-
-
 \end_layout
 
 \begin_layout Standard
@@ -2477,14 +2716,6 @@ Swagger vs.
 \end_inset
 
 
-\begin_inset space ~
-\end_inset
-
-
-\begin_inset Newline newline
-\end_inset
-
-
 \end_layout
 
 \begin_layout Standard
@@ -2513,7 +2744,33 @@ DEFINIR
 \emph on
 interface
 \emph default
-) del servicio, la operación (
+) del servicio.
+ Entre las líneas 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+DEFINIR
+\end_layout
+
+\end_inset
+
+, se aprecia como se encuentra conformada la sección 
+\emph on
+definitions
+\emph default
+, en donde se detallan tipos de datos complejos disponibles dentro de la
+ especificación y entre las lineas 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+DEFINIR
+\end_layout
+
+\end_inset
+
+ se encuentra detallada la operación (
 \emph on
 operation
 \emph default
@@ -2530,44 +2787,7 @@ parameters
 responses[200] 
 \emph default
 respectivamente.
- Cada entrada y cada salida se representa como una entrada del documento
- swagger.
- Los elementos que conforman las entradas y salidas de las operaciones se
- detallan dentro del apartado 
-\emph on
-types
-\emph default
- del documento.
- Entre las líneas 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-DEFINIR
-\end_layout
-
-\end_inset
-
-, se aprecia como se encuentra conformada la sección 
-\emph on
-definitions.
-
-\emph default
- A su vez, la operación 
-\emph on
-GET_/pet/{petId}
-\emph default
- se detalla desde la línea 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-46 hasta la 66
-\end_layout
-
-\end_inset
-
- inclusive.
+ 
 \end_layout
 
 \begin_layout Standard
@@ -2614,7 +2834,7 @@ status open
 \emph on
 #/definitions/Pet
 \emph default
-, lo que nos indica que debemos ver la definición en la propiedad 
+, lo que nos indica que debemos ver la definición de la propiedad 
 \emph on
 Pet
 \emph default
@@ -3449,11 +3669,11 @@ format
  en detalle el tipo de datos que se utiliza.
  Sin embargo, para mantener las necesidades de la documentación, la propiedad
  format puede tener cualquier valor.
- Los formatos como "email", "uuid", etc., PUEDEN usarse aunque no estén definidos
+ Los formatos como "email", "uuid", etc., pueden usarse aunque no estén definidos
  por esta especificación.
  Los tipos que no poseen la propiedad format siguen la definición de tipo
  del esquema JSON.
- Ésta herramienta, al no encontrarse con un format no especificado PUEDE
+ Ésta herramienta, al no encontrarse con un format no especificado puede
  utilizar el tipo predeterminado.
 \end_layout
 
@@ -4329,17 +4549,13 @@ Selección del lenguaje de programación utilizado
 \end_inset
 
 
-\begin_inset Newline newline
-\end_inset
-
-
 \end_layout
 
 \begin_layout Standard
 El Metamodelo y la herramienta de evaluación de servicio web están realizadas
  en Java, Java es un lenguaje muy popular, pero a veces se suele desperdiciar
  mucho tiempo, o caracteres, en escribir lógica que se podría redactar de
- manera más simple.
+ manera más simple o en escribir la misma lógica una y otra vez.
  Es por ello, entre otras cosas, que se decidió usar Kotlin, un lenguaje
  que se ejecuta sobre la JVM (Java Virtual Machine) y simplifica el trabajo
  del desarrollador, el cual pasa menos tiempo escribiendo lógica ajena al
@@ -4348,7 +4564,7 @@ El Metamodelo y la herramienta de evaluación de servicio web están realizadas
  y correr sobre la JVM, es totalmente interoperable con Java, es decir,
  desde nuestro código Kotlin podemos utilizar clases y métodos Java y viceversa,
  inclusive podemos tener un proyecto mixto, en donde coexistan clases Java
- y Kotlin.
+ y Kotlin dentro del mismo entorno de desarrollo.
 \end_layout
 
 \begin_layout Standard
@@ -4442,27 +4658,12 @@ Selección de herramientas para construcción de módulo de software Conversor
 \end_inset
 
 
-\begin_inset Newline newline
-\end_inset
-
-
 \end_layout
 
 \begin_layout Standard
-Tomando como base la explicación detallada en la Sección 
-\emph on
-YYYYY
-\emph default
-
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "subsec:Detalle-de-selección"
-
-\end_inset
-
-, donde se analizaron las herramientas evaluadas para ser utilizadas potencialme
-nte por el módulo de software Conversor del Metamodelo, en la presente sección
- se pretende destacar ventajas y desventajas de dichas herramientas.
+En la presente sección se pretende destacar ventajas y desventajas de las
+ herramientas evaluadas para ser utilizadas potencialmente por el módulo
+ de software Conversor.
  En principio, resultó necesario satisfacer la necesidad de parsear una
  especificacón Swagger.
  Para ello se analizaron las herramientas
@@ -4490,10 +4691,6 @@ Motivos principales por los cuales no se utilizaron las siguientes herramientas
 LatexCommand label
 name "par:UtilizacionHerramientasProcSwagger"
 
-\end_inset
-
-
-\begin_inset Newline newline
 \end_inset
 
 
@@ -4586,10 +4783,6 @@ name "par:Herramientas-util-instanciador"
 \end_inset
 
 Herramientas utilizadas en el Conversor
-\begin_inset Newline newline
-\end_inset
-
-
 \begin_inset Newline newline
 \end_inset
 
@@ -4706,16 +4899,12 @@ Consideraciones generales
 \end_inset
 
 
-\begin_inset Newline newline
-\end_inset
-
-
 \end_layout
 
 \begin_layout Standard
 Se consideran las especificaciones Swagger a parsear como válidas, es decir,
- al parsear el Swagger al Metamodelo, no garantizamos la validación de la
- api, por ejemplo, en la documentación de Swagger
+ al parsear el Swagger al Metamodelo, no garantizamos la validéz de la api,
+ por ejemplo, en la documentación de Swagger
 \begin_inset CommandInset citation
 LatexCommand cite
 key "swagger2.0"
@@ -4728,11 +4917,11 @@ key "swagger2.0"
 \begin_layout Quotation
 El objeto Response 
 \emph on
-DEBE
+debe
 \emph default
  contener al menos algún código de respuesta, y 
 \emph on
-DEBERÍA
+debería
 \emph default
  ser la respuesta del llamado de una operación exitosa.
 \end_layout
@@ -4910,10 +5099,6 @@ Si bien las API pueden ser definidas por documentos Swagger en formato YAML
 
 \begin_layout Paragraph
 Conversión de especificaciones Swagger a instancias del metamodelo
-\begin_inset Newline newline
-\end_inset
-
-
 \begin_inset Newline newline
 \end_inset
 
