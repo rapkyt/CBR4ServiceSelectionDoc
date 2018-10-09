@@ -4668,11 +4668,19 @@ En la presente sección se pretende destacar ventajas y desventajas de las
  especificacón Swagger.
  Para ello se analizaron las herramientas
 \emph on
- swagger-parser
+ swagger-parser,
+\emph default
+ 
+\emph on
+KaiZen OpenAPI Parser
+\emph default
+, 
+\emph on
+Jackson
 \emph default
  y 
 \emph on
-KaiZen OpenAPI Parser
+Klaxon
 \emph default
 .
  Luego de este análisis, 
@@ -4701,78 +4709,87 @@ name "par:UtilizacionHerramientasProcSwagger"
 \end_layout
 
 \begin_layout Itemize
-PONGO UNA LISTA SI DESCARTO UNA SOLA???7
+KaiZen OpenAPI Parser: Ésta herramienta es la principal competencia de la
+ seleccionada, incluso se podría considerar mejor en algunos aspectos, como
+ la performance (que ellos informan 3 a cuatro veces superior) y que posee
+ un validador semántico Open API.
+ Además acepta especificaciones en JSON o YAML, pero, su principal desventaja,
+ es que al momento sólo sirve para especificaciones OpenAPI v3, la cual
+ no se ha terminado de adoptar por la comunidad, y está lejos de conversitrse
+ en un estándar.
+ Debido a que el dataset utilizado para los experimentos se encuentra en
+ Swagger v2, y no se encuentran tantas especificaciones libres de Open API
+ 3, se decidió ignorar ésta última, y por lo tanto, ésta herramienta.
 \end_layout
 
 \begin_layout Itemize
-KaiZen OpenAPI Parser: Buscar desventajas
-\end_layout
+Jackson: Ésta herramienta es el standar para trabajar con documentos JSON
+ en lenguajes Java o dentro de la JVM, en el repositorio de la misma se
+ puede observar que se define de la siguiente manera:
+\emph on
+ La librería estándar de JSON para Java (o JVM en general), o, como el "mejor
+ parser JSON para Java".
+ O simplemente como "JSON para Java".
+\emph default
 
-\begin_layout Itemize
-\begin_inset Note Note
+\begin_inset Foot
 status open
 
-\begin_layout Itemize
+\begin_layout Plain Layout
+\begin_inset Flex URL
+status open
 
-\series bold
-JWSDL:
-\series default
- posee un inconveniente fundamental (éste figura en la documentación y se
- pudo comprobar en la práctica) por el cual no se utilizó esta herramienta
- para manipular documentos WSDL.
- Cualquier hijo de <types> (dentro del documento) es tratado como elemento
- de una extensión que no se encuentra implementada entre sus funciones.
- Debido a esto resulta imposible poder analizar las estructuras de los tipos
- complejos, y por consiguiente las entradas y salidas de las operaciones
- dentro de un documento WSDL.
- En otras palabras, no se utilizó ya que no era posible analizar los datos
- definidos en el 
-\emph on
-tag
-\emph default
- 
-\emph on
-types 
-\emph default
-de los documentos.
- Además no soporta documentos WSDL 2.0, y la intención es concentrarse en
- las tecnologías más actuales que dispone el mercado.
- 
-\end_layout
+\begin_layout Plain Layout
 
-\begin_layout Itemize
-
-\series bold
-SOA Membrane
-\series default
-: cuando se intentó acceder a los atributos, se dificultó el acceso a los
- tipos complejos de datos.
- Esto es porque no se pudo profundizar en su contenido con el detalle necesario
- para el componente de software que se pretendía desarrollar.
- 
-\end_layout
-
-\begin_layout Itemize
-
-\series bold
-EasyWSDL:
-\series default
- en la teoría soporta versiones de WSDL 1.1 y 2.0, pero al intentar cargar
- el conjunto de documentos de la plataforma Mashape, un porcentaje no pudo
- ser utilizado porque no eran sintácticamente válidos según el metamodelo
- propuesto por esta herramienta.
- Debido a esto, el proceso de análisis para los documentos afectados no
- pudo continuar.
- Además, el alcance de la herramienta es extenso, coordinar con los mensajes
- de entrada y salida para la creación y/o manipulación de datos lleva un
- proceso de aprendizaje muy grande.
- Por estas razones se decidió no utilizar esta herramienta.
- 
+https://github.com/FasterXML/jackson
 \end_layout
 
 \end_inset
 
 
+\end_layout
+
+\end_inset
+
+, la misma nos ofrece todas las funcionalidades que necesitamos si quisieramos
+ leer directamente desde la especificación Swagger en formato JSON y acceder
+ a las distintas partes de la misma, no se utilizó en base a dos motivos,
+ en primer lugar, al utilizarla sólo podríamos procesar especificaciones
+ en JSON y no en YAML, perdiendo un subconjunto de las mismas, o teniendo
+ que agregar un overhead transformando dichas especificaciones al formato
+ JSON, el otro motivo es porque a la hora de parsear un documento JSON se
+ debe contar con el objeto con el cual se va mapear, es decir, si queremos
+ parsear un JSON de 
+\emph on
+Persona
+\emph default
+ que tiene los atributos 
+\emph on
+Nombre
+\emph default
+,
+\emph on
+ apellido 
+\emph default
+y
+\emph on
+ dirección
+\emph default
+.
+ necesitamos describir de antemano la clase Java (o Kotlin en éste caso)
+ Persona con dichos atributos, por lo que, para parsear una especificación
+ Swagger deberíamos crear una clase para cada tipo de atributo dentro de
+ la misma.
+\end_layout
+
+\begin_layout Itemize
+Klaxon: Ésta herramienta nos permite trabajar con documentos JSON dentro
+ de kotlin, los motivos por los cuales se descartó son los mismos que para
+ la librería 
+\emph on
+Jackson
+\emph default
+.
 \end_layout
 
 \begin_layout Paragraph
@@ -4802,95 +4819,6 @@ Para la creación del módulo de software Conversor, se utilizó una herramienta
  en archivo YAML o JSON sin tener que realizar ningún refactoring adicional.
  Otra ventaja que nos brinda ésta herramienta, es la validación a nivel
  sintáctico de las especificaciones.
-\end_layout
-
-\begin_layout Itemize
-\begin_inset Note Note
-status open
-
-\begin_layout Itemize
-
-\series bold
-WODEN:
-\series default
- utilizada para validar que los documentos WSDL utilizados como entrada
- al Conversor del metamodelo estuvieran bien formados.
- Esto quiere decir que con WODEN se validó que los documentos utilicen las
- etiquetas (tags) definidas por la W3C para documentos WSDL, que haya correspond
-encia entre mensajes, la definición de los mismos, etc.
- De esta manera, a la hora de testear la Herramienta de Evaluación de Servicios
- Web, se trabajó con documentos bien formados desde un principio.
- Además esta herramienta permitió poder trabajar con documentos WSDL versión
- 1.1.
- Básicamente si se necesita trabajar con documentos WSDL 1.1, se utiliza
- una función que convierte documentos de la versión WSDL 1.1 a la versión
- de WSDL 2.0 para luego si procesarlo como entrada al componente Conversor
- del metamodelo.
- Como un ejemplo, en el Capítulo
-\begin_inset space ~
-\end_inset
-
- 4, se pudo experimentar con un conjunto de 1146 archivos WSDL versión 1.1
- de Servicios Web reales que provienen de la plataforma Mashape
-\begin_inset Foot
-status open
-
-\begin_layout Plain Layout
-\begin_inset Flex URL
-status open
-
-\begin_layout Plain Layout
-
-http://mashape.com
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Itemize
-
-\series bold
-DOM: 
-\series default
-acorde con DOM, cualquier elemento perteneciente al proyecto de un documento
- XML es un nodo.
- De esta manera se pudo acceder a todos los detalles específicos dentro
- de un documento WSDL sin ningún tipo de restricción.
- Esta librería es una de las herramientas más usadas y populares a la hora
- de manipular documentos XML.
- En el presente trabajo se hizo énfasis en las estructuras del documento
- relevantes para el módulo de software Conversor del Metamodelo.
- Por esta razón, se prestó especial atención a la sección 
-\emph on
-types
-\emph default
- e 
-\emph on
-interface
-\emph default
- que son parte de los elementos que conforman un WSDL 2.0 bien formado.
- Para esto resultó especialmente útil contar con una herramienta que permitiera
- recorrer y analizar un documento WSDL de forma confiable y robusta, sin
- nigun tipo de restricción, es decir, permitiendo el acceso a la totalidad
- del documento.
- DOM cumple con las características necesarias para llevar adelante el objetivo
- de construir un instanciador automático.
- Además, DOM nos permite gracias a una de sus funciones de navegación en
- el código fuente, analizar si el documento está bien formado, es decir
- que no tenga errores sintácticos.
- 
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Paragraph
