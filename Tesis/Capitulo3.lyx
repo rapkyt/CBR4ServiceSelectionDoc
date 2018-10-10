@@ -6,7 +6,7 @@
 \origin unavailable
 \textclass myBook
 \begin_preamble
-
+\usepackage{url}
 \end_preamble
 \use_default_options false
 \maintain_unincluded_children false
@@ -75,10 +75,10 @@
 \begin_body
 
 \begin_layout Chapter
-Metamodelo para Descripción y Evaluación de Contratos de Servicios Web
+Proposal
 \begin_inset CommandInset label
 LatexCommand label
-name "chap:Metamodelo-para-descipción"
+name "chap:Proposal"
 
 \end_inset
 
@@ -86,7 +86,7 @@ name "chap:Metamodelo-para-descipción"
 \end_layout
 
 \begin_layout Section
-Introducción 
+Introducción
 \end_layout
 
 \begin_layout Standard
@@ -98,7 +98,7 @@ reference "subsec:Solución-propuesta"
 \end_inset
 
  (Capítulo 1), el objetivo principal de este trabajo es mejorar el Método
- de Selección de Servicios Web presentado en la Sección 
+ de Selección de Servicios Web presentado en la sección 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sec:SelectionMethodOld"
@@ -161,25 +161,26 @@ key "narayanan2002simulation,chan2008dynamic"
 \end_layout
 
 \begin_layout Standard
-Con el fin de satisfacer el objetivo mencionado, la Herramienta de Evaluación
- de Servicios Web que da soporte al Método de Selección de Servicios presentado
- en la Sección 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "sec:SelectionMethodOld"
-
+Con el fin de satisfacer el objetivo mencionado, el Metamodelo de descripciones
+ de Servicios Web heterogéneos fue extendido, incorporándolo en una nueva
+ estructura llamada 
+\begin_inset Quotes eld
 \end_inset
 
- (Capítulo 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "cap:SOApp"
-
+Caso
+\begin_inset Quotes erd
 \end_inset
 
-) fue ajustada y extendida, incluyendo dos nuevos componentes: un Metamodelo
- de descripciones de Servicios Web heterogéneos y un nuevo componente Conversor
- de documentos WSDL hacia instanciaciones de dicho metamodelo.
+ y un nuevo componente Conversor de especificaciónes Swagger hacia instancia
+ del 
+\begin_inset Quotes eld
+\end_inset
+
+Caso
+\begin_inset Quotes erd
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -190,20 +191,20 @@ El resto del capítulo se distribuye de la siguiente manera: en la Sección
 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "sec:Metamodelo-para-descripción"
+reference "sec:CBR-para-selección"
 
 \end_inset
 
- se presenta el Metamodelo para Descripción de Servicios Web desde dos perspecti
-vas: general y específica.
+ se presenta el trabajo que se llevó a cabo para poder utilizar el Metamodelo
+ para Descripción de Servicios Web dentro del CBR.
  En la Sección 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "sec:-Conversor de WSDLs"
+reference "sec:-Conversor de OAS"
 
 \end_inset
 
- se detalla el Componente Conversor de WSDLs para instanciar el Metamodelo
+ se detalla el Componente Conversor de Swagger para instanciar el Metamodelo
  de Servicios Web.
  Finalmente, en la Sección
 \begin_inset space ~
@@ -216,16 +217,300 @@ reference "sec:Intregracion-a-Testooj"
 
 \end_inset
 
- se presenta cómo se ha modificado el proceso de descubrimiento y selección
- de servicios, mediante la integración del metamodelo y el componente conversor
- a la Herramienta de Evaluación de Servicios Web.
+ 
+\end_layout
+
+\begin_layout Section
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Ejemplo-Ilustrativo"
+
+\end_inset
+
+Ejemplo Ilustrativo
 \end_layout
 
 \begin_layout Standard
-\begin_inset Note Note
-status collapsed
+Durante el desarrollo de este trabajo se tomará como soporte a la explicación,
+ un Servicio Web REST
+\begin_inset CommandInset citation
+LatexCommand cite
+key "thomas2000fielding"
+
+\end_inset
+
+ perteneciente al dominio de veterinaria (PetStore).
+ Este servicio nos brinda la posibilidad de realizar altas, bajas y consulta
+ de las mascotas cargadas en el sistema, como así también cargar imagenes
+ de las mismas.
+ El diagrama de clases UML para este dominio es presentado en la Figura
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig: caso de estudio-1"
+
+\end_inset
+
+ en donde referenciaremos las operaciones con el formato 
+\emph on
+{Método HTTP}_{URI}
+\emph default
+ para que puedan ser identificadas inequívocamente, además se encapsularán
+ los parametros de entrada por URL con llaves, por ejemplo, 
+\emph on
+{petId}, 
+\emph default
+se reemplazará por el id de la mazcota deseada.
+ Este servicio está compuesto por cinco operaciones encapsuladas en la interfaz
+ petStore, 
+\emph on
+POST_/pet, GET_/pet/{petId}, POST_/pet/{petId}, DELETE_/pet/{petId} y POST_/pet/
+{petId}/uploadImage
+\emph default
+.
+ La operación 
+\emph on
+POST_/pet
+\emph default
+ es utilizada para agregar mascotas a la base de datos, devolviendo los
+ datos de la misma, y un id único.
+ Para 
+\emph on
+GET_/pet/{petId}
+\emph default
+, dado un id 
+\emph on
+
+\begin_inset Quotes eld
+\end_inset
+
+petId
+\begin_inset Quotes erd
+\end_inset
+
+
+\emph default
+ de una mascota, retorna la información de esa mascota, a su vez 
+\emph on
+POST_/pet/{petId} 
+\emph default
+recibe el mísmo id de la mascota, más los datos a actualizar de la misma,
+ 
+\emph on
+DELETE_/pet/{petId}
+\emph default
+ recibe el id de una mascota y luego la elimina.
+ Finalmente, 
+\emph on
+POST_/pet/{petId}/uploadImage
+\emph default
+ es una operación que recibe el id de una mascota y una imagen, almacena
+ la imagen y agrega la 
+\emph on
+URL
+\emph default
+ de la misma a la propiedad 
+\emph on
+photoUrls
+\emph default
+ de la mascota con el mismo id.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement h
+wide false
+sideways false
+status open
 
 \begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ImgChapter3/usadas/OAS vs Metamodelo.png
+	width 100col%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig: caso de estudio-1"
+
+\end_inset
+
+Visión esquemática UML del Caso de estudio
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:CBR-para-selección"
+
+\end_inset
+
+Razonamiento Basado en Casos para selección de Servicios Web
+\end_layout
+
+\begin_layout Standard
+En esta sección se describe cada 
+\emph on
+paso
+\emph default
+ que compone al diagrama de flujo de la Figura
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Esquema-de-proceso"
+
+\end_inset
+
+.
+ El mismo comienza cuando se ingresa al sistema una consulta, un caso, con
+ 
+\emph on
+problema
+\emph default
+ y sin 
+\emph on
+solución
+\emph default
+, este es llamado 
+\emph on
+New Case
+\emph default
+, lo que sucede a continuación es que se compara uno a uno con los casos
+ de la base de conocimiento (
+\emph on
+Knowledge Base
+\emph default
+), los cuales poseen tanto 
+\emph on
+problema
+\emph default
+ como 
+\emph on
+solución
+\emph default
+.
+ Se calcula cuán distinto es el problema del nuevo 
+\emph on
+caso
+\emph default
+ con cada uno de los demás problemas, para esto se utiliza la funcion de
+ distancia del 
+\emph on
+Metamodelo.
+ 
+\emph default
+La distancia entre dos casos nos indica cuán parecido son sus problemas,
+ una distancia de 0.0 nos indica que los problemas son idénticos, por el
+ contrario una distancia de 4.0 nos indica que ambas interfaces son totalmente
+ incompatibles.
+ La distancia nos indica además, el esfuerzo que va a requerir adaptar ambas
+ interfaces, siendo 0.0 ningún esfuerzo, y 4.0 imposible.
+ Una distancia entre esos dos valores, nos indica que deberemos crear componente
+s para utilizar el patrón de diseño adapter
+\begin_inset CommandInset citation
+LatexCommand cite
+key "GoF"
+
+\end_inset
+
+ y, de esta manera permitir la compatibilidad entre ambos servicios.
+ Para seleccionar el servicio adecuado se útilizan métodos de selección
+ como 
+\emph on
+K-nn, WK-nn
+\emph default
+ y 
+\emph on
+DWK-nn
+\emph default
+.
+ 
+\emph on
+K-nn 
+\emph default
+consiste en tomar las 
+\emph on
+K
+\emph default
+ soluciones de los casos con menor distancia distancia y seleccionar la
+ mas frecuente (puesto a que dos casos en la base de conocimiento pueden
+ tener la misma solución), en caso de empate se elige la solución del caso
+ con menor distancia.
+ La misma pasa a ser la solución 
+\emph on
+ganadora
+\emph default
+ y es asignada al caso candidato (ahora 
+\emph on
+Solved Case
+\emph default
+).
+ Los métodos de selección 
+\emph on
+WK-nn
+\emph default
+ y 
+\emph on
+DWK-nn
+\emph default
+ son desarrollados en 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "par:Resolviendo-el-Caso"
+
+\end_inset
+
+.
+ El caso candidato se presenta al consumidor y éste decide si la solución
+ es compatible o no, en caso de que no lo sea, dicha solución es descartada
+ y el consumidor puede volver a iniciar el proceso de resolución si éste
+ lo desea.
+ 
+\end_layout
+
+\begin_layout Standard
+Si la solución es compatible, se evalúa la calidad de la respuesta, para
+ ésto se compara un valor de 
+\emph on
+threshold
+\emph default
+, si la solución tiene un valor MAYOR que el establecido, el nuevo caso
+ con su solución son agregados a la base de conocimiento y, de ésta manera,
+ es tomada en cuenta para futuras consultas.
+ En caso de que el valor sea menor que el establecido, este caso no se agrega,
+ debido a que generaría ruidos y posiblemente haría overfitting al proceso,
+ haciendo que al llegar un nuevo caso, genere falsos positivos, es decir
+ que diga que no hay distancia entre el caso requerido y la solución de
+ un caso de la base de conocimiento, cuando en realidad existe una distancia
+ significativa.
+\end_layout
+
+\begin_layout Standard
 \begin_inset Float figure
 wide false
 sideways false
@@ -233,7 +518,7 @@ status open
 
 \begin_layout Plain Layout
 \begin_inset Graphics
-	filename ImgChapter3/ASCO DIAGRAMA.png
+	filename ImgChapter3/usadas/CBR 4SS.png
 	lyxscale 70
 	width 100col%
 
@@ -265,257 +550,6 @@ Esquema de proceso propuesto
 
 \end_layout
 
-\end_inset
-
-
-\end_layout
-
-\begin_layout Section
-\begin_inset CommandInset label
-LatexCommand label
-name "sec:Metamodelo-para-descripción"
-
-\end_inset
-
-Metamodelo para descripción de Servicios Web
-\end_layout
-
-\begin_layout Standard
-Como se mencionó en la Sección
-\begin_inset space ~
-\end_inset
-
-
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "sec:SelectionMethodOld"
-
-\end_inset
-
- (Capítulo 2), anteriormente el Método de Selección de Servicios Web tomaba
- como entrada interfaces Java generadas a partir de documentos WSDL.
- Cuando estas interfaces se generan, por ejemplo, mediante la utilización
- de herramientas como EasyWSDL
-\begin_inset Foot
-status open
-
-\begin_layout Plain Layout
-http://easywsdl.com/
-\end_layout
-
-\end_inset
-
-, se pueden observar diversos inconvenientes y limitaciones.
- Como se explicó en el Capítulo 1, existen diversas versiones de WSDL que
- los proveedores de servicios utilizan y esto dificulta generalizar los
- procedimientos para parsear y explorar documentos WSDL.
- Al experimentar con diferentes herramientas hemos detectado que debido
- a tales diferencias, en algunos casos resulta imposible derivar interfaces
- Java, y en otros casos se derivan interfaces erróneas.
- Además, al considerar el surgimiento de otro tipo de Servicios Web como
- los servicios RESTful, que presentan interfaces distintivas mediante HTTP
- o WADL, se incrementa el desafío en el tratamiento generalizado de interfaces
- de servicios.
- Por lo tanto, es necesario contar con una especificación de contratos de
- Servicios Web, que sea independiente de cualquier tecnología de implementación.
- Por este motivo, utilizando como base los estándares mencionados en la
- Sección 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "subsec:Background"
-
-\end_inset
-
-, SoaML, WSDL y WADL, se ha definido e implementado un Metamodelo para Descripci
-ón de Contratos de Servicios Web.
- La Figura
-\begin_inset space ~
-\end_inset
-
-
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:Diagrama-de-clases"
-
-\end_inset
-
- muestra el diagrama de clases del metamodelo definido, que se explicará
- en la Sección 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "subsec:Vision-Detallada"
-
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename ImgChapter3/InterfaceMetamodel.png
-	lyxscale 50
-	width 90text%
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-Diagrama de clases del Metamodelo propuesto
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:Diagrama-de-clases"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Como se mencionó previamente, el metamodelo surge de la conjunción de estándares
- y criterios, a partir de los cuales se han definido las clases involucradas.
- En la Figura 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:Diagrama-de-Venn"
-
-\end_inset
-
- se aprecia la distribución de las clases en base al origen de cada una.
- Del estándar SoaML provienen las clases 
-\emph on
-Consumer
-\emph default
-,
-\emph on
- Provider
-\emph default
-,
-\emph on
- Interface
-\emph default
- y 
-\emph on
-Choreography
-\emph default
-.
- Del estándar WSDL 2.0 se definieron las clases 
-\emph on
-Operation
-\emph default
-, 
-\emph on
-Input
-\emph default
-, 
-\emph on
-Output
-\emph default
-, 
-\emph on
-Fault
-\emph default
-, 
-\emph on
-SimpleType
-\emph default
-, 
-\emph on
-ComplexType
-\emph default
- e 
-\emph on
-Interface
-\emph default
-.
- Se destaca que 
-\emph on
-Interface
-\emph default
- se encuentra en ambos estándares, convirtiéndose en el nexo entre las mismas.
- Para denotar la semántica esperada que permitirá realizar evaluaciones
- exhaustivas de servicios, se han creado clases adicionales, como son 
-\emph on
-Parameter
-\emph default
-, 
-\emph on
-Type
-\emph default
-, 
-\emph on
-ArrayType
-\emph default
- y 
-\emph on
-Attribute
-\emph default
-.
- 
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-placement H
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename ImgChapter3/DiagramaDeVennAnalisisDeClases.png
-	lyxscale 40
-	width 75col%
-
-\end_inset
-
-
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:Diagrama-de-Venn"
-
-\end_inset
-
-Diagrama de Venn para categorización de clases de acuerdo a los estándares
- utilizados 
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
 \begin_layout Subsection
 \begin_inset CommandInset label
 LatexCommand label
@@ -527,1357 +561,787 @@ Visión Detallada
 \end_layout
 
 \begin_layout Standard
-En esta sección se describe cada 
-\emph on
-clase
-\emph default
- que compone al diagrama de clases de la Figura
-\begin_inset space ~
-\end_inset
+\begin_inset Note Note
+status open
 
+\begin_layout Plain Layout
+Discutir en detalle cada una, ver el paper de CBR.
+ Por ejemplo:
+\end_layout
 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:Diagrama-de-clases"
+\begin_layout Plain Layout
+Numerar los pasos en la figura (find, resolve, revise, retrain, discard,
+ etc).
+ Luego usar esa numeración para describir cada parte del proceso en la visión
+ detallada.
+\end_layout
 
-\end_inset
+\begin_layout Plain Layout
+1.
+ Case Representation.
+ entra un caso (como esta compuesto?) que tiene que ver con el metamodelo?
+ Ejemplificar
+\end_layout
 
-.
- El mismo comienza por dos clases principales, que son las desencadenantes
- del comienzo del proceso de descubrimiento y selección de servicios, la
- clase 
-\emph on
-Consumer
-\emph default
-, y la clase 
-\emph on
-Provider
-\emph default
-.
- La clase 
-\emph on
-Consumer
-\emph default
- (Figura
-\begin_inset space ~
-\end_inset
+\begin_layout Plain Layout
+2.
+ KB.
+ Persistencia, noSQL , json-oriented.
+ Ejemplo!
+\end_layout
 
-3.3) reemplaza la especificación de 
-\begin_inset Formula $I_{R}$
-\end_inset
-
- de la Sección
-\emph on
+\begin_layout Plain Layout
+3.
+ Find Similarity (Case retrieval en el paper CBR).
+ se evalua segun la funcion (mostrar la funcion de distanca, explicarla).
+ Ejemplo.
  
-\emph default
+\end_layout
 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "sec:SelectionMethodOld"
+\begin_layout Plain Layout
+4.
+ Resolve Case (Reuse and Revision en CBR): Técnicas (knn, 1-nn) cual se
+ usó, por qué? Es configurable! No se está haciendo la parte de adaptación
+ del caso (debido al dominio de aplicación)
+\end_layout
 
-\end_inset
-
- por una interfaz – que denominamos 
-\begin_inset Formula $I_{C}$
-\end_inset
-
- (Interfaz a Consumir) – que representa las funcionalidades que necesita
- satisfacer cuando se consume el Servicio Web adecuado.
-
-\emph on
+\begin_layout Plain Layout
+5.
+ Evaluate and Case Retrain (Case Retraining en el paper de CBR).
  
-\emph default
-Por otro lado, la clase 
-\emph on
-Provider
-\emph default
- (Figura
-\begin_inset space ~
+\end_layout
+
 \end_inset
 
 
+\end_layout
+
+\begin_layout Paragraph
+Representación del Caso
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Como primer paso (Paso 1 Figura 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "fig:Diagrama-de-Provider"
+reference "fig:Esquema-de-proceso"
 
 \end_inset
 
-) reemplaza a la especificación 
-\begin_inset Formula $I_{S}$
-\end_inset
-
- (de la Sección 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "sec:SelectionMethodOld"
-
-\end_inset
-
-) por la interfaz que denominamos 
-\begin_inset Formula $I_{P}$
-\end_inset
-
- (Interfaz Provista), que representa al proveedor del servicio cuyas responsabil
-idades incluyen conocer el nombre del servicio (por ejemplo, servicio de
- alquiler de coches), y eventualmente podría contener datos propios del
- proveedor que se consideren relevantes.
- De esta forma, las especificaciones de la interfaz requerida (
-\begin_inset Formula $I_{R}$
-\end_inset
-
-) y de la interfaz del servicio (
-\begin_inset Formula $I_{S}$
-\end_inset
-
-), fueron reemplazadas por instancias de las clases 
+), es escencial definir como está compuesto un Caso a resolver, el mismo
+ consta con dos atributos principales, 
 \emph on
-Consumer
+problema
 \emph default
  y 
 \emph on
-Provider
-\emph default
- respectivamente, para adherir a la convención de nombrado del estándar
- SoaML.
- 
-\end_layout
-
-\begin_layout Standard
-La clase 
-\emph on
-Choreography 
-\emph default
-(Figura
-\begin_inset space ~
-\end_inset
-
-
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:Diagrama-de-Choreography"
-
-\end_inset
-
-) denota los pasos que se deben respetar a la hora de representar secuencias
- válidas de llamadas a operaciones de un servicio en particular.
- Durante el desarrollo de este trabajo se tomará como soporte a la explicación,
- un Servicio Web perteneciente al dominio de alquiler de automóviles (RentACar).
- Por ejemplo, una secuencia válida en dicho dominio sería llamar primero
- a una operación para comprobar si un auto está disponible para luego invocar
- a la operación para alquilar el mismo.
- Al momento de evaluar las responsabilidades del servicio, este aspecto
- secuencial resulta irrelevante.
- Sin embargo creemos que tiene mucho potencial a la hora de evaluar el comportam
-iento del servicio, puesto que la lógica que representa permite agregar
- claridad en el comportamiento esperado de la secuencialidad de llamadas
- a funciones específicas.
- Complementario a la clase 
-\emph on
-Choreography
-\emph default
- se debería proveer un diagrama auxiliar (por ejemplo, diagrama de secuencia
- UML) para denotar la lógica del orden de llamados para el uso de una función
- específica.
-\end_layout
-
-\begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-begin{figure}[!htb]
-\end_layout
-
-\begin_layout Plain Layout
-
-   
-\backslash
-begin {minipage}{0.3
-\backslash
-textwidth}
-\end_layout
-
-\begin_layout Plain Layout
-
-     
-\backslash
-centering
-\end_layout
-
-\begin_layout Plain Layout
-
-     
-\backslash
-includegraphics[width=1.0
-\backslash
-linewidth]{ImgChapter3/Consumer.png}
-\end_layout
-
-\begin_layout Plain Layout
-
-     
-\backslash
-caption{Diagrama de clase Consumer}
-\backslash
-label{Fig:Diagrama-de-Consumer}
-\end_layout
-
-\begin_layout Plain Layout
-
-   
-\backslash
-end{minipage}
-\backslash
-hfill
-\end_layout
-
-\begin_layout Plain Layout
-
-   
-\backslash
-begin{minipage}{0.3
-\backslash
-textwidth}
-\end_layout
-
-\begin_layout Plain Layout
-
-     
-\backslash
-centering
-\end_layout
-
-\begin_layout Plain Layout
-
-     
-\backslash
-includegraphics[width=1.0
-\backslash
-linewidth]{ImgChapter3/Provider.png}
-\end_layout
-
-\begin_layout Plain Layout
-
-     
-\backslash
-caption{Diagrama de clase Provider}
-\backslash
-label{fig:Diagrama-de-Provider}
-\end_layout
-
-\begin_layout Plain Layout
-
-   
-\backslash
-end{minipage}
-\backslash
-hfill
-\end_layout
-
-\begin_layout Plain Layout
-
-   
-\backslash
-begin {minipage}{0.3
-\backslash
-textwidth}
-\end_layout
-
-\begin_layout Plain Layout
-
-     
-\backslash
-centering
-\end_layout
-
-\begin_layout Plain Layout
-
-     
-\backslash
-includegraphics[width=1.0
-\backslash
-linewidth]{ImgChapter3/choreography.png}
-\end_layout
-
-\begin_layout Plain Layout
-
-     
-\backslash
-caption{Diagrama de clase Choreography}
-\backslash
-label{fig:Diagrama-de-Choreography}
-\end_layout
-
-\begin_layout Plain Layout
-
-   
-\backslash
-end{minipage}
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-end{figure}
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-La clase 
-\emph on
-Interface
-\emph default
- (Figura 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:Diagrama-de-Interfaz Interface"
-
-\end_inset
-
-) es la responsable de encapsular las operaciones que ofrece cada servicio,
- y cada instancia de 
-\emph on
-Interface
-\emph default
- está intimamente vinculada con 
-\emph on
-Consumer
-\emph default
- o 
-\emph on
-Provider
-\emph default
- dependiendo con quién se relacione explícitamente.
- El procedimiento de Análisis de Compatibilidad de Interfaces compara la
- instancia Interface del 
-\emph on
-Consumer 
-\emph default
-(lo esperado por el consumidor) con las instancias de cada Interface del
- servicio candidato 
-\emph on
-Provider
+solución
 \emph default
 .
- A su vez, 
+ El problema es una referencia a una instancia de la clase 
 \emph on
-Interface 
+Interface
 \emph default
-está compuesta por una lista de al menos una operación (
+ del 
 \emph on
-Operation
+Metamodelo
 \emph default
-, Figura
-\begin_inset space ~
-\end_inset
-
-
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:Diagrama-de-Interfaz-Operation"
-
-\end_inset
-
-).
-
+, de este modo, el 
 \emph on
- 
-\begin_inset Newline newline
-\end_inset
-
-
+problema
 \emph default
-La clase 
+ es una representación de la especificación técnica del servicio que se
+ desea resolver o ha sido resuelto previamente.
+ La 
 \emph on
-Operation 
+solución
 \emph default
-representa a cada una de las funciones operacionales provistas/solicitadas
- por cada proveedor/consumidor de un servicio.
- Cada operación está compuesta por su nombre (un identificador que describe
- semánticamente la función de la operación), puede o no tener una entrada
- (
+ es un atributo, que en los casos a resolver será 
 \emph on
-Input
+nulo
 \emph default
-, Figura
-\begin_inset space ~
-\end_inset
-
-
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:Diagrama-de-Interfaz-Input"
-
-\end_inset
-
-) y puede o no tener una salida (
+, pues el caso no está resuelto, y que en caso contrario tendrá como valor
+ un 
 \emph on
-Output
+String 
 \emph default
-, Figura
-\begin_inset space ~
-\end_inset
-
-
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:Diagrama-de-Interfaz-output"
-
-\end_inset
-
-).
- A su vez, podría o no tener una o más excepciones o fallas (
+indicando inequívocamente la 
 \emph on
-Faults
+ubicación 
 \emph default
-, Figura
-\begin_inset space ~
-\end_inset
-
-3.10).
- 
-\begin_inset Newline newline
-\end_inset
-
-La clase 
-\emph on
-Input
-\emph default
- (Figura 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:Diagrama-de-Interfaz-Input"
-
-\end_inset
-
-) representa los datos que la operación espera como entrada y está compuesto
- por un nombre y una lista de al menos un parámetro (
-\emph on
-Parameter
-\emph default
-, Figura
-\begin_inset space ~
-\end_inset
-
-
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:Diagrama-de-Interfaz-parameter"
-
-\end_inset
-
-) que actúa como entrada de la operación.
- 
-\begin_inset Newline newline
-\end_inset
-
-Inversamente, la clase 
-\emph on
-Output
-\emph default
- (Figura 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:Diagrama-de-Interfaz-output"
-
-\end_inset
-
-) representa la salida/retorno de una operación.
- En el metamodelo propuesto, la salida de una operación (
-\emph on
-Output
-\emph default
-) está compuesta por un nombre, que puede ser cualquier tipo de identificador
- que represente a la salida de la operación y un conjunto de parámetros
- que determina cada uno de los datos que son retornados por la operación
- del servicio.
- En la versión anterior de la Herramienta de Evaluación de Servicios Web,
- utilizando interfaces Java, las operaciones cuentan simplemente con un
- tipo de retorno, ya sea un tipo simple o un tipo complejo, y en caso de
- que la operación retorne distintos elementos, este deberá encapsular cada
- uno de estos, siendo que no necesariamente en conjunto conformen una entidad
- única.
- Por ejemplo, utilizando la clase 
-\emph on
-Fee
-\emph default
- (pago de tarifa) como salida de la operación, al agregarle un nombre de
- retorno, podremos dar información semántica del tipo de retorno que estamos
- brindando, si se instancia el nombre del parámetro con 
-\begin_inset Quotes eld
-\end_inset
-
-
-\emph on
-carFee
-\emph default
-
-\begin_inset Quotes erd
-\end_inset
-
- estamos diciendo que el pago será de autos.
- 
-\begin_inset Newline newline
-\end_inset
-
-En el contexto de los Servicios Web, la definición de excepciones representadas
- por la clase
-\emph on
- Fault
-\emph default
- no se han convertido en una práctica común 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "rodriguez2013best"
-
-\end_inset
-
- y de hecho, la mayoría de los WSDL no incluyen el detalle del manejo de
- excepciones.
+de la solución para dicho caso, éste puede ser la dirección web donde se
+ encuentra alojado el servicio web detallado en el problema, por ejemplo.
 \end_layout
 
 \begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-begin{figure}[!htb]
-\end_layout
-
-\begin_layout Plain Layout
-
-   
-\backslash
-begin{minipage}{0.3
-\backslash
-textwidth}
-\end_layout
-
-\begin_layout Plain Layout
-
-     
-\backslash
-centering
-\end_layout
-
-\begin_layout Plain Layout
-
-     
-\backslash
-includegraphics[width=1.0
-\backslash
-linewidth]{ImgChapter3/Interface.png}
-\end_layout
-
-\begin_layout Plain Layout
-
-     
-\backslash
-caption{Diagrama de clase Interface}
-\backslash
-label{fig:Diagrama-de-Interfaz Interface}
-\end_layout
-
-\begin_layout Plain Layout
-
-   
-\backslash
-end{minipage}
-\backslash
-hfill
-\end_layout
-
-\begin_layout Plain Layout
-
-   
-\backslash
-begin {minipage}{0.3
-\backslash
-textwidth}
-\end_layout
-
-\begin_layout Plain Layout
-
-     
-\backslash
-centering
-\end_layout
-
-\begin_layout Plain Layout
-
-     
-\backslash
-includegraphics[width=1.0
-\backslash
-linewidth]{ImgChapter3/Operation.png}
-\end_layout
-
-\begin_layout Plain Layout
-
-     
-\backslash
-caption{Diagrama de clase Operation}
-\backslash
-label{fig:Diagrama-de-Interfaz-Operation}
-\end_layout
-
-\begin_layout Plain Layout
-
-   
-\backslash
-end{minipage}
-\backslash
-hfill
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-end{figure}
-\end_layout
-
-\end_inset
-
-
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-begin{figure}[!htb]
-\end_layout
-
-\begin_layout Plain Layout
-
-   
-\backslash
-begin{minipage}{0.3
-\backslash
-textwidth}
-\end_layout
-
-\begin_layout Plain Layout
-
-     
-\backslash
-centering
-\end_layout
-
-\begin_layout Plain Layout
-
-     
-\backslash
-includegraphics[width=1.0
-\backslash
-linewidth]{ImgChapter3/Input.png}
-\end_layout
-
-\begin_layout Plain Layout
-
-     
-\backslash
-caption{Diagrama de clase Input}
-\backslash
-label{fig:Diagrama-de-Interfaz-Input}
-\end_layout
-
-\begin_layout Plain Layout
-
-   
-\backslash
-end{minipage}
-\backslash
-hfill
-\end_layout
-
-\begin_layout Plain Layout
-
-   
-\backslash
-begin {minipage}{0.3
-\backslash
-textwidth}
-\end_layout
-
-\begin_layout Plain Layout
-
-     
-\backslash
-centering
-\end_layout
-
-\begin_layout Plain Layout
-
-     
-\backslash
-includegraphics[width=1.0
-\backslash
-linewidth]{ImgChapter3/output.png}
-\end_layout
-
-\begin_layout Plain Layout
-
-     
-\backslash
-caption{Diagrama de clase Output}
-\backslash
-label{fig:Diagrama-de-Interfaz-output}
-\end_layout
-
-\begin_layout Plain Layout
-
-   
-\backslash
-end{minipage}
-\backslash
-hfill
-\end_layout
-
-\begin_layout Plain Layout
-
-   
-\backslash
-begin {minipage}{0.3
-\backslash
-textwidth}
-\end_layout
-
-\begin_layout Plain Layout
-
-     
-\backslash
-centering
-\end_layout
-
-\begin_layout Plain Layout
-
-     
-\backslash
-includegraphics[width=1.0
-\backslash
-linewidth]{ImgChapter3/Fault.png}
-\end_layout
-
-\begin_layout Plain Layout
-
-     
-\backslash
-caption{Diagrama de clase Fault}
-\backslash
-label{fig:Diagrama-de-fault}
-\end_layout
-
-\begin_layout Plain Layout
-
-   
-\backslash
-end{minipage}
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-end{figure}
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Para los tipos de datos se definió una clase abstracta llamada 
+Un 
 \emph on
-Type
+Caso
 \emph default
- (Figura 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:Diagrama-de-Interfaz-type"
-
-\end_inset
-
-), la cual es la superclase de todos los posibles tipos de datos.
- La clase 
-\emph on
-Type
-\emph default
- tiene tres subclases concretas: 
-\end_layout
-
-\begin_layout Itemize
-
-\emph on
-SimpleType
-\emph default
- (Figura 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:Diagrama-de-Interfaz-sympletype"
-
-\end_inset
-
-) representa todos los posibles tipos simples o primitivos como un valor
- numérico entero secuencial.
- La clase cuenta con las siguientes propiedades públicas y estáticas: 
-\emph on
-STRING, INTEGER, BOOLEAN, LONG, SHORT, DECIMAL, FLOAT, DOUBLE, BYTE, DATE_TIME,
- DATE, BASE64_BINARY, HEX_BINARY, BASE64, ANY_TYPE, NORMALIZEDSTRING, ANY_URI.
-
-\emph default
- Por convención, todas las variables se encuentran en mayúsculas por ser
- constantes.
- El atributo privado 
-\emph on
-type
-\emph default
- de la clase descrita sólo puede tomar el valor de alguna de dichas constantes.
- Por ejemplo para crear una instancia de un 
-\emph on
-SimpleType
-\emph default
- del tipo 
-\emph on
-short 
-\emph default
-hay que escribir la sentencia en el lenguaje Java correspondiente a 
-\emph on
-SimpleType shortType = new SimpleType (SimpleType.SHORT); 
-\emph default
-y de esta manera se evita que el programador tenga que saber cuál número
- entero representa la variable 
-\emph on
-SHORT, 
-\emph default
-lo que reduce posibles errores por parte del desarrollador.
-\end_layout
-
-\begin_layout Itemize
-La clase 
-\emph on
-ComplexType
-\emph default
- (Figura
-\begin_inset space ~
-\end_inset
-
-3.15) representa los tipos complejos utilizados en la operación de servicio.
- Los tipos complejos están compuestos por atributos (
-\emph on
-Attribute
-\emph default
-, Figura
-\begin_inset space ~
-\end_inset
-
-3.16), formados por un nombre (por ejemplo DNI, nombre, posición, etc) y
- un tipo que representa propiamente al tipo de atributo, puede ser de tipo
- simple, complejo o array.
- Es importante mencionar que la implementación propuesta permite el anidamiento
- de tipos complejos de distintos tipos, no exigiendo que sean todos de la
- misma clase.
-\end_layout
-
-\begin_layout Itemize
-
-\emph on
-ArrayType
-\emph default
- (Figura
-\begin_inset space ~
-\end_inset
-
-
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:Diagrama-de-Interfaz-arraytype"
-
-\end_inset
-
-) representa las colecciones tales como listas y arrays.
- Compuesto por el nombre del tipo propiamente dicho y el tipo de dato de
- los elementos contenidos.
- Si bien, a primera vista, 
-\emph on
-ArrayType 
-\emph default
-podría haberse representado con la clase 
-\emph on
-ComplexType,
-\emph default
- cabe destacar que la clase 
-\emph on
-ArrayType
-\emph default
- presenta un fuerte significado semántico y estructural, ya que indica que
- en su interior habrá una colección de objetos del mismo tipo.
+ sin solución va a ser introducido en nuestro CBR para obtener un nuevo
  
+\emph on
+Caso
+\emph default
+ con la solución más próxima que satisfaga las necesidades del problema.
 \end_layout
 
 \begin_layout Standard
-\begin_inset ERT
+En la figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:EjemploVersionCaseInstanciada"
+
+\end_inset
+
+ podemos observar el driagrama de clases instanciado para la representación
+ de un 
+\emph on
+Caso 
+\emph default
+cuyo problema es la interfaz definida en 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Ejemplo-Ilustrativo"
+
+\end_inset
+
+, en la misma se observa como el problema es la instancia de una interfaz,
+ la misma contiene cinco operaciones, a modo ilustrativo sólo se expandió
+ la operación 
+\emph on
+GET_/pet/{petId}
+\emph default
+ hasta llegar a los 
+\emph on
+tipos 
+\emph default
+utilizados
+\emph on
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
 status open
 
 \begin_layout Plain Layout
-
-
-\backslash
-begin{figure}[!htb]
-\end_layout
-
-\begin_layout Plain Layout
-
-   
-\backslash
-begin{minipage}{0.3
-\backslash
-textwidth}
-\end_layout
-
-\begin_layout Plain Layout
-
-     
-\backslash
-centering
-\end_layout
-
-\begin_layout Plain Layout
-
-     
-\backslash
-includegraphics[width=1.0
-\backslash
-linewidth]{ImgChapter3/Parameter.png}
-\end_layout
-
-\begin_layout Plain Layout
-
-     
-\backslash
-caption{Diagrama de clase Parameter}
-\backslash
-label{fig:Diagrama-de-Interfaz-parameter}
-\end_layout
-
-\begin_layout Plain Layout
-
-   
-\backslash
-end{minipage}
-\backslash
-hfill
-\end_layout
-
-\begin_layout Plain Layout
-
-   
-\backslash
-begin {minipage}{0.3
-\backslash
-textwidth}
-\end_layout
-
-\begin_layout Plain Layout
-
-     
-\backslash
-centering
-\end_layout
-
-\begin_layout Plain Layout
-
-     
-\backslash
-includegraphics[width=1.0
-\backslash
-linewidth]{ImgChapter3/Type.png}
-\end_layout
-
-\begin_layout Plain Layout
-
-     
-\backslash
-caption{Diagrama de clase Type}
-\backslash
-label{fig:Diagrama-de-Interfaz-type}
-\end_layout
-
-\begin_layout Plain Layout
-
-   
-\backslash
-end{minipage}
-\backslash
-hfill
-\end_layout
-
-\begin_layout Plain Layout
-
-   
-\backslash
-begin{minipage}{0.3
-\backslash
-textwidth}
-\end_layout
-
-\begin_layout Plain Layout
-
-     
-\backslash
-centering
-\end_layout
-
-\begin_layout Plain Layout
-
-     
-\backslash
-includegraphics[width=1.0
-\backslash
-linewidth]{ImgChapter3/SimpleType.png}
-\end_layout
-
-\begin_layout Plain Layout
-
-     
-\backslash
-caption{Diagrama de clase SimpleType}
-\backslash
-label{fig:Diagrama-de-Interfaz-sympletype}
-\end_layout
-
-\begin_layout Plain Layout
-
-   
-\backslash
-end{minipage}
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-end{figure}
-\end_layout
+\align center
+\begin_inset Graphics
+	filename ImgChapter3/usadas/OAS vs Metamodelo (instancia Case).png
+	lyxscale 80
+	width 100col%
+	scaleBeforeRotation
 
 \end_inset
 
 
-\end_layout
-
-\begin_layout Standard
-\begin_inset ERT
-status open
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
-
-
-\backslash
-begin{figure}[!htb]
-\end_layout
-
-\begin_layout Plain Layout
-
-   
-\backslash
-begin {minipage}{0.3
-\backslash
-textwidth}
-\end_layout
-
-\begin_layout Plain Layout
-
-     
-\backslash
-centering
-\end_layout
-
-\begin_layout Plain Layout
-
-     
-\backslash
-includegraphics[width=1.0
-\backslash
-linewidth]{ImgChapter3/ComplexType.png}
-\end_layout
-
-\begin_layout Plain Layout
-
-     
-\backslash
-caption{Diagrama de clase ComplexType}
-\backslash
-label{fig:Diagrama-de-Interfaz-complextype}
-\end_layout
-
-\begin_layout Plain Layout
-
-   
-\backslash
-end{minipage}
-\backslash
-hfill
-\end_layout
-
-\begin_layout Plain Layout
-
-   
-\backslash
-begin {minipage}{0.3
-\backslash
-textwidth}
-\end_layout
-
-\begin_layout Plain Layout
-
-     
-\backslash
-centering
-\end_layout
-
-\begin_layout Plain Layout
-
-     
-\backslash
-includegraphics[width=1.0
-\backslash
-linewidth]{ImgChapter3/Attribute.png}
-\end_layout
-
-\begin_layout Plain Layout
-
-     
-\backslash
-caption{Diagrama de clase Attribute}
-\backslash
-label{fig:Diagrama-de-Interfaz-attribute}
-\end_layout
-
-\begin_layout Plain Layout
-
-   
-\backslash
-end{minipage}
-\backslash
-hfill
-\end_layout
-
-\begin_layout Plain Layout
-
-   
-\backslash
-begin {minipage}{0.3
-\backslash
-textwidth}
-\end_layout
-
-\begin_layout Plain Layout
-
-     
-\backslash
-centering
-\end_layout
-
-\begin_layout Plain Layout
-
-     
-\backslash
-includegraphics[width=1.0
-\backslash
-linewidth]{ImgChapter3/ArrayType.png}
-\end_layout
-
-\begin_layout Plain Layout
-
-     
-\backslash
-caption{Diagrama de clase ArrayType}
-\backslash
-label{fig:Diagrama-de-Interfaz-arraytype}
-\end_layout
-
-\begin_layout Plain Layout
-
-   
-\backslash
-end{minipage}
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-end{figure}
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Section
 \begin_inset CommandInset label
 LatexCommand label
-name "sec:-Conversor de WSDLs"
+name "fig:EjemploVersionCaseInstanciada"
 
 \end_inset
 
-Conversor de WSDLs para instanciar el Metamodelo de Servicios Web
+Ejemplo de 
+\emph on
+Caso
+\emph default
+ instanciado para el caso de estudio
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph
+Base de conocimiento
+\begin_inset Newline newline
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
-En la Sección 
+Para el Razonamiento basado en casos es de suma importancia poseer una buena
+ base de conocimiento (Paso 2 Figura 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "subsec:Relación-entre-WSDL"
+reference "fig:Esquema-de-proceso"
 
 \end_inset
 
- se analiza la relación existente entre el estándar WSDL y el metamodelo
- propuesto, usando como soporte a la explicación un caso de estudio del
- dominio de alquileres de autos (RentACar).
- Esta relación será analizada en profundidad, detallando la funcionalidad
- de cada operación WSDL y la forma en la que se relacionan con el metamodelo.
- Finalmente se muestra un diagrama de objetos instanciados de acuerdo al
- caso de estudio.
+), pues justamente, es utilizada para buscar el mejor caso candidato entre
+ los casos previamente aprendidos.
+ Esta base de conocimientos o 
+\emph on
+KB
+\emph default
+ debe ser persistente entre distintas ejecuciones del 
+\emph on
+CBR
+\emph default
+, de otra manera, no se dispondran de los casos aprendidos en ejecuciones
+ pasadas.
+ Para la carga inicial se utilizaron servicios reales
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://apis.guru/openapi-directory
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+, por cada uno se genera una instancia del metamodelo con su especificación,
+ se toma la 
+\emph on
+interface
+\emph default
+ de la misma y se le asigna a como 
+\emph on
+problema 
+\emph default
+a un nuevo 
+\emph on
+caso
+\emph default
+, se le asigna la URL donde se encuentra actualmente el servicio como 
+\emph on
+solución
+\emph default
+ y luego el caso es cargado en la base de conocimiento, de esta manera,
+ el CBR posee una base de conocimiento inicial, con la cual comenzar la
+ comparación e ir incorporando nuevos casos según sea necesario.
 \end_layout
 
 \begin_layout Standard
-En la Sección
-\begin_inset space ~
-\end_inset
+Para el almacenamiento de esta base de conocimientos se decidió utilizar
+ una base de datos no-sql basada en documentos (no relacional) llamada MongoDB
+\begin_inset Foot
+status open
 
+\begin_layout Plain Layout
+\begin_inset Flex URL
+status open
 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "subsec:Proceso-de-selección"
+\begin_layout Plain Layout
 
-\end_inset
-
-, se explica como se construyó el componente Conversor del metamodelo propuesto,
- detallando las estructuras de datos analizadas y el proceso de análisis
- que se realiza para poder instanciar el metamodelo a partir de una descripción
- WSDL.
+https://www.mongodb.com/what-is-mongodb
 \end_layout
 
-\begin_layout Subsection
-\begin_inset CommandInset label
-LatexCommand label
-name "subsec:Relación-entre-WSDL"
-
-\end_inset
-
-Relación entre WSDL y Metamodelo
-\end_layout
-
-\begin_layout Standard
-En esta subsección se detalla la correlación entre el Metamodelo de Servicios
- Web y el estándar WSDL 2.0, para lo cual se utilizará un caso de estudio
- sencillo como soporte a la explicación.
- 
-\end_layout
-
-\begin_layout Paragraph*
-\begin_inset CommandInset label
-LatexCommand label
-name "par:Caso-de-estudio"
-
-\end_inset
-
-Caso de estudio
-\end_layout
-
-\begin_layout Standard
-Durante el desarrollo de este trabajo se tomará como soporte a la explicación,
- un Servicio Web perteneciente al dominio de alquiler de automóviles (RentACar).
- El diagrama de clases UML para este dominio es presentado en la Figura
-\begin_inset space ~
 \end_inset
 
 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig: caso de estudio-1"
+\end_layout
 
 \end_inset
 
 .
- En el dominio de alquiler de autos, el servicio está compuesto por 3 operacione
-s encapsuladas en la interfaz 
+ Se tomó esta desición puesto a que: 
+\end_layout
+
+\begin_layout Itemize
+El 
 \emph on
-RentACar
+Caso
 \emph default
-: 
+ que se desea almacenar se puede representar como un sólo documento, u objeto
+ JSON
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://www.json.org/
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+El lenguaje de marcado con el cual se guardan y editan los documentos es
+ JSON, el mismo que se utiliza en las especificaciones Swagger.
+\end_layout
+
+\begin_layout Itemize
+Salvo las instancias de las clases 
 \emph on
-getReservation
+SimpleType
 \emph default
 , 
 \emph on
-getCarFee
-\emph default
- y 
-\emph on
-getAvailableCars
-\emph default
-.
- La operación 
-\emph on
-getReservation
-\emph default
- es utilizada para buscar reservas a partir de un número de identificador,
- retornando un string con la reserva correspondiente.
- Para 
-\emph on
-getCarFee
-\emph default
-, dada una serie de comodidades que se desean que el vehículo a alquilar
- posea, retorna el costo del alquiler de un vehículo con estas características,
- a su vez 
-\emph on
-getCarFee 
-\emph default
-conoce las clases 
-\emph on
-Fee 
+ComplexType 
 \emph default
 y 
 \emph on
-CarSupplements
+ArrayType
 \emph default
-.
- Finalmente, 
-\emph on
-getAvailableCars
-\emph default
- es una operación que retorna la lista de vehículos disponibles entre un
- rango de fechas dado.
- En el Listado de Código 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "Documento WSDL 2.0 RentACar"
+, no vamos a tener otras instancias identicas entre sí 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+¿?
+\end_layout
 
 \end_inset
 
- se muestra un fragmento del documento WSDL 2.0 que describe el servicio
- 
+ que nos haga reducir espacio de almacenamiento al tener el registro cargado
+ una única vez en una tabla, y referenciando al mismo 
 \emph on
-RentACar
+ID 
+\emph default
+desde otra.
+\end_layout
+
+\begin_layout Itemize
+A la hora de consultar un caso siempre lo realizaremos desde la raíz del
+ mismo, y para decidir si es o no compatible tenemos que explorar todas
+ las relaciones, si utilizaramos una base de datos relacional y consultaramos
+ un 
+\emph on
+Case 
+\emph default
+cuyo problema consiste de una entrada, una salida, una falta y tenga al
+ menos un parametro de cada clase concreta de Type, esto se traduciría en
+ el acceso a todas las tablas (Case, Interface, Operation, Input, Output,
+ Fault, Parameter, ArrayType, SimpleType, ComplexType y Attribute) que implicarí
+a al menos once consultas o 
+\emph on
+hits
+\emph default
+ a la base de datos, por otro lado, si utilizamos una base de datos orientada
+ a documentos, por cada caso que deseamos comparar con el caso de entrada
+ realizaremos una sola consulta, o 
+\emph on
+hit
+\emph default
+ a la base de datos, utilizando la totalidad del documento, es decir, no
+ se habrán traído datos innecesarios.
+\end_layout
+
+\begin_layout Itemize
+La performance que ofrecen las bases de datos no relacionales frente a las
+ bases de datos relacionales es muy superior como se puede observar en 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+meter estudios de benchmark
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+Por otro lado, una común desventaja que presentan los sistemas de base de
+ datos no-sql frente a uno relacional, es la falta de las propiedades ACID,
+ MongoDB 4.0 CUMPLE ACID???? 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Probar MongoDB 4.0, si cumple acid decir que hasta la v 4.0 no se cumplía
+ acid, que a nosotros no nos importa xq necesitamos transaccion a nivel
+ de documento, en caso que cumpla ACID, decir que en muchos casos no se
+ cumple, que esa es una característica por la cual muchos no lo utilizan,
+ a nosotros no nos importa xq necesitamos transacción a nivel de documento,
+ pero si se cumple así que es lo mismo
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+MongoDB es un Sistema de Base de Datos basado en Documentos Open Source
+ ampliamente utilizada en el mercado, posicionándose dentro de los 10 Sistemas
+ de Base de Datos utilizados independientemente del típo (Relacional, Key-value,
+ basada en Documentos, orientada a Grafos, basada en series de tiempo, basada
+ en RDF, orientada a Objetos, motor de busqueda, basada en Wide column,
+ nativa XML, repositirio de contenidos, basada en eventos y Navigational)
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://db-engines.com/en/ranking
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+reemplazar por referencia incluyendo fecha de extracción?
+\end_layout
+
+\end_inset
+
+ y en el primer puesto dentro de los Sistemas de Base de Datos basados en
+ documentos
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://db-engines.com/en/ranking/document+store
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+.
+ El mismo se eligió ya que es el standar de facto en cuanto a Sistemas de
+ Base de Datos basados en documentos, es Open Source, lo cual nos brinda
+ flexibilidad si necesitaramos modificar su funcionamiento, posee una documentac
+ión muy completa 
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://docs.mongodb.com/manual
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+ y además es gratiuto incluso su última versión, al contrario de 
+\emph on
+Couchbase
+\emph default
+
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://www.couchbase.com/
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\emph on
+ 
+\emph default
+otro sistema de Base de Datos basado en Documentos Open Source, que la última
+ versión es paga, y la anterior a esa es gratiuta, tageada como CE (Comunity
+ Edition).
+\end_layout
+
+\begin_layout Standard
+En 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "Documento PetStore almacenado en MongoDB"
+
+\end_inset
+
+ se puede observar un fragmento de como quedaría un objeto JSON conteniendo
+ un 
+\emph on
+Caso
+\emph default
+ cuyo 
+\emph on
+problema
+\emph default
+ es la especificacion la instancia del metamodelo del ejemplo 
+\emph on
+PetStore
+\emph default
+ indicado en 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Ejemplo-Ilustrativo"
+
+\end_inset
+
+, dicho objeto JSON es almacenado en la Base de Conocimiento 
+\emph on
+KB
+\emph default
+ en el Sistema de Base de Datos MongoDB.
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "listing/petStore(mongo) (short).txt"
+lstparams "breaklines=true,basicstyle={\\ttfamily\\scriptsize},caption={Documento PetStore almacenado en MongoDB},label={Documento PetStore almacenado en MongoDB}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph
+Búsqueda de casos similares
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Un 
+\emph on
+Caso
+\emph default
+ sin 
+\emph on
+solución
+\emph default
+ va a ser introducido en nuestro CBR (Paso 3 Figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Esquema-de-proceso"
+
+\end_inset
+
+), cuyo 
+\emph on
+problema 
+\emph default
+va a constar de la especificación de la funcionalidad requerida.
+ Para obtener una solución a este nuevo 
+\emph on
+Caso
+\emph default
+, lo primero que se debe hacer es calcular la función de similitud (DIST),
+ como la distancia entre el nuevo 
+\emph on
+Caso 
+\emph default
+y cada caso perteneciente a la base de conocimientos 
+\emph on
+KB
+\emph default
+, de acuerdo a la formula 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:DIST"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "80col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula 
+\begin{equation}
+DIST(C^{N},C^{C})=\sum_{1}^{n}(w_{i}*sim_{i}(C_{i}^{N},C_{i}^{C}))\label{eq:DIST}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+
+\size small
+Donde 
+\begin_inset Formula $C^{N}$
+\end_inset
+
+ es el nuevo 
+\emph on
+Caso 
+\emph default
+a evaluar y 
+\begin_inset Formula $C^{C}$
+\end_inset
+
+ es el 
+\emph on
+Caso 
+\emph default
+candidato obtenido de la base de conocimientos 
+\emph on
+KB
 \emph default
 .
+\begin_inset VSpace 0.5cm
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Por cada atributo en la representación del caso definimos funciones de similitud
+ específicas 
+\begin_inset Formula $sim_{i}$
+\end_inset
+
+ y pesos 
+\begin_inset Formula $w_{i}$
+\end_inset
+
+ que serán detalladas en la sección 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Similitud-de-casos"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Se comparan los nombres de los servicios, cantidad de operaciones de los
+ mismos y luego se compara operación por operación buscando similitud de
+ parámetros de entrada y salida, a nivel sintáctico y semántico.
+\end_layout
+
+\begin_layout Standard
+Si tomamos como 
+\emph on
+Caso
+\emph default
+ a evaluar el ejemplo 
+\emph on
+PetStore
+\emph default
+ indicado en 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Ejemplo-Ilustrativo"
+
+\end_inset
+
+ y como 
+\emph on
+Caso
+\emph default
+ candidato 
+\emph on
+PetStoreFull
+\emph default
+ especificado en 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig: UML-CasoCandidatoPetStoreFull"
+
+\end_inset
+
+ al apicar la función de distancia nos da un valor de 
+\begin_inset Formula $0.153333$
+\end_inset
+
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+lo dejo así o agrego DIST(C,C)=0.153333
+\end_layout
+
+\end_inset
+
+ 
 \end_layout
 
 \begin_layout Standard
@@ -1890,9 +1354,8 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename ImgChapter3/casoDeEstudio.png
-	lyxscale 50
-	width 80text%
+	filename ImgChapter3/usadas/UML PetStoreFull.png
+	width 100col%
 
 \end_inset
 
@@ -1905,28 +1368,19 @@ status open
 \begin_layout Plain Layout
 \begin_inset CommandInset label
 LatexCommand label
-name "fig: caso de estudio-1"
+name "fig: UML-CasoCandidatoPetStoreFull"
 
 \end_inset
 
-Visión esquemática UML del Caso de estudio
+Visión esquemática UML del Caso candidato 
+\emph on
+PetStoreFull
 \end_layout
 
 \end_inset
 
 
 \end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset CommandInset include
-LatexCommand lstinputlisting
-filename "listing/Archivo-WSDL-2.0Recortado.txt"
-lstparams "caption={Documento WSDL 2.0 RentACar},label={Documento WSDL 2.0 RentACar}"
 
 \end_inset
 
@@ -1934,16 +1388,13 @@ lstparams "caption={Documento WSDL 2.0 RentACar},label={Documento WSDL 2.0 RentA
 \end_layout
 
 \begin_layout Paragraph
-WSDL 2.0 vs.
- Metamodelo
-\begin_inset Newline newline
+\begin_inset CommandInset label
+LatexCommand label
+name "par:Resolviendo-el-Caso"
+
 \end_inset
 
-
-\begin_inset space ~
-\end_inset
-
-
+Resolviendo el Caso
 \begin_inset Newline newline
 \end_inset
 
@@ -1951,159 +1402,1235 @@ WSDL 2.0 vs.
 \end_layout
 
 \begin_layout Standard
-En el fragmento de WSDL 2.0 – Listado de Código
+Una vez calculadas las distancias de cada uno de los casos candidatos con
+ respecto al nuevo 
+\emph on
+Caso
+\emph default
+ (Paso 4 Figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Esquema-de-proceso"
+
+\end_inset
+
+), las mismas son introducidas en una lista a modo de tupla 
+\begin_inset Formula $(Solución,\,Distancia)$
+\end_inset
+
+, luego ésta lista es ordenada según la distancia y utilizada con el fin
+ de encontrar el Caso Candidato final.
+\end_layout
+
+\begin_layout Standard
+Las estrategias para la selección de éste Caso Candidato final entre la
+ lista de casos candidatos son 
+\emph on
+1-nn
+\emph default
+, 
+\emph on
+K-nn
+\emph default
+, 
+\emph on
+WK-nn
+\emph default
+ y 
+\emph on
+DWK-nn
+\emph default
+.
+\end_layout
+
+\begin_layout Itemize
+
+\emph on
+1-nn
+\emph default
+ Consiste en simplemente seleccionar la 
+\emph on
+Solución
+\emph default
+ cuya 
+\emph on
+distancia
+\emph default
+ sea la menor.
+\end_layout
+
+\begin_layout Itemize
+
+\emph on
+k-nn 
+\emph default
+Consiste en tomar las 
+\emph on
+k 
+\emph default
+soluciones con menor distancia y tomar la 
+\emph on
+Solución
+\emph default
+ mas frecuente entre las mismas, en caso de empate se toma la 
+\emph on
+Solución
+\emph default
+ cuya distancia sea la menor.
+\end_layout
+
+\begin_layout Itemize
+
+\emph on
+WK-nn
+\emph default
+ o 
+\emph on
+weighted k-NN 
+\emph default
+y
+\emph on
+ DWK-nn 
+\emph default
+o 
+\emph on
+Distance-weighted knn 
+\emph default
+consisten en tomar las k soluciones con menor distancia, ponderar el peso
+ de cada solución con la fórmula 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:WKNN"
+
+\end_inset
+
+ en el caso de 
+\emph on
+WK-nn 
+\emph default
+o 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:DWKNN"
+
+\end_inset
+
+ en el caso de 
+\emph on
+DWK-nn
+\emph default
+, agrupar las mismas por solucion sumando el peso ponderado de cada una
+ y tomar la 
+\emph on
+Solución
+\emph default
+ con mayor peso, ambas estrategias nos permiten ...
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "80col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula 
+\begin{equation}
+w(i)=\frac{d^{k}-d^{i}}{d^{k}-d^{1}}\label{eq:WKNN}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula 
+\begin{equation}
+w(i)=\frac{d^{k}-d^{i}}{d^{k}-d^{1}}\times\frac{d^{k}+d^{1}}{d^{k}+d^{i}}\label{eq:DWKNN}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+
+\size small
+Donde 
+\begin_inset Formula $d^{k}$
+\end_inset
+
+ es la distancia de la solución en la posición 
+\emph on
+k
+\emph default
+, 
+\begin_inset Formula $d^{1}$
+\end_inset
+
+ es la distancia de la solución con menor distancia y 
+\begin_inset Formula $d^{i}$
+\end_inset
+
+ es la distancia en la posición a calcular el peso
+\begin_inset VSpace 0.5cm
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+La elección tanto de la estrategia a utilizar, así como del valor de 
+\emph on
+K 
+\emph default
+se realiza por medio de la configuración de variables de entorno a la hora
+ de ejecutar el algoritmo de CBR.
+\end_layout
+
+\begin_layout Standard
+Una vez que se obtiene el Caso Candidato final mediante la estrategia selecciona
+da, se toma la 
+\emph on
+solución 
+\emph default
+del mismo, y se devuelve.
+ 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+feedback de experto?
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Según la teoría de Case Based Reasoning, se puede realizar una adaptación
+ de la solución para que concuerde con el problema ingresado, en el dominio
+ en el que se desarrolla nuestro razonador esta adaptación se realizaría
+ de forma manual por el desarrollador, que busca una solución a su problema.
+ El mismo deberá realizar los cambios necesarios en su interfaz para que
+ la misma sea compatible con la interfaz de la solución brindada.
+\end_layout
+
+\begin_layout Standard
+La adaptación automática de 
+\emph on
+Casos
+\emph default
+ es un proceso complejo que queda fuera del alcanze de esta tesis y disponible
+ como trabajo a futuro.
+\end_layout
+
+\begin_layout Standard
+Si tomamos como 
+\emph on
+Caso
+\emph default
+ a evaluar el ejemplo 
+\emph on
+PetStore
+\emph default
+ indicado en 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Ejemplo-Ilustrativo"
+
+\end_inset
+
+, primer 
+\emph on
+Caso
+\emph default
+ candidato 
+\emph on
+PetStoreFull
+\emph default
+ con una distancia de 
+\begin_inset Formula $0.153333$
+\end_inset
+
+, otro 
+\emph on
+Caso
+\emph default
+ candidato 
+\emph on
+ClickMeter
+\emph default
+ y dos casos más cuya solución es 
+\emph on
+MoneyTransfer
+\emph default
+ con distancias de 
+\begin_inset Formula $0.8365$
+\end_inset
+
+, 
+\begin_inset Formula $0.985$
+\end_inset
+
+ y 
+\begin_inset Formula $1.53$
+\end_inset
+
+ respectivamente las estrategias se comportarían de la siguiente manera:
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+1-nn
+\series default
+ Seleccionaría 
+\emph on
+PetStoreFull
+\emph default
+, pues es la solución que posee menor distancia
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+k-nn
+\series default
+\emph on
+ 
+\emph default
+con 
+\emph on
+k
+\emph default
+<4 Seleccionaría 
+\emph on
+PetStoreFull
+\emph default
+, puesto que cada solución de los 
+\emph on
+k
+\emph default
+ casos de menor distancia tiene una frecuencia igual a uno, por lo tanto,
+ debido al empate, se toma la solución del caso cuya distancia sea la menor.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+k-nn
+\series default
+ con 
+\emph on
+k
+\emph default
+>=4 Seleccionaría 
+\emph on
+MoneyTransfer
+\emph default
+, puesto que dentro de los cuatro casos de menor distancia, la misma es
+ solución en dos de ellos.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+WK-nn
+\series default
+ Seleccionaría 
+\emph on
+PetStoreFull
+\emph default
+ ya que es la solución con mayor peso ponderado seguún la fórmula 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:WKNN"
+
+\end_inset
+
+, donde los pesos ponderados de cada solución son: 
+\begin_inset Formula $w(PetStoreFull)=1$
+\end_inset
+
+, 
+\begin_inset Formula $w(ClickMeter)=0.5737$
+\end_inset
+
+ y 
+\begin_inset Formula $w(MoneyTransfer)=0.3959$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+DWK-nn
+\series default
+\emph on
+ 
+\emph default
+Seleccionaría 
+\emph on
+PetStoreFull
+\emph default
+ ya que es la solución con mayor peso ponderado según la fórmula 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:DWKNN"
+
+\end_inset
+
+, donde los pesos ponderados de cada solución son: 
+\begin_inset Formula $w(PetStoreFull)=1$
+\end_inset
+
+, 
+\begin_inset Formula $w(ClickMeter)=0.3583$
+\end_inset
+
+ y 
+\begin_inset Formula $w(MoneyTransfer)=0.265$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph
+Evaluar y retener
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+En esta instancia (Paso 5 Figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Esquema-de-proceso"
+
+\end_inset
+
+), el 
+\emph on
+Razonador Basado en Casos 
+\emph default
+ya comparó el caso de entrada con el problema de cada uno de los casos en
+ la base de conocimientos (KB) y, se espera, haya encontrado una solución
+ al mismo en terminos de la similitud de atributos vista anteriormente.
+ Esta solución fue revisada y marcada como válida por el usuario experto,
+ es decir, es una solución válida y el problema introducido, junto con la
+ solución, pasan a ser un 
+\emph on
+caso probado
+\emph default
+.
+ El siguiente paso consiste en tomar la decisión respecto a si este caso
+ probado será añadido a la base de conocimientos, o no.
+ Por un lado, retener demasiados casos puede generar ruido en la evaluación,
+ disminuyendo la performance del razonador a largo plazo.
+ Por otro lado, si no se agregan casos nuevos, no hay aprendizaje, y el
+ razonador no será capaz de resolver correctamente nuevos casos.
+ Para prevenir que esto suceda se define un valor de threshold 
+\emph on
+(th)
+\emph default
+ o umbral
+\emph on
+ 
+\emph default
+sobre la función de distancia 
+\emph on
+(DIST)
+\emph default
+.
+ Dicho valor de umbral determina si el nuevo caso es retenido (
+\emph on
+caso aprendido
+\emph default
+) en la 
+\emph on
+KB
+\emph default
+.
+ Si el valor de la distancia es menor que el valor de threshold, entonces
+ el caso es agregado a la base de conocimientos como un caso relevante,
+ de otro modo es descartado.
+ El objetivo es prevenir el crecimiento incontrolable de la 
+\emph on
+KB,
+\emph default
+ y al mismo tiempo, mejorar la performance del razonador.
+ El valor de threshold o umbral es una constante que se configura mediante
+ una variable de entorno a la hora de ejecutar el algoritmo, la misma debería
+ tomar valores distintos dependiendo de la cantidad de casos iniciales.
+ Si la misma es baja, se debería utilizar un valor alto, permitiendo que
+ el razonador añada casos para enriquecer la KB.
+ Si el número de casos crece en un momento determinado, el valor de threshold
+ puede ser disminuido para agregar sólo casos relaventes.
+\end_layout
+
+\begin_layout Standard
+Suponiendo un valor de threshold de 
+\begin_inset Formula $1.0$
+\end_inset
+
+, si tomamos como 
+\emph on
+Caso probado
+\emph default
+ a 
+\emph on
+PetStore
+\emph default
+, definido en 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Ejemplo-Ilustrativo"
+
+\end_inset
+
+, cuya solución es 
+\emph on
+PetStoreFull
+\emph default
+ con una distancia de 
+\begin_inset Formula $0.153333$
+\end_inset
+
+, el mismo será agregado a nuestra base de conocimientos para experimentos
+ futuros.
+\end_layout
+
+\begin_layout Subsection
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:Similitud-de-casos"
+
+\end_inset
+
+Similitud de casos
+\end_layout
+
+\begin_layout Standard
+A continuación explicaremos como se evalúa, para cada atributo, la función
+ de similitud 
+\begin_inset Formula $sim$
+\end_inset
+
+ presentada en la formula 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:DIST"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Paragraph
+Nombre de servicios
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+La evaluación de los 
+\emph on
+nombres de servicios
+\emph default
+ consiste en comparar el atributo 
+\emph on
+nombre
+\emph default
+ entre el problema del 
+\emph on
+Caso candidato
+\emph default
+ y el del problema del 
+\emph on
+Caso
+\emph default
+ a evaluar.
+ Esta similitud va a ser calculada utilizando el algoritmo para los 
+\emph on
+Identificadores
+\emph default
+ (formula 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:sim-nombre-de-servicio"
+
+\end_inset
+
+), que considera la semántica en termino de identificadores, la misma tiene
+ en cuenta los exactos, sinónimos, hiponimos e hiperonimos.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+REFERENCIA TESIS LUCAS
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+El peso 
+\begin_inset Formula $w$
+\end_inset
+
+ que se le da al atributo 
+\emph on
+Nombre de servicios
+\emph default
+ es bajo (
+\begin_inset Formula $w=0.1$
+\end_inset
+
+), puesto a que no expresa de manera directa aspectos funcionales.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "80col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula 
+\begin{equation}
+sim(Id^{N},Id^{C})=\frac{exact+sin+0.5*(hipo+hiper)}{terms-sin}\label{eq:sim-nombre-de-servicio}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+
+\size small
+\begin_inset VSpace 0.5cm
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph
+Cantidad de Operaciones
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+La evaluación de 
+\emph on
+Cantidad de operaciones
+\emph default
+ consiste en comparar el valor numérico de tal atributo entre el problema
+ del 
+\emph on
+Caso candidato
+\emph default
+ y el problema del 
+\emph on
+Caso
+\emph default
+ a evaluar.
+\end_layout
+
+\begin_layout Standard
+La Similitud es calculada de acuerdo a la formula 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:sim-cantidad-operaciones"
+
+\end_inset
+
+.
+ Los Casos candidatos en la base de conocimiento KB con menos operaciones
+ que la funcionalidad requerida (problema) son consideradas como potencialmente
+ incompatibles, siendo penalizados como posibles soluciones.
+\end_layout
+
+\begin_layout Standard
+El peso 
+\begin_inset Formula $w$
+\end_inset
+
+ que se le asigna al atributo 
+\emph on
+Cantidad de operaciones
+\emph default
+ es alto (
+\begin_inset Formula $w=0.3$
+\end_inset
+
+) puesto a que expresa de manera directa aspectos funcionales (i.e., el número
+ de operaciones requeridas).
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "80col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula 
+\begin{equation}
+sim(\#op^{N},\#op^{C})=\begin{cases}
+\#op^{N}<=\#op^{C} & 1\\
+Sino & 0
+\end{cases}\label{eq:sim-cantidad-operaciones}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+
+\size small
+Donde 
+\begin_inset Formula $\#op^{N}$
+\end_inset
+
+ y 
+\begin_inset Formula $\#op^{C}$
+\end_inset
+
+ son los valores de los atributos 
+\emph on
+cantidad de operaciones
+\emph default
+ para el 
+\emph on
+Caso
+\emph default
+ a evaluar y el 
+\emph on
+Caso candidato
+\emph default
+ de la KB respectivamente
+\begin_inset VSpace 0.5cm
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph
+Operaciones
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+La evaluación de Operaciones consiste en evaluar las similitudes de este
+ complejo atributo entre el 
+\emph on
+problema
+\emph default
+ del 
+\emph on
+Caso candidato
+\emph default
+ y el 
+\emph on
+problema
+\emph default
+ del 
+\emph on
+Caso
+\emph default
+ a evaluar.
+\end_layout
+
+\begin_layout Standard
+La evaluación de similitud entre operaciones considera los aspectos semánticos
+ y estructurales que surgen de las definiciones de la operación.
+ Los aspectos estructurales implican la equivalencia de tipos de datos (subtipif
+icación), mientras que los aspectos semánticos implican conceptos de términos
+ e identificadores.
+\end_layout
+
+\begin_layout Standard
+Esta similitud se calcula de acuerdo a la formula 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:sim-operaciones"
+
+\end_inset
+
+, el calculo de similitud de elementos de signatura (Retorno + Excepciones
+ + Nombre + Parámetros) se detalla en XXXXXXXXXXXXXXX.
+\end_layout
+
+\begin_layout Standard
+Puesto a que el criterio principal de nuestro enfoque en la selección de
+ servicios es la similitud funcional, el peso 
+\begin_inset Formula $w$
+\end_inset
+
+ que se le asigna al atributo 
+\emph on
+Operaciones
+\emph default
+ es el mayor (
+\begin_inset Formula $w=0.6$
+\end_inset
+
+) y la función de similitud 
+\begin_inset Formula $sim$
+\end_inset
+
+ es la más compleja de este 
+\emph on
+Razonador Basado en Casos
+\emph default
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "80col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula 
+\begin{equation}
+sim(C^{N},C^{C})={\displaystyle \sum_{1}^{n}}\frac{(Max(simOp(op_{i}^{N},C^{C}))}{n}\label{eq:sim-operaciones}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+
+\size small
+Donde 
+\begin_inset Formula $n$
+\end_inset
+
+ es el numero de operaciones en 
+\begin_inset Formula $C^{C}$
+\end_inset
+
+ y 
+\begin_inset Formula $simOp$
+\end_inset
+
+ es el mejor valor de equivalencia 
+\begin_inset Formula $simOpValue(op_{i}^{C},op_{j}^{C})$
+\end_inset
+
+ para todo 
+\begin_inset Formula $op_{j}^{C}$
+\end_inset
+
+ en 
+\begin_inset Formula $C^{C}$
+\end_inset
+
+ 
+\begin_inset VSpace 0.5cm
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+El valor de similitud entre operaciones (
+\begin_inset Formula $simOpValue$
+\end_inset
+
+) entre una operación 
+\begin_inset Formula $op^{N}$
+\end_inset
+
+ y una operación potencialmente compatible 
+\begin_inset Formula $op^{C}$
+\end_inset
+
+ es calculada de acuerdo a la formula 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:sim-operacionesValue"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "80col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula 
+\begin{equation}
+simOpValue(op^{N},op^{C})=Ret+Exc+Nombre+Par\label{eq:sim-operacionesValue}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+
+\size small
+\begin_inset VSpace 0.5cm
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Cambios-necesarios"
+
+\end_inset
+
+Cambios necesarios
+\end_layout
+
+\begin_layout Standard
+En el diagrama de flujo de la Figura
 \begin_inset space ~
 \end_inset
 
 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "Documento WSDL 2.0 RentACar"
+reference "fig:Esquema-de-proceso"
 
 \end_inset
 
-, línea 78 a 81 –, se define para la interfaz (
+ se puede observar dentro del cuadro con bordes punteados como se componen
+ las clases pertenecientes al Metamodelo SoaML, el mismo cumple su función
+ como descriptor de interfaces, pero no tiene toda la información necesaria
+ para operar dentro del contexto de un CBR.
+\end_layout
+
+\begin_layout Standard
+Por lo tanto fue necesario realizar adaptaciones con el fin de operar dentro
+ del marco de 
 \emph on
-interface
+Razonamiento Basado en Casos (CBR)
 \emph default
-) del servicio, la operación (
+.
+\end_layout
+
+\begin_layout Standard
+Dichos cambios consisten en la creación de una nueva clase contenedora llamada
+ 
 \emph on
-operation
+Case
 \emph default
+, la misma posee un atributo llamado 
+\emph on
+problem
+\emph default
+, referenciando a la 
+\emph on
+Interface 
+\emph default
+descriptora del servicio, y otro atributo nombrado 
+\emph on
+solution
+\emph default
+, siendo éste un string que referencia unequivocamente la solución del problema
+ descripto, el mismo puede ser cadena nula si se trata de un nuevo caso
+ a consultar.
+\end_layout
+
+\begin_layout Standard
+Es de gran importancia para el funcionamiento del 
+\emph on
+Razonamiento Basado en Casos (CBR)
+\emph default
+ almacenar los casos en una 
+\emph on
+Base de Conocimiento 
+\emph default
+(
+\emph on
+Knowledge Base
+\emph default
+ o KB), en la cual luego podremos hacer consultas, para la implementación
+ de dicha base de conocimiento se decidió utilizar una Base de Datos basada
+ en documentos (NoSQL) llamada 
+\emph on
+Mongo
+\emph default
+.
+ Para poder almacenar nuestro caso en una base de datos lo ideal es serializarlo
+, para obtener el valor de la base de datos se debe des serializar.
+ Para realizar ambas acciones se optó por utilizar la librería 
+\emph on
+Jackson
+\emph default
+
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://github.com/FasterXML/jackson-module-kotlin
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+, que es el estardar de facto para realizar dichas tareas en Kotlin.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+kmongo
+\end_layout
+
+\end_inset
+
+ Debido a que 
+\emph on
+Parameter
+\emph default
+ referencia al tipo de dato abstracto 
+\emph on
+Type
+\emph default
+, al momento de des serializarlo es necesario especificar a qué clase concreta
+ pertenece el dato en cuestión, para ésto fue necesario modificar los constructo
+res de la clase 
+\emph on
+Type
+\emph default
+, añadiendo anotaciones 
+\emph on
+(Annotations
+\emph default
+
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://docs.oracle.com/javase/7/docs/technotes/guides/language/annotations.html
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\emph on
 ) 
-\emph on
-getAvailableCars
 \emph default
-, indicando la entrada y salida de la misma utilizando los tags 
-\emph on
-input
-\emph default
- y 
-\emph on
-output 
-\emph default
-respectivamente.
- Cada entrada y cada salida se representa como un elemento (
-\emph on
-element
-\emph default
-) del documento WSDL.
- Los elementos (
-\emph on
-elements
-\emph default
-) que conforman las entradas y salidas de las operaciones se detallan dentro
- del apartado 
-\emph on
-types
-\emph default
- del documento.
- Entre las líneas 2 y 68, se aprecia como se encuentra conformada la sección
- 
-\emph on
-types.
+a los mismos, las anotaciones siguen el patrón decorator
+\begin_inset CommandInset citation
+LatexCommand cite
+key "GoF"
 
-\emph default
- A su vez, la operación 
-\emph on
-getAvailableCars
-\emph default
- se detalla desde la línea 46 hasta la 66 inclusive.
- 
-\emph on
+\end_inset
 
-\begin_inset Note Note
-status collapsed
+.
+\end_layout
 
-\begin_layout Plain Layout
-
+\begin_layout Standard
+Con estos cambios fue posible la utilización del Metamodelo SoaML dentro
+ del contexto de 
 \emph on
-getCarFee
+Razonamiento Basado en Casos (CBR)
 \emph default
 .
 \end_layout
 
-\begin_layout Plain Layout
-La estructura de entradas de la operación y salidas de la misma (
-\emph on
-getCarFeeInput
-\emph default
- y 
-\emph on
-getCarFeeOutput
-\emph default
-) se definen como dos elementos (element) etiquetados como 
-\emph on
-tns:getCarFeeInput
-\emph default
- y 
-\emph on
-tns:getCarFeeOutput
-\emph default
- respectivamente.
- 
+\begin_layout Section
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:-Conversor de OAS"
+
+\end_inset
+
+Conversor Swagger para instanciar el Metamodelo de Servicios Web
 \end_layout
 
-\begin_layout Plain Layout
-Como se puede observar 
-\emph on
-getCarFeeInput
-\emph default
- se define como un tipo de dato complejo, en el cual se encapsulan los datos
- que recibe como entrada la operación.
- Dentro de 
-\emph on
-getCarFeeInput 
-\emph default
-se definen los accesorios (
-\emph on
-supplements
-\emph default
-) que tiene el vehículo, siendo 
-\emph on
-supplements 
-\emph default
-un tipo complejo compuesto por dos 
-\emph on
-elements
-\emph default
-, 
-\emph on
-airCondition 
-\emph default
-y 
-\emph on
-automatic
-\emph default
-, ambos de tipo 
-\emph on
-boolean
-\emph default
-.
- 
+\begin_layout Standard
+En la Sección 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Relación-entre-OAS"
+
+\end_inset
+
+ se analiza la relación existente entre el estándar Swagger y el metamodelo
+ utilizado como modelador de problema, utilizando como soporte a la explicación
+ un caso de estudio.
+ Esta relación se analizará en profundidad, detallando la relación entre
+ los componentes del Metamodelo y los de Swagger.
+ Finalmente se muestra un diagrama de objetos instanciados de acuerdo al
+ caso de estudio.
+\end_layout
+
+\begin_layout Standard
+En la Sección
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Construcción-del-instanciador"
+
+\end_inset
+
+, se explica como se construyó el componente Conversor del metamodelo propuesto,
+ detallando las estructuras de datos analizadas y el proceso de análisis
+ que se realiza para poder instanciar el metamodelo a partir de una descripción
+ swagger.
+\end_layout
+
+\begin_layout Standard
 \begin_inset Note Note
-status collapsed
+status open
 
 \begin_layout Plain Layout
-A su vez, al ser hijo directo del primer complexType (reescribir en caso
- de ser necesario) 
-\emph on
-supplements 
-\emph default
-es de la clase parameter del metamodelo propuesto.
- Además esta entidad compleja posee dos atributos (Attributes en el metamodelo),
- cada uno de los cuales contiene un tipo simple de datos: 
-\emph on
-airCondition
-\emph default
- de la categoría booleano, que representa si el auto posee o no aire acondiciona
-do y 
-\emph on
-automatic
-\emph default
- de la categoría arreglo de caracteres, que indica si el auto tiene caja
- manual o automática.
- 
+Casi todo lucas
 \end_layout
 
 \end_inset
@@ -2111,176 +2638,300 @@ automatic
 
 \end_layout
 
-\begin_layout Plain Layout
-Similar a 
-\emph on
-getCarFeeInput
-\emph default
-, 
-\emph on
-getCarFeeOutput 
-\emph default
-encapsula la salida de la operación 
-\emph on
-getCarFee
-\emph default
-.
- Dentro de esta salida se define el tipo complejo 
-\emph on
-cost
-\emph default
-, compuesto por dos 
-\emph on
-elements
-\emph default
-: 
-\emph on
-chargeCost
-\emph default
- y 
-\emph on
-currency
-\emph default
-, de tipo 
-\emph on
-double 
-\emph default
-y 
-\emph on
-normalizedString 
-\emph default
-respectivamente.
-\end_layout
+\begin_layout Subsection
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:Relación-entre-OAS"
 
 \end_inset
 
+Relación entre Swagger y Metamodelo
+\end_layout
 
-\emph default
-
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Plain Layout
-Para concluir con los tipos de datos presentados en el metamodelo, se explica
- el tipo de dato ArrayType en el siguiente fragmento de documento WSLD.
- La operación getAvailableCars nos entrega los autos disponibles dado un
- periodo de tiempo conformado por dos fechas.
- La salida de dicha operación, 
-\emph on
-GetAvailableCarsOutput
-\emph default
- retorna un arreglo de tipos complejos 
-\emph on
-car.
- 
-\emph default
-Cada auto a su vez se encuentra conformado por tres atributos: 
-\emph on
-brand
-\emph default
-, 
-\emph on
-model
-\emph default
- y 
-\emph on
-description
-\emph default
- siendo respectivamente la marca, el modelo (año de fábrica) y una breve
- descripción del vehículo.
- 
-\emph on
-Brand
-\emph default
- y 
-\emph on
-description
-\emph default
- son de tipo de dato simple string mientras que 
-\emph on
-model
-\emph default
- es un número entero.
+\begin_layout Standard
+En esta subsección se detalla la correlación entre el estándar Swagger y
+ el Metamodelo de Servicios Web, para lo cual se utilizará un caso de estudio
+ sencillo como soporte a la explicación.
  
 \end_layout
 
+\begin_layout Paragraph*
+\begin_inset CommandInset label
+LatexCommand label
+name "par:Caso-de-estudio"
+
+\end_inset
+
+Caso de estudio
+\begin_inset Newline newline
 \end_inset
 
 
 \end_layout
 
 \begin_layout Standard
-Por un lado, 
+En el Listado de Código 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "Documento OAS PetStore"
+
+\end_inset
+
+ se muestra un fragmento de la espicificación swagger que describe el servicio
+ 
 \emph on
-getAvailableCarsInput 
+PetStore
 \emph default
-– línea 46 – es un tipo complejo que encapsula la entrada de dicha operación.
- La misma está compuesta por dos elementos (
+ descripto en 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Ejemplo-Ilustrativo"
+
+\end_inset
+
+, en el mismo se han eliminado las operaciones que no se utilizaran para
+ explicar la relación entre la especificación swagger y el Metamodelo, la
+ especificación completa se encuentra en XXXX
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Apéndice con la especificación completa, no la ofrecemos, o pongo el link?
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "listing/petStore (ejemplo).txt"
+lstparams "breaklines=true,basicstyle={\\ttfamily\\scriptsize},caption={Documento OAS PetStore},label={Documento OAS PetStore}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph
+Swagger vs.
+ Metamodelo
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+En el fragmento de Swagger – Listado de Código
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "Documento OAS PetStore"
+
+\end_inset
+
+, línea 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+DEFINIR
+\end_layout
+
+\end_inset
+
+ –, se define para la interfaz (
 \emph on
-element
+interface
 \emph default
-), 
+) del servicio.
+ Entre las líneas 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+DEFINIR
+\end_layout
+
+\end_inset
+
+, se aprecia como se encuentra conformada la sección 
 \emph on
-initDate
+definitions
+\emph default
+, en donde se detallan tipos de datos complejos disponibles dentro de la
+ especificación y entre las lineas 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+DEFINIR
+\end_layout
+
+\end_inset
+
+ se encuentra detallada la operación (
+\emph on
+operation
+\emph default
+) 
+\emph on
+GET_/pet/{petId}
+\emph default
+, indicando la entrada y salida de la misma utilizando las keys 
+\emph on
+parameters
 \emph default
  y 
 \emph on
-endDate
+responses[200] 
 \emph default
-, ambos del tipo fecha (
+respectivamente.
+ 
+\end_layout
+
+\begin_layout Standard
+Por un lado, 
 \emph on
-simple date
+parameters 
+\emph default
+– línea 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+46
+\end_layout
+
+\end_inset
+
+ – define la entrada de dicha operación.
+ La misma está compuesta por un objeto del tipo entero (
+\emph on
+integer - int64
 \emph default
 ).
- Por otro lado, 
+ Por otro lado, el objeto dentro de la clave 
 \emph on
-getAvailableCarsOutput 
+200
 \emph default
-– línea 54 – es un tipo complejo que encapsula la salida de la operación,
- compuesta por una colección de autos (
+, dentro del objeto 
 \emph on
-car
+response 
 \emph default
-), donde cada auto es definido por tres elementos (
+– línea 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+54
+\end_layout
+
+\end_inset
+
+ – es un objeto que encapsula la salida de la operación, cuyo esquema es
+ una referencia a 
 \emph on
-element
+#/definitions/Pet
 \emph default
-), 
+, lo que nos indica que debemos ver la definición de la propiedad 
 \emph on
-brand, model y description
+Pet
+\emph default
+ del objeto 
+\emph on
+definitions
+\emph default
+, la misma define sus propiedades en el atributo 
+\emph on
+properties
+\emph default
+, compuesto por: un identificador 
+\emph on
+id
+\emph default
+, una categoría 
+\emph on
+category
+\emph default
+, un nombre 
+\emph on
+name
+\emph default
+ y un listado de fotos 
+\emph on
+photoUrls
 \emph default
 .
- Nótese que dicho tipo de dato es una colección de 
-\emph on
-car 
-\emph default
-ya que la propiedad 
-\emph on
-maxOccurs 
-\emph default
-dentro del tag 
-\emph on
-sequence 
-\emph default
-tiene el valor 
-\emph on
-unbounded
-\emph default
-, lo que significa que la máxima ocurrencia de objetos para este tipo de
- dato es ilimitada.
- 
 \end_layout
 
 \begin_layout Standard
 En la Figura 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "fig:EjemploVersionInstanciadaConDOM"
+reference "fig:Componentes-de-Operacion"
+
+\end_inset
+
+ se observa la especificación de la operación 
+\emph on
+GET_/pet/{petId} 
+\emph default
+y se encuadran los distintos componentes resultantes del metamodelo.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+agregar texto
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+En la Figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Componentes-de-Tipos-de-datos"
+
+\end_inset
+
+ se observa la especificación de los distintos tipos de datos disponibles
+ en la 
+\emph on
+interfaz
+\emph default
+, y se encuadran los distintos mapeos disponibles en el metamodelo.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+agregar texto
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+En la Figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:EjemploVersionInstanciada"
 
 \end_inset
 
  se muesta el diagrama de objetos que representa la salida (instancia del
- metamodelo) generada por el componente Conversor para el documento WSDL
+ metamodelo) generada por el componente Conversor para el documento swagger
  utilizado como ejemplo.
  Es importante destacar que la estructura de datos utilizada generará una
  sola vez los tipos de datos, y si fuera necesario realizar otra instancia
@@ -2300,7 +2951,7 @@ string
 En el diagrama de objetos de la Figura 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "fig:EjemploVersionInstanciadaConDOM"
+reference "fig:EjemploVersionInstanciada"
 
 \end_inset
 
@@ -2310,18 +2961,11 @@ Interface
 \emph default
 , llamada 
 \emph on
-RentACar
+PetStore
 \emph default
  la cual agrupa las operaciones que ofrece el servicio.
- Recordamos que este servicio cuenta con tres operaciones, 
-\emph on
-getReservation, getCarFee
-\emph default
- y 
-\emph on
-getAvailableCars
-\emph default
-, cada una asociada a su respectiva entrada y salida (
+ Recordamos que este servicio cuenta con cuatro operaciones, cada una asociada
+ a su respectiva entrada y salida (
 \emph on
 input
 \emph default
@@ -2332,133 +2976,88 @@ output
 ).
  A su vez cada entrada/salida está relacionada con los parámetros que las
  componen.
- A fines de mostrar resumidamente como quedaría el grafo, solo se detalla
- la función getAvailableCars.
- Podemos destacar que 
-\begin_inset Note Note
-status collapsed
+ Con el fin de mostrar a manera resumida como queda la instancia del metamodelo,
+ solo se detalla la función 
+\emph on
+GET_/pet/{petId}
+\emph default
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
 
 \begin_layout Plain Layout
-el parámetro 
-\emph on
-supplements
-\emph default
-, correspondiente a la entrada (
-\emph on
-Input
-\emph default
-) de la operación 
-\emph on
-getCarFee
-\emph default
-, es un tipo complejo formado por los atributos (
-\emph on
-Attribute
-\emph default
-) 
-\emph on
-automatic
-\emph default
- y 
-\emph on
-airCondition
-\emph default
-, ambos asociados al tipo simple (
-\emph on
-SimpleType
-\emph default
-) boolean.
- El parámetro 
-\emph on
-cost
-\emph default
- (incluido en la salida de la operación 
-\emph on
-getCarFee
-\emph default
-) también es un tipo complejo y se encuentra conformado por los atributos
- 
-\emph on
-chargeCost
-\emph default
- (asociado al tipo simple 
-\emph on
-double
-\emph default
-) y 
-\emph on
-currency
-\emph default
- (asociado al tipo simple 
-\emph on
-String
-\emph default
-).
- Por otro lado,
+\begin_inset Graphics
+	filename ImgChapter3/usadas/getPetById-(anotado).png
+	width 100col%
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Componentes-de-Operacion"
+
+\end_inset
+
+Componentes de Operación
 \end_layout
 
 \end_inset
 
- para la operación 
-\emph on
-getAvailableCars
-\emph default
- se define como entrada el objeto llamado 
-\emph on
-getAvailableCarInput
-\emph default
- de la clase 
-\emph on
-Input
-\emph default
-.
- Dicha entrada se encuentra conformada por dos parámentros asociados al
- tipo simple 
-\emph on
-date
-\emph default
-, que hacen referencia a la fecha de inicio y fin respectivamente.
- La salida de esta operación está compuesta por un parámetro llamado 
-\emph on
-cars
-\emph default
-, que representa a los autos disponibles entre las fechas ingresadas como
- entrada de la operación.
- El parámetro 
-\emph on
-cars
-\emph default
-, es asociado a una instancia de la clase 
-\emph on
-ArrayType
-\emph default
- llamada de la misma manera, que a su vez posee como 
-\emph on
-contentType
-\emph default
- una instancia de la clase 
-\emph on
-ComplexType
-\emph default
- llamada 
-\emph on
-Car
-\emph default
- (que representa a cada automovil individualmente).
- En resumen, la salida de esta operación es un arreglo (
-\emph on
-ArrayType
-\emph default
-) de automoviles (
-\emph on
-Car
-\emph default
-).
- De cada auto (
-\emph on
-Car
-\emph default
-) conoce su modelo, marca y una breve descripción.
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename ImgChapter3/usadas/getPetByIdDefinitions-(anotado).png
+	width 100col%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Componentes-de-Tipos-de-datos"
+
+\end_inset
+
+Componentes de Tipos de datos
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -2470,9 +3069,9 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename ImgChapter3/ejemploDeWsdlInstanciadoMetamodelo.png
-	lyxscale 50
-	width 70text%
+	filename ImgChapter3/usadas/OAS vs Metamodelo (instancia).png
+	lyxscale 80
+	width 100col%
 	scaleBeforeRotation
 
 \end_inset
@@ -2483,11 +3082,1433 @@ status open
 \begin_layout Plain Layout
 \begin_inset CommandInset label
 LatexCommand label
-name "fig:EjemploVersionInstanciadaConDOM"
+name "fig:EjemploVersionInstanciada"
 
 \end_inset
 
 Ejemplo de metamodelo instanciado para el caso de estudio
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph
+Estructuras
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+En la tabla 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:Correspondencia-Estructura"
+
+\end_inset
+
+ se ilustra como es el mapeo estructural de una especificación Swagger a
+ la estructura propuesta en el Metamodelo.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+
+\size footnotesize
+\begin_inset Tabular
+<lyxtabular version="3" rows="15" columns="2">
+<features tabularvalignment="middle">
+<column alignment="left" valignment="top" width="32text%">
+<column alignment="left" valignment="top" width="60text%">
+<row>
+<cell multicolumn="1" alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Swagger
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="1" alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Metamodelo
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Especificación
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Interface
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Definitions
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+ComplexTypes disponibles.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+Property
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Attribute del ComplexType
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Método HTTP en Path
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Operation
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Parameter
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Parameter del Input
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+Type y Format
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+SimpleType de Parameter Input
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+Schema
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+ComplexType o ArrayType de Parameter Input
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Response
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Parameter del Output o Fault
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+Type y Format
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+SimpleType de Parameter Output
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+Schema
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+ComplexType o ArrayType de Parameter Output
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Type=array
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+ArrayType
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+items.type
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Type del ArrayType
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Type=object
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+ComplexType
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+properties
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Attributes del ComplexType
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:Correspondencia-Estructura"
+
+\end_inset
+
+Correspondencia estructural Swagger con Metamodelo
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph
+Tipos de datos simple
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Los tipos de datos primitivos en la especificación Swagger se basan en los
+ tipos admitidos por la Especificación de esquema JSON (Borrador 00)
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://tools.ietf.org/html/draft-wright-json-schema-00#section-4.2
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+.
+ Null no es compatible como tipo.
+ 
+\end_layout
+
+\begin_layout Standard
+Los tipos de datos primitivos tienen una propiedad modificadora opcional:
+ 
+\emph on
+format
+\emph default
+.
+ La especificación Swagger utiliza varios formatos conocidos para definir
+ en detalle el tipo de datos que se utiliza.
+ Sin embargo, para mantener las necesidades de la documentación, la propiedad
+ format puede tener cualquier valor.
+ Los formatos como "email", "uuid", etc., pueden usarse aunque no estén definidos
+ por esta especificación.
+ Los tipos que no poseen la propiedad format siguen la definición de tipo
+ del esquema JSON.
+ Ésta herramienta, al no encontrarse con un format no especificado puede
+ utilizar el tipo predeterminado.
+\end_layout
+
+\begin_layout Standard
+Adicionalmente, un tipo de dato primitivo “file” es usado por el objeto
+ Parameter y Response para denotar que el tipo del parámetro o de respuesta
+ es un archivo.
+ 
+\end_layout
+
+\begin_layout Standard
+Todos los tipos de datos simple soportados por la especificación Swagger
+ están incluidos en los tipos de datos definidos por el Metamodelo, como
+ se puede observar en el Cuadro 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:Correspondencia-Tipos-de-datos"
+
+\end_inset
+
+.
+ El mismo contiene cinco columnas, en la columna 
+\emph on
+Nombre
+\emph default
+ se puede observar el nombre coloquial que se le da al tipo de dato, las
+ columnas 
+\emph on
+Type
+\emph default
+ y 
+\emph on
+Format
+\emph default
+ son las propiedades que definen el dato en la especificación, y por último
+ la columna 
+\emph on
+SimpleType 
+\emph default
+indica el 
+\emph on
+tipo 
+\emph default
+que se le asigna a la instancia de SimpleType correspondiente.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+
+\size scriptsize
+\begin_inset Tabular
+<lyxtabular version="3" rows="13" columns="5">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top" width="9text%">
+<column alignment="center" valignment="top" width="8text%">
+<column alignment="center" valignment="top" width="8.5text%">
+<column alignment="center" valignment="top" width="35text%">
+<column alignment="center" valignment="top" width="18text%">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+Nombre
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+Type
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+Format
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+Comentarios
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+SimpleType
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+integer
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+integer
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+int32
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+32 bits con signo
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+INTEGER
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+long
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+integer
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+int64
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+64 bits con signo
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+LONG
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+float
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+number
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+float
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+FLOAT
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+double
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+number
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+double
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+DOUBLE
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+string
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+string
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+STRING
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+byte
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+string
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+byte
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+Caracteres codificados en base64
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+BASE64
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+binary
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+string
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+binary
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+Cualquier secuencia de octales
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+BYTE
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+boolean 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+boolean
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+BOOLEAN
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+date
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+string
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+date
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+Como se define full-date en RFC3339
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+
+\size scriptsize
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://xml2rfc.ietf.org/public/rfc/html/rfc3339.html#anchor14
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+DATE
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+dateTime
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+string
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+date-time
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+Como se define date-time en RFC3339
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+DATE_TIME
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+password
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+string 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+password
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+Especifica que la UI debe ofuscar el input
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+STRING
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+file
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+file
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+BASE64_BINARY
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:Correspondencia-Tipos-de-datos"
+
+\end_inset
+
+Correspondencia Tipos de datos Simple con Metamodelo
 \end_layout
 
 \end_inset
@@ -2511,7 +4532,7 @@ Construcción del Conversor
 \end_layout
 
 \begin_layout Standard
-En los párrafos siguientes se detallan los pasos principales para la construcció
+En los siguientes párrafos se detallan los pasos principales para la construcció
 n del Conversor.
  Primeramente fue necesario analizar las herramientas que se encuentran
  disponibles que podrían ser potencialmente útiles a la hora de implementar
@@ -2525,50 +4546,155 @@ n del Conversor.
 \begin_layout Paragraph
 \begin_inset CommandInset label
 LatexCommand label
+name "par:Selección-del-lenguaje"
+
+\end_inset
+
+Selección del lenguaje de programación utilizado
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+El Metamodelo y la herramienta de evaluación de servicio web están realizadas
+ en Java, Java es un lenguaje muy popular, pero a veces se suele desperdiciar
+ mucho tiempo, o caracteres, en escribir lógica que se podría redactar de
+ manera más simple o en escribir la misma lógica una y otra vez.
+ Es por ello, entre otras cosas, que se decidió usar Kotlin, un lenguaje
+ que se ejecuta sobre la JVM (Java Virtual Machine) y simplifica el trabajo
+ del desarrollador, el cual pasa menos tiempo escribiendo lógica ajena al
+ dominio.
+ Un aspecto importante que destacar es que Kotlin al compilar a Bytecode
+ y correr sobre la JVM, es totalmente interoperable con Java, es decir,
+ desde nuestro código Kotlin podemos utilizar clases y métodos Java y viceversa,
+ inclusive podemos tener un proyecto mixto, en donde coexistan clases Java
+ y Kotlin dentro del mismo entorno de desarrollo.
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset label
+LatexCommand label
+name "ventajas-kotlin"
+
+\end_inset
+
+Entre algunas de las ventajas de Kotlin, se encuentran: 
+\end_layout
+
+\begin_layout Itemize
+Constructores de clase por defecto, sólo es necesario declarar las variables
+ de clase una vez.
+\end_layout
+
+\begin_layout Itemize
+
+\emph on
+Setters
+\emph default
+ y 
+\emph on
+getters
+\emph default
+ implícitos, es decir, a menos que se desee cambiar el comportamiento de
+ los mismos no es necesario escribirlos, además el lenguaje al compilar
+ a Bytecode reemplazará los accesos y asignaciones directas a atributos,
+ por los llamados a las funciones setter y getter, con lo cual el código
+ se vuelve más legible.
+\end_layout
+
+\begin_layout Itemize
+Tipo de clase 
+\emph on
+Data
+\emph default
+, la cual está pensada para almacenar datos, por lo tanto infiere los métodos
+ 
+\emph on
+equals
+\emph default
+,
+\emph on
+ hashCode
+\emph default
+, 
+\emph on
+toString
+\emph default
+ y 
+\emph on
+copy
+\emph default
+ de los atributos.
+\end_layout
+
+\begin_layout Standard
+Sólo con estas ventajas, logramos que nuestra clase 
+\emph on
+Case
+\emph default
+ tenga únicamente 10 lineas de código, cuando su equivalente funcional en
+ Java tendría aproximadamente 121, esto representa un 91.73% ménos de código,
+ sin contar que es semánticamente mas legible
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Comparación de ambos códigos?
+\end_layout
+
+\end_inset
+
+.
+ Además, a menos que se especifique lo contrario, ninguna variable puede
+ tomar el valor null, esto nos previene de NullPointerException inesperados.
+\end_layout
+
+\begin_layout Paragraph
+\begin_inset CommandInset label
+LatexCommand label
 name "subsec:Proceso-de-selección"
 
 \end_inset
 
 Selección de herramientas para construcción de módulo de software Conversor
  del Metamodelo
+\begin_inset Newline newline
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
-Tomando como base la explicación detallada en la Sección 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "subsec:Detalle-de-selección"
-
-\end_inset
-
-, donde se analizaron las herramientas evaluadas para ser utilizadas potencialme
-nte por el módulo de software Conversor del Metamodelo, en la presente sección
- se pretende destacar ventajas y desventajas de dichas herramientas.
- En principio, resultó necesario satisfacer la necesidad de parsear un documento
- WSDL.
+En la presente sección se pretende destacar ventajas y desventajas de las
+ herramientas evaluadas para ser utilizadas potencialmente por el módulo
+ de software Conversor.
+ En principio, resultó necesario satisfacer la necesidad de parsear una
+ especificacón Swagger.
  Para ello se analizaron las herramientas
 \emph on
- JWSDL
-\emph default
-, 
-\emph on
-WODEN
-\emph default
-, 
-\emph on
-EasyWSDL, DOM
-\emph default
- y 
-\emph on
-SOA
+ swagger-parser,
 \emph default
  
 \emph on
-Membrane
+KaiZen OpenAPI Parser
+\emph default
+, 
+\emph on
+Jackson
+\emph default
+ y 
+\emph on
+Klaxon
 \emph default
 .
- Luego de este análisis, WODEN y DOM resultaron ser los candidatos más apropiado
-s para la construcción del módulo de software Conversor.
+ Luego de este análisis, 
+\emph on
+swagger-parser
+\emph default
+ resultaró ser el candidatos más apropiados para la construcción del módulo
+ de software Conversor.
  
 \end_layout
 
@@ -2577,8 +4703,12 @@ Motivos principales por los cuales no se utilizaron las siguientes herramientas
  
 \begin_inset CommandInset label
 LatexCommand label
-name "par:UtilizacionHerramientasProcWSDL"
+name "par:UtilizacionHerramientasProcSwagger"
 
+\end_inset
+
+
+\begin_inset Newline newline
 \end_inset
 
 
@@ -2587,59 +4717,97 @@ name "par:UtilizacionHerramientasProcWSDL"
 \begin_layout Itemize
 
 \series bold
-JWSDL:
+KaiZen OpenAPI Parser
 \series default
- posee un inconveniente fundamental (éste figura en la documentación y se
- pudo comprobar en la práctica) por el cual no se utilizó esta herramienta
- para manipular documentos WSDL.
- Cualquier hijo de <types> (dentro del documento) es tratado como elemento
- de una extensión que no se encuentra implementada entre sus funciones.
- Debido a esto resulta imposible poder analizar las estructuras de los tipos
- complejos, y por consiguiente las entradas y salidas de las operaciones
- dentro de un documento WSDL.
- En otras palabras, no se utilizó ya que no era posible analizar los datos
- definidos en el 
-\emph on
-tag
-\emph default
- 
-\emph on
-types 
-\emph default
-de los documentos.
- Además no soporta documentos WSDL 2.0, y la intención es concentrarse en
- las tecnologías más actuales que dispone el mercado.
- 
+: Ésta herramienta es la principal competencia de la seleccionada, incluso
+ se podría considerar mejor en algunos aspectos, como la performance (que
+ ellos informan es tres a cuatro veces superior) y que posee un validador
+ semántico Open API.
+ Además acepta especificaciones en JSON o YAML, pero, su principal desventaja,
+ es que al momento sólo sirve para especificaciones OpenAPI v3, la cual
+ no se ha terminado de adoptar por la comunidad, y está lejos de conversitrse
+ en un estándar.
+ Debido a que el dataset utilizado para los experimentos se encuentra en
+ Swagger v2, y no se encuentran tantas especificaciones libres de Open API
+ 3, se decidió ignorar ésta última, y por lo tanto, ésta herramienta.
 \end_layout
 
 \begin_layout Itemize
 
 \series bold
-SOA Membrane
+Jackson
 \series default
-: cuando se intentó acceder a los atributos, se dificultó el acceso a los
- tipos complejos de datos.
- Esto es porque no se pudo profundizar en su contenido con el detalle necesario
- para el componente de software que se pretendía desarrollar.
- 
+: Ésta herramienta es el standar para trabajar con documentos JSON en lenguajes
+ Java o dentro de la JVM, en el repositorio de la misma se puede observar
+ que se define de la siguiente manera:
+\emph on
+ La librería estándar de JSON para Java (o JVM en general), o, como el "mejor
+ parser JSON para Java".
+ O simplemente como "JSON para Java".
+\emph default
+
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://github.com/FasterXML/jackson
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+, la misma nos ofrece todas las funcionalidades que necesitamos si quisieramos
+ leer directamente desde la especificación Swagger en formato JSON y acceder
+ a las distintas partes de la misma, no se utilizó en base a dos motivos,
+ en primer lugar, al utilizarla sólo podríamos procesar especificaciones
+ en JSON y no en YAML, perdiendo un subconjunto de las mismas, o teniendo
+ que agregar un overhead transformando dichas especificaciones al formato
+ JSON, el otro motivo es porque a la hora de parsear un documento JSON se
+ debe contar con el objeto con el cual se va mapear, es decir, si queremos
+ parsear un JSON de 
+\emph on
+Persona
+\emph default
+ que tiene los atributos 
+\emph on
+Nombre
+\emph default
+,
+\emph on
+ apellido 
+\emph default
+y
+\emph on
+ dirección
+\emph default
+.
+ necesitamos describir de antemano la clase Java (o Kotlin en éste caso)
+ Persona con dichos atributos, por lo que, para parsear una especificación
+ Swagger deberíamos crear una clase para cada tipo de atributo dentro de
+ la misma.
 \end_layout
 
 \begin_layout Itemize
 
 \series bold
-EasyWSDL:
+Klaxon
 \series default
- en la teoría soporta versiones de WSDL 1.1 y 2.0, pero al intentar cargar
- el conjunto de documentos de la plataforma Mashape, un porcentaje no pudo
- ser utilizado porque no eran sintácticamente válidos según el metamodelo
- propuesto por esta herramienta.
- Debido a esto, el proceso de análisis para los documentos afectados no
- pudo continuar.
- Además, el alcance de la herramienta es extenso, coordinar con los mensajes
- de entrada y salida para la creación y/o manipulación de datos lleva un
- proceso de aprendizaje muy grande.
- Por estas razones se decidió no utilizar esta herramienta.
+: Ésta herramienta nos permite trabajar con documentos JSON dentro de kotlin,
+ los motivos por los cuales se descartó son los mismos que para la librería
  
+\emph on
+Jackson
+\emph default
+.
 \end_layout
 
 \begin_layout Paragraph
@@ -2657,38 +4825,73 @@ Herramientas utilizadas en el Conversor
 \end_layout
 
 \begin_layout Standard
-Para la creación del módulo de software Conversor, se utilizaron dos herramienta
-s que fueron de principal relevancia a la hora de poder concretar la creación
+Para la creación del módulo de software Conversor, se utilizó una herramienta
+ que fué de principal relevancia a la hora de poder concretar la creación
  de dicho módulo.
- WODEN y DOM permitieron, gracias a sus diferentes funcionalidades, abarcar
- los distintos aspectos que se detallan a continuación.
+ Swagger-parser permitió parsear una especificación Swagger en instancias
+ de Objeto Plano de Java (POJO).
+ Utilizando esta herramienta, en lugar de leer y acceder de manera directa
+ a los archivos, podemos ignorar la disposición de los distintos componentes
+ en el mismo y concentrarnos en el mapeo Swagger-SOAML.
+ Como así también, tener la posibilidad de utilizar una especificación Swagger
+ en archivo YAML o JSON sin tener que realizar ningún refactoring adicional.
+ Otra ventaja que nos brinda ésta herramienta, es la validación a nivel
+ sintáctico de las especificaciones.
+\end_layout
+
+\begin_layout Paragraph
+Consideraciones generales
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Se consideran las especificaciones Swagger a parsear como válidas, es decir,
+ al parsear el Swagger al Metamodelo, no garantizamos la validéz de la api,
+ por ejemplo, en la documentación de Swagger
+\begin_inset CommandInset citation
+LatexCommand cite
+key "swagger2.0"
+
+\end_inset
+
+ se indica:
+\end_layout
+
+\begin_layout Quotation
+El objeto Response 
+\emph on
+debe
+\emph default
+ contener al menos algún código de respuesta, y 
+\emph on
+debería
+\emph default
+ ser la respuesta del llamado de una operación exitosa.
+\end_layout
+
+\begin_layout Standard
+Por lo tanto, si esta condición no se respeta y se utiliza la herramienta
+ en cuestión, se pueden obtener resultados inesperados.
+ Esto simplifica la herramienta y ayuda a una generar una abstracción de
+ capas.
  
 \end_layout
 
-\begin_layout Itemize
+\begin_layout Standard
+Los códigos de estado HTTP son utilizados para indicar el estado de la operación
+ realizada.
+ 
+\end_layout
 
-\series bold
-WODEN:
-\series default
- utilizada para validar que los documentos WSDL utilizados como entrada
- al Conversor del metamodelo estuvieran bien formados.
- Esto quiere decir que con WODEN se validó que los documentos utilicen las
- etiquetas (tags) definidas por la W3C para documentos WSDL, que haya correspond
-encia entre mensajes, la definición de los mismos, etc.
- De esta manera, a la hora de testear la Herramienta de Evaluación de Servicios
- Web, se trabajó con documentos bien formados desde un principio.
- Además esta herramienta permitió poder trabajar con documentos WSDL versión
- 1.1.
- Básicamente si se necesita trabajar con documentos WSDL 1.1, se utiliza
- una función que convierte documentos de la versión WSDL 1.1 a la versión
- de WSDL 2.0 para luego si procesarlo como entrada al componente Conversor
- del metamodelo.
- Como un ejemplo, en el Capítulo
-\begin_inset space ~
-\end_inset
+\begin_layout Standard
+Los códigos de estado disponibles están definidos por 
+\emph on
+RFC7231
+\emph default
 
- 4, se pudo experimentar con un conjunto de 1146 archivos WSDL versión 1.1
- de Servicios Web reales que provienen de la plataforma Mashape
 \begin_inset Foot
 status open
 
@@ -2698,7 +4901,103 @@ status open
 
 \begin_layout Plain Layout
 
-http://mashape.com
+https://tools.ietf.org/ html/rfc7231#section-6
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+ y los códigos de estado registrados se enumeran en el Registro de códigos
+ de estado de la 
+\emph on
+IANA
+\emph default
+
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://www.iana.org/ assignments/http-status-codes/http-status-codes.xhtml
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+, siguiendo las siguientes convenciones:
+\end_layout
+
+\begin_layout Itemize
+1xx (Informacional): El request fue recibido, se continúa procesando.
+\end_layout
+
+\begin_layout Itemize
+2xx (Exitoso): El request fue exitosamente recibido, entendido y aceptado.
+\end_layout
+
+\begin_layout Itemize
+3xx (Redirección): Se deben tomar medidas adicionales para completar la
+ solicitud.
+\end_layout
+
+\begin_layout Itemize
+4xx (Error del cliente): el request contiene mala sintaxis o no se puede
+ cumplir.
+\end_layout
+
+\begin_layout Itemize
+5xx (Error del servidor): El servidor no cumplió con una solicitud aparentemente
+ válida.
+\end_layout
+
+\begin_layout Standard
+De acuerdo a la especificación Swagger, los archivos que su descripción
+ se representan como objetos JSON, y cumplen con los estándatares JSON.
+ YAML, al ser un superconjunto de JSON, también puede ser utilizado para
+ representar una especificación Swagger.
+ 
+\end_layout
+
+\begin_layout Standard
+Todos los nombres en la especificación son sensibles a mayúsculas y minúsculas.
+ 
+\end_layout
+
+\begin_layout Standard
+El esquema expone dos tipos de campos: Campos fijos, que tienen un nombre
+ declarado, y Campos modelados, que declaran un patrón de expresiones regulares
+ para el nombre del campo.
+ Los campos modelados DEBEN tener nombres únicos dentro del objeto contenedor.
+ Para preservar la compatibilidad de ida y vuelta entre los formatos YAML
+ y JSON, se recomienda la versión 1.2 de YAML junto con algunas restricciones
+ adicionales: 
+\end_layout
+
+\begin_layout Itemize
+Las etiquetas DEBEN estar limitadas a aquellas permitidas por el conjunto
+ de reglas de esquema JSON
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+http://www.yaml.org/spec/1.2/spec.html#id2803231
 \end_layout
 
 \end_inset
@@ -2712,41 +5011,40 @@ http://mashape.com
 \end_layout
 
 \begin_layout Itemize
+Las claves utilizadas en los diccionarios YAML DEBEN estar limitadas a una
+ cadena escalar, según lo definido por el conjunto de reglas de esquema
+ a prueba de fallas YAML
+\begin_inset Foot
+status open
 
-\series bold
-DOM: 
-\series default
-acorde con DOM, cualquier elemento perteneciente al proyecto de un documento
- XML es un nodo.
- De esta manera se pudo acceder a todos los detalles específicos dentro
- de un documento WSDL sin ningún tipo de restricción.
- Esta librería es una de las herramientas más usadas y populares a la hora
- de manipular documentos XML.
- En el presente trabajo se hizo énfasis en las estructuras del documento
- relevantes para el módulo de software Conversor del Metamodelo.
- Por esta razón, se prestó especial atención a la sección 
-\emph on
-types
-\emph default
- e 
-\emph on
-interface
-\emph default
- que son parte de los elementos que conforman un WSDL 2.0 bien formado.
- Para esto resultó especialmente útil contar con una herramienta que permitiera
- recorrer y analizar un documento WSDL de forma confiable y robusta, sin
- nigun tipo de restricción, es decir, permitiendo el acceso a la totalidad
- del documento.
- DOM cumple con las características necesarias para llevar adelante el objetivo
- de construir un instanciador automático.
- Además, DOM nos permite gracias a una de sus funciones de navegación en
- el código fuente, analizar si el documento está bien formado, es decir
- que no tenga errores sintácticos.
- 
+\begin_layout Plain Layout
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+http://yaml.org/spec/1.2/spec.html#id2802346
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Si bien las API pueden ser definidas por documentos Swagger en formato YAML
+ o JSON, no es requerido que las API en cuestión se limite a utilizar estos
+ formatos, es decir, el body del request y response de dicha API y otros
+ contenidos no requieren ser JSON o YAML.
 \end_layout
 
 \begin_layout Paragraph
-Conversión de documentos WSDL 2.0 a instancias del metamodelo
+Conversión de especificaciones Swagger a instancias del metamodelo
 \begin_inset Newline newline
 \end_inset
 
@@ -2754,13 +5052,19 @@ Conversión de documentos WSDL 2.0 a instancias del metamodelo
 \end_layout
 
 \begin_layout Standard
-El Conversor desarrollado recibe como entrada un documento WSDL (generalmente
- por medio de la URL) y devuelve como salida una instancia del metamodelo
- propuesto, tratando al documento WSDL como un XML.
- Tratarlo de tal manera nos permite que el mismo sea parseado utilizando
- la herramienta DOM previamente mencionada.
- Los elementos del XML son vistos como nodos, y cada nodo se encuentra en
- un determinado nivel en la estructura de arbol, siendo N
+El Conversor desarrollado recibe como entrada una especificación Swagger
+ (específicamente el 
+\emph on
+path 
+\emph default
+o URL de la misma) y devuelve como salida una instancia del metamodelo.
+ 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Los elementos de la especificación son vistos como nodos, y cada nodo se
+ encuentra en un determinado nivel en la estructura de arbol, siendo N
 \begin_inset script subscript
 
 \begin_layout Plain Layout
@@ -2844,36 +5148,28 @@ input
 output
 \emph default
 ).
- 
-\end_layout
-
-\begin_layout Standard
-Siguiendo nuestro ejemplo de base del dominio RentACar,
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Plain Layout
-, se transforma el WSDL versión 2.0, a una estructura de árbol autocontenida
- que sólo almacena la información que se considera relevante para su posterior
- uso gracias a la herramienta DOM.
- A medida que se recorre el documento, se construye en tiempo de ejecución
- la estructura de árbol con sus nodos y para una mayor eficiencia de cómputo,
- se instancian las estructuras del metamodelo propuesto simultáneamente.
- En
 \end_layout
 
 \end_inset
 
- la Figura 
+ 
+\end_layout
+
+\begin_layout Standard
+Siguiendo nuestro ejemplo de base del dominio PetStore, la Figura 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Ejemplo-versión-Dom-1"
 
 \end_inset
 
- muestra un esquema de como quedaría la estructura con los distintos niveles
- que conforman un documento WSDL 2.0 al parsearla con la herramienta DOM.
- Cabe destacar que en esta figura, solo se detalla la operación getAvailableCars
+ muestra un esquema de como quedaría la estructura con los distintos atributos
+ que conforman una especificación Swagger al parsearla con la herramienta
+ Swagger-parser.
+ Cabe destacar que en esta figura, solo se detalla la operación 
+\emph on
+GET_/pet/{petId}
+\emph default
 , con el objetivo de dar un ejemplo gráfico de fácil comprensión.
 \end_layout
 
@@ -2887,8 +5183,7 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename ImgChapter3/DomEnEjemplo2.png
-	lyxscale 30
+	filename ImgChapter3/usadas/UML OAS.png
 	width 100text%
 
 \end_inset
@@ -2919,155 +5214,16 @@ a DOM
 
 \begin_layout Standard
 \begin_inset Note Note
-status collapsed
-
-\begin_layout Subsubsection
-\begin_inset CommandInset label
-LatexCommand label
-name "subsubsec:Ejemplo-de-instanciación"
-
-\end_inset
-
-Ejemplo de instanciación
-\begin_inset Note Note
 status open
 
 \begin_layout Plain Layout
-parece que esto está de más! Actualmentee quedó igual que la figura 7
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-YA NO VA ESTO; QUEDÓ VIEJO
-\end_layout
-
-\begin_layout Plain Layout
-A continuación se presenta un diagrama de objetos que muestra una posible
- instanciación del Metamodelo propuesto considerando el caso de estudio
- RentACar, presentado en la Sección 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "par:Caso-de-estudio"
-
-\end_inset
-
-.
- Para esto se utilizó un diagrama de instanciación de objetos de UML.
- Podemos destacar tres instancias de las operaciones del servicio: 
-\emph on
-getReservation
-\emph default
-, 
-\emph on
-getCarFee
-\emph default
- y 
-\emph on
-getAvailableCars
-\emph default
-.
- 
-\emph on
-GetReservation
-\emph default
- es la más sencilla de las operaciones ya que utiliza solo tipos simples
- en sus entrada/salidas.
- Sin embargo, 
-\emph on
-getCarFee
-\emph default
- y 
-\emph on
-getAvailableCars
-\emph default
- utilizan entradas y salidas (
-\emph on
-Input
-\emph default
- y 
-\emph on
-Output
-\emph default
- respectivamente) que contienen parámetros de tipos complejos.
- Se puede apreciar en la Figura
-\begin_inset space ~
-\end_inset
-
-
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:Instancia-de-RentaCar"
-
-\end_inset
-
-, que a pesar de que en el caso de estudio la cantidad de funciones es acotada
- solo a tres, el árbol de expansión de objetos si se hubiese hecho con las
- tres funciones instanciadas en la Figura
-\begin_inset space ~
-\end_inset
-
-
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:Instancia-de-RentaCar"
-
-\end_inset
-
- ubiese cobrado una gran cantidad de objetos.
- De esta manera, intentar evaluar tales descripciones de una manera manual
- resulta completamente inviable, teniendo en cuenta que sería necesario
- evaluar tantas descripciones como posibles servicios candidatos existiera.
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Float figure
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\begin_inset Graphics
-	filename ImgChapter3/ejemploDeWsdlInstanciadoMetamodelo2.png
-	lyxscale 40
-	width 100col%
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-Instancia de RentACar
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:Instancia-de-RentaCar"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
+REEMPLAZAR NUMEROS DE LINEA
 \end_layout
 
 \end_inset
 
 A continuación se detalla el pseudocódigo del módulo de software de conversión
- de documentos WSDL 2.0 a instancias del metamodelo propuesto.
+ de especificaciones Swagger a instancias del metamodelo.
  En el Algoritmo
 \begin_inset space ~
 \end_inset
@@ -3075,300 +5231,276 @@ A continuación se detalla el pseudocódigo del módulo de software de conversi�
 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "alg:Pseudocódigo-del-tool"
+reference "alg:Convertir-especificación-Open"
 
 \end_inset
 
- la función propuesta recibe como entrada el documento WSDL – línea 1.
- El primer paso es tratarlo como un documento XML, en cuanto a las propiedades
- del mismo – línea 2.
- Inicialmente obtenemos el primer nodo del árbol (la raíz del documento)
- siendo el 
+ la función propuesta recibe como entrada una especificación Swagger – línea
+ 1.
+ El primer paso es parsearlo a un objeto que posee la estructura de la especific
+ación Swagger – línea 2.
+ Luego por cada operación (método HTTP) que tenga cada 
 \emph on
-nodo cero 
+path, 
 \emph default
-de la Figura
-\emph on
-
-\begin_inset space ~
-\end_inset
-
-
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:Ejemplo-versión-Dom-1"
-
-\end_inset
-
-
-\emph default
- y luego sus hijos directos.
- Para el metamodelo propuesto, en este nivel estructural sólo nos interesan
- los nodos que contienen a 
-\emph on
-types
-\emph default
- e 
-\emph on
-interface
-\emph default
-.
- Si el nodo es 
-\emph on
-types, 
-\emph default
-se instancian los tipos definidos en esta clase.
- Los detalles de este procedimiento son presentados en el Algoritmo 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "Obtener tipo de dato"
-
-\end_inset
-
-.
- Si el nodo es 
-\emph on
-interface
-\emph default
-, al obtener sus descendientes directos obtendremos las 
-\emph on
-operations
-\emph default
- –O1, O2 y O3 de la Figura 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:EjemploVersionInstanciadaConDOM"
-
-\end_inset
-
-
-\emph on
-.
- 
-\emph default
-Los hijos de 
-\emph on
-operation 
-\emph default
-pueden ser 
-\emph on
-input 
-\emph default
-y/u
-\emph on
- output
-\emph default
-.
- En caso de ser el primero se crea la estructura de 
+crearemos una operación del metamodelo - línea 32, con los atributos 
 \emph on
 input
 \emph default
- y se setea la misma al metamodelo – 
+, 
 \emph on
-I1: Input
+output
 \emph default
- de la Figura 
+ y 
+\emph on
+faults 
+\emph default
+obtenidos previamente.
+ Por cada 
+\emph on
+parameter 
+\emph default
+de la operación crearemos un metamodelParameter obteniendo el tipo de dato
+ según el procedimiento detallado en el Algotirmo 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "fig:EjemploVersionInstanciadaConDOM"
+reference "alg:Convertir-especificación-Open"
 
 \end_inset
 
-.
- En caso de ser la segunda opción, se crea la estructura 
+, con éstos parametros crearemos nuestro input.
+\end_layout
+
+\begin_layout Standard
+Cada response de la operación se analiza, ya que la misma puede ser una
+ respuesta exitosa o fallida.
+ En caso de ser la primera, es facil evidenciarlo, pues el 
 \emph on
-output – S1: Output
+status code 
 \emph default
- 
+de la misma comenzará con 
 \emph on
-–
+2
 \emph default
- y se setea al metamodelo.
- Una vez terminado de recorrer los hijos de la última 
+, si la respuesta tiene tipo se creará un parametro que luego será usado
+ con el 
 \emph on
-operation
+output
 \emph default
- se agregan a la interfaz del metamodelo.
- Este procedimiento finaliza cuando se termina de recorrer todas las operaciones
+ - línea 22.
+ En caso de ser la segunda opción, se crea un nuevo 
 \emph on
- 
+Fault 
 \emph default
-existentes.
+con el tipo de la respuesta, y se agregará a la lista de 
+\emph on
+faults
+\emph default
+ - línea 26.
+\end_layout
+
+\begin_layout Standard
+Una vez terminado de recorrer las operaciones de cada 
+\emph on
+path,
+\emph default
+ se crea la interfaz del metamodelo con el listado de operaciones.
  Finalmente es retornada una instancia del metamodelo generado a partir
- del documento WSDL utilizado como entrada.
+ de la especificación Swagger utilizada como entrada.
+\end_layout
+
+\begin_layout Standard
 \begin_inset Float algorithm
-placement h
 wide false
 sideways false
 status open
 
 \begin_layout Plain Layout
 \begin_inset listings
+lstparams "numbers=left,numberstyle={\scriptsize},basicstyle={\scriptsize\ttfamily},breaklines=true,showstringspaces=false,numberstyle={\ttfamily\scriptsize}"
 inline false
 status open
 
 \begin_layout Plain Layout
 
-1 function convertir_Wsdl_A_Metamodelo (DocumentoWSDL documentoWSDL){
+function convertir_Swagger_A_Metamodelo(String SwaggerSpecPath){
 \end_layout
 
 \begin_layout Plain Layout
 
-2  documentoXML = DOM.leerDocumento(documentoWSDL);
+ Swagger swaggerSpec = SwaggerParser().read(SwaggerSpecPath)
 \end_layout
 
 \begin_layout Plain Layout
 
-3  Elemento raiz = documentoXML.obtenerNodoRaiz();
+ List<Operation> operations = []
 \end_layout
 
 \begin_layout Plain Layout
 
-4  Lista<Nodo> nodos = raiz.obtenerNodosHijos();
+ for(path: swaggerSpec.paths){
 \end_layout
 
 \begin_layout Plain Layout
 
-5  SoaMLInterface interface = new SoaMLInterface();
+  for(operation: path.methods){
 \end_layout
 
 \begin_layout Plain Layout
 
-6  for(Nodo nodo: nodos){
+   List<Parameter> parameters = []
 \end_layout
 
 \begin_layout Plain Layout
 
-7   if(nodo.getTagNodo()=='types'){
+   for(parameter: operation.parameters){
 \end_layout
 
 \begin_layout Plain Layout
 
-8	List<Type> metamodelTypes = 
+    Type parameterType = obtenerTipoDeDatoParameter(parameter, swaggerSpec)
 \end_layout
 
 \begin_layout Plain Layout
 
-     'instanciar todos los tipos definidos en types' 
+    Parameter metamodelParameter = 'Crear Parameter con parameter.name y
+ parameterType'
 \end_layout
 
 \begin_layout Plain Layout
 
-9   } 
+    parameters.add(metamodelParameter)
 \end_layout
 
 \begin_layout Plain Layout
 
-10  if(nodo.getTagNodo()=='interface'){
+   }
 \end_layout
 
 \begin_layout Plain Layout
 
-11   Interface metamodelInteface = 'crear interface SoaMl' 
+   Input input = 'Crear Input con parameters';
 \end_layout
 
 \begin_layout Plain Layout
 
-12   List<Nodo> wsdlOperations = nodo.obtenerNodosHijos()
+   Output output = null
 \end_layout
 
 \begin_layout Plain Layout
 
-13   for(Nodo wsdlOperations: wsdlOperation){
+   List<Fault> faults = []
 \end_layout
 
 \begin_layout Plain Layout
 
-14    Operation metamodelOperation = 'instanciar operacion metamodelo' 
+   for(response in operation.reponses){
 \end_layout
 
 \begin_layout Plain Layout
 
-15    List<Nodo> wsdlInOuts = wsdlOperation.obtenerNodosHijos();
+    Type responseType = obtenerTipoDeDatoParameter(response.value.responseSchema,
+ swaggerSpec)
 \end_layout
 
 \begin_layout Plain Layout
 
-16    for(Nodo inOut: wsldInOuts){
+    if(response.statusCode.startsWith("2")){
 \end_layout
 
 \begin_layout Plain Layout
 
-17     if(inOut.getTagNodo=='input'){
+     List<Parameter> outputParameters = []
 \end_layout
 
 \begin_layout Plain Layout
 
-18   	Input entrada= 'creo input según metamodelo';
+     if(responseType != null){
 \end_layout
 
 \begin_layout Plain Layout
 
-19   	metamodelOperation.setInput (entrada); 
+      Parameter outputParameter = 'Crear outputParameter con tipo responseType'
 \end_layout
 
 \begin_layout Plain Layout
 
-20     } 
+      outputParameters.add(outputParameter)
 \end_layout
 
 \begin_layout Plain Layout
 
-21     else if(inOut.getTagNodo=='output'){
+     }
 \end_layout
 
 \begin_layout Plain Layout
 
-22   	Output salida= 'creo output según metamodelo';
+     output = 'Crear output con outputParameters'
 \end_layout
 
 \begin_layout Plain Layout
 
-23   	metamodelOperation.setOutput(salida); 
+    }
 \end_layout
 
 \begin_layout Plain Layout
 
-24     }
+    else{
 \end_layout
 
 \begin_layout Plain Layout
 
-25    }
+     Fault fault = "Crear fault con tipo responseType"
 \end_layout
 
 \begin_layout Plain Layout
 
-26    metamodelInterface.agregarOperation(metamodelOperation); 
+     faults.add(fault)
 \end_layout
 
 \begin_layout Plain Layout
 
-27   }
+    }
 \end_layout
 
 \begin_layout Plain Layout
 
-28  } 
+   }
 \end_layout
 
 \begin_layout Plain Layout
 
-29 }
+   Operation metamodelOperation = 'Crear operacion con input, output y faults'
 \end_layout
 
 \begin_layout Plain Layout
 
-30 return metamodelInterface; 
+   operations.add(metamodelOperation)
 \end_layout
 
 \begin_layout Plain Layout
 
-31}
+  }
 \end_layout
 
 \begin_layout Plain Layout
 
+ }
+\end_layout
+
+\begin_layout Plain Layout
+
+ Interface metamodelInterface = 'Crear interface con operations'
+\end_layout
+
+\begin_layout Plain Layout
+
+ return metamodelInterface
+\end_layout
+
+\begin_layout Plain Layout
+
+}
 \end_layout
 
 \end_inset
@@ -3382,11 +5514,11 @@ status open
 \begin_layout Plain Layout
 \begin_inset CommandInset label
 LatexCommand label
-name "alg:Pseudocódigo-del-tool"
+name "alg:Convertir-especificación-Open"
 
 \end_inset
 
-Convertir WSDL a Metamodelo 
+Convertir especificación Swagger a Metamodelo
 \end_layout
 
 \end_inset
@@ -3399,7 +5531,15 @@ Convertir WSDL a Metamodelo
 
 \end_layout
 
-\begin_layout Standard
+\begin_layout Paragraph
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Paragraph
+old
+\end_layout
+
+\begin_layout Plain Layout
 Para evaluar los tipos de datos nos basamos principalmente en los Algoritmos
  
 \begin_inset CommandInset ref
@@ -3437,7 +5577,7 @@ reference "Obtener nombre tipo simple"
  si se tiene tipos de datos simples, complejos o arreglos.
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 En los dos párrafos siguientes se explicará brevemente el funcionamiento
  del Algoritmo 
 \begin_inset CommandInset ref
@@ -3469,7 +5609,7 @@ ArrayType
  
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 Ahora bien, si tenemos un tipo de dato complejo
 \emph on
  – ComplexType
@@ -3486,7 +5626,7 @@ Ahora bien, si tenemos un tipo de dato complejo
  
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 Para saber si estamos ante la presencia de un tipo de dato complejo se creó
  la función 
 \emph on
@@ -3556,11 +5696,153 @@ reference "Obtener nombre tipo simple"
 ) que retorna el nombre de un tipo de dato simple.
 \end_layout
 
+\end_inset
+
+
+\end_layout
+
 \begin_layout Standard
-\begin_inset CommandInset include
-LatexCommand lstinputlisting
-filename "listing/Obtener tipo de dato.txt"
-lstparams "caption={Obtener tipo de dato},label={Obtener tipo de dato}"
+\begin_inset Float algorithm
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset listings
+lstparams "numbers=left,basicstyle={\scriptsize\ttfamily},breaklines=true,numberstyle={\ttfamily\scriptsize}"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+function Type obtenerTipoDeDatoParameter(Parameter parameter, Swagger swaggerSpe
+c) {
+\end_layout
+
+\begin_layout Plain Layout
+
+ if(parameter.isInstanceOf(HeaderParameter | QueryParameter | PathParameter)){
+\end_layout
+
+\begin_layout Plain Layout
+
+  SimpleType type = obtenerTipoSimple(parameter.type, parameter.format, null,
+ parameter.items, swaggerSpec)
+\end_layout
+
+\begin_layout Plain Layout
+
+ }
+\end_layout
+
+\begin_layout Plain Layout
+
+ else if(parameter.isInstanceOf(BodyParameter)){
+\end_layout
+
+\begin_layout Plain Layout
+
+  Schema schema = parameter.schema
+\end_layout
+
+\begin_layout Plain Layout
+
+  if(schema.isInstanceOf(ModelImpl)){
+\end_layout
+
+\begin_layout Plain Layout
+
+   SimpleType type = obtenerTipoSimple(schema.type, schema.format, schema,
+ null, swaggerSpec)
+\end_layout
+
+\begin_layout Plain Layout
+
+  }
+\end_layout
+
+\begin_layout Plain Layout
+
+  else if(schema.isInstanceOf(ArrayModel)){
+\end_layout
+
+\begin_layout Plain Layout
+
+   Type arrayType = obtenerTipo(schema.items, swaggerSpec)
+\end_layout
+
+\begin_layout Plain Layout
+
+   ArrayType type = 'Crear type con arrayType'
+\end_layout
+
+\begin_layout Plain Layout
+
+  }
+\end_layout
+
+\begin_layout Plain Layout
+
+  else if(schema.isInstanceOf(RefModel)){
+\end_layout
+
+\begin_layout Plain Layout
+
+   ComplexType type = obtenerTipoComplejo(schema.simpleRef, swaggerSpec)
+\end_layout
+
+\begin_layout Plain Layout
+
+  }
+\end_layout
+
+\begin_layout Plain Layout
+
+  else if(schema is Null){
+\end_layout
+
+\begin_layout Plain Layout
+
+   type = null
+\end_layout
+
+\begin_layout Plain Layout
+
+  }
+\end_layout
+
+\begin_layout Plain Layout
+
+ return type
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:Obtener tipo de parameter"
+
+\end_inset
+
+Obtener tipo de parameter
+\end_layout
+
+\end_inset
+
+
+\end_layout
 
 \end_inset
 
@@ -3568,10 +5850,181 @@ lstparams "caption={Obtener tipo de dato},label={Obtener tipo de dato}"
 \end_layout
 
 \begin_layout Standard
-\begin_inset CommandInset include
-LatexCommand lstinputlisting
-filename "listing/Es tipo complejo.txt"
-lstparams "caption={Es tipo complejo},label={Es tipo complejo}"
+\begin_inset Float algorithm
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset listings
+lstparams "numbers=left,basicstyle={\scriptsize\ttfamily},breaklines=true,numberstyle={\ttfamily\scriptsize}"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+function Type obtenerTipo(Property property, Swagger swaggerSpec) {
+\end_layout
+
+\begin_layout Plain Layout
+
+ if(property.isInstanceOf(ArrayProperty){
+\end_layout
+
+\begin_layout Plain Layout
+
+  Type arrayType = obtenerTipo(property.items, swaggerSpec)
+\end_layout
+
+\begin_layout Plain Layout
+
+  ArrayType type = 'Crear type con arrayType'
+\end_layout
+
+\begin_layout Plain Layout
+
+ }
+\end_layout
+
+\begin_layout Plain Layout
+
+ else if(property.isInstanceOf(ObjectProperty)){
+\end_layout
+
+\begin_layout Plain Layout
+
+  List<Attribute> attributes = []
+\end_layout
+
+\begin_layout Plain Layout
+
+  for(property in property.properties){
+\end_layout
+
+\begin_layout Plain Layout
+
+   Type type = obtenerTipo(property.value, swaggerSpec)
+\end_layout
+
+\begin_layout Plain Layout
+
+   Attribute attribute = Attribute(property.key, type)
+\end_layout
+
+\begin_layout Plain Layout
+
+   attributes.add(attribute)
+\end_layout
+
+\begin_layout Plain Layout
+
+  }
+\end_layout
+
+\begin_layout Plain Layout
+
+  ComplexType type = 'Crear type con property.name y attributes'
+\end_layout
+
+\begin_layout Plain Layout
+
+ }
+\end_layout
+
+\begin_layout Plain Layout
+
+ else if(property.isInstanceOf(MapProperty)){
+\end_layout
+
+\begin_layout Plain Layout
+
+  Property additionalProperties = property.additionalProperties
+\end_layout
+
+\begin_layout Plain Layout
+
+  Type additionalPropertyType = obtenerTipo(additionalProperties, swaggerSpec)
+\end_layout
+
+\begin_layout Plain Layout
+
+  Attribute attribute = Attribute(additionalProperties.title, additionalPropertyT
+ype)
+\end_layout
+
+\begin_layout Plain Layout
+
+  ComplexType type = 'Crear type con property.name y attribute'
+\end_layout
+
+\begin_layout Plain Layout
+
+ }
+\end_layout
+
+\begin_layout Plain Layout
+
+ else if(property.isInstanceOf(RefProperty){
+\end_layout
+
+\begin_layout Plain Layout
+
+  ComplexType type = obtenerTipoComplejo(property.simpleRef, swaggerSpec)
+\end_layout
+
+\begin_layout Plain Layout
+
+ }
+\end_layout
+
+\begin_layout Plain Layout
+
+ else{
+\end_layout
+
+\begin_layout Plain Layout
+
+  SimpleType type =  obtenerTipoSimple(property.type, property.format, null,
+ null, swaggerSpec)
+\end_layout
+
+\begin_layout Plain Layout
+
+ }
+\end_layout
+
+\begin_layout Plain Layout
+
+ return type
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:Obtener tipo"
+
+\end_inset
+
+Obtener tipo
+\end_layout
+
+\end_inset
+
+
+\end_layout
 
 \end_inset
 
@@ -3579,10 +6032,125 @@ lstparams "caption={Es tipo complejo},label={Es tipo complejo}"
 \end_layout
 
 \begin_layout Standard
-\begin_inset CommandInset include
-LatexCommand lstinputlisting
-filename "listing/Es tipo simple.txt"
-lstparams "caption={Es tipo simple},label={Es tipo simple}"
+\begin_inset Float algorithm
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset listings
+lstparams "numbers=left,basicstyle={\scriptsize\ttfamily},breaklines=true,numberstyle={\ttfamily\scriptsize}"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+function Type obtenerTipoComplejo(String name, Swagger swaggerSpec) {
+\end_layout
+
+\begin_layout Plain Layout
+
+ List<Attribute> attributes = []
+\end_layout
+
+\begin_layout Plain Layout
+
+ Schema schema = swaggerSpec.definitions[name]
+\end_layout
+
+\begin_layout Plain Layout
+
+ for(property in schema.properties){
+\end_layout
+
+\begin_layout Plain Layout
+
+  Type type = obtenerTipo(property.value, swaggerSpec)
+\end_layout
+
+\begin_layout Plain Layout
+
+  Attribute attribute = Attribute(property.key, type)
+\end_layout
+
+\begin_layout Plain Layout
+
+  attributes.add(attribute)
+\end_layout
+
+\begin_layout Plain Layout
+
+ }
+\end_layout
+
+\begin_layout Plain Layout
+
+ Property additionalProperties = schema.additionalProperties
+\end_layout
+
+\begin_layout Plain Layout
+
+ if(schema.isInstanceOf(ModelImpl) && additionalProperties != null) {
+\end_layout
+
+\begin_layout Plain Layout
+
+  Type additionalPropertyType = obtenerTipo(additionalProperties, swaggerSpec)
+\end_layout
+
+\begin_layout Plain Layout
+
+  Attribute attribute = Attribute(additionalProperties.title, additionalPropertyT
+ype)
+\end_layout
+
+\begin_layout Plain Layout
+
+  attributes.add(attribute)
+\end_layout
+
+\begin_layout Plain Layout
+
+ }
+\end_layout
+
+\begin_layout Plain Layout
+
+ ComplexType type = 'Crear type con property.name y attribute'
+\end_layout
+
+\begin_layout Plain Layout
+
+ return type
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:Obtener tipo complejo"
+
+\end_inset
+
+Obtener tipo complejo
+\end_layout
+
+\end_inset
+
+
+\end_layout
 
 \end_inset
 
@@ -3590,10 +6158,315 @@ lstparams "caption={Es tipo simple},label={Es tipo simple}"
 \end_layout
 
 \begin_layout Standard
-\begin_inset CommandInset include
-LatexCommand lstinputlisting
-filename "listing/Obtener nombre tipo simple.txt"
-lstparams "caption={Obtener nombre tipo simple},label={Obtener nombre tipo simple}"
+\begin_inset Float algorithm
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset listings
+lstparams "numbers=left,basicstyle={\scriptsize\ttfamily},breaklines=true,numberstyle={\ttfamily\scriptsize}"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+function Type obtenerTipoSimple(String typeName, String format, ModelImpl
+ schema, Property properties, Swagger swaggerSpec) {
+\end_layout
+
+\begin_layout Plain Layout
+
+ if(typeName=="integer"){
+\end_layout
+
+\begin_layout Plain Layout
+
+  if(format=="int64"){
+\end_layout
+
+\begin_layout Plain Layout
+
+   SimpleType simpleType = SimpleType(SimpleType.LONG)
+\end_layout
+
+\begin_layout Plain Layout
+
+  }
+\end_layout
+
+\begin_layout Plain Layout
+
+  else{
+\end_layout
+
+\begin_layout Plain Layout
+
+   SimpleType simpleType = SimpleType(SimpleType.INTEGER)
+\end_layout
+
+\begin_layout Plain Layout
+
+  }
+\end_layout
+
+\begin_layout Plain Layout
+
+ }
+\end_layout
+
+\begin_layout Plain Layout
+
+ else if(typeName=="number"){
+\end_layout
+
+\begin_layout Plain Layout
+
+  if(format=="double"){
+\end_layout
+
+\begin_layout Plain Layout
+
+   SimpleType simpleType = SimpleType(SimpleType.DOUBLE)
+\end_layout
+
+\begin_layout Plain Layout
+
+  }
+\end_layout
+
+\begin_layout Plain Layout
+
+  else{
+\end_layout
+
+\begin_layout Plain Layout
+
+   SimpleType simpleType = SimpleType(SimpleType.FLOAT)
+\end_layout
+
+\begin_layout Plain Layout
+
+  }
+\end_layout
+
+\begin_layout Plain Layout
+
+ }
+\end_layout
+
+\begin_layout Plain Layout
+
+ else if(typeName=="boolean"){
+\end_layout
+
+\begin_layout Plain Layout
+
+  SimpleType simpleType = SimpleType(SimpleType.BOOLEAN)
+\end_layout
+
+\begin_layout Plain Layout
+
+ }
+\end_layout
+
+\begin_layout Plain Layout
+
+ else if(typeName=="string"){
+\end_layout
+
+\begin_layout Plain Layout
+
+  if(format=="byte" || format=="base64""){
+\end_layout
+
+\begin_layout Plain Layout
+
+   SimpleType simpleType = SimpleType(SimpleType.BASE64)
+\end_layout
+
+\begin_layout Plain Layout
+
+  }
+\end_layout
+
+\begin_layout Plain Layout
+
+  else if(format=="binary"){
+\end_layout
+
+\begin_layout Plain Layout
+
+   SimpleType simpleType = SimpleType(SimpleType.BYTE)
+\end_layout
+
+\begin_layout Plain Layout
+
+  }
+\end_layout
+
+\begin_layout Plain Layout
+
+  else if(format=="date"){
+\end_layout
+
+\begin_layout Plain Layout
+
+   SimpleType simpleType = SimpleType(SimpleType.DATE)
+\end_layout
+
+\begin_layout Plain Layout
+
+  }
+\end_layout
+
+\begin_layout Plain Layout
+
+  else if(format=="date-time"){
+\end_layout
+
+\begin_layout Plain Layout
+
+   SimpleType simpleType = SimpleType(SimpleType.DATE_TIME)
+\end_layout
+
+\begin_layout Plain Layout
+
+  }
+\end_layout
+
+\begin_layout Plain Layout
+
+  else{
+\end_layout
+
+\begin_layout Plain Layout
+
+   SimpleType simpleType = SimpleType(SimpleType.STRING)
+\end_layout
+
+\begin_layout Plain Layout
+
+  }
+\end_layout
+
+\begin_layout Plain Layout
+
+ }
+\end_layout
+
+\begin_layout Plain Layout
+
+ else if(typeName=="file"){
+\end_layout
+
+\begin_layout Plain Layout
+
+  SimpleType simpleType = SimpleType(SimpleType.BASE64_BINARY)
+\end_layout
+
+\begin_layout Plain Layout
+
+ }
+\end_layout
+
+\begin_layout Plain Layout
+
+ else if(typeName=="object"){
+\end_layout
+
+\begin_layout Plain Layout
+
+  List<Attribute> attributes = []
+\end_layout
+
+\begin_layout Plain Layout
+
+  for(property in schema.properties){
+\end_layout
+
+\begin_layout Plain Layout
+
+   Type propertyType = obtenerTipo(property.value, swaggerSpec)
+\end_layout
+
+\begin_layout Plain Layout
+
+   Attribute attribute = Attribute(property.key, propertyType)
+\end_layout
+
+\begin_layout Plain Layout
+
+   attributes.add(attribute)
+\end_layout
+
+\begin_layout Plain Layout
+
+  }
+\end_layout
+
+\begin_layout Plain Layout
+
+  ComplexType type = 'Crear type con schema.name y attributes'
+\end_layout
+
+\begin_layout Plain Layout
+
+ }
+\end_layout
+
+\begin_layout Plain Layout
+
+ else if(typeNamee=="array"){
+\end_layout
+
+\begin_layout Plain Layout
+
+  Type arrayType = obtenerTipo(properties, swaggerSpec)
+\end_layout
+
+\begin_layout Plain Layout
+
+  ArrayType type = ArrayType(arrayType)
+\end_layout
+
+\begin_layout Plain Layout
+
+ }
+\end_layout
+
+\begin_layout Plain Layout
+
+ return type
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:Obtener tipo simple"
+
+\end_inset
+
+Obtener tipo simple
+\end_layout
+
+\end_inset
+
+
+\end_layout
 
 \end_inset
 
@@ -3608,6 +6481,24 @@ name "sec:Intregracion-a-Testooj"
 \end_inset
 
 Integración a la Herramienta de Evaluación de Servicios Web 
+\end_layout
+
+\begin_layout Standard
+
+\noun on
+ÉSTA SECCIÓN NO VA!!!
+\noun default
+!
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Esta sección no va
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -3686,7 +6577,6 @@ status open
 \align center
 \begin_inset Graphics
 	filename ImgChapter3/EsquemaMetodoNuevo.png
-	lyxscale 50
 	width 100col%
 
 \end_inset
@@ -3957,6 +6847,17 @@ semántica
  que la operación retorne distintos elementos, se deberá encapsular cada
  uno de ellos, aún cuando en conjunto no conformen una entidad única y distintiv
 a del dominio.
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset bibtex
+LatexCommand bibtex
+bibfiles "Biblio_Lic"
+options "plain"
+
+\end_inset
+
+
 \end_layout
 
 \end_body

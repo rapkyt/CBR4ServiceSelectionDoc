@@ -1,0 +1,38 @@
+1  function Type obtenerTipoDeDatoParameter(Parameter parameter) {
+2  if(parameter.isInstanceOf(HeaderParameter | QueryParameter | PathParameter)){
+3   Type type = obtenerTipoSimple(parameter.type, parameter.format, parameter.items)
+4  }
+5  else if(parameter.isInstanceOf(BodyParameter)){
+6   Schema schema = parameter.schema
+7   if(schema.isInstanceOf(ModelImpl)){
+8    Type type = obtenerTipoSimple(schema.type, schema.format, schema)
+9   }
+10  else if(parameter.isInstanceOf(ArrayModel)){
+11   
+
+
+is HeaderParameter -> getSimpleType(parameter.type, parameter.format, properties = parameter.items)
+                is QueryParameter -> getSimpleType(parameter.type, parameter.format, properties = parameter.items)
+                is PathParameter -> getSimpleType(parameter.type, parameter.format, properties = parameter.items)
+                is BodyParameter ->
+                    getParameterType(parameter.schema, "${operation.operationId ?: path}.${parameter.name}")
+                else -> stringType
+rn when (schema) {
+            is RefModel -> {
+                val schemaName = schema.simpleRef
+                getComplexType(schemaName)
+            }
+            is ArrayModel -> {
+                val arrayType = getType(schema.items, "$key.items")
+                ArrayType(arrayType)
+            }
+            is ModelImpl -> {
+                if (schema.type == null)
+                    throw IllegalArgumentException("Schema Type must not be null in '$key'")
+                getSimpleType(schema.type, schema.format, schema)
+            }
+            null -> null
+            else -> {
+                // response sin schema?
+                throw IllegalArgumentException("Parameter Type '${schema}' not found")
+            }

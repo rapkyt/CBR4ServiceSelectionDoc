@@ -1,0 +1,120 @@
+{
+  "_id": ObjectId("5b9dd273f8cde054c79a153d"),
+  "problem": {
+    "name": "Swagger Petstore",
+    "operations": [
+      {
+        "name": "POST_/pet",
+        "input": {...},
+        "output": null,
+        "faults": [...]
+      },
+      {
+        "name": "GET_/pet/{petId}",
+        "input": {
+          "name": "input",
+          "parameters": [
+            {
+              "name": "petId",
+              "type": {
+                "@type": "SimpleType",
+                "name": "long"
+              }
+            }
+          ]
+        },
+        "output": {
+          "name": "response",
+          "parameters": [
+            {
+              "name": "200",
+              "type": {
+                "@type": "ComplexType",
+                "name": "Pet",
+                "attributes": [
+                  {
+                    "name": "id",
+                    "type": {
+                      "@type": "SimpleType",
+                      "name": "long"
+                    }
+                  },
+                  {
+                    "name": "category",
+                    "type": {
+                      "@type": "ComplexType",
+                      "name": "Category",
+                      "attributes": [
+                        {
+                          "name": "id",
+                          "type": {
+                            "@type": "SimpleType",
+                            "name": "long"
+                          }
+                        },
+                        {
+                          "name": "name",
+                          "type": {
+                            "@type": "SimpleType",
+                            "name": "string"
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "name": "name",
+                    "type": {
+                      "@type": "SimpleType",
+                      "name": "string"
+                    }
+                  },
+                  {
+                    "name": "photoUrls",
+                    "type": {
+                      "@type": "ArrayType",
+                      "name": null,
+                      "contentType": {
+                        "@type": "SimpleType",
+                        "name": "string"
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "faults": [
+          {
+            "name": "400",
+            "type": null
+          },
+          {
+            "name": "404",
+            "type": null
+          }
+        ]
+      },
+      {
+        "name": "POST_/pet/{petId}",
+        "input": {...},
+        "output": null,
+        "faults": [...]
+      },
+      {
+        "name": "DELETE_/pet/{petId}",
+        "input": {...},
+        "output": null,
+        "faults": [...]
+      },
+      {
+        "name": "POST_/pet/{petId}/uploadImage",
+        "input": {...},
+        "output": {...},
+        "faults": [...]
+      }
+    ]
+  },
+  "solution": "Swagger Petstore - petStore.json"
+}
