@@ -1327,7 +1327,7 @@ reference "fig: UML-CasoCandidatoPetStoreFull"
 
 \end_inset
 
- podemos observar como la función de distancia nos da un valor de 
+ al apicar la función de distancia nos da un valor de 
 \begin_inset Formula $0.153333$
 \end_inset
 
@@ -1341,7 +1341,7 @@ lo dejo así o agrego DIST(C,C)=0.153333
 
 \end_inset
 
-
+ 
 \end_layout
 
 \begin_layout Standard
@@ -1705,9 +1705,9 @@ MoneyTransfer
 
 \begin_layout Itemize
 
-\emph on
+\series bold
 1-nn
-\emph default
+\series default
  Seleccionaría 
 \emph on
 PetStoreFull
@@ -1717,8 +1717,11 @@ PetStoreFull
 
 \begin_layout Itemize
 
+\series bold
+k-nn
+\series default
 \emph on
-k-nn 
+ 
 \emph default
 con 
 \emph on
@@ -1737,11 +1740,15 @@ k
 \end_layout
 
 \begin_layout Itemize
-k-nn con 
+
+\series bold
+k-nn
+\series default
+ con 
 \emph on
 k
 \emph default
-=4 Seleccionaría 
+>=4 Seleccionaría 
 \emph on
 MoneyTransfer
 \emph default
@@ -1751,9 +1758,9 @@ MoneyTransfer
 
 \begin_layout Itemize
 
-\emph on
+\series bold
 WK-nn
-\emph default
+\series default
  Seleccionaría 
 \emph on
 PetStoreFull
@@ -1782,8 +1789,11 @@ reference "eq:WKNN"
 
 \begin_layout Itemize
 
+\series bold
+DWK-nn
+\series default
 \emph on
-DWK-nn 
+ 
 \emph default
 Seleccionaría 
 \emph on
@@ -2216,19 +2226,6 @@ La evaluación de similitud entre operaciones considera los aspectos semánticos
  Los aspectos estructurales implican la equivalencia de tipos de datos (subtipif
 icación), mientras que los aspectos semánticos implican conceptos de términos
  e identificadores.
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
- Se han definido tres implementaciones para la similitud de operaciones
- que difieren principalmente en su base semántica.
- Esto dio como resultado tres funciones diferentes para la evaluación de
- operaciones.
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Standard
@@ -2513,6 +2510,15 @@ https://github.com/FasterXML/jackson-module-kotlin
 \end_inset
 
 , que es el estardar de facto para realizar dichas tareas en Kotlin.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+kmongo
+\end_layout
+
+\end_inset
+
  Debido a que 
 \emph on
 Parameter
@@ -4709,10 +4715,14 @@ name "par:UtilizacionHerramientasProcSwagger"
 \end_layout
 
 \begin_layout Itemize
-KaiZen OpenAPI Parser: Ésta herramienta es la principal competencia de la
- seleccionada, incluso se podría considerar mejor en algunos aspectos, como
- la performance (que ellos informan 3 a cuatro veces superior) y que posee
- un validador semántico Open API.
+
+\series bold
+KaiZen OpenAPI Parser
+\series default
+: Ésta herramienta es la principal competencia de la seleccionada, incluso
+ se podría considerar mejor en algunos aspectos, como la performance (que
+ ellos informan es tres a cuatro veces superior) y que posee un validador
+ semántico Open API.
  Además acepta especificaciones en JSON o YAML, pero, su principal desventaja,
  es que al momento sólo sirve para especificaciones OpenAPI v3, la cual
  no se ha terminado de adoptar por la comunidad, y está lejos de conversitrse
@@ -4723,9 +4733,13 @@ KaiZen OpenAPI Parser: Ésta herramienta es la principal competencia de la
 \end_layout
 
 \begin_layout Itemize
-Jackson: Ésta herramienta es el standar para trabajar con documentos JSON
- en lenguajes Java o dentro de la JVM, en el repositorio de la misma se
- puede observar que se define de la siguiente manera:
+
+\series bold
+Jackson
+\series default
+: Ésta herramienta es el standar para trabajar con documentos JSON en lenguajes
+ Java o dentro de la JVM, en el repositorio de la misma se puede observar
+ que se define de la siguiente manera:
 \emph on
  La librería estándar de JSON para Java (o JVM en general), o, como el "mejor
  parser JSON para Java".
@@ -4783,9 +4797,13 @@ y
 \end_layout
 
 \begin_layout Itemize
-Klaxon: Ésta herramienta nos permite trabajar con documentos JSON dentro
- de kotlin, los motivos por los cuales se descartó son los mismos que para
- la librería 
+
+\series bold
+Klaxon
+\series default
+: Ésta herramienta nos permite trabajar con documentos JSON dentro de kotlin,
+ los motivos por los cuales se descartó son los mismos que para la librería
+ 
 \emph on
 Jackson
 \emph default
