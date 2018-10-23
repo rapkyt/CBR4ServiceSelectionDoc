@@ -133,7 +133,8 @@ reference "chap:Metamodelo-para-descipción"
 
 .
  Para esta evaluación se utilizó un conjunto de servicios compuesto por
- 1146 descripciones WSDL de Servicios Web obtenidos de la plataforma Mashape.
+ 1192 descripciones WSDL de Servicios Web obtenidos de la plataforma Mashape
+ y and 440 especificaciones Swagger obtenidas de la plataforma APIs.Guru.
  En la Figura
 \begin_inset space ~
 \end_inset
@@ -152,8 +153,17 @@ reference "fig:Proceso-experimental"
 
 \begin_layout Standard
 Para realizar este experimento, inicialmente dos grupos de ingenieros de
- software seleccionaron aleatoriamente 30 descripciones de servicios (de
- las 1146 anteriormente mencionadas).
+ software seleccionaron aleatoriamente 30
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+30??
+\end_layout
+
+\end_inset
+
+ descripciones de servicios (de las 1632 anteriormente mencionadas).
  Estas descripciones fueron consideradas como servicios relevantes en el
  contexto de este experimento (Fase de Generación de Consultas de la Figura
  
@@ -395,28 +405,33 @@ Ejemplo
 \end_layout
 
 \begin_layout Standard
-Utilizaremos el servicio RentACar presentado en la sección 
+Utilizaremos el servicio 
+\emph on
+PetStore
+\emph default
+ presentado en la sección 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "subsec:Vision-Detallada"
+reference "sec:Ejemplo-Ilustrativo"
 
 \end_inset
 
 , Capítulo 3, para dar un ejemplo de cómo fue el proceso de generación de
  consultas.
- Este servicio ofrece las siguientes tres operaciones: 
+ Este servicio ofrece las siguientes cinco operaciones: 
 \end_layout
 
 \begin_layout Description
-getReservation: dado un número de identificador (
+POST_/pet: a partir de los datos de una mascota (
 \emph on
-reservationCode
+Pet
 \emph default
-), retorna un String que representa la reserva correspondiente (
+), es generado un 
 \emph on
-reservationReturn
+id 
 \emph default
-).
+único y guardado en la base de datos, luego todos los datos de la mascota
+ son retornados
 \end_layout
 
 \begin_layout Description
