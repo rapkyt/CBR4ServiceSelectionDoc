@@ -431,92 +431,56 @@ Pet
 id 
 \emph default
 único y guardado en la base de datos, luego todos los datos de la mascota
- son retornados
+ son retornados.
 \end_layout
 
 \begin_layout Description
-getCarFee: dados ciertos accesorios con los que cuenta un vehículo (
+GET_/pet/{petId}: dado un número de identificador (
 \emph on
-supplements
+petId
 \emph default
-) retorna el valor correspondiente al alquiler del mismo.
- Las características del vehículo son 
+), retorna los datos de la mascota (
 \emph on
-airCondition
+Pet
 \emph default
- y 
-\emph on
-automatic
-\emph default
-.
- Como salida de la operación 
-\emph on
-GetCarFee
-\emph default
- es el costo del alquiler (
-\emph on
-chargeCost
-\emph default
-) y la moneda (
-\emph on
-currency
-\emph default
-) en que se encuentra expresado dicho monto.
+).
 \end_layout
 
 \begin_layout Description
-getAvailableCars: dadas dos fechas (
+POST_/pet/{petId}: dado un número de identificador (
 \emph on
-initDate
+petId
 \emph default
- y 
+) y los nuevos datos de una mascota (
 \emph on
-endDate
+Pet
 \emph default
-), retorna los automóviles disponibles en dicho período.
- Cada automóvil (
-\emph on
-Car
-\emph default
-) esta compuesto por su marca 
-\emph on
-(brand
-\emph default
-), modelo 
-\emph on
-(model)
-\emph default
- y descripción
-\emph on
- (description).
-\end_layout
-
-\begin_layout Standard
-Para explicar de una manera mas completa este proceso, añadimos 2 operaciones
- extra al servicio de ejemplo:
+), la misma se actualiza en la base de datos y los datos de la mascota son
+ retornados.
 \end_layout
 
 \begin_layout Description
-getInformationMonth: dado el mes y el año (
+DELETE_/pet/{petId}: dado un número de identificador (
 \emph on
-month 
+petId
 \emph default
-e 
-\emph on
-year 
-\emph default
-respectivamente) retorna qué autos se han alquilado en dicho período, y
- las fechas en las que fueron alquilados (CarsAndDates).
- 
+), se procede a eliminar dicha mascota de la base de datos.
 \end_layout
 
 \begin_layout Description
-disableCarForRental: dado un auto (
+POST_/pet/{petId}/uploadImage: dado un número de identificador (
 \emph on
-Car
+petId
 \emph default
-), el mismo se da de baja y retorna un valor booleano; verdadero en caso
- de poder darlo de baja, y falso en caso contrario (response).
+) y una imagen, la misma es almacenada y su 
+\emph on
+URL
+\emph default
+ es agregada a la lista 
+\emph on
+photoUrls
+\emph default
+ de la mascota
 \end_layout
 
 \begin_layout Standard
@@ -626,7 +590,7 @@ Id modificado
 \begin_layout Plain Layout
 
 \size scriptsize
-getReservation
+POST_/pet
 \end_layout
 
 \end_inset
@@ -637,7 +601,7 @@ getReservation
 \begin_layout Plain Layout
 
 \size scriptsize
-getReservation
+POST_/pet
 \end_layout
 
 \end_inset
@@ -670,7 +634,7 @@ Si
 \begin_layout Plain Layout
 
 \size scriptsize
-getReservationNumber
+POST_/pets
 \end_layout
 
 \end_inset
