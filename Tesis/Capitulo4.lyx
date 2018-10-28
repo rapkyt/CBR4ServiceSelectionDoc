@@ -134,7 +134,7 @@ reference "chap:Metamodelo-para-descipción"
 .
  Para esta evaluación se utilizó un conjunto de servicios compuesto por
  1192 descripciones WSDL de Servicios Web obtenidos de la plataforma Mashape
- y and 440 especificaciones Swagger obtenidas de la plataforma APIs.Guru.
+ y 440 especificaciones Swagger obtenidas de la plataforma APIs.Guru.
  En la Figura
 \begin_inset space ~
 \end_inset
@@ -149,6 +149,24 @@ reference "fig:Proceso-experimental"
  se resume el proceso experimental que se encuentra conformado por tres
  fases: Generación de consultas, Ejecución experimental y Resultados.
  
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Tener en cuenta que esto es orientado a servicio, se debe cambiar a vocabulario
+ CBR (casos nuevos, candidatos, etc)
+\end_layout
+
+\begin_layout Plain Layout
+Incluida la imagen.
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -334,7 +352,7 @@ reference "sec:Resultados"
 \end_layout
 
 \begin_layout Section
-Generación de consultas
+Generación de Nuevos Casos
 \begin_inset CommandInset label
 LatexCommand label
 name "sec:Generacion-de-consultas"
@@ -1772,6 +1790,16 @@ name "sec:EjecucionExperimental"
 \end_layout
 
 \begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+paper metamodel: For the sake of comparision ...
+ hasta la figura
+\end_layout
+
+\end_inset
+
 Para la Fase de Ejecución Experimental (Figura 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -1856,6 +1884,26 @@ reference "subsec:Métricas-Utilizadas"
  
 \end_layout
 
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Mencionar que si bien se parten de dos dataset disjuntos, la idea es que
+ el usuario experto decida si quiere utilizar sólo el dataset wsdl, swagger,
+ o ambos (parametrizable)
+\end_layout
+
+\begin_layout Plain Layout
+Se usaron las herramientas para generar instancias del metamodelo a partir
+ de la especificación
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Section
 Resultados
 \begin_inset CommandInset label
@@ -1893,6 +1941,15 @@ name "subsec:Métricas-Utilizadas"
 \end_layout
 
 \begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Explicar metricas Presición y Recall at n (foto)
+\end_layout
+
+\end_inset
+
 El presente experimento fue diseñado para medir, en términos comparativos,
  el desempeño de la Herramienta de Evaluación de Servicios Web.
  Con este objetivo, se utilizó una métrica ampliamente reconocida del área
@@ -2306,6 +2363,47 @@ Precisión para los Registros de Descubrimiento y el Procedimiento de Análisis
 \end_inset
 
 
+\end_layout
+
+\begin_layout Section
+Limitacones
+\end_layout
+
+\begin_layout Standard
+No se evaluó aprendizaje, se deberían generar las queries y popular la base
+ de manera específica, en un escenario simulado es dificil.....
+\end_layout
+
+\begin_layout Standard
+Las queries fueron generadas manualmente en base a los servicios existentes
+ en los distintos datasets, lo cual no refleja el caso de uso real de CBR,
+ sin embargo este tipo de evaluación fue utilizado en diferentes escenarios
+ (citas de papers, tesis...)
+\end_layout
+
+\begin_layout Standard
+Al mutar manualmente se pueden hacer modificaciones por el simple hecho
+ de modificar, desnaturalizando los terminos, por ejemplo, si se cambia
+ el nombre del atributo 
+\begin_inset Quotes eld
+\end_inset
+
+Persona
+\begin_inset Quotes erd
+\end_inset
+
+ por 
+\begin_inset Quotes eld
+\end_inset
+
+Humano
+\begin_inset Quotes erd
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
 \begin_inset Note Note
 status open
 
