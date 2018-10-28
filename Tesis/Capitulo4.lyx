@@ -532,7 +532,7 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Tabular
-<lyxtabular version="3" rows="19" columns="5">
+<lyxtabular version="3" rows="16" columns="5">
 <features tabularvalignment="middle">
 <column alignment="center" valignment="top">
 <column alignment="center" valignment="top">
@@ -559,7 +559,7 @@ Id original
 
 \series bold
 \size scriptsize
-Operación original
+Operación original/Tipo
 \end_layout
 
 \end_inset
@@ -665,8 +665,65 @@ POST_/pets
 \begin_layout Plain Layout
 
 \size scriptsize
+GET_/pet/{petId}
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+GET_/pet/{petId}
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+Nombre de operación
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+Si
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+GET_/pets/{petNumber}
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
 \emph on
-reservationCode
+petId
 \end_layout
 
 \end_inset
@@ -677,7 +734,7 @@ reservationCode
 \begin_layout Plain Layout
 
 \size scriptsize
-getReservation
+GET_/pet/{petId}
 \end_layout
 
 \end_inset
@@ -688,8 +745,7 @@ getReservation
 \begin_layout Plain Layout
 
 \size scriptsize
-Nombre parám.
- entrada
+Nombre parámetro entrada
 \end_layout
 
 \end_inset
@@ -712,7 +768,64 @@ Si
 
 \size scriptsize
 \emph on
-reservationNumber
+petNumber
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+POST_/pet/{petId}
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+POST_/pet/{petId}
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+Nombre de operación
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+Si
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+POST_/pets/{petNumber}
 \end_layout
 
 \end_inset
@@ -726,7 +839,7 @@ reservationNumber
 
 \size scriptsize
 \emph on
-reservationReturn
+petId
 \end_layout
 
 \end_inset
@@ -737,7 +850,7 @@ reservationReturn
 \begin_layout Plain Layout
 
 \size scriptsize
-getReservation
+POST_/pet/{petId}
 \end_layout
 
 \end_inset
@@ -748,8 +861,7 @@ getReservation
 \begin_layout Plain Layout
 
 \size scriptsize
-Nombre parám.
- salida
+Nombre parámetro entrada
 \end_layout
 
 \end_inset
@@ -772,7 +884,7 @@ Si
 
 \size scriptsize
 \emph on
-reservationResponse
+petNumber
 \end_layout
 
 \end_inset
@@ -785,7 +897,7 @@ reservationResponse
 \begin_layout Plain Layout
 
 \size scriptsize
-getCarFee
+DELETE_/pet/{petId}
 \end_layout
 
 \end_inset
@@ -796,7 +908,7 @@ getCarFee
 \begin_layout Plain Layout
 
 \size scriptsize
-getCarFee
+DELETE_/pet/{petId}
 \end_layout
 
 \end_inset
@@ -807,7 +919,7 @@ getCarFee
 \begin_layout Plain Layout
 
 \size scriptsize
-Nombre operación
+Nombre de operación
 \end_layout
 
 \end_inset
@@ -829,7 +941,7 @@ Si
 \begin_layout Plain Layout
 
 \size scriptsize
-getCarWage
+DELETE_/pets/{petNumber}
 \end_layout
 
 \end_inset
@@ -843,7 +955,7 @@ getCarWage
 
 \size scriptsize
 \emph on
-supplements
+petId
 \end_layout
 
 \end_inset
@@ -854,7 +966,7 @@ supplements
 \begin_layout Plain Layout
 
 \size scriptsize
-getCarFee
+DELETE_/pet/{petId}
 \end_layout
 
 \end_inset
@@ -865,8 +977,7 @@ getCarFee
 \begin_layout Plain Layout
 
 \size scriptsize
-Nombre parám.
- entrada
+Nombre parámetro entrada
 \end_layout
 
 \end_inset
@@ -888,7 +999,65 @@ Si
 \begin_layout Plain Layout
 
 \size scriptsize
-airCondition, automatic
+\emph on
+petNumber
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+POST_/pet/{petId}/uploadImage
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+POST_/pet/{petId}/uploadImage
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+Nombre de operación
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+Si
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+POST_/pets/{petNumber}/uploadPicture
 \end_layout
 
 \end_inset
@@ -902,7 +1071,7 @@ airCondition, automatic
 
 \size scriptsize
 \emph on
-chargeCost
+petId
 \end_layout
 
 \end_inset
@@ -913,7 +1082,7 @@ chargeCost
 \begin_layout Plain Layout
 
 \size scriptsize
-getCarFee
+POST_/pet/{petId}/uploadImage
 \end_layout
 
 \end_inset
@@ -924,8 +1093,125 @@ getCarFee
 \begin_layout Plain Layout
 
 \size scriptsize
-Nombre parám.
- salida
+Nombre parámetro entrada
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+Si
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+\emph on
+petNumber
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+\emph on
+id
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+Pet
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+Atributo del tipo
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+Si
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+\emph on
+number
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+\emph on
+name
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+Pet
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+Atributo del tipo
 \end_layout
 
 \end_inset
@@ -962,7 +1248,7 @@ No
 
 \size scriptsize
 \emph on
-currency
+category
 \end_layout
 
 \end_inset
@@ -973,7 +1259,7 @@ currency
 \begin_layout Plain Layout
 
 \size scriptsize
-getCarFee
+Pet
 \end_layout
 
 \end_inset
@@ -984,66 +1270,7 @@ getCarFee
 \begin_layout Plain Layout
 
 \size scriptsize
-Nombre parám.
- salida
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-No
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-\emph on
--
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-getAvailableCars
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-getAvailableCars
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-Nombre operación
+Atributo del tipo
 \end_layout
 
 \end_inset
@@ -1079,7 +1306,7 @@ No
 
 \size scriptsize
 \emph on
-initDate
+photoUrls
 \end_layout
 
 \end_inset
@@ -1090,7 +1317,7 @@ initDate
 \begin_layout Plain Layout
 
 \size scriptsize
-getAvailableCars
+Pet
 \end_layout
 
 \end_inset
@@ -1101,68 +1328,7 @@ getAvailableCars
 \begin_layout Plain Layout
 
 \size scriptsize
-Nombre parám.
- entrada
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-Si
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-\emph on
-initialDate
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-\emph on
-endDate
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-getAvailableCars
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-Nombre parám.
- entrada
+Atributo del tipo
 \end_layout
 
 \end_inset
@@ -1185,7 +1351,7 @@ Si
 
 \size scriptsize
 \emph on
-finalDate
+PictureUrls
 \end_layout
 
 \end_inset
@@ -1198,7 +1364,8 @@ finalDate
 \begin_layout Plain Layout
 
 \size scriptsize
-cars
+\emph on
+id
 \end_layout
 
 \end_inset
@@ -1209,7 +1376,7 @@ cars
 \begin_layout Plain Layout
 
 \size scriptsize
-getAvailableCars
+Category
 \end_layout
 
 \end_inset
@@ -1220,8 +1387,7 @@ getAvailableCars
 \begin_layout Plain Layout
 
 \size scriptsize
-Nombre parám.
- salida
+Atributo del tipo
 \end_layout
 
 \end_inset
@@ -1244,359 +1410,7 @@ Si
 
 \size scriptsize
 \emph on
-listOfCar
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-getInformationMonth
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-getInformationMonth
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-Nombre operación
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-No
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-- 
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-\emph on
-month
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-getInformationMonth
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-Nombre parám.
- entrada
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-No
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-\emph on
--
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-\emph on
-year
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-getInformationMonth
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-Nombre parám.
- entrada
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-No
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-\emph on
--
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-carsAndDates
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-getInformationMonth
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-Nombre parám.
- salida
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-Si
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-arrayOfCarsAndDates
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-disableCarForRental
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-disableCarForRental
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-Nombre operación
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-No
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
--
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-\emph on
-car
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-disableCarForRental
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-Nombre parám.
- entrada
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-No
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-\emph on
--
+number
 \end_layout
 
 \end_inset
@@ -1609,7 +1423,8 @@ No
 \begin_layout Plain Layout
 
 \size scriptsize
-response
+\emph on
+name
 \end_layout
 
 \end_inset
@@ -1620,7 +1435,7 @@ response
 \begin_layout Plain Layout
 
 \size scriptsize
-disableCarForRental
+Category
 \end_layout
 
 \end_inset
@@ -1631,8 +1446,7 @@ disableCarForRental
 \begin_layout Plain Layout
 
 \size scriptsize
-Nombre parám.
- salida
+Atributo del tipo
 \end_layout
 
 \end_inset
@@ -1643,7 +1457,7 @@ Nombre parám.
 \begin_layout Plain Layout
 
 \size scriptsize
-Si
+No
 \end_layout
 
 \end_inset
@@ -1654,7 +1468,7 @@ Si
 \begin_layout Plain Layout
 
 \size scriptsize
-iCouldDeleteTheCar
+-
 \end_layout
 
 \end_inset
@@ -1699,81 +1513,40 @@ Las
 \end_layout
 
 \begin_layout Description
-getReservationNumber (
-\emph on
-reservationNumber
-\emph default
-) : 
-\emph on
-(reservationResponse)
+POST_/pets (Pet) : (Pet)
 \end_layout
 
 \begin_layout Description
-getCarWage (airCondition, automatic) : (
-\emph on
-chargeCost
-\emph default
-, 
-\emph on
-currency
-\emph default
-)
+GET_/pets/{petNumber} (petNumber) : (Pet)
 \end_layout
 
 \begin_layout Description
-getAvailableCars (
-\emph on
-initialDate
-\emph default
-, 
-\emph on
-finalDate
-\emph default
-) : (
-\emph on
-listOfCar
-\emph default
-)
+POST_/pets/{petNumber} (petNumber, Pet) : (Pet)
 \emph on
 .
 \end_layout
 
 \begin_layout Description
-getInformationMonth (
-\emph on
-month, year
-\emph default
-) : (arrayOfCarsAndDates).
+DELETE_/pets/{petNumber} (petNumber) : Null.
  
 \end_layout
 
 \begin_layout Description
-disableCarForRental (
-\emph on
-Car
-\emph default
-) : (iCouldDeleteTheCar).
+POST_/pets/{petNumber}/uploadPicture (petNumber, Image) : (Pet).
 \end_layout
 
 \begin_layout Standard
-Luego el servicio modificado consiste de cinco operaciones, por lo tanto
- podemos desglosar el mismo en dos servicios de 3 y 2 operaciones respectivament
-e.
- Por ejemplo, el primer servicio puede incluir las operaciones getReservationNum
-ber, getCarWage y getAvailableCars, mientras que el segundo, getInformationMonth
- y disableCarForRental.
- 
-\end_layout
-
-\begin_layout Standard
-Finalmente, para cada consulta generada se registró el 
+Finalmente, para cada caso nuevo generado se registró el 
 \emph on
 gold standard
 \emph default
- (el servicio más relevante) de la misma, siendo este el Servicio Web a
- partir del cual fue generada cada una de ellas.
+ (la solución más relevante) de la misma, siendo esta la 
+\emph on
+solución
+\emph default
+ del Caso a partir del cual fue generada cada una de ellas.
  Con esta metodología, podemos simular que la funcionalidad requerida por
- el desarrollador (consulta) se satisface con el servicio web que ofrece
+ el desarrollador (Caso nuevo) se satisface con el servicio web que ofrece
  la misma funcionalidad, o sea del que dicha consulta fue generada.
  
 \end_layout
@@ -1790,16 +1563,6 @@ name "sec:EjecucionExperimental"
 \end_layout
 
 \begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-paper metamodel: For the sake of comparision ...
- hasta la figura
-\end_layout
-
-\end_inset
-
 Para la Fase de Ejecución Experimental (Figura 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -1807,36 +1570,27 @@ reference "fig:Proceso-experimental"
 
 \end_inset
 
-), se utilizaron dos versiones del registro de descubrimiento de servicios
- EasySOC como base: la versión original basada en VSM
-\begin_inset space ~
-\end_inset
-
-
+), también se ejecutaron las consultas, o problemas de los casos nuevos
+ en EasySOC,  un registro de descubrimiento de servicio, sólo disponible
+ para WSDL
 \begin_inset CommandInset citation
 LatexCommand cite
 key "crasso2008easy"
 
 \end_inset
 
- y la versión mejorada (Enhanced EasySOC) que aplica la técnica de expansión
- de consultas (
-\emph on
-query expansion
-\emph default
-)
-\begin_inset space ~
-\end_inset
+, basado en un Modelo de Vector Espacial, o VSM.
+ 
+\begin_inset Note Note
+status open
 
-
-\begin_inset CommandInset citation
-LatexCommand cite
-key "agichtein2006learning,crasso2014easysoc"
+\begin_layout Plain Layout
+ésto va?
+\end_layout
 
 \end_inset
 
-.
- EasySOC provee un soporte simple para descubrimiento de servicios basado
+EasySOC provee un soporte simple para descubrimiento de servicios basado
  en técnicas de matching de documentos, explotando solo aspectos sintáticos,
  tanto de consultas como de descripciones de servicios.
  Ambos registros fueron poblados con los 1146 servicios obtenidos de la
@@ -1850,26 +1604,47 @@ key "agichtein2006learning,crasso2014easysoc"
 \end_layout
 
 \begin_layout Standard
-Luego, cada consulta generada por los expertos (documento WSDL 2.0 modificado)
- fue instanciada de acuerdo al metamodelo definido, utilizando el modulo
- Conversor presentado en la Sección
+Luego, cada consulta generada por los expertos (documento WSDL 2.0 o especificaci
+ón swagger modificado) fue instanciada de acuerdo al metamodelo definido,
+ utilizando el modulo Conversor presentado en la Sección
 \begin_inset space ~
 \end_inset
 
 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "subsec:Relación-entre-WSDL"
+reference "sec:-Conversor de OAS"
 
 \end_inset
 
 .
- Por último, las consultas instanciadas fueron ejecutadas utilizando la
- Herramienta de Evaluación de Servicios Web (Paso 7).
- Finalmente, los resultados obtenidos, tanto para las consultas ejecutadas
- sobre los registros de descubrimiento de servicios (EasySOC y Enhanced
- EasySOC), como sobre la herramienta de Evaluación de Servicios Web, fueron
- evaluados utilizando las métricas que se presentan en la Sección
+ Por último, las consultas instanciadas fueron ejecutadas utilizando el
+ Razonador Basado en Casos definido en la Sección
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:CBR-para-selección"
+
+\end_inset
+
+ (Paso 7
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Actualizar
+\end_layout
+
+\end_inset
+
+).
+ Finalmente, los resultados obtenidos, tanto para los casos nuevos ejecutado
+ sobre los registros de descubrimiento de servicios (EasySOC), como sobre
+ la herramienta de Razonamiento Basado en Casos, fueron evaluados utilizando
+ las métricas que se presentan en la Sección
 \begin_inset space ~
 \end_inset
 
@@ -1885,23 +1660,16 @@ reference "subsec:Métricas-Utilizadas"
 \end_layout
 
 \begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Mencionar que si bien se parten de dos dataset disjuntos, la idea es que
- el usuario experto decida si quiere utilizar sólo el dataset wsdl, swagger,
- o ambos (parametrizable)
-\end_layout
-
-\begin_layout Plain Layout
-Se usaron las herramientas para generar instancias del metamodelo a partir
- de la especificación
-\end_layout
-
-\end_inset
-
-
+Si bien se parte de dos datasets distintos y disjuntos (Mashape y APIS.guru,
+ protocolo SOAP y REST respectivamente), a la hora de la ejecución experimental,
+ o la busqueda del caso candidato, mediante un parametro es posible decidir
+ si se desea realizar la consulta utilizando únicamente uno de los dos dataset,
+ o ambos, esta flexibilidad permite que el caso candidato se adapte mejor
+ al experto.
+ Si el mismo tiene una restricción en cuanto al protocolo requerido, la
+ solución se adaptará a la misma, caso contrario, el experto puede definir
+ un problema en la especificación que le resulte más practica (WSDL o Swagger),
+ pero la solución no se limitará únicamente a ese protocolo.
 \end_layout
 
 \begin_layout Section
