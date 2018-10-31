@@ -283,7 +283,7 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename ImgChapter5/experimento-proceso.png
+	filename ImgChapter4/usadas/Proceso Experimental.png
 	width 90text%
 
 \end_inset
@@ -373,9 +373,9 @@ name "sec:Generacion-de-consultas"
 
 \begin_layout Standard
 Como se mencionó anteriormente, para este experimento se generaron manualmente
- 42 consultas, donde cada una representa una funcionalidad esperada por
+ 42 casos nuevos, donde cada uno representa una funcionalidad esperada por
  una aplicación cliente (consumer).
- Éstas consultas no han sido automáticamente generadas por un algoritmo
+ Estos casos nuevos no han sido automáticamente generadas por un algoritmo
  de mutación (a diferencia de trabajos anteriores
 \begin_inset space ~
 \end_inset
@@ -390,10 +390,10 @@ key "DeRenzis13,garriga2013service"
 ), sino que fueron construidas por dos grupos de ingenieros de software
  (GrupoA y GrupoB).
  El dataset utilizado está compuesto por más de 1146 descripciones de Servicios
- Web en formato WSDL 2.0.
+ Web en formato WSDL 2.0 y 440 especificaciones Swagger en formato JSON.
  Estas especificaciones fueron entregadas a los grupos de profesionales,
  donde cada grupo seleccionó 15 servicios como los servicios candidatos
- para generar las consultas (Paso 1 de la Figura 
+ para generar los casos nuevos (Paso 1 de la Figura 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Proceso-experimental"
@@ -1693,17 +1693,16 @@ name "sec:Resultados"
 \end_layout
 
 \begin_layout Standard
-Para este escenario experimental, se consultaron ambas versiones del registro
- EasySOC con las consultas sintácticas.
- Luego, se ejecutó la Herramienta de Evaluación de Servicios Web con el
- metamodelo implementado en el mismo, utilizando las consultas generadas
- por los ingenieros.
+Para este escenario experimental, se consultó el registro EasySOC con los
+ problemas de los nuevo casos basados en WSDL.
+ Luego, se ejecutó el Razonador Basado en casos, utilizando los casos nuevos
+ generadas por los ingenieros.
  Finalmente se compararon los resultados considerando los 
 \emph on
 gold standard 
 \emph default
-para cada consulta, de acuerdo a la métrica Precisión-en-n Acumulada que
- se presenta a continuación.
+para cada consulta, de acuerdo a la métrica Precisión y Recall-at-n que
+ se presentan a continuación.
 \end_layout
 
 \begin_layout Subsection
@@ -2143,41 +2142,42 @@ Precisión para los Registros de Descubrimiento y el Procedimiento de Análisis
 \end_layout
 
 \begin_layout Section
-Limitacones
+Limitaciones
 \end_layout
 
 \begin_layout Standard
-No se evaluó aprendizaje, se deberían generar las queries y popular la base
- de manera específica, en un escenario simulado es dificil.....
+No se evaluó el aprendizaje del Razonador Basado en Casos, para ello se
+ deberían generar los casos nuevos, popular la base de conocimiento (
+\emph on
+KB
+\emph default
+) y realizar las consultas de tal manera que se vayan incorporando casos
+ nuevos, y sea uno de estos casos incorporados el que sea solución de una
+ consulta futura, realizar esto en un entorno simulado es dificil como demostrac
+ión.
 \end_layout
 
 \begin_layout Standard
-Las queries fueron generadas manualmente en base a los servicios existentes
- en los distintos datasets, lo cual no refleja el caso de uso real de CBR,
- sin embargo este tipo de evaluación fue utilizado en diferentes escenarios
- (citas de papers, tesis...)
+Los casos nuevos fueron generados manualmente en base a los servicios existentes
+ para los distintos datasets, esto no refleja el caso de uso real del Razonador
+ Basado en Casos, sin embargo, este tipo de evaluación fue utilizado en
+ diferentes escenarios (citas)
 \end_layout
 
 \begin_layout Standard
-Al mutar manualmente se pueden hacer modificaciones por el simple hecho
- de modificar, desnaturalizando los terminos, por ejemplo, si se cambia
- el nombre del atributo 
-\begin_inset Quotes eld
-\end_inset
-
-Persona
-\begin_inset Quotes erd
-\end_inset
-
+Realizar mutaciones manuales de las interfaces puede llevar a que se realizen
+ modificaciones de manera forzada sin cuestionar si las mismas tienen sentido
+ en casos reales, desnaturalizando terminos, y por lo tanto llevando a resultado
+s inesperados, por ejemplo, se podría reemplazar el atributo 
+\emph on
+user
+\emph default
  por 
-\begin_inset Quotes eld
-\end_inset
-
-Humano
-\begin_inset Quotes erd
-\end_inset
-
-.
+\emph on
+uasda
+\emph default
+, cuando lo más probable es que se utilize el termino original () al definir
+ una interfaz requerida.
 \end_layout
 
 \begin_layout Standard
