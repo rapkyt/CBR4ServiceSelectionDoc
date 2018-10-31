@@ -1,5 +1,5 @@
-#LyX 2.2 created this file. For more info see http://www.lyx.org/
-\lyxformat 508
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
 \begin_document
 \begin_header
 \save_transient_properties true
@@ -24,6 +24,8 @@
 \font_osf false
 \font_sf_scale 100 100
 \font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
 \graphics default
 \default_output_format default
 \output_sync 0
@@ -53,6 +55,7 @@
 \suppress_date false
 \justification true
 \use_refstyle 1
+\use_minted 0
 \index Index
 \shortcut idx
 \color #008000
@@ -61,7 +64,10 @@
 \tocdepth 2
 \paragraph_separation indent
 \paragraph_indentation default
-\quotes_language english
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
 \papercolumns 1
 \papersides 1
 \paperpagestyle default
@@ -242,7 +248,7 @@ reference "fig:Proceso-experimental"
  descubrimiento.
  Los resultados brindados por este registro de descubrimiento proveen una
  base para comparar otros enfoques de selección de servicios mas exhaustivos.
- De este modo, consultamos el registro de descubrimento con las 42 consultas
+ De este modo, consultamos el registro de descubrimiento con las 42 consultas
  generadas manualmente por los expertos.
  Luego, el registro retornó los 10 servicios mas relevantes para cada consulta,
  conteniendo potencialmente al servicio objetivo (comunmente denominado
@@ -316,7 +322,7 @@ Proceso experimental
 status open
 
 \begin_layout Plain Layout
-Es necesario el paso 4?
+Es necesario el paso 4? NO
 \end_layout
 
 \end_inset
@@ -384,6 +390,7 @@ Como se mencionó anteriormente, para este experimento se generaron manualmente
 \begin_inset CommandInset citation
 LatexCommand cite
 key "DeRenzis13,garriga2013service"
+literal "true"
 
 \end_inset
 
@@ -405,6 +412,19 @@ reference "fig:Proceso-experimental"
  los candidatos se intercambiaron los documentos seleccionados por cada
  grupo (Paso 2).
  
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Sacar la referencia al paso 4 q no se hace
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -1585,6 +1605,7 @@ reference "fig:Proceso-experimental"
 \begin_inset CommandInset citation
 LatexCommand cite
 key "crasso2008easy"
+literal "true"
 
 \end_inset
 
@@ -1602,8 +1623,8 @@ status open
 EasySOC provee un soporte simple para descubrimiento de servicios basado
  en técnicas de matching de documentos, explotando solo aspectos sintáticos,
  tanto de consultas como de descripciones de servicios.
- Ambos registros fueron poblados con los 1146 servicios obtenidos de la
- plataforma Mashape (Paso 5).
+ EasySOC fue poblado con los 1146 servicios obtenidos de la plataforma Mashape
+ (Paso 5).
  Las consultas sintácticas (que son las que se le hacen a los registros
  de descubrimiento) fueron generadas concatenando los nombres de las operaciones
  extraídas de las instanciaciones del metamodelo (particularmente de las
@@ -1674,11 +1695,11 @@ Si bien se parte de dos datasets distintos y disjuntos (Mashape y APIS.guru,
  o la busqueda del caso candidato, mediante un parametro es posible decidir
  si se desea realizar la consulta utilizando únicamente uno de los dos dataset,
  o ambos, esta flexibilidad permite que el caso candidato se adapte mejor
- al experto.
- Si el mismo tiene una restricción en cuanto al protocolo requerido, la
- solución se adaptará a la misma, caso contrario, el experto puede definir
- un problema en la especificación que le resulte más practica (WSDL o Swagger),
- pero la solución no se limitará únicamente a ese protocolo.
+ a las restricciones definidas por el experto: si el mismo tiene una restricción
+ en cuanto al protocolo requerido, la solución se adaptará a la misma, caso
+ contrario, el experto puede definir un problema en la especificación que
+ le resulte más practica (WSDL o Swagger), pero la solución no se limitará
+ únicamente a ese protocolo.
 \end_layout
 
 \begin_layout Section
@@ -1734,6 +1755,7 @@ te en el contexto de la selección y el descubrimiento de Servicios Web
 \begin_inset CommandInset citation
 LatexCommand cite
 key "pasley2006avoid,guizzardi2005ontological"
+literal "true"
 
 \end_inset
 
@@ -1907,7 +1929,7 @@ s más adecuados puede facilitar en gran medida el desarrollo de Aplicaciones
 \begin_inset Float table
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -2141,6 +2163,54 @@ Precisión para los Registros de Descubrimiento y el Procedimiento de Análisis
 
 \end_layout
 
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Mencionar como aporte (no sé si acá / en las conclusiones del cap3, o en
+ las generales de la tesis) que el soporte de servicios heterogeneos no
+ solo amplia la cantidad de candidatos disponibles sino tambien permite
+ que un desarrollador pueda definir la consulta en el lenguaje de su convenienci
+a (eg., WSDL o Swagger) y luego el parser genera automáticamente un nuevo
+ caso de acuerdo al metamodelo.
+ Esto permite, por ejemplo, actualizar una API legacy WSDL a nueva tecnología,
+ si es que existe un servicio en Swagger equivalente.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Trabajo futuro (cap 5): Un 
+\begin_inset Quotes eld
+\end_inset
+
+desconversor
+\begin_inset Quotes erd
+\end_inset
+
+ del metamodelo a una especificación destino, con lo cual se podria hacer
+ conversiones entre cualquier tipo de especificación.
+ 
+\end_layout
+
+\begin_layout Plain Layout
+Otra: a partir de la instancia del metamodelo generar los mocks del server
+ con una API para cualquiera de los tipos de especificación destino.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Section
 Limitaciones
 \end_layout
@@ -2168,7 +2238,8 @@ Los casos nuevos fueron generados manualmente en base a los servicios existentes
 Realizar mutaciones manuales de las interfaces puede llevar a que se realizen
  modificaciones de manera forzada sin cuestionar si las mismas tienen sentido
  en casos reales, desnaturalizando terminos, y por lo tanto llevando a resultado
-s inesperados, por ejemplo, se podría reemplazar el atributo 
+s inesperados.
+ Por ejemplo, se podría reemplazar el atributo 
 \emph on
 user
 \emph default
@@ -2235,6 +2306,7 @@ Es importante aclarar que los experimentos son empíricos, y que esta práctica
 \begin_inset CommandInset citation
 LatexCommand cite
 key "stroulia2005structural,hess2004assam,crasso2008easy"
+literal "true"
 
 \end_inset
 
@@ -2242,6 +2314,7 @@ key "stroulia2005structural,hess2004assam,crasso2008easy"
 \begin_inset CommandInset citation
 LatexCommand cite
 key "garriga2013service,tibermacine2013wssim,crasso2014easysoc,mateos2015tool"
+literal "true"
 
 \end_inset
 
