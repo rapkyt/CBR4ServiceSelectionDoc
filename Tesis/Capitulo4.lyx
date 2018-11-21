@@ -1,5 +1,5 @@
-#LyX 2.3 created this file. For more info see http://www.lyx.org/
-\lyxformat 544
+#LyX 2.2 created this file. For more info see http://www.lyx.org/
+\lyxformat 508
 \begin_document
 \begin_header
 \save_transient_properties true
@@ -7,6 +7,9 @@
 \textclass myBook
 \begin_preamble
 \usepackage{fancyhdr}
+% Added by lyx2lyx
+\renewcommand{\textendash}{--}
+\renewcommand{\textemdash}{---}
 \end_preamble
 \use_default_options false
 \maintain_unincluded_children false
@@ -24,8 +27,6 @@
 \font_osf false
 \font_sf_scale 100 100
 \font_tt_scale 100 100
-\use_microtype false
-\use_dash_ligatures true
 \graphics default
 \default_output_format default
 \output_sync 0
@@ -55,7 +56,6 @@
 \suppress_date false
 \justification true
 \use_refstyle 1
-\use_minted 0
 \index Index
 \shortcut idx
 \color #008000
@@ -64,10 +64,7 @@
 \tocdepth 2
 \paragraph_separation indent
 \paragraph_indentation default
-\is_math_indent 0
-\math_numbering_side default
-\quotes_style english
-\dynamic_quotes 0
+\quotes_language english
 \papercolumns 1
 \papersides 1
 \paperpagestyle default
@@ -154,7 +151,6 @@ reference "fig:Proceso-experimental"
 
  se resume el proceso experimental que se encuentra conformado por tres
  fases: Generación de consultas, Ejecución experimental y Resultados.
- 
 \end_layout
 
 \begin_layout Standard
@@ -390,7 +386,6 @@ Como se mencionó anteriormente, para este experimento se generaron manualmente
 \begin_inset CommandInset citation
 LatexCommand cite
 key "DeRenzis13,garriga2013service"
-literal "true"
 
 \end_inset
 
@@ -1605,7 +1600,6 @@ reference "fig:Proceso-experimental"
 \begin_inset CommandInset citation
 LatexCommand cite
 key "crasso2008easy"
-literal "true"
 
 \end_inset
 
@@ -1755,7 +1749,6 @@ te en el contexto de la selección y el descubrimiento de Servicios Web
 \begin_inset CommandInset citation
 LatexCommand cite
 key "pasley2006avoid,guizzardi2005ontological"
-literal "true"
 
 \end_inset
 
@@ -2306,7 +2299,6 @@ Es importante aclarar que los experimentos son empíricos, y que esta práctica
 \begin_inset CommandInset citation
 LatexCommand cite
 key "stroulia2005structural,hess2004assam,crasso2008easy"
-literal "true"
 
 \end_inset
 
@@ -2314,7 +2306,6 @@ literal "true"
 \begin_inset CommandInset citation
 LatexCommand cite
 key "garriga2013service,tibermacine2013wssim,crasso2014easysoc,mateos2015tool"
-literal "true"
 
 \end_inset
 
