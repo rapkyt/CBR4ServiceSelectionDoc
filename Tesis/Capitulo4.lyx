@@ -1743,8 +1743,7 @@ key "pasley2006avoid,guizzardi2005ontological"
 Precisión 
 \emph default
 calcula la cantidad de veces que el caso candidato relevante se encuentra
- en primer lugar de la lista de casos candidatos.
- Esto es:
+ en el primer lugar de la lista de casos candidatos, esto es:
 \begin_inset Newline newline
 \end_inset
 
@@ -1796,6 +1795,15 @@ Recall\text{\,−}\,at\,\text{−\,}n\,=\,\frac{RetRel_{n}}{n}\label{eq:presicio
 \end_layout
 
 \begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Cambiar definición
+\end_layout
+
+\end_inset
+
 Donde 
 \begin_inset Formula $RetRel_{n}$
 \end_inset
