@@ -90,7 +90,7 @@ name "cap:evaluacion experimental"
 
 \begin_layout Standard
 \begin_inset Note Note
-status collapsed
+status open
 
 \begin_layout Plain Layout
 En el presente capítulo se detalla la evaluación experimental realizada
@@ -311,18 +311,19 @@ Proceso experimental
 \end_inset
 
 
-\end_layout
-
-\begin_layout Standard
 \begin_inset Note Note
 status open
 
 \begin_layout Plain Layout
-Es necesario el paso 4? NO
+Actualizar imagen, se eliminó el paso 4, pero no se acomodaron los números
 \end_layout
 
 \end_inset
 
+
+\end_layout
+
+\begin_layout Standard
 El resto del Capítulo se distribuye de la siguiente manera: En la Sección
  
 \begin_inset CommandInset ref
@@ -375,7 +376,7 @@ name "sec:Generacion-de-consultas"
 
 \begin_layout Standard
 Como se mencionó anteriormente, para este experimento se generaron manualmente
- 42 casos nuevos, donde cada uno representa una funcionalidad esperada por
+ 28 casos nuevos, donde cada uno representa una funcionalidad esperada por
  una aplicación cliente (consumer).
  Estos casos nuevos no han sido automáticamente generadas por un algoritmo
  de mutación (a diferencia de trabajos anteriores
@@ -392,9 +393,9 @@ key "DeRenzis13,garriga2013service"
 ), sino que fueron construidas por dos grupos de ingenieros de software
  (GrupoA y GrupoB).
  El dataset utilizado está compuesto por más de 1146 descripciones de Servicios
- Web en formato WSDL 2.0 y 440 especificaciones Swagger en formato JSON.
+ Web en formato WSDL 2.0 y 550 especificaciones Swagger en formato JSON.
  Estas especificaciones fueron entregadas a los grupos de profesionales,
- donde cada grupo seleccionó 15 servicios como los servicios candidatos
+ donde cada grupo seleccionó 14 servicios como los servicios candidatos
  para generar los casos nuevos (Paso 1 de la Figura 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -410,19 +411,6 @@ reference "fig:Proceso-experimental"
 \end_layout
 
 \begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Sacar la referencia al paso 4 q no se hace
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
 Luego, cada grupo, reescribió sus documentos (descripciones de servicios)
  asignados, alterando los elementos incluidos en los mismos (Paso 3).
  La única condición a la hora de reescribirlos fue que la semántica tenía
@@ -433,13 +421,8 @@ Luego, cada grupo, reescribió sus documentos (descripciones de servicios)
  de las operaciones, nombres de parámetros, campos de los tipos complejos,
  entre otros) y los tipos de datos (incluidos en parámetros, retornos y
  atributos de tipos complejos).
- Luego de reescribir los documentos, se dividieron los mismos agrupando
- en nuevos documentos de una, dos y tres operaciones (Paso 4).
- Estos nuevos documentos conformaron las consultas utilizadas en esta evaluación
- experimental.
- De esta forma, cada consulta estuvo compuesta como máximo por tres operaciones
- relacionadas.
- 
+ Estos nuevos documentos conformaron los nuevos casos a utilizar en esta
+ evaluación experimental.
 \end_layout
 
 \begin_layout Paragraph
@@ -558,11 +541,11 @@ status open
 \begin_inset Tabular
 <lyxtabular version="3" rows="16" columns="5">
 <features tabularvalignment="middle">
-<column alignment="center" valignment="top">
-<column alignment="center" valignment="top">
-<column alignment="center" valignment="top">
-<column alignment="center" valignment="top">
-<column alignment="center" valignment="top">
+<column alignment="center" valignment="top" width="21col%">
+<column alignment="center" valignment="top" width="21col%">
+<column alignment="center" valignment="top" width="18col%">
+<column alignment="center" valignment="top" width="12col%">
+<column alignment="center" valignment="top" width="28col%">
 <row>
 <cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
 \begin_inset Text
@@ -631,7 +614,7 @@ Id modificado
 
 \begin_layout Plain Layout
 
-\size scriptsize
+\size tiny
 POST_/pet
 \end_layout
 
@@ -642,7 +625,7 @@ POST_/pet
 
 \begin_layout Plain Layout
 
-\size scriptsize
+\size tiny
 POST_/pet
 \end_layout
 
@@ -653,7 +636,7 @@ POST_/pet
 
 \begin_layout Plain Layout
 
-\size scriptsize
+\size tiny
 Nombre de operación
 \end_layout
 
@@ -664,7 +647,7 @@ Nombre de operación
 
 \begin_layout Plain Layout
 
-\size scriptsize
+\size tiny
 Si
 \end_layout
 
@@ -675,7 +658,7 @@ Si
 
 \begin_layout Plain Layout
 
-\size scriptsize
+\size tiny
 POST_/pets
 \end_layout
 
@@ -688,7 +671,7 @@ POST_/pets
 
 \begin_layout Plain Layout
 
-\size scriptsize
+\size tiny
 GET_/pet/{petId}
 \end_layout
 
@@ -699,7 +682,7 @@ GET_/pet/{petId}
 
 \begin_layout Plain Layout
 
-\size scriptsize
+\size tiny
 GET_/pet/{petId}
 \end_layout
 
@@ -710,7 +693,7 @@ GET_/pet/{petId}
 
 \begin_layout Plain Layout
 
-\size scriptsize
+\size tiny
 Nombre de operación
 \end_layout
 
@@ -721,7 +704,7 @@ Nombre de operación
 
 \begin_layout Plain Layout
 
-\size scriptsize
+\size tiny
 Si
 \end_layout
 
@@ -732,7 +715,7 @@ Si
 
 \begin_layout Plain Layout
 
-\size scriptsize
+\size tiny
 GET_/pets/{petNumber}
 \end_layout
 
@@ -745,7 +728,7 @@ GET_/pets/{petNumber}
 
 \begin_layout Plain Layout
 
-\size scriptsize
+\size tiny
 \emph on
 petId
 \end_layout
@@ -757,7 +740,7 @@ petId
 
 \begin_layout Plain Layout
 
-\size scriptsize
+\size tiny
 GET_/pet/{petId}
 \end_layout
 
@@ -768,7 +751,7 @@ GET_/pet/{petId}
 
 \begin_layout Plain Layout
 
-\size scriptsize
+\size tiny
 Nombre parámetro entrada
 \end_layout
 
@@ -779,7 +762,7 @@ Nombre parámetro entrada
 
 \begin_layout Plain Layout
 
-\size scriptsize
+\size tiny
 Si
 \end_layout
 
@@ -790,7 +773,7 @@ Si
 
 \begin_layout Plain Layout
 
-\size scriptsize
+\size tiny
 \emph on
 petNumber
 \end_layout
@@ -804,7 +787,7 @@ petNumber
 
 \begin_layout Plain Layout
 
-\size scriptsize
+\size tiny
 POST_/pet/{petId}
 \end_layout
 
@@ -815,7 +798,7 @@ POST_/pet/{petId}
 
 \begin_layout Plain Layout
 
-\size scriptsize
+\size tiny
 POST_/pet/{petId}
 \end_layout
 
@@ -826,7 +809,7 @@ POST_/pet/{petId}
 
 \begin_layout Plain Layout
 
-\size scriptsize
+\size tiny
 Nombre de operación
 \end_layout
 
@@ -837,7 +820,7 @@ Nombre de operación
 
 \begin_layout Plain Layout
 
-\size scriptsize
+\size tiny
 Si
 \end_layout
 
@@ -848,7 +831,7 @@ Si
 
 \begin_layout Plain Layout
 
-\size scriptsize
+\size tiny
 POST_/pets/{petNumber}
 \end_layout
 
@@ -861,7 +844,7 @@ POST_/pets/{petNumber}
 
 \begin_layout Plain Layout
 
-\size scriptsize
+\size tiny
 \emph on
 petId
 \end_layout
@@ -873,7 +856,7 @@ petId
 
 \begin_layout Plain Layout
 
-\size scriptsize
+\size tiny
 POST_/pet/{petId}
 \end_layout
 
@@ -884,7 +867,7 @@ POST_/pet/{petId}
 
 \begin_layout Plain Layout
 
-\size scriptsize
+\size tiny
 Nombre parámetro entrada
 \end_layout
 
@@ -895,7 +878,7 @@ Nombre parámetro entrada
 
 \begin_layout Plain Layout
 
-\size scriptsize
+\size tiny
 Si
 \end_layout
 
@@ -906,7 +889,7 @@ Si
 
 \begin_layout Plain Layout
 
-\size scriptsize
+\size tiny
 \emph on
 petNumber
 \end_layout
@@ -920,7 +903,7 @@ petNumber
 
 \begin_layout Plain Layout
 
-\size scriptsize
+\size tiny
 DELETE_/pet/{petId}
 \end_layout
 
@@ -931,7 +914,7 @@ DELETE_/pet/{petId}
 
 \begin_layout Plain Layout
 
-\size scriptsize
+\size tiny
 DELETE_/pet/{petId}
 \end_layout
 
@@ -942,7 +925,7 @@ DELETE_/pet/{petId}
 
 \begin_layout Plain Layout
 
-\size scriptsize
+\size tiny
 Nombre de operación
 \end_layout
 
@@ -953,7 +936,7 @@ Nombre de operación
 
 \begin_layout Plain Layout
 
-\size scriptsize
+\size tiny
 Si
 \end_layout
 
@@ -964,7 +947,7 @@ Si
 
 \begin_layout Plain Layout
 
-\size scriptsize
+\size tiny
 DELETE_/pets/{petNumber}
 \end_layout
 
@@ -977,7 +960,7 @@ DELETE_/pets/{petNumber}
 
 \begin_layout Plain Layout
 
-\size scriptsize
+\size tiny
 \emph on
 petId
 \end_layout
@@ -989,7 +972,7 @@ petId
 
 \begin_layout Plain Layout
 
-\size scriptsize
+\size tiny
 DELETE_/pet/{petId}
 \end_layout
 
@@ -1000,7 +983,7 @@ DELETE_/pet/{petId}
 
 \begin_layout Plain Layout
 
-\size scriptsize
+\size tiny
 Nombre parámetro entrada
 \end_layout
 
@@ -1011,7 +994,7 @@ Nombre parámetro entrada
 
 \begin_layout Plain Layout
 
-\size scriptsize
+\size tiny
 Si
 \end_layout
 
@@ -1022,7 +1005,7 @@ Si
 
 \begin_layout Plain Layout
 
-\size scriptsize
+\size tiny
 \emph on
 petNumber
 \end_layout
@@ -1036,8 +1019,8 @@ petNumber
 
 \begin_layout Plain Layout
 
-\size scriptsize
-POST_/pet/{petId}/uploadImage
+\size tiny
+POST_/pet/{petId}/ uploadImage
 \end_layout
 
 \end_inset
@@ -1047,8 +1030,8 @@ POST_/pet/{petId}/uploadImage
 
 \begin_layout Plain Layout
 
-\size scriptsize
-POST_/pet/{petId}/uploadImage
+\size tiny
+POST_/pet/{petId}/ uploadImage
 \end_layout
 
 \end_inset
@@ -1058,7 +1041,7 @@ POST_/pet/{petId}/uploadImage
 
 \begin_layout Plain Layout
 
-\size scriptsize
+\size tiny
 Nombre de operación
 \end_layout
 
@@ -1069,7 +1052,7 @@ Nombre de operación
 
 \begin_layout Plain Layout
 
-\size scriptsize
+\size tiny
 Si
 \end_layout
 
@@ -1080,8 +1063,8 @@ Si
 
 \begin_layout Plain Layout
 
-\size scriptsize
-POST_/pets/{petNumber}/uploadPicture
+\size tiny
+POST_/pets/{petNumber}/ uploadPicture
 \end_layout
 
 \end_inset
@@ -1093,7 +1076,7 @@ POST_/pets/{petNumber}/uploadPicture
 
 \begin_layout Plain Layout
 
-\size scriptsize
+\size tiny
 \emph on
 petId
 \end_layout
@@ -1105,8 +1088,8 @@ petId
 
 \begin_layout Plain Layout
 
-\size scriptsize
-POST_/pet/{petId}/uploadImage
+\size tiny
+POST_/pet/{petId}/ uploadImage
 \end_layout
 
 \end_inset
@@ -1116,7 +1099,7 @@ POST_/pet/{petId}/uploadImage
 
 \begin_layout Plain Layout
 
-\size scriptsize
+\size tiny
 Nombre parámetro entrada
 \end_layout
 
@@ -1127,7 +1110,7 @@ Nombre parámetro entrada
 
 \begin_layout Plain Layout
 
-\size scriptsize
+\size tiny
 Si
 \end_layout
 
@@ -1138,7 +1121,7 @@ Si
 
 \begin_layout Plain Layout
 
-\size scriptsize
+\size tiny
 \emph on
 petNumber
 \end_layout
@@ -1152,7 +1135,7 @@ petNumber
 
 \begin_layout Plain Layout
 
-\size scriptsize
+\size tiny
 \emph on
 id
 \end_layout
@@ -1164,7 +1147,7 @@ id
 
 \begin_layout Plain Layout
 
-\size scriptsize
+\size tiny
 Pet
 \end_layout
 
@@ -1175,7 +1158,7 @@ Pet
 
 \begin_layout Plain Layout
 
-\size scriptsize
+\size tiny
 Atributo del tipo
 \end_layout
 
@@ -1186,7 +1169,7 @@ Atributo del tipo
 
 \begin_layout Plain Layout
 
-\size scriptsize
+\size tiny
 Si
 \end_layout
 
@@ -1197,7 +1180,7 @@ Si
 
 \begin_layout Plain Layout
 
-\size scriptsize
+\size tiny
 \emph on
 number
 \end_layout
@@ -1211,7 +1194,7 @@ number
 
 \begin_layout Plain Layout
 
-\size scriptsize
+\size tiny
 \emph on
 name
 \end_layout
@@ -1223,7 +1206,7 @@ name
 
 \begin_layout Plain Layout
 
-\size scriptsize
+\size tiny
 Pet
 \end_layout
 
@@ -1234,7 +1217,7 @@ Pet
 
 \begin_layout Plain Layout
 
-\size scriptsize
+\size tiny
 Atributo del tipo
 \end_layout
 
@@ -1245,7 +1228,7 @@ Atributo del tipo
 
 \begin_layout Plain Layout
 
-\size scriptsize
+\size tiny
 No
 \end_layout
 
@@ -1256,7 +1239,7 @@ No
 
 \begin_layout Plain Layout
 
-\size scriptsize
+\size tiny
 \emph on
 -
 \end_layout
@@ -1270,7 +1253,7 @@ No
 
 \begin_layout Plain Layout
 
-\size scriptsize
+\size tiny
 \emph on
 category
 \end_layout
@@ -1282,7 +1265,7 @@ category
 
 \begin_layout Plain Layout
 
-\size scriptsize
+\size tiny
 Pet
 \end_layout
 
@@ -1293,7 +1276,7 @@ Pet
 
 \begin_layout Plain Layout
 
-\size scriptsize
+\size tiny
 Atributo del tipo
 \end_layout
 
@@ -1304,7 +1287,7 @@ Atributo del tipo
 
 \begin_layout Plain Layout
 
-\size scriptsize
+\size tiny
 No
 \end_layout
 
@@ -1315,7 +1298,7 @@ No
 
 \begin_layout Plain Layout
 
-\size scriptsize
+\size tiny
 - 
 \end_layout
 
@@ -1328,7 +1311,7 @@ No
 
 \begin_layout Plain Layout
 
-\size scriptsize
+\size tiny
 \emph on
 photoUrls
 \end_layout
@@ -1340,7 +1323,7 @@ photoUrls
 
 \begin_layout Plain Layout
 
-\size scriptsize
+\size tiny
 Pet
 \end_layout
 
@@ -1351,7 +1334,7 @@ Pet
 
 \begin_layout Plain Layout
 
-\size scriptsize
+\size tiny
 Atributo del tipo
 \end_layout
 
@@ -1362,7 +1345,7 @@ Atributo del tipo
 
 \begin_layout Plain Layout
 
-\size scriptsize
+\size tiny
 Si
 \end_layout
 
@@ -1373,7 +1356,7 @@ Si
 
 \begin_layout Plain Layout
 
-\size scriptsize
+\size tiny
 \emph on
 PictureUrls
 \end_layout
@@ -1387,7 +1370,7 @@ PictureUrls
 
 \begin_layout Plain Layout
 
-\size scriptsize
+\size tiny
 \emph on
 id
 \end_layout
@@ -1399,7 +1382,7 @@ id
 
 \begin_layout Plain Layout
 
-\size scriptsize
+\size tiny
 Category
 \end_layout
 
@@ -1410,7 +1393,7 @@ Category
 
 \begin_layout Plain Layout
 
-\size scriptsize
+\size tiny
 Atributo del tipo
 \end_layout
 
@@ -1421,7 +1404,7 @@ Atributo del tipo
 
 \begin_layout Plain Layout
 
-\size scriptsize
+\size tiny
 Si
 \end_layout
 
@@ -1432,7 +1415,7 @@ Si
 
 \begin_layout Plain Layout
 
-\size scriptsize
+\size tiny
 \emph on
 number
 \end_layout
@@ -1446,7 +1429,7 @@ number
 
 \begin_layout Plain Layout
 
-\size scriptsize
+\size tiny
 \emph on
 name
 \end_layout
@@ -1458,7 +1441,7 @@ name
 
 \begin_layout Plain Layout
 
-\size scriptsize
+\size tiny
 Category
 \end_layout
 
@@ -1469,7 +1452,7 @@ Category
 
 \begin_layout Plain Layout
 
-\size scriptsize
+\size tiny
 Atributo del tipo
 \end_layout
 
@@ -1480,7 +1463,7 @@ Atributo del tipo
 
 \begin_layout Plain Layout
 
-\size scriptsize
+\size tiny
 No
 \end_layout
 
@@ -1491,7 +1474,7 @@ No
 
 \begin_layout Plain Layout
 
-\size scriptsize
+\size tiny
 -
 \end_layout
 
@@ -1515,7 +1498,7 @@ name "tab:Comparativa-entre-identificadores"
 
 \end_inset
 
-Comparativa entre identificadores
+Modificación de identificadores
 \end_layout
 
 \end_inset
@@ -1587,49 +1570,8 @@ name "sec:EjecucionExperimental"
 \end_layout
 
 \begin_layout Standard
-Para la Fase de Ejecución Experimental (Figura 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:Proceso-experimental"
-
-\end_inset
-
-), también se ejecutaron las consultas, o problemas de los casos nuevos
- en EasySOC,  un registro de descubrimiento de servicio, sólo disponible
- para WSDL
-\begin_inset CommandInset citation
-LatexCommand cite
-key "crasso2008easy"
-
-\end_inset
-
-, basado en un Modelo de Vector Espacial, o VSM.
- 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-ésto va?
-\end_layout
-
-\end_inset
-
-EasySOC provee un soporte simple para descubrimiento de servicios basado
- en técnicas de matching de documentos, explotando solo aspectos sintáticos,
- tanto de consultas como de descripciones de servicios.
- EasySOC fue poblado con los 1146 servicios obtenidos de la plataforma Mashape
- (Paso 5).
- Las consultas sintácticas (que son las que se le hacen a los registros
- de descubrimiento) fueron generadas concatenando los nombres de las operaciones
- extraídas de las instanciaciones del metamodelo (particularmente de las
- consultas generadas por los expertos).
- Estas consultas sintácticas luego se convirtieron en la entrada para el
- registro de descubrimiento de servicios (Paso 6).
-\end_layout
-
-\begin_layout Standard
-Luego, cada consulta generada por los expertos (documento WSDL 2.0 o especificaci
-ón swagger modificado) fue instanciada de acuerdo al metamodelo definido,
+Luego, cada nuevo caso generado por los expertos (documento WSDL 2.0 o especifica
+ción swagger modificado) fue instanciada de acuerdo al metamodelo definido,
  utilizando el modulo Conversor presentado en la Sección
 \begin_inset space ~
 \end_inset
@@ -1654,17 +1596,7 @@ reference "sec:CBR-para-selección"
 
 \end_inset
 
- (Paso 7
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Actualizar
-\end_layout
-
-\end_inset
-
-).
+ (Paso 6).
  Finalmente, los resultados obtenidos, tanto para los casos nuevos ejecutado
  sobre los registros de descubrimiento de servicios (EasySOC), como sobre
  la herramienta de Razonamiento Basado en Casos, fueron evaluados utilizando
@@ -1679,8 +1611,49 @@ reference "subsec:Métricas-Utilizadas"
 
 \end_inset
 
- (Paso 8).
+ (Paso 7).
  
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Va esto? ya que no utilizamos EasySOC (en todo caso, necesito valores para
+ el gráfico de easy soc de recall at n
+\end_layout
+
+\end_inset
+
+Para la Fase de Ejecución Experimental (Figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Proceso-experimental"
+
+\end_inset
+
+), también se ejecutaron las consultas, o problemas de los casos nuevos
+ en EasySOC,  un registro de descubrimiento de servicio, sólo disponible
+ para WSDL
+\begin_inset CommandInset citation
+LatexCommand cite
+key "crasso2008easy"
+
+\end_inset
+
+, basado en un Modelo de Vector Espacial, o VSM.
+ EasySOC provee un soporte simple para descubrimiento de servicios basado
+ en técnicas de matching de documentos, explotando solo aspectos sintáticos,
+ tanto de consultas como de descripciones de servicios.
+ EasySOC fue poblado con los 1146 servicios obtenidos de la plataforma Mashape
+ (Paso 4).
+ Las consultas sintácticas (que son las que se le hacen a los registros
+ de descubrimiento) fueron generadas concatenando los nombres de las operaciones
+ extraídas de las instanciaciones del metamodelo (particularmente de las
+ consultas generadas por los expertos).
+ Estas consultas sintácticas luego se convirtieron en la entrada para el
+ registro de descubrimiento de servicios (Paso 5).
 \end_layout
 
 \begin_layout Standard
@@ -1721,7 +1694,7 @@ para cada consulta, de acuerdo a la métrica Precisión y Recall-at-n que
 \end_layout
 
 \begin_layout Subsection
-Métrica Utilizada
+Métricas Utilizadas
 \begin_inset CommandInset label
 LatexCommand label
 name "subsec:Métricas-Utilizadas"
@@ -1742,10 +1715,18 @@ Explicar metricas Presición y Recall at n (foto)
 \end_inset
 
 El presente experimento fue diseñado para medir, en términos comparativos,
- el desempeño de la Herramienta de Evaluación de Servicios Web.
- Con este objetivo, se utilizó una métrica ampliamente reconocida del área
- de Recuperación de Información: Precisión-en-n la cual ha sido usada exitosamen
-te en el contexto de la selección y el descubrimiento de Servicios Web 
+ el desempeño del Razonador Basado en Casos.
+ Con este objetivo, se utilizaron una serie de métricas ampliamente reconocida
+ del área de Recuperación de Información: 
+\emph on
+Precisión
+\emph default
+ y 
+\emph on
+Recall-at-n
+\emph default
+ las cuales ha sido usada exitosamente en el contexto de la selección y
+ el descubrimiento de Servicios Web 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "pasley2006avoid,guizzardi2005ontological"
@@ -1757,10 +1738,44 @@ key "pasley2006avoid,guizzardi2005ontological"
 \end_layout
 
 \begin_layout Standard
-Dicha métrica calcula la precisión en diferentes puntos de la lista de candidato
-s retornados durante la selección.
- Formalmente, la métrica Precisión-en-n para una consulta individual se
- define como:
+
+\emph on
+Precisión 
+\emph default
+calcula la cantidad de veces que el caso candidato relevante se encuentra
+ en primer lugar de la lista de casos candidatos.
+ Esto es:
+\begin_inset Newline newline
+\end_inset
+
+
+\size small
+
+\begin_inset Formula 
+\begin{equation}
+Precisión=\begin{cases}
+Caso\,Relevante\,está\,1\text{º} & 1\\
+Sino & 0
+\end{cases}\label{eq:presicionEnN-1}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\emph on
+Recall-at-n
+\emph default
+ calcula la precisión en diferentes puntos de la lista de candidatos retornados
+ durante la selección.
+ Formalmente, la métrica 
+\emph on
+Recall-at-n
+\emph default
+ para una consulta individual se define como:
 \begin_inset Newline newline
 \end_inset
 
@@ -1772,7 +1787,7 @@ s retornados durante la selección.
 \size small
 \begin_inset Formula 
 \begin{equation}
-Precision\text{\,−}\,en\,\text{−\,}n\,=\,\frac{RetRel_{n}}{n}\label{eq:presicionEnN}
+Recall\text{\,−}\,at\,\text{−\,}n\,=\,\frac{RetRel_{n}}{n}\label{eq:presicionEnN}
 \end{equation}
 
 \end_inset
