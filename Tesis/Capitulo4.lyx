@@ -163,7 +163,16 @@ reference "sec:Generacion-de-consultas"
 \end_inset
 
  se explica cómo han sido generadas las consultas utilizando el conjunto
- de 1146 Servicios Web.
+ de 1632 Servicios Web.
+ En la Sección 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Métricas-Utilizadas"
+
+\end_inset
+
+ se detallan las distintas métricas utilizadas para medir los resultados
+ del experimento.
  En la Sección
 \begin_inset space ~
 \end_inset
@@ -175,22 +184,17 @@ reference "sec:EjecucionExperimental"
 
 \end_inset
 
- se detalla cómo fue llevada a cabo la ejecución experimental.
- En la Sección
-\begin_inset space ~
-\end_inset
-
-
+ se detalla cómo fueron llevada a cabo las ejecuciones experimentales junto
+ con los resultados de las mismas.
+ Y por último en la Sección 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "sec:Resultados"
+reference "sec:Limitaciones"
 
 \end_inset
 
- se explican los pasos que se llevaron a cabo para obtener los resultados
- esperados, incluyendo la decisión de utilizar ciertas métricas para medir
- los resultados del experimento.
- 
+ se listan las distintas limitaciones de la evaluación experimental llevada
+ a cabo.
 \end_layout
 
 \begin_layout Section
@@ -552,7 +556,7 @@ status open
 <column alignment="center" valignment="top" width="22col%">
 <column alignment="center" valignment="top" width="22col%">
 <column alignment="center" valignment="top" width="18col%">
-<column alignment="center" valignment="top" width="10col%">
+<column alignment="center" valignment="top" width="9col%">
 <column alignment="center" valignment="top" width="29col%">
 <row>
 <cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
@@ -574,7 +578,7 @@ Id original
 
 \series bold
 \size scriptsize
-Operación original/Tipo
+Operación original - Tipo
 \end_layout
 
 \end_inset
@@ -1628,7 +1632,7 @@ calcula la cantidad de veces que el caso candidato relevante se encuentra
 Precisión=\begin{cases}
 Caso\,Relevante\,está\,1\text{º} & 1\\
 Sino & 0
-\end{cases}\label{eq:presicionEnN-1}
+\end{cases}\label{eq:presicion}
 \end{equation}
 
 \end_inset
@@ -1668,15 +1672,6 @@ Recall\text{\,−}\,at\,\text{−\,}n\,=\,\frac{RetRel_{n}}{n}\label{eq:presicio
 \end_layout
 
 \begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Cambiar definición
-\end_layout
-
-\end_inset
-
 Donde 
 \begin_inset Formula $RetRel_{n}$
 \end_inset
@@ -1687,22 +1682,22 @@ Donde
 
  posiciones.
  Por ejemplo, si los 5 primeros servicios de la lista de candidatos son
- relevantes y los 5 siguientes son no relevantes, se tiene una precisión
- del 100 % en la quinta posición de la lista, pero una precisión del 50
- % en la décima.
+ relevantes y los 5 siguientes son no relevantes, se tiene un recall del
+ 100 % en la quinta posición de la lista, pero un recall del 50 % en la
+ décima.
  En el contexto del presente experimento, el Recall-en-n se mide para cada
- consulta con una ventana de 
+ caso con una ventana de 
 \begin_inset Formula $n∈[1,10]$
 \end_inset
 
-, luego se promedia para el total de las consultas y finalmente se obtiene
- el valor acumulado a medida que 
+, luego se promedia para el total de los casos y finalmente se obtiene el
+ valor acumulado a medida que 
 \begin_inset Formula $n$
 \end_inset
 
- tiende a 10, denominado Precisión-en-n Acumulada (
+ tiende a 10, denominado Recall-en-n Acumulada (
 \emph on
-Cumulative Precisión-at-n
+Cumulative Recall-at-n
 \emph default
 ).
  Este valor permite saber, para cada posición 
@@ -1717,8 +1712,8 @@ Cumulative Precisión-at-n
 \begin_inset Formula $i∈[1,10]$
 \end_inset
 
-) de la lista, el porcentaje de consultas para los cuales el servicio relevante
- aparece en las primeras 
+) de la lista, el porcentaje de casos para los cuales el servicio relevante
+ se encuentra en las primeras 
 \begin_inset Formula $n$
 \end_inset
 
@@ -1726,66 +1721,15 @@ Cumulative Precisión-at-n
 \end_layout
 
 \begin_layout Standard
-La Figura
-\begin_inset space ~
-\end_inset
-
-
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:Presición-en-N"
-
-\end_inset
-
- detalla los valores de Precisión-en-n Acumulada correspondientes a ambas
- versiones de EasySOC y a la Herramienta de Evaluación de Servicios Web.
- Los resultados muestran que esta última incrementa el valor Precisión-en-n
- Acumulada entre 19% y 34% para las primeras tres posiciones de la lista
- (con n ∈[1,3]) con respecto a los resultados originales de los registros
- de descubrimiento.
- 
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-wide false
-sideways false
+\begin_inset Note Note
 status open
 
 \begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename ImgChapter5/PresicionEnN2.PNG
-	lyxscale 60
-	width 90text%
-
-\end_inset
-
-
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-Comparativa de Presición-en-n Acumulada para diferentes herramientas evaluadas
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:Presición-en-N"
-
-\end_inset
-
-
+HACER UNA TABLA ASÍ para la hackathon
 \end_layout
 
 \end_inset
 
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
 La Tabla
 \begin_inset space ~
 \end_inset
@@ -2210,23 +2154,163 @@ Experimento 2 (Hackathon)
 \end_layout
 
 \begin_layout Standard
-Introducción, mas libertad y mutación incremental.
- expertos en servicios web (fidtech, patagonian, academia)
+Se realizó un segundo experimento en el cual participaron 5 ingenieros expertos
+ con amplia experiencia en la utilización y desarrollo de servicios web
+ 
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Alexis Ezequiel Cortés y Julian Bianqui de Patagonian Tech, Maximiliano
+ Arias de Fid Tech y Martin Garriga de la Academia
+\end_layout
+
+\end_inset
+
+, a este grupo se le dió una introducción sobre mutación y selección de
+ servicios web, junto con instrucciones sobre como modificar las especificacione
+s disponibles, 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+mas libertad
+\end_layout
+
+\end_inset
+
+, así mismo, se les indicó realizar mutaciones incrementales e iterativas,
+ para poder visualisar cuales modificaciones son mas eficientes a la hora
+ de mutar el servicio de tal manera que semanticamente sea parecido, pero
+ sea más dificil de seleccionar para el Razonador Basado en Casos.
 \end_layout
 
 \begin_layout Standard
-Dockerización para que sea independiente de la arquitectura, de facil ejecución,
- portable, al temrinar el experimento el experto puede eliminar todo facilmente,
- automatizado en scripts bash.
+Para el experimento se utilizó Docker 
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+\begin_inset Flex URL
+status collapsed
+
+\begin_layout Plain Layout
+
+https://www.docker.com/
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+, un programa que ofrece virtualización a nivel de sistema operativo y Docker
+ Compose 
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://docs.docker.com/compose/
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+ que nos permite orquestar distintos 
+\emph on
+Container 
+\emph default
+para que se comuniquen entre ellos de una manera más sencilla.
+ Docker se utiliza para ejecutar paquetes de software llamados 
+\begin_inset Quotes eld
+\end_inset
+
+Containers
+\begin_inset Quotes erd
+\end_inset
+
+.
+ Cada container se encuentra aislado y contiene su propia aplicación, herramient
+as, librería y archivos de configuración, esto nos permitió ejecutar el
+ Razonador Basado en Casos en distintas arquitecturas (Windows, Linux y
+ Mac OS), sin realizar ninguna instalación (p.
+ ej.
+ Java, MongoDB, etc.) ni modificación, sólo con un comando, con el adicional
+ de la facil 
+\begin_inset Quotes eld
+\end_inset
+
+limpieza
+\begin_inset Quotes erd
+\end_inset
+
+ en el equipo del experto una vez finalizado el experimento.
+ Los archivos 
+\emph on
+Dockerfile
+\emph default
+ y 
+\emph on
+docker-compose.yml
+\emph default
+ se encuentran denttro del repositorio de código del Razonador Basado en
+ Casos.
+ 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+facil ejecución, portable, automatizado en scripts bash
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
-Redefinir recall, ya que hay un sólo caso relevante, no buscamos % de casos
- relevantes, sino posición del mismo
+Ya que en la base de conocimientos se encuentra un solo caso relevante para
+ cada caso nuevo mutado, para este experimento fue necesario redefinir 
+\begin_inset Formula $RetRel_{n}$
+\end_inset
+
+ de la función Recall-at-n, de tal manera, que en lugar de ser el número
+ de servicios relevantes recuperados en las primeras 
+\begin_inset Formula $n$
+\end_inset
+
+ posiciones, será la 
+\emph on
+presición
+\emph default
+ en las primeras 
+\begin_inset Formula $n$
+\end_inset
+
+ posiciones, es decir, si el caso relevante se encuentra en la segunda posición
+ tendremos un recall en la primera posición del 0%, y del 100% en la segunda
+ posición.
+ Luego, Recall-en-n Acumulada se calcula de la misma manera, como promedio
+ de los valores de Recall-en-n para cada caso con una ventana de 
+\begin_inset Formula $n∈[1,5]$
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard
-Gráfico de recall
+Gráfico y tabla de recall
 \end_layout
 
 \begin_layout Standard
@@ -2239,6 +2323,13 @@ grafico de evolución de distancias
 
 \begin_layout Section
 Limitaciones
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Limitaciones"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
