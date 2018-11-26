@@ -286,7 +286,7 @@ reference "fig:Proceso-experimental"
  De este modo, consultamos el registro de descubrimiento con las 42 consultas
  generadas manualmente por los expertos.
  Luego, el registro retornó los 10 servicios mas relevantes para cada consulta,
- conteniendo potencialmente al servicio objetivo (comunmente denominado
+ conteniendo potencialmente al servicio objetivo (comúnmente denominado
  
 \emph on
 gold standard
@@ -309,7 +309,7 @@ reference "fig:Proceso-experimental"
  Los resultados del experimento fueron evaluados de acuerdo a una popular
  métrica perteneciente al campo de Recuperación de Información – 
 \emph on
-Precision-at-n
+Precisión-at-n
 \emph default
 .
  
@@ -318,7 +318,7 @@ Precision-at-n
 \begin_layout Standard
 Si bien se parte de dos datasets distintos y disjuntos (Mashape y APIS.guru,
  protocolo SOAP y REST respectivamente), a la hora de la ejecución experimental,
- o la busqueda del caso candidato, mediante un parametro es posible decidir
+ o la búsqueda del caso candidato, mediante un parámetro es posible decidir
  si se desea realizar la consulta utilizando únicamente uno de los dos dataset,
  o ambos, esta flexibilidad permite que el caso candidato se adapte mejor
  a las restricciones definidas por el experto: si el mismo tiene una restricción
@@ -1576,7 +1576,7 @@ name "subsec:Métricas-Utilizadas"
 status open
 
 \begin_layout Plain Layout
-Explicar metricas Presición y Recall at n (foto)
+Explicar métricas Presición y Recall at n (foto)
 \end_layout
 
 \end_inset
@@ -2064,7 +2064,7 @@ para cada consulta, de acuerdo a la métrica Precisión y Recall-at-n que
 
 \begin_layout Standard
 Luego, cada nuevo caso generado por los expertos (documento WSDL 2.0 o especifica
-ción swagger modificado) fue instanciada de acuerdo al metamodelo definido,
+ción Swagger modificado) fue instanciada de acuerdo al metamodelo definido,
  utilizando el modulo Conversor presentado en la Sección
 \begin_inset space ~
 \end_inset
@@ -2127,14 +2127,14 @@ key "crasso2008easy"
 
 , basado en un Modelo de Vector Espacial, o VSM.
  EasySOC provee un soporte simple para descubrimiento de servicios basado
- en técnicas de matching de documentos, explotando solo aspectos sintáticos,
+ en técnicas de matching de documentos, explotando solo aspectos sintácticos,
  tanto de consultas como de descripciones de servicios.
  EasySOC fue poblado con los 1146 servicios obtenidos de la plataforma Mashape
  (Paso 4).
  Las consultas sintácticas (que son las que se le hacen a los registros
  de descubrimiento) fueron generadas concatenando los nombres de las operaciones
- extraídas de las instanciaciones del metamodelo (particularmente de las
- consultas generadas por los expertos).
+ extraídas de las instancias del metamodelo (particularmente de las consultas
+ generadas por los expertos).
  Estas consultas sintácticas luego se convirtieron en la entrada para el
  registro de descubrimiento de servicios (Paso 5).
 \end_layout
@@ -2157,7 +2157,7 @@ Alexis Ezequiel Cortés y Julian Bianqui de Patagonian Tech, Maximiliano
 
 \end_inset
 
-, a este grupo se le dió una introducción sobre mutación y selección de
+, a este grupo se le dio una introducción sobre mutación y selección de
  servicios web, junto con instrucciones sobre como modificar las especificacione
 s disponibles, 
 \begin_inset Note Note
@@ -2170,9 +2170,9 @@ mas libertad
 \end_inset
 
 , así mismo, se les indicó realizar mutaciones incrementales e iterativas,
- para poder visualisar cuales modificaciones son mas eficientes a la hora
- de mutar el servicio de tal manera que semanticamente sea parecido, pero
- sea más dificil de seleccionar para el Razonador Basado en Casos.
+ para poder visualizar cuales modificaciones son mas eficientes a la hora
+ de mutar el servicio de tal manera que semánticamente sea parecido, pero
+ sea más difícil de seleccionar para el Razonador Basado en Casos.
 \end_layout
 
 \begin_layout Standard
@@ -2237,7 +2237,7 @@ as, librería y archivos de configuración, esto nos permitió ejecutar el
  Mac OS), sin realizar ninguna instalación (p.
  ej.
  Java, MongoDB, etc.) ni modificación, sólo con un comando, con el adicional
- de la facil 
+ de la fácil 
 \begin_inset Quotes eld
 \end_inset
 
@@ -2254,14 +2254,16 @@ Dockerfile
 \emph on
 docker-compose.yml
 \emph default
- se encuentran denttro del repositorio de código del Razonador Basado en
+ se encuentran dentro del repositorio de código del Razonador Basado en
  Casos.
  
 \begin_inset Note Note
 status open
 
 \begin_layout Plain Layout
-facil ejecución, portable, automatizado en scripts bash
+fácil ejecución, portable, automatizado en scripts bash, explicar mas 
+\lang spanish-mexico
+composer-orquestador
 \end_layout
 
 \end_inset
@@ -2282,7 +2284,7 @@ Ya que en la base de conocimientos se encuentra un solo caso relevante para
 
  posiciones, será la 
 \emph on
-presición
+precisión
 \emph default
  en las primeras 
 \begin_inset Formula $n$
@@ -2467,11 +2469,11 @@ Recall acumulada para el Razonador Basado en Casos
 \end_layout
 
 \begin_layout Standard
-grafico de presición
+gráfico de precisión
 \end_layout
 
 \begin_layout Standard
-grafico de evolución de distancias
+gráfico de evolución de distancias
 \end_layout
 
 \begin_layout Section
@@ -2493,7 +2495,7 @@ KB
 \emph default
 ) y realizar las consultas de tal manera que se vayan incorporando casos
  nuevos, y sea uno de estos casos incorporados el que sea solución de una
- consulta futura, realizar esto en un entorno simulado es dificil como demostrac
+ consulta futura, realizar esto en un entorno simulado es difícil como demostrac
 ión.
 \end_layout
 
@@ -2505,9 +2507,9 @@ Los casos nuevos fueron generados manualmente en base a los servicios existentes
 \end_layout
 
 \begin_layout Standard
-Realizar mutaciones manuales de las interfaces puede llevar a que se realizen
+Realizar mutaciones manuales de las interfaces puede llevar a que se realicen
  modificaciones de manera forzada sin cuestionar si las mismas tienen sentido
- en casos reales, desnaturalizando terminos, y por lo tanto llevando a resultado
+ en casos reales, desnaturalizando términos, y por lo tanto llevando a resultado
 s inesperados.
  Por ejemplo, se podría reemplazar el atributo 
 \emph on
@@ -2517,7 +2519,7 @@ user
 \emph on
 uasda
 \emph default
-, cuando lo más probable es que se utilize el termino original () al definir
+, cuando lo más probable es que se utilice el termino original () al definir
  una interfaz requerida.
 \end_layout
 
