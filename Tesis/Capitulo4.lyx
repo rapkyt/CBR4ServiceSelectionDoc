@@ -137,7 +137,7 @@ reference "chap:Metamodelo-para-descipción"
 .
  Para esta evaluación se utilizó un conjunto de servicios compuesto por
  1192 descripciones WSDL de Servicios Web obtenidos de la plataforma Mashape
- y 440 especificaciones Swagger obtenidas de la plataforma APIs.Guru.
+ y 550 especificaciones Swagger obtenidas de la plataforma APIs.Guru.
  En la Figura
 \begin_inset space ~
 \end_inset
@@ -163,7 +163,7 @@ reference "sec:Generacion-de-consultas"
 \end_inset
 
  se explica cómo han sido generadas las consultas utilizando el conjunto
- de 1632 Servicios Web.
+ de 1742 Servicios Web.
  En la Sección 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -199,6 +199,13 @@ reference "sec:Limitaciones"
 
 \begin_layout Section
 Pasos para la validación experimental
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Pasos-para-la-validacion"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -221,7 +228,7 @@ Incluida la imagen.
 
 \begin_layout Standard
 Para realizar este experimento, inicialmente dos grupos de ingenieros de
- software seleccionaron aleatoriamente 50 descripciones de servicios (de
+ software seleccionaron aleatoriamente 20 descripciones de servicios (de
  las 1632 anteriormente mencionadas).
  Estas descripciones fueron consideradas como servicios relevantes en el
  contexto de este experimento (Fase de Generación de Consultas de la Figura
@@ -229,17 +236,6 @@ Para realizar este experimento, inicialmente dos grupos de ingenieros de
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Proceso-experimental"
-
-\end_inset
-
- de la Sección
-\begin_inset space ~
-\end_inset
-
-
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "sec:Generacion-de-consultas"
 
 \end_inset
 
@@ -254,10 +250,19 @@ ruido
 \end_inset
 
  con el objetivo de incrementar la dimensión del experimento, en términos
- del número de descripciones WSDL.
- Luego, un conjunto de 28 consultas fueron generadas manualmente por los
- dos grupos de expertos, utilizando como base los 50 servicios relevantes
- (Sección
+ de número de Casos pertenecientes a la Base de Conocimiento.
+ Luego, un conjunto de XXXX
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+cuantas¿?
+\end_layout
+
+\end_inset
+
+ consultas fueron generadas manualmente por los dos grupos de expertos,
+ utilizando como base los 20 servicios relevantes (Sección
 \begin_inset space ~
 \end_inset
 
@@ -279,15 +284,14 @@ reference "fig:Proceso-experimental"
 
 \end_inset
 
-) se utilizó el conjunto de 1146 Servicios Web para poblar un registro de
- descubrimiento.
+) se utilizó el conjunto de 1192 Casos para poblar un registro de descubrimiento.
  Los resultados brindados por este registro de descubrimiento proveen una
  base para comparar otros enfoques de selección de servicios mas exhaustivos.
- De este modo, consultamos el registro de descubrimiento con las 42 consultas
+ De este modo, consultamos el registro de descubrimiento con las 20 consultas
  generadas manualmente por los expertos.
- Luego, el registro retornó los 10 servicios mas relevantes para cada consulta,
- conteniendo potencialmente al servicio objetivo (comúnmente denominado
- 
+ Luego, el registro retornó los 10 Casos Candidatos mas relevantes para
+ cada consulta, conteniendo potencialmente al servicio objetivo (comúnmente
+ denominado 
 \emph on
 gold standard
 \emph default
@@ -306,26 +310,42 @@ reference "fig:Proceso-experimental"
 
 ) se comparan los resultados en términos de visibilidad del servicio relevante
  entre nuestro enfoque y el registro de descubrimiento de servicios.
- Los resultados del experimento fueron evaluados de acuerdo a una popular
- métrica perteneciente al campo de Recuperación de Información – 
+ Los resultados del experimento fueron evaluados de acuerdo a las populares
+ métricas perteneciente al campo de Recuperación de Información – 
 \emph on
-Precisión-at-n
+Precisión 
+\emph default
+y 
+\emph on
+Recall-at-n
 \emph default
 .
  
 \end_layout
 
 \begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Esto va acá?
+\end_layout
+
+\end_inset
+
 Si bien se parte de dos datasets distintos y disjuntos (Mashape y APIS.guru,
  protocolo SOAP y REST respectivamente), a la hora de la ejecución experimental,
  o la búsqueda del caso candidato, mediante un parámetro es posible decidir
  si se desea realizar la consulta utilizando únicamente uno de los dos dataset,
  o ambos, esta flexibilidad permite que el caso candidato se adapte mejor
  a las restricciones definidas por el experto: si el mismo tiene una restricción
- en cuanto al protocolo requerido, la solución se adaptará a la misma, caso
- contrario, el experto puede definir un problema en la especificación que
- le resulte más practica (WSDL o Swagger), pero la solución no se limitará
- únicamente a ese protocolo.
+ en cuanto al protocolo requerido, la solución se adaptará a ella, caso
+ contrario, el experto puede definir un problema en el lenguaje de especificació
+n que le resulte más practico (WSDL o Swagger), pero la solución no se limitará
+ únicamente a ese protocolo, esto no solo amplia la cantidad de Casos Candidatos
+ disponibles, sino que también permite, por ejemplo, actualizar una API
+ legacy WSDL a nueva tecnología, si es que existe un servicio Swagger equivalent
+e en la Base de Conocimientos.
 \end_layout
 
 \begin_layout Standard
@@ -392,7 +412,7 @@ key "DeRenzis13,garriga2013service"
 
 \end_inset
 
-), sino que fueron construidas por dos grupos de ingenieros de software
+), sino que fueron construidos por dos grupos de ingenieros de software
  (GrupoA y GrupoB).
  El dataset utilizado está compuesto por más de 1146 descripciones de Servicios
  Web en formato WSDL 2.0 y 550 especificaciones Swagger en formato JSON.
@@ -402,6 +422,13 @@ key "DeRenzis13,garriga2013service"
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Proceso-experimental"
+
+\end_inset
+
+, Sección 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Pasos-para-la-validacion"
 
 \end_inset
 
@@ -1572,15 +1599,6 @@ name "subsec:Métricas-Utilizadas"
 \end_layout
 
 \begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Explicar métricas Presición y Recall at n (foto)
-\end_layout
-
-\end_inset
-
 El presente experimento fue diseñado para medir, en términos comparativos,
  el desempeño del Razonador Basado en Casos.
  Con este objetivo, se utilizaron una serie de métricas ampliamente reconocida
@@ -1592,8 +1610,8 @@ Precisión
 \emph on
 Recall-at-n
 \emph default
- las cuales ha sido usada exitosamente en el contexto de la selección y
- el descubrimiento de Servicios Web 
+ las cuales han sido utilizadas exitosamente en el contexto de la selección
+ y el descubrimiento de Servicios Web 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "pasley2006avoid,guizzardi2005ontological"
@@ -1609,8 +1627,8 @@ key "pasley2006avoid,guizzardi2005ontological"
 \emph on
 Precisión 
 \emph default
-calcula la cantidad de veces que el caso candidato relevante se encuentra
- en el primer lugar de la lista de casos candidatos, esto es:
+calcula si el Caso Candidato relevante se encuentra en el primer lugar de
+ la lista de casos candidatos, esto es:
 \begin_inset Newline newline
 \end_inset
 
@@ -1628,6 +1646,16 @@ Sino & 0
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+En el contexto del presente experimento la Precisión se mide para cada consulta
+ y luego se promedia por el total de consultas, por ejemplo, dada dos consultas,
+ en la primera el Caso Candidato relevante se encuentra en la primer posición
+ de la lista de casos candidatos, mientras que para la segunda consulta
+ el Caso Candidato relevante se encuentra en otra posición, la primer consulta
+ tendrá una presición de 1, mientras que la segunda una presición de 0.
+ Luego el experimento habrá tenido una presición de 0.5, o 50 %
 \end_layout
 
 \begin_layout Standard
@@ -1708,302 +1736,6 @@ Cumulative Recall-at-n
 \end_inset
 
  posiciones.
-\end_layout
-
-\begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-HACER UNA TABLA ASÍ para la hackathon
-\end_layout
-
-\end_inset
-
-La Tabla
-\begin_inset space ~
-\end_inset
-
-
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "tab:PrecisiónregistroDescubrimientoProcAnalCompInterf"
-
-\end_inset
-
- resume los resultados para los registros EasySOC, Enhanced EasySOC y la
- Herramienta de Evaluación de Servicios Web, utilizando las primeras 4 posicione
-s (con 
-\begin_inset Formula $n∈[1,4]$
-\end_inset
-
-) de los resultados obtenidos.
- 
-\end_layout
-
-\begin_layout Standard
-En conclusión, los experimentos muestran que la utilización de la Herramienta
- de Evaluación de Servicios Web mejora la visibilidad de los servicios relevante
-s – estas mejoras se expresan en términos de ganancias en Precisión.
- Considerando que la selección de servicios candidatos se realiza luego
- de algún proceso de descubrimiento, incrementar la visibilidad de los candidato
-s más adecuados puede facilitar en gran medida el desarrollo de Aplicaciones
- Orientadas a Servicios.
-\begin_inset Float table
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Tabular
-<lyxtabular version="3" rows="5" columns="4">
-<features tabularvalignment="middle">
-<column alignment="center" valignment="top">
-<column alignment="center" valignment="top">
-<column alignment="center" valignment="top">
-<column alignment="center" valignment="top">
-<row>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-EasySOC
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Enhanced EasySOC
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Herramienta de Eval.
- de Serv.
- Web
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Precisión en 1
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-0.49
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-0.50
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-0.85
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Precisión en 2
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-0.58
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-0.61
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-0.87
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Precisión en 3
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-0.65
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-0.67
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-0.89
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Precisión en 4
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-0.70
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-0.73
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-0.91
-\end_layout
-
-\end_inset
-</cell>
-</row>
-</lyxtabular>
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-\begin_inset CommandInset label
-LatexCommand label
-name "tab:PrecisiónregistroDescubrimientoProcAnalCompInterf"
-
-\end_inset
-
-Precisión para los Registros de Descubrimiento y el Procedimiento de Análisis
- de Compatibilidad de Interfaces
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Mencionar como aporte (no sé si acá / en las conclusiones del cap3, o en
- las generales de la tesis) que el soporte de servicios heterogeneos no
- solo amplia la cantidad de candidatos disponibles sino tambien permite
- que un desarrollador pueda definir la consulta en el lenguaje de su convenienci
-a (eg., WSDL o Swagger) y luego el parser genera automáticamente un nuevo
- caso de acuerdo al metamodelo.
- Esto permite, por ejemplo, actualizar una API legacy WSDL a nueva tecnología,
- si es que existe un servicio en Swagger equivalente.
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Standard
@@ -2303,6 +2035,37 @@ precisión
 
 \begin_layout Standard
 Gráfico de recall
+\end_layout
+
+\begin_layout Standard
+La Tabla
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:recall-acumulada-hackathon"
+
+\end_inset
+
+ resume los resultados para el Razonador Basado en Casos, utilizando las
+ primeras 5 posiciones (con 
+\begin_inset Formula $n∈[1,5]$
+\end_inset
+
+) de los resultados obtenidos.
+ 
+\end_layout
+
+\begin_layout Standard
+En conclusión, los experimentos muestran que la utilización del Razonador
+ Basado en Casos mejora la visibilidad de los servicios relevantes – estas
+ mejoras se expresan en términos de ganancias en Precisión.
+ Considerando que la selección de servicios candidatos se realiza luego
+ de algún proceso de descubrimiento, incrementar la visibilidad de los casos
+ candidatos más adecuados puede facilitar en gran medida el desarrollo de
+ Aplicaciones Orientadas a Servicios.
 \end_layout
 
 \begin_layout Standard
