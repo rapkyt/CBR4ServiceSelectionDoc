@@ -1791,7 +1791,7 @@ Para este escenario experimental, se consultó el registro EasySOC con los
 gold standard 
 \emph default
 para cada consulta, de acuerdo a la métrica Precisión y Recall-at-n que
- se presentan a continuación.
+ se presenton anteriormente.
 \end_layout
 
 \begin_layout Standard
@@ -1821,11 +1821,25 @@ reference "sec:CBR-para-selección"
 
 \end_inset
 
- (Paso 6).
- Finalmente, los resultados obtenidos, tanto para los casos nuevos ejecutado
+ (Paso 6 de la Figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Proceso-experimental"
+
+\end_inset
+
+, Sección 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Pasos-para-la-validacion"
+
+\end_inset
+
+).
+ Finalmente, los resultados obtenidos, tanto para los casos nuevos ejecutados
  sobre los registros de descubrimiento de servicios (EasySOC), como sobre
  la herramienta de Razonamiento Basado en Casos, fueron evaluados utilizando
- las métricas que se presentan en la Sección
+ las métricas que se presentaron en la Sección
 \begin_inset space ~
 \end_inset
 
@@ -1836,8 +1850,21 @@ reference "subsec:Métricas-Utilizadas"
 
 \end_inset
 
- (Paso 7).
- 
+ (Paso 7 de la Figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Proceso-experimental"
+
+\end_inset
+
+, Sección 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Pasos-para-la-validacion"
+
+\end_inset
+
+).
 \end_layout
 
 \begin_layout Standard
@@ -1869,6 +1896,65 @@ key "crasso2008easy"
  generadas por los expertos).
  Estas consultas sintácticas luego se convirtieron en la entrada para el
  registro de descubrimiento de servicios (Paso 5).
+\end_layout
+
+\begin_layout Standard
+Ejemplo: Consideremos una extracción de 8 servicios de muestra del dataset
+ de Swagger.
+ Estos servicios se compararon con el dataset completo en su versión original,
+ que debería obtener el mismo servicio en la primer posición de casos candidatos
+, y su versión modificada, que de igual manera, el servicio relevante debería
+ estar presente entre la lista de casos candidatos.
+ La tabla INSERT detalla la posición y el valor de distancia obtenido para
+ cada consulta (original y modificada).
+ Sobre estos resutlados, se puede calcular la métrica 
+\emph on
+Recall-at-n
+\emph default
+, como se muestra en la última columna de la tabla INSERT.
+ Un 100 % de los casos relevantes se devuelven en la primera posición de
+ los casos candidatos para la consulta original, mientras que para las consultas
+ modificadas el 100 % de los casos relevantes se encuentra dentro de las
+ primeras 5 posiciones de los casos candidatos: 25 % en la primera y va
+ en incremento hasta la quinta posición.
+\end_layout
+
+\begin_layout Standard
+Resultado: Finalmente, ejecutamos el procedimiento de evaluación del servicio
+ utilizando las consultas originales (como gold standard) y las modificaciones,
+ y las comparamos con los servcicios en la base de conocimientos (el dataset
+ completo).
+ Para fines comparativos, también ejecutamos las consultas contra EasySOC.
+ La figura INSERT muestra los valores promedio de Recall-at-n para las consultas
+ originales, las consultas modificadas y el registro EasySOC con las consultas
+ modificadas.
+ Con las consultas originales, Recall-at-1 es del 100 %, es decir, todos
+ los casos relevante se recuperan en la primer posición de casos candidatos.
+ Luego, para las consultas modificadas, se alcanza un Recall-at-1 del 85
+ % con ujna mejora del 35 % respecto a EasySOC.
+ Para el segundo experimento se siguió enfoque similar al descripto anteriorment
+e: se seleccionaron 20 servicios aleatoriamente como consultas y luego los
+ ingenieros de software los modificaron para crear consultas.
+ La figura INSERT muestra los resultados del Recall-at-n para el dataset
+ Swwagger.
+ Las consultas originales presentan un Recall-at-1 del 100 % como se esperaba,
+ mientras que las consultas modificadas presentan un Recall-at-1 del 35
+ %, alcanzando el 100 % en la quinta posición de los casos candidatos.
+ En este caso, la comparación con el registro de descubrimiento EasySOC
+ no es posible, ya que es un registro basado en WSDL.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+IMAGENES Y TABLA
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection
