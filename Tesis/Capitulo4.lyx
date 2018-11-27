@@ -250,7 +250,7 @@ ruido
 \end_inset
 
  con el objetivo de incrementar la dimensión del experimento, en términos
- de número de Casos pertenecientes a la Base de Conocimiento.
+ de número de Casos pertenecientes a la Base de Conocimientos.
  Luego, un conjunto de XXXX
 \begin_inset Note Note
 status open
@@ -1922,7 +1922,7 @@ Recall-at-n
 \begin_layout Standard
 Resultado: Finalmente, ejecutamos el procedimiento de evaluación del servicio
  utilizando las consultas originales (como gold standard) y las modificaciones,
- y las comparamos con los servcicios en la base de conocimientos (el dataset
+ y las comparamos con los servicios en la Base de Conocimientos (el dataset
  completo).
  Para fines comparativos, también ejecutamos las consultas contra EasySOC.
  La figura INSERT muestra los valores promedio de Recall-at-n para las consultas
@@ -2090,7 +2090,7 @@ composer-orquestador
 \end_layout
 
 \begin_layout Standard
-Ya que en la base de conocimientos se encuentra un solo caso relevante para
+Ya que en la Base de Conocimientos se encuentra un solo caso relevante para
  cada caso nuevo mutado, para este experimento fue necesario redefinir 
 \begin_inset Formula $RetRel_{n}$
 \end_inset
@@ -2337,39 +2337,95 @@ name "sec:Limitaciones"
 \end_layout
 
 \begin_layout Standard
-No se evaluó el aprendizaje del Razonador Basado en Casos, para ello se
- deberían generar los casos nuevos, popular la base de conocimiento (
+Dentro del marco del proceso experimental definido en la Sección 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Pasos-para-la-validacion"
+
+\end_inset
+
+ es inevitable pasar por alto las limitaciones que se presentan en el mismo,
+ como la capacidad de evaluar el 
 \emph on
-KB
+aprendizaje
 \emph default
-) y realizar las consultas de tal manera que se vayan incorporando casos
- nuevos, y sea uno de estos casos incorporados el que sea solución de una
- consulta futura, realizar esto en un entorno simulado es difícil como demostrac
-ión.
+ del Razonador Basado en Casos, y las problemáticas que surgen de la mutación
+ manual de servicios.
 \end_layout
 
 \begin_layout Standard
-Los casos nuevos fueron generados manualmente en base a los servicios existentes
- para los distintos datasets, esto no refleja el caso de uso real del Razonador
- Basado en Casos, sin embargo, este tipo de evaluación fue utilizado en
- diferentes escenarios (citas)
+El aprendizaje del Razonador Basado en casos no fue evaluado, esta evaluación
+ se debería realizar generando casos nuevos, populando la Base de Conocimientos
+ con un dataset inicial y realizando consultas de tal manera que se vayan
+ incorporando estos casos con su solución a la Base de Conocimientos anteriormen
+te mencionada, y sea uno de éstos casos nuevos la solución de una consulta
+ futura.
+ Realizar esto en un entorno simulado es díficil como demostración.
+ Por otro lado, esto no quiere decir que el Razonador Basado en Casos propuesto
+ no aprenda, de hecho, hemos visto como la Base de Conocimientos crece en
+ cantidad de Casos contenidos a medida que se iban realizando consultas
+ al mismo, sino que en el marco propuesto no lo hemos evaluado como tal.
 \end_layout
 
 \begin_layout Standard
-Realizar mutaciones manuales de las interfaces puede llevar a que se realicen
- modificaciones de manera forzada sin cuestionar si las mismas tienen sentido
- en casos reales, desnaturalizando términos, y por lo tanto llevando a resultado
-s inesperados.
- Por ejemplo, se podría reemplazar el atributo 
+Generar casos nuevos manualmente en base a servicios ya existentes para
+ los distintos datasets no reflejan el caso de uso real para un Razonador
+ Basado en Casos, puesto a que si un experto decide mutar la especificación
+ de un servicio existente, lo mas probable es que directamente utilize éste
+ servicio, por el otro lado, el experto redactaría la especificación del
+ servicio requerido sin tener en cuenta ninguna otra especificación de servicio
+ existente, este tipo de 
 \emph on
-user
+creación
+\emph default
+ de especificaciones son dificiles de hacer en cantidad y puede que el caso
+ nuevo resultante no se corresponda con ninguna de las especificaciones
+ pertenecientes a la Base de Conocimientos, y por lo tanto, no sirva para
+ esta evaluación experimental, es por eso que se decidió realizar mutaciones
+ de servicios existentes cuyos Casos pertenezcan a la Base de Conocimientos,
+ este tipo de mutación fue utilizada en diferentes escenarios con éxito
+ (CITAS)
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+CITAS
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Realizar estas mutaciones manuales puede llevar a que se realicen modificaciones
+ de manera forzada, resultando en especificaciones carentes de sentido en
+ el mundo real, desnaturaizando términos y estructuras de datos, y por lo
+ tanto, llevando a resultados inesperados.
+ Algunos ejemplos son: Se podría eliminar el campo 
+\emph on
+DNI
+\emph default
+ del tipo 
+\emph on
+Persona
+\emph default
+, lo cual sería cuestionable en una aplicación de uso real, así como también
+ se podría reemplazar el nombre del Tipo 
+\emph on
+User
 \emph default
  por 
 \emph on
-uasda
+Person
 \emph default
-, cuando lo más probable es que se utilice el termino original () al definir
- una interfaz requerida.
+, si bien este último es una generalización válida de 
+\emph on
+User
+\emph default
+, lo más probable es que cuando un experto cree una especificación del servicio
+ requerido, utilize el termino original, ya que es el nombre por defecto
+ se que se le atribuye.
 \end_layout
 
 \begin_layout Standard
