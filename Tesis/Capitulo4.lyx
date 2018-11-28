@@ -344,7 +344,7 @@ Si bien se parte de dos datasets distintos y disjuntos (Mashape y APIS.guru,
 n que le resulte más practico (WSDL o Swagger), pero la solución no se limitará
  únicamente a ese protocolo, esto no solo amplia la cantidad de Casos Candidatos
  disponibles, sino que también permite, por ejemplo, actualizar una API
- legacy WSDL a nueva tecnología, si es que existe un servicio Swagger equivalent
+ Legacy WSDL a nueva tecnología, si es que existe un servicio Swagger equivalent
 e en la Base de Conocimientos.
 \end_layout
 
@@ -1654,8 +1654,8 @@ En el contexto del presente experimento la Precisión se mide para cada consulta
  en la primera el Caso Candidato relevante se encuentra en la primer posición
  de la lista de casos candidatos, mientras que para la segunda consulta
  el Caso Candidato relevante se encuentra en otra posición, la primer consulta
- tendrá una presición de 1, mientras que la segunda una presición de 0.
- Luego el experimento habrá tenido una presición de 0.5, o 50 %
+ tendrá una precisión de 1, mientras que la segunda una precisión de 0.
+ Luego el experimento habrá tenido una precisión de 0.5, o 50 %
 \end_layout
 
 \begin_layout Standard
@@ -1791,7 +1791,7 @@ Para este escenario experimental, se consultó el registro EasySOC con los
 gold standard 
 \emph default
 para cada consulta, de acuerdo a la métrica Precisión y Recall-at-n que
- se presenton anteriormente.
+ se presentaron anteriormente.
 \end_layout
 
 \begin_layout Standard
@@ -2697,8 +2697,6 @@ name "tab:ejemplo-evaluacion"
 
 \end_inset
 
-
-\lang english
 Ejemplo de la evaluación de servicios, consultas originales y modificadas
 \end_layout
 
@@ -2728,12 +2726,12 @@ Resultado: Finalmente, ejecutamos el procedimiento de evaluación del servicio
  Con las consultas originales, Recall-at-1 es del 100 %, es decir, todos
  los casos relevante se recuperan en la primer posición de casos candidatos.
  Luego, para las consultas modificadas, se alcanza un Recall-at-1 del 85
- % con ujna mejora del 35 % respecto a EasySOC.
+ % con una mejora del 35 % respecto a EasySOC.
  Para el segundo experimento se siguió enfoque similar al descripto anteriorment
 e: se seleccionaron 20 servicios aleatoriamente como consultas y luego los
  ingenieros de software los modificaron para crear consultas.
  La figura INSERT muestra los resultados del Recall-at-n para el dataset
- Swwagger.
+ Swagger.
  Las consultas originales presentan un Recall-at-1 del 100 % como se esperaba,
  mientras que las consultas modificadas presentan un Recall-at-1 del 35
  %, alcanzando el 100 % en la quinta posición de los casos candidatos.
@@ -3119,6 +3117,44 @@ gráfico de precisión
 \end_layout
 
 \begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ImgChapter4/usadas/distancia Iteracion.png
+	lyxscale 40
+	width 100text%
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:evolucion-distancias"
+
+\end_inset
+
+Proceso experimental
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
 gráfico de evolución de distancias
 \end_layout
 
@@ -3168,14 +3204,14 @@ te mencionada, y sea uno de éstos casos nuevos la solución de una consulta
 Generar casos nuevos manualmente en base a servicios ya existentes para
  los distintos datasets no reflejan el caso de uso real para un Razonador
  Basado en Casos, puesto a que si un experto decide mutar la especificación
- de un servicio existente, lo mas probable es que directamente utilize éste
+ de un servicio existente, lo mas probable es que directamente utilice éste
  servicio, por el otro lado, el experto redactaría la especificación del
  servicio requerido sin tener en cuenta ninguna otra especificación de servicio
  existente, este tipo de 
 \emph on
 creación
 \emph default
- de especificaciones son dificiles de hacer en cantidad y puede que el caso
+ de especificaciones son difíciles de hacer en cantidad y puede que el caso
  nuevo resultante no se corresponda con ninguna de las especificaciones
  pertenecientes a la Base de Conocimientos, y por lo tanto, no sirva para
  esta evaluación experimental, es por eso que se decidió realizar mutaciones
@@ -3197,8 +3233,8 @@ CITAS
 \begin_layout Standard
 Realizar estas mutaciones manuales puede llevar a que se realicen modificaciones
  de manera forzada, resultando en especificaciones carentes de sentido en
- el mundo real, desnaturaizando términos y estructuras de datos, y por lo
- tanto, llevando a resultados inesperados.
+ el mundo real, desnaturalizando términos y estructuras de datos, y por
+ lo tanto, llevando a resultados inesperados.
  Algunos ejemplos son: Se podría eliminar el campo 
 \emph on
 DNI
@@ -3221,7 +3257,7 @@ Person
 User
 \emph default
 , lo más probable es que cuando un experto cree una especificación del servicio
- requerido, utilize el termino original, ya que es el nombre por defecto
+ requerido, utilice el termino original, ya que es el nombre por defecto
  se que se le atribuye.
 \end_layout
 
