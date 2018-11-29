@@ -1761,6 +1761,14 @@ Otra: a partir de la instancia del metamodelo generar los mocks del server
  con una API para cualquiera de los tipos de especificación destino.
 \end_layout
 
+\begin_layout Plain Layout
+Composición de Servicios.
+\end_layout
+
+\begin_layout Plain Layout
+Conversor a otras especificaciones (como dice el paper OpenApi, raml, blueprint)
+\end_layout
+
 \end_inset
 
 
@@ -2757,15 +2765,37 @@ Experimento 2 (Hackathon)
 \end_layout
 
 \begin_layout Standard
-Se realizó un segundo experimento en el cual participaron 5 ingenieros expertos
- con amplia experiencia en la utilización y desarrollo de servicios web
- 
+Se realizó un segundo experimento con la modalidad de 
+\emph on
+Hackathon
+\emph default
+
 \begin_inset Foot
 status open
 
 \begin_layout Plain Layout
-Alexis Ezequiel Cortés y Julian Bianqui de Patagonian Tech, Maximiliano
- Arias de Fid Tech y Martin Garriga de la Academia
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://hackathon.guide
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+ en el cual participaron 5 ingenieros expertos con amplia experiencia en
+ la utilización y desarrollo de servicios web
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Pertenecientes a las empresas Patagonian Tech, FidTech y a la Academia
 \end_layout
 
 \end_inset
@@ -2782,10 +2812,10 @@ mas libertad
 
 \end_inset
 
-, así mismo, se les indicó realizar mutaciones incrementales e iterativas,
- para poder visualizar cuales modificaciones son mas eficientes a la hora
- de mutar el servicio de tal manera que semánticamente sea parecido, pero
- sea más difícil de seleccionar para el Razonador Basado en Casos.
+, así mismo, se les indicó realizar las mutaciones de manera incremental
+ e iterativa, para poder visualizar cuales modificaciones son mas eficientes
+ a la hora de mutar el servicio de tal manera que semánticamente sea parecido,
+ pero sea más difícil de seleccionar para el Razonador Basado en Casos.
 \end_layout
 
 \begin_layout Standard
@@ -2936,7 +2966,6 @@ reference "tab:recall-acumulada-hackathon"
 \end_inset
 
 ) de los resultados obtenidos.
- 
 \end_layout
 
 \begin_layout Standard
@@ -3113,7 +3142,41 @@ Recall acumulada para el Razonador Basado en Casos
 \end_layout
 
 \begin_layout Standard
-gráfico de precisión
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ImgChapter4/usadas/precision.png
+	lyxscale 40
+	width 100text%
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:precision"
+
+\end_inset
+
+Precisión obtenida.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -3141,7 +3204,7 @@ name "fig:evolucion-distancias"
 
 \end_inset
 
-Proceso experimental
+Distancia obtenida en las distintas ejecuciones para cada servicio modificado.
 \end_layout
 
 \end_inset
@@ -3152,10 +3215,6 @@ Proceso experimental
 \end_inset
 
 
-\end_layout
-
-\begin_layout Standard
-gráfico de evolución de distancias
 \end_layout
 
 \begin_layout Section
@@ -3193,7 +3252,7 @@ El aprendizaje del Razonador Basado en casos no fue evaluado, esta evaluación
  incorporando estos casos con su solución a la Base de Conocimientos anteriormen
 te mencionada, y sea uno de éstos casos nuevos la solución de una consulta
  futura.
- Realizar esto en un entorno simulado es díficil como demostración.
+ Realizar esto en un entorno simulado es difícil como demostración.
  Por otro lado, esto no quiere decir que el Razonador Basado en Casos propuesto
  no aprenda, de hecho, hemos visto como la Base de Conocimientos crece en
  cantidad de Casos contenidos a medida que se iban realizando consultas
@@ -3259,79 +3318,6 @@ User
 , lo más probable es que cuando un experto cree una especificación del servicio
  requerido, utilice el termino original, ya que es el nombre por defecto
  se que se le atribuye.
-\end_layout
-
-\begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Section
-Conclusión
-\begin_inset CommandInset label
-LatexCommand label
-name "sec:Conclusión"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-Para el experimento presentado se utilizó un dataset de más de 1000 Servicios
- Web reales.
- Inicialmente, tres grupos de desarrolladores generaron manualmente consultas
- multi-operacionales.
- Luego, las consultas generadas se ejecutaron utilizando los registros de
- descubrimiento de servicios y la Herramienta de Evaluación de Servicios
- Web.
- Los resultados obtenidos siguiendo la métrica Precisión-en-n Acumulada
- mostraron una mejora en la precisión para los primeros resultados de la
- lista.
- De esta manera, el servicio candidato para una consulta tiene una alta
- probabilidad de que pueda ser evaluado con un resultado aceptable en el
- subsiguiente procedimiento de Compatibilidad de Comportamiento (Capítulo
- 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "cap:SOApp"
-
-\end_inset
-
- Sección 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "sec:Compatibilidad-ComportamientoOld"
-
-\end_inset
-
-).
-\end_layout
-
-\begin_layout Plain Layout
-Es importante aclarar que los experimentos son empíricos, y que esta práctica
- es común para el área de conocimiento usada en el descubrimiento y selección
- de Servicios Web.
- Configuraciones experimentales similares son usados no solo en los papers
- fundacionales 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "stroulia2005structural,hess2004assam,crasso2008easy"
-
-\end_inset
-
- sino que en publicaciones recientes de este campo 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "garriga2013service,tibermacine2013wssim,crasso2014easysoc,mateos2015tool"
-
-\end_inset
-
-.
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \end_body
