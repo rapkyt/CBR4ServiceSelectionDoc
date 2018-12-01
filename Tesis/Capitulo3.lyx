@@ -1,4 +1,4 @@
-#LyX 2.3 created this file. For more info see http://www.lyx.org/
+#LyX 2.2 created this file. For more info see http://www.lyx.org/
 \lyxformat 508
 \begin_document
 \begin_header
@@ -2573,10 +2573,482 @@ reference "sec:Ejemplo-Ilustrativo"
 \end_layout
 
 \begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+LISTADOS DE código, palabra 
+\begin_inset Quotes eld
+\end_inset
+
+algoritmo
+\begin_inset Quotes erd
+\end_inset
+
+, el listado de mongo a un apéndice?
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
 \begin_inset CommandInset include
 LatexCommand lstinputlisting
 filename "listing/petStore (ejemplo).txt"
-lstparams "breaklines=true,basicstyle={\\ttfamily\\scriptsize},caption={Documento OAS PetStore},label={Documento OAS PetStore}"
+lstparams "breaklines=true,basicstyle={\\ttfamily\\scriptsize},caption={Documento Swagger de PetStore},label={Documento OAS PetStore},label={Documento OAS PetStore-1}"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+floatname{algorithm}{Procedure}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Float algorithm
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset listings
+lstparams "numbers=left,numberstyle={\scriptsize},basicstyle={\scriptsize\ttfamily},breaklines=true,showstringspaces=false,numberstyle={\ttfamily\scriptsize}"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\begin_layout Plain Layout
+
+  "swagger": "2.0",
+\end_layout
+
+\begin_layout Plain Layout
+
+  "info": {
+\end_layout
+
+\begin_layout Plain Layout
+
+    "version": "1.0.0",
+\end_layout
+
+\begin_layout Plain Layout
+
+    "title": "Swagger Petstore",
+\end_layout
+
+\begin_layout Plain Layout
+
+  },
+\end_layout
+
+\begin_layout Plain Layout
+
+  "paths": {
+\end_layout
+
+\begin_layout Plain Layout
+
+    "/pet": {
+\end_layout
+
+\begin_layout Plain Layout
+
+      "post": {...}
+\end_layout
+
+\begin_layout Plain Layout
+
+    },
+\end_layout
+
+\begin_layout Plain Layout
+
+    "/pet/{petId}": {
+\end_layout
+
+\begin_layout Plain Layout
+
+      "get": {
+\end_layout
+
+\begin_layout Plain Layout
+
+        "description": "Find and returns a single pet by petId",
+\end_layout
+
+\begin_layout Plain Layout
+
+        "produces": [
+\end_layout
+
+\begin_layout Plain Layout
+
+          "application/json"
+\end_layout
+
+\begin_layout Plain Layout
+
+        ],
+\end_layout
+
+\begin_layout Plain Layout
+
+        "parameters": [
+\end_layout
+
+\begin_layout Plain Layout
+
+          {
+\end_layout
+
+\begin_layout Plain Layout
+
+            "name": "petId",
+\end_layout
+
+\begin_layout Plain Layout
+
+            "in": "path",
+\end_layout
+
+\begin_layout Plain Layout
+
+            "description": "ID of pet to return",
+\end_layout
+
+\begin_layout Plain Layout
+
+            "required": true,
+\end_layout
+
+\begin_layout Plain Layout
+
+            "type": "integer"
+\end_layout
+
+\begin_layout Plain Layout
+
+          }
+\end_layout
+
+\begin_layout Plain Layout
+
+        ],
+\end_layout
+
+\begin_layout Plain Layout
+
+        "responses": {
+\end_layout
+
+\begin_layout Plain Layout
+
+          "200": {
+\end_layout
+
+\begin_layout Plain Layout
+
+            "description": "successful operation",
+\end_layout
+
+\begin_layout Plain Layout
+
+            "schema": {
+\end_layout
+
+\begin_layout Plain Layout
+
+              "$ref": "#/definitions/Pet"
+\end_layout
+
+\begin_layout Plain Layout
+
+            }
+\end_layout
+
+\begin_layout Plain Layout
+
+          },
+\end_layout
+
+\begin_layout Plain Layout
+
+          "400": {
+\end_layout
+
+\begin_layout Plain Layout
+
+            "description": "Invalid ID supplied"
+\end_layout
+
+\begin_layout Plain Layout
+
+          },
+\end_layout
+
+\begin_layout Plain Layout
+
+          "404": {
+\end_layout
+
+\begin_layout Plain Layout
+
+            "description": "Pet not found"
+\end_layout
+
+\begin_layout Plain Layout
+
+      }}},
+\end_layout
+
+\begin_layout Plain Layout
+
+      "post": {...},
+\end_layout
+
+\begin_layout Plain Layout
+
+      "delete": {...}
+\end_layout
+
+\begin_layout Plain Layout
+
+    },
+\end_layout
+
+\begin_layout Plain Layout
+
+    "/pet/{petId}/uploadImage": {
+\end_layout
+
+\begin_layout Plain Layout
+
+      "post": {...}
+\end_layout
+
+\begin_layout Plain Layout
+
+    }
+\end_layout
+
+\begin_layout Plain Layout
+
+  },
+\end_layout
+
+\begin_layout Plain Layout
+
+  "definitions": {
+\end_layout
+
+\begin_layout Plain Layout
+
+    "Category": {
+\end_layout
+
+\begin_layout Plain Layout
+
+      "type": "object",
+\end_layout
+
+\begin_layout Plain Layout
+
+      "properties": {
+\end_layout
+
+\begin_layout Plain Layout
+
+        "id": {
+\end_layout
+
+\begin_layout Plain Layout
+
+          "type": "integer",
+\end_layout
+
+\begin_layout Plain Layout
+
+        },
+\end_layout
+
+\begin_layout Plain Layout
+
+        "name": {
+\end_layout
+
+\begin_layout Plain Layout
+
+          "type": "string"
+\end_layout
+
+\begin_layout Plain Layout
+
+    }}},
+\end_layout
+
+\begin_layout Plain Layout
+
+    "Pet": {
+\end_layout
+
+\begin_layout Plain Layout
+
+      "type": "object",
+\end_layout
+
+\begin_layout Plain Layout
+
+      "required": [
+\end_layout
+
+\begin_layout Plain Layout
+
+        "name",
+\end_layout
+
+\begin_layout Plain Layout
+
+        "photoUrls"
+\end_layout
+
+\begin_layout Plain Layout
+
+      ],
+\end_layout
+
+\begin_layout Plain Layout
+
+      "properties": {
+\end_layout
+
+\begin_layout Plain Layout
+
+        "id": {
+\end_layout
+
+\begin_layout Plain Layout
+
+          "type": "integer"
+\end_layout
+
+\begin_layout Plain Layout
+
+        },
+\end_layout
+
+\begin_layout Plain Layout
+
+        "category": {
+\end_layout
+
+\begin_layout Plain Layout
+
+          "$ref": "#/definitions/Category"
+\end_layout
+
+\begin_layout Plain Layout
+
+        },
+\end_layout
+
+\begin_layout Plain Layout
+
+        "name": {
+\end_layout
+
+\begin_layout Plain Layout
+
+          "type": "string",
+\end_layout
+
+\begin_layout Plain Layout
+
+        },
+\end_layout
+
+\begin_layout Plain Layout
+
+        "photoUrls": {
+\end_layout
+
+\begin_layout Plain Layout
+
+          "type": "array",
+\end_layout
+
+\begin_layout Plain Layout
+
+          "items": {
+\end_layout
+
+\begin_layout Plain Layout
+
+            "type": "string"
+\end_layout
+
+\begin_layout Plain Layout
+
+}}}}}}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "Documento OAS PetStore"
+
+\end_inset
+
+Documento Swagger de PetStore
+\end_layout
+
+\end_inset
+
+
+\end_layout
 
 \end_inset
 
@@ -2593,8 +3065,7 @@ Swagger vs.
 \end_layout
 
 \begin_layout Standard
-En el fragmento de Swagger \twohyphens
- Listado de Código
+En el fragmento de Swagger – Listado de Código
 \begin_inset space ~
 \end_inset
 
@@ -2605,48 +3076,19 @@ reference "Documento OAS PetStore"
 
 \end_inset
 
-, línea 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-DEFINIR
-\end_layout
-
-\end_inset
-
- \twohyphens
-, se define para la interfaz (
+ se define para la interfaz (
 \emph on
 interface
 \emph default
 ) del servicio.
- Entre las líneas 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-DEFINIR
-\end_layout
-
-\end_inset
-
-, se aprecia como se encuentra conformada la sección 
+ Entre las líneas 46 y 76, se aprecia como se encuentra conformada la sección
+ 
 \emph on
 definitions
 \emph default
 , en donde se detallan tipos de datos complejos disponibles dentro de la
- especificación y entre las lineas 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-DEFINIR
-\end_layout
-
-\end_inset
-
- se encuentra detallada la operación (
+ especificación y entre las lineas 12 y 38 se encuentra detallada la operación
+ (
 \emph on
 operation
 \emph default
@@ -2671,19 +3113,7 @@ Por un lado,
 \emph on
 parameters 
 \emph default
-\twohyphens
- línea 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-46
-\end_layout
-
-\end_inset
-
- \twohyphens
- define la entrada de dicha operación.
+– línea 17 – define la entrada de dicha operación.
  La misma está compuesta por un objeto del tipo entero (
 \emph on
 integer - int64
@@ -2697,20 +3127,8 @@ integer - int64
 \emph on
 response 
 \emph default
-\twohyphens
- línea 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-54
-\end_layout
-
-\end_inset
-
- \twohyphens
- se tiene un objeto que encapsula la salida de la operación, cuyo esquema
- es una referencia a 
+– línea 27 – se tiene un objeto que encapsula la salida de la operación,
+ cuyo esquema es una referencia a 
 \emph on
 #/definitions/Pet
 \emph default
@@ -4955,15 +5373,6 @@ Ejemplo de objetos que se analizan del documento Swagger, parseado con la
 \end_layout
 
 \begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-REEMPLAZAR NUMEROS DE LINEA
-\end_layout
-
-\end_inset
-
 A continuación se detalla el pseudocódigo del módulo de software de conversión
  de especificaciones Swagger a instancias del metamodelo.
  En el Algoritmo
@@ -4977,47 +5386,15 @@ reference "alg:Convertir-especificación-Open"
 
 \end_inset
 
- la función propuesta recibe como entrada una especificación Swagger \twohyphens
- línea
- 1
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Linea
-\end_layout
-
-\end_inset
-
-.
+ la función propuesta recibe como entrada una especificación Swagger – línea
+ 1.
  El primer paso es parsearlo a un objeto que posee la estructura de la especific
-ación Swagger \twohyphens
- línea 2
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Linea
-\end_layout
-
-\end_inset
-
-.
- Luego por cada operación (método HTTP) que tenga cada 
+ación Swagger – línea 2.
+ Luego por cada método HTTP perteneciente a cada 
 \emph on
-path, 
+path
 \emph default
-crearemos una operación del metamodelo - línea 32
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Linea
-\end_layout
-
-\end_inset
-
-, con los atributos 
+ crearemos una operación del metamodelo - línea 30, con los atributos 
 \emph on
 input
 \emph default
@@ -5057,27 +5434,25 @@ Cada response de la operación se analiza, ya que la misma puede ser una
 \emph on
 status code 
 \emph default
-de la misma comenzará con 
+de la misma comenzará con el número 
 \emph on
 2
 \emph default
-xx, si la respuesta tiene tipo se creará un parámetro que luego será usado
- con el 
+, si la respuesta tiene tipo entonces se creará un parámetro que luego será
+ usado en el 
 \emph on
 output
 \emph default
- - línea 22
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Linea
-\end_layout
-
-\end_inset
-
-.
- Caso contrario, se crea un nuevo 
+ - línea 20.
+ En el caso que el 
+\emph on
+status code
+\emph default
+ de la respuesta no comienze con el número 
+\emph on
+2
+\emph default
+ se crea un nuevo 
 \emph on
 Fault 
 \emph default
@@ -5085,22 +5460,13 @@ con el tipo de la respuesta, y se agregará a la lista de
 \emph on
 faults
 \emph default
- - línea 26
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Linea
-\end_layout
-
-\end_inset
-
-.
+ - línea 26 y 27.
  Una vez terminado de recorrer las operaciones de cada 
 \emph on
 path,
 \emph default
- se crea la interfaz del metamodelo con el listado de operaciones.
+ se crea la interfaz del metamodelo con el listado de operaciones - línea
+ 34.
  Finalmente es retornada una instancia del metamodelo generado a partir
  de la especificación Swagger utilizada como entrada.
 \end_layout
