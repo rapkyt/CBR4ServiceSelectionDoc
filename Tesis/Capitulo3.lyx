@@ -6470,6 +6470,28 @@ Conclusión
 \end_layout
 
 \begin_layout Standard
+A lo largo de este capítulo se detalló como se utilizó la metodología CBR
+ dentro del contexto de evaluación y seleccion de Servicios Web y qué decisiones
+ se tomaron a la hora de su implementación.
+ Además se describió como se llevó a cabo el módulo de Software necesario
+ para la adaptación de las especificaciones Swagger al Metamodelo de descripcion
+es de Servicios Web que permitió que esta selección de Servicios se volviera
+ heterogénea, abarcando tanto especificaciones WSDL como especificaciones
+ Swagger.
+ A continuación (Capítulo 4) se presentará la validación experimental 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+que avala
+\end_layout
+
+\end_inset
+
+de las herramientas y procedimientos desarrollados.
+\end_layout
+
+\begin_layout Standard
 \begin_inset Note Note
 status open
 
