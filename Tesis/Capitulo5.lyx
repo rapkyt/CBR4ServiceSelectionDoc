@@ -369,22 +369,9 @@ name "sec:Trabajo-Futuro"
 
 \begin_layout Standard
 En función de lo estudiado en esta tesis, se identificaron algunos aspectos
- para continuar la optimización del Método de Selección de Servicios Web.
+ para continuar la optimización del Método de Selección de Servicios Web
+ utilizando la metodología CBR.
  Estos aspectos se detallan a continuación: 
-\end_layout
-
-\begin_layout Itemize
-Un aspecto a tener en cuenta a la hora de seleccionar un Servicio Web candidato
- a integrar en una aplicación en desarrollo son las secuencias de ejecución
- de operaciones válidas que el mismo ofrece.
- Para esto, podría extenderse el procedimento de Análisis de Compatibilidad
- de Interfaces, incluyendo una evaluación sobre la coregrafia de los mismos.
- Aspecto que ahora es considerado en el nuevo metamodelo desarrollado, pero
- en el cual no se ha profundizado en su tratamiento, ya que sería necesario
- contar con un diagrama auxiliar (por ejemplo, diagrama de secuencia UML)
- para denotar la lógica del orden de llamados para el uso de una función
- específica.
- 
 \end_layout
 
 \begin_layout Itemize
@@ -420,7 +407,7 @@ https://www.openapis.org/
 
 \end_inset
 
- o Swagger
+, RESTful API Modeling Language (RAML)
 \begin_inset Foot
 status open
 
@@ -430,7 +417,7 @@ status open
 
 \begin_layout Plain Layout
 
-https://swagger.io/
+https://raml.org/
 \end_layout
 
 \end_inset
@@ -440,25 +427,37 @@ https://swagger.io/
 
 \end_inset
 
-, le daría un valor agregado a la herramienta muy grande, ya que nos permitiría
- eventualmente trabajar con los servicios más utilizados en la industria.
- 
+ o API Blueprint
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://apiblueprint.org/
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+, le daría un valor agregado a la herramienta ya que aumentaría aún mas
+ la heterogeneidad de la misma.
 \end_layout
 
 \begin_layout Itemize
-Sería de gran utilidad explotar la información que ofrece el metamodelo
- desarrollado considerando el procedimiento de Evaluación de Compatibilidad
- de Comportamiento de los servicios (Sección 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "sec:SelectionMethodOld"
-
-\end_inset
-
-).
- Para esto es necesario definir nuevos esquemas y analizar cómo impacta
- esta información a la hora de la evaluación de comportamiento.
- 
+Desarrollar un módulo desconversor o un conversor inverso que a partir de
+ una instancia del Metamodelo de descripciones de Servicios Web genere una
+ de las especificación disponibles (actualmente WSDL y Swagger), lo cual
+ permitiría hacer conversiones entre cualquier tipo de especificación soportada,
+ es decir, a partir de una especificación WSDL existente, generar su especificac
+ión análoga Swagger y viceversa.
 \end_layout
 
 \begin_layout Itemize
@@ -466,32 +465,108 @@ Definir un proceso de generación de adaptadores (
 \emph on
 Wrappers
 \emph default
-) en función del Metamodelo.
+) en función del Metamodelo, dentro de la etapa de 
+\emph on
+Adaptación
+\emph default
+ de la Metodología CBR mencionada en la Sección 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "par:Resolviendo-el-Caso"
+
+\end_inset
+
+.
  Cada 
 \emph on
 Wrapper
 \emph default
- representa una posible correspondencia de las operaciones de la interfaz
- requerida 
-\begin_inset Formula $I_{R}$
-\end_inset
-
- – que se denomina Interfaz a Consumir (
-\begin_inset Formula $I_{C}$
-\end_inset
-
-) en el Metamodelo – con respecto a las operaciones de la interfaz 
-\begin_inset Formula $I_{S}$
-\end_inset
-
- – que se denomina Interfaz Provista (
-\begin_inset Formula $I_{P}$
-\end_inset
-
-) – de un servicio candidato.
- Esto permitiría comunicarnos con el Servicio Web candidato, de la forma
- más sencilla y automática posible.
+ representa una posible correspondencia de las operaciones del 
+\emph on
+Problema
+\emph default
+ del nuevo 
+\emph on
+Caso
+\emph default
+ a evaluar
+\emph on
  
+\emph default
+
+\begin_inset Formula $C^{N}$
+\end_inset
+
+ con respecto a las operaciones del 
+\emph on
+Problema
+\emph default
+ del 
+\emph on
+Caso Candidato
+\emph default
+ 
+\begin_inset Formula $C^{C}$
+\end_inset
+
+ .
+ Esto permitiría comunicarnos con el Servicio Web candidato de la forma
+ más sencilla y automática posible, sin necesidad de modificar el consumidor
+ del servicio.
+\end_layout
+
+\begin_layout Itemize
+A partir de una instancia del metamodelo, generar un 
+\emph on
+mock
+\emph default
+ del server con una API para cualquiera de las especificaciones disponibles.
+ Esto facilitaría y agilizaría el prototipado y desarrollo del cliente consumido
+r del servicio así como también minimiza el riesgo de desperdiciar esfuerzos
+ de desarrollo debido a especificaciones de requerimientos ambiguas o incompleta
+s
+\begin_inset CommandInset citation
+LatexCommand cite
+key "zhang2003mockup1,zhang2003mockup2"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+Automatizar y permitir la Composición de Servicios cuando se realice una
+ nueva consulta.
+ Hay casos donde la solución óptima para el nuevo Caso requerido no se encuentra
+ entre los Casos disponibles, sino que es necesario componer dos o varios
+ servicios con el fin de satizfacer todas las necesidades, existen varios
+ tipos de composiciones, mezclaro todas las operaciones de los servicios,
+ utilizar la salida de una operación de un servicio como entrada de otra
+ operación de otro servicio, etc.
+ Implementar un módulo de software que genere estos Casos candidatos compuestos
+ permitiría expandir aún más el universos de soluciones disponibles.
+ 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+refinar
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset bibtex
+LatexCommand bibtex
+bibfiles "Biblio_Lic"
+options "plain"
+
+\end_inset
+
+
 \end_layout
 
 \end_body
