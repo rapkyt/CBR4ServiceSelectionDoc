@@ -206,15 +206,8 @@ status open
 \align center
 
 \emph on
-\begin_inset Quotes eld
-\end_inset
-
-Evaluación de Servicios Web, mediante un Metamodelo de Contratos de servicios,
- basado en el estándar SoaML
-\begin_inset Quotes erd
-\end_inset
-
-
+“Evaluación y selección de servicios heterogéneos utilizando Razonamiento
+ Basado en Casos (CBR) y un metamodelo SoaML”
 \end_layout
 
 \end_inset
@@ -229,13 +222,13 @@ Evaluación de Servicios Web, mediante un Metamodelo de Contratos de servicios,
 \begin_layout Standard
 En este sentido, se propuso que la contribución materialice una extensión
  del proceso de selección y de su herramienta de soporte, enfocando en que
- las especificaciones de contratos de Servicios Web sean independientes
- de tecnología y que puedan abarcar servicios heterogéneos.
- Para ello se desarrollo un Metamodelo utilizando como base un conjunto
- de estándares para descripción de contratos/responsabilidades de Servicios
- Web.
+ las especificaciones de los Servicios Web sean independientes de la tecnología
+ y que puedan abarcar servicios heterogéneos.
+ Para ello se utilizó un Metamodelo SoaML, que posee un conjunto de estándares
+ para descripción de contratos/responsabilidades de Servicios Web, dentro
+ de la metodologia Razonamiento Basado en Casos.
  En el contexto de este objetivo general, destacan distintos objetivos específic
-os cuya consecución se detalla a continuación.
+os que se detallan a continuación:
 \end_layout
 
 \begin_layout Standard
@@ -244,116 +237,78 @@ Para la consecución de este objetivo general, se propusieron los siguientes
 \end_layout
 
 \begin_layout Paragraph*
-Objetivo 1: Desarrollar un Metamodelo para especificación de Servicios Web
- basado en el estándar OMG SoaML, con su implementación en la plataforma
- Java
+Objetivo 1: Definir un proceso de evaluación y selección de servicios utilizando
+ Razonamiento Basado en Casos (CBR).
 \end_layout
 
 \begin_layout Standard
 Como se mencionó en el Capítulo 3, resultaba necesario contar con una especifica
-ción de contratos de Servicios Web, que sea independiente de cualquier tecnologí
-a de implementación.
- Por este motivo, utilizando como base los estándares SoaML, WSDL y WADL,
- se definió e implementó un Metamodelo para Descripción de Contratos de
- Servicios Web.
- El Metamodelo desarrollado ofrece mas información 
-\begin_inset Quotes eld
-\end_inset
-
-semántica
-\begin_inset Quotes erd
-\end_inset
-
- correspondiente a un Servicio Web en comparación con las clases Java generadas
- en las anteriores versiones de la Herramienta de Evaluación de Servicios
- Web.
- El enfoque semántico-estructural contempla el análisis exhaustivo de tipos
- complejos, cuyo tratamiento no era trivial por el hecho del anidamiento
- de objetos.
- Además se planteó la estructura 
+ción de contratos de Servicios Web que sea independiente de cualquier tecnología
+ de implementación.
+ Por este motivo el Metamodelo de descripciones de Servicios Web presentado
+ en el Capítulo 2 fue extendido, incorporándolo en una nueva estructura
+ llamada “Ca- so”.
+ Esto nos permitio enfocar la evaluación y selección de servicios dentro
+ del marco del Razonamiento Basado en Casos, el cual, a medida que es utilizado
+ incorporará casos nuevo, es decír, 
 \emph on
-ArrayType
+aprenderá
 \emph default
- que presenta un fuerte significado semántico y estructural, ya que indica
- que en su interior habrá una colección de objetos del mismo tipo.
- Se permitió el análisis de Tipos Complejos contra Tipos Simples puesto
- que se indaga dentro de sus estructuras y cantidad de parámetros de los
- mismos sin ser este último un condicionante taxativo a la hora de evaluar
- la similitud esperada.
+, aumentando la eficacia en comparación a la ejecución manual de las anteriores
+ versiones de la Herramienta de Evaluación de Servicios Web.
 \end_layout
 
 \begin_layout Paragraph*
-Objetivo 2: Modificar la Herramienta de Evaluación de Servicios Web integrando
- el Metamodelo de Servicios Web
+Objetivo 2: Desarrollar los componentes necesarios para la evaluación de
+ servicios heterogéneos.
+ En particular, un conversor de descripciones Swagger a instancias del Metamodel
+o de servicios, y una Base de Conocimiento (KB) persistente.
 \end_layout
 
 \begin_layout Standard
 Al contar con el Metamodelo desarrollado, resultó necesario que la evaluación
- de servicios candidatos se realice en función de instanciaciones del Metamodelo.
- Para ello, se diseño y desarrolló un componente de software que contiene
- al Metamodelo, el cual fue integrado a la Herramienta de Evaluación de
- Servicios Web.
- En la nueva versión de la plataforma, tanto los requerimientos funcionales
- por parte de desarrolladores de aplicaciones orientadas a servicios, como
- los propios servicios candidatos, son representados y comparados mediante
- instanciaciones del Metamodelo.
- 
+ de servicios candidatos especificados bajo es estándar Swagger se realice
+ en función de instanciaciones del Metamodelo.
+ Para ello, se diseño y desarrolló un componente Conversor que recibe como
+ entrada una especificación Swagger (generalmente un archivo tipo JSON)
+ y devuelve como salida una instancia del Metamodelo.
+ Contar con este conversor nos permitio trabajar tanto con servicios SOAP
+ como con servicios REST de una manera transparente, sin necesidad de generar
+ una instancia, de acuerdo al metamodelo desarrollado, por cada descripcion
+ del servicio de forma manual.
 \end_layout
 
 \begin_layout Standard
-Para validar la Herramienta de Selección de Servicios Web con el Metamodelo
- integrado, se llevo a cabo una evaluación experimental.
- Para el experimento presentado se utilizó un conjunto de más de 1000 Servicios
- Web reales.
- Inicialmente, tres grupos de desarrolladores generaron manualmente consultas
- multi-operacionales.
- Luego, las consultas generadas se ejecutaron utilizando los registros de
- descubrimiento de servicios y la Herramienta de Evaluación de Servicios
- Web.
- Los resultados obtenidos siguiendo la métrica Precisión-en-n Acumulada
- mostraron una mejora en la precisión para los primeros resultados de la
- lista.
- De esta manera, el servicio candidato para una consulta tiene una alta
- probabilidad que resulte con un nivel aceptable en el subsiguiente procedimient
-o de Compatibilidad de Comportamiento (Capítulo 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "cap:SOApp"
+El primer beneficio concreto de contar con el componente conversor se obtuvo
+ a la hora de realizar la evaluación experimental, ya que fueron generadas
+ las instancias correspondientes del Metamodelo para las 550 especificaciones
+ Swagger utilizadas como datasets en unos pocos minutos, tiempo que se considera
+ ínfimo en comparación a realizar esta tarea manualmente, es decir, generar
+ la instancia de cada componente del Metamodelo de forma manual.
+ Este tiempo también es considero ínfimo en comparación a reescribir todas
+ estas especificaciones a su equivalente WSDL y utilizar el conversor existente.
+\end_layout
 
-\end_inset
-
- Sección 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "sec:SelectionMethodOld"
-
-\end_inset
-
-).
+\begin_layout Standard
+Para permitir el aprendizaje mencionado en el objetivo 1 fue necesario almacenar
+ la Base de Conocimiento (KB) de manera persistente, para que los casos
+ retenidos prosperen en futuras ejecuciones y además, no tener que realizar
+ la conversión del dataset de Servicios Web WSDL o Swagger en cada una de
+ las ejecuciones.
+ Para ésto se decidió almacenar cada Caso en un Sistema Gestor de Base de
+ Datos basado en documentos llamado MongoDB.
+ Fue de gran utilidad contar con esta Base de Conocimiento persistente a
+ la hora de realizar la evaluación experimental, puesto a que se realizaron
+ más de 40 consultas contando ambos experimentos, pero las 1742 especificaciones
+ de Servicios Web pertenecientes al dataset fueron convertidas al Metamodelo
+ SoaML una sola vez.
 \end_layout
 
 \begin_layout Paragraph*
-Objetivo 3: Desarrollar un Componente Conversor de descripciones WSDL hacia
- instanciaciones del Metamodelo propuesto
-\end_layout
-
-\begin_layout Standard
-Se desarrolló un componente Conversor que recibe como entrada un documento
- WSDL (generalmente por medio de la URL) y devuelve como salida una instancia
- del Metamodelo.
- Contar con este conversor nos permitio trabajar con servicios SOAP de una
- manera transparente, sin necesidad de instanciar manualmente, de acuerdo
- al metamodelo desarrollado, cada descripcion del servicio.
- 
-\end_layout
-
-\begin_layout Standard
-El primer beneficio concreto de contar con el componente conversor lo obtuvimos
- a la hora de realizar la evaluación experimental, ya que para los más de
- 1000 servicios utilizados como dataset, fueron generadas sus correspondientes
- instancias del metamodelo para poder evaluar los mismos en un tiempo que
- se considera ínfimo en comparación a realizar la tarea manualmente.
- 
+Objetivo 3: Realizar la integración de los componentes desarrollados en
+ el Objetivo 2, ajustando los mecanismos de evaluación existentes para selección
+ de servicios al contexto de CBR, de acuerdo al proceso definido en el objetivo
+ 1.
 \end_layout
 
 \begin_layout Section
@@ -538,11 +493,11 @@ key "zhang2003mockup1,zhang2003mockup2"
 Automatizar y permitir la Composición de Servicios cuando se realice una
  nueva consulta.
  Hay casos donde la solución óptima para el nuevo Caso requerido no se encuentra
- entre los Casos disponibles, sino que es necesario componer dos o varios
- servicios con el fin de satizfacer todas las necesidades, existen varios
- tipos de composiciones, mezclaro todas las operaciones de los servicios,
- utilizar la salida de una operación de un servicio como entrada de otra
- operación de otro servicio, etc.
+ en un solo Caso de los disponibles, sino que es necesario componer dos
+ o varios servicios con el fin de satizfacer todas las necesidades, existen
+ varios tipos de composiciones, como crear una sola interfaz con las operaciones
+ de los servicios, utilizar la salida de una operación de un servicio como
+ entrada de otra operación de otro servicio, etc.
  Implementar un módulo de software que genere estos Casos candidatos compuestos
  permitiría expandir aún más el universos de soluciones disponibles.
  
