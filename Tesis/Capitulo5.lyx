@@ -206,8 +206,8 @@ status open
 \align center
 
 \emph on
-“Evaluación y selección de servicios heterogéneos utilizando Razonamiento
- Basado en Casos (CBR) y un metamodelo SoaML”
+“Definir e implementar un proceso de evaluación y selección de Servicios
+ Web utilizando Razonamiento Basado en Casos (CBR)”
 \end_layout
 
 \end_inset
@@ -237,8 +237,7 @@ Para la consecución de este objetivo general, se propusieron los siguientes
 \end_layout
 
 \begin_layout Paragraph*
-Objetivo 1: Definir un proceso de evaluación y selección de servicios utilizando
- Razonamiento Basado en Casos (CBR).
+Objetivo 1: Definir un proceso de evaluación de servicios utilizando CBR.
 \end_layout
 
 \begin_layout Standard
@@ -261,8 +260,18 @@ aprenderá
 \begin_layout Paragraph*
 Objetivo 2: Desarrollar los componentes necesarios para la evaluación de
  servicios heterogéneos.
- En particular, un conversor de descripciones Swagger a instancias del Metamodel
-o de servicios, y una Base de Conocimiento (KB) persistente.
+ En particular, un conversor de descripciones Swagger
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+cambié OpenAPI a swagger
+\end_layout
+
+\end_inset
+
+ a instancias del Metamodelo de servicios, y una Base de Conocimiento (KB)
+ persistente.
 \end_layout
 
 \begin_layout Standard
