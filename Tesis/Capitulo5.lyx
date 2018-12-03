@@ -226,7 +226,7 @@ En este sentido, se propuso que la contribución materialice una extensión
  y que puedan abarcar servicios heterogéneos.
  Para ello se utilizó un Metamodelo SoaML, que posee un conjunto de estándares
  para descripción de contratos/responsabilidades de Servicios Web, dentro
- de la metodologia Razonamiento Basado en Casos.
+ de la metodología Razonamiento Basado en Casos.
  En el contexto de este objetivo general, destacan distintos objetivos específic
 os que se detallan a continuación:
 \end_layout
@@ -248,9 +248,9 @@ ción de contratos de Servicios Web que sea independiente de cualquier tecnolog�
  Por este motivo el Metamodelo de descripciones de Servicios Web presentado
  en el Capítulo 2 fue extendido, incorporándolo en una nueva estructura
  llamada “Ca- so”.
- Esto nos permitio enfocar la evaluación y selección de servicios dentro
+ Esto nos permitió enfocar la evaluación y selección de servicios dentro
  del marco del Razonamiento Basado en Casos, el cual, a medida que es utilizado
- incorporará casos nuevo, es decír, 
+ incorporará casos nuevo, es decir, 
 \emph on
 aprenderá
 \emph default
@@ -272,9 +272,9 @@ Al contar con el Metamodelo desarrollado, resultó necesario que la evaluación
  Para ello, se diseño y desarrolló un componente Conversor que recibe como
  entrada una especificación Swagger (generalmente un archivo tipo JSON)
  y devuelve como salida una instancia del Metamodelo.
- Contar con este conversor nos permitio trabajar tanto con servicios SOAP
+ Contar con este conversor nos permitió trabajar tanto con servicios SOAP
  como con servicios REST de una manera transparente, sin necesidad de generar
- una instancia, de acuerdo al metamodelo desarrollado, por cada descripcion
+ una instancia, de acuerdo al metamodelo desarrollado, por cada descripción
  del servicio de forma manual.
 \end_layout
 
@@ -295,7 +295,7 @@ Para permitir el aprendizaje mencionado en el objetivo 1 fue necesario almacenar
  retenidos prosperen en futuras ejecuciones y además, no tener que realizar
  la conversión del dataset de Servicios Web WSDL o Swagger en cada una de
  las ejecuciones.
- Para ésto se decidió almacenar cada Caso en un Sistema Gestor de Base de
+ Para esto se decidió almacenar cada Caso en un Sistema Gestor de Base de
  Datos basado en documentos llamado MongoDB.
  Fue de gran utilidad contar con esta Base de Conocimiento persistente a
  la hora de realizar la evaluación experimental, puesto a que se realizaron
@@ -494,7 +494,7 @@ Automatizar y permitir la Composición de Servicios cuando se realice una
  nueva consulta.
  Hay casos donde la solución óptima para el nuevo Caso requerido no se encuentra
  en un solo Caso de los disponibles, sino que es necesario componer dos
- o varios servicios con el fin de satizfacer todas las necesidades, existen
+ o varios servicios con el fin de satisfacer todas las necesidades, existen
  varios tipos de composiciones, como crear una sola interfaz con las operaciones
  de los servicios, utilizar la salida de una operación de un servicio como
  entrada de otra operación de otro servicio, etc.
