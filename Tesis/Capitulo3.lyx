@@ -343,19 +343,6 @@ Razonamiento Basado en Casos para selección de Servicios Web
 \end_layout
 
 \begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Poner los numeros de pasos en la explicación
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
 En esta sección se describe cada 
 \emph on
 paso
@@ -391,6 +378,13 @@ solución
 \emph on
 Knowledge Base
 \emph default
+) (Paso 3, Figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Esquema-de-proceso"
+
+\end_inset
+
 ), los cuales poseen tanto 
 \emph on
 problema
@@ -485,6 +479,13 @@ ganadora
 \emph on
 Solved Case
 \emph default
+) (Paso 4, Figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Esquema-de-proceso"
+
+\end_inset
+
 ).
  Los métodos de selección 
 \emph on
@@ -514,8 +515,15 @@ reference "par:Resolviendo-el-Caso"
 \end_layout
 
 \begin_layout Standard
-Si la solución es compatible, se evalúa la calidad de la respuesta, para
- esto se compara con un valor de 
+Si la solución es compatible (Paso 5, Figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Esquema-de-proceso"
+
+\end_inset
+
+), se evalúa la calidad de la respuesta, para esto se compara con un valor
+ de 
 \emph on
 threshold
 \emph default
@@ -6471,7 +6479,7 @@ Conclusión
 
 \begin_layout Standard
 A lo largo de este capítulo se detalló como se utilizó la metodología CBR
- dentro del contexto de evaluación y seleccion de Servicios Web y qué decisiones
+ dentro del contexto de evaluación y selección de Servicios Web y qué decisiones
  se tomaron a la hora de su implementación.
  Además se describió como se llevó a cabo el módulo de Software necesario
  para la adaptación de las especificaciones Swagger al Metamodelo de descripcion
