@@ -231,11 +231,6 @@ En este sentido, se propuso que la contribución materialice una extensión
 os que se detallan a continuación:
 \end_layout
 
-\begin_layout Standard
-Para la consecución de este objetivo general, se propusieron los siguientes
- objetivos específicos:
-\end_layout
-
 \begin_layout Paragraph*
 Objetivo 1: Definir un proceso de evaluación de servicios utilizando CBR.
 \end_layout
@@ -246,38 +241,56 @@ ción de contratos de Servicios Web que sea independiente de cualquier tecnolog�
  de implementación.
  Por este motivo el Metamodelo de descripciones de Servicios Web presentado
  en el Capítulo 2 fue extendido, incorporándolo en una nueva estructura
- llamada “Ca- so”.
+ llamada “Caso”.
  Esto nos permitió enfocar la evaluación y selección de servicios dentro
- del marco del Razonamiento Basado en Casos, el cual, a medida que es utilizado
- incorporará casos nuevo, es decir, 
-\emph on
-aprenderá
-\emph default
-, aumentando la eficacia en comparación a la ejecución manual de las anteriores
- versiones de la Herramienta de Evaluación de Servicios Web.
+ del marco del Razonamiento Basado en Casos.
+ Un razonador basado en casos resuelve nuevos problemas mediante el uso
+ y la adaptación de soluciones existentes para problemas anteriores y recurrente
+s.
+\end_layout
+
+\begin_layout Standard
+En la tesis propuesta se logró trazar un paralelo entre el problema de descubrim
+iento, selección y evaluación de servicios 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+[CZC08, ADR2014]
+\end_layout
+
+\end_inset
+
+, y los pasos de la metodología CBR, conocidos como las cuatro R
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+ [AAA94]
+\end_layout
+
+\end_inset
+
+: (1) Recuperar los casos más similares a un problema; (2) Reusar la información
+ y el conocimiento disponible para intentar resolver el problema, (3) Revisar
+ la solución propuesta si fuera necesario, y (4) Retener las partes de esta
+ experiencia que sirvan para aprendizaje y utilización para resolución de
+ problemas futuros, aumentando la eficacia en comparación a la ejecución
+ manual de las anteriores versiones de la Herramienta de Evaluación de Servicios
+ Web.
 \end_layout
 
 \begin_layout Paragraph*
 Objetivo 2: Desarrollar los componentes necesarios para la evaluación de
  servicios heterogéneos.
- En particular, un conversor de descripciones Swagger
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-cambié OpenAPI a swagger
-\end_layout
-
-\end_inset
-
- a instancias del Metamodelo de servicios, y una Base de Conocimiento (KB)
- persistente.
+ En particular, un conversor de descripciones OpenAPI a instancias del Metamodel
+o de servicios, y una Base de Conocimiento (KB) persistente.
 \end_layout
 
 \begin_layout Standard
 Al contar con el Metamodelo desarrollado, resultó necesario que la evaluación
- de servicios candidatos especificados bajo es estándar Swagger se realice
- en función de instanciaciones del Metamodelo.
+ de servicios candidatos especificados bajo el estándar OpenAPI/Swagger
+ se realice en función de instanciaciones del Metamodelo.
  Para ello, se diseño y desarrolló un componente Conversor que recibe como
  entrada una especificación Swagger (generalmente un archivo tipo JSON)
  y devuelve como salida una instancia del Metamodelo.
@@ -299,11 +312,11 @@ El primer beneficio concreto de contar con el componente conversor se obtuvo
 \end_layout
 
 \begin_layout Standard
-Para permitir el aprendizaje mencionado en el objetivo 1 fue necesario almacenar
+Para permitir el aprendizaje mencionado en el Objetivo 1 fue necesario almacenar
  la Base de Conocimiento (KB) de manera persistente, para que los casos
- retenidos prosperen en futuras ejecuciones y además, no tener que realizar
- la conversión del dataset de Servicios Web WSDL o Swagger en cada una de
- las ejecuciones.
+ retenidos prosperen en futuras ejecuciones y además no tener que realizar
+ la conversión al Metamodelo del dataset de Servicios Web WSDL o Swagger
+ en cada una de las ejecuciones.
  Para esto se decidió almacenar cada Caso en un Sistema Gestor de Base de
  Datos basado en documentos llamado MongoDB.
  Fue de gran utilidad contar con esta Base de Conocimiento persistente a
@@ -318,6 +331,40 @@ Objetivo 3: Realizar la integración de los componentes desarrollados en
  el Objetivo 2, ajustando los mecanismos de evaluación existentes para selección
  de servicios al contexto de CBR, de acuerdo al proceso definido en el objetivo
  1.
+\end_layout
+
+\begin_layout Standard
+Fue necesario integrar los componentes desarrollados como parte del Objetivo
+ 2 (Conversor de descripciones Swagger y Base de conocimientos persistente)
+ con los mecanismos de evaluación y selección de servicios presentado a
+ lo largo de los trabajos previos
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+[C12, G10, ADR2014, SC2016, LC18]
+\end_layout
+
+\end_inset
+
+, conformando una herramienta de soporte automatizado al proceso de CBR
+ para evaluación y selección de servicios, definido en el Objetivo 1.
+ Para ello, se extrajo y reutilizó la lógica subyacente a los componentes
+ de la evaluación de servicios existente.
+ Entre otras, los mecanismos de evaluación semántico-estructura de elementos
+ de signatura (nombres de operaciones, parámetros de entrada/salida, tipos
+ de datos complejos, etc.), que constituyó la función de similitud en el
+ esquema CBR.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Mencionar Kotlin de cap 3 y Docker, reusable como se vio en la hackathon
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
@@ -351,7 +398,7 @@ key "medvidovic2000classification"
 
 \end_inset
 
-, OpenAPI
+, OpenAPI V3
 \begin_inset Foot
 status open
 
@@ -484,7 +531,7 @@ A partir de una instancia del metamodelo, generar un
 \emph on
 mock
 \emph default
- del server con una API para cualquiera de las especificaciones disponibles.
+ del servicio con una API para cualquiera de las especificaciones disponibles.
  Esto facilitaría y agilizaría el prototipado y desarrollo del cliente consumido
 r del servicio así como también minimiza el riesgo de desperdiciar esfuerzos
  de desarrollo debido a especificaciones de requerimientos ambiguas o incompleta
@@ -503,23 +550,15 @@ Automatizar y permitir la Composición de Servicios cuando se realice una
  nueva consulta.
  Hay casos donde la solución óptima para el nuevo Caso requerido no se encuentra
  en un solo Caso de los disponibles, sino que es necesario componer dos
- o varios servicios con el fin de satisfacer todas las necesidades, existen
- varios tipos de composiciones, como crear una sola interfaz con las operaciones
- de los servicios, utilizar la salida de una operación de un servicio como
- entrada de otra operación de otro servicio, etc.
- Implementar un módulo de software que genere estos Casos candidatos compuestos
- permitiría expandir aún más el universos de soluciones disponibles.
+ o varios servicios con el fin de satisfacer todas las necesidades.
+ Existen varios tipos de composiciones posibles, por ejemplo: crear una
+ sola interfaz con las operaciones de varios servicios (Unión), o utilizar
+ la salida de una operación de un servicio como entrada de una operación
+ de otro servicio (Secuencia).
+ Para ello es necesario implementar un módulo de software que genere estos
+ Casos candidatos compuestos permitiendo expandir aún más el universo de
+ soluciones posibles.
  
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-refinar
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Standard
