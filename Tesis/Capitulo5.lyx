@@ -97,19 +97,14 @@ name "sec:Generacion-de-consultas"
 \end_layout
 
 \begin_layout Standard
-En la presente tesis se profundizó acerca del Método de Selección de Servicios
- Web que tiene como objetivo asistir a los ingenieros de software en la
- construcción de Aplicaciones Orientadas a Servicios.
- En particular, se propusieron mejoras sobre el procedimiento de Análisis
- de Compatibilidad de Interfaces (validación contractual) completamente
- basado en la especificación funcional (descripta en WSDL) de los Servicios
- Web, que permitió extraer toda la información disponible en dicha especificació
-n sin requerir de un marcado semántico adicional (se utilizaron los 
-\emph on
-tags 
-\emph default
-propios de un documento WSDL).
- 
+En la presente tesis se profundizó acerca del Método de Evaluación y Selección
+ de Servicios Web, que tiene como objetivo asistir a los ingenieros de software
+ en la construcción de Aplicaciones Orientadas a Servicios.
+ En particular, se propusieron mejoras sobre el procedimiento de Selección
+ de Servicios Web, formalizando sus pasos dentro de la metodología Razonamiento
+ Basado en Casos, estandarizando y automatizando el proceso.
+ Lo que permitió que sea más sencillo y accesible la búesqueda de un Servicio
+ basado en las necesidades del ingeniero.
 \end_layout
 
 \begin_layout Standard
@@ -122,9 +117,9 @@ Actualmente, los servicios están siendo fuertemente considerados como la
  sus funcionalidades, y las operaciones soportadas, para luego identificar
  la forma de invocación, la interconexión de operaciones, y los mapeos de
  mensajes.
- Sumado a esto, los documentos WSDL en general carecen de información significat
-iva para soportar este proceso, debido a la proliferación de los Servicios
- Web
+ Sumado a esto, los documentos WSDL y Swagger en general carecen de información
+ significativa para soportar este proceso, debido a la proliferación de
+ los Servicios Web
 \begin_inset space ~
 \end_inset
 
@@ -135,8 +130,9 @@ key "mateos2011detecting"
 
 \end_inset
 
- cuyos contratos se generan de manera automática, disminuyendo su expresividad
- y por ende la precisión de los registros de descubrimiento de servicios.
+ cuyas especificaciones se generan de manera automática, disminuyendo su
+ expresividad y por ende la precisión de los registros de descubrimiento
+ de servicios.
  
 \begin_inset Newline newline
 \end_inset
