@@ -102,9 +102,11 @@ En la presente tesis se profundizó acerca del Método de Evaluación y Selecci�
  en la construcción de Aplicaciones Orientadas a Servicios.
  En particular, se propusieron mejoras sobre el procedimiento de Selección
  de Servicios Web, formalizando sus pasos dentro de la metodología Razonamiento
- Basado en Casos, estandarizando y automatizando el proceso.
- Lo que permitió que sea más sencillo y accesible la búesqueda de un Servicio
- basado en las necesidades del ingeniero.
+ Basado en Casos, incorporando un mecanismo de aprendizaje semi-automático
+ que mejora su performance adquiriendo información a partir del uso además
+ de estandarizar y automatizar el proceso, lo que facilitó la búsqueda de
+ un Servicio requerido basado en la descripción de las necesidades del ingeniero.
+ 
 \end_layout
 
 \begin_layout Standard
