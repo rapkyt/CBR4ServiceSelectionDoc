@@ -681,7 +681,7 @@ casi-moderado
 .
  Esto permite describir los casos de similitud que representan diferentes
  restricciones estructurales y semánticas para pares de operaciones 
-\begin_inset Formula $(op_{R}\in I_{R},op_{S}\in I_{S})$
+\begin_inset Formula $(op_{P}\in I_{P},op_{C}\in I_{C})$
 \end_inset
 
 .
@@ -3616,7 +3616,7 @@ que incluye el descubrimiento y la selección de Servicios Web candidatos.
  Para este proceso se requiere que los diseñadores especifiquen la (potencial)
  interfaz (en el lenguaje Java) del componente de la aplicación que se desea
  tercerizar, que denominaremos 
-\begin_inset Formula $I_{R}$
+\begin_inset Formula $I_{P}$
 \end_inset
 
  (Interfaz Requerida), agregando opcionalmente alguna anotación en la forma
@@ -3646,7 +3646,7 @@ target "http://www.oracle.com/technetwork/articles/java/index-137868.html"
 Luego en el enfoque EasySOC se extrae información relevante del servicio
  requerido a partir del código fuente de la aplicación, incluyendo la mencionada
  interfaz 
-\begin_inset Formula $I_{R}$
+\begin_inset Formula $I_{P}$
 \end_inset
 
  y los comentarios de dicho código, y para ello utiliza ciertas técnicas
@@ -3690,12 +3690,12 @@ key "crasso2008easy"
 Luego de la búsqueda en el registro, se obtiene un conjunto de documentos
  candidatos WSDL versión 1.1, cuyas operaciones se asemejan en signatura
  a las que contiene la 
-\begin_inset Formula $I_{R}$
+\begin_inset Formula $I_{P}$
 \end_inset
 
 , los cuales son usados de base por el Paso 1.3 para convertir dichas operaciones
  en interfaces Java, que individualmente se denominan 
-\begin_inset Formula $I_{S}$
+\begin_inset Formula $I_{C}$
 \end_inset
 
  (Interfaz Servicio).
@@ -3728,7 +3728,7 @@ target "http://axis.apache.org/axis/java/"
  los archivos .class necesarios para hacer el análisis (este proceso se hace
  para cada WSDL involucrado).
  El conjunto de interfaces Java (
-\begin_inset Formula $I_{S}$
+\begin_inset Formula $I_{C}$
 \end_inset
 
 ) derivadas de los WSDL de servicios candidatos, son evaluadas en el Método
@@ -3875,7 +3875,7 @@ vspace*{-.2cm}
 
 \begin_layout Standard
 Nuevamente la interfaz Java 
-\begin_inset Formula $I_{R}$
+\begin_inset Formula $I_{P}$
 \end_inset
 
  (que está en dependencia de un componente 
@@ -3901,11 +3901,11 @@ reference "fig:Pasos-del-método"
 
 ) se realiza a nivel estructural y semántico, por medio de un esquema exhaustivo
 , para evaluar la interfaz requerida (
-\begin_inset Formula $I_{R}$
+\begin_inset Formula $I_{P}$
 \end_inset
 
 ) y la interfaz provista por los servicios candidatos (
-\begin_inset Formula $I_{S}$
+\begin_inset Formula $I_{C}$
 \end_inset
 
 ), para luego caracterizar los elementos de signatura de las operaciones
@@ -3935,7 +3935,7 @@ reference "fig:Pasos-del-método"
 
 ) se aplica al identificar que un requerimiento funcional de una aplicación
  (en la forma de una interfaz requerida 
-\begin_inset Formula $I_{R}$
+\begin_inset Formula $I_{P}$
 \end_inset
 
 ) podría ser cubierto por un potencial Servicio Web candidato.
@@ -4004,7 +4004,7 @@ wrappers
 \emph default
  (o adaptadores) que permiten la ejecución del TS contra los servicios candidato
 s (a través de la interfaz provista 
-\begin_inset Formula $I_{S}$
+\begin_inset Formula $I_{C}$
 \end_inset
 
 ) y así poder evaluar el grado de compatibilidad de comportamiento alcanzado.
@@ -4014,11 +4014,11 @@ wrapper
 \emph default
  representa una posible correspondencia de las operaciones de la interfaz
  requerida 
-\begin_inset Formula $I_{R}$
+\begin_inset Formula $I_{P}$
 \end_inset
 
  con respecto a las operaciones de la interfaz 
-\begin_inset Formula $I_{S}$
+\begin_inset Formula $I_{C}$
 \end_inset
 
  de un servicio candidato.
@@ -4111,21 +4111,21 @@ name "subsec:Condiciones-de-Equivalencia"
 
 \begin_layout Standard
 Sea 
-\begin_inset Formula $I_{R}$
+\begin_inset Formula $I_{P}$
 \end_inset
 
  la interfaz de cierta funcionalidad requerida para una aplicación cliente,
  e 
-\begin_inset Formula $I_{S}$
+\begin_inset Formula $I_{C}$
 \end_inset
 
- la interfaz de un Servicio Web candidato 
+ la interfaz de un Servicio Web a Consumir 
 \begin_inset Formula $S$
 \end_inset
 
 .
  Para cada par de operaciones 
-\begin_inset Formula $(op_{R},op_{S})$
+\begin_inset Formula $(op_{P},op_{C})$
 \end_inset
 
 , las probables equivalencias entre esas operaciones se basan, en primera
@@ -4240,6 +4240,16 @@ key "castro16"
 \end_inset
 
 .
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+actualizo por los tipos de Simpletype?
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -4256,16 +4266,16 @@ reference "tab:Equivalencia-de-Subtipos"
 \end_inset
 
 , donde los tipos en 
-\begin_inset Formula $op_{S}$
+\begin_inset Formula $op_{C}$
 \end_inset
 
  deben al menos tener tanta precisión como los tipos en 
-\begin_inset Formula $op_{R}$
+\begin_inset Formula $op_{P}$
 \end_inset
 
 .
  Por ejemplo si la operación 
-\begin_inset Formula $op_{R}$
+\begin_inset Formula $op_{P}$
 \end_inset
 
  incluye un tipo 
@@ -4273,7 +4283,7 @@ reference "tab:Equivalencia-de-Subtipos"
 int
 \family default
 , una operación correspondiente 
-\begin_inset Formula $op_{S}$
+\begin_inset Formula $op_{C}$
 \end_inset
 
  no puede tener una precisión menor como 
@@ -4565,11 +4575,11 @@ name "subsec:Algoritmo-para-Evaluacion-Identificadores"
 \begin_layout Standard
 El algoritmo para la Evaluación de Identificadores compara el nombre de
  una operación 
-\begin_inset Formula $op_{R}$
+\begin_inset Formula $op_{P}$
 \end_inset
 
  con el nombre de una operación 
-\begin_inset Formula $op_{S}$
+\begin_inset Formula $op_{C}$
 \end_inset
 
 .
@@ -4737,11 +4747,11 @@ Stemming
 Comparación semántica de listas de terminos
 \emph default
 : luego de generar las listas de términos de 
-\begin_inset Formula $op_{R}$
+\begin_inset Formula $op_{P}$
 \end_inset
 
  y 
-\begin_inset Formula $op_{S}$
+\begin_inset Formula $op_{C}$
 \end_inset
 
  (con sus respectivos acrónimos y 
@@ -4750,35 +4760,35 @@ stems
 \emph default
 ) se extrae la información para la comparación semántica, que incluye: (1)
  Términos idénticos (exactos) entre 
-\begin_inset Formula $op_{R}$
+\begin_inset Formula $op_{P}$
 \end_inset
 
  y 
-\begin_inset Formula $op_{S}$
+\begin_inset Formula $op_{C}$
 \end_inset
 
 ; (2) Sinónimos de los términos de 
-\begin_inset Formula $op_{R}$
+\begin_inset Formula $op_{P}$
 \end_inset
 
  que pertenezcan a la lista de términos de 
-\begin_inset Formula $op_{S}$
+\begin_inset Formula $op_{C}$
 \end_inset
 
 ; (3) Hiperónimos (padres) de los términos de 
-\begin_inset Formula $op_{R}$
+\begin_inset Formula $op_{P}$
 \end_inset
 
  que pertenezcan a 
-\begin_inset Formula $op_{S}$
+\begin_inset Formula $op_{C}$
 \end_inset
 
 ; y (4) Hipónimos (hijos) de los términos de 
-\begin_inset Formula $op_{R}$
+\begin_inset Formula $op_{P}$
 \end_inset
 
  que pertenezcan a la lista de 
-\begin_inset Formula $op_{S}$
+\begin_inset Formula $op_{C}$
 \end_inset
 
 .
@@ -4827,11 +4837,11 @@ reference "eq:nameComp"
 \end_inset
 
  es el total de términos entre 
-\begin_inset Formula $op_{R}$
+\begin_inset Formula $op_{P}$
 \end_inset
 
  y 
-\begin_inset Formula $op_{S}$
+\begin_inset Formula $op_{C}$
 \end_inset
 
  (terms = #({termsOpR} ∪ {termsOpS})), 
@@ -4903,11 +4913,11 @@ reference "sec:Compatibilidad-InterfacesOld"
 \begin_layout Standard
 Para la comparación de parámetros, la cantidad de parámetros no constituye
  un factor de incompatibilidad cuando 
-\begin_inset Formula $op_{R}\in I_{R}$
+\begin_inset Formula $op_{P}\in I_{P}$
 \end_inset
 
  tiene menos parámetros que una operación 
-\begin_inset Formula $op_{S}\in I_{S}$
+\begin_inset Formula $op_{C}\in I_{C}$
 \end_inset
 
 .
@@ -4935,11 +4945,11 @@ reference "tab:Equivalencia-de-Subtipos"
 
  es almacenar la relación entre todos los pares de tipos de parámetros en
  
-\begin_inset Formula $op_{R}$
+\begin_inset Formula $op_{P}$
 \end_inset
 
  y 
-\begin_inset Formula $op_{S}$
+\begin_inset Formula $op_{C}$
 \end_inset
 
 .
@@ -4952,11 +4962,11 @@ La matriz de compatibilidad de nombres (N): la matriz
 
  contiene los valores de compatibilidad entre el nombre de cada parámetro
  de 
-\begin_inset Formula $op_{R}$
+\begin_inset Formula $op_{P}$
 \end_inset
 
  y cada parámetro de 
-\begin_inset Formula $op_{S}$
+\begin_inset Formula $op_{C}$
 \end_inset
 
 .
@@ -4971,11 +4981,11 @@ La matriz de compatibilidad de nombres (N): la matriz
 
  contiene el valor de compatibilidad entre el nombre del i-ésimo parámetro
  de 
-\begin_inset Formula $op_{R}$
+\begin_inset Formula $op_{P}$
 \end_inset
 
  y el j-ésimo parámetro de 
-\begin_inset Formula $op_{S}$
+\begin_inset Formula $op_{C}$
 \end_inset
 
 .
@@ -5005,11 +5015,11 @@ se genera a partir de las matrices
 \emph default
 El objetivo de esta matriz es almacenar el valor de compatibilidad entre
  todos los pares de parámetros de 
-\begin_inset Formula $op_{R}$
+\begin_inset Formula $op_{P}$
 \end_inset
 
  y 
-\begin_inset Formula $op_{S}$
+\begin_inset Formula $op_{C}$
 \end_inset
 
 , considerando aspectos estructurales (resumidos en la matriz 
@@ -5057,11 +5067,11 @@ Luego de calcular la matriz
 , se debe seleccionar el mejor mapeo de parámetros entre todas las posibles
  combinaciones de pares de parámetros – es decir, la asignación de parámetros
  que maximiza la compatibilidad entre 
-\begin_inset Formula $op_{R}$
+\begin_inset Formula $op_{P}$
 \end_inset
 
  y 
-\begin_inset Formula $op_{S}$
+\begin_inset Formula $op_{C}$
 \end_inset
 
 .
@@ -5073,11 +5083,11 @@ Luego de calcular la matriz
  y elegir una columna, con la condición de no utilizar cada columna más
  de una vez (no asignar más de una vez cada parámetro).
  Luego, esto asegura un mapeo uno-a-uno entre los parámetros de 
-\begin_inset Formula $op_{R}$
+\begin_inset Formula $op_{P}$
 \end_inset
 
  y 
-\begin_inset Formula $op_{S}$
+\begin_inset Formula $op_{C}$
 \end_inset
 
 .
@@ -5107,11 +5117,11 @@ key "Kuhn55"
 \end_inset
 
  son los números de parámetros de 
-\begin_inset Formula $op_{R}$
+\begin_inset Formula $op_{P}$
 \end_inset
 
  y 
-\begin_inset Formula $op_{S}$
+\begin_inset Formula $op_{C}$
 \end_inset
 
  respectivamente.
@@ -5133,11 +5143,11 @@ Luego de calcular la matriz
 , se debe seleccionar el mejor mapeo de parámetros entre todas las posibles
  combinaciones de pares de parámetros – es decir, la asignación de parámetros
  que maximiza la compatibilidad entre 
-\begin_inset Formula $op_{R}$
+\begin_inset Formula $op_{P}$
 \end_inset
 
  y 
-\begin_inset Formula $op_{S}$
+\begin_inset Formula $op_{C}$
 \end_inset
 
 .
@@ -5149,11 +5159,11 @@ Luego de calcular la matriz
  y elegir una columna, con la condición de no utilizar cada columna más
  de una vez (no asignar más de una vez cada parámetro).
  Luego, esto asegura un mapeo uno-a-uno entre los parámetros de 
-\begin_inset Formula $op_{R}$
+\begin_inset Formula $op_{P}$
 \end_inset
 
  y 
-\begin_inset Formula $op_{S}$
+\begin_inset Formula $op_{C}$
 \end_inset
 
 .
@@ -5183,11 +5193,11 @@ key "Kuhn55"
 \end_inset
 
  son los números de parámetros de 
-\begin_inset Formula $op_{R}$
+\begin_inset Formula $op_{P}$
 \end_inset
 
  y 
-\begin_inset Formula $op_{S}$
+\begin_inset Formula $op_{C}$
 \end_inset
 
  respectivamente.
@@ -5225,7 +5235,7 @@ es la matriz de compatibilidad maximizada, y
 
  es una constante configurable para penalizar la cantidad de parámetros
  no utilizados de 
-\begin_inset Formula $op_{S}$
+\begin_inset Formula $op_{C}$
 \end_inset
 
  (
@@ -5285,21 +5295,21 @@ compParam=\frac{\sum M_{ij}}{#(parCamposOps)}\text{ −}penalizacion\text{ ∗ }
 \lang spanish
  Donde M es la matriz de compatibilidad que maximiza los valores de compatibilid
 ad, y la penalización es un valor que depende de si los parámetros de 
-\begin_inset Formula $op_{R}$
+\begin_inset Formula $op_{P}$
 \end_inset
 
  y 
-\begin_inset Formula $op_{S}$
+\begin_inset Formula $op_{C}$
 \end_inset
 
  son de tipos simples o complejos, y de un valor configurable que penaliza
  los parámetros no usados.
  Esto es, si la 
-\begin_inset Formula $op_{R}$
+\begin_inset Formula $op_{P}$
 \end_inset
 
  consta de un parámetro complejo y la 
-\begin_inset Formula $op_{S}$
+\begin_inset Formula $op_{C}$
 \end_inset
 
  es un lista de parámetros simples o viceversa entonces la penalización
@@ -5381,21 +5391,21 @@ compParam=\frac{\sum C_{ij}}{\#(parCamposOps)}\text{ −}penalizacion\text{ ∗ 
 \end_inset
 
  es un valor que depende de si los parámetros de 
-\begin_inset Formula $op_{R}$
+\begin_inset Formula $op_{P}$
 \end_inset
 
  y 
-\begin_inset Formula $op_{S}$
+\begin_inset Formula $op_{C}$
 \end_inset
 
  son de tipos simples o complejos, y de un valor configurable que penaliza
  los parámetros no usados.
  Esto es, si la 
-\begin_inset Formula $op_{R}$
+\begin_inset Formula $op_{P}$
 \end_inset
 
  consta de un parámetro complejo y la 
-\begin_inset Formula $op_{S}$
+\begin_inset Formula $op_{C}$
 \end_inset
 
  es una lista de parámetros simples o viceversa entonces la penalización
@@ -5426,11 +5436,11 @@ Parámetros complejos
 \begin_layout Standard
 El algoritmo de análisis de compatibilidad de parámetros para tipos de datos
  complejos entre 
-\begin_inset Formula $op_{R}$
+\begin_inset Formula $op_{P}$
 \end_inset
 
  y 
-\begin_inset Formula $op_{S}$
+\begin_inset Formula $op_{C}$
 \end_inset
 
  consiste en determinar tres valores:
@@ -5439,11 +5449,11 @@ El algoritmo de análisis de compatibilidad de parámetros para tipos de datos
 \begin_layout Enumerate
 Valor de compatibilidad de los campos (basado en nombres y tipos) que componen
  los tipos de datos complejos de los parámetros de 
-\begin_inset Formula $op_{R}$
+\begin_inset Formula $op_{P}$
 \end_inset
 
  y 
-\begin_inset Formula $op_{S}$
+\begin_inset Formula $op_{C}$
 \end_inset
 
 .
@@ -5453,11 +5463,11 @@ Valor de compatibilidad de los campos (basado en nombres y tipos) que componen
 \begin_layout Enumerate
 Valor de compatibilidad de los nombres de los tipos de datos complejos de
  los parámetros de 
-\begin_inset Formula $op_{R}$
+\begin_inset Formula $op_{P}$
 \end_inset
 
  y 
-\begin_inset Formula $op_{S}$
+\begin_inset Formula $op_{C}$
 \end_inset
 
 .
@@ -5467,11 +5477,11 @@ Valor de compatibilidad de los nombres de los tipos de datos complejos de
 \begin_layout Enumerate
 Valor final de compatibilidad entre los tipos de datos complejos de los
  parámetros de 
-\begin_inset Formula $op_{R}$
+\begin_inset Formula $op_{P}$
 \end_inset
 
  y 
-\begin_inset Formula $op_{S}$
+\begin_inset Formula $op_{C}$
 \end_inset
 
  en base a los valores de compatibilidad obtenidos en los puntos (1) y (2).
@@ -5501,11 +5511,11 @@ Para poder realizar una comparación entre parámetros complejos, es necesario
  conocer la estructura interna de cada uno de ellos y realizar una comparación
  entre los nombres y tipos de cada uno de los campos que lo componen.
  Si la cantidad de campos del parámetro complejo de la 
-\begin_inset Formula $op_{R}$
+\begin_inset Formula $op_{P}$
 \end_inset
 
  es menor a la cantidad de campos del parámetro complejo de la 
-\begin_inset Formula $op_{S}$
+\begin_inset Formula $op_{C}$
 \end_inset
 
  entonces se puede proceder con la comparación entre ellos.
@@ -5514,11 +5524,11 @@ Para poder realizar una comparación entre parámetros complejos, es necesario
 \begin_layout Standard
 En caso contrario no se puede avanzar con la comparación, puesto que quedarían
  campos del tipo complejo en 
-\begin_inset Formula $op_{R}$
+\begin_inset Formula $op_{P}$
 \end_inset
 
  que no se podrían instanciar con ningún campo en 
-\begin_inset Formula $op_{S}$
+\begin_inset Formula $op_{C}$
 \end_inset
 
 .
@@ -5561,12 +5571,12 @@ Se compara directamente parámetro contra parámetro o campo contra campo
  en caso de que se traten tipos complejos.
  En ambas situaciones también se tiene en cuenta que la cantidad de parámetros
  (o campos del tipo complejo) de la 
-\begin_inset Formula $op_{R}$
+\begin_inset Formula $op_{P}$
 \end_inset
 
  sea menor o igual a la cantidad de parámetros (o campos del tipo complejo)
  de la 
-\begin_inset Formula $op_{S}$
+\begin_inset Formula $op_{C}$
 \end_inset
 
 .
@@ -5646,11 +5656,11 @@ Valor final de compatibilidad de parámetros
 
 \begin_layout Standard
 El valor de compatibilidad de parámetros de 
-\begin_inset Formula $op_{R}$
+\begin_inset Formula $op_{P}$
 \end_inset
 
  y 
-\begin_inset Formula $op_{S}$
+\begin_inset Formula $op_{C}$
 \end_inset
 
  se realiza teniendo en cuenta el valor obtenido con la compatibilidad de
@@ -5695,11 +5705,11 @@ Una vez obtenidos los mapeos de parámetros, de acuerdo al mejor mapeo encontrad
  para cada operación, se genera una sugerencia de correspondencias de parámetros.
  Esto es, se almacena aquella correspondencia que maximiza la compatibilidad
  entre un par de operaciones (
-\begin_inset Formula $op_{R}$
+\begin_inset Formula $op_{P}$
 \end_inset
 
  , 
-\begin_inset Formula $op_{S}$
+\begin_inset Formula $op_{C}$
 \end_inset
 
 ).
@@ -5707,20 +5717,20 @@ Una vez obtenidos los mapeos de parámetros, de acuerdo al mejor mapeo encontrad
  realizadas al análisis de compatibilidad de interfaces.
  Partiendo de una matriz de compatibilidad C ya calculada, cada mapeo posible
  consiste en tomar cada fila (parámetro/campo de 
-\begin_inset Formula $op_{R}$
+\begin_inset Formula $op_{P}$
 \end_inset
 
 ) y elegir una columna (un parámetro/campo de 
-\begin_inset Formula $op_{S}$
+\begin_inset Formula $op_{C}$
 \end_inset
 
 ) para ese elemento.
  Luego, para cada posible asignación de parámetros entre 
-\begin_inset Formula $op_{R}$
+\begin_inset Formula $op_{P}$
 \end_inset
 
  y 
-\begin_inset Formula $op_{S}$
+\begin_inset Formula $op_{C}$
 \end_inset
 
 , se calcula el valor de compatibilidad que posee esta asignación.
@@ -5745,19 +5755,19 @@ name "subsec:Evaluación-del-Retorno"
 
 \begin_layout Standard
 Si la operación requerida 
-\begin_inset Formula $op_{R}$
+\begin_inset Formula $op_{P}$
 \end_inset
 
  ∈ 
-\begin_inset Formula $I_{R}$
+\begin_inset Formula $I_{P}$
 \end_inset
 
  y la operación del servicio 
-\begin_inset Formula $op_{S}$
+\begin_inset Formula $op_{C}$
 \end_inset
 
 ∈ 
-\begin_inset Formula $I_{S}$
+\begin_inset Formula $I_{C}$
 \end_inset
 
  tienen tipos de retorno complejos, se realiza un análisis exhaustivo teniendo
@@ -5766,19 +5776,19 @@ Si la operación requerida
  campos que componen los tipos complejos.
  El algoritmo de evaluación de retornos complejos compara los tipos de retorno
  de una operación de la interfaz requerida 
-\begin_inset Formula $op_{R}$
+\begin_inset Formula $op_{P}$
 \end_inset
 
  ∈ 
-\begin_inset Formula $I_{R}$
+\begin_inset Formula $I_{P}$
 \end_inset
 
  y una operación de la interfaz del servicio candidato 
-\begin_inset Formula $op_{S}$
+\begin_inset Formula $op_{C}$
 \end_inset
 
  ∈ 
-\begin_inset Formula $I_{S}$
+\begin_inset Formula $I_{C}$
 \end_inset
 
  y realiza distintas evaluaciones: 
@@ -5791,11 +5801,11 @@ Compatibilidad de campos comparando los tipos y nombres de cada uno (todos
 
 \begin_layout Enumerate
 Compatibilidad de los nombres del tipo complejo de retorno en 
-\begin_inset Formula $op_{R}$
+\begin_inset Formula $op_{P}$
 \end_inset
 
  y 
-\begin_inset Formula $op_{S}$
+\begin_inset Formula $op_{C}$
 \end_inset
 
 .
@@ -5803,11 +5813,11 @@ Compatibilidad de los nombres del tipo complejo de retorno en
 
 \begin_layout Enumerate
 Valor de compatibilidad final entre los tipos de retorno complejo de 
-\begin_inset Formula $op_{R}$
+\begin_inset Formula $op_{P}$
 \end_inset
 
  y 
-\begin_inset Formula $op_{S}$
+\begin_inset Formula $op_{C}$
 \end_inset
 
  en base a las determinaciones obtenidas en los puntos anteriores.
@@ -5816,22 +5826,22 @@ Valor de compatibilidad final entre los tipos de retorno complejo de
 \begin_layout Standard
 El análisis del tipo de retorno primero verifica si el tipo de retorno de
  
-\begin_inset Formula $op_{R}$
+\begin_inset Formula $op_{P}$
 \end_inset
 
  y 
-\begin_inset Formula $op_{S}$
+\begin_inset Formula $op_{C}$
 \end_inset
 
  es idéntico.
  En tal caso, la compatibilidad del tipo de retorno es exacta.
  Si los tipos de retornos son diferentes, se analiza si el tipo de retorno
  de 
-\begin_inset Formula $op_{R}$
+\begin_inset Formula $op_{P}$
 \end_inset
 
  es subtipo del tipo de retorno de 
-\begin_inset Formula $op_{S}$
+\begin_inset Formula $op_{C}$
 \end_inset
 
  – de acuerdo a los criterios de subtipificación para el lenguaje Java (Tabla
@@ -5946,21 +5956,21 @@ reference "subsec:Algoritmo-para-Evaluacion-Identificadores"
 
 .
  Si la cantidad de campos en 
-\begin_inset Formula $op_{R}$
+\begin_inset Formula $op_{P}$
 \end_inset
 
  es menor o igual a la cantidad de campos en 
-\begin_inset Formula $op_{S}$
+\begin_inset Formula $op_{C}$
 \end_inset
 
  entonces se puede proceder con la comparación entre ellos.
  En caso contrario se consideran incompatibles, ya que quedarían campos
  requeridos en 
-\begin_inset Formula $op_{R}$
+\begin_inset Formula $op_{P}$
 \end_inset
 
  que no se podrían corresponder con ninguno de la operación candidata 
-\begin_inset Formula $op_{S}$
+\begin_inset Formula $op_{C}$
 \end_inset
 
 .
@@ -6014,11 +6024,11 @@ Valor final de compatibilidad de retorno
 \begin_layout Standard
 El valor final de compatibilidad entre los tipos de retorno complejo para
  
-\begin_inset Formula $op_{R}$
+\begin_inset Formula $op_{P}$
 \end_inset
 
  y 
-\begin_inset Formula $op_{S}$
+\begin_inset Formula $op_{C}$
 \end_inset
 
  se calcula de acuerdo a la Fórmula 3.2 teniendo en cuenta el valor obtenido
@@ -6098,7 +6108,7 @@ reference "eq:adapGap"
 \end_inset
 
  es el tamaño de la interfaz 
-\begin_inset Formula $I_{R}$
+\begin_inset Formula $I_{P}$
 \end_inset
 
  y 
@@ -6106,7 +6116,7 @@ reference "eq:adapGap"
 \end_inset
 
  es el mejor valor entre los valores de equivalencia 
-\begin_inset Formula $adaptValue(op_{R},op_{S})$
+\begin_inset Formula $adaptValue(op_{P},op_{C})$
 \end_inset
 
 .
@@ -6118,7 +6128,7 @@ reference "eq:adapGap"
 \lang english
 \begin_inset Formula 
 \begin{equation}
-DistAdap(I_{R},I_{S})=\frac{\sum_{i=1}^{N}(Min(AdapMap(op_{Ri},I_{S})))}{N}+1\label{eq:adapGap}
+DistAdap(I_{P},I_{C})=\frac{\sum_{i=1}^{N}(Min(AdapMap(op_{Pi},I_{C})))}{N}+1\label{eq:adapGap}
 \end{equation}
 
 \end_inset
@@ -6132,11 +6142,11 @@ El valor de adaptabilidad (
 \end_inset
 
 ) entre una operación 
-\begin_inset Formula $op_{R}$
+\begin_inset Formula $op_{P}$
 \end_inset
 
  y una operación 
-\begin_inset Formula $op_{S}$
+\begin_inset Formula $op_{C}$
 \end_inset
 
  potencialmente compatibles se calcula de acuerdo a la Fórmula
@@ -6176,7 +6186,7 @@ reference "eq:adapValue"
 \lang english
 \begin_inset Formula 
 \begin{equation}
-adapValue(op_{R},op_{S})=R+E-(compNombre+compParam)\label{eq:adapValue}
+adapValue(op_{P},op_{C})=R+E-(compNombre+compParam)\label{eq:adapValue}
 \end{equation}
 
 \end_inset
@@ -6197,21 +6207,21 @@ distancia de adaptabilidad.
 exacta, 
 \emph default
 la distancia de adaptabilidad entre 
-\begin_inset Formula $I_{R}$
+\begin_inset Formula $I_{P}$
 \end_inset
 
  e 
-\begin_inset Formula $I_{S}$
+\begin_inset Formula $I_{C}$
 \end_inset
 
  es cero.
  Aunque esto puede parecer una correspondencia perfecta entre las interfaces,
  inicialmente significa que 
-\begin_inset Formula $I_{R}$
+\begin_inset Formula $I_{P}$
 \end_inset
 
  está incluida en 
-\begin_inset Formula $I_{S}$
+\begin_inset Formula $I_{C}$
 \end_inset
 
 , y que la correspondencia entre ambas requiere de un esfuerzo de adaptación
@@ -6265,7 +6275,7 @@ TS de Comportamiento
  tiene el propósito de representar aspectos de comportamiento esperados
  del servicio a tercerizar – de acuerdo a lo que funcionalmente se define
  en la interfaz requerida 
-\begin_inset Formula $I_{R}$
+\begin_inset Formula $I_{P}$
 \end_inset
 
  – para luego poder comprobar que alguno de los Servicios Web candidatos
@@ -6276,7 +6286,7 @@ TS de Comportamiento
 \begin_layout Plain Layout
 El TS está compuesto de casos de test que consisten de un conjunto de invocacion
 es a operaciones de la interfaz requerida 
-\begin_inset Formula $I_{R}$
+\begin_inset Formula $I_{P}$
 \end_inset
 
 .
@@ -6290,7 +6300,7 @@ dependencia intra-componente
 \emph default
 , es decir que los eventos (invocaciones a operaciones o la ocurrencia de
  excepciones) en la interfaz requerida 
-\begin_inset Formula $I_{R}$
+\begin_inset Formula $I_{P}$
 \end_inset
 
  presentan dependencia con otros eventos de la misma interfaz, y por lo
@@ -6314,7 +6324,7 @@ de flujo de operaciones
 \shape default
 ), el cual ayuda a describir las interdependencias dentro de la interfaz
  requerida 
-\begin_inset Formula $I_{R}$
+\begin_inset Formula $I_{P}$
 \end_inset
 
  por medio de secuencias de eventos (operaciones y excepciones).
@@ -6754,7 +6764,7 @@ protocolo de interacción
  Además, dado que se necesita describir un comportamiento esperado para
  la evaluación de los servicios candidatos, el ingeniero de software necesita
  crear una clase concreta que implemente la interfaz requerida 
-\begin_inset Formula $I_{R}$
+\begin_inset Formula $I_{P}$
 \end_inset
 
 , que se denomina 
@@ -6944,7 +6954,7 @@ String
  que puede ser utilizado para analizar los datos resultantes de ejercitar
  el TS sobre los servicios candidatos, comparándolos con los resultados
  esperados que se especifican en la interfaz requerida 
-\begin_inset Formula $I_{R}$
+\begin_inset Formula $I_{P}$
 \end_inset
 
  (a través de la 
@@ -7018,7 +7028,7 @@ name "sec:Compatibilidad-ComportamientoOld"
 \begin_layout Plain Layout
 El objetivo principal de este procedimiento es comprobar que las operaciones
  en la interfaz 
-\begin_inset Formula $I_{S}$
+\begin_inset Formula $I_{C}$
 \end_inset
 
  (de un servicio candidato 
@@ -7027,7 +7037,7 @@ El objetivo principal de este procedimiento es comprobar que las operaciones
 
 ) expongan un comportamiento similar con respecto a la funcionalidad definida
  en la interfaz requerida 
-\begin_inset Formula $I_{R}$
+\begin_inset Formula $I_{P}$
 \end_inset
 
  (con su implementación en la Clase Shadow).
@@ -7044,7 +7054,7 @@ TS de Comportamiento
 \end_inset
 
  (a través de su interfaz 
-\begin_inset Formula $I_{S}$
+\begin_inset Formula $I_{C}$
 \end_inset
 
 ).
@@ -7072,7 +7082,7 @@ Análisis de Compatibilidad de Interfaces
 
  interno a la aplicación en desarrollo, dado que implementa a la interfaz
  requerida 
-\begin_inset Formula $I_{R}$
+\begin_inset Formula $I_{P}$
 \end_inset
 
 .
@@ -7100,7 +7110,7 @@ key "GoF"
 \end_inset
 
  (a través de su interfaz 
-\begin_inset Formula $I_{S}$
+\begin_inset Formula $I_{C}$
 \end_inset
 
 ).
@@ -7166,7 +7176,7 @@ TS de Comportamiento
 \emph default
 .
  Primero, se ejercita el TS contra la interfaz requerida 
-\begin_inset Formula $I_{R}$
+\begin_inset Formula $I_{P}$
 \end_inset
 
  (a través de la 
@@ -7182,12 +7192,12 @@ Shadow
 \end_inset
 
  del servicio candidato a través de su interfaz 
-\begin_inset Formula $I_{S}$
+\begin_inset Formula $I_{C}$
 \end_inset
 
 , desde donde se generan todos los resultados de ejecución para ser luego
  evaluados en comparación con aquellos obtenidos para 
-\begin_inset Formula $I_{R}$
+\begin_inset Formula $I_{P}$
 \end_inset
 
 .
@@ -7239,7 +7249,7 @@ Mapeo de Interfaces
  
 \emph default
 Cada wrapper es nombrado como la interfaz requerida 
-\begin_inset Formula $I_{R}$
+\begin_inset Formula $I_{P}$
 \end_inset
 
 , dado que debería representarla apropiadamente, y esto facilita el mecanismo
@@ -7258,7 +7268,7 @@ Dado que los wrappers han sido generados con un propósito específico que
 
 , para que se haga efectiva la ejecución de la operaciones en la interfaz
  
-\begin_inset Formula $I_{S}$
+\begin_inset Formula $I_{C}$
 \end_inset
 
 , se requiere de la conexión física para llamadas remotas.
@@ -7390,7 +7400,7 @@ El siguiente paso es ejecutar el
 TS de Comportamiento
 \emph default
  generado en función de la interfaz requerida 
-\begin_inset Formula $I_{R}$
+\begin_inset Formula $I_{P}$
 \end_inset
 
  (Sección
@@ -7420,7 +7430,7 @@ TS de Comportamiento
 \emph default
  se crea manualmente la Clase Shadow que asume el mismo nombre de la interfaz
  requerida 
-\begin_inset Formula $I_{R}$
+\begin_inset Formula $I_{P}$
 \end_inset
 
 , y esto posibilita que el TS pueda ser ejercitado contra la Clase Shadow
