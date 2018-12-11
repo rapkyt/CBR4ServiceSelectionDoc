@@ -437,6 +437,23 @@ era una sección, paso a subsección
 \end_layout
 
 \begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Reemplazé Interfaz candidata por 
+\begin_inset Quotes eld
+\end_inset
+
+a consumir
+\begin_inset Quotes erd
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
 El procedimiento completo para el análisis semántico estructural de compatibilid
 ad de interfaces se resume en la Figura
 \begin_inset space ~
@@ -451,21 +468,21 @@ reference "fig:Análisis-de-Compatibilidad-Interfcaes"
 
 .
  Como paso inicial se necesita la especificación sencilla de la funcionalidad
- requerida en forma de una instancia del Metamodelo (
+ provista en forma de una instancia del Metamodelo (
 \begin_inset Formula $I_{P}$
 \end_inset
 
 ).
- El procedimiento de compatibilidad de interfaces evalúa la interfaz requerida
+ El procedimiento de compatibilidad de interfaces evalúa la interfaz provista
  
 \begin_inset Formula $I_{P}$
 \end_inset
 
- y la interfaz candidata 
+ y la interfaz a consumir 
 \begin_inset Formula $I_{C}$
 \end_inset
 
- provista por un servicio candidato 
+ perteneciente a un servicio a consumir 
 \begin_inset Formula $S$
 \end_inset
 
@@ -490,19 +507,19 @@ ad de Interfaces.
 
 Respecto a los nombres de operaciones, se generan las listas de términos
  respectivas para los nombres de operación de 
-\begin_inset Formula $op_{R}$
+\begin_inset Formula $op_{P}$
 \end_inset
 
  ∈ 
-\begin_inset Formula $I_{R}$
+\begin_inset Formula $I_{P}$
 \end_inset
 
  y de 
-\begin_inset Formula $op_{S}$
+\begin_inset Formula $op_{C}$
 \end_inset
 
  ∈ 
-\begin_inset Formula $I_{S}$
+\begin_inset Formula $I_{C}$
 \end_inset
 
  que se estén comparando, se eliminan términos sin significado (stop words)
@@ -517,19 +534,19 @@ Respecto a los nombres de operaciones, se generan las listas de términos
 
 Para el análisis estructural se comparan los tipos de datos de los elementos
  de signatura de las operaciones 
-\begin_inset Formula $op_{R}$
+\begin_inset Formula $op_{P}$
 \end_inset
 
  ∈ 
-\begin_inset Formula $I_{R}$
+\begin_inset Formula $I_{P}$
 \end_inset
 
  contra las operaciones 
-\begin_inset Formula $op_{S}$
+\begin_inset Formula $op_{C}$
 \end_inset
 
  ∈ 
-\begin_inset Formula $I_{S}$
+\begin_inset Formula $I_{C}$
 \end_inset
 
 .
@@ -573,38 +590,38 @@ key "garriga2013service"
 Luego de las etapas de análisis, se realiza el cálculo de los valores de
  compatibilidad estructural y semántica entre las operaciones, que serán
  utilizados para determinar el valor de compatibilidad final entre la interfaz
- requerida y la candidata.
+ provista y a consumir.
  El resultado principal del análisis de compatibilidad de interfaces es
  una lista de mapeos de interfaces identificando correspondencias entre
- las operaciones de la interfaz requerida 
-\begin_inset Formula $I_{R}$
+ las operaciones de la interfaz provista 
+\begin_inset Formula $I_{P}$
 \end_inset
 
  y las operaciones de la interfaz 
-\begin_inset Formula $I_{S}$
+\begin_inset Formula $I_{C}$
 \end_inset
 
- de un Servicio Web candidato S.
+ de un Servicio Web S a consumir.
  Además, se obtiene una lista de sugerencias de correspondencias de parámetros
  que permite distinguir, para cada par de operaciones compatibles (
-\begin_inset Formula $op_{R}$
+\begin_inset Formula $op_{P}$
 \end_inset
 
  ∈ 
-\begin_inset Formula $I_{R}$
+\begin_inset Formula $I_{P}$
 \end_inset
 
 , 
-\begin_inset Formula $op_{S}$
+\begin_inset Formula $op_{C}$
 \end_inset
 
  ∈ 
-\begin_inset Formula $I_{S}$
+\begin_inset Formula $I_{C}$
 \end_inset
 
-) en la lista de mapeos de interfaces, qué parámetro de la interfaz candidata
- le corresponde a cada parámetro de la interfaz requerida para que la compatibil
-idad de las operaciones sea la mayor.
+) en la lista de mapeos de interfaces, qué parámetro de la interfaz a consumir
+ le corresponde a cada parámetro de la interfaz provista para que la compatibili
+dad de las operaciones sea la mayor.
  Finalmente se obtienen un valor de compatibilidad (relativo a aspectos
  funcionales) y un valor de adaptabilidad que refleja el esfuerzo que se
  requiere para adaptar e integrar la interfaz candidata a la aplicación
