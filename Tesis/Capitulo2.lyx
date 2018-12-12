@@ -269,7 +269,7 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename /E/Programacion/Tesis/Tesis ecosystem/CBR4ServiceSelectionDoc/Tesis/ImgChapter3/EsquemaMetodoNuevo.png
+	filename ImgChapter3/EsquemaMetodoNuevo.png
 	lyxscale 50
 	width 100col%
 
@@ -332,7 +332,7 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename /E/Programacion/Tesis/Tesis ecosystem/CBR4ServiceSelectionDoc/Tesis/ImgChapter3/Análisis-de-Compatibilidad-Interfaces.png
+	filename ImgChapter3/Análisis-de-Compatibilidad-Interfaces.png
 	lyxscale 50
 	width 98text%
 
@@ -1489,7 +1489,7 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename /E/Programacion/Tesis/Tesis ecosystem/CBR4ServiceSelectionDoc/Tesis/ImgChapter3/InterfaceMetamodel.png
+	filename ImgChapter3/InterfaceMetamodel.png
 	lyxscale 50
 	width 90text%
 
@@ -1616,7 +1616,7 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename /E/Programacion/Tesis/Tesis ecosystem/CBR4ServiceSelectionDoc/Tesis/ImgChapter3/DiagramaDeVennAnalisisDeClases.png
+	filename ImgChapter3/DiagramaDeVennAnalisisDeClases.png
 	lyxscale 40
 	width 75col%
 
@@ -1792,7 +1792,7 @@ status open
 
 \begin_layout Plain Layout
 \begin_inset Graphics
-	filename /E/Programacion/Tesis/Tesis ecosystem/CBR4ServiceSelectionDoc/Tesis/ImgChapter1/diferenciaEntreWSDLUnoYDosII.png
+	filename ImgChapter1/diferenciaEntreWSDLUnoYDosII.png
 	lyxscale 80
 	width 100text%
 
@@ -2233,7 +2233,7 @@ status open
 
 \begin_layout Plain Layout
 \begin_inset Graphics
-	filename /E/Programacion/Tesis/Tesis ecosystem/CBR4ServiceSelectionDoc/Tesis/ImgChapter1/schema-of-passage.png
+	filename ImgChapter1/schema-of-passage.png
 	lyxscale 30
 	width 100text%
 
@@ -2310,7 +2310,7 @@ status open
 \noindent
 \align center
 \begin_inset Graphics
-	filename /E/Programacion/Tesis/Tesis ecosystem/CBR4ServiceSelectionDoc/Tesis/ImgChapter1/schema-of-pasagge-1.png
+	filename ImgChapter1/schema-of-pasagge-1.png
 	lyxscale 40
 	width 110text%
 
@@ -2349,7 +2349,7 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename /E/Programacion/Tesis/Tesis ecosystem/CBR4ServiceSelectionDoc/Tesis/ImgChapter1/messagesSoaMl.png
+	filename ImgChapter1/messagesSoaMl.png
 	lyxscale 50
 	width 70col%
 
@@ -7475,6 +7475,14 @@ Mutación de Interfaces
 \end_inset
 
 
+\end_layout
+
+\begin_layout Section
+Open Challenges
+\end_layout
+
+\begin_layout Standard
+hj
 \end_layout
 
 \end_body
