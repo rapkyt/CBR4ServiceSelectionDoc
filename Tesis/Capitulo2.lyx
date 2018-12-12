@@ -176,1241 +176,6 @@ cambiar
 \begin_layout Section
 \begin_inset CommandInset label
 LatexCommand label
-name "sec:Intregracion-a-Testooj"
-
-\end_inset
-
-Herramienta de Evaluación de Servicios Web 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-old 3.4
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Durante el desarrollo de una Aplicación Orientada a Servicios, un ingeniero
- de software puede decidir la implementación de algunas partes específicas
- de un sistema en la forma de componentes 
-\emph on
-in-house
-\emph default
-.
- Sin embargo, para otras piezas del sistema se podría optar por la adquisición
- de componentes de terceras partes, que a su vez podrían ser resueltos por
- medio de Servicios Web.
- Luego, una Aplicación Orientada a Servicios generalmente posee funcionalidades
- que no están implementadas de manera local.
-\end_layout
-
-\begin_layout Standard
-El objetivo principal del Metamodelo para descripción de Contratos de Servicios
- Web es contar con una especificación de la funcionalidad que ofrece cada
- servicio (independientemente de la tecnología en la cual esté implementado).
- Al contar con dicho metamodelo resulta necesario que la evaluación de servicios
- candidatos se realice en función de instanciaciones del metamodelo.
- Para ello, se usó un componente de software que contiene al metamodelo.
- Tanto los requerimientos funcionales por parte de desarrolladores de aplicacion
-es orientadas a servicios, como los propios servicios candidatos, serán
- representados y comparados mediante instanciaciones del metamodelo.
- 
-\end_layout
-
-\begin_layout Subsection
-Proceso de selección y descubrimiento
-\end_layout
-
-\begin_layout Standard
-En la Figura 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:Esquema-propuesto"
-
-\end_inset
-
- se presenta de manera esquemática el proceso de descubrimiento y selección
- de Servicios Web, considerando los componentes metamodelo y conversor,
- que son parte de la Herramienta de Evaluación de Servicios Web.
- El proceso consiste inicialmente en generar instancias del metamodelo a
- partir de los documentos WSDL correspondientes a los Servicios Web candidatos.
- En el Paso 1.1 se generan las instancias del metamodelo que corresponden
- al requerimiento funcional del servicio que se espera consumir por la aplicació
-n – denominadas 
-\begin_inset Formula $I_{C}$
-\end_inset
-
- (Interfaz a Consumir) – a partir de la cual se generan consultas (
-\emph on
-queries
-\emph default
-).
- Luego en el Paso 1.2 se realizan las consultas en el registro de descubrimiento
- (tal como el de EasySOC), para obtener los documentos WSDL de los servicios
- del Proveedor, que pueden corresponder a versiones 1.1 y 2.0.
- Con estos documentos, se generan las instancias del metamodelo – denominadas
- 
-\begin_inset Formula $I_{P}$
-\end_inset
-
- (Interfaz Provista) – utilizando el componente Conversor para obtener el
- conjunto que servirá de entrada al Paso 2, que es la selección del servicio
- candidato más apto.
- 
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename ImgChapter3/EsquemaMetodoNuevo.png
-	lyxscale 50
-	width 100col%
-
-\end_inset
-
-
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:Esquema-propuesto"
-
-\end_inset
-
-Proceso de Descubrimiento y Selección de Servicios Web
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-En el procedimiento de Análisis de Compatibilidad de Interfaces (Figura
-\begin_inset space ~
-\end_inset
-
-
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:Análisis-de-Compatibilidad-Interfcaes"
-
-\end_inset
-
-), que es parte del Método de Selección de Servicios Web (Paso 2), se cuentan
- con instancias del metamodelo, mediante el ingreso de los objetos 
-\begin_inset Formula $I_{P}$
-\end_inset
-
- e 
-\begin_inset Formula $I_{C}$
-\end_inset
-
-, por lo que se puede acceder a todos sus atributos en una forma directa
- para el proceso de obtención de datos de signatura y evaluación tanto semántica
- como estructural.
- 
-\begin_inset Float figure
-placement h
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename ImgChapter3/Análisis-de-Compatibilidad-Interfaces.png
-	lyxscale 50
-	width 98text%
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:Análisis-de-Compatibilidad-Interfcaes"
-
-\end_inset
-
-Análisis de Compatibilidad de Interfaces
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Al realizar la integración del componente del metamodelo se adaptaron las
- estrategias subyacentes para la evaluación de servicios desde el punto
- de vista estructural y semántico presentadas en la 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-referencia abajo, directamente quito este parrafo y dejo el analisis como
- subsecc?
-\end_layout
-
-\end_inset
-
-Sección
-\begin_inset space ~
-\end_inset
-
-
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "sec:Compatibilidad-InterfacesOld"
-
-\end_inset
-
- (Capítulo
-\begin_inset space ~
-\end_inset
-
-
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "cap:SOApp"
-
-\end_inset
-
-).
- Para ello se estableció una correspondencia entre los elementos del metamodelo
- definido y las interfaces Java utilizadas en el enfoque anterior.
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Subsection
-Análisis de Compatibilidad de Interfaces
-\begin_inset CommandInset label
-LatexCommand label
-name "sec:Compatibilidad-InterfacesOld"
-
-\end_inset
-
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-era una sección, paso a subsección
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Reemplazé Interfaz candidata por 
-\begin_inset Quotes eld
-\end_inset
-
-a consumir
-\begin_inset Quotes erd
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-El procedimiento completo para el análisis semántico estructural de compatibilid
-ad de interfaces se resume en la Figura
-\begin_inset space ~
-\end_inset
-
-
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:Análisis-de-Compatibilidad-Interfcaes"
-
-\end_inset
-
-.
- Como paso inicial se necesita la especificación sencilla de la funcionalidad
- provista en forma de una instancia del Metamodelo (
-\begin_inset Formula $I_{P}$
-\end_inset
-
-).
- El procedimiento de compatibilidad de interfaces evalúa la interfaz provista
- 
-\begin_inset Formula $I_{P}$
-\end_inset
-
- y la interfaz a consumir 
-\begin_inset Formula $I_{C}$
-\end_inset
-
- perteneciente a un servicio a consumir 
-\begin_inset Formula $S$
-\end_inset
-
-.
- A través de un análisis estructural y semántico, los elementos de signatura
- de las operaciones (tipo de retorno, nombre operación, parámetros, excepciones)
- se caracterizan de acuerdo a distintos niveles de compatibilidad.
- A continuación se introducen los pasos principales del Análisis de Compatibilid
-ad de Interfaces.
-\begin_inset Newline newline
-\end_inset
-
- El primer paso que se realiza es la extracción de elementos de signatura:
- por cada una de las interfaces bajo análisis, se extraen tipos y nombres
- de la operación, parámetros, retornos y excepciones para ser comparados
- contra los de la interfaz requerida.
- Luego de recuperados cada uno de los elementos de signatura, se procede
- a realizar la extracción de información estructural y semántica.
- 
-\begin_inset Newline newline
-\end_inset
-
-Respecto a los nombres de operaciones, se generan las listas de términos
- respectivas para los nombres de operación de 
-\begin_inset Formula $op_{P}$
-\end_inset
-
- ∈ 
-\begin_inset Formula $I_{P}$
-\end_inset
-
- y de 
-\begin_inset Formula $op_{C}$
-\end_inset
-
- ∈ 
-\begin_inset Formula $I_{C}$
-\end_inset
-
- que se estén comparando, se eliminan términos sin significado (stop words)
- y finalmente se identifica la raíz o lema (stem) de los términos significativos
- – en un proceso denominado stemming.
- De manera similar, se procesan los identificadores y se extraen los tipos
- de cada parámetro incorporando además el análisis exhaustivo de parámetros
- de tipo complejo.
- 
-\begin_inset Newline newline
-\end_inset
-
-Para el análisis estructural se comparan los tipos de datos de los elementos
- de signatura de las operaciones 
-\begin_inset Formula $op_{P}$
-\end_inset
-
- ∈ 
-\begin_inset Formula $I_{P}$
-\end_inset
-
- contra las operaciones 
-\begin_inset Formula $op_{C}$
-\end_inset
-
- ∈ 
-\begin_inset Formula $I_{C}$
-\end_inset
-
-.
- Para la comparación entre dos tipos de datos entre sí se utilizan las nociones
- de equivalencia de tipos de datos y subtipificación, definidas en la Sección
-\begin_inset space ~
-\end_inset
-
-
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "subsec:Equivalencia-de-Tipos"
-
-\end_inset
-
-.
- Para el análisis semántico de parámetros, se comparan los nombres de los
- parámetros y, en caso que se trate de parámetros complejos, también se
- comparan los nombres de los campos que lo componen.
- Análogamente, se aplica análisis semántico de retorno de tipo complejo.
- No se realiza análisis semántico para las excepciones, ya que en el contexto
- de Servicios Web la definición de excepciones (faults de acuerdo a la terminolo
-gía para WSDL) no es una práctica común
-\begin_inset space ~
-\end_inset
-
-
-\begin_inset CommandInset citation
-LatexCommand cite
-key "garriga2013service"
-
-\end_inset
-
-.
- Por ello el análisis semántico de excepciones no afecta de manera crítica
- la compatiblidad de interfaces.
- 
-\begin_inset Newline newline
-\end_inset
-
-Luego de las etapas de análisis, se realiza el cálculo de los valores de
- compatibilidad estructural y semántica entre las operaciones, que serán
- utilizados para determinar el valor de compatibilidad final entre la interfaz
- provista y a consumir.
- El resultado principal del análisis de compatibilidad de interfaces es
- una lista de mapeos de interfaces identificando correspondencias entre
- las operaciones de la interfaz provista 
-\begin_inset Formula $I_{P}$
-\end_inset
-
- y las operaciones de la interfaz 
-\begin_inset Formula $I_{C}$
-\end_inset
-
- de un Servicio Web S a consumir.
- Además, se obtiene una lista de sugerencias de correspondencias de parámetros
- que permite distinguir, para cada par de operaciones compatibles (
-\begin_inset Formula $op_{P}$
-\end_inset
-
- ∈ 
-\begin_inset Formula $I_{P}$
-\end_inset
-
-, 
-\begin_inset Formula $op_{C}$
-\end_inset
-
- ∈ 
-\begin_inset Formula $I_{C}$
-\end_inset
-
-) en la lista de mapeos de interfaces, qué parámetro de la interfaz a consumir
- le corresponde a cada parámetro de la interfaz provista para que la compatibili
-dad de las operaciones sea la mayor.
- Finalmente se obtienen un valor de compatibilidad (relativo a aspectos
- funcionales) y un valor de adaptabilidad que refleja el esfuerzo que se
- requiere para adaptar e integrar la interfaz candidata a la aplicación
- cliente.
- Los aspectos más relevantes sobre los procedimientos de evaluación estructural
- y semántica, serán detallados en la Sección
-\begin_inset space ~
-\end_inset
-
-
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "subsec:Parámetros"
-
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Standard
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Plain Layout
-Se podría decir que el 
-\emph on
-Análisis Semántico-Estructural de Compatibilidad de Interfaces
-\emph default
- es un Esquema de Evaluación que cubre comprensivamente un rango de casos
- de mapeo, abarcando tanto los aspectos 
-\emph on
-estructurales
-\emph default
- como los aspectos 
-\emph on
-semánticos
-\emph default
- de las interfaces de servicios, explotando todas las fuentes de información
- disponible y mejorando los procesos definidos para analizar dicha información.
- El esquema caracteriza la similitud estructural y semántica en cuatro niveles
- de compatibilidad: 
-\emph on
-exacto
-\emph default
-, 
-\emph on
-moderado,
-\emph default
- 
-\emph on
-casi-moderado
-\emph default
- e
-\emph on
- incompatible
-\emph default
-.
- Esto permite describir los casos de similitud que representan diferentes
- restricciones estructurales y semánticas para pares de operaciones 
-\begin_inset Formula $(op_{P}\in I_{P},op_{C}\in I_{C})$
-\end_inset
-
-.
- Particularmente, estas restricciones se basan en condiciones individuales
- para cada elemento de signatura de las operaciones: 
-\emph on
-Tipo de Retorno
-\emph default
- (
-\family typewriter
-R
-\family default
-), 
-\emph on
-Nombre de Operación
-\emph default
- (
-\family typewriter
-N
-\family default
-), 
-\emph on
-Lista de parámetros
-\emph default
- (
-\family typewriter
-P
-\family default
-) y 
-\emph on
-Lista de excepciones
-\emph default
- (
-\family typewriter
-E
-\family default
-).
- La Tabla
-\begin_inset space ~
-\end_inset
-
-
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "tab:Condiciones-de-Equivalencia"
-
-\end_inset
-
- resume las condiciones para los elementos de signatura consideradas en
- este Esquema de Evaluación.
- El cálculo para las condiciones estructurales para el Tipo de Retorno y
- Excepciones es directo y será detallado en la Sección
-\begin_inset space ~
-\end_inset
-
-
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "subsec:Condiciones-de-Equivalencia"
-
-\end_inset
-
-.
- Las condiciones semántico-estructurales para 
-\emph on
-compNombres
-\emph default
- y 
-\emph on
-compParam
-\emph default
- se corresponden con los valores de las fórmulas para calcular similitud
- entre Nombres de Operaciones y Listas de Parámetros respectivamente, que
- serán detalladas en la Subsección
-\begin_inset space ~
-\end_inset
-
-
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "subsec:Parámetros"
-
-\end_inset
-
-.
- 
-\end_layout
-
-\begin_layout Plain Layout
-El conjunto de restricciones estructurales de la Tabla 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "tab:Condiciones-de-Equivalencia"
-
-\end_inset
-
- identifica los distintos grados de equivalencia entre las signaturas de
- las operaciones.
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Float table
-placement h
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\noindent
-\align center
-\begin_inset Tabular
-<lyxtabular version="3" rows="17" columns="3">
-<features tabularvalignment="middle">
-<column alignment="center" valignment="top" width="0pt">
-<column alignment="center" valignment="top">
-<column alignment="left" valignment="top" width="0pt">
-<row>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\series bold
-\size small
-Elemento
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\series bold
-\size small
-Cond.
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" bottomline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\series bold
-\size small
-Descripción
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell multirow="3" alignment="center" valignment="top" bottomline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\series bold
-\size small
-Retorno
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size small
-R0
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size small
-No Compatible
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell multirow="4" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-R1
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Igual tipo de retorno
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell multirow="4" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size small
-R2
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size small
-Equivalente (subtipos, Strings o Tipos Complejos)
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell multirow="4" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" bottomline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size small
-R3
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" bottomline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size small
-Tipos Complejos no equivalentes o pérdida de precisión
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell multirow="3" alignment="center" valignment="top" bottomline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\series bold
-\size small
-Nombre
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size small
-N0
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size small
-No compatibles
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell multirow="4" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size small
-N1
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size small
-Igual nombre de operación
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell multirow="4" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size small
-N2
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size small
-Equivalente nombre de operación (substring)
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell multirow="4" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" bottomline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size small
-N3
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" bottomline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Nombre de la operación no considerado
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell multirow="3" alignment="center" valignment="top" bottomline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\series bold
-\size small
-Parámetros
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size small
-P0
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size small
-No compatible
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell multirow="4" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size small
-P1
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size small
-Igual número, tipo y orden de parámentros
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell multirow="4" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size small
-P2
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size small
-Igual número, tipo de parámetros pero diferente orden
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell multirow="4" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" bottomline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size small
-P3
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" bottomline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size small
-Igual número de parámetros, con al menos un parámetro con tipo compatible
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell multirow="3" alignment="center" valignment="top" bottomline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\series bold
-\size small
-Excepciones
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size small
-E0
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size small
-No compatible
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell multirow="4" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size small
-E1
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size small
-Igual cantidad, tipo y orden de excepciones
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell multirow="4" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size small
-E2
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size small
-Igual número y tipo de excepciones
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell multirow="4" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" bottomline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size small
-E3
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" bottomline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Si la excepción original no está vacia, la candidata tampoco
-\end_layout
-
-\end_inset
-</cell>
-</row>
-</lyxtabular>
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-Condiciones de equivalencia Estructural y Semántica por elemento de signatura
- 
-\begin_inset CommandInset label
-LatexCommand label
-name "tab:Condiciones-de-Equivalencia"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Section
-\begin_inset CommandInset label
-LatexCommand label
 name "sec:Metamodelo-para-descripción"
 
 \end_inset
@@ -1637,738 +402,6 @@ name "fig:Diagrama-de-Venn"
 
 Diagrama de Venn para categorización de clases de acuerdo a los estándares
  utilizados 
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Subsection
-Estándares para descripción de servicios en SOA
-\begin_inset CommandInset label
-LatexCommand label
-name "subsec:Background"
-
-\end_inset
-
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Old 3.1 cap 1
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Los estándares considerados para la descripción de contratos/responsabilidades
- de Aplicaciones orientadas a Servicios pertenecen a OMG: WSDL, WADL y SoaML,
- los cuales se explican a continuación.
- 
-\end_layout
-
-\begin_layout Paragraph
-WSDL
-\begin_inset Newline newline
-\end_inset
-
-
-\begin_inset Newline newline
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-WSDL
-\begin_inset Foot
-status collapsed
-
-\begin_layout Plain Layout
-Web Services Description Language.
- 
-\begin_inset Flex URL
-status open
-
-\begin_layout Plain Layout
-
-https://www.w3.org/TR/wsdl
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
- es un lenguaje basado en XML utilizado para describir la funcionalidad
- que proporciona un Servicio Web.
- Un documento WSDL proporciona una descripción de la interfaz de un Servicio
- Web entendible por la máquina, indicando cómo se debe invocar al servicio,
- qué parámetros espera, y qué estructuras de datos retorna.
- Un documento WSDL define servicios como una colección de puertos de la
- red.
- En el WSDL la definición abstracta de los puertos y mensajes son separados
- de su red concreta o ligadura (
-\emph on
-binding
-\emph default
-) al formato.
- Esto permite el reuso de definiciones abstractas.
- Los mensajes son descripciones abstractas de los datos que serán intercambiados
- en los distintos tipos de puertos que existen.
- Estos últimos son colecciones abstractas de operaciones.
- Al usar un lenguaje de programación, se puede crear la parte concreta implement
-ando la parte abstracta.
- De esta manera, los WSDL tendrán dos componentes principales: 
-\end_layout
-
-\begin_layout Standard
-• Información de ligadura sobre el protocolo a utilizar
-\end_layout
-
-\begin_layout Standard
-• La dirección en donde localizar el servicio
-\end_layout
-
-\begin_layout Standard
-La versión actual del estándar WSDL es la 2.0
-\begin_inset Foot
-status open
-
-\begin_layout Plain Layout
-\begin_inset Flex URL
-status open
-
-\begin_layout Plain Layout
-
-https://www.w3.org/TR/wsdl20/ 
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-, donde se cambió el significado de 
-\emph on
-Definition,
-\emph default
- y se plantearon cambios de nomenclatura y estructura del archivo XML que
- contiene la descripción del servicio.
- En la Figura
-\begin_inset space ~
-\end_inset
-
-
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "DiferenciaEntreWSDL1.1YWSDL2.0"
-
-\end_inset
-
- se muestra la estructura que siguen los archivos WSDL en las versiones
- 1.1 y 2.0, en donde se observa el cambio de nomenclatura para la versión
- 2.0.
- Además, en WSDL 2.0 puede usarse para servicios REST de ser requeridos/necesario
-s.
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\begin_inset Graphics
-	filename ImgChapter1/diferenciaEntreWSDLUnoYDosII.png
-	lyxscale 80
-	width 100text%
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-Diferencia estructural entre WSDL 1.1 y WSDL 2.0
-\end_layout
-
-\end_inset
-
-
-\begin_inset CommandInset label
-LatexCommand label
-name "DiferenciaEntreWSDL1.1YWSDL2.0"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Paragraph
-WSDL Versión 1.1
-\begin_inset Newline newline
-\end_inset
-
-
-\begin_inset Newline newline
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-En concreto, un documento WSDL versión 1.1 usa los siguientes elementos para
- la definición de los servicios de red: 
-\end_layout
-
-\begin_layout Itemize
-Types: un contenedor para la definición de tipos que posteriormente se utiliza
- en el intercambio de mensajes usando algún sistema de tipos.
- Podemos definir dichos tipos directamente dentro de este elemento, o importar
- la definición de un archivo de esquema (XSD).
- La definición de tipos puede verse, por ejemplo, como las definiciones
- de clases Java, con variables que pueden ser de tipo primitivo o referencias
- a otras clases u objetos.
- Los tipos primitivos se definen en los espacios de nombres del Schema (namespac
-es) e incluyen tipos simples tales como string, int, double, etc.
- 
-\end_layout
-
-\begin_layout Itemize
-Message: una definición abstracta de tipos de datos que van a a ser comunicados.
- Un mensaje consiste en partes lógicas, cada una asociada con una definición
- encuadrada en un sistema de tipos.
- Es necesario definir los mensajes de entrada y salida para cada operación
- que ofrezca el servicio.
- 
-\end_layout
-
-\begin_layout Itemize
-Operation: una descripción abstracta de las acciones que soporta el servicio.
- 
-\end_layout
-
-\begin_layout Itemize
-Port Type: colecciones abstractas de operaciones soportadas por más de un
- punto de acceso (
-\emph on
-endpoint
-\emph default
-).
- Cada punto de acceso indica una localización específica para acceder a
- un Servicio Web usando un protocolo y formato de datos específico.
- Un punto de acceso es una entidad o recurso referenciable al que se puede
- enviar mensajes.
- Una referencia a un punto de acceso debe proporcionar toda la información
- necesaria para direccionar un punto de acceso.
- Cada operación refiere a mensajes de entrada y mensajes de salida, utilizando
- para ello los mensajes definidos en el apartado anterior.
- 
-\end_layout
-
-\begin_layout Itemize
-Binding: especifica el protocolo de red concreto y el formato de los datos
- para las operaciones y mensajes definidos en un PortType en particular.
- Un portType puede tener múltiples bindings asociados.
- El formato de datos utilizado para los mensajes de las operaciones del
- portType puede ser orientado al documento u orientado a RPC (Remote Procedure
- Call)
-\begin_inset Foot
-status open
-
-\begin_layout Plain Layout
-https://technet.microsoft.com/en-us/library/cc787851(v=ws.10).aspx
-\end_layout
-
-\end_inset
-
-.
- Si es orientado al documento tanto el mensaje de entrada como el de salida
- contendrán un documento XML.
- Si es orientado a RPC el mensaje de entrada contendrá el método invocado
- y sus parámetros, y el de salida el resultado de invocar dicho método,
- siguiendo una estructura más restrictiva.
- 
-\end_layout
-
-\begin_layout Itemize
-Port: un punto de acceso definido como una combinación de ligadura y dirección
- de red.
- Dicha dirección de red es la dirección (URL) donde el servicio actúa, y
- por lo tanto, será la dirección a la que las aplicaciones deberán conectarse
- para acceder al servicio.
- 
-\end_layout
-
-\begin_layout Itemize
-Service: una colección de punto de acceso relacionados.
-\end_layout
-
-\begin_layout Paragraph
-WSDL 2.0
-\begin_inset Newline newline
-\end_inset
-
-
-\begin_inset Newline newline
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Un documento WSDL versión 2.0 usa los siguientes elementos para la definición
- de los servicios de red:
-\end_layout
-
-\begin_layout Itemize
-Interface: describe una secuencia de mensajes que un servicio envía y/o
- recibe.
- Esto lo hace agrupando los mensajes relacionados en las operaciones.
- 
-\end_layout
-
-\begin_layout Itemize
-Operation: es una secuencia de mensajes de entrada y salida, y una Interface
- es un conjunto de operaciones.
- 
-\end_layout
-
-\begin_layout Itemize
-Interface Fault: provee un claro mecanismo para nombrar y describir un conjunto
- de faltas que una interfaz puede generar.
- Esto permite a las operaciones identificar de manera sencilla las faltas
- individuales que puedan generar por el nombre.
- Este mecanismo permite la identificación de la misma falta a través de
- múltiples operaciones y referenciados por la ligadura así como también
- reducir la duplicación de descripciones de una falta individual.
- 
-\end_layout
-
-\begin_layout Itemize
-Binding: describe concretamente el formato de mensajes de transmisión de
- protocolos que pueden ser usados para definir el punto final.
- Es decir definir la implementación necesaria para acceder al servicio.
- 
-\end_layout
-
-\begin_layout Itemize
-Type: define el contenido de mensajes y faltas, que se basan en un modelo
- de dato específico, y se expresan usando un lenguaje de esquema en particular.
- Aunque una variedad de modelos de datos pueden ser expresados mediante
- extensiones WSDL 2.0, esta especificación sólo define restricciones basadas
- en esquema XML.
- 
-\end_layout
-
-\begin_layout Itemize
-Service: describe un conjunto de puntos de acceso en el cual se desarrolla
- una implementación del servicio.
- Estos endpoints son lugares alternativos donde el servicio es provisto.
- Los servicios son llamados constructores y pueden ser referenciados por
- su nombre que debe ser único.
-\end_layout
-
-\begin_layout Paragraph
-WADL
-\begin_inset Newline newline
-\end_inset
-
-
-\begin_inset Newline newline
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Web Application Description Language (WADL)
-\begin_inset Foot
-status open
-
-\begin_layout Plain Layout
-\begin_inset Flex URL
-status open
-
-\begin_layout Plain Layout
-
-https://www.w3.org/Submission/wadl/
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
- es una descripción XML entendible por la computadora, utilizada en aplicaciones
- Web basadas en HTTP -- con un uso más orientado hacia los servicios REST.
- WADL es independiente de la plataforma y del lenguaje de programación que
- se quiera usar, y su objetivo es promover la reutilización de aplicaciones
- más allá del uso básico en un navegador Web.
- WADL permite modelar los recursos proporcionados por un servicio y las
- relaciones entre ellos, y está definido para simplificar la reutilización
- de Servicios Web basados en la arquitectura HTTP existente de la Web.
- WADL es el equivalente de REST al lenguaje WSDL de SOAP y su aspecto distintivo
- es que los Servicios Web se describen mediante un conjunto de elementos
- 
-\emph on
-resource
-\emph default
- (recursos).
- El Listado de código
-\begin_inset space ~
-\end_inset
-
-
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "Ejemplo de Estructura WADL"
-
-\end_inset
-
- muestra un ejemplo de la estructura de un documento WADL, donde se pueden
- desatacar los siguientes elementos:
-\end_layout
-
-\begin_layout Itemize
-un elemento 
-\emph on
-resources
-\emph default
- que actúa como contenedor de los recursos que provee el servicio.
-\end_layout
-
-\begin_layout Itemize
-elementos
-\emph on
- resource
-\emph default
- que representan a cada uno de los recursos del servicio y contienen su
- descripción
-\end_layout
-
-\begin_layout Itemize
-elementos 
-\emph on
-param
-\emph default
- (parámetros) que describen las entradas 
-\end_layout
-
-\begin_layout Itemize
-elementos 
-\emph on
-method
-\emph default
- que describen la 
-\emph on
-request
-\emph default
- y 
-\emph on
-response
-\emph default
- del recurso
-\end_layout
-
-\begin_layout Itemize
-
-\emph on
-request
-\emph default
-: especifica cómo representar la entrada, qué tipos son requeridos y las
- cabeceras HTTP específicas que son requeridas
-\end_layout
-
-\begin_layout Itemize
-
-\emph on
-response
-\emph default
- (respuesta) describe la representación de la respuesta del servicio, así
- como cualquier información de fallos, para hacer frente a errores.
-\end_layout
-
-\begin_layout Standard
-\begin_inset CommandInset include
-LatexCommand lstinputlisting
-filename "listing/wadlExample.txt"
-lstparams "caption={Ejemplo de Estructura WADL},label={Ejemplo de Estructura WADL}"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Paragraph
-SoaML
-\begin_inset Newline newline
-\end_inset
-
-
-\begin_inset Newline newline
-\end_inset
-
- 
-\end_layout
-
-\begin_layout Standard
-SoaML (Service-oriented architecture Modelling Language)
-\begin_inset Foot
-status open
-
-\begin_layout Plain Layout
-http://www.omg.org/spec/SoaML/1.0.1/PDF
-\end_layout
-
-\end_inset
-
- es un Perfil UML (Unified Modelling Language) de reciente desarrollo, que
- provee una manera estándar para definir la arquitectura y modelado de solucione
-s SOA.
- El Perfil SoaML permite crear un modelo de servicios como una derivación
- de un modelo de proceso de negocio.
- Un analista de negocio puede crear un modelo de proceso de negocio como
- forma de comunicar requisitos a un equipo de Tecnologías de la Información
- (TI) y puede utilizar este modelo para comprobar la forma en que los requisitos
- de negocio a nivel genérico pueden convertirse en un modelo más detallado
- orientado a TI.
- Cuando se manipula un modelo de SoaML y sus artefactos relacionados, se
- pueden explorar y examinar los elementos siguientes: 
-\end_layout
-
-\begin_layout Itemize
-Servicios candidatos (conocidos como posibilidades en SoaML), que ayudan
- a priorizar los servicios que deben diseñarse e implementarse.
- 
-\end_layout
-
-\begin_layout Itemize
-Interfaces para servicios, que incluyen sus operaciones y las reglas, expectativ
-as o restricciones relacionadas.
- 
-\end_layout
-
-\begin_layout Itemize
-Estructuras de datos, que se pasan como parámetros y se devuelven como resultado
-s.
- 
-\end_layout
-
-\begin_layout Itemize
-Servicios atómicos, que muestran cómo deben ensamblarse los servicios para
- formar servicios compuestos.
-\end_layout
-
-\begin_layout Standard
-El Perfil UML SoaML se enfoca en los conceptos básicos de SOA y en el modelado
- de servicios, incluyendo sus capacidades funcionales, aquellas que deberían
- proveer los consumidores de servicios, los protocolos o reglas para el
- uso de los servicios, y la información a intercambiar entre consumidores
- y proveedores de servicios.
- Además permite especificar cómo tales capacidades funcionales de servicios
- (requeridas/provistas) son consistentes con los protocolos de interacción
- de los mismos.
- Un modelo de Diagrama de Modelado SoaML es representado en la Figura
-\begin_inset space ~
-\end_inset
-
-
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:Schema-of-Passage"
-
-\end_inset
-
-.
- En la misma se muestra un modelo de negocios relacionado a la industria
- de barcos cargueros, en la cual hay organizadores (
-\emph on
-dealer
-\emph default
-), estados del translado (
-\emph on
-Ship
-\emph default
- 
-\emph on
-Status
-\emph default
-), los encargados de la exportación (
-\emph on
-shipper
-\emph default
-), entre otros agentes.
- 
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\begin_inset Graphics
-	filename ImgChapter1/schema-of-passage.png
-	lyxscale 30
-	width 100text%
-
-\end_inset
-
-
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:Schema-of-Passage"
-
-\end_inset
-
-Diagrama de Modelo SoaML para industria de transporte marítimo
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Cada servicio definido en la arquitectura posee información específica de
- sí mismo que suele ser representada en el modelo de negocio.
- A través de un contrato de servicio (
-\emph on
-ServiceContract
-\emph default
-) se puede definir tanto la coreografía del servicio como su contrato de
- invocación e interfaces – como se muestra en la Figura 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:Schema-of-Passage-1"
-
-\end_inset
-
-.
- Se puede apreciar que el recuadro “Opt” dentro de la coreografía representa
- que el componente 
-\emph on
-Quote
-\emph default
- es opcional, a diferencia de 
-\emph on
-Order
-\emph default
- que no lo es.
- Las líneas existentes en la coreografía corresponden a los diferentes tipos
- de mensajes que participan de la invocación del servicio (Figura 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:Schema-of-Passage-1-1"
-
-\end_inset
-
-), que pueden ser representados a través de un modelo de clases.
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-placement H
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\noindent
-\align center
-\begin_inset Graphics
-	filename ImgChapter1/schema-of-pasagge-1.png
-	lyxscale 40
-	width 110text%
-
-\end_inset
-
-
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:Schema-of-Passage-1"
-
-\end_inset
-
-Esquema de coreografías y contratos de invocación
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-placement H
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename ImgChapter1/messagesSoaMl.png
-	lyxscale 50
-	width 70col%
-
-\end_inset
-
-
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:Schema-of-Passage-1-1"
-
-\end_inset
-
-Modelo de Diagrama SoaML
 \end_layout
 
 \end_inset
@@ -3562,6 +1595,1210 @@ end{figure}
 
 \end_layout
 
+\begin_layout Subsection
+Mapeo estándares de descripción SOA con el Metamodelo.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Sección 4 de paper
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+A continuación explicaremos la correspondencia entre los estándares vistos
+ en BACKGROUND con el metamodelo utilizado.
+\end_layout
+
+\begin_layout Section
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Intregracion-a-Testooj"
+
+\end_inset
+
+Herramienta de Evaluación de Servicios Web 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+old 3.4
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Durante el desarrollo de una Aplicación Orientada a Servicios, un ingeniero
+ de software puede decidir la implementación de algunas partes específicas
+ de un sistema en la forma de componentes 
+\emph on
+in-house
+\emph default
+.
+ Sin embargo, para otras piezas del sistema se podría optar por la adquisición
+ de componentes de terceras partes, que a su vez podrían ser resueltos por
+ medio de Servicios Web.
+ Luego, una Aplicación Orientada a Servicios generalmente posee funcionalidades
+ que no están implementadas de manera local.
+\end_layout
+
+\begin_layout Standard
+El objetivo principal del Metamodelo para descripción de Contratos de Servicios
+ Web es contar con una especificación de la funcionalidad que ofrece cada
+ servicio (independientemente de la tecnología en la cual esté implementado).
+ Al contar con dicho metamodelo resulta necesario que la evaluación de servicios
+ candidatos se realice en función de instanciaciones del metamodelo.
+ Para ello, se usó un componente de software que contiene al metamodelo.
+ Tanto los requerimientos funcionales por parte de desarrolladores de aplicacion
+es orientadas a servicios, como los propios servicios candidatos, serán
+ representados y comparados mediante instanciaciones del metamodelo.
+ 
+\end_layout
+
+\begin_layout Subsection
+Proceso de selección y descubrimiento
+\end_layout
+
+\begin_layout Standard
+En la Figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Esquema-propuesto"
+
+\end_inset
+
+ se presenta de manera esquemática el proceso de descubrimiento y selección
+ de Servicios Web, considerando los componentes metamodelo y conversor,
+ que son parte de la Herramienta de Evaluación de Servicios Web.
+ El proceso consiste inicialmente en generar instancias del metamodelo a
+ partir de los documentos WSDL correspondientes a los Servicios Web candidatos.
+ En el Paso 1.1 se generan las instancias del metamodelo que corresponden
+ al requerimiento funcional del servicio que se espera consumir por la aplicació
+n – denominadas 
+\begin_inset Formula $I_{C}$
+\end_inset
+
+ (Interfaz a Consumir) – a partir de la cual se generan consultas (
+\emph on
+queries
+\emph default
+).
+ Luego en el Paso 1.2 se realizan las consultas en el registro de descubrimiento
+ (tal como el de EasySOC), para obtener los documentos WSDL de los servicios
+ del Proveedor, que pueden corresponder a versiones 1.1 y 2.0.
+ Con estos documentos, se generan las instancias del metamodelo – denominadas
+ 
+\begin_inset Formula $I_{P}$
+\end_inset
+
+ (Interfaz Provista) – utilizando el componente Conversor para obtener el
+ conjunto que servirá de entrada al Paso 2, que es la selección del servicio
+ candidato más apto.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ImgChapter3/EsquemaMetodoNuevo.png
+	lyxscale 50
+	width 100col%
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Esquema-propuesto"
+
+\end_inset
+
+Proceso de Descubrimiento y Selección de Servicios Web
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+En el procedimiento de Análisis de Compatibilidad de Interfaces (Figura
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Análisis-de-Compatibilidad-Interfcaes"
+
+\end_inset
+
+), que es parte del Método de Selección de Servicios Web (Paso 2), se cuentan
+ con instancias del metamodelo, mediante el ingreso de los objetos 
+\begin_inset Formula $I_{P}$
+\end_inset
+
+ e 
+\begin_inset Formula $I_{C}$
+\end_inset
+
+, por lo que se puede acceder a todos sus atributos en una forma directa
+ para el proceso de obtención de elementos de signatura y evaluación tanto
+ semántica como estructural.
+ 
+\begin_inset Float figure
+placement h
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ImgChapter3/Análisis-de-Compatibilidad-Interfaces.png
+	lyxscale 50
+	width 98text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Análisis-de-Compatibilidad-Interfcaes"
+
+\end_inset
+
+Análisis de Compatibilidad de Interfaces
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Análisis de Compatibilidad de Interfaces
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Compatibilidad-InterfacesOld"
+
+\end_inset
+
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+era una sección, paso a subsección
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Reemplazé Interfaz candidata por 
+\begin_inset Quotes eld
+\end_inset
+
+a consumir
+\begin_inset Quotes erd
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+El procedimiento completo para el análisis semántico estructural de compatibilid
+ad de interfaces se resume en la Figura
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Análisis-de-Compatibilidad-Interfcaes"
+
+\end_inset
+
+.
+ Como paso inicial se necesita la especificación sencilla de la funcionalidad
+ provista en forma de una instancia del Metamodelo (
+\begin_inset Formula $I_{P}$
+\end_inset
+
+).
+ El procedimiento de compatibilidad de interfaces evalúa la interfaz provista
+ 
+\begin_inset Formula $I_{P}$
+\end_inset
+
+ y la interfaz a consumir 
+\begin_inset Formula $I_{C}$
+\end_inset
+
+ perteneciente a un servicio a consumir 
+\begin_inset Formula $S$
+\end_inset
+
+.
+ A través de un análisis estructural y semántico, los elementos de signatura
+ de las operaciones (tipo de retorno, nombre operación, parámetros, excepciones)
+ se caracterizan de acuerdo a distintos niveles de compatibilidad.
+ A continuación se introducen los pasos principales del Análisis de Compatibilid
+ad de Interfaces.
+\begin_inset Newline newline
+\end_inset
+
+ El primer paso que se realiza es la extracción de elementos de signatura:
+ por cada una de las interfaces bajo análisis, se extraen tipos y nombres
+ de la operación, parámetros, retornos y excepciones para ser comparados
+ contra los de la interfaz requerida.
+ Luego de recuperados cada uno de los elementos de signatura, se procede
+ a realizar la extracción de información estructural y semántica.
+ 
+\begin_inset Newline newline
+\end_inset
+
+Respecto a los nombres de operaciones, se generan las listas de términos
+ respectivas para los nombres de operación de 
+\begin_inset Formula $op_{P}$
+\end_inset
+
+ ∈ 
+\begin_inset Formula $I_{P}$
+\end_inset
+
+ y de 
+\begin_inset Formula $op_{C}$
+\end_inset
+
+ ∈ 
+\begin_inset Formula $I_{C}$
+\end_inset
+
+ que se estén comparando, se eliminan términos sin significado (stop words)
+ y finalmente se identifica la raíz o lema (stem) de los términos significativos
+ – en un proceso denominado stemming.
+ De manera similar, se procesan los identificadores y se extraen los tipos
+ de cada parámetro incorporando además el análisis exhaustivo de parámetros
+ de tipo complejo.
+ 
+\begin_inset Newline newline
+\end_inset
+
+Para el análisis estructural se comparan los tipos de datos de los elementos
+ de signatura de las operaciones 
+\begin_inset Formula $op_{P}$
+\end_inset
+
+ ∈ 
+\begin_inset Formula $I_{P}$
+\end_inset
+
+ contra las operaciones 
+\begin_inset Formula $op_{C}$
+\end_inset
+
+ ∈ 
+\begin_inset Formula $I_{C}$
+\end_inset
+
+.
+ Para la comparación entre dos tipos de datos entre sí se utilizan las nociones
+ de equivalencia de tipos de datos y subtipificación, definidas en la Sección
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Equivalencia-de-Tipos"
+
+\end_inset
+
+.
+ Para el análisis semántico de parámetros, se comparan los nombres de los
+ parámetros y, en caso que se trate de parámetros complejos, también se
+ comparan los nombres de los campos que lo componen.
+ Análogamente, se aplica análisis semántico de retorno de tipo complejo.
+ No se realiza análisis semántico para las excepciones, ya que en el contexto
+ de Servicios Web la definición de excepciones (faults de acuerdo a la terminolo
+gía para WSDL) no es una práctica común
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "garriga2013service"
+
+\end_inset
+
+.
+ Por ello el análisis semántico de excepciones no afecta de manera crítica
+ la compatiblidad de interfaces.
+ 
+\begin_inset Newline newline
+\end_inset
+
+Luego de las etapas de análisis, se realiza el cálculo de los valores de
+ compatibilidad estructural y semántica entre las operaciones, que serán
+ utilizados para determinar el valor de compatibilidad final entre la interfaz
+ provista y a consumir.
+ El resultado principal del análisis de compatibilidad de interfaces es
+ una lista de mapeos de interfaces identificando correspondencias entre
+ las operaciones de la interfaz provista 
+\begin_inset Formula $I_{P}$
+\end_inset
+
+ y las operaciones de la interfaz 
+\begin_inset Formula $I_{C}$
+\end_inset
+
+ de un Servicio Web S a consumir.
+ Además, se obtiene una lista de sugerencias de correspondencias de parámetros
+ que permite distinguir, para cada par de operaciones compatibles (
+\begin_inset Formula $op_{P}$
+\end_inset
+
+ ∈ 
+\begin_inset Formula $I_{P}$
+\end_inset
+
+, 
+\begin_inset Formula $op_{C}$
+\end_inset
+
+ ∈ 
+\begin_inset Formula $I_{C}$
+\end_inset
+
+) en la lista de mapeos de interfaces, qué parámetro de la interfaz a consumir
+ le corresponde a cada parámetro de la interfaz provista para que la compatibili
+dad de las operaciones sea la mayor.
+ Finalmente se obtienen un valor de compatibilidad (relativo a aspectos
+ funcionales) y un valor de adaptabilidad que refleja el esfuerzo que se
+ requiere para adaptar e integrar la interfaz candidata a la aplicación
+ cliente.
+ Los aspectos más relevantes sobre los procedimientos de evaluación estructural
+ y semántica, serán detallados en la Sección
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Parámetros"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+Se podría decir que el 
+\emph on
+Análisis Semántico-Estructural de Compatibilidad de Interfaces
+\emph default
+ es un Esquema de Evaluación que cubre comprensivamente un rango de casos
+ de mapeo, abarcando tanto los aspectos 
+\emph on
+estructurales
+\emph default
+ como los aspectos 
+\emph on
+semánticos
+\emph default
+ de las interfaces de servicios, explotando todas las fuentes de información
+ disponible y mejorando los procesos definidos para analizar dicha información.
+ El esquema caracteriza la similitud estructural y semántica en cuatro niveles
+ de compatibilidad: 
+\emph on
+exacto
+\emph default
+, 
+\emph on
+moderado,
+\emph default
+ 
+\emph on
+casi-moderado
+\emph default
+ e
+\emph on
+ incompatible
+\emph default
+.
+ Esto permite describir los casos de similitud que representan diferentes
+ restricciones estructurales y semánticas para pares de operaciones 
+\begin_inset Formula $(op_{P}\in I_{P},op_{C}\in I_{C})$
+\end_inset
+
+.
+ Particularmente, estas restricciones se basan en condiciones individuales
+ para cada elemento de signatura de las operaciones: 
+\emph on
+Tipo de Retorno
+\emph default
+ (
+\family typewriter
+R
+\family default
+), 
+\emph on
+Nombre de Operación
+\emph default
+ (
+\family typewriter
+N
+\family default
+), 
+\emph on
+Lista de parámetros
+\emph default
+ (
+\family typewriter
+P
+\family default
+) y 
+\emph on
+Lista de excepciones
+\emph default
+ (
+\family typewriter
+E
+\family default
+).
+ La Tabla
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:Condiciones-de-Equivalencia"
+
+\end_inset
+
+ resume las condiciones para los elementos de signatura consideradas en
+ este Esquema de Evaluación.
+ El cálculo para las condiciones estructurales para el Tipo de Retorno y
+ Excepciones es directo y será detallado en la Sección
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Condiciones-de-Equivalencia"
+
+\end_inset
+
+.
+ Las condiciones semántico-estructurales para 
+\emph on
+compNombres
+\emph default
+ y 
+\emph on
+compParam
+\emph default
+ se corresponden con los valores de las fórmulas para calcular similitud
+ entre Nombres de Operaciones y Listas de Parámetros respectivamente, que
+ serán detalladas en la Subsección
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Parámetros"
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Plain Layout
+El conjunto de restricciones estructurales de la Tabla 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:Condiciones-de-Equivalencia"
+
+\end_inset
+
+ identifica los distintos grados de equivalencia entre las signaturas de
+ las operaciones.
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Float table
+placement h
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="17" columns="3">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top" width="0pt">
+<column alignment="center" valignment="top">
+<column alignment="left" valignment="top" width="0pt">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size small
+Elemento
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size small
+Cond.
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size small
+Descripción
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multirow="3" alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size small
+Retorno
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size small
+R0
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size small
+No Compatible
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multirow="4" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+R1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Igual tipo de retorno
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multirow="4" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size small
+R2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size small
+Equivalente (subtipos, Strings o Tipos Complejos)
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multirow="4" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size small
+R3
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size small
+Tipos Complejos no equivalentes o pérdida de precisión
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multirow="3" alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size small
+Nombre
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size small
+N0
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size small
+No compatibles
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multirow="4" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size small
+N1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size small
+Igual nombre de operación
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multirow="4" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size small
+N2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size small
+Equivalente nombre de operación (substring)
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multirow="4" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size small
+N3
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Nombre de la operación no considerado
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multirow="3" alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size small
+Parámetros
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size small
+P0
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size small
+No compatible
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multirow="4" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size small
+P1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size small
+Igual número, tipo y orden de parámentros
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multirow="4" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size small
+P2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size small
+Igual número, tipo de parámetros pero diferente orden
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multirow="4" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size small
+P3
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size small
+Igual número de parámetros, con al menos un parámetro con tipo compatible
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multirow="3" alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size small
+Excepciones
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size small
+E0
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size small
+No compatible
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multirow="4" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size small
+E1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size small
+Igual cantidad, tipo y orden de excepciones
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multirow="4" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size small
+E2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size small
+Igual número y tipo de excepciones
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multirow="4" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size small
+E3
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Si la excepción original no está vacia, la candidata tampoco
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Condiciones de equivalencia Estructural y Semántica por elemento de signatura
+ 
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:Condiciones-de-Equivalencia"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Section
 Equivalencia Estructural y Semántica
 \begin_inset CommandInset label
@@ -3708,7 +2945,7 @@ key "castro16"
 status open
 
 \begin_layout Plain Layout
-actualizo por los tipos de Simpletype?
+actualizar por los tipos de Simpletype
 \end_layout
 
 \end_inset
@@ -3742,11 +2979,7 @@ reference "tab:Equivalencia-de-Subtipos"
 \begin_inset Formula $op_{P}$
 \end_inset
 
- incluye un tipo 
-\family typewriter
-int
-\family default
-, una operación correspondiente 
+ incluye un tipo INTEGER, una operación correspondiente 
 \begin_inset Formula $op_{C}$
 \end_inset
 
@@ -4837,7 +4070,7 @@ reference "eq:compParam"
 \lang english
 \begin_inset Formula 
 \begin{equation}
-compParam=\frac{\sum C_{ij}}{\#(parCamposOps)}\text{ −}penalizacion\text{ ∗ }\#(paramNoUsadosOps)\label{eq:compParam}
+compParam=\frac{\sum C_{ij}}{\#(parCamposOpc)}\text{ −}penalizacion\text{ ∗ }\#(paramNoUsadosOpc)\label{eq:compParam}
 \end{equation}
 
 \end_inset
@@ -6946,7 +6179,12 @@ Open Challenges
 \end_layout
 
 \begin_layout Standard
-hj
+Como se vió a lo largo de la presente sección, el metamodelo sólo soporta
+ wsdl, no tiene estandarizado un proceso de selección (como elijo entre
+ X servicios empatados? a cargo del desarrollador), en cada experimento
+ se deben parsear e instanciar todos los servicios que se requieran utilizar,
+ la información obtenida de cada ejecución no se reutiliza (aprendizaje).
+ KB persistente, 
 \end_layout
 
 \end_body
