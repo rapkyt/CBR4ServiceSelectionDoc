@@ -1,4 +1,4 @@
-#LyX 2.2 created this file. For more info see http://www.lyx.org/
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
 \lyxformat 508
 \begin_document
 \begin_header
@@ -7,6 +7,9 @@
 \textclass myBook
 \begin_preamble
 \usepackage{url}
+% Added by lyx2lyx
+\renewcommand{\textendash}{--}
+\renewcommand{\textemdash}{---}
 \end_preamble
 \use_default_options false
 \maintain_unincluded_children false
@@ -75,7 +78,7 @@
 \begin_body
 
 \begin_layout Chapter
-Proposal
+Propuesta
 \begin_inset CommandInset label
 LatexCommand label
 name "chap:Proposal"
@@ -97,94 +100,60 @@ reference "subsec:Solución-propuesta"
 
 \end_inset
 
- (Capítulo 1), el objetivo principal de este trabajo es mejorar el Método
- de Selección de Servicios Web presentado en la sección 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "sec:SelectionMethodOld"
+ (Capítulo 1), el objetivo principal de este trabajo de tesis es definir
+ e implementar un proceso de evaluación y selección de Servicios Web utilizando
+ Razonamiento Basado en Casos (CBR).
+ 
+\end_layout
 
-\end_inset
-
- (Capítulo
-\begin_inset space ~
-\end_inset
-
-
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "cap:SOApp"
-
-\end_inset
-
-).
- En este contexto, uno de los desafíos más importantes a la hora de evaluar
- Servicios Web, es contar con una especificación de contratos de servicios
- que sea lo suficientemente descriptiva en cuanto a las funcionalidades
- que ofrece cada Servicio Web.
- Para lidiar con este desafío, se propuso definir y desarrollar una especificaci
-ón de contratos de Servicios Web, que sea independiente de cualquier tecnología
- de implementación.
- Algunas soluciones para problemas similares
+\begin_layout Standard
+Con el fin de alcanzar este objetivo, en primer lugar se define un paralelo
+ entre el problema de descubrimiento, selección y evaluación de servicios
 \begin_inset space ~
 \end_inset
 
 
 \begin_inset CommandInset citation
 LatexCommand cite
-key "garriga2015web"
+key "crasso2014easysoc,DeRenzis13"
 
 \end_inset
 
- se basan en estándares existentes como WSDL
-\begin_inset space ~
+, y los pasos de la metodología CBR (Recuperar, Reusar, Revisar y Retener).
+ En este contexto, uno de los desafíos que surgen es contar con una especificaci
+ón de contratos de servicios que sea a la vez descriptiva (en cuanto a las
+ funcionalidades que ofrece cada Servicio Web) y además independiente de
+ la tecnología.
+ Para ello, el Metamodelo de descripciones de Servicios Web presentado en
+ el Capítulo 2 fue extendido, incorporándolo en una nueva estructura llamada
+ 
+\begin_inset Quotes eld
 \end_inset
 
-
-\begin_inset CommandInset citation
-LatexCommand cite
-key "d2006model"
-
-\end_inset
-
-, o bien proponen especificaciones ad-hoc
-\begin_inset space ~
-\end_inset
-
-
-\begin_inset CommandInset citation
-LatexCommand cite
-key "narayanan2002simulation,chan2008dynamic"
-
+Caso
+\begin_inset Quotes erd
 \end_inset
 
 .
+ Además, se desarrolló un nuevo componente Conversor de especificaciones
+ Swagger hacia instancias del Metamodelo.
 \end_layout
 
 \begin_layout Standard
-Con el fin de satisfacer el objetivo mencionado, el Metamodelo de descripciones
- de Servicios Web heterogéneos fue extendido, incorporándolo en una nueva
- estructura llamada 
-\begin_inset Quotes eld
-\end_inset
-
-Caso
-\begin_inset Quotes erd
-\end_inset
-
- y un nuevo componente Conversor de especificaciónes Swagger hacia instancia
- del 
-\begin_inset Quotes eld
-\end_inset
-
-Caso
-\begin_inset Quotes erd
+El resto del capítulo se distribuye de la siguiente manera.
+ La Sección
+\begin_inset space ~
 \end_inset
 
 
-\end_layout
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Ejemplo-Ilustrativo"
 
-\begin_layout Standard
-El resto del capítulo se distribuye de la siguiente manera: en la Sección
+\end_inset
+
+ presenta un ejemplo ilustrativo que se utilizará a lo largo del capítulo.
+ La Sección
 \begin_inset space ~
 \end_inset
 
@@ -195,9 +164,9 @@ reference "sec:CBR-para-selección"
 
 \end_inset
 
- se presenta el trabajo que se llevó a cabo para poder utilizar el Metamodelo
- para Descripción de Servicios Web dentro del CBR.
- En la Sección 
+ presenta nuestra propuesta de CBR para selección de Servicios Web utilizando
+ el Metamodelo propuesto.
+ Finalmente, la Sección 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sec:-Conversor de OAS"
@@ -206,17 +175,6 @@ reference "sec:-Conversor de OAS"
 
  se detalla el Componente Conversor de Swagger para instanciar el Metamodelo
  de Servicios Web.
- Finalmente, en la Sección
-\begin_inset space ~
-\end_inset
-
-
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "sec:Intregracion-a-Testooj"
-
-\end_inset
-
  
 \end_layout
 
@@ -239,9 +197,13 @@ key "thomas2000fielding"
 
 \end_inset
 
- perteneciente al dominio de veterinaria (PetStore).
+ perteneciente al dominio de veterinaria (
+\emph on
+PetStore
+\emph default
+).
  Este servicio nos brinda la posibilidad de realizar altas, bajas y consulta
- de las mascotas cargadas en el sistema, como así también cargar imagenes
+ de las mascotas cargadas en el sistema, como así también cargar imágenes
  de las mismas.
  El diagrama de clases UML para este dominio es presentado en la Figura
 \begin_inset space ~
@@ -254,18 +216,27 @@ reference "fig: caso de estudio-1"
 
 \end_inset
 
- en donde referenciaremos las operaciones con el formato 
+ en donde se referencia las operaciones con el formato 
 \emph on
 {Método HTTP}_{URI}
 \emph default
- para que puedan ser identificadas inequívocamente, además se encapsularán
- los parametros de entrada por URL con llaves, por ejemplo, 
+ para que puedan ser identificadas unívocamente.
+ Además se encapsulan los parámetros de entrada por URL con llaves, por
+ ejemplo, 
 \emph on
 {petId}, 
 \emph default
-se reemplazará por el id de la mazcota deseada.
- Este servicio está compuesto por cinco operaciones encapsuladas en la interfaz
- petStore, 
+se reemplazará por el id de la mascota deseada.
+ 
+\end_layout
+
+\begin_layout Standard
+Este servicio está compuesto por cinco operaciones encapsuladas en la interfaz
+ 
+\emph on
+petStore
+\emph default
+, 
 \emph on
 POST_/pet, GET_/pet/{petId}, POST_/pet/{petId}, DELETE_/pet/{petId} y POST_/pet/
 {petId}/uploadImage
@@ -293,12 +264,11 @@ petId
 
 
 \emph default
- de una mascota, retorna la información de esa mascota, a su vez 
+ de una mascota, retorna su información, a su vez 
 \emph on
 POST_/pet/{petId} 
 \emph default
-recibe el mísmo id de la mascota, más los datos a actualizar de la misma,
- 
+recibe el id de la mascota, más los datos a actualizar de la misma, 
 \emph on
 DELETE_/pet/{petId}
 \emph default
@@ -347,7 +317,9 @@ name "fig: caso de estudio-1"
 
 \end_inset
 
-Visión esquemática UML del Caso de estudio
+Visión esquemática UML del Caso de estudio 
+\emph on
+PetStore.
 \end_layout
 
 \end_inset
@@ -371,11 +343,25 @@ Razonamiento Basado en Casos para selección de Servicios Web
 \end_layout
 
 \begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Poner los numeros de pasos en la explicación
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
 En esta sección se describe cada 
 \emph on
 paso
 \emph default
- que compone al diagrama de flujo de la Figura
+ del proceso de CBR para Selección de Servicios Web, de acuerdo al diagrama
+ de la Figura
 \begin_inset space ~
 \end_inset
 
@@ -387,8 +373,12 @@ reference "fig:Esquema-de-proceso"
 \end_inset
 
 .
- El mismo comienza cuando se ingresa al sistema una consulta, un caso, con
- 
+ El mismo comienza cuando se ingresa al sistema una consulta o nuevo caso
+ (
+\emph on
+New Case
+\emph default
+), con 
 \emph on
 problema
 \emph default
@@ -396,12 +386,8 @@ problema
 \emph on
 solución
 \emph default
-, este es llamado 
-\emph on
-New Case
-\emph default
-, lo que sucede a continuación es que se compara uno a uno con los casos
- de la base de conocimiento (
+.
+ Primero se compara uno a uno con los casos de la base de conocimiento (
 \emph on
 Knowledge Base
 \emph default
@@ -418,29 +404,59 @@ solución
 \emph on
 caso
 \emph default
- con cada uno de los demás problemas, para esto se utiliza la funcion de
- distancia del 
+ con cada uno de los demás problemas, para esto se utiliza la función de
+ distancia basada en el 
 \emph on
-Metamodelo.
+Metamodelo 
+\emph default
+(Sección
+\begin_inset space ~
+\end_inset
+
+XX, Capítulo
+\begin_inset space ~
+\end_inset
+
+2
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+referenciar las sección
+\end_layout
+
+\end_inset
+
+)
+\emph on
+.
  
 \emph default
-La distancia entre dos casos nos indica cuán parecido son sus problemas,
+La distancia entre dos casos nos indica cuán parecido son sus parte problema,
  una distancia de 0.0 nos indica que los problemas son idénticos, por el
  contrario una distancia de 4.0 nos indica que ambas interfaces son totalmente
  incompatibles.
  La distancia nos indica además, el esfuerzo que va a requerir adaptar ambas
  interfaces, siendo 0.0 ningún esfuerzo, y 4.0 imposible.
  Una distancia entre esos dos valores, nos indica que deberemos crear componente
-s para utilizar el patrón de diseño adapter
+s adaptadores
+\begin_inset space ~
+\end_inset
+
+
 \begin_inset CommandInset citation
 LatexCommand cite
 key "GoF"
 
 \end_inset
 
- y, de esta manera permitir la compatibilidad entre ambos servicios.
- Para seleccionar el servicio adecuado se útilizan métodos de selección
- como 
+, y de esta manera permitir la compatibilidad entre ambos servicios.
+ 
+\end_layout
+
+\begin_layout Standard
+Para seleccionar el servicio adecuado entre los candidatos potencialmente
+ compatibles, se utilizan métodos de selección configurables, como 
 \emph on
 K-nn, WK-nn
 \emph default
@@ -458,9 +474,9 @@ consiste en tomar las
 K
 \emph default
  soluciones de los casos con menor distancia distancia y seleccionar la
- mas frecuente (puesto a que dos casos en la base de conocimiento pueden
- tener la misma solución), en caso de empate se elige la solución del caso
- con menor distancia.
+ mas frecuente (puesto que dos casos en la base de conocimiento pueden tener
+ la misma solución).
+ En caso de empate se elige la solución del caso con menor distancia.
  La misma pasa a ser la solución 
 \emph on
 ganadora
@@ -478,7 +494,11 @@ WK-nn
 \emph on
 DWK-nn
 \emph default
- son desarrollados en 
+ son más complejos y se desarrollan en la Sección
+\begin_inset space ~
+\end_inset
+
+
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "par:Resolviendo-el-Caso"
@@ -486,27 +506,34 @@ reference "par:Resolviendo-el-Caso"
 \end_inset
 
 .
- El caso candidato se presenta al consumidor y éste decide si la solución
- es compatible o no, en caso de que no lo sea, dicha solución es descartada
- y el consumidor puede volver a iniciar el proceso de resolución si éste
- lo desea.
+ El caso candidato se presenta al usuario y éste decide si la solución es
+ compatible o no, en caso de que no lo sea, dicha solución es descartada
+ y el usuario puede volver a iniciar el proceso con una consulta refinada
+ en base a la información obtenida.
  
 \end_layout
 
 \begin_layout Standard
 Si la solución es compatible, se evalúa la calidad de la respuesta, para
- ésto se compara un valor de 
+ esto se compara con un valor de 
 \emph on
 threshold
 \emph default
-, si la solución tiene un valor MAYOR que el establecido, el nuevo caso
- con su solución son agregados a la base de conocimiento y, de ésta manera,
- es tomada en cuenta para futuras consultas.
+: si la solución tiene un valor mayor que el 
+\emph on
+threshold
+\emph default
+ establecido, el nuevo caso con su solución son agregados a la base de conocimie
+nto y, de ésta manera, es tomada en cuenta para futuras consultas.
  En caso de que el valor sea menor que el establecido, este caso no se agrega,
- debido a que generaría ruidos y posiblemente haría overfitting al proceso,
- haciendo que al llegar un nuevo caso, genere falsos positivos, es decir
- que diga que no hay distancia entre el caso requerido y la solución de
- un caso de la base de conocimiento, cuando en realidad existe una distancia
+ debido a que generaría ruido y posiblemente haría 
+\emph on
+overfitting 
+\emph default
+(sobreajuste) al proceso, haciendo que al llegar un nuevo caso, genere falsos
+ positivos.
+ Esto generaría que no hay distancia entre el caso requerido y la solución
+ de un caso de la base de conocimiento, cuando en realidad existe una distancia
  significativa.
 \end_layout
 
@@ -551,72 +578,6 @@ Esquema de proceso propuesto
 \end_layout
 
 \begin_layout Subsection
-\begin_inset CommandInset label
-LatexCommand label
-name "subsec:Vision-Detallada"
-
-\end_inset
-
-Visión Detallada
-\end_layout
-
-\begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Discutir en detalle cada una, ver el paper de CBR.
- Por ejemplo:
-\end_layout
-
-\begin_layout Plain Layout
-Numerar los pasos en la figura (find, resolve, revise, retrain, discard,
- etc).
- Luego usar esa numeración para describir cada parte del proceso en la visión
- detallada.
-\end_layout
-
-\begin_layout Plain Layout
-1.
- Case Representation.
- entra un caso (como esta compuesto?) que tiene que ver con el metamodelo?
- Ejemplificar
-\end_layout
-
-\begin_layout Plain Layout
-2.
- KB.
- Persistencia, noSQL , json-oriented.
- Ejemplo!
-\end_layout
-
-\begin_layout Plain Layout
-3.
- Find Similarity (Case retrieval en el paper CBR).
- se evalua segun la funcion (mostrar la funcion de distanca, explicarla).
- Ejemplo.
- 
-\end_layout
-
-\begin_layout Plain Layout
-4.
- Resolve Case (Reuse and Revision en CBR): Técnicas (knn, 1-nn) cual se
- usó, por qué? Es configurable! No se está haciendo la parte de adaptación
- del caso (debido al dominio de aplicación)
-\end_layout
-
-\begin_layout Plain Layout
-5.
- Evaluate and Case Retrain (Case Retraining en el paper de CBR).
- 
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Paragraph
 Representación del Caso
 \begin_inset Newline newline
 \end_inset
@@ -632,7 +593,7 @@ reference "fig:Esquema-de-proceso"
 
 \end_inset
 
-), es escencial definir como está compuesto un Caso a resolver, el mismo
+), es esencial definir como está compuesto un Caso a resolver, el mismo
  consta con dos atributos principales, 
 \emph on
 problema
@@ -669,12 +630,12 @@ nulo
 \emph on
 String 
 \emph default
-indicando inequívocamente la 
+indicando la 
 \emph on
 ubicación 
 \emph default
 de la solución para dicho caso, éste puede ser la dirección web donde se
- encuentra alojado el servicio web detallado en el problema, por ejemplo.
+ encuentra alojado el Servicio Web detallado en el problema, por ejemplo.
 \end_layout
 
 \begin_layout Standard
@@ -688,30 +649,35 @@ Caso
 Caso
 \emph default
  con la solución más próxima que satisfaga las necesidades del problema.
-\end_layout
-
-\begin_layout Standard
-En la figura 
+ En la Figura 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:EjemploVersionCaseInstanciada"
 
 \end_inset
 
- podemos observar el driagrama de clases instanciado para la representación
+, podemos observar el diagrama de clases instanciado para la representación
  de un 
 \emph on
 Caso 
 \emph default
-cuyo problema es la interfaz definida en 
+cuyo problema es la interfaz 
+\emph on
+PetStore 
+\emph default
+definida en el ejemplo (Sección
+\begin_inset space ~
+\end_inset
+
+
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sec:Ejemplo-Ilustrativo"
 
 \end_inset
 
-, en la misma se observa como el problema es la instancia de una interfaz,
- la misma contiene cinco operaciones, a modo ilustrativo sólo se expandió
+).
+ El problema contiene cinco operaciones, a modo ilustrativo sólo se muestra
  la operación 
 \emph on
 GET_/pet/{petId}
@@ -755,7 +721,9 @@ Ejemplo de
 \emph on
 Caso
 \emph default
- instanciado para el caso de estudio
+ instanciado para el caso de estudio 
+\emph on
+PetStore
 \end_layout
 
 \end_inset
@@ -768,7 +736,7 @@ Caso
 
 \end_layout
 
-\begin_layout Paragraph
+\begin_layout Subsection
 Base de conocimiento
 \begin_inset Newline newline
 \end_inset
@@ -777,8 +745,8 @@ Base de conocimiento
 \end_layout
 
 \begin_layout Standard
-Para el Razonamiento basado en casos es de suma importancia poseer una buena
- base de conocimiento (Paso 2 Figura 
+Para el Razonamiento basado en casos es de suma importancia poseer una base
+ de conocimiento relevante (Paso 2, Figura 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Esquema-de-proceso"
@@ -787,7 +755,7 @@ reference "fig:Esquema-de-proceso"
 
 ), pues justamente, es utilizada para buscar el mejor caso candidato entre
  los casos previamente aprendidos.
- Esta base de conocimientos o 
+ Esta base de conocimiento o 
 \emph on
 KB
 \emph default
@@ -795,7 +763,7 @@ KB
 \emph on
 CBR
 \emph default
-, de otra manera, no se dispondran de los casos aprendidos en ejecuciones
+, de otra manera, no se dispondrán de los casos aprendidos en ejecuciones
  pasadas.
  Para la carga inicial se utilizaron servicios reales
 \begin_inset Foot
@@ -817,8 +785,9 @@ https://apis.guru/openapi-directory
 
 \end_inset
 
-, por cada uno se genera una instancia del metamodelo con su especificación,
- se toma la 
+, generando una instancia del metamodelo con su especificación por cada
+ uno.
+ Para ello se toma la 
 \emph on
 interface
 \emph default
@@ -834,14 +803,18 @@ caso
 \emph on
 solución
 \emph default
- y luego el caso es cargado en la base de conocimiento, de esta manera,
- el CBR posee una base de conocimiento inicial, con la cual comenzar la
- comparación e ir incorporando nuevos casos según sea necesario.
+ y luego el caso es cargado en la base de conocimiento.
+ De esta manera, el CBR posee una base de conocimiento inicial, con la cual
+ comenzar la comparación e ir incorporando nuevos casos según sea necesario.
 \end_layout
 
 \begin_layout Standard
 Para el almacenamiento de esta base de conocimientos se decidió utilizar
- una base de datos no-sql basada en documentos (no relacional) llamada MongoDB
+ una base de datos 
+\emph on
+no-sql
+\emph default
+ basada en documentos (no relacional) llamada MongoDB
 \begin_inset Foot
 status open
 
@@ -862,7 +835,7 @@ https://www.mongodb.com/what-is-mongodb
 \end_inset
 
 .
- Se tomó esta desición puesto a que: 
+ Se tomó esta decisión puesto a que: 
 \end_layout
 
 \begin_layout Itemize
@@ -912,35 +885,27 @@ y
 \emph on
 ArrayType
 \emph default
-, no vamos a tener otras instancias identicas entre sí 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-¿?
-\end_layout
-
-\end_inset
-
- que nos haga reducir espacio de almacenamiento al tener el registro cargado
- una única vez en una tabla, y referenciando al mismo 
-\emph on
-ID 
-\emph default
-desde otra.
+, no vamos a tener otras instancias idénticas entre sí, por lo cual la ventaja
+ de un modelo relacional (con claves foráneas que permitan referenciar sin
+ repetir) queda reducida a esas clases.
+ 
 \end_layout
 
 \begin_layout Itemize
-A la hora de consultar un caso siempre lo realizaremos desde la raíz del
+La eficiencia para nuestra aplicación es mucho mayor.
+ A la hora de consultar un caso siempre lo realizaremos desde la raíz del
  mismo, y para decidir si es o no compatible tenemos que explorar todas
- las relaciones, si utilizaramos una base de datos relacional y consultaramos
- un 
+ las relaciones.
+ Si utilizáramos una base de datos relacional y consultáramos un 
 \emph on
 Case 
 \emph default
-cuyo problema consiste de una entrada, una salida, una falta y tenga al
- menos un parametro de cada clase concreta de Type, esto se traduciría en
- el acceso a todas las tablas (Case, Interface, Operation, Input, Output,
+cuyo problema consiste de una entrada, una salida, un 
+\emph on
+fault
+\emph default
+ y al menos un parámetro de cada clase concreta de Type, esto se traduciría
+ en el acceso a todas las tablas (Case, Interface, Operation, Input, Output,
  Fault, Parameter, ArrayType, SimpleType, ComplexType y Attribute) que implicarí
 a al menos once consultas o 
 \emph on
@@ -957,50 +922,24 @@ hit
 \end_layout
 
 \begin_layout Itemize
-La performance que ofrecen las bases de datos no relacionales frente a las
- bases de datos relacionales es muy superior como se puede observar en 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-meter estudios de benchmark
-\end_layout
-
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Itemize
 Por otro lado, una común desventaja que presentan los sistemas de base de
- datos no-sql frente a uno relacional, es la falta de las propiedades ACID,
- MongoDB 4.0 CUMPLE ACID???? 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Probar MongoDB 4.0, si cumple acid decir que hasta la v 4.0 no se cumplía
- acid, que a nosotros no nos importa xq necesitamos transaccion a nivel
- de documento, en caso que cumpla ACID, decir que en muchos casos no se
- cumple, que esa es una característica por la cual muchos no lo utilizan,
- a nosotros no nos importa xq necesitamos transacción a nivel de documento,
- pero si se cumple así que es lo mismo
-\end_layout
-
-\end_inset
-
-
+ datos no-sql frente a uno relacional, es que no puede asegurar las propiedades
+ ACID (
+\emph on
+Atomicity, Consistency, Isolation, Durability
+\emph default
+).
+ Sin embargo la transaccionalidad a nivel documento no es crucial en nuestro
+ dominio de aplicación.
+ 
 \end_layout
 
 \begin_layout Standard
-MongoDB es un Sistema de Base de Datos basado en Documentos Open Source
- ampliamente utilizada en el mercado, posicionándose dentro de los 10 Sistemas
- de Base de Datos utilizados independientemente del típo (Relacional, Key-value,
- basada en Documentos, orientada a Grafos, basada en series de tiempo, basada
- en RDF, orientada a Objetos, motor de busqueda, basada en Wide column,
- nativa XML, repositirio de contenidos, basada en eventos y Navigational)
+MongoDB es un Sistema Gestor de Bases de Datos (SGBD) basado en Documentos
+ Open Source ampliamente utilizada en el mercado, posicionándose dentro
+ de los 10 SGBD mas utilizados, independientemente del tipo
 \begin_inset Foot
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Flex URL
@@ -1018,20 +957,9 @@ https://db-engines.com/en/ranking
 
 \end_inset
 
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-reemplazar por referencia incluyendo fecha de extracción?
-\end_layout
-
-\end_inset
-
- y en el primer puesto dentro de los Sistemas de Base de Datos basados en
- documentos
+ y en el primer puesto dentro de las de su tipo
 \begin_inset Foot
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Flex URL
@@ -1050,12 +978,14 @@ https://db-engines.com/en/ranking/document+store
 \end_inset
 
 .
- El mismo se eligió ya que es el standar de facto en cuanto a Sistemas de
- Base de Datos basados en documentos, es Open Source, lo cual nos brinda
- flexibilidad si necesitaramos modificar su funcionamiento, posee una documentac
-ión muy completa 
+ El mismo se eligió ya que es el estándar 
+\emph on
+de facto
+\emph default
+ en cuanto a SGBD basados en documentos, es Open Source, posee una documentación
+ muy completa 
 \begin_inset Foot
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Flex URL
@@ -1073,7 +1003,8 @@ https://docs.mongodb.com/manual
 
 \end_inset
 
- y además es gratiuto incluso su última versión, al contrario de 
+ y además es gratuito incluso su última versión, lo cual no sucede para
+ otros (e.g., 
 \emph on
 Couchbase
 \emph default
@@ -1097,25 +1028,37 @@ https://www.couchbase.com/
 
 \end_inset
 
-
-\emph on
- 
-\emph default
-otro sistema de Base de Datos basado en Documentos Open Source, que la última
- versión es paga, y la anterior a esa es gratiuta, tageada como CE (Comunity
- Edition).
+).
 \end_layout
 
 \begin_layout Standard
-En 
+En el Listado
+\begin_inset space ~
+\end_inset
+
+
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "Documento PetStore almacenado en MongoDB"
 
 \end_inset
 
- se puede observar un fragmento de como quedaría un objeto JSON conteniendo
- un 
+ se puede observar, para el ejemplo 
+\emph on
+PetStore
+\emph default
+ (Sección
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Ejemplo-Ilustrativo"
+
+\end_inset
+
+) un fragmento de objeto JSON conteniendo un 
 \emph on
 Caso
 \emph default
@@ -1123,18 +1066,9 @@ Caso
 \emph on
 problema
 \emph default
- es la especificacion la instancia del metamodelo del ejemplo 
-\emph on
-PetStore
-\emph default
- indicado en 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "sec:Ejemplo-Ilustrativo"
-
-\end_inset
-
-, dicho objeto JSON es almacenado en la Base de Conocimiento 
+ es la especificación la instancia del metamodelo.
+ Dicho objeto JSON es almacenado bajo el mismo formato en la Base de Conocimient
+o 
 \emph on
 KB
 \emph default
@@ -1152,8 +1086,8 @@ lstparams "breaklines=true,basicstyle={\\ttfamily\\scriptsize},caption={Document
 
 \end_layout
 
-\begin_layout Paragraph
-Búsqueda de casos similares
+\begin_layout Subsection
+Búsqueda de casos similares (Recuperar)
 \begin_inset Newline newline
 \end_inset
 
@@ -1161,40 +1095,27 @@ Búsqueda de casos similares
 \end_layout
 
 \begin_layout Standard
-Un 
+A continuación, para obtener una solución a un 
 \emph on
-Caso
+Nuevo Caso
 \emph default
- sin 
-\emph on
-solución
-\emph default
- va a ser introducido en nuestro CBR (Paso 3 Figura 
+ (Paso 3, Figura 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Esquema-de-proceso"
 
 \end_inset
 
-), cuyo 
+), se debe es calcular la función de similitud (DIST), como la distancia
+ entre el 
 \emph on
-problema 
-\emph default
-va a constar de la especificación de la funcionalidad requerida.
- Para obtener una solución a este nuevo 
-\emph on
-Caso
-\emph default
-, lo primero que se debe hacer es calcular la función de similitud (DIST),
- como la distancia entre el nuevo 
-\emph on
-Caso 
+Nuevo Caso 
 \emph default
 y cada caso perteneciente a la base de conocimientos 
 \emph on
 KB
 \emph default
-, de acuerdo a la formula 
+, de acuerdo a la Fórmula 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "eq:DIST"
@@ -1280,20 +1201,17 @@ Por cada atributo en la representación del caso definimos funciones de similitu
 \begin_inset Formula $w_{i}$
 \end_inset
 
- que serán detalladas en la sección 
+ que serán detalladas en la Sección 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "subsec:Similitud-de-casos"
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Standard
-Se comparan los nombres de los servicios, cantidad de operaciones de los
- mismos y luego se compara operación por operación buscando similitud de
- parámetros de entrada y salida, a nivel sintáctico y semántico.
+.
+ Para calcularlas, se comparan los nombres de los servicios, cantidad de
+ operaciones de los mismos y luego se compara operación por operación la
+ similitud de parámetros de entrada y salida, a nivel sintáctico y semántico.
 \end_layout
 
 \begin_layout Standard
@@ -1305,43 +1223,41 @@ Caso
 \emph on
 PetStore
 \emph default
- indicado en 
+ (Sección
+\begin_inset space ~
+\end_inset
+
+
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sec:Ejemplo-Ilustrativo"
 
 \end_inset
 
- y como 
+) y como 
 \emph on
 Caso
 \emph default
- candidato 
+ candidato hipotético el 
 \emph on
 PetStoreFull
 \emph default
- especificado en 
+ especificado en la Figura
+\begin_inset space ~
+\end_inset
+
+
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig: UML-CasoCandidatoPetStoreFull"
 
 \end_inset
 
- al apicar la función de distancia nos da un valor de 
+, al aplicar la función de distancia nos da un valor de 
 \begin_inset Formula $0.153333$
 \end_inset
 
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-lo dejo así o agrego DIST(C,C)=0.153333
-\end_layout
-
-\end_inset
-
- 
+.
 \end_layout
 
 \begin_layout Standard
@@ -1387,14 +1303,14 @@ PetStoreFull
 
 \end_layout
 
-\begin_layout Paragraph
+\begin_layout Subsection
 \begin_inset CommandInset label
 LatexCommand label
 name "par:Resolviendo-el-Caso"
 
 \end_inset
 
-Resolviendo el Caso
+Resolviendo el Caso (Reusar y Revisar)
 \begin_inset Newline newline
 \end_inset
 
@@ -1407,7 +1323,15 @@ Una vez calculadas las distancias de cada uno de los casos candidatos con
 \emph on
 Caso
 \emph default
- (Paso 4 Figura 
+ (Paso
+\begin_inset space ~
+\end_inset
+
+4, Figura
+\begin_inset space ~
+\end_inset
+
+
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Esquema-de-proceso"
@@ -1484,47 +1408,44 @@ Solución
 \emph on
 WK-nn
 \emph default
- o 
+ 
 \emph on
-weighted k-NN 
+(Weighted k-NN) 
 \emph default
 y
 \emph on
- DWK-nn 
+ DWK-nn
 \emph default
-o 
+ 
 \emph on
-Distance-weighted knn 
+(Distance-weighted knn) 
 \emph default
-consisten en tomar las k soluciones con menor distancia, ponderar el peso
- de cada solución con la fórmula 
+consisten en tomar las 
+\emph on
+k
+\emph default
+ soluciones con menor distancia, ponderar el peso de cada solución con la
+ fórmula 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "eq:WKNN"
 
 \end_inset
 
- en el caso de 
-\emph on
-WK-nn 
-\emph default
-o 
+ o 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "eq:DWKNN"
 
 \end_inset
 
- en el caso de 
-\emph on
-DWK-nn
-\emph default
-, agrupar las mismas por solucion sumando el peso ponderado de cada una
- y tomar la 
+ respectivamente, agrupar las mismas por solución sumando el peso ponderado
+ de cada una y tomar la 
 \emph on
 Solución
 \emph default
- con mayor peso, ambas estrategias nos permiten ...
+ con mayor peso.
+ 
 \end_layout
 
 \begin_layout Standard
@@ -1616,35 +1537,23 @@ da, se toma la
 \emph on
 solución 
 \emph default
-del mismo, y se devuelve.
- 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-feedback de experto?
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Según la teoría de Case Based Reasoning, se puede realizar una adaptación
- de la solución para que concuerde con el problema ingresado, en el dominio
- en el que se desarrolla nuestro razonador esta adaptación se realizaría
- de forma manual por el desarrollador, que busca una solución a su problema.
+del mismo, y se devuelve para su aprobación final, con un eventual paso
+ de 
+\emph on
+feedback
+\emph default
+ o ponderación manual.
+ Además, en CBR se puede realizar una adaptación de la solución para que
+ concuerde con el problema ingresado.
+ En este dominio, esta adaptación se realizaría de forma manual por el desarroll
+ador, que busca una solución a su problema.
  El mismo deberá realizar los cambios necesarios en su interfaz para que
  la misma sea compatible con la interfaz de la solución brindada.
-\end_layout
-
-\begin_layout Standard
-La adaptación automática de 
+ La adaptación automática de 
 \emph on
 Casos
 \emph default
- es un proceso complejo que queda fuera del alcanze de esta tesis y disponible
+ es un proceso complejo que queda fuera del alcance de esta tesis y disponible
  como trabajo a futuro.
 \end_layout
 
@@ -1676,7 +1585,7 @@ PetStoreFull
 \begin_inset Formula $0.153333$
 \end_inset
 
-, otro 
+, e hipotéticamente otro 
 \emph on
 Caso
 \emph default
@@ -1712,7 +1621,7 @@ MoneyTransfer
 \emph on
 PetStoreFull
 \emph default
-, pues es la solución que posee menor distancia
+, pues es la solución que posee menor distancia.
 \end_layout
 
 \begin_layout Itemize
@@ -1765,7 +1674,7 @@ WK-nn
 \emph on
 PetStoreFull
 \emph default
- ya que es la solución con mayor peso ponderado seguún la fórmula 
+ ya que es la solución con mayor peso ponderado según la fórmula 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "eq:WKNN"
@@ -1784,7 +1693,7 @@ reference "eq:WKNN"
 \begin_inset Formula $w(MoneyTransfer)=0.3959$
 \end_inset
 
-
+.
 \end_layout
 
 \begin_layout Itemize
@@ -1818,11 +1727,11 @@ reference "eq:DWKNN"
 \begin_inset Formula $w(MoneyTransfer)=0.265$
 \end_inset
 
-
+.
 \end_layout
 
-\begin_layout Paragraph
-Evaluar y retener
+\begin_layout Subsection
+Evaluar (Retener)
 \begin_inset Newline newline
 \end_inset
 
@@ -1830,7 +1739,7 @@ Evaluar y retener
 \end_layout
 
 \begin_layout Standard
-En esta instancia (Paso 5 Figura 
+En esta instancia (Paso 5, Figura 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Esquema-de-proceso"
@@ -1843,7 +1752,7 @@ Razonador Basado en Casos
 \emph default
 ya comparó el caso de entrada con el problema de cada uno de los casos en
  la base de conocimientos (KB) y, se espera, haya encontrado una solución
- al mismo en terminos de la similitud de atributos vista anteriormente.
+ al mismo en términos de la similitud de atributos vista anteriormente.
  Esta solución fue revisada y marcada como válida por el usuario experto,
  es decir, es una solución válida y el problema introducido, junto con la
  solución, pasan a ser un 
@@ -1851,13 +1760,21 @@ ya comparó el caso de entrada con el problema de cada uno de los casos en
 caso probado
 \emph default
 .
- El siguiente paso consiste en tomar la decisión respecto a si este caso
+ 
+\end_layout
+
+\begin_layout Standard
+El siguiente paso consiste en tomar la decisión respecto a si este caso
  probado será añadido a la base de conocimientos, o no.
  Por un lado, retener demasiados casos puede generar ruido en la evaluación,
  disminuyendo la performance del razonador a largo plazo.
  Por otro lado, si no se agregan casos nuevos, no hay aprendizaje, y el
  razonador no será capaz de resolver correctamente nuevos casos.
- Para prevenir que esto suceda se define un valor de threshold 
+ Para prevenir que esto suceda se define un valor de 
+\emph on
+threshold
+\emph default
+ 
 \emph on
 (th)
 \emph default
@@ -1879,25 +1796,39 @@ caso aprendido
 KB
 \emph default
 .
- Si el valor de la distancia es menor que el valor de threshold, entonces
- el caso es agregado a la base de conocimientos como un caso relevante,
- de otro modo es descartado.
+ Si el valor de la distancia es menor que el valor de 
+\emph on
+threshold
+\emph default
+, entonces el caso es agregado a la base de conocimientos como un caso relevante
+, de otro modo es descartado.
  El objetivo es prevenir el crecimiento incontrolable de la 
 \emph on
 KB,
 \emph default
  y al mismo tiempo, mejorar la performance del razonador.
- El valor de threshold o umbral es una constante que se configura mediante
- una variable de entorno a la hora de ejecutar el algoritmo, la misma debería
- tomar valores distintos dependiendo de la cantidad de casos iniciales.
- Si la misma es baja, se debería utilizar un valor alto, permitiendo que
- el razonador añada casos para enriquecer la KB.
- Si el número de casos crece en un momento determinado, el valor de threshold
- puede ser disminuido para agregar sólo casos relaventes.
+ El valor de 
+\emph on
+threshold
+\emph default
+ o umbral es una constante que se configura al ejecutar el algoritmo, la
+ misma debería tomar valores distintos dependiendo de la cantidad de casos
+ iniciales.
+ Si la cantidad es baja, se debería utilizar un valor alto, permitiendo
+ que el razonador añada casos para enriquecer la KB.
+ Si el número de casos crece en un momento determinado, el valor de 
+\emph on
+threshold 
+\emph default
+puede ser disminuido para agregar sólo casos relevantes.
 \end_layout
 
 \begin_layout Standard
-Suponiendo un valor de threshold de 
+Suponiendo un valor de 
+\emph on
+threshold
+\emph default
+ de 
 \begin_inset Formula $1.0$
 \end_inset
 
@@ -1939,8 +1870,8 @@ Similitud de casos
 \end_layout
 
 \begin_layout Standard
-A continuación explicaremos como se evalúa, para cada atributo, la función
- de similitud 
+A continuación explicaremos en detalle como se evalúa, para cada atributo,
+ la función de similitud 
 \begin_inset Formula $sim$
 \end_inset
 
@@ -1984,7 +1915,7 @@ Caso
 \emph on
 Identificadores
 \emph default
- (formula 
+ (Fórmula 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "eq:sim-nombre-de-servicio"
@@ -1992,17 +1923,18 @@ reference "eq:sim-nombre-de-servicio"
 \end_inset
 
 ), que considera la semántica en termino de identificadores, la misma tiene
- en cuenta los exactos, sinónimos, hiponimos e hiperonimos.
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-REFERENCIA TESIS LUCAS
-\end_layout
-
+ en cuenta los exactos, sinónimos, hipónimos e hiperónimos
+\begin_inset space ~
 \end_inset
 
 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "castro16"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard
@@ -2089,10 +2021,7 @@ Caso candidato
 Caso
 \emph default
  a evaluar.
-\end_layout
-
-\begin_layout Standard
-La Similitud es calculada de acuerdo a la formula 
+ La Similitud es calculada de acuerdo a la formula 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "eq:sim-cantidad-operaciones"
@@ -2103,10 +2032,7 @@ reference "eq:sim-cantidad-operaciones"
  Los Casos candidatos en la base de conocimiento KB con menos operaciones
  que la funcionalidad requerida (problema) son consideradas como potencialmente
  incompatibles, siendo penalizados como posibles soluciones.
-\end_layout
-
-\begin_layout Standard
-El peso 
+ El peso 
 \begin_inset Formula $w$
 \end_inset
 
@@ -2237,7 +2163,11 @@ reference "eq:sim-operaciones"
 \end_inset
 
 , el calculo de similitud de elementos de signatura (Retorno + Excepciones
- + Nombre + Parámetros) se detalla en XXXXXXXXXXXXXXX.
+ + Nombre + Parámetros) se detalló oportunamente en el Capítulo
+\begin_inset space ~
+\end_inset
+
+2.
 \end_layout
 
 \begin_layout Standard
@@ -2406,183 +2336,6 @@ simOpValue(op^{N},op^{C})=Ret+Exc+Nombre+Par\label{eq:sim-operacionesValue}
 \begin_layout Section
 \begin_inset CommandInset label
 LatexCommand label
-name "sec:Cambios-necesarios"
-
-\end_inset
-
-Cambios necesarios
-\end_layout
-
-\begin_layout Standard
-En el diagrama de flujo de la Figura
-\begin_inset space ~
-\end_inset
-
-
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:Esquema-de-proceso"
-
-\end_inset
-
- se puede observar dentro del cuadro con bordes punteados como se componen
- las clases pertenecientes al Metamodelo SoaML, el mismo cumple su función
- como descriptor de interfaces, pero no tiene toda la información necesaria
- para operar dentro del contexto de un CBR.
-\end_layout
-
-\begin_layout Standard
-Por lo tanto fue necesario realizar adaptaciones con el fin de operar dentro
- del marco de 
-\emph on
-Razonamiento Basado en Casos (CBR)
-\emph default
-.
-\end_layout
-
-\begin_layout Standard
-Dichos cambios consisten en la creación de una nueva clase contenedora llamada
- 
-\emph on
-Case
-\emph default
-, la misma posee un atributo llamado 
-\emph on
-problem
-\emph default
-, referenciando a la 
-\emph on
-Interface 
-\emph default
-descriptora del servicio, y otro atributo nombrado 
-\emph on
-solution
-\emph default
-, siendo éste un string que referencia unequivocamente la solución del problema
- descripto, el mismo puede ser cadena nula si se trata de un nuevo caso
- a consultar.
-\end_layout
-
-\begin_layout Standard
-Es de gran importancia para el funcionamiento del 
-\emph on
-Razonamiento Basado en Casos (CBR)
-\emph default
- almacenar los casos en una 
-\emph on
-Base de Conocimiento 
-\emph default
-(
-\emph on
-Knowledge Base
-\emph default
- o KB), en la cual luego podremos hacer consultas, para la implementación
- de dicha base de conocimiento se decidió utilizar una Base de Datos basada
- en documentos (NoSQL) llamada 
-\emph on
-Mongo
-\emph default
-.
- Para poder almacenar nuestro caso en una base de datos lo ideal es serializarlo
-, para obtener el valor de la base de datos se debe des serializar.
- Para realizar ambas acciones se optó por utilizar la librería 
-\emph on
-Jackson
-\emph default
-
-\begin_inset Foot
-status open
-
-\begin_layout Plain Layout
-\begin_inset Flex URL
-status open
-
-\begin_layout Plain Layout
-
-https://github.com/FasterXML/jackson-module-kotlin
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-, que es el estardar de facto para realizar dichas tareas en Kotlin.
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-kmongo
-\end_layout
-
-\end_inset
-
- Debido a que 
-\emph on
-Parameter
-\emph default
- referencia al tipo de dato abstracto 
-\emph on
-Type
-\emph default
-, al momento de des serializarlo es necesario especificar a qué clase concreta
- pertenece el dato en cuestión, para ésto fue necesario modificar los constructo
-res de la clase 
-\emph on
-Type
-\emph default
-, añadiendo anotaciones 
-\emph on
-(Annotations
-\emph default
-
-\begin_inset Foot
-status open
-
-\begin_layout Plain Layout
-\begin_inset Flex URL
-status open
-
-\begin_layout Plain Layout
-
-https://docs.oracle.com/javase/7/docs/technotes/guides/language/annotations.html
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\emph on
-) 
-\emph default
-a los mismos, las anotaciones siguen el patrón decorator
-\begin_inset CommandInset citation
-LatexCommand cite
-key "GoF"
-
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Standard
-Con estos cambios fue posible la utilización del Metamodelo SoaML dentro
- del contexto de 
-\emph on
-Razonamiento Basado en Casos (CBR)
-\emph default
-.
-\end_layout
-
-\begin_layout Section
-\begin_inset CommandInset label
-LatexCommand label
 name "sec:-Conversor de OAS"
 
 \end_inset
@@ -2625,17 +2378,153 @@ reference "subsec:Construcción-del-instanciador"
  swagger.
 \end_layout
 
+\begin_layout Subsection
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Cambios-necesarios"
+
+\end_inset
+
+Cambios necesarios al metamodelo
+\end_layout
+
 \begin_layout Standard
-\begin_inset Note Note
+En el diagrama de la Figura
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Esquema-de-proceso"
+
+\end_inset
+
+ se puede observar dentro del cuadro con bordes punteados como se componen
+ las clases pertenecientes al Metamodelo SoaML.
+ El mismo cumple su función como descriptor de interfaces, pero no tiene
+ toda la información necesaria para operar dentro del contexto de un CBR.
+ Por lo tanto fue necesario realizar adaptaciones con el fin de operar dentro
+ del marco de 
+\emph on
+Razonamiento Basado en Casos (CBR)
+\emph default
+.
+\end_layout
+
+\begin_layout Standard
+Dichos cambios consisten en la creación de una nueva clase contenedora llamada
+ 
+\emph on
+Case
+\emph default
+, la misma posee un atributo llamado 
+\emph on
+problem
+\emph default
+, referenciando a la 
+\emph on
+Interface 
+\emph default
+descriptora del servicio, y otro atributo nombrado 
+\emph on
+solution
+\emph default
+, siendo éste un 
+\emph on
+String 
+\emph default
+que referencia unívocamente la solución del problema descripto, el mismo
+ puede ser cadena nula si se trata de un nuevo caso a consultar.
+\end_layout
+
+\begin_layout Standard
+Para poder almacenar nuestro caso en la KB serializado, se optó por utilizar
+ la librería 
+\emph on
+Jackson
+\emph default
+
+\begin_inset Foot
 status open
 
 \begin_layout Plain Layout
-Casi todo lucas
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://github.com/FasterXML/jackson-module-kotlin
 \end_layout
 
 \end_inset
 
 
+\end_layout
+
+\end_inset
+
+, que es el estándar 
+\emph on
+de facto
+\emph default
+ para realizar dichas tareas en Kotlin.
+ Debido a que 
+\emph on
+Parameter
+\emph default
+ referencia al tipo de dato abstracto 
+\emph on
+Type
+\emph default
+, al momento de des-serializarlo es necesario especificar a qué clase concreta
+ pertenece el dato en cuestión, para esto fue necesario modificar los constructo
+res de la clase 
+\emph on
+Type
+\emph default
+, añadiendo anotaciones 
+\emph on
+(Annotations
+\emph default
+
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://docs.oracle.com/javase/7/docs/technotes/guides/language/annotations.html
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\emph on
+) 
+\emph default
+a los mismos, las anotaciones siguen el patrón decorator
+\begin_inset CommandInset citation
+LatexCommand cite
+key "GoF"
+
+\end_inset
+
+.
+ Con estos cambios fue posible la utilización del Metamodelo SoaML dentro
+ del contexto de 
+\emph on
+Razonamiento Basado en Casos (CBR)
+\emph default
+.
 \end_layout
 
 \begin_layout Subsection
@@ -2650,23 +2539,13 @@ Relación entre Swagger y Metamodelo
 
 \begin_layout Standard
 En esta subsección se detalla la correlación entre el estándar Swagger y
- el Metamodelo de Servicios Web, para lo cual se utilizará un caso de estudio
- sencillo como soporte a la explicación.
+ el Metamodelo de Servicios Web, para lo cual se utilizará el caso de estudio
+ de 
+\emph on
+PetStore
+\emph default
+ como soporte a la explicación.
  
-\end_layout
-
-\begin_layout Paragraph*
-\begin_inset CommandInset label
-LatexCommand label
-name "par:Caso-de-estudio"
-
-\end_inset
-
-Caso de estudio
-\begin_inset Newline newline
-\end_inset
-
-
 \end_layout
 
 \begin_layout Standard
@@ -2677,7 +2556,7 @@ reference "Documento OAS PetStore"
 
 \end_inset
 
- se muestra un fragmento de la espicificación swagger que describe el servicio
+ se muestra un fragmento de la especificación swagger que describe el servicio
  
 \emph on
 PetStore
@@ -2690,18 +2569,7 @@ reference "sec:Ejemplo-Ilustrativo"
 \end_inset
 
 , en el mismo se han eliminado las operaciones que no se utilizaran para
- explicar la relación entre la especificación swagger y el Metamodelo, la
- especificación completa se encuentra en XXXX
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Apéndice con la especificación completa, no la ofrecemos, o pongo el link?
-\end_layout
-
-\end_inset
-
-.
+ explicar la relación entre la especificación swagger y el Metamodelo.
 \end_layout
 
 \begin_layout Standard
@@ -2725,7 +2593,8 @@ Swagger vs.
 \end_layout
 
 \begin_layout Standard
-En el fragmento de Swagger – Listado de Código
+En el fragmento de Swagger \twohyphens
+ Listado de Código
 \begin_inset space ~
 \end_inset
 
@@ -2746,7 +2615,8 @@ DEFINIR
 
 \end_inset
 
- –, se define para la interfaz (
+ \twohyphens
+, se define para la interfaz (
 \emph on
 interface
 \emph default
@@ -2801,7 +2671,8 @@ Por un lado,
 \emph on
 parameters 
 \emph default
-– línea 
+\twohyphens
+ línea 
 \begin_inset Note Note
 status open
 
@@ -2811,13 +2682,14 @@ status open
 
 \end_inset
 
- – define la entrada de dicha operación.
+ \twohyphens
+ define la entrada de dicha operación.
  La misma está compuesta por un objeto del tipo entero (
 \emph on
 integer - int64
 \emph default
 ).
- Por otro lado, el objeto dentro de la clave 
+ Por otro lado, en la clave 
 \emph on
 200
 \emph default
@@ -2825,7 +2697,8 @@ integer - int64
 \emph on
 response 
 \emph default
-– línea 
+\twohyphens
+ línea 
 \begin_inset Note Note
 status open
 
@@ -2835,8 +2708,9 @@ status open
 
 \end_inset
 
- – es un objeto que encapsula la salida de la operación, cuyo esquema es
- una referencia a 
+ \twohyphens
+ se tiene un objeto que encapsula la salida de la operación, cuyo esquema
+ es una referencia a 
 \emph on
 #/definitions/Pet
 \emph default
@@ -2883,21 +2757,8 @@ reference "fig:Componentes-de-Operacion"
 \emph on
 GET_/pet/{petId} 
 \emph default
-y se encuadran los distintos componentes resultantes del metamodelo.
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-agregar texto
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-En la Figura 
+y se encuadran los distintos componentes resultantes del metamodelo, mientras
+ que en la Figura 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Componentes-de-Tipos-de-datos"
@@ -2910,35 +2771,22 @@ reference "fig:Componentes-de-Tipos-de-datos"
 interfaz
 \emph default
 , y se encuadran los distintos mapeos disponibles en el metamodelo.
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-agregar texto
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-En la Figura 
+ En la Figura 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:EjemploVersionInstanciada"
 
 \end_inset
 
- se muesta el diagrama de objetos que representa la salida (instancia del
- metamodelo) generada por el componente Conversor para el documento swagger
+ se muestra el diagrama de objetos que representa la salida (instancia del
+ metamodelo) generada por el componente Conversor para el documento 
+\emph on
+swagger
+\emph default
  utilizado como ejemplo.
  Es importante destacar que la estructura de datos utilizada generará una
- sola vez los tipos de datos, y si fuera necesario realizar otra instancia
- de la misma clase, se fija la dirección de memoria mediante un puntero
- a aquella que fue creada por primera vez.
- Esto quiere decir que sólo existirá una instancia por cada tipo definido
- dentro del documento.
+ sola vez los tipos de datos, esto quiere decir que sólo existirá una instancia
+ por cada tipo definido dentro del documento.
  Por ejemplo sólo va a existir una instancia que representa al tipo simple
  
 \emph on
@@ -2982,7 +2830,6 @@ output
 GET_/pet/{petId}
 \emph default
 .
- 
 \end_layout
 
 \begin_layout Standard
@@ -3108,7 +2955,11 @@ Estructuras
 \end_layout
 
 \begin_layout Standard
-En la tabla 
+En la Tabla
+\begin_inset space ~
+\end_inset
+
+
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "tab:Correspondencia-Estructura"
@@ -3165,7 +3016,7 @@ Metamodelo
 \begin_layout Plain Layout
 
 \size footnotesize
-Especificación
+Specification
 \end_layout
 
 \end_inset
@@ -3630,7 +3481,7 @@ Correspondencia estructural Swagger con Metamodelo
 \end_layout
 
 \begin_layout Paragraph
-Tipos de datos simple
+Tipos de datos simples
 \begin_inset Newline newline
 \end_inset
 
@@ -3638,8 +3489,12 @@ Tipos de datos simple
 \end_layout
 
 \begin_layout Standard
-Los tipos de datos primitivos en la especificación Swagger se basan en los
- tipos admitidos por la Especificación de esquema JSON (Borrador 00)
+Los tipos de datos primitivos en la especificación 
+\emph on
+Swagger
+\emph default
+ se basan en los tipos admitidos por la Especificación de esquema JSON (Borrador
+ 00
 \begin_inset Foot
 status open
 
@@ -3659,8 +3514,12 @@ https://tools.ietf.org/html/draft-wright-json-schema-00#section-4.2
 
 \end_inset
 
-.
- Null no es compatible como tipo.
+).
+ 
+\emph on
+Null
+\emph default
+ no es compatible como tipo.
  
 \end_layout
 
@@ -3674,26 +3533,56 @@ format
  La especificación Swagger utiliza varios formatos conocidos para definir
  en detalle el tipo de datos que se utiliza.
  Sin embargo, para mantener las necesidades de la documentación, la propiedad
- format puede tener cualquier valor.
- Los formatos como "email", "uuid", etc., pueden usarse aunque no estén definidos
- por esta especificación.
+ 
+\emph on
+format
+\emph default
+ puede tener cualquier valor.
+ Los formatos como 
+\begin_inset Quotes eld
+\end_inset
+
+email
+\begin_inset Quotes erd
+\end_inset
+
+, 
+\begin_inset Quotes eld
+\end_inset
+
+uuid
+\begin_inset Quotes erd
+\end_inset
+
+, etc., pueden usarse aunque no estén definidos por esta especificación.
  Los tipos que no poseen la propiedad format siguen la definición de tipo
  del esquema JSON.
- Ésta herramienta, al no encontrarse con un format no especificado puede
- utilizar el tipo predeterminado.
-\end_layout
+ Ésta herramienta, al no encontrarse con un 
+\emph on
+format
+\emph default
+ puede utilizar el tipo predeterminado.
+ Adicionalmente, un tipo de dato primitivo 
+\begin_inset Quotes eld
+\end_inset
 
-\begin_layout Standard
-Adicionalmente, un tipo de dato primitivo “file” es usado por el objeto
- Parameter y Response para denotar que el tipo del parámetro o de respuesta
- es un archivo.
+file
+\begin_inset Quotes erd
+\end_inset
+
+ es usado por el objeto Parameter y Response para denotar que el tipo del
+ parámetro o de respuesta es un archivo.
  
 \end_layout
 
 \begin_layout Standard
 Todos los tipos de datos simple soportados por la especificación Swagger
  están incluidos en los tipos de datos definidos por el Metamodelo, como
- se puede observar en el Cuadro 
+ se puede observar en la Tabla
+\begin_inset space ~
+\end_inset
+
+
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "tab:Correspondencia-Tipos-de-datos"
@@ -3701,7 +3590,7 @@ reference "tab:Correspondencia-Tipos-de-datos"
 \end_inset
 
 .
- El mismo contiene cinco columnas, en la columna 
+ En la columna 
 \emph on
 Nombre
 \emph default
@@ -4532,13 +4421,11 @@ Construcción del Conversor
 \end_layout
 
 \begin_layout Standard
-En los siguientes párrafos se detallan los pasos principales para la construcció
-n del Conversor.
- Primeramente fue necesario analizar las herramientas que se encuentran
- disponibles que podrían ser potencialmente útiles a la hora de implementar
- el módulo de software Conversor del Metamodelo.
- Luego se explica en detalle el proceso de conversión de documentos WSDL
- 2.0 a instancias del metamodelo junto con los algoritmos involucrados para
+Primeramente fue necesario analizar las herramientas que se encuentran disponibl
+es que podrían ser potencialmente útiles a la hora de implementar el módulo
+ de software Conversor del Metamodelo.
+ Luego se explica en detalle el proceso de conversión de documentos Swagger
+ a instancias del metamodelo junto con los algoritmos involucrados para
  realizar dichas operaciones.
  
 \end_layout
@@ -4558,29 +4445,47 @@ Selección del lenguaje de programación utilizado
 \end_layout
 
 \begin_layout Standard
-El Metamodelo y la herramienta de evaluación de servicio web están realizadas
- en Java, Java es un lenguaje muy popular, pero a veces se suele desperdiciar
- mucho tiempo, o caracteres, en escribir lógica que se podría redactar de
- manera más simple o en escribir la misma lógica una y otra vez.
- Es por ello, entre otras cosas, que se decidió usar Kotlin, un lenguaje
- que se ejecuta sobre la JVM (Java Virtual Machine) y simplifica el trabajo
- del desarrollador, el cual pasa menos tiempo escribiendo lógica ajena al
- dominio.
+El Metamodelo y la herramienta de evaluación de servicios web están realizadas
+ en Java
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Gosling05"
+
+\end_inset
+
+ y Kotlin
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://kotlinlang.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+, otro lenguaje que se ejecuta sobre la JVM (Java Virtual Machine) y simplifica
+ el trabajo del desarrollador, el cual pasa menos tiempo escribiendo lógica
+ ajena al dominio.
  Un aspecto importante que destacar es que Kotlin al compilar a Bytecode
  y correr sobre la JVM, es totalmente interoperable con Java, es decir,
  desde nuestro código Kotlin podemos utilizar clases y métodos Java y viceversa,
  inclusive podemos tener un proyecto mixto, en donde coexistan clases Java
  y Kotlin dentro del mismo entorno de desarrollo.
-\end_layout
-
-\begin_layout Standard
-\begin_inset CommandInset label
-LatexCommand label
-name "ventajas-kotlin"
-
-\end_inset
-
-Entre algunas de las ventajas de Kotlin, se encuentran: 
+ Entre algunas de las ventajas de Kotlin, se encuentran: 
 \end_layout
 
 \begin_layout Itemize
@@ -4599,7 +4504,7 @@ getters
 \emph default
  implícitos, es decir, a menos que se desee cambiar el comportamiento de
  los mismos no es necesario escribirlos, además el lenguaje al compilar
- a Bytecode reemplazará los accesos y asignaciones directas a atributos,
+ a Bytecode reemplazará los accesos y asignaciones directas a atributos
  por los llamados a las funciones setter y getter, con lo cual el código
  se vuelve más legible.
 \end_layout
@@ -4635,20 +4540,18 @@ Sólo con estas ventajas, logramos que nuestra clase
 Case
 \emph default
  tenga únicamente 10 lineas de código, cuando su equivalente funcional en
- Java tendría aproximadamente 121, esto representa un 91.73% ménos de código,
- sin contar que es semánticamente mas legible
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Comparación de ambos códigos?
-\end_layout
-
-\end_inset
-
-.
+ Java tendría aproximadamente 121, esto representa un 91.73% menos de código,
+ sin contar que es mas legible.
  Además, a menos que se especifique lo contrario, ninguna variable puede
- tomar el valor null, esto nos previene de NullPointerException inesperados.
+ tomar el valor 
+\emph on
+null
+\emph default
+, esto nos previene de 
+\emph on
+NullPointerException
+\emph default
+ inesperados.
 \end_layout
 
 \begin_layout Paragraph
@@ -4667,11 +4570,10 @@ Selección de herramientas para construcción de módulo de software Conversor
 \end_layout
 
 \begin_layout Standard
-En la presente sección se pretende destacar ventajas y desventajas de las
- herramientas evaluadas para ser utilizadas potencialmente por el módulo
- de software Conversor.
+Aquí se pretende destacar ventajas y desventajas de las herramientas evaluadas
+ para ser utilizadas potencialmente por el módulo de software Conversor.
  En principio, resultó necesario satisfacer la necesidad de parsear una
- especificacón Swagger.
+ especificación Swagger.
  Para ello se analizaron las herramientas
 \emph on
  swagger-parser,
@@ -4693,25 +4595,8 @@ Klaxon
 \emph on
 swagger-parser
 \emph default
- resultaró ser el candidatos más apropiados para la construcción del módulo
- de software Conversor.
- 
-\end_layout
-
-\begin_layout Paragraph
-Motivos principales por los cuales no se utilizaron las siguientes herramientas
- 
-\begin_inset CommandInset label
-LatexCommand label
-name "par:UtilizacionHerramientasProcSwagger"
-
-\end_inset
-
-
-\begin_inset Newline newline
-\end_inset
-
-
+ resultó ser el candidato más apropiado para la construcción del módulo
+ de software Conversor:
 \end_layout
 
 \begin_layout Itemize
@@ -4722,14 +4607,14 @@ KaiZen OpenAPI Parser
 : Ésta herramienta es la principal competencia de la seleccionada, incluso
  se podría considerar mejor en algunos aspectos, como la performance (que
  ellos informan es tres a cuatro veces superior) y que posee un validador
- semántico Open API.
- Además acepta especificaciones en JSON o YAML, pero, su principal desventaja,
- es que al momento sólo sirve para especificaciones OpenAPI v3, la cual
- no se ha terminado de adoptar por la comunidad, y está lejos de conversitrse
- en un estándar.
+ semántico para OpenAPI.
+ Además acepta especificaciones en JSON o YAML.
+ Su principal desventaja es que al momento sólo sirve para especificaciones
+ OpenAPI versión 3, la cual no se ha terminado de adoptar por la comunidad,
+ y están lejos de convertirse en un estándar.
  Debido a que el dataset utilizado para los experimentos se encuentra en
- Swagger v2, y no se encuentran tantas especificaciones libres de Open API
- 3, se decidió ignorar ésta última, y por lo tanto, ésta herramienta.
+ Swagger/OpenApi v2, y no se encuentran tantas especificaciones libres de
+ OpenAPI v3, se decidió ignorar ésta última, y por lo tanto, ésta herramienta.
 \end_layout
 
 \begin_layout Itemize
@@ -4737,13 +4622,10 @@ KaiZen OpenAPI Parser
 \series bold
 Jackson
 \series default
-: Ésta herramienta es el standar para trabajar con documentos JSON en lenguajes
- Java o dentro de la JVM, en el repositorio de la misma se puede observar
- que se define de la siguiente manera:
+: Ésta herramienta es el estándar para trabajar con documentos JSON en lenguajes
+ Java o dentro de la JVM
 \emph on
- La librería estándar de JSON para Java (o JVM en general), o, como el "mejor
- parser JSON para Java".
- O simplemente como "JSON para Java".
+.
 \emph default
 
 \begin_inset Foot
@@ -4765,19 +4647,19 @@ https://github.com/FasterXML/jackson
 
 \end_inset
 
-, la misma nos ofrece todas las funcionalidades que necesitamos si quisieramos
+, la misma nos ofrece todas las funcionalidades que necesitamos si quisiéramos
  leer directamente desde la especificación Swagger en formato JSON y acceder
- a las distintas partes de la misma, no se utilizó en base a dos motivos,
- en primer lugar, al utilizarla sólo podríamos procesar especificaciones
- en JSON y no en YAML, perdiendo un subconjunto de las mismas, o teniendo
- que agregar un overhead transformando dichas especificaciones al formato
- JSON, el otro motivo es porque a la hora de parsear un documento JSON se
- debe contar con el objeto con el cual se va mapear, es decir, si queremos
- parsear un JSON de 
+ a las distintas partes de la misma.
+ Sin embargo, al utilizarla sólo podríamos procesar especificaciones en
+ JSON y no en YAML, perdiendo un subconjunto de las mismas, o teniendo que
+ transformar dichas especificaciones al formato JSON.
+ Además, al parsear un documento JSON se debe contar con la estructura del
+ objeto con el cual se va mapear.
+ Por ejemplo, para un JSON de 
 \emph on
 Persona
 \emph default
- que tiene los atributos 
+ con atributos 
 \emph on
 Nombre
 \emph default
@@ -4789,11 +4671,12 @@ y
 \emph on
  dirección
 \emph default
-.
- necesitamos describir de antemano la clase Java (o Kotlin en éste caso)
- Persona con dichos atributos, por lo que, para parsear una especificación
- Swagger deberíamos crear una clase para cada tipo de atributo dentro de
- la misma.
+, necesitamos describir de antemano la clase Java (o Kotlin en éste caso)
+ 
+\emph on
+Persona
+\emph default
+ con dichos atributos, lo cual no es siempre posible.
 \end_layout
 
 \begin_layout Itemize
@@ -4801,7 +4684,7 @@ y
 \series bold
 Klaxon
 \series default
-: Ésta herramienta nos permite trabajar con documentos JSON dentro de kotlin,
+: Ésta herramienta nos permite trabajar con documentos JSON dentro de Kotlin,
  los motivos por los cuales se descartó son los mismos que para la librería
  
 \emph on
@@ -4810,31 +4693,22 @@ Jackson
 .
 \end_layout
 
-\begin_layout Paragraph
-\begin_inset CommandInset label
-LatexCommand label
-name "par:Herramientas-util-instanciador"
-
-\end_inset
-
-Herramientas utilizadas en el Conversor
-\begin_inset Newline newline
-\end_inset
-
-
-\end_layout
-
 \begin_layout Standard
-Para la creación del módulo de software Conversor, se utilizó una herramienta
- que fué de principal relevancia a la hora de poder concretar la creación
- de dicho módulo.
- Swagger-parser permitió parsear una especificación Swagger en instancias
- de Objeto Plano de Java (POJO).
+Luego, 
+\emph on
+Swagger-parser
+\emph default
+ permitió convertir una especificación Swagger en instancias de Objeto Plano
+ de Java (POJO).
  Utilizando esta herramienta, en lugar de leer y acceder de manera directa
  a los archivos, podemos ignorar la disposición de los distintos componentes
  en el mismo y concentrarnos en el mapeo Swagger-SOAML.
  Como así también, tener la posibilidad de utilizar una especificación Swagger
- en archivo YAML o JSON sin tener que realizar ningún refactoring adicional.
+ en archivo YAML o JSON sin tener que realizar ningún 
+\emph on
+refactoring 
+\emph default
+adicional.
  Otra ventaja que nos brinda ésta herramienta, es la validación a nivel
  sintáctico de las especificaciones.
 \end_layout
@@ -4847,20 +4721,24 @@ Consideraciones generales
 
 \end_layout
 
-\begin_layout Standard
+\begin_layout Itemize
 Se consideran las especificaciones Swagger a parsear como válidas, es decir,
- al parsear el Swagger al Metamodelo, no garantizamos la validéz de la api,
- por ejemplo, en la documentación de Swagger
+ no chequeamos la validez de la Api.
+ Por ejemplo, en la documentación de Swagger
+\begin_inset space ~
+\end_inset
+
+
 \begin_inset CommandInset citation
 LatexCommand cite
 key "swagger2.0"
 
 \end_inset
 
- se indica:
-\end_layout
+ se indica: 
+\begin_inset Quotes eld
+\end_inset
 
-\begin_layout Quotation
 El objeto Response 
 \emph on
 debe
@@ -4869,24 +4747,21 @@ debe
 \emph on
 debería
 \emph default
- ser la respuesta del llamado de una operación exitosa.
-\end_layout
+ ser la respuesta del llamado de una operación exitosa
+\begin_inset Quotes erd
+\end_inset
 
-\begin_layout Standard
-Por lo tanto, si esta condición no se respeta y se utiliza la herramienta
- en cuestión, se pueden obtener resultados inesperados.
+.
+ Si esta condición no se respeta en la especificación y se utiliza la herramient
+a en cuestión, se pueden obtener resultados inesperados.
  Esto simplifica la herramienta y ayuda a una generar una abstracción de
  capas.
+ Los códigos de estado HTTP son utilizados para indicar el estado de la
+ operación realizada.
  
 \end_layout
 
-\begin_layout Standard
-Los códigos de estado HTTP son utilizados para indicar el estado de la operación
- realizada.
- 
-\end_layout
-
-\begin_layout Standard
+\begin_layout Itemize
 Los códigos de estado disponibles están definidos por 
 \emph on
 RFC7231
@@ -4939,6 +4814,7 @@ https://www.iana.org/ assignments/http-status-codes/http-status-codes.xhtml
 , siguiendo las siguientes convenciones:
 \end_layout
 
+\begin_deeper
 \begin_layout Itemize
 1xx (Informacional): El request fue recibido, se continúa procesando.
 \end_layout
@@ -4962,85 +4838,42 @@ https://www.iana.org/ assignments/http-status-codes/http-status-codes.xhtml
  válida.
 \end_layout
 
-\begin_layout Standard
-De acuerdo a la especificación Swagger, los archivos que su descripción
- se representan como objetos JSON, y cumplen con los estándatares JSON.
- YAML, al ser un superconjunto de JSON, también puede ser utilizado para
- representar una especificación Swagger.
+\end_deeper
+\begin_layout Itemize
+Las especificaciones Swagger cumplen con los estándares JSON.
+ YAML, al ser un superconjunto de JSON, también puede ser utilizado.
  
 \end_layout
 
-\begin_layout Standard
+\begin_layout Itemize
 Todos los nombres en la especificación son sensibles a mayúsculas y minúsculas.
  
 \end_layout
 
-\begin_layout Standard
+\begin_layout Itemize
 El esquema expone dos tipos de campos: Campos fijos, que tienen un nombre
  declarado, y Campos modelados, que declaran un patrón de expresiones regulares
  para el nombre del campo.
  Los campos modelados DEBEN tener nombres únicos dentro del objeto contenedor.
- Para preservar la compatibilidad de ida y vuelta entre los formatos YAML
- y JSON, se recomienda la versión 1.2 de YAML junto con algunas restricciones
- adicionales: 
+ 
 \end_layout
 
 \begin_layout Itemize
-Las etiquetas DEBEN estar limitadas a aquellas permitidas por el conjunto
- de reglas de esquema JSON
-\begin_inset Foot
-status open
-
-\begin_layout Plain Layout
-\begin_inset Flex URL
-status open
-
-\begin_layout Plain Layout
-
-http://www.yaml.org/spec/1.2/spec.html#id2803231
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Itemize
-Las claves utilizadas en los diccionarios YAML DEBEN estar limitadas a una
- cadena escalar, según lo definido por el conjunto de reglas de esquema
- a prueba de fallas YAML
-\begin_inset Foot
-status open
-
-\begin_layout Plain Layout
-\begin_inset Flex URL
-status open
-
-\begin_layout Plain Layout
-
-http://yaml.org/spec/1.2/spec.html#id2802346
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Standard
 Si bien las API pueden ser definidas por documentos Swagger en formato YAML
  o JSON, no es requerido que las API en cuestión se limite a utilizar estos
- formatos, es decir, el body del request y response de dicha API y otros
- contenidos no requieren ser JSON o YAML.
+ formatos, es decir, el 
+\emph on
+body
+\emph default
+ del 
+\emph on
+request
+\emph default
+ y 
+\emph on
+response
+\emph default
+ de dicha API y otros contenidos no requieren ser JSON o YAML.
 \end_layout
 
 \begin_layout Paragraph
@@ -5058,114 +4891,23 @@ El Conversor desarrollado recibe como entrada una especificación Swagger
 path 
 \emph default
 o URL de la misma) y devuelve como salida una instancia del metamodelo.
- 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Los elementos de la especificación son vistos como nodos, y cada nodo se
- encuentra en un determinado nivel en la estructura de arbol, siendo N
-\begin_inset script subscript
-
-\begin_layout Plain Layout
-0
-\end_layout
-
-\end_inset
-
- el nivel inicial, y cada vez que se desciende un nivel, el subíndice de
- N aumenta en 1 unidad.
- El nodo 
+ Siguiendo nuestro ejemplo 
 \emph on
-document
+PetStore
 \emph default
-, es el nodo padre y se encuentra en el nivel N
-\begin_inset script subscript
-
-\begin_layout Plain Layout
-0
-\end_layout
-
-\end_inset
-
-.
- En el nivel N
-\begin_inset script subscript
-
-\begin_layout Plain Layout
-1 
-\end_layout
-
-\end_inset
-
-se encuentran los nodos 
-\emph on
-interface 
-\emph default
-y 
-\emph on
-types.
-
-\emph default
- En 
-\emph on
-types 
-\emph default
-se definen todos los tipos de datos existentes en el documento.
- En 
-\emph on
-interface 
-\emph default
-se encuentran detalladas las operaciones (
-\emph on
-operation
-\emph default
-) que ofrece el servicio (N
-\begin_inset script subscript
-
-\begin_layout Plain Layout
-2
-\end_layout
-
-\end_inset
-
-).
- En el nivel N
-\begin_inset script subscript
-
-\begin_layout Plain Layout
-3
-\end_layout
-
-\end_inset
-
- tenemos los mensajes de entrada (
-\emph on
-input
-\emph default
-) y de salida (
-\emph on
-output
-\emph default
-).
-\end_layout
-
-\end_inset
-
- 
-\end_layout
-
-\begin_layout Standard
-Siguiendo nuestro ejemplo de base del dominio PetStore, la Figura 
+, la Figura 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Ejemplo-versión-Dom-1"
 
 \end_inset
 
- muestra un esquema de como quedaría la estructura con los distintos atributos
- que conforman una especificación Swagger al parsearla con la herramienta
- Swagger-parser.
+ muestra un esquema de la estructura con los distintos atributos que conforman
+ una especificación Swagger al parsearla con la herramienta 
+\emph on
+Swagger-parser
+\emph default
+.
  Cabe destacar que en esta figura, solo se detalla la operación 
 \emph on
 GET_/pet/{petId}
@@ -5198,8 +4940,8 @@ name "fig:Ejemplo-versión-Dom-1"
 
 \end_inset
 
-Ejemplo de objetos que se analizan del documento WSDL parseado con la herramient
-a DOM
+Ejemplo de objetos que se analizan del documento Swagger, parseado con la
+ herramienta Swagger-parser.
 \end_layout
 
 \end_inset
@@ -5235,15 +4977,47 @@ reference "alg:Convertir-especificación-Open"
 
 \end_inset
 
- la función propuesta recibe como entrada una especificación Swagger – línea
- 1.
+ la función propuesta recibe como entrada una especificación Swagger \twohyphens
+ línea
+ 1
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Linea
+\end_layout
+
+\end_inset
+
+.
  El primer paso es parsearlo a un objeto que posee la estructura de la especific
-ación Swagger – línea 2.
+ación Swagger \twohyphens
+ línea 2
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Linea
+\end_layout
+
+\end_inset
+
+.
  Luego por cada operación (método HTTP) que tenga cada 
 \emph on
 path, 
 \emph default
-crearemos una operación del metamodelo - línea 32, con los atributos 
+crearemos una operación del metamodelo - línea 32
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Linea
+\end_layout
+
+\end_inset
+
+, con los atributos 
 \emph on
 input
 \emph default
@@ -5260,21 +5034,26 @@ obtenidos previamente.
 \emph on
 parameter 
 \emph default
-de la operación crearemos un metamodelParameter obteniendo el tipo de dato
- según el procedimiento detallado en el Algotirmo 
+de la operación crearemos un 
+\emph on
+metamodelParameter 
+\emph default
+obteniendo el tipo de dato según el procedimiento detallado en el Algoritmo
+ 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "alg:Convertir-especificación-Open"
 
 \end_inset
 
-, con éstos parametros crearemos nuestro input.
+.
+ Con éstos parámetros crearemos nuestro input.
 \end_layout
 
 \begin_layout Standard
 Cada response de la operación se analiza, ya que la misma puede ser una
  respuesta exitosa o fallida.
- En caso de ser la primera, es facil evidenciarlo, pues el 
+ En caso de ser la primera, el 
 \emph on
 status code 
 \emph default
@@ -5282,13 +5061,23 @@ de la misma comenzará con
 \emph on
 2
 \emph default
-, si la respuesta tiene tipo se creará un parametro que luego será usado
+xx, si la respuesta tiene tipo se creará un parámetro que luego será usado
  con el 
 \emph on
 output
 \emph default
- - línea 22.
- En caso de ser la segunda opción, se crea un nuevo 
+ - línea 22
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Linea
+\end_layout
+
+\end_inset
+
+.
+ Caso contrario, se crea un nuevo 
 \emph on
 Fault 
 \emph default
@@ -5296,11 +5085,18 @@ con el tipo de la respuesta, y se agregará a la lista de
 \emph on
 faults
 \emph default
- - línea 26.
+ - línea 26
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Linea
 \end_layout
 
-\begin_layout Standard
-Una vez terminado de recorrer las operaciones de cada 
+\end_inset
+
+.
+ Una vez terminado de recorrer las operaciones de cada 
 \emph on
 path,
 \emph default
@@ -5531,176 +5327,6 @@ Convertir especificación Swagger a Metamodelo
 
 \end_layout
 
-\begin_layout Paragraph
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Paragraph
-old
-\end_layout
-
-\begin_layout Plain Layout
-Para evaluar los tipos de datos nos basamos principalmente en los Algoritmos
- 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "Obtener tipo de dato"
-
-\end_inset
-
-, 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "Es tipo complejo"
-
-\end_inset
-
-, 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "Es tipo simple"
-
-\end_inset
-
-, 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "Obtener nombre tipo simple"
-
-\end_inset
-
-, donde en el primero se encuentra la lógica principal, y los restantes
- describen las funciones auxiliares.
- Los mismos cumplen la función de discriminar la estructura sintáctica de
- los programas involucrados.
- Dado un nodo como entrada a la función del primero, el análisis retorna
- si se tiene tipos de datos simples, complejos o arreglos.
-\end_layout
-
-\begin_layout Plain Layout
-En los dos párrafos siguientes se explicará brevemente el funcionamiento
- del Algoritmo 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "Obtener tipo de dato"
-
-\end_inset
-
-.
- En la línea 3, se verifica si el nodo es de tipo simple, en cuyo caso se
- crea el objeto de tipo simple con sus respectivos datos.
- Luego, se analiza en la línea 5, si estamos ante la presencia de un tipo
- de dato arreglo, para lo cual consultamos sobre un atributo llamado 
-\emph on
-unbounded
-\emph default
-.
- En caso de no ser 
-\emph on
-unbounded
-\emph default
-, se retorna el tipo simple que se creó en la línea 4.
- Caso contrario, nos encontramos ante un tipo de dato arreglo (
-\emph on
-ArrayType
-\emph default
-), el cual contendrá al tipo simple previamente mencionado, siendo una colección
- de tipos simples.
- 
-\end_layout
-
-\begin_layout Plain Layout
-Ahora bien, si tenemos un tipo de dato complejo
-\emph on
- – ComplexType
-\emph default
- (línea 13) –, debemos indagar en su estructura interna, puesto que puede
- estar compuesto por más tipos de datos complejos, arreglos o tipos simples.
- Mediante llamados recursivos se construirá la estructura del tipo de dato
- complejo.
- Una vez que creamos el tipo de dato complejo, resta preguntar si el mismo
- se encuentra contenido en una estructura de arreglo, lo que nos llevará
- en caso afirmativo a crear un arreglo asociado al tipo complejo recientemente
- creado y retornarlo; caso contrario retornamos el tipo complejo previamente
- instanciado.
- 
-\end_layout
-
-\begin_layout Plain Layout
-Para saber si estamos ante la presencia de un tipo de dato complejo se creó
- la función 
-\emph on
-esTipoComplejo(Nodo nodo)
-\emph default
- (Algoritmo 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "Es tipo complejo"
-
-\end_inset
-
-), en la cual se obtiene los hijos del 
-\emph on
-nodo 
-\emph default
-que entra por parámetro de la función , en caso de que por lo menos tenga
- uno, y el nombre del mismo contenga la palabra compuesta 
-\emph on
-ComplexType
-\emph default
- estamos en presencia de un tipo de dato complejo.
- Para saber si tenemos un tipo de dato simple recurrimos a la función 
-\emph on
-esTipoSimple(Nodo nodo) 
-\emph default
-(Algoritmo 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "Es tipo simple"
-
-\end_inset
-
-).
- Se obtiene el atributo 
-\emph on
-type
-\emph default
- del 
-\emph on
-nodo
-\emph default
- y si coincide con algún tipo de dato simple de los definidos en la Sección
- 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "subsec:Vision-Detallada"
-
-\end_inset
-
- 
-\emph on
-SimpleType
-\emph default
-, entonces efectivamente es un tipo simple.
- Por último tenemos la función 
-\emph on
-obtenerNombreTipoSimple(Nodo nodo) 
-\emph default
-(Algoritmo 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "Obtener nombre tipo simple"
-
-\end_inset
-
-) que retorna el nombre de un tipo de dato simple.
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
 \begin_layout Standard
 \begin_inset Float algorithm
 wide false
@@ -5836,7 +5462,7 @@ name "alg:Obtener tipo de parameter"
 
 \end_inset
 
-Obtener tipo de parameter
+Obtener tipo de parámetro
 \end_layout
 
 \end_inset
@@ -6474,26 +6100,17 @@ Obtener tipo simple
 \end_layout
 
 \begin_layout Section
-\begin_inset CommandInset label
-LatexCommand label
-name "sec:Intregracion-a-Testooj"
-
-\end_inset
-
-Integración a la Herramienta de Evaluación de Servicios Web 
+Conclusión
 \end_layout
 
 \begin_layout Standard
-
-\noun on
-ÉSTA SECCIÓN NO VA!!!
-\noun default
-!
 \begin_inset Note Note
 status open
 
 \begin_layout Plain Layout
-Esta sección no va
+Falta conclusión: Qué se vio en el capítulo (CBR, Conversor), y que a continuaci
+ón (Capítulo 4) se presentará la validación experimental de las herramientas
+ y procedimientos desarrollados.
 \end_layout
 
 \end_inset
@@ -6502,351 +6119,7 @@ Esta sección no va
 \end_layout
 
 \begin_layout Standard
-El objetivo principal del desarrollo del Metamodelo para descripción de
- Contratos de Servicios Web es contar con una especificación de la funcionalidad
- que ofrece cada servicio (independientemente de la tecnología en la cual
- esté implementado).
- Al contar con dicho metamodelo resulta necesario que la evaluación de servicios
- candidatos se realice en función de instanciaciones del metamodelo.
- Para ello, se desarrolló un componente de software que contiene al metamodelo.
- En el nuevo enfoque, tanto los requerimientos funcionales por parte de
- desarrolladores de aplicaciones orientadas a servicios, como los propios
- servicios candidatos, serán representados y comparados mediante instanciaciones
- del metamodelo desarrollado.
- 
-\end_layout
 
-\begin_layout Subsection
-Proceso de selección y descubrimiento modificado
-\end_layout
-
-\begin_layout Standard
-En la Figura 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:Esquema-propuesto"
-
-\end_inset
-
- se presenta de manera esquemática la modificación sobre el proceso de descubrim
-iento y selección de Servicios Web, al considerar los dos nuevos componentes
- (metamodelo y conversor), que son parte de la nueva Herramienta de Evaluación
- de Servicios Web.
- El nuevo proceso consiste inicialmente en generar instancias del metamodelo
- propuesto a partir de los documentos WSDL correspondientes a los Servicios
- Web candidatos.
- En el Paso 1.1 se generan las instancias del metamodelo que corresponden
- al requerimiento funcional del servicio que se espera consumir por la aplicació
-n – que ahora denominamos 
-\begin_inset Formula $I_{C}$
-\end_inset
-
- (Interfaz a Consumir), en vez de 
-\begin_inset Formula $I_{R}$
-\end_inset
-
- – a partir de la cual se generan consultas (
-\emph on
-queries
-\emph default
-).
- Luego en el Paso 1.2 se realizan las consultas en el registro de descubrimiento
- (tal como el de EasySOC), para obtener los documentos WSDL de los servicios
- del Proveedor, que pueden corresponder a versiones 1.1 y 2.0.
- Con estos documentos, se generan las instancias del metamodelo – que ahora
- denominamos 
-\begin_inset Formula $I_{P}$
-\end_inset
-
- (Interfaz Provista), en vez de 
-\begin_inset Formula $I_{S}$
-\end_inset
-
- – utilizando el componente Conversor para obtener el conjunto que servirá
- de entrada al Paso 2, que es la selección del servicio candidato más apto.
- 
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename ImgChapter3/EsquemaMetodoNuevo.png
-	width 100col%
-
-\end_inset
-
-
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:Esquema-propuesto"
-
-\end_inset
-
-Modificación del Proceso de Descubrimiento y Selección de Servicios Web
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-En el procedimiento de Análisis de Compatibilidad de Interfaces, que es
- parte del Método de Selección de Servicios Web (Paso 2), se realizó una
- actualización con respecto al componente del Metamodelo.
- En la presente versión (Figura
-\begin_inset space ~
-\end_inset
-
-
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:Análisis-de-Compatibilidad-Interfcaes"
-
-\end_inset
-
-), se cuentan con las instancias del metamodelo, mediante el ingreso de
- los objetos 
-\begin_inset Formula $I_{P}$
-\end_inset
-
- e 
-\begin_inset Formula $I_{C}$
-\end_inset
-
-, por lo que se puede acceder a todos sus atributos en una forma directa
- para el proceso de obtención de datos de signatura y evaluación tanto semántica
- como estructural.
- Si bien en la versión anterior ilustrada en la Figura 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:Análisis-de-Compatibilidad"
-
-\end_inset
-
-, desde los archivos WSDL versión 1.1 se extraían los elementos de signatura,
- ingresaban las clases 
-\begin_inset Formula $I_{S}$
-\end_inset
-
- e 
-\begin_inset Formula $I_{R}$
-\end_inset
-
- y actualmente 
-\begin_inset Formula $I_{P}$
-\end_inset
-
- e 
-\begin_inset Formula $I_{C}$
-\end_inset
-
-, las herramientas de soporte son las mismas: WordNet y el listado de Stop
- words.
- 
-\begin_inset Float figure
-placement h
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename ImgChapter3/Análisis-de-Compatibilidad-Interfaces.png
-	lyxscale 50
-	width 98text%
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:Análisis-de-Compatibilidad-Interfcaes"
-
-\end_inset
-
-Análisis de Compatibilidad de Interfaces
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Al realizar la integración del componente del metamodelo se adaptaron las
- estrategias subyacentes para la evaluación de servicios desde el punto
- de vista estructural y semántico presentadas en la Sección
-\begin_inset space ~
-\end_inset
-
-
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "sec:Compatibilidad-InterfacesOld"
-
-\end_inset
-
- (Capítulo
-\begin_inset space ~
-\end_inset
-
-
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "cap:SOApp"
-
-\end_inset
-
-).
- Para ello se estableció una correspondencia entre los elementos del metamodelo
- definido y las interfaces Java utilizadas en el enfoque anterior.
-\end_layout
-
-\begin_layout Subsection
-Ventajas sobre implementacion anterior 
-\end_layout
-
-\begin_layout Standard
-En las versiones anteriores de la plataforma para selección de Servicios
- Web
-\begin_inset space ~
-\end_inset
-
-
-\begin_inset CommandInset citation
-LatexCommand cite
-key "DeRenzis13,castro16"
-
-\end_inset
-
-, la evaluación a nivel de contratos se realizaba analizando interfaces
- Java generadas a partir de documentos WSDL.
- Como se mencionó en la Sección 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "sec:introMotivacion"
-
-\end_inset
-
-, cada proveedor de servicios utiliza diferentes versiones de WSDL para
- describir las interfaces de sus servicios.
- A la hora de evaluar Servicios Web descritos mediante archivos WSDL, era
- necesario contar con herramientas externas, para cada servicio, generar
- las clases Java en archivos separados porque se utilizaba la herramienta
- Java Reflection
-\begin_inset Foot
-status open
-
-\begin_layout Plain Layout
-http://www.oracle.com/technetwork/articles/java/javareflection-1536171.html
- 
-\end_layout
-
-\end_inset
-
- como soporte para el análisis.
- Java Reflection es un mecanismo poderoso que provee el lenguaje de programación
- Java (que no existe en otros lenguajes, tal como Pascal, C o C++) el cual
- permite al programa examinarse a sí mismo (introspección), y manipular
- propiedades internas.
- Se utilizaba para acceder y explorar los archivos Java compilados (.class)
- y extraer la información de cada interfaz.
- Junto a Java Reflection, se utilizaba Paranamer
-\begin_inset Foot
-status open
-
-\begin_layout Plain Layout
-https://github.com/paul-hammant/paranamer
-\end_layout
-
-\end_inset
-
-, cuya función era permitir obtener el acceso a los nombres de los parámetros
- de los métodos no privados y constructores en tiempo de ejecución.
- Normalmente esta información se pierde en el proceso de compilación.
- 
-\end_layout
-
-\begin_layout Standard
-Con la implementación actual sólo es necesario disponer de las instanciaciones
- del metamodelo sin la necesidad de que existan archivos vinculados entre
- sí.
- Esa es una importante diferencia con respecto a una herramienta externa
- para el procesamiento de WSDL como podría ser EasyWSDL, puesto que para
- cada Servicio Web se generarían los siguientes archivos Java: 
-\end_layout
-
-\begin_layout Itemize
-Un archivo que incluye la definición de todas las operaciones, el cual represent
-a a la clase utilizada para invocar al servicio.
-\end_layout
-
-\begin_layout Itemize
-Dos archivos Java por cada operación en el servicio.
- Uno de los archivos representa un tipo complejo que encapsula las entradas
- de la operación y el otro archivo representa otro tipo de dato complejo
- que encapsula las salidas de la operación.
- 
-\end_layout
-
-\begin_layout Itemize
-Un archivo Java por cada tipo de dato complejo propio del dominio específico
- del servicio.
- 
-\end_layout
-
-\begin_layout Standard
-Además, el metamodelo propuesto ofrece mas información 
-\begin_inset Quotes eld
-\end_inset
-
-semántica
-\begin_inset Quotes erd
-\end_inset
-
- correspondiente al servicio.
- Un claro ejemplo se ve en la representación de las salidas de una operación.
- En el metamodelo propuesto, la salida de una operación (output) esta compuesta
- por un nombre, que puede ser cualquier tipo de identificador que represente
- a la salida de la operación y un conjunto de parámetros que determina cada
- uno de los datos que son retornados por la operación del servicio.
- En la versión anterior de la herramienta, utilizando interfaces Java, las
- operaciones cuentan simplemente con un tipo de retorno, y en el caso de
- que la operación retorne distintos elementos, se deberá encapsular cada
- uno de ellos, aún cuando en conjunto no conformen una entidad única y distintiv
-a del dominio.
 \end_layout
 
 \begin_layout Standard
