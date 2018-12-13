@@ -194,7 +194,7 @@ old 3.2
 \end_layout
 
 \begin_layout Standard
-Es necesario contar con una especificación de contratos de Servicios Web,
+Es necesario contar con una especificación de contratos de Servicios Web
  que sea independiente de cualquier tecnología de implementación.
  Por este motivo, utilizando como base los estándares mencionados en la
  Sección 
@@ -204,18 +204,18 @@ reference "subsec:Background"
 
 \end_inset
 
-
+(Capítulo 1), SoaML, WSDL y WADL 
 \begin_inset Note Note
 status open
 
 \begin_layout Plain Layout
-de cap 1
+actualizar
 \end_layout
 
 \end_inset
 
-, SoaML, WSDL y WADL, se ha decidido utilizar el Metamodelo para Descripción
- de Contratos de Servicios Web
+, se ha decidido utilizar el Metamodelo para Descripción de Contratos de
+ Servicios Web
 \begin_inset Note Note
 status open
 
@@ -1596,7 +1596,7 @@ end{figure}
 \end_layout
 
 \begin_layout Subsection
-Mapeo estándares de descripción SOA con el Metamodelo.
+Correspondencia entre los estándares de descripción SOA con el Metamodelo.
 \begin_inset Note Note
 status open
 
@@ -1610,8 +1610,561 @@ Sección 4 de paper
 \end_layout
 
 \begin_layout Standard
-A continuación explicaremos la correspondencia entre los estándares vistos
- en BACKGROUND con el metamodelo utilizado.
+A continuación explicaremos la correspondencia entre los elementos perteneciente
+s a los estándares vistos en la Sección 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Background"
+
+\end_inset
+
+(Capítulo 1) con los pertenecientes al metamodelo utilizado.
+ Las Tablas 
+\lang english
+
+\begin_inset space ~
+\end_inset
+
+
+\lang spanish
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:SoaML-n-Metamodel"
+
+\end_inset
+
+,
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:WSDL2-n-Metamodel"
+
+\end_inset
+
+ y
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:WADL-n-Metamodel"
+
+\end_inset
+
+ presentan esta correspondencia, donde 
+\begin_inset Formula $+$
+\end_inset
+
+ significa que más de un elemento es considerado, 
+\begin_inset Formula $|$
+\end_inset
+
+ significa que se pueden alternar los elementos, 
+\begin_inset Formula $@$
+\end_inset
+
+ indica un atributo del elemento, y 
+\begin_inset Formula $=$
+\end_inset
+
+ significa un valor específico del atributo.
+ 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+La correspondencia mas relevante para cada estandar se describe a continuación
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+repetido
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph
+Correspondencia con SoaML
+\end_layout
+
+\begin_layout Standard
+El principal aspecto de la Tabla
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:SoaML-n-Metamodel"
+
+\end_inset
+
+ considerando el estandar SoaML inclipa la interacción entre los roles participa
+ntes (Proovedor y Consumido) mediante una 
+\emph on
+ServiceInterface
+\emph default
+, mediante una Orquestación -que es representada en la Figura
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:SoamlServiceInterface"
+
+\end_inset
+
+.
+ Con respecto a una descripción particular de interface, en SoaML generalmente
+ se utiliza una 
+\emph on
+UML Interface
+\emph default
+, aunque el intercambio de datos se modela con esterotipos específicos,
+ llamados 
+\emph on
+MessageType
+\emph default
+ y 
+\emph on
+DataType
+\emph default
+, que se corresponden con 
+\emph on
+Parameter
+\emph default
+ y 
+\emph on
+Type
+\emph default
+ respectivamente
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\paragraph_spacing onehalf
+\noindent
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="11" columns="3">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size footnotesize
+SoaML 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size footnotesize
+Metamodelo
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Interface realizada por una ServiceInterface
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Provider + Service
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Interface usada por una ServiceInterface
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Consumer + Service
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+ServiceInterface Interaction Protocol
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Orchestration
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Interface
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Interface
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Operation
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Operation
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Input 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Input
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Response
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Output
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Exception
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Fault
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+<<MessageType>>
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Parameter
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+<<DataType>>
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Type
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\noindent
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+SoaML y Metamodelo
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:SoaML-n-Metamodel"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
