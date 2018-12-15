@@ -1750,6 +1750,10 @@ reference "tab:RAML-n-Metamodel"
 
 \begin_layout Paragraph
 Correspondencia con SoaML
+\begin_inset Newline newline
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -2231,17 +2235,21 @@ name "tab:SoaML-n-Metamodel"
 
 \begin_layout Paragraph
 Correspondencia con WSDL 2.0
+\begin_inset Newline newline
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
-En la tabla 
+En la Tabla 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "tab:WSDL2-n-Metamodel"
 
 \end_inset
 
-se considera que una especificación WSDL 2.0 especifica un 
+ se considera que una especificación WSDL 2.0 especifica un 
 \emph on
 Service
 \emph default
@@ -2690,10 +2698,14 @@ name "tab:WSDL2-n-Metamodel"
 
 \begin_layout Paragraph
 Correspondencia con WADL
+\begin_inset Newline newline
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
-En la tabla 
+En la Tabla 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "tab:WADL-n-Metamodel"
@@ -3202,17 +3214,21 @@ name "tab:WADL-n-Metamodel"
 
 \begin_layout Paragraph
 Correspondencia con OpenAPI
+\begin_inset Newline newline
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
-En la tabla 
+En la Tabla 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "tab:OpenAPI-n-Metamodel"
 
 \end_inset
 
-se muestra que en OpenAPI, una especificación de un servicio define información
+ se muestra que en OpenAPI, una especificación de un servicio define información
  general como título (
 \emph on
 name
@@ -3624,10 +3640,14 @@ name "tab:OpenAPI-n-Metamodel"
 
 \begin_layout Paragraph
 Correspondencia con RAML
+\begin_inset Newline newline
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
-En la tabla 
+En la Tabla 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "tab:RAML-n-Metamodel"
