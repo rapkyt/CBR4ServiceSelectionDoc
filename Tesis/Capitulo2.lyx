@@ -5488,7 +5488,7 @@ status open
 
 \begin_layout Plain Layout
 \begin_inset Graphics
-	filename ImgChapter2/EquivalenciaDeSubtipos.PNG
+	filename ImgChapter2/EquivalenciaDeSubtiposActualizada.PNG
 	lyxscale 50
 	width 65text%
 
@@ -5531,8 +5531,8 @@ status open
 \begin_inset Tabular
 <lyxtabular version="3" rows="11" columns="2">
 <features tabularvalignment="middle">
-<column alignment="center" valignment="top" width="18text%">
-<column alignment="left" valignment="top" width="90text%">
+<column alignment="center" valignment="top" width="16text%">
+<column alignment="left" valignment="top" width="80text%">
 <row>
 <cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
 \begin_inset Text
@@ -5556,6 +5556,25 @@ Tipo en
 \begin_inset Text
 
 \begin_layout Plain Layout
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
 
 \series bold
 \size small
@@ -5577,7 +5596,7 @@ Tipo en
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 BYTE
 \end_layout
 
@@ -5588,7 +5607,7 @@ BYTE
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 SHORT, INTEGER, LONG, DECIMAL, FLOAT, DOUBLE, STRING
 \end_layout
 
@@ -5601,7 +5620,7 @@ SHORT, INTEGER, LONG, DECIMAL, FLOAT, DOUBLE, STRING
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 SHORT
 \end_layout
 
@@ -5612,7 +5631,7 @@ SHORT
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 INTEGER, LONG, DECIMAL, FLOAT, DOUBLE, STRING
 \end_layout
 
@@ -5625,7 +5644,7 @@ INTEGER, LONG, DECIMAL, FLOAT, DOUBLE, STRING
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 INTEGER
 \end_layout
 
@@ -5636,7 +5655,7 @@ INTEGER
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 LONG, DECIMAL, FLOAT, DOUBLE, STRING
 \end_layout
 
@@ -5649,7 +5668,7 @@ LONG, DECIMAL, FLOAT, DOUBLE, STRING
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 LONG
 \end_layout
 
@@ -5660,7 +5679,7 @@ LONG
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 DECIMAL, FLOAT, DOUBLE, STRING
 \end_layout
 
@@ -5673,7 +5692,7 @@ DECIMAL, FLOAT, DOUBLE, STRING
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 DECIMAL
 \end_layout
 
@@ -5684,7 +5703,7 @@ DECIMAL
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 FLOAT, DOUBLE, STRING
 \end_layout
 
@@ -5697,7 +5716,7 @@ FLOAT, DOUBLE, STRING
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 FLOAT
 \end_layout
 
@@ -5708,7 +5727,7 @@ FLOAT
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 DOUBLE, STRING
 \end_layout
 
@@ -5721,7 +5740,7 @@ DOUBLE, STRING
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 DOUBLE
 \end_layout
 
@@ -5732,7 +5751,7 @@ DOUBLE
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 STRING
 \end_layout
 
@@ -5745,7 +5764,7 @@ STRING
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 DATE
 \end_layout
 
@@ -5756,7 +5775,7 @@ DATE
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 DATE_TIME
 \end_layout
 
@@ -5769,7 +5788,7 @@ DATE_TIME
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 STRING
 \end_layout
 
@@ -5780,7 +5799,7 @@ STRING
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 BYTE, SHORT, INTEGER, LONG, DECIMAL, FLOAT, DOUBLE
 \end_layout
 
@@ -5793,7 +5812,7 @@ BYTE, SHORT, INTEGER, LONG, DECIMAL, FLOAT, DOUBLE
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 ANY_TYPE
 \end_layout
 
@@ -5804,7 +5823,7 @@ ANY_TYPE
 
 \begin_layout Plain Layout
 
-\size footnotesize
+\size scriptsize
 BYTE, SHORT, INTEGER, LONG, DECIMAL, FLOAT, DOUBLE, STRING
 \end_layout
 
