@@ -5309,12 +5309,6 @@ Sea
 , las probables equivalencias entre esas operaciones se basan, en primera
  instancia, en las condiciones estructurales y semánticas para cada elemento
  de signatura.
- Nótese que dichos elementos se nombran de acuerdo a la terminología Java,
- en vez de usar la convención WSDL para interfaces de Servicios Web.
- Esto se debe a que las evaluaciones se realizan sobre interfaces Java previamen
-te derivadas de especificaciones WSDL.
- Los aspectos principales en cuanto a las condiciones estructurales son
- detallados a continuación.
  
 \end_layout
 
@@ -5371,7 +5365,11 @@ key "Zaremski97,Gosling05"
 
 \end_inset
 
- para tipos primitivos de datos, de acuerdo a la relación 
+ para tipos de datos primitivos disponibles en 
+\emph on
+SimpleType
+\emph default
+ del Metamodelo, basada en la relación 
 \emph on
 directa
 \emph default
@@ -5418,28 +5416,18 @@ key "castro16"
 \end_inset
 
 .
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-actualizar por los tipos de Simpletype
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Standard
-Así para las signaturas de las operaciones se consideran relaciones de subtipos
- como se muestra en la Tabla
+Así para las signaturas de las operaciones se consideran equivalencia de
+ tipos como se muestra en la Tabla
 \begin_inset space ~
 \end_inset
 
 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "tab:Equivalencia-de-Subtipos"
+reference "tab:Equivalencia-de-Subtipos-Metamodelo"
 
 \end_inset
 
@@ -5462,18 +5450,15 @@ reference "tab:Equivalencia-de-Subtipos"
 
  no puede tener una precisión menor como 
 \family typewriter
-short
+SHORT
 \family default
  o 
 \family typewriter
-byte
+BYTE
 \family default
  (entre los tipos numéricos).
- Sin embargo, se da un caso especial con el tipo 
-\family typewriter
-String
-\family default
-, que se considera un tipo 
+ Sin embargo, aunque se da un caso especial con el tipo STRING, que se considera
+ un tipo 
 \emph on
 comodín
 \emph default
@@ -5489,7 +5474,10 @@ key "Pasley06"
 
 \end_inset
 
-.
+, en el contexto del Metamodelo se decidió agregar el tipo ANY_TYPE para
+ realizar esto con un mayor significado semántico.
+ Los tipos no especificados en esta tabla no poseen ningún otro tipo compatible
+ con tanta precisión.
 \end_layout
 
 \begin_layout Standard
@@ -5520,7 +5508,327 @@ name "tab:Equivalencia-de-Subtipos"
 
 \end_inset
 
-Equivalencia de Subtipos
+Equivalencia de Subtipos del lenguaje Java
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Tabular
+<lyxtabular version="3" rows="11" columns="2">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top" width="18text%">
+<column alignment="left" valignment="top" width="90text%">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size small
+Tipo en 
+\series default
+
+\begin_inset Formula $op_{P}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size small
+Tipo en 
+\series default
+
+\begin_inset Formula $op_{C}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+BYTE
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+SHORT, INTEGER, LONG, DECIMAL, FLOAT, DOUBLE, STRING
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+SHORT
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+INTEGER, LONG, DECIMAL, FLOAT, DOUBLE, STRING
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+INTEGER
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+LONG, DECIMAL, FLOAT, DOUBLE, STRING
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+LONG
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+DECIMAL, FLOAT, DOUBLE, STRING
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+DECIMAL
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+FLOAT, DOUBLE, STRING
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+FLOAT
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+DOUBLE, STRING
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+DOUBLE
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+STRING
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+DATE
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+DATE_TIME
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+STRING
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+BYTE, SHORT, INTEGER, LONG, DECIMAL, FLOAT, DOUBLE
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+ANY_TYPE
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+BYTE, SHORT, INTEGER, LONG, DECIMAL, FLOAT, DOUBLE, STRING
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:Equivalencia-de-Subtipos-Metamodelo"
+
+\end_inset
+
+Equivalencia de Subtipos en el Metamodelo
 \end_layout
 
 \end_inset
