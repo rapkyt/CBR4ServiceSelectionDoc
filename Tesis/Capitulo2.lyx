@@ -8983,12 +8983,58 @@ Open Challenges
 \end_layout
 
 \begin_layout Standard
-Como se vió a lo largo de la presente sección, el metamodelo sólo soporta
- wsdl, no tiene estandarizado un proceso de selección (como elijo entre
- X servicios empatados? a cargo del desarrollador), en cada experimento
- se deben parsear e instanciar todos los servicios que se requieran utilizar,
- la información obtenida de cada ejecución no se reutiliza (aprendizaje).
- KB persistente, 
+A lo largo del presente capítulo se pudieron observar una serie de oportunidades
+ de mejora:
+\end_layout
+
+\begin_layout Standard
+El propósito y funcionamiento del Metamodelo fue diseñado basandose en los
+ estándares SoaML, WSDL 2.0 y WADL.
+ Con el fin de no tener que realizar las instanciaciones de las diferentes
+ clases del Metamodelo manualmente, una pieza de software fue provista para
+ poder realizar instancias del Metamodelo basandose en especificaciones
+ WSDL ya existentes.
+ Se analizó que era necesario otra pieza de software conversor que acepte
+ estándares de descripción de Servicios Web más modernos, como OpenAPI,
+ y genere las instancias del Metamodelo análogas correspondientes.
+ 
+\end_layout
+
+\begin_layout Standard
+El Metamodelo utilizado carece de un proceso automatizado de selección,
+ siendo el ingeniero el que tiene que desarrollar éste algoritmo.
+ Así mismo el ingeniero experto también debe decidir como resolver si en
+ un experimento existiecen varios servicios candidatos (
+\begin_inset Formula $I_{C}$
+\end_inset
+
+) en los cuales la evaluación con respecto al servicio propuesto (
+\begin_inset Formula $I_{P}$
+\end_inset
+
+) toma el mismo valor de distancia de Adaptabilidad, generando la siguiente
+ incógnita ¿Como seleccionar el correspondiente servicio adecuado entre
+ ellos?.
+ Por consiguiente, es necesario automatizar este proceso, estandarizandolo
+ dentro de la metodología Razonamiento Basado en Casos.
+\end_layout
+
+\begin_layout Standard
+Cada experimento posee un entorno de conocimiento aislado y volatil a lo
+ largo de los experimentos, es decir, las instancias del Metamodelo pertenecient
+es al dataset, o Base de Conocimientos, deben ser generadas antes de realizar
+ cada experimento, significando que cada servicio que se requiera en el
+ dataset debe ser instanciado por el Software conversor anteriormente mencionado
+ antes de cada experimento.
+ Esto, además de hacer que cada prólogo al experimento sea repetitivo, no
+ aprovecha ni reutiliza la información obtenida de cada ejecución, razon
+ por la cual es necesario almacenar esta base de conocimientos en un sistema
+ persitente, con el fin de ahorrar tiempo en cada ejecución y nutrirse de
+ experiencia obtenida de experiencias pasadas.
+\end_layout
+
+\begin_layout Standard
+
 \end_layout
 
 \end_body
