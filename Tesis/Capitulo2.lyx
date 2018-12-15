@@ -101,16 +101,20 @@ name "sec:introCap2"
 
 \begin_layout Standard
 En el capítulo previo se describió la motivación principal de esta tesis
- que consiste en la creación e instanciación de un metamodelo para comparación
- de Servicios Web, considerado una mejora de suma importancia para el Proceso
- de Selección de Servicios Web.
- Este último se basa actualmente en especificaciones sencillas derivadas
+ que consiste en la estandarización del proceso de selección de Servicios
+ Web utilizando la metodología Razonamiento Basado en Casos, la persistencia
+ de la Base de Conocimientos y una pieza de software capaz de generar instancias
+ del Metamodelo a partir de una especificación OpenAPI, considerado una
+ mejora de suma importancia para el Proceso de Evaluación y Selección de
+ Servicios Web.
+ El Metamodelo se basa actualmente en especificaciones sencillas derivadas
  de las descripciones WSDL de servicios; para evaluar el nivel de compatibilidad
  y también estimar el esfuerzo de adaptación de un servicio candidato para
  su integración en una aplicación en desarrollo específica.
- Las especificaciones actuales de servicios son interfaces Java, las cuales
- no permiten considerar la amplia heterogeniedad tecnológica de Servicios
- Web, es decir, WSDL, WADL, REST, entre otros.
+ Las especificaciones actuales de servicios son descripciones WSDL, las
+ cuales van perdiendo uso en la industria actual de tecnologías de Servicio
+ Web, que está adoptando estándares de descripción modernos, como OpenAPI
+ entre otros, cada vez con mayor frecuencia.
 \end_layout
 
 \begin_layout Standard
@@ -160,17 +164,6 @@ key "castro16,Cors12,DeRenzis13"
 \end_inset
 
  y posee una herramienta como soporte semi-automático.
- 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-cambiar
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Section
@@ -9031,10 +9024,6 @@ es al dataset, o Base de Conocimientos, deben ser generadas antes de realizar
  por la cual es necesario almacenar esta base de conocimientos en un sistema
  persitente, con el fin de ahorrar tiempo en cada ejecución y nutrirse de
  experiencia obtenida de experiencias pasadas.
-\end_layout
-
-\begin_layout Standard
-
 \end_layout
 
 \end_body
