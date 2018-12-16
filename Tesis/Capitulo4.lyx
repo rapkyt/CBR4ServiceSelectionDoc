@@ -1,4 +1,4 @@
-#LyX 2.3 created this file. For more info see http://www.lyx.org/
+#LyX 2.2 created this file. For more info see http://www.lyx.org/
 \lyxformat 508
 \begin_document
 \begin_header
@@ -121,21 +121,36 @@ reference "chap:Metamodelo-para-descipción"
 \end_layout
 
 \begin_layout Standard
-En este experimento se compara la visibilidad de Servicios Web candidatos
- utilizando CBR para Selección de Servicios Web, presentado en el Capítulo
-\begin_inset space ~
-\end_inset
-
-
+En el presente capítulo se detalla la evaluación experimental realizada
+ a la plataforma de selección de servicios luego de integrar el Metamodelo
+ para descripción de Servicios Web en el marco de la metodología Razonamiento
+ Basado en Casos, en adelante CBR (
+\emph on
+Case Based Reasoning
+\emph default
+).
+ Esta evaluación experimental ha permitido estudiar el alcance del Metamodelo
+ detallado en la Sección 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "chap:Metamodelo-para-descipción"
+reference "sec:Metamodelo-para-descripción"
 
 \end_inset
 
-.
- Para esta evaluación se utilizó un conjunto de servicios compuesto por
- 1192 descripciones WSDL de Servicios Web obtenidos de la plataforma Mashape
+ (Capítulo 2), en la respectiva integración con la metodología CBR detallada
+ en la Sección 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:-Conversor de OAS"
+
+\end_inset
+
+ (Capítulo 3).
+\end_layout
+
+\begin_layout Standard
+Para esta evaluación se utilizó un conjunto de servicios compuesto por 1192
+ descripciones WSDL de Servicios Web obtenidos de la plataforma Mashape
  y 550 especificaciones Swagger obtenidas de la plataforma APIs.Guru.
  En la Figura
 \begin_inset space ~
@@ -209,12 +224,20 @@ name "sec:Pasos-para-la-validacion"
 \end_layout
 
 \begin_layout Standard
-Para realizar este experimento, inicialmente dos grupos de ingenieros de
- software seleccionaron aleatoriamente 20 descripciones de servicios (de
- las 1742 anteriormente mencionadas).
- Estas descripciones fueron consideradas como servicios relevantes en el
- contexto de este experimento (Fase de Generación de Consultas de la Figura
- 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Cambié tiempo verbal, lo transformé en algoritmo en lugar de anecdótico
+\end_layout
+
+\end_inset
+
+Para llevar a cabo un experimento, inicialmente dos grupos de ingenieros
+ de software seleccionan aleatoriamente una cantidad de descripciones de
+ servicios (de las 1742 disponibles anteriormente mencionadas).
+ Estas descripciones son consideradas como servicios relevantes en el contexto
+ del experimento (Fase de Generación de Consultas de la Figura 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Proceso-experimental"
@@ -222,8 +245,8 @@ reference "fig:Proceso-experimental"
 \end_inset
 
 ).
- Las descripciones de servicios que no fueron marcadas como relevantes para
- ninguna consulta fueron utilizadas como 
+ Las descripciones de servicios que no fueran marcadas como relevantes para
+ ninguna consulta serán utilizadas como 
 \begin_inset Quotes eld
 \end_inset
 
@@ -231,35 +254,121 @@ ruido
 \begin_inset Quotes erd
 \end_inset
 
- con el objetivo de incrementar la dimensión del experimento, en términos
+ con el objetivo de incrementar la dimensión del experimento en términos
  de número de Casos pertenecientes a la Base de Conocimientos.
- Luego, distintos conjuntos de consultas 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-saqué el numero especifico porque no estaba completo, se puede mencionar
- luego.
-\end_layout
-
-\end_inset
-
- fueron generadas manualmente por los dos grupos de expertos, utilizando
- como base los 20 servicios relevantes (Sección
-\begin_inset space ~
-\end_inset
-
-
+ Luego, distintos conjuntos de consultas serán generados manualmente por
+ los dos grupos de expertos de acuerdo a lo explicado en la Sección 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sec:Generacion-de-consultas"
 
 \end_inset
 
-).
+, utilizando como base los servicios relevantes seleccionados en primer
+ instancia.
 \end_layout
 
 \begin_layout Standard
+En la Fase de Ejecución Experimental (Figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Proceso-experimental"
+
+\end_inset
+
+) se comienza generando una Base de Conocimiento (KB), o utilizando una
+ ya existente, que contenga todas las descripciones de servicios disponibles,
+ en este caso 1742, es decir, se toman tanto las descripciones marcadas
+ como relevantes así como las descripciones utilizadas como 
+\begin_inset Quotes eld
+\end_inset
+
+ruido
+\begin_inset Quotes erd
+\end_inset
+
+.
+ Luego se popula la Base de consultas con aquellas generadas manualmente
+ por los grupos de expertos y se procede a ejecutar el algoritmo del Razonamient
+o Basado en Casos, indicanto, mediante parámetros, el nombre de cada una
+ de estas bases de datos, o colecciones.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+un poco más?
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Finalmente, en la Fase de Resultados (Figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Proceso-experimental"
+
+\end_inset
+
+), se comparan los datos obtenidos en la fase anterior mediante dos populares
+ métricas pertenecientes al campo de Recuperación de Informácion, detalladas
+ en la Sección 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Métricas-Utilizadas"
+
+\end_inset
+
+ (
+\emph on
+Precisión
+\emph default
+ y 
+\emph on
+Recall-at-n
+\emph default
+) 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+y...\SpecialChar endofsentence
+.
+ {cierre de la frase}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Cabe destacar que la presente validación experimental realizada y detallada
+ en la Figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Proceso-experimental"
+
+\end_inset
+
+ presenta ciertas limitaciones, las mismas se encuentran explicadas en la
+ Sección 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Limitaciones"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
 En la Fase de Ejecución Experimental (Figura 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -282,7 +391,7 @@ Este parrafo a continuación debería ser actualizado explicando a grandes
 
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 Por un lado se utilizó el conjunto de 1192 Casos para poblar un registro
  de descubrimiento.
  Los resultados brindados por este registro de descubrimiento proveen una
@@ -318,7 +427,7 @@ registro de descubrimiento
 
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 Sobre los resultados retornados por el registro de descubrimiento, fue ejecutado
  el enfoque de selección de servicios.
 \begin_inset Note Note
@@ -333,7 +442,7 @@ CBR en vez de selección?
 
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 Finalmente, en la Fase de Resultados (Figura 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -354,8 +463,7 @@ de nuevo, esto corresponde solo a un experimento
 \end_inset
 
  Los resultados del experimento fueron evaluados de acuerdo dos populares
- métricas pertenecientes al campo de Recuperación de Información \twohyphens
- 
+ métricas pertenecientes al campo de Recuperación de Información – 
 \emph on
 Precisión 
 \emph default
@@ -365,6 +473,11 @@ Recall-at-n
 \emph default
 .
  
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -421,7 +534,7 @@ name "fig:Proceso-experimental"
 
 \end_inset
 
-Proceso experimental
+Proceso experimental utilizado
 \end_layout
 
 \end_inset
