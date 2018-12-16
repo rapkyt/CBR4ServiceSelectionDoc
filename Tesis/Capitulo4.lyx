@@ -1961,8 +1961,9 @@ name "subsec:Experimento-1:-Comparativa"
 \end_layout
 
 \begin_layout Standard
-En el presente experimento se realizó una comparativa con un registro de
- descubrimiento de servicios 
+En el presente experimento se utilizó el conjunto de 1192 Casos generados
+ a partir de especificaciones WSDL para utilizar en un registro de descubrimient
+o de servicios 
 \begin_inset Quotes eld
 \end_inset
 
@@ -1970,13 +1971,7 @@ tradicional
 \begin_inset Quotes erd
 \end_inset
 
-.
- Para ello se consultó el registro EasySOC con los problemas de los nuevo
- casos basados en WSDL
-\begin_inset space ~
-\end_inset
-
-
+, el registro EasySOC 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "crasso2014easysoc"
@@ -1984,8 +1979,14 @@ key "crasso2014easysoc"
 \end_inset
 
 .
- EasySOC es un registro de descubrimiento de servicios, sólo disponible
- para WSDL, basado en un Modelo de Espacio Vectorial, (
+ Los resultados brindados por este registro de descubrimiento nos proveen
+ de una base para comparar otros enfoques de selección de servicios mas
+ exhaustivos.
+\end_layout
+
+\begin_layout Standard
+EasySOC es un registro de descubrimiento de servicios, sólo disponible para
+ WSDL, basado en un Modelo de Espacio Vectorial, (
 \emph on
 Vector Space Model 
 \emph default
@@ -1993,8 +1994,11 @@ Vector Space Model
  EasySOC provee un soporte simple para descubrimiento de servicios basado
  en técnicas de matching de documentos, explotando solo aspectos sintácticos,
  tanto de consultas como de descripciones de servicios.
- EasySOC fue poblado con los 1192 servicios obtenidos de la plataforma Mashape
- (Paso 4).
+\end_layout
+
+\begin_layout Standard
+El registro de descubrimiento fue poblado con los 1192 servicios obtenidos
+ de la plataforma Mashape (Paso 4).
  Las consultas sintácticas (que son las que se le hacen a los registros
  de descubrimiento) fueron generadas concatenando los nombres de las operaciones
  extraídas de las instancias del metamodelo (particularmente de las consultas
@@ -2041,7 +2045,11 @@ reference "sec:CBR-para-selección"
 \end_inset
 
 3 (Paso 6).
- Finalmente, los resultados obtenidos, tanto para los casos nuevos ejecutados
+ 
+\end_layout
+
+\begin_layout Standard
+Finalmente, los resultados obtenidos, tanto para los casos nuevos ejecutados
  sobre el registros de descubrimiento de servicios (EasySOC), como sobre
  la herramienta de Razonamiento Basado en Casos, fueron evaluados utilizando
  las métricas (
@@ -2067,7 +2075,9 @@ reference "subsec:Métricas-Utilizadas"
 \emph on
 gold standard 
 \emph default
-para cada consulta.
+para cada consulta, de esta manera, se puede realizar una comparación de
+ los resultados en términos de visibilidad del servicio relevante entre
+ nuestro enfoque y el registro de descubirmiento de servicios.
 \end_layout
 
 \begin_layout Paragraph
@@ -2905,24 +2915,41 @@ Finalmente, ejecutamos el procedimiento de evaluación del servicio utilizando
 \begin_inset space ~
 \end_inset
 
-INSERT
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Recall-acumulado-experimento-1"
+
+\end_inset
+
+ ilustra los valores promedio de Recall-at-n para las consultas originales,
+ las consultas modificadas y el registro EasySOC con las consultas modificadas,
+ mientras que en la Tabla 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:recall-acumulada-experimento-1"
+
+\end_inset
+
+ se expresan dichos valores obtenidos.
+ 
+\end_layout
+
+\begin_layout Standard
+Con las consultas originales, Recall-at-1 es del 100%, es decir, todos los
+ casos relevante se recuperan en la primer posición de los resultados.
+ Luego, para las consultas modificadas, se alcanza un Recall-at-1 del 85%
+ con una mejora del 35% respecto a EasySOC y un Recall-at-10 del 100%, con
+ una mejora del XX% respecto a EasySOC.
+\end_layout
+
+\begin_layout Standard
 \begin_inset Note Note
 status open
 
 \begin_layout Plain Layout
-Completar!
-\end_layout
-
-\end_inset
-
- muestra los valores promedio de Recall-at-n para las consultas originales,
- las consultas modificadas y el registro EasySOC con las consultas modificadas.
- Con las consultas originales, Recall-at-1 es del 100%, es decir, todos
- los casos relevante se recuperan en la primer posición de los resultados.
- Luego, para las consultas modificadas, se alcanza un Recall-at-1 del 85%
- con una mejora del 35% respecto a EasySOC.
- Para el segundo experimento se siguió enfoque similar al descripto anteriorment
-e: se seleccionaron 20 servicios aleatoriamente como consultas y luego los
+Para el segundo experimento se siguió enfoque similar al descripto anteriormente
+: se seleccionaron 20 servicios aleatoriamente como consultas y luego los
  ingenieros de software los modificaron para crear consultas.
  La Figura
 \begin_inset space ~
@@ -2957,12 +2984,419 @@ esto es así? ambos dataset para este experimento?
  
 \end_layout
 
+\end_inset
+
+
+\end_layout
+
 \begin_layout Standard
-\begin_inset Note Note
+\begin_inset Float figure
+wide false
+sideways false
 status open
 
 \begin_layout Plain Layout
-IMAGENES Y TABLA
+\begin_inset Graphics
+	filename ImgChapter4/usadas/recall experimento 1.pdf
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Recall acumulado del experimento 1.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Recall-acumulado-experimento-1"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="11" columns="3">
+<features booktabs="true" tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Razonador Basado en Casos
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Registro EasySOC
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Recall en 1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.85
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.5
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Recall en 2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.85
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.6
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Recall en 3
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.85
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.65
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Recall en 4
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.9
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.7
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Recall en 5
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.9
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.7
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Recall en 6
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.91
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.75
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Recall en 7
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.96
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.8
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Recall en 8
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.96
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.82
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Recall en 9
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.97
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.83
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Recall en 10
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+0.84
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:recall-acumulada-experimento-1"
+
+\end_inset
+
+Recall acumulado del experimento 1.
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -3021,20 +3455,12 @@ Pertenecientes a las empresas Patagonian Tech, FidTech y a la Universidad
 .
  A este grupo se le dio una introducción sobre mutación y selección de servicios
  web, junto con instrucciones sobre como modificar las especificaciones
- disponibles, 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-mas libertad
-\end_layout
-
-\end_inset
-
-, así mismo, se les indicó realizar las mutaciones de manera incremental
- e iterativa, para poder visualizar cuales modificaciones tienen más incidencia
- a la hora de mutar el servicio, haciendo que sea más difícil de identificar
- para el Razonador Basado en Casos.
+ disponibles, así mismo se les dió la libertad de modificar la semántica
+ de algún identificador si lo creían conveniente y se les indicó realizar
+ las mutaciones de manera incremental e iterativa, para poder visualizar
+ cuales modificaciones tienen más incidencia a la hora de mutar el servicio,
+ haciendo que sea más difícil de identificar para el Razonador Basado en
+ Casos.
 \end_layout
 
 \begin_layout Standard
@@ -3177,64 +3603,6 @@ precisión
 \end_layout
 
 \begin_layout Standard
-\begin_inset Float figure
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename ImgChapter4/usadas/Recall Acumulado.png
-	lyxscale 40
-	width 100text%
-
-\end_inset
-
-
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:recall-acumulado"
-
-\end_inset
-
-Recall acumulado.
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
- el caption debería ser mas explicativo, para qué experimento es?
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Donde se referencia esta figura? usarla en el texto
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
 La Tabla
 \begin_inset space ~
 \end_inset
@@ -3252,6 +3620,26 @@ reference "tab:recall-acumulada-hackathon"
 \end_inset
 
 ) de los resultados obtenidos.
+ Estos valores fueron utilizados para trazar la Figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:recall-acumulado-hackathon"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+La Figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:precision-hackathon"
+
+\end_inset
+
+ compara la Presición obtenida evaluando los servicios originales y los
+ servicios mutados por los ingenieros expertos participantes del experimento.
 \end_layout
 
 \begin_layout Standard
@@ -3412,17 +3800,46 @@ name "tab:recall-acumulada-hackathon"
 
 \end_inset
 
-Recall acumulada para el Razonador Basado en Casos
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
- el caption debería ser mas explicativo, para qué experimento es?
+Recall acumulada para el Razonador Basado en Casos en el experimento 2.
+ 
 \end_layout
 
 \end_inset
 
 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ImgChapter4/usadas/Recall hackathon.pdf
+	lyxscale 40
+	width 70text%
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:recall-acumulado-hackathon"
+
+\end_inset
+
+Recall acumulado del experimento 2.
 \end_layout
 
 \end_inset
@@ -3458,9 +3875,9 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename ImgChapter4/usadas/precision.png
+	filename ImgChapter4/usadas/Presición chico.pdf
 	lyxscale 40
-	width 100text%
+	width 70text%
 
 \end_inset
 
@@ -3470,11 +3887,11 @@ status open
 \begin_layout Plain Layout
 \begin_inset CommandInset label
 LatexCommand label
-name "fig:precision"
+name "fig:precision-hackathon"
 
 \end_inset
 
-Precisión obtenida.
+Precisión obtenida en el experimento 2.
 \end_layout
 
 \end_inset
@@ -3488,41 +3905,16 @@ Precisión obtenida.
 \end_layout
 
 \begin_layout Standard
-\begin_inset Float figure
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename ImgChapter4/usadas/distancia Iteracion.png
-	lyxscale 40
-	width 100text%
+La Figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:evolucion-distancias-1"
 
 \end_inset
 
-
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:evolucion-distancias"
-
-\end_inset
-
-Distancia obtenida en las distintas ejecuciones para cada servicio modificado.
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
+ ilustra los distintos valores de distancia obtenidos por los ingenieros
+ expertos en este experimento, donde se dedica un gráfico para cada servicio
+ mutado y una barra para cada iteración de mutación realizada.
 \end_layout
 
 \begin_layout Standard
@@ -3541,7 +3933,7 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename ImgChapter4/usadas/Sentiment APIs.png
+	filename ImgChapter4/usadas/Resultados Hackathon - Sentiments APIs.pdf
 	lyxscale 40
 	width 50text%
 
@@ -3561,51 +3953,7 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename ImgChapter4/usadas/Game feeds.png
-	lyxscale 40
-	width 50text%
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Float figure
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename ImgChapter4/usadas/Tweeter APIS.png
-	lyxscale 40
-	width 50text%
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\begin_inset Float figure
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename ImgChapter4/usadas/Bc Laws.png
+	filename ImgChapter4/usadas/Resultados Hackathon - Game feeds.pdf
 	lyxscale 40
 	width 50text%
 
@@ -3629,7 +3977,7 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename ImgChapter4/usadas/Vat API.png
+	filename ImgChapter4/usadas/Resultados Hackathon - Tweeter API.pdf
 	lyxscale 40
 	width 50text%
 
@@ -3649,7 +3997,7 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename ImgChapter4/usadas/Azure SQL Database.png
+	filename ImgChapter4/usadas/Resultados Hackathon - Bc Laws.pdf
 	lyxscale 40
 	width 50text%
 
@@ -3673,7 +4021,7 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename ImgChapter4/usadas/import.io.png
+	filename ImgChapter4/usadas/Resultados Hackathon - Vat API.pdf
 	lyxscale 40
 	width 50text%
 
@@ -3693,7 +4041,51 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename ImgChapter4/usadas/loginstuff.web.png
+	filename ImgChapter4/usadas/Resultados Hackathon - Azure .pdf
+	lyxscale 40
+	width 50text%
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ImgChapter4/usadas/Resultados Hackathon - Import Io.pdf
+	lyxscale 40
+	width 50text%
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ImgChapter4/usadas/Resultados Hackathon - loginstuff.pdf
 	lyxscale 40
 	width 50text%
 
@@ -3714,7 +4106,8 @@ name "fig:evolucion-distancias-1"
 
 \end_inset
 
-Distancia obtenida en las distintas ejecuciones para cada servicio modificado.
+Distancia obtenida en las distintas ejecuciones para cada servicio mutado
+ en el experimento 2.
 \end_layout
 
 \end_inset
