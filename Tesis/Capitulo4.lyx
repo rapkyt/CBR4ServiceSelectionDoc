@@ -121,22 +121,36 @@ reference "chap:Metamodelo-para-descipción"
 \end_layout
 
 \begin_layout Standard
-En este experimento se compara la visibilidad de Servicios Web candidatos
- utilizando la nueva versión del Proceso de Selección de Servicios Web,
- la cual incorpora el metamodelo presentado en el Capítulo
-\begin_inset space ~
-\end_inset
-
-
+En el presente capítulo se detalla la evaluación experimental realizada
+ a la plataforma de selección de servicios luego de integrar el Metamodelo
+ para descripción de Servicios Web en el marco de la metodología Razonamiento
+ Basado en Casos, en adelante CBR (
+\emph on
+Case Based Reasoning
+\emph default
+).
+ Esta evaluación experimental ha permitido estudiar el alcance del Metamodelo
+ detallado en la Sección 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "chap:Metamodelo-para-descipción"
+reference "sec:Metamodelo-para-descripción"
 
 \end_inset
 
-.
- Para esta evaluación se utilizó un conjunto de servicios compuesto por
- 1192 descripciones WSDL de Servicios Web obtenidos de la plataforma Mashape
+ (Capítulo 2), en la respectiva integración con la metodología CBR detallada
+ en la Sección 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:-Conversor de OAS"
+
+\end_inset
+
+ (Capítulo 3).
+\end_layout
+
+\begin_layout Standard
+Para esta evaluación se utilizó un conjunto de servicios compuesto por 1192
+ descripciones WSDL de Servicios Web obtenidos de la plataforma Mashape
  y 550 especificaciones Swagger obtenidas de la plataforma APIs.Guru.
  En la Figura
 \begin_inset space ~
@@ -163,7 +177,8 @@ reference "sec:Generacion-de-consultas"
 \end_inset
 
  se explica cómo han sido generadas las consultas utilizando el conjunto
- de 1742 Servicios Web.
+ de 1742 Servicios Web y la intervención de distintos grupos de ingenieros
+ de software.
  En la Sección 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -184,16 +199,16 @@ reference "sec:EjecucionExperimental"
 
 \end_inset
 
- se detalla cómo fueron llevada a cabo las ejecuciones experimentales junto
- con los resultados de las mismas.
- Y por último en la Sección 
+ se detalla la ejecución de los dos experimentos llevados a cabo, junto
+ con los resultados de los mismos.
+ Por último en la Sección 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sec:Limitaciones"
 
 \end_inset
 
- se listan las distintas limitaciones de la evaluación experimental llevada
+ se discuten las distintas limitaciones de la evaluación experimental llevada
  a cabo.
 \end_layout
 
@@ -213,26 +228,16 @@ name "sec:Pasos-para-la-validacion"
 status open
 
 \begin_layout Plain Layout
-Tener en cuenta que esto es orientado a servicio, se debe cambiar a vocabulario
- CBR (casos nuevos, candidatos, etc)
-\end_layout
-
-\begin_layout Plain Layout
-Incluida la imagen.
+Cambié tiempo verbal, lo transformé en algoritmo en lugar de anecdótico
 \end_layout
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Standard
-Para realizar este experimento, inicialmente dos grupos de ingenieros de
- software seleccionaron aleatoriamente 20 descripciones de servicios (de
- las 1632 anteriormente mencionadas).
- Estas descripciones fueron consideradas como servicios relevantes en el
- contexto de este experimento (Fase de Generación de Consultas de la Figura
- 
+Para llevar a cabo un experimento, inicialmente dos grupos de ingenieros
+ de software seleccionan aleatoriamente una cantidad de descripciones de
+ servicios (de las 1742 disponibles anteriormente mencionadas).
+ Estas descripciones son consideradas como servicios relevantes en el contexto
+ del experimento (Fase de Generación de Consultas de la Figura 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Proceso-experimental"
@@ -240,8 +245,8 @@ reference "fig:Proceso-experimental"
 \end_inset
 
 ).
- Las descripciones de servicios que no fueron marcadas como relevantes para
- ninguna consulta fueron utilizadas como 
+ Las descripciones de servicios que no fueran marcadas como relevantes para
+ ninguna consulta serán utilizadas como 
 \begin_inset Quotes eld
 \end_inset
 
@@ -249,31 +254,18 @@ ruido
 \begin_inset Quotes erd
 \end_inset
 
- con el objetivo de incrementar la dimensión del experimento, en términos
+ con el objetivo de incrementar la dimensión del experimento en términos
  de número de Casos pertenecientes a la Base de Conocimientos.
- Luego, un conjunto de XXXX
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-cuantas¿?
-\end_layout
-
-\end_inset
-
- consultas fueron generadas manualmente por los dos grupos de expertos,
- utilizando como base los 20 servicios relevantes (Sección
-\begin_inset space ~
-\end_inset
-
-
+ Luego, distintos conjuntos de consultas serán generados manualmente por
+ los dos grupos de expertos de acuerdo a lo explicado en la Sección 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sec:Generacion-de-consultas"
 
 \end_inset
 
-).
+, utilizando como base los servicios relevantes seleccionados en primer
+ instancia.
 \end_layout
 
 \begin_layout Standard
@@ -284,7 +276,124 @@ reference "fig:Proceso-experimental"
 
 \end_inset
 
-) se utilizó el conjunto de 1192 Casos para poblar un registro de descubrimiento.
+) se comienza generando una Base de Conocimiento (KB), o utilizando una
+ ya existente, que contenga todas las descripciones de servicios disponibles,
+ en este caso 1742, es decir, se toman tanto las descripciones marcadas
+ como relevantes así como las descripciones utilizadas como 
+\begin_inset Quotes eld
+\end_inset
+
+ruido
+\begin_inset Quotes erd
+\end_inset
+
+.
+ Luego se popula la Base de consultas con aquellas generadas manualmente
+ por los grupos de expertos y se procede a ejecutar el algoritmo del Razonamient
+o Basado en Casos, indicando, mediante parámetros, el nombre de cada una
+ de estas bases de datos, o colecciones.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+un poco más?
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Finalmente, en la Fase de Resultados (Figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Proceso-experimental"
+
+\end_inset
+
+), se comparan los datos obtenidos en la fase anterior mediante dos populares
+ métricas pertenecientes al campo de Recuperación de Información, detalladas
+ en la Sección 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Métricas-Utilizadas"
+
+\end_inset
+
+ (
+\emph on
+Precisión
+\emph default
+ y 
+\emph on
+Recall-at-n
+\emph default
+) 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+y...\SpecialChar endofsentence
+.
+ {cierre de la frase}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Cabe destacar que la presente validación experimental realizada y detallada
+ en la Figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Proceso-experimental"
+
+\end_inset
+
+ presenta ciertas limitaciones, las mismas se encuentran explicadas en la
+ Sección 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Limitaciones"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+En la Fase de Ejecución Experimental (Figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Proceso-experimental"
+
+\end_inset
+
+) se realizaron dos experimentos.
+ 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Este párrafo a continuación debería ser actualizado explicando a grandes
+ rasgos los dos experimentos llevados a cabo
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+Por un lado se utilizó el conjunto de 1192 Casos para poblar un registro
+ de descubrimiento.
  Los resultados brindados por este registro de descubrimiento proveen una
  base para comparar otros enfoques de selección de servicios mas exhaustivos.
  De este modo, consultamos el registro de descubrimiento con las 20 consultas
@@ -296,11 +405,44 @@ reference "fig:Proceso-experimental"
 gold standard
 \emph default
 ) para la consulta de acuerdo a una simple evaluación sintáctica.
- Sobre los resultados retornados por el registro de descubrimiento, fue
- ejecutado el enfoque de selección de servicios.
+ 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Toda esta explicación del 
+\begin_inset Quotes eld
+\end_inset
+
+registro de descubrimiento
+\begin_inset Quotes erd
+\end_inset
+
+ debería estar en el experimento correspondiente (sólo para el que es basado
+ en WSDL) y no acá
 \end_layout
 
-\begin_layout Standard
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+Sobre los resultados retornados por el registro de descubrimiento, fue ejecutado
+ el enfoque de selección de servicios.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+CBR en vez de selección?
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
 Finalmente, en la Fase de Resultados (Figura 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -310,8 +452,18 @@ reference "fig:Proceso-experimental"
 
 ) se comparan los resultados en términos de visibilidad del servicio relevante
  entre nuestro enfoque y el registro de descubrimiento de servicios.
- Los resultados del experimento fueron evaluados de acuerdo a las populares
- métricas perteneciente al campo de Recuperación de Información – 
+ 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+de nuevo, esto corresponde solo a un experimento
+\end_layout
+
+\end_inset
+
+ Los resultados del experimento fueron evaluados de acuerdo dos populares
+ métricas pertenecientes al campo de Recuperación de Información – 
 \emph on
 Precisión 
 \emph default
@@ -321,6 +473,11 @@ Recall-at-n
 \emph default
 .
  
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -334,18 +491,23 @@ Esto va acá?
 \end_inset
 
 Si bien se parte de dos datasets distintos y disjuntos (Mashape y APIS.guru,
- protocolo SOAP y REST respectivamente), a la hora de la ejecución experimental,
- o la búsqueda del caso candidato, mediante un parámetro es posible decidir
- si se desea realizar la consulta utilizando únicamente uno de los dos dataset,
- o ambos, esta flexibilidad permite que el caso candidato se adapte mejor
- a las restricciones definidas por el experto: si el mismo tiene una restricción
- en cuanto al protocolo requerido, la solución se adaptará a ella, caso
- contrario, el experto puede definir un problema en el lenguaje de especificació
-n que le resulte más practico (WSDL o Swagger), pero la solución no se limitará
- únicamente a ese protocolo, esto no solo amplia la cantidad de Casos Candidatos
- disponibles, sino que también permite, por ejemplo, actualizar una API
- Legacy WSDL a nueva tecnología, si es que existe un servicio Swagger equivalent
-e en la Base de Conocimientos.
+ en formato WSDL y Swagger respectivamente), a la hora de la ejecución experimen
+tal, o la búsqueda del caso candidato, mediante un parámetro es posible
+ decidir si se desea realizar la consulta utilizando únicamente uno de los
+ dos dataset, o ambos.
+ Esta flexibilidad permite que el caso candidato se adapte mejor a las restricci
+ones definidas por el experto: si el mismo tiene una restricción en cuanto
+ al protocolo requerido, la solución se adaptará a ella, caso contrario,
+ el experto puede definir un problema en el lenguaje de especificación que
+ le resulte más practico (WSDL o Swagger), pero la solución no se limitará
+ únicamente a ese protocolo.
+ Esto no solo amplía la cantidad de Casos Candidatos disponibles, sino que
+ también permite, por ejemplo, actualizar una API 
+\emph on
+Legacy
+\emph default
+ (por ejemplo, en WSDL) a una nueva tecnología, si es que existe un servicio
+ Swagger equivalente en la Base de Conocimientos.
 \end_layout
 
 \begin_layout Standard
@@ -372,7 +534,7 @@ name "fig:Proceso-experimental"
 
 \end_inset
 
-Proceso experimental
+Proceso experimental utilizado
 \end_layout
 
 \end_inset
@@ -397,9 +559,30 @@ name "sec:Generacion-de-consultas"
 \end_layout
 
 \begin_layout Standard
-Como se mencionó anteriormente, para este experimento se generaron manualmente
- 28 casos nuevos, donde cada uno representa una funcionalidad esperada por
- una aplicación cliente (consumer).
+Para los experimentos ejecutados en la Sección 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:EjecucionExperimental"
+
+\end_inset
+
+ se generaron manualmente 27 casos nuevos en total (8 casos en el experimento
+ descripto en la Sección 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Experimento-1:-Comparativa"
+
+\end_inset
+
+ y 19 casos en el experimento descripto en la Sección 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Experimento-2-(Hackathon)"
+
+\end_inset
+
+), donde cada uno representa una funcionalidad esperada por una aplicación
+ cliente (consumidor).
  Estos casos nuevos no han sido automáticamente generadas por un algoritmo
  de mutación (a diferencia de trabajos anteriores
 \begin_inset space ~
@@ -413,11 +596,11 @@ key "DeRenzis13,garriga2013service"
 \end_inset
 
 ), sino que fueron construidos por dos grupos de ingenieros de software
- (GrupoA y GrupoB).
+ (Grupo-A y Grupo-B).
  El dataset utilizado está compuesto por más de 1146 descripciones de Servicios
  Web en formato WSDL 2.0 y 550 especificaciones Swagger en formato JSON.
- Estas especificaciones fueron entregadas a los grupos de profesionales,
- donde cada grupo seleccionó 14 servicios como los servicios candidatos
+ Estas especificaciones fueron entregadas a los grupos de expertos, donde
+ cada grupo seleccionó un número de servicios como los servicios candidatos
  para generar los casos nuevos (Paso 1 de la Figura 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -425,23 +608,16 @@ reference "fig:Proceso-experimental"
 
 \end_inset
 
-, Sección 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "sec:Pasos-para-la-validacion"
-
-\end_inset
-
 ).
- Con el objetivo de ser lo más imparcial posible, a la hora de seleccionar
- los candidatos se intercambiaron los documentos seleccionados por cada
- grupo (Paso 2).
+ Con el objetivo de ser lo más imparcial posible, los expertos se intercambiaron
+ los documentos seleccionados por cada grupo (Paso 2).
  
 \end_layout
 
 \begin_layout Standard
 Luego, cada grupo, reescribió sus documentos (descripciones de servicios)
- asignados, alterando los elementos incluidos en los mismos (Paso 3).
+ asignados, alterando los elementos de signatura incluidos en los mismos
+ (Paso 3).
  La única condición a la hora de reescribirlos fue que la semántica tenía
  que ser preservada, es decir, la reescritura de la descripción no debería
  cambiar las funcionalidades que ofrecía el servicio ni la intencionalidad
@@ -450,8 +626,15 @@ Luego, cada grupo, reescribió sus documentos (descripciones de servicios)
  de las operaciones, nombres de parámetros, campos de los tipos complejos,
  entre otros) y los tipos de datos (incluidos en parámetros, retornos y
  atributos de tipos complejos).
- Estos nuevos documentos conformaron los nuevos casos a utilizar en esta
- evaluación experimental.
+ Estos nuevos documentos conformaron los nuevos casos (parte 
+\emph on
+problema
+\emph default
+)
+\emph on
+ 
+\emph default
+a utilizar en esta evaluación experimental.
 \end_layout
 
 \begin_layout Paragraph
@@ -534,7 +717,7 @@ URL
 \emph on
 photoUrls
 \emph default
- de la mascota
+ de la mascota.
 \end_layout
 
 \begin_layout Standard
@@ -1580,10 +1763,11 @@ gold standard
 \emph on
 solución
 \emph default
- del Caso a partir del cual fue generada cada una de ellas.
+ del Caso original.
  Con esta metodología, podemos simular que la funcionalidad requerida por
  el desarrollador (Caso nuevo) se satisface con el servicio web que ofrece
- la misma funcionalidad, o sea del que dicha consulta fue generada.
+ la misma funcionalidad, evaluando si dicho servicio es retornado por el
+ razonador.
  
 \end_layout
 
@@ -1599,9 +1783,9 @@ name "subsec:Métricas-Utilizadas"
 \end_layout
 
 \begin_layout Standard
-El presente experimento fue diseñado para medir, en términos comparativos,
- el desempeño del Razonador Basado en Casos.
- Con este objetivo, se utilizaron una serie de métricas ampliamente reconocida
+Los experimentos en este capítulo fueron diseñados para medir, en términos
+ comparativos, el desempeño del Razonador Basado en Casos.
+ Con este objetivo, se utilizaron una serie de métricas ampliamente reconocidas
  del área de Recuperación de Información: 
 \emph on
 Precisión
@@ -1611,10 +1795,14 @@ Precisión
 Recall-at-n
 \emph default
  las cuales han sido utilizadas exitosamente en el contexto de la selección
- y el descubrimiento de Servicios Web 
+ y el descubrimiento de Servicios Web
+\begin_inset space ~
+\end_inset
+
+
 \begin_inset CommandInset citation
 LatexCommand cite
-key "pasley2006avoid,guizzardi2005ontological"
+key "Garriga2018isf"
 
 \end_inset
 
@@ -1655,7 +1843,7 @@ En el contexto del presente experimento la Precisión se mide para cada consulta
  de la lista de casos candidatos, mientras que para la segunda consulta
  el Caso Candidato relevante se encuentra en otra posición, la primer consulta
  tendrá una precisión de 1, mientras que la segunda una precisión de 0.
- Luego el experimento habrá tenido una precisión de 0.5, o 50 %
+ Luego el experimento habrá tenido una precisión de 0.5, o 50%.
 \end_layout
 
 \begin_layout Standard
@@ -1701,10 +1889,12 @@ Donde
  posiciones.
  Por ejemplo, si los 5 primeros servicios de la lista de candidatos son
  relevantes y los 5 siguientes son no relevantes, se tiene un recall del
- 100 % en la quinta posición de la lista, pero un recall del 50 % en la
- décima.
- En el contexto del presente experimento, el Recall-en-n se mide para cada
- caso con una ventana de 
+ 100% en la quinta posición de la lista, pero un recall del 50 % en la décima.
+ En el contexto del presente experimento, el 
+\emph on
+recall-at-n
+\emph default
+ se mide para cada caso con una ventana de 
 \begin_inset Formula $n∈[1,10]$
 \end_inset
 
@@ -1713,7 +1903,11 @@ Donde
 \begin_inset Formula $n$
 \end_inset
 
- tiende a 10, denominado Recall-en-n Acumulada (
+ tiende a 10, denominado 
+\emph on
+recall-at-n
+\emph default
+ acumulado (
 \emph on
 Cumulative Recall-at-n
 \emph default
@@ -1738,42 +1932,6 @@ Cumulative Recall-at-n
  posiciones.
 \end_layout
 
-\begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Trabajo futuro (cap 5): Un 
-\begin_inset Quotes eld
-\end_inset
-
-desconversor
-\begin_inset Quotes erd
-\end_inset
-
- del metamodelo a una especificación destino, con lo cual se podria hacer
- conversiones entre cualquier tipo de especificación.
- 
-\end_layout
-
-\begin_layout Plain Layout
-Otra: a partir de la instancia del metamodelo generar los mocks del server
- con una API para cualquiera de los tipos de especificación destino.
-\end_layout
-
-\begin_layout Plain Layout
-Composición de Servicios.
-\end_layout
-
-\begin_layout Plain Layout
-Conversor a otras especificaciones (como dice el paper OpenApi, raml, blueprint)
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
 \begin_layout Section
 Ejecución experimental 
 \begin_inset CommandInset label
@@ -1785,27 +1943,76 @@ name "sec:EjecucionExperimental"
 
 \end_layout
 
+\begin_layout Standard
+En la presente sección, se detalla la ejecución de los dos experimentos
+ llevados a cabo, junto con los resultados de los mismos en términos de
+ las métricas adoptadas.
+\end_layout
+
 \begin_layout Subsection
-Experimento 1 (Paper)
+Experimento 1: Comparativa con Registro de Descubrimiento de Servicios Web.
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:Experimento-1:-Comparativa"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
-Para este escenario experimental, se consultó el registro EasySOC con los
- problemas de los nuevo casos basados en WSDL.
- Luego, se ejecutó el Razonador Basado en casos, utilizando los casos nuevos
- generadas por los ingenieros.
- Finalmente se compararon los resultados considerando los 
+En el presente experimento se utilizó el conjunto de 1192 Casos generados
+ a partir de especificaciones WSDL para utilizar en un registro de descubrimient
+o de servicios 
+\begin_inset Quotes eld
+\end_inset
+
+tradicional
+\begin_inset Quotes erd
+\end_inset
+
+, el registro EasySOC 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "crasso2014easysoc"
+
+\end_inset
+
+.
+ Los resultados brindados por este registro de descubrimiento nos proveen
+ de una base para comparar otros enfoques de selección de servicios mas
+ exhaustivos.
+\end_layout
+
+\begin_layout Standard
+EasySOC es un registro de descubrimiento de servicios, sólo disponible para
+ WSDL, basado en un Modelo de Espacio Vectorial, (
 \emph on
-gold standard 
+Vector Space Model 
 \emph default
-para cada consulta, de acuerdo a la métrica Precisión y Recall-at-n que
- se presentaron anteriormente.
+ó VSM).
+ EasySOC provee un soporte simple para descubrimiento de servicios basado
+ en técnicas de matching de documentos, explotando solo aspectos sintácticos,
+ tanto de consultas como de descripciones de servicios.
 \end_layout
 
 \begin_layout Standard
-Luego, cada nuevo caso generado por los expertos (documento WSDL 2.0 o especifica
-ción Swagger modificado) fue instanciada de acuerdo al metamodelo definido,
- utilizando el modulo Conversor presentado en la Sección
+El registro de descubrimiento fue poblado con los 1192 servicios obtenidos
+ de la plataforma Mashape (Paso 4).
+ Las consultas sintácticas (que son las que se le hacen a los registros
+ de descubrimiento) fueron generadas concatenando los nombres de las operaciones
+ extraídas de las instancias del metamodelo (particularmente de las consultas
+ generadas por los expertos).
+ Estas consultas sintácticas luego se convirtieron en la entrada para el
+ registro de descubrimiento de servicios (Paso 5).
+\end_layout
+
+\begin_layout Standard
+Paralelamente, se ejecutó nuestro procedimiento de CBR, utilizando los casos
+ nuevos generadas por los ingenieros.
+ Para ello, cada nuevo caso generado por los expertos (documento WSDL 2.0
+ modificado) fue instanciado de acuerdo al metamodelo definido, utilizando
+ el módulo Conversor presentado en la Sección
 \begin_inset space ~
 \end_inset
 
@@ -1816,7 +2023,11 @@ reference "sec:-Conversor de OAS"
 
 \end_inset
 
-.
+, Capítulo
+\begin_inset space ~
+\end_inset
+
+3.
  Por último, las consultas instanciadas fueron ejecutadas utilizando el
  Razonador Basado en Casos definido en la Sección
 \begin_inset space ~
@@ -1829,25 +2040,27 @@ reference "sec:CBR-para-selección"
 
 \end_inset
 
- (Paso 6 de la Figura 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:Proceso-experimental"
-
+, Capítulo
+\begin_inset space ~
 \end_inset
 
-, Sección 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "sec:Pasos-para-la-validacion"
+3 (Paso 6).
+ 
+\end_layout
 
-\end_inset
-
-).
- Finalmente, los resultados obtenidos, tanto para los casos nuevos ejecutados
- sobre los registros de descubrimiento de servicios (EasySOC), como sobre
+\begin_layout Standard
+Finalmente, los resultados obtenidos, tanto para los casos nuevos ejecutados
+ sobre el registros de descubrimiento de servicios (EasySOC), como sobre
  la herramienta de Razonamiento Basado en Casos, fueron evaluados utilizando
- las métricas que se presentaron en la Sección
+ las métricas (
+\emph on
+Precisión 
+\emph default
+y 
+\emph on
+Recall-at-n
+\emph default
+) que se presentaron en la Sección
 \begin_inset space ~
 \end_inset
 
@@ -1858,62 +2071,32 @@ reference "subsec:Métricas-Utilizadas"
 
 \end_inset
 
- (Paso 7 de la Figura 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:Proceso-experimental"
+ (Paso 7), considerando los 
+\emph on
+gold standard 
+\emph default
+para cada consulta, de esta manera, se puede realizar una comparación de
+ los resultados en términos de visibilidad del servicio relevante entre
+ nuestro enfoque y el registro de descubrimiento de servicios.
+\end_layout
 
-\end_inset
-
-, Sección 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "sec:Pasos-para-la-validacion"
-
-\end_inset
-
-).
+\begin_layout Paragraph
+Ejemplo: 
 \end_layout
 
 \begin_layout Standard
-Para la Fase de Ejecución Experimental (Figura 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:Proceso-experimental"
-
-\end_inset
-
-), también se ejecutaron las consultas, o problemas de los casos nuevos
- en EasySOC,  un registro de descubrimiento de servicio, sólo disponible
- para WSDL
-\begin_inset CommandInset citation
-LatexCommand cite
-key "crasso2008easy"
-
-\end_inset
-
-, basado en un Modelo de Vector Espacial, o VSM.
- EasySOC provee un soporte simple para descubrimiento de servicios basado
- en técnicas de matching de documentos, explotando solo aspectos sintácticos,
- tanto de consultas como de descripciones de servicios.
- EasySOC fue poblado con los 1146 servicios obtenidos de la plataforma Mashape
- (Paso 4).
- Las consultas sintácticas (que son las que se le hacen a los registros
- de descubrimiento) fueron generadas concatenando los nombres de las operaciones
- extraídas de las instancias del metamodelo (particularmente de las consultas
- generadas por los expertos).
- Estas consultas sintácticas luego se convirtieron en la entrada para el
- registro de descubrimiento de servicios (Paso 5).
-\end_layout
-
-\begin_layout Standard
-Ejemplo: Consideremos una extracción de 8 servicios de muestra del dataset
- de Swagger.
+Consideremos una extracción de 8 servicios de muestra del dataset de 550
+ especificaciones Swagger.
  Estos servicios se compararon con el dataset completo en su versión original,
  que debería obtener el mismo servicio en la primer posición de casos candidatos
-, y su versión modificada, que de igual manera, el servicio relevante debería
- estar presente entre la lista de casos candidatos.
- La tabla 
+, y en su versión modificada.
+ Se espera que el servicio relevante debería estar presente entre la lista
+ de casos candidatos cuando se utilizan los servicios modificados como consulta.
+ La Tabla
+\begin_inset space ~
+\end_inset
+
+
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "tab:ejemplo-evaluacion"
@@ -1934,11 +2117,11 @@ reference "tab:ejemplo-evaluacion"
 \end_inset
 
 .
- Un 100 % de los casos relevantes se devuelven en la primera posición de
+ Un 100% de los casos relevantes se devuelven en la primera posición de
  los casos candidatos para la consulta original, mientras que para las consultas
- modificadas el 100 % de los casos relevantes se encuentra dentro de las
- primeras 5 posiciones de los casos candidatos: 25 % en la primera y va
- en incremento hasta la quinta posición.
+ modificadas el 100% de los casos relevantes se encuentra dentro de las
+ primeras 5 posiciones de los casos candidatos: 25% en la primera y va en
+ incremento hasta la quinta posición.
 \end_layout
 
 \begin_layout Standard
@@ -1969,7 +2152,6 @@ status open
 
 \series bold
 \size footnotesize
-\lang english
 Nombre del Servicio
 \end_layout
 
@@ -1982,7 +2164,6 @@ Nombre del Servicio
 
 \series bold
 \size footnotesize
-\lang english
 Original
 \end_layout
 
@@ -2004,7 +2185,6 @@ Original
 
 \series bold
 \size footnotesize
-\lang english
 Modificado
 \end_layout
 
@@ -2046,7 +2226,6 @@ Modificado
 
 \series bold
 \size footnotesize
-\lang english
 pos
 \end_layout
 
@@ -2059,7 +2238,6 @@ pos
 
 \series bold
 \size footnotesize
-\lang english
 val
 \end_layout
 
@@ -2072,7 +2250,6 @@ val
 
 \series bold
 \size footnotesize
-\lang english
 pos
 \end_layout
 
@@ -2085,7 +2262,6 @@ pos
 
 \series bold
 \size footnotesize
-\lang english
 val
 \end_layout
 
@@ -2098,7 +2274,6 @@ val
 
 \series bold
 \size footnotesize
-\lang english
 recall-at-n
 \end_layout
 
@@ -2705,7 +2880,8 @@ name "tab:ejemplo-evaluacion"
 
 \end_inset
 
-Ejemplo de la evaluación de servicios, consultas originales y modificadas
+Ejemplo de la evaluación de servicios, utilizando consultas originales y
+ modificadas
 \end_layout
 
 \end_inset
@@ -2716,31 +2892,47 @@ Ejemplo de la evaluación de servicios, consultas originales y modificadas
 \end_inset
 
 
+\end_layout
+
+\begin_layout Paragraph
+Resultados: 
 \end_layout
 
 \begin_layout Standard
-Resultado: Finalmente, ejecutamos el procedimiento de evaluación del servicio
- utilizando las consultas originales (como gold standard) y las modificaciones,
- y las comparamos con los servicios en la Base de Conocimientos (el dataset
- completo).
+Finalmente, ejecutamos el procedimiento de evaluación del servicio utilizando
+ las consultas originales (como gold standard) y las modificaciones, y las
+ comparamos con los servicios en la Base de Conocimientos (el dataset completo).
  Para fines comparativos, también ejecutamos las consultas contra EasySOC.
- La figura INSERT muestra los valores promedio de Recall-at-n para las consultas
- originales, las consultas modificadas y el registro EasySOC con las consultas
- modificadas.
- Con las consultas originales, Recall-at-1 es del 100 %, es decir, todos
- los casos relevante se recuperan en la primer posición de casos candidatos.
- Luego, para las consultas modificadas, se alcanza un Recall-at-1 del 85
- % con una mejora del 35 % respecto a EasySOC.
- Para el segundo experimento se siguió enfoque similar al descripto anteriorment
-e: se seleccionaron 20 servicios aleatoriamente como consultas y luego los
- ingenieros de software los modificaron para crear consultas.
- La figura INSERT muestra los resultados del Recall-at-n para el dataset
- Swagger.
- Las consultas originales presentan un Recall-at-1 del 100 % como se esperaba,
- mientras que las consultas modificadas presentan un Recall-at-1 del 35
- %, alcanzando el 100 % en la quinta posición de los casos candidatos.
- En este caso, la comparación con el registro de descubrimiento EasySOC
- no es posible, ya que es un registro basado en WSDL.
+ La Figura
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Recall-acumulado-experimento-1"
+
+\end_inset
+
+ ilustra los valores promedio de Recall-at-n para las consultas originales,
+ las consultas modificadas y el registro EasySOC con las consultas modificadas,
+ mientras que en la Tabla 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:recall-acumulada-experimento-1"
+
+\end_inset
+
+ se expresan dichos valores obtenidos.
+ 
+\end_layout
+
+\begin_layout Standard
+Con las consultas originales, Recall-at-1 es del 100%, es decir, todos los
+ casos relevante se recuperan en la primer posición de los resultados.
+ Luego, para las consultas modificadas, se alcanza un Recall-at-1 del 85%
+ con una mejora del 35% respecto a EasySOC y un Recall-at-10 del 100%, con
+ una mejora del XX% respecto a EasySOC.
 \end_layout
 
 \begin_layout Standard
@@ -2748,7 +2940,455 @@ e: se seleccionaron 20 servicios aleatoriamente como consultas y luego los
 status open
 
 \begin_layout Plain Layout
-IMAGENES Y TABLA
+Para el segundo experimento se siguió enfoque similar al descripto anteriormente
+: se seleccionaron 20 servicios aleatoriamente como consultas y luego los
+ ingenieros de software los modificaron para crear consultas.
+ La Figura
+\begin_inset space ~
+\end_inset
+
+INSERT
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Completar!
+\end_layout
+
+\end_inset
+
+ muestra los resultados de Recall-at-n para el dataset Swagger.
+ 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+esto es así? ambos dataset para este experimento?
+\end_layout
+
+\end_inset
+
+ Las consultas originales presentan un Recall-at-1 del 100 % como se esperaba,
+ mientras que las consultas modificadas presentan un Recall-at-1 del 35
+ %, alcanzando el 100 % en la quinta posición de los casos candidatos.
+ En este caso, la comparación con el registro de descubrimiento EasySOC
+ no es posible, ya que es un registro basado en WSDL.
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename ImgChapter4/usadas/recall experimento 1.pdf
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Recall acumulado del experimento 1.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Recall-acumulado-experimento-1"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="11" columns="3">
+<features booktabs="true" tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Razonador Basado en Casos
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Registro EasySOC
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Recall en 1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.85
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.5
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Recall en 2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.85
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.6
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Recall en 3
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.85
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.65
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Recall en 4
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.9
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.7
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Recall en 5
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.9
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.7
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Recall en 6
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.91
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.75
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Recall en 7
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.96
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.8
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Recall en 8
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.96
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.82
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Recall en 9
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.97
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.83
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Recall en 10
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+0.84
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:recall-acumulada-experimento-1"
+
+\end_inset
+
+Recall acumulado del experimento 1.
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -2758,6 +3398,13 @@ IMAGENES Y TABLA
 
 \begin_layout Subsection
 Experimento 2 (Hackathon)
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:Experimento-2-(Hackathon)"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -2786,36 +3433,30 @@ https://hackathon.guide
 \end_inset
 
  en el cual participaron 5 ingenieros expertos con amplia experiencia en
- la utilización y desarrollo de servicios web
+ la utilización y desarrollo de Servicios Web
 \begin_inset Foot
 status open
 
 \begin_layout Plain Layout
-Pertenecientes a las empresas Patagonian Tech, FidTech y a la Academia
+Pertenecientes a las empresas Patagonian Tech, FidTech y a la Universidad
+ del Comahue
 \end_layout
 
 \end_inset
 
-, a este grupo se le dio una introducción sobre mutación y selección de
- servicios web, junto con instrucciones sobre como modificar las especificacione
-s disponibles, 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-mas libertad
-\end_layout
-
-\end_inset
-
-, así mismo, se les indicó realizar las mutaciones de manera incremental
- e iterativa, para poder visualizar cuales modificaciones son mas eficientes
- a la hora de mutar el servicio de tal manera que semánticamente sea parecido,
- pero sea más difícil de seleccionar para el Razonador Basado en Casos.
+.
+ A este grupo se le dio una introducción sobre mutación y selección de servicios
+ web, junto con instrucciones sobre como modificar las especificaciones
+ disponibles, así mismo se les dio la libertad de modificar la semántica
+ de algún identificador si lo creían conveniente y se les indicó realizar
+ las mutaciones de manera incremental e iterativa, para poder visualizar
+ cuales modificaciones tienen más incidencia a la hora de mutar el servicio,
+ haciendo que sea más difícil de identificar para el Razonador Basado en
+ Casos.
 \end_layout
 
 \begin_layout Standard
-Para el experimento se utilizó Docker 
+Para la replicación del entorno experimental se utilizó Docker 
 \begin_inset Foot
 status open
 
@@ -2835,8 +3476,11 @@ https://www.docker.com/
 
 \end_inset
 
-, un programa que ofrece virtualización a nivel de sistema operativo y Docker
- Compose 
+, un programa que ofrece 
+\emph on
+containers 
+\emph default
+(virtualización) a nivel de sistema operativo y Docker Compose 
 \begin_inset Foot
 status open
 
@@ -2858,25 +3502,16 @@ https://docs.docker.com/compose/
 
  que nos permite orquestar distintos 
 \emph on
-Container 
+Containers 
 \emph default
 para que se comuniquen entre ellos de una manera más sencilla.
- Docker se utiliza para ejecutar paquetes de software llamados 
-\begin_inset Quotes eld
-\end_inset
-
-Containers
-\begin_inset Quotes erd
-\end_inset
-
-.
  Cada container se encuentra aislado y contiene su propia aplicación, herramient
-as, librería y archivos de configuración, esto nos permitió ejecutar el
- Razonador Basado en Casos en distintas arquitecturas (Windows, Linux y
- Mac OS), sin realizar ninguna instalación (p.
+as, librería y archivos de configuración.
+ Esto nos permitió ejecutar el Razonador Basado en Casos en distintas arquitectu
+ras (Windows, Linux y Mac OS), sin realizar ninguna instalación (p.
  ej.
- Java, MongoDB, etc.) ni modificación, sólo con un comando, con el adicional
- de la fácil 
+ Java, MongoDB, etc.) ni modificación, sólo con la ejecución de un comando.
+ Como beneficio adicional se tiene la fácil 
 \begin_inset Quotes eld
 \end_inset
 
@@ -2894,30 +3529,50 @@ Dockerfile
 docker-compose.yml
 \emph default
  se encuentran dentro del repositorio de código del Razonador Basado en
- Casos.
- 
-\begin_inset Note Note
+ Casos
+\begin_inset Foot
 status open
 
 \begin_layout Plain Layout
-fácil ejecución, portable, automatizado en scripts bash, explicar mas 
-\lang spanish-mexico
-composer-orquestador
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://github.com/aderenzis/cbr4SSPlatform/tree/master
 \end_layout
 
 \end_inset
 
 
+\end_layout
+
+\end_inset
+
+.
+ 
 \end_layout
 
 \begin_layout Standard
 Ya que en la Base de Conocimientos se encuentra un solo caso relevante para
- cada caso nuevo mutado, para este experimento fue necesario redefinir 
+ cada caso consulta, fue necesario redefinir 
 \begin_inset Formula $RetRel_{n}$
 \end_inset
 
- de la función Recall-at-n, de tal manera, que en lugar de ser el número
- de servicios relevantes recuperados en las primeras 
+ de la función Recall-at-n (Fórmula
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:presicionEnN"
+
+\end_inset
+
+).
+ Así, en lugar de ser el número de servicios relevantes recuperados en las
+ primeras 
 \begin_inset Formula $n$
 \end_inset
 
@@ -2930,52 +3585,13 @@ precisión
 \end_inset
 
  posiciones, es decir, si el caso relevante se encuentra en la segunda posición
- tendremos un recall en la primera posición del 0%, y del 100% en la segunda
- posición.
+ tendremos un recall-at-1 del 0%, y un recall-at-2 del 100%.
  Luego, Recall-en-n Acumulada se calcula de la misma manera, como promedio
  de los valores de Recall-en-n para cada caso con una ventana de 
 \begin_inset Formula $n∈[1,5]$
 \end_inset
 
 .
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename ImgChapter4/usadas/Recall Acumulado.png
-	lyxscale 40
-	width 100text%
-
-\end_inset
-
-
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:recall-acumulado"
-
-\end_inset
-
-Recall acumulado.
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Standard
@@ -2996,16 +3612,34 @@ reference "tab:recall-acumulada-hackathon"
 \end_inset
 
 ) de los resultados obtenidos.
+ Estos valores fueron utilizados para trazar la Figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:recall-acumulado-hackathon"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+La Figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:precision-hackathon"
+
+\end_inset
+
+ compara la Precisión obtenida evaluando los servicios originales y los
+ servicios mutados por los ingenieros expertos participantes del experimento.
 \end_layout
 
 \begin_layout Standard
 En conclusión, los experimentos muestran que la utilización del Razonador
  Basado en Casos mejora la visibilidad de los servicios relevantes – estas
- mejoras se expresan en términos de ganancias en Precisión.
- Considerando que la selección de servicios candidatos se realiza luego
- de algún proceso de descubrimiento, incrementar la visibilidad de los casos
- candidatos más adecuados puede facilitar en gran medida el desarrollo de
- Aplicaciones Orientadas a Servicios.
+ mejoras se expresan en términos de ganancias en Precisión y Recall.
+ Esto incrementa la visibilidad de los casos candidatos más adecuados puede
+ facilitar en gran medida el desarrollo de Aplicaciones Orientadas a Servicios.
 \end_layout
 
 \begin_layout Standard
@@ -3018,20 +3652,11 @@ status open
 \align center
 \begin_inset Tabular
 <lyxtabular version="3" rows="6" columns="2">
-<features tabularvalignment="middle">
+<features booktabs="true" tabularvalignment="middle">
 <column alignment="center" valignment="top">
 <column alignment="center" valignment="top">
 <row>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+<cell multicolumn="1" alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -3040,9 +3665,18 @@ Razonador Basado en Casos
 
 \end_inset
 </cell>
+<cell multicolumn="2" alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
 </row>
 <row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+<cell alignment="center" valignment="top" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -3051,7 +3685,7 @@ Recall en 1
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+<cell alignment="center" valignment="top" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -3062,7 +3696,7 @@ Recall en 1
 </cell>
 </row>
 <row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+<cell alignment="center" valignment="top" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -3071,7 +3705,7 @@ Recall en 2
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+<cell alignment="center" valignment="top" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -3082,7 +3716,7 @@ Recall en 2
 </cell>
 </row>
 <row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+<cell alignment="center" valignment="top" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -3091,7 +3725,7 @@ Recall en 3
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+<cell alignment="center" valignment="top" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -3102,7 +3736,7 @@ Recall en 3
 </cell>
 </row>
 <row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+<cell alignment="center" valignment="top" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -3111,7 +3745,7 @@ Recall en 4
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+<cell alignment="center" valignment="top" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -3122,7 +3756,7 @@ Recall en 4
 </cell>
 </row>
 <row>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+<cell alignment="center" valignment="top" bottomline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -3131,7 +3765,7 @@ Recall en 5
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+<cell alignment="center" valignment="top" bottomline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -3158,7 +3792,8 @@ name "tab:recall-acumulada-hackathon"
 
 \end_inset
 
-Recall acumulada para el Razonador Basado en Casos
+Recall acumulada para el Razonador Basado en Casos en el experimento 2.
+ 
 \end_layout
 
 \end_inset
@@ -3180,9 +3815,9 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename ImgChapter4/usadas/precision.png
+	filename ImgChapter4/usadas/Recall hackathon.pdf
 	lyxscale 40
-	width 100text%
+	width 70text%
 
 \end_inset
 
@@ -3192,16 +3827,30 @@ status open
 \begin_layout Plain Layout
 \begin_inset CommandInset label
 LatexCommand label
-name "fig:precision"
+name "fig:recall-acumulado-hackathon"
 
 \end_inset
 
-Precisión obtenida.
+Recall acumulado del experimento 2.
 \end_layout
 
 \end_inset
 
 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Decidir cuales figuras se van a utilizar, Acomodar donde realmente van y
+ referenciarlas apropiadamente en el texto
 \end_layout
 
 \end_inset
@@ -3218,9 +3867,9 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename ImgChapter4/usadas/distancia Iteracion.png
+	filename ImgChapter4/usadas/Presición chico.pdf
 	lyxscale 40
-	width 100text%
+	width 70text%
 
 \end_inset
 
@@ -3230,11 +3879,11 @@ status open
 \begin_layout Plain Layout
 \begin_inset CommandInset label
 LatexCommand label
-name "fig:evolucion-distancias"
+name "fig:precision-hackathon"
 
 \end_inset
 
-Distancia obtenida en las distintas ejecuciones para cada servicio modificado.
+Precisión obtenida en el experimento 2.
 \end_layout
 
 \end_inset
@@ -3245,6 +3894,19 @@ Distancia obtenida en las distintas ejecuciones para cada servicio modificado.
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+La Figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:evolucion-distancias-1"
+
+\end_inset
+
+ ilustra los distintos valores de distancia obtenidos por los ingenieros
+ expertos en este experimento, donde se dedica un gráfico para cada servicio
+ mutado y una barra para cada iteración de mutación realizada.
 \end_layout
 
 \begin_layout Standard
@@ -3263,7 +3925,7 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename ImgChapter4/usadas/Sentiment APIs.png
+	filename ImgChapter4/usadas/Resultados Hackathon - Sentiments APIs.pdf
 	lyxscale 40
 	width 50text%
 
@@ -3283,51 +3945,7 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename ImgChapter4/usadas/Game feeds.png
-	lyxscale 40
-	width 50text%
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Float figure
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename ImgChapter4/usadas/Tweeter APIS.png
-	lyxscale 40
-	width 50text%
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\begin_inset Float figure
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename ImgChapter4/usadas/Bc Laws.png
+	filename ImgChapter4/usadas/Resultados Hackathon - Game feeds.pdf
 	lyxscale 40
 	width 50text%
 
@@ -3351,7 +3969,7 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename ImgChapter4/usadas/Vat API.png
+	filename ImgChapter4/usadas/Resultados Hackathon - Tweeter API.pdf
 	lyxscale 40
 	width 50text%
 
@@ -3371,7 +3989,7 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename ImgChapter4/usadas/Azure SQL Database.png
+	filename ImgChapter4/usadas/Resultados Hackathon - Bc Laws.pdf
 	lyxscale 40
 	width 50text%
 
@@ -3395,7 +4013,7 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename ImgChapter4/usadas/import.io.png
+	filename ImgChapter4/usadas/Resultados Hackathon - Vat API.pdf
 	lyxscale 40
 	width 50text%
 
@@ -3415,7 +4033,51 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename ImgChapter4/usadas/loginstuff.web.png
+	filename ImgChapter4/usadas/Resultados Hackathon - Azure .pdf
+	lyxscale 40
+	width 50text%
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ImgChapter4/usadas/Resultados Hackathon - Import Io.pdf
+	lyxscale 40
+	width 50text%
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ImgChapter4/usadas/Resultados Hackathon - loginstuff.pdf
 	lyxscale 40
 	width 50text%
 
@@ -3436,7 +4098,8 @@ name "fig:evolucion-distancias-1"
 
 \end_inset
 
-Distancia obtenida en las distintas ejecuciones para cada servicio modificado.
+Distancia obtenida en las distintas ejecuciones para cada servicio mutado
+ en el experimento 2.
 \end_layout
 
 \end_inset
@@ -3484,41 +4147,48 @@ El aprendizaje del Razonador Basado en casos no fue evaluado, esta evaluación
  incorporando estos casos con su solución a la Base de Conocimientos anteriormen
 te mencionada, y sea uno de éstos casos nuevos la solución de una consulta
  futura.
- Realizar esto en un entorno simulado es difícil como demostración.
+ Realizar esto en un entorno simulado es difícil como demostración, ya que
+ se requiere del uso prolongado y sostenido del Razonador en un entorno
+ real.
  Por otro lado, esto no quiere decir que el Razonador Basado en Casos propuesto
  no aprenda, de hecho, hemos visto como la Base de Conocimientos crece en
  cantidad de Casos contenidos a medida que se iban realizando consultas
- al mismo, sino que en el marco propuesto no lo hemos evaluado como tal.
+ al mismo, sino que en el marco experimental propuesto no hemos evaluado
+ el aprendizaje como tal.
 \end_layout
 
 \begin_layout Standard
 Generar casos nuevos manualmente en base a servicios ya existentes para
- los distintos datasets no reflejan el caso de uso real para un Razonador
- Basado en Casos, puesto a que si un experto decide mutar la especificación
- de un servicio existente, lo mas probable es que directamente utilice éste
- servicio, por el otro lado, el experto redactaría la especificación del
- servicio requerido sin tener en cuenta ninguna otra especificación de servicio
- existente, este tipo de 
+ los distintos datasets no refleja exactamente el caso de uso real para
+ un Razonador Basado en Casos, puesto a que si un experto decide mutar la
+ especificación de un servicio existente, lo mas probable es que directamente
+ utilice éste servicio.
+ Por otro lado, en un entorno real el usuario redactaría la especificación
+ del servicio requerido sin tener en cuenta ninguna otra especificación
+ de servicio existente.
+ Sin embargo, este tipo de 
 \emph on
 creación
 \emph default
- de especificaciones son difíciles de hacer en cantidad y puede que el caso
+ de especificaciones es difícil de hacer en cantidad y puede que el caso
  nuevo resultante no se corresponda con ninguna de las especificaciones
- pertenecientes a la Base de Conocimientos, y por lo tanto, no sirva para
- esta evaluación experimental, es por eso que se decidió realizar mutaciones
- de servicios existentes cuyos Casos pertenezcan a la Base de Conocimientos,
- este tipo de mutación fue utilizada en diferentes escenarios con éxito
- (CITAS)
-\begin_inset Note Note
-status open
+ (o con demasiadas) pertenecientes a la Base de Conocimientos.
+ Por lo tanto, esto no sirve para esta evaluación experimental, es por eso
+ que se decidió realizar mutaciones de servicios existentes cuyos Casos
+ pertenezcan a la Base de Conocimientos, este tipo de mutación fue utilizada
+ en diferentes escenarios de evaluación de servicios con éxito
+\begin_inset space ~
+\end_inset
 
-\begin_layout Plain Layout
-CITAS
-\end_layout
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Garriga2018isf"
 
 \end_inset
 
 .
+ 
 \end_layout
 
 \begin_layout Standard
@@ -3549,7 +4219,19 @@ User
 \emph default
 , lo más probable es que cuando un experto cree una especificación del servicio
  requerido, utilice el termino original, ya que es el nombre por defecto
- se que se le atribuye.
+ que se le atribuye.
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset bibtex
+LatexCommand bibtex
+btprint "btPrintCited"
+bibfiles "Biblio_Lic"
+options "plain"
+
+\end_inset
+
+
 \end_layout
 
 \end_body
