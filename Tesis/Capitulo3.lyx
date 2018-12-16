@@ -799,7 +799,7 @@ https://apis.guru/openapi-directory
 \emph on
 interface
 \emph default
- de la misma y se le asigna a como 
+ de la misma y se le asigna como 
 \emph on
 problema 
 \emph default
@@ -936,10 +936,36 @@ Por otro lado, una común desventaja que presentan los sistemas de base de
 \emph on
 Atomicity, Consistency, Isolation, Durability
 \emph default
-).
- Sin embargo la transaccionalidad a nivel documento no es crucial en nuestro
- dominio de aplicación.
- 
+) en un bloque transaccional donde se realizen más de una operación.
+ Sin embargo, MongoDB asegura la transaccionalidad a nivel documento, es
+ decir, a la hora de insertar, modificar, o eliminar un documento, contaremos
+ con las propiedades ACID anteriormente mencionadas, y, como todas las operacion
+es al Sistema Gestor de Base de Datos realizadas en la solución propuesta
+ son operaciones que no requieren de bloques transaccionales, esta no es
+ una desventaja para nuestro enfoque.
+ Por otro lado, la version 4.0 de MongoDB asegura incluir bloques transaccionales
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://www.mongodb.com/transactions
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+ donde se respetan las propiedades ACID dentro de este bloque, por lo cual,
+ si en un futuro fuera necesario actualizar más de un documento, asegurando
+ estas propiedades, sólo habría que actualizar la version de MongoDB.
 \end_layout
 
 \begin_layout Standard
@@ -1883,7 +1909,7 @@ A continuación explicaremos en detalle como se evalúa, para cada atributo,
 \begin_inset Formula $sim$
 \end_inset
 
- presentada en la formula 
+ presentada en la Fórmula 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "eq:DIST"
@@ -2029,7 +2055,7 @@ Caso candidato
 Caso
 \emph default
  a evaluar.
- La Similitud es calculada de acuerdo a la formula 
+ La Similitud es calculada de acuerdo a la Fórmula 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "eq:sim-cantidad-operaciones"
@@ -2163,7 +2189,7 @@ icación), mientras que los aspectos semánticos implican conceptos de términos
 \end_layout
 
 \begin_layout Standard
-Esta similitud se calcula de acuerdo a la formula 
+Esta similitud se calcula de acuerdo a la Fórmula 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "eq:sim-operaciones"
@@ -2171,7 +2197,39 @@ reference "eq:sim-operaciones"
 \end_inset
 
 , el calculo de similitud de elementos de signatura (Retorno + Excepciones
- + Nombre + Parámetros) se detalló oportunamente en el Capítulo
+ + Nombre + Parámetros) se detalló oportunamente las Fórmulas 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:nameComp"
+
+\end_inset
+
+,
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:compParam"
+
+\end_inset
+
+ y 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:compRetComplejo"
+
+\end_inset
+
+ Sección 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Condiciones-de-Equivalencia"
+
+\end_inset
+
+ Capítulo
 \begin_inset space ~
 \end_inset
 
@@ -2286,7 +2344,7 @@ El valor de similitud entre operaciones (
 \begin_inset Formula $op^{C}$
 \end_inset
 
- es calculada de acuerdo a la formula 
+ es calculada de acuerdo a la Fórmula 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "eq:sim-operacionesValue"
