@@ -290,7 +290,7 @@ ruido
 .
  Luego se popula la Base de consultas con aquellas generadas manualmente
  por los grupos de expertos y se procede a ejecutar el algoritmo del Razonamient
-o Basado en Casos, indicanto, mediante parámetros, el nombre de cada una
+o Basado en Casos, indicando, mediante parámetros, el nombre de cada una
  de estas bases de datos, o colecciones.
 \begin_inset Note Note
 status open
@@ -313,7 +313,7 @@ reference "fig:Proceso-experimental"
 \end_inset
 
 ), se comparan los datos obtenidos en la fase anterior mediante dos populares
- métricas pertenecientes al campo de Recuperación de Informácion, detalladas
+ métricas pertenecientes al campo de Recuperación de Información, detalladas
  en la Sección 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -382,7 +382,7 @@ reference "fig:Proceso-experimental"
 status open
 
 \begin_layout Plain Layout
-Este parrafo a continuación debería ser actualizado explicando a grandes
+Este párrafo a continuación debería ser actualizado explicando a grandes
  rasgos los dos experimentos llevados a cabo
 \end_layout
 
@@ -419,7 +419,7 @@ registro de descubrimiento
 \end_inset
 
  debería estar en el experimento correspondiente (sólo para el que es basado
- en WSDL) y no acà
+ en WSDL) y no acá
 \end_layout
 
 \end_inset
@@ -2077,7 +2077,7 @@ gold standard
 \emph default
 para cada consulta, de esta manera, se puede realizar una comparación de
  los resultados en términos de visibilidad del servicio relevante entre
- nuestro enfoque y el registro de descubirmiento de servicios.
+ nuestro enfoque y el registro de descubrimiento de servicios.
 \end_layout
 
 \begin_layout Paragraph
@@ -2152,7 +2152,6 @@ status open
 
 \series bold
 \size footnotesize
-\lang english
 Nombre del Servicio
 \end_layout
 
@@ -2165,7 +2164,6 @@ Nombre del Servicio
 
 \series bold
 \size footnotesize
-\lang english
 Original
 \end_layout
 
@@ -2187,7 +2185,6 @@ Original
 
 \series bold
 \size footnotesize
-\lang english
 Modificado
 \end_layout
 
@@ -2229,7 +2226,6 @@ Modificado
 
 \series bold
 \size footnotesize
-\lang english
 pos
 \end_layout
 
@@ -2242,7 +2238,6 @@ pos
 
 \series bold
 \size footnotesize
-\lang english
 val
 \end_layout
 
@@ -2255,7 +2250,6 @@ val
 
 \series bold
 \size footnotesize
-\lang english
 pos
 \end_layout
 
@@ -2268,7 +2262,6 @@ pos
 
 \series bold
 \size footnotesize
-\lang english
 val
 \end_layout
 
@@ -2281,7 +2274,6 @@ val
 
 \series bold
 \size footnotesize
-\lang english
 recall-at-n
 \end_layout
 
@@ -3455,7 +3447,7 @@ Pertenecientes a las empresas Patagonian Tech, FidTech y a la Universidad
 .
  A este grupo se le dio una introducción sobre mutación y selección de servicios
  web, junto con instrucciones sobre como modificar las especificaciones
- disponibles, así mismo se les dió la libertad de modificar la semántica
+ disponibles, así mismo se les dio la libertad de modificar la semántica
  de algún identificador si lo creían conveniente y se les indicó realizar
  las mutaciones de manera incremental e iterativa, para poder visualizar
  cuales modificaciones tienen más incidencia a la hora de mutar el servicio,
@@ -3638,7 +3630,7 @@ reference "fig:precision-hackathon"
 
 \end_inset
 
- compara la Presición obtenida evaluando los servicios originales y los
+ compara la Precisión obtenida evaluando los servicios originales y los
  servicios mutados por los ingenieros expertos participantes del experimento.
 \end_layout
 
