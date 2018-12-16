@@ -559,18 +559,29 @@ name "sec:Generacion-de-consultas"
 \end_layout
 
 \begin_layout Standard
-Como se mencionó anteriormente, para los experimentos se generaron manualmente
- 28 casos nuevos
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-chequear, en total para ambos experimentos tal vez sean más
-\end_layout
+Para los experimentos ejecutados en la Sección 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:EjecucionExperimental"
 
 \end_inset
 
-, donde cada uno representa una funcionalidad esperada por una aplicación
+ se generaron manualmente 27 casos nuevos en total (8 casos en el experimento
+ descripto en la Sección 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Experimento-1:-Comparativa"
+
+\end_inset
+
+ y 19 casos en el experimento descripto en la Sección 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Experimento-2-(Hackathon)"
+
+\end_inset
+
+), donde cada uno representa una funcionalidad esperada por una aplicación
  cliente (consumidor).
  Estos casos nuevos no han sido automáticamente generadas por un algoritmo
  de mutación (a diferencia de trabajos anteriores
@@ -589,8 +600,8 @@ key "DeRenzis13,garriga2013service"
  El dataset utilizado está compuesto por más de 1146 descripciones de Servicios
  Web en formato WSDL 2.0 y 550 especificaciones Swagger en formato JSON.
  Estas especificaciones fueron entregadas a los grupos de expertos, donde
- cada grupo seleccionó 14 servicios como los servicios candidatos para generar
- los casos nuevos (Paso 1 de la Figura 
+ cada grupo seleccionó un número de servicios como los servicios candidatos
+ para generar los casos nuevos (Paso 1 de la Figura 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Proceso-experimental"
@@ -1921,42 +1932,6 @@ Cumulative Recall-at-n
  posiciones.
 \end_layout
 
-\begin_layout Standard
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Plain Layout
-Trabajo futuro (cap 5): Un 
-\begin_inset Quotes eld
-\end_inset
-
-desconversor
-\begin_inset Quotes erd
-\end_inset
-
- del metamodelo a una especificación destino, con lo cual se podria hacer
- conversiones entre cualquier tipo de especificación.
- 
-\end_layout
-
-\begin_layout Plain Layout
-Otra: a partir de la instancia del metamodelo generar los mocks del server
- con una API para cualquiera de los tipos de especificación destino.
-\end_layout
-
-\begin_layout Plain Layout
-Composición de Servicios.
-\end_layout
-
-\begin_layout Plain Layout
-Conversor a otras especificaciones (como dice el paper OpenApi, raml, blueprint)
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
 \begin_layout Section
 Ejecución experimental 
 \begin_inset CommandInset label
@@ -1976,6 +1951,13 @@ En la presente sección, se detalla la ejecución de los dos experimentos
 
 \begin_layout Subsection
 Experimento 1: Comparativa con Registro de Descubrimiento de Servicios Web.
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:Experimento-1:-Comparativa"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -2990,6 +2972,13 @@ IMAGENES Y TABLA
 
 \begin_layout Subsection
 Experimento 2 (Hackathon)
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:Experimento-2-(Hackathon)"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -3267,8 +3256,7 @@ reference "tab:recall-acumulada-hackathon"
 
 \begin_layout Standard
 En conclusión, los experimentos muestran que la utilización del Razonador
- Basado en Casos mejora la visibilidad de los servicios relevantes \twohyphens
- estas
+ Basado en Casos mejora la visibilidad de los servicios relevantes – estas
  mejoras se expresan en términos de ganancias en Precisión y Recall.
  Esto incrementa la visibilidad de los casos candidatos más adecuados puede
  facilitar en gran medida el desarrollo de Aplicaciones Orientadas a Servicios.
