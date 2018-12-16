@@ -6222,9 +6222,15 @@ El valor final de compatibilidad entre los tipos de retorno complejo para
 \begin_inset Formula $op_{C}$
 \end_inset
 
- se calcula de acuerdo a la Fórmula 3.2 teniendo en cuenta el valor obtenido
- comparando campos y el valor de compatibilidad de nombres de los tipos
- propiamente dichos.
+ se calcula de acuerdo a la Fórmula 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:compRetComplejo"
+
+\end_inset
+
+ teniendo en cuenta el valor obtenido comparando campos y el valor de compatibil
+idad de nombres de los tipos propiamente dichos.
 \begin_inset Newline newline
 \end_inset
 
