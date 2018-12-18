@@ -403,25 +403,14 @@ caso
 \emph on
 Metamodelo 
 \emph default
-(Sección
-\begin_inset space ~
-\end_inset
-
-XX, Capítulo
-\begin_inset space ~
-\end_inset
-
-2
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-referenciar las sección
-\end_layout
+la cual se detalla en la Sección 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Similitud-de-casos"
 
 \end_inset
 
-)
+
 \emph on
 .
  
@@ -843,7 +832,119 @@ https://www.mongodb.com/what-is-mongodb
 \end_inset
 
 .
- Se tomó esta decisión puesto a que: 
+ MongoDB es un Sistema Gestor de Bases de Datos (SGBD) basado en Documentos
+ Open Source ampliamente utilizada en el mercado, posicionándose dentro
+ de los 10 SGBD mas utilizados, independientemente del tipo
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://db-engines.com/en/ranking
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+ y en el primer puesto dentro de las de su tipo
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://db-engines.com/en/ranking/document+store
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+Se tomó esta decisión puesto a que: 
+\end_layout
+
+\begin_layout Itemize
+Es el estándar 
+\emph on
+de facto
+\emph default
+ en cuanto a SGBD basados en documentos.
+\end_layout
+
+\begin_layout Itemize
+Es Open Source.
+\end_layout
+
+\begin_layout Itemize
+Posee una amplia documentación
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://docs.mongodb.com/manual
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+Es gratuito incluso su última versión, lo cual no sucede para otros SGBD
+ (e.g., 
+\emph on
+Couchbase
+\emph default
+
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://www.couchbase.com/
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+).
 \end_layout
 
 \begin_layout Itemize
@@ -966,103 +1067,6 @@ https://www.mongodb.com/transactions
  donde se respetan las propiedades ACID dentro de este bloque, por lo cual,
  si en un futuro fuera necesario actualizar más de un documento, asegurando
  estas propiedades, sólo habría que actualizar la version de MongoDB.
-\end_layout
-
-\begin_layout Standard
-MongoDB es un Sistema Gestor de Bases de Datos (SGBD) basado en Documentos
- Open Source ampliamente utilizada en el mercado, posicionándose dentro
- de los 10 SGBD mas utilizados, independientemente del tipo
-\begin_inset Foot
-status collapsed
-
-\begin_layout Plain Layout
-\begin_inset Flex URL
-status open
-
-\begin_layout Plain Layout
-
-https://db-engines.com/en/ranking
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
- y en el primer puesto dentro de las de su tipo
-\begin_inset Foot
-status collapsed
-
-\begin_layout Plain Layout
-\begin_inset Flex URL
-status open
-
-\begin_layout Plain Layout
-
-https://db-engines.com/en/ranking/document+store
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-.
- El mismo se eligió ya que es el estándar 
-\emph on
-de facto
-\emph default
- en cuanto a SGBD basados en documentos, es Open Source, posee una documentación
- muy completa 
-\begin_inset Foot
-status collapsed
-
-\begin_layout Plain Layout
-\begin_inset Flex URL
-status open
-
-\begin_layout Plain Layout
-
-https://docs.mongodb.com/manual
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
- y además es gratuito incluso su última versión, lo cual no sucede para
- otros (e.g., 
-\emph on
-Couchbase
-\emph default
-
-\begin_inset Foot
-status open
-
-\begin_layout Plain Layout
-\begin_inset Flex URL
-status open
-
-\begin_layout Plain Layout
-
-https://www.couchbase.com/
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-).
 \end_layout
 
 \begin_layout Standard
@@ -2196,8 +2200,11 @@ reference "eq:sim-operaciones"
 
 \end_inset
 
-, el calculo de similitud de elementos de signatura (Retorno + Excepciones
- + Nombre + Parámetros) se detalló oportunamente las Fórmulas 
+, el calculo de similitud de elementos de signatura (
+\begin_inset Formula $Retorno+Nombre+Parámetros$
+\end_inset
+
+) se detalló oportunamente las Fórmulas 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "eq:nameComp"
@@ -2376,7 +2383,7 @@ status open
 \begin_layout Plain Layout
 \begin_inset Formula 
 \begin{equation}
-simOpValue(op^{N},op^{C})=Ret+Exc+Nombre+Par\label{eq:sim-operacionesValue}
+simOpValue(op^{N},op^{C})=Ret+Nombre+Par\label{eq:sim-operacionesValue}
 \end{equation}
 
 \end_inset
