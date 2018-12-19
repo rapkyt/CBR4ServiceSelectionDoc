@@ -89,38 +89,6 @@ name "cap:evaluacion experimental"
 \end_layout
 
 \begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-En el presente capítulo se detalla la evaluación experimental realizada
- a la plataforma de selección de servicios luego de integrar el metamodelo
- para descripción de Servicios Web.
- La evaluación experimental ha permitido estudiar el alcance del la integración
- del metamodelo propuesto en el Capítulo
-\begin_inset space ~
-\end_inset
-
-
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "chap:Metamodelo-para-descipción"
-
-\end_inset
-
- a la plataforma de selección de servicios.
- Para llevar a cabo esta experimentación se utilizó un conjunto (data-set)
- de servicios candidatos, dos versiones de un registro de descubrimiento
- de servicios y la plataforma de selección de servicios derivada de este
- trabajo, en la cual se integra el metamodelo definido.
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
 En el presente capítulo se detalla la evaluación experimental realizada
  a la plataforma de selección de servicios luego de integrar el Metamodelo
  para descripción de Servicios Web en el marco de la metodología Razonamiento
@@ -141,7 +109,7 @@ reference "sec:Metamodelo-para-descripción"
  en la Sección 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "sec:-Conversor de OAS"
+reference "sec:CBR-para-selección"
 
 \end_inset
 
@@ -224,15 +192,6 @@ name "sec:Pasos-para-la-validacion"
 \end_layout
 
 \begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Cambié tiempo verbal, lo transformé en algoritmo en lugar de anecdótico
-\end_layout
-
-\end_inset
-
 Para llevar a cabo un experimento, inicialmente dos grupos de ingenieros
  de software seleccionan aleatoriamente una cantidad de descripciones de
  servicios (de las 1742 disponibles anteriormente mencionadas).
@@ -292,16 +251,8 @@ ruido
  por los grupos de expertos y se procede a ejecutar el algoritmo del Razonamient
 o Basado en Casos, indicando, mediante parámetros, el nombre de cada una
  de estas bases de datos, o colecciones.
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-un poco más?
-\end_layout
-
-\end_inset
-
-
+ De ser posible, se analiza con otro método de descubrimiento/selección
+ de Servicios Web.
 \end_layout
 
 \begin_layout Standard
@@ -329,19 +280,8 @@ Precisión
 \emph on
 Recall-at-n
 \emph default
-) 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-y...\SpecialChar endofsentence
-.
- {cierre de la frase}
-\end_layout
-
-\end_inset
-
-
+), y se analizan las mejores obtenidas respecto a los resultados con las
+ consultas originales y/o el registro de descubrimiento si corresponde.
 \end_layout
 
 \begin_layout Standard
@@ -362,152 +302,6 @@ reference "sec:Limitaciones"
 \end_inset
 
 .
-\end_layout
-
-\begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-En la Fase de Ejecución Experimental (Figura 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:Proceso-experimental"
-
-\end_inset
-
-) se realizaron dos experimentos.
- 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Este párrafo a continuación debería ser actualizado explicando a grandes
- rasgos los dos experimentos llevados a cabo
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-Por un lado se utilizó el conjunto de 1192 Casos para poblar un registro
- de descubrimiento.
- Los resultados brindados por este registro de descubrimiento proveen una
- base para comparar otros enfoques de selección de servicios mas exhaustivos.
- De este modo, consultamos el registro de descubrimiento con las 20 consultas
- generadas manualmente por los expertos.
- Luego, el registro retornó los 10 Casos Candidatos mas relevantes para
- cada consulta, conteniendo potencialmente al servicio objetivo (comúnmente
- denominado 
-\emph on
-gold standard
-\emph default
-) para la consulta de acuerdo a una simple evaluación sintáctica.
- 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Toda esta explicación del 
-\begin_inset Quotes eld
-\end_inset
-
-registro de descubrimiento
-\begin_inset Quotes erd
-\end_inset
-
- debería estar en el experimento correspondiente (sólo para el que es basado
- en WSDL) y no acá
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-Sobre los resultados retornados por el registro de descubrimiento, fue ejecutado
- el enfoque de selección de servicios.
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-CBR en vez de selección?
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-Finalmente, en la Fase de Resultados (Figura 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:Proceso-experimental"
-
-\end_inset
-
-) se comparan los resultados en términos de visibilidad del servicio relevante
- entre nuestro enfoque y el registro de descubrimiento de servicios.
- 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-de nuevo, esto corresponde solo a un experimento
-\end_layout
-
-\end_inset
-
- Los resultados del experimento fueron evaluados de acuerdo dos populares
- métricas pertenecientes al campo de Recuperación de Información – 
-\emph on
-Precisión 
-\emph default
-y 
-\emph on
-Recall-at-n
-\emph default
-.
- 
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Esto va acá?
-\end_layout
-
-\end_inset
-
-Si bien se parte de dos datasets distintos y disjuntos (Mashape y APIS.guru,
- en formato WSDL y Swagger respectivamente), a la hora de la ejecución experimen
-tal, o la búsqueda del caso candidato, mediante un parámetro es posible
- decidir si se desea realizar la consulta utilizando únicamente uno de los
- dos dataset, o ambos.
- Esta flexibilidad permite que el caso candidato se adapte mejor a las restricci
-ones definidas por el experto: si el mismo tiene una restricción en cuanto
- al protocolo requerido, la solución se adaptará a ella, caso contrario,
- el experto puede definir un problema en el lenguaje de especificación que
- le resulte más practico (WSDL o Swagger), pero la solución no se limitará
- únicamente a ese protocolo.
- Esto no solo amplía la cantidad de Casos Candidatos disponibles, sino que
- también permite, por ejemplo, actualizar una API 
-\emph on
-Legacy
-\emph default
- (por ejemplo, en WSDL) a una nueva tecnología, si es que existe un servicio
- Swagger equivalente en la Base de Conocimientos.
 \end_layout
 
 \begin_layout Standard
@@ -566,7 +360,7 @@ reference "sec:EjecucionExperimental"
 
 \end_inset
 
- se generaron manualmente 27 casos nuevos en total (8 casos en el experimento
+ se generaron manualmente 41 casos nuevos en total (20 casos en el experimento
  descripto en la Sección 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -574,7 +368,7 @@ reference "subsec:Experimento-1:-Comparativa"
 
 \end_inset
 
- y 19 casos en el experimento descripto en la Sección 
+ y 21 casos en el experimento descripto en la Sección 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "subsec:Experimento-2-(Hackathon)"
@@ -2932,53 +2726,7 @@ Con las consultas originales, Recall-at-1 es del 100%, es decir, todos los
  casos relevante se recuperan en la primer posición de los resultados.
  Luego, para las consultas modificadas, se alcanza un Recall-at-1 del 85%
  con una mejora del 35% respecto a EasySOC y un Recall-at-10 del 100%, con
- una mejora del XX% respecto a EasySOC.
-\end_layout
-
-\begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Para el segundo experimento se siguió enfoque similar al descripto anteriormente
-: se seleccionaron 20 servicios aleatoriamente como consultas y luego los
- ingenieros de software los modificaron para crear consultas.
- La Figura
-\begin_inset space ~
-\end_inset
-
-INSERT
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Completar!
-\end_layout
-
-\end_inset
-
- muestra los resultados de Recall-at-n para el dataset Swagger.
- 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-esto es así? ambos dataset para este experimento?
-\end_layout
-
-\end_inset
-
- Las consultas originales presentan un Recall-at-1 del 100 % como se esperaba,
- mientras que las consultas modificadas presentan un Recall-at-1 del 35
- %, alcanzando el 100 % en la quinta posición de los casos candidatos.
- En este caso, la comparación con el registro de descubrimiento EasySOC
- no es posible, ya que es un registro basado en WSDL.
- 
-\end_layout
-
-\end_inset
-
-
+ una mejora del 15% respecto a EasySOC.
 \end_layout
 
 \begin_layout Standard
@@ -2988,9 +2736,11 @@ sideways false
 status open
 
 \begin_layout Plain Layout
+\align center
 \begin_inset Graphics
 	filename ImgChapter4/usadas/recall experimento 1.pdf
-	width 100text%
+	lyxscale 40
+	width 70text%
 
 \end_inset
 
@@ -3116,7 +2866,7 @@ Recall en 2
 \begin_inset Text
 
 \begin_layout Plain Layout
-0.6
+0.55
 \end_layout
 
 \end_inset
@@ -3174,7 +2924,7 @@ Recall en 4
 \begin_inset Text
 
 \begin_layout Plain Layout
-0.7
+0.65
 \end_layout
 
 \end_inset
@@ -3223,7 +2973,7 @@ Recall en 6
 \begin_inset Text
 
 \begin_layout Plain Layout
-0.91
+0.9
 \end_layout
 
 \end_inset
@@ -3252,7 +3002,7 @@ Recall en 7
 \begin_inset Text
 
 \begin_layout Plain Layout
-0.96
+0.95
 \end_layout
 
 \end_inset
@@ -3281,7 +3031,7 @@ Recall en 8
 \begin_inset Text
 
 \begin_layout Plain Layout
-0.96
+0.95
 \end_layout
 
 \end_inset
@@ -3290,7 +3040,7 @@ Recall en 8
 \begin_inset Text
 
 \begin_layout Plain Layout
-0.82
+0.8
 \end_layout
 
 \end_inset
@@ -3310,7 +3060,7 @@ Recall en 9
 \begin_inset Text
 
 \begin_layout Plain Layout
-0.97
+0.95
 \end_layout
 
 \end_inset
@@ -3319,7 +3069,7 @@ Recall en 9
 \begin_inset Text
 
 \begin_layout Plain Layout
-0.83
+0.8
 \end_layout
 
 \end_inset
@@ -3360,7 +3110,7 @@ Recall en 10
 \uwave off
 \noun off
 \color none
-0.84
+0.85
 \end_layout
 
 \end_inset
@@ -3845,20 +3595,6 @@ Recall acumulado del experimento 2.
 \end_layout
 
 \begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Decidir cuales figuras se van a utilizar, Acomodar donde realmente van y
- referenciarlas apropiadamente en el texto
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
 \begin_inset Float figure
 wide false
 sideways false
@@ -4121,6 +3857,27 @@ name "sec:Limitaciones"
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+Se podría pensar que es una limitación partir dos datasets distintos y disjuntos
+ (Mashape y APIS.guru, en formato WSDL y Swagger respectivamente).
+ Pero a la hora de la ejecución experimental, o la búsqueda del caso candidato,
+ mediante un parámetro es posible decidir si se desea realizar la consulta
+ utilizando únicamente uno de los dos dataset, o ambos.
+ Esta flexibilidad permite que el caso candidato se adapte mejor a las restricci
+ones definidas por el experto: si el mismo tiene una restricción en cuanto
+ al protocolo requerido, la solución se adaptará a ella, caso contrario,
+ el experto puede definir un problema en el lenguaje de especificación que
+ le resulte más practico (WSDL o Swagger), pero la solución no se limitará
+ únicamente a ese protocolo.
+ Esto no solo amplía la cantidad de Casos Candidatos disponibles, sino que
+ también permite, por ejemplo, actualizar una API 
+\emph on
+Legacy
+\emph default
+ (por ejemplo, en WSDL) a una nueva tecnología, si es que existe un servicio
+ Swagger equivalente en la Base de Conocimientos.
 \end_layout
 
 \begin_layout Standard
