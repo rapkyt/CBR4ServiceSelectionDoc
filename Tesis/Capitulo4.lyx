@@ -360,7 +360,7 @@ reference "sec:EjecucionExperimental"
 
 \end_inset
 
- se generaron manualmente 27 casos nuevos en total (8 casos en el experimento
+ se generaron manualmente 41 casos nuevos en total (20 casos en el experimento
  descripto en la Sección 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -368,7 +368,7 @@ reference "subsec:Experimento-1:-Comparativa"
 
 \end_inset
 
- y 19 casos en el experimento descripto en la Sección 
+ y 21 casos en el experimento descripto en la Sección 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "subsec:Experimento-2-(Hackathon)"
@@ -2726,7 +2726,7 @@ Con las consultas originales, Recall-at-1 es del 100%, es decir, todos los
  casos relevante se recuperan en la primer posición de los resultados.
  Luego, para las consultas modificadas, se alcanza un Recall-at-1 del 85%
  con una mejora del 35% respecto a EasySOC y un Recall-at-10 del 100%, con
- una mejora del XX% respecto a EasySOC.
+ una mejora del 15% respecto a EasySOC.
 \end_layout
 
 \begin_layout Standard
@@ -2736,9 +2736,11 @@ sideways false
 status open
 
 \begin_layout Plain Layout
+\align center
 \begin_inset Graphics
 	filename ImgChapter4/usadas/recall experimento 1.pdf
-	width 100text%
+	lyxscale 40
+	width 70text%
 
 \end_inset
 
@@ -2864,7 +2866,7 @@ Recall en 2
 \begin_inset Text
 
 \begin_layout Plain Layout
-0.6
+0.55
 \end_layout
 
 \end_inset
@@ -2922,7 +2924,7 @@ Recall en 4
 \begin_inset Text
 
 \begin_layout Plain Layout
-0.7
+0.65
 \end_layout
 
 \end_inset
@@ -2971,7 +2973,7 @@ Recall en 6
 \begin_inset Text
 
 \begin_layout Plain Layout
-0.91
+0.9
 \end_layout
 
 \end_inset
@@ -3000,7 +3002,7 @@ Recall en 7
 \begin_inset Text
 
 \begin_layout Plain Layout
-0.96
+0.95
 \end_layout
 
 \end_inset
@@ -3029,7 +3031,7 @@ Recall en 8
 \begin_inset Text
 
 \begin_layout Plain Layout
-0.96
+0.95
 \end_layout
 
 \end_inset
@@ -3038,7 +3040,7 @@ Recall en 8
 \begin_inset Text
 
 \begin_layout Plain Layout
-0.82
+0.8
 \end_layout
 
 \end_inset
@@ -3058,7 +3060,7 @@ Recall en 9
 \begin_inset Text
 
 \begin_layout Plain Layout
-0.97
+0.95
 \end_layout
 
 \end_inset
@@ -3067,7 +3069,7 @@ Recall en 9
 \begin_inset Text
 
 \begin_layout Plain Layout
-0.83
+0.8
 \end_layout
 
 \end_inset
@@ -3108,7 +3110,7 @@ Recall en 10
 \uwave off
 \noun off
 \color none
-0.84
+0.85
 \end_layout
 
 \end_inset
