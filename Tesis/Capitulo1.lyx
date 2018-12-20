@@ -491,6 +491,19 @@ o de palabras clave, considerando que las mismas fueron utilizadas para
 \end_layout
 
 \begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Actualizar: 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
 La motivación de esta tesis se basa en que, por un lado, cada proveedor
  de servicios utiliza diferentes versiones de WSDL para especificar las
  interfaces de sus servicios, las cuales presentan una gran diferencia en
@@ -2508,60 +2521,6 @@ name "sec:Descripción-de-Servicios"
 \end_inset
 
 
-\end_layout
-
-\begin_layout Standard
-Este trabajo posee como eje principal la necesidad de describir contratos
- de servicios heterogéneos, para lo cual se propuso desarrollar un Metamodelo,
- utilizando como base un conjunto de estándares para descripción de contratos/re
-sponsabilidades de Aplicaciones orientadas a Servicios.
- Los estándares que fueron considerados para tal fin pertenecen a OMG: WSDL,
- WADL y SoaML.
- En la Sección 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "subsec:Background"
-
-\end_inset
-
- se detallan los aspectos principales de cada uno, los cuales fueron considerado
-s como pilares para el desarrollo del metamodelo propuesto.
- Luego, en la Sección 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "subsec:Detalle-de-selección"
-
-\end_inset
-
- se detallan las herramientas evaluadas para ser utilizadas potencialmente
- por el componente Conversor del Metamodelo.
- En principio, resultó necesario satisfacer la necesidad de parsear un documento
- WSDL, para lo cual se analizaron distintas herramientas, tales como 
-\emph on
-JWSDL
-\emph default
-, 
-\emph on
-WODEN
-\emph default
-, 
-\emph on
-EasyWSDL
-\emph default
- y 
-\emph on
-SOA
-\emph default
- 
-\emph on
-Membrane
-\emph default
-.
- De cada una se explican las características principales.
-\end_layout
-
-\begin_layout Subsection
-Estándares para descripción de servicios en SOA
 \begin_inset CommandInset label
 LatexCommand label
 name "subsec:Background"
@@ -2572,10 +2531,13 @@ name "subsec:Background"
 \end_layout
 
 \begin_layout Standard
-Los estándares que fueron considerados para la descripción de contratos/responsa
-bilidades de Aplicaciones orientadas a Servicios pertenecen a OMG: WSDL,
- WADL y SoaML, los cuales se explican a continuación.
- 
+Este trabajo posee como eje principal la necesidad de seleccionar contratos
+ de servicios heterogéneos, para lo cual, de base se propuso extender el
+ Metamodelo, añadiendo un generador de instancias a partir de especificaciones
+ Open API, con esto, los estándares que fueron considerados para la selección
+ de contratos pertenecen a OMG: WSDL, WADL y SoaML y a OpenAPI Initiative:
+ Swagger.
+ A continuación se detallan los aspectos principales de cada uno.
 \end_layout
 
 \begin_layout Paragraph
@@ -3298,103 +3260,9 @@ Modelo de Diagrama SoaML
 
 \end_layout
 
-\begin_layout Subsection
-\begin_inset CommandInset label
-LatexCommand label
-name "subsec:Detalle-de-selección"
-
-\end_inset
-
-Herramientas para Procesamiento de Descripciones de Servicios en SOA
-\end_layout
-
-\begin_layout Standard
-En la presente subsección se detallan las herramientas evaluadas para ser
- utilizadas por el módulo de software Conversor del Metamodelo para parsear
- un documento WSDL.
- En la actualidad existen varias herramientas para manipular/crear documentos
- WSDL, cuyas características difieren en funcionalidad, alcance, y versión
- de WSDL soportada, entre otras características.
- 
-\end_layout
-
 \begin_layout Paragraph
-JWSDL 
+Open API
 \begin_inset Newline newline
-\end_inset
-
-
-\begin_inset space ~
-\end_inset
-
-
-\begin_inset Newline newline
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Soporta WSDL versión 1.1, cumpliendo las bases de W3C del 15 de marzo 2001
-\begin_inset Foot
-status open
-
-\begin_layout Plain Layout
-\begin_inset Flex URL
-status open
-
-\begin_layout Plain Layout
-
-http://www.w3.org/TR/2001/NOTE-wsdl-20010315
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-.
- Su funcionalidad principal es permitir la lectura, escritura y modificación
- de documentos WSDL.
- Esta herramienta está desarrollada en lenguaje Java y especifica a las
- APIs la manera de agregar elementos para su extensibilidad funcional en
- cuanto a lectura, escritura y modificación.
- JWSDL no valida los documentos más allá de la validez sintáctica.
- Para que esto se cumpla, debe estar correcta la especificación del esquema
- WSDL.
- Algunas implementaciones pueden soportar la lectura no ordenada, sin errores
- ni excepciones
-\begin_inset Foot
-status open
-
-\begin_layout Plain Layout
-\begin_inset Flex URL
-status open
-
-\begin_layout Plain Layout
-
- http://wsdl4j.sourceforge.net/downloads/JSR110_proposed_final_draft.pdf
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Paragraph
-SOA Membrane
-\begin_inset Newline newline
-\end_inset
-
-
-\begin_inset space ~
 \end_inset
 
 
@@ -3405,7 +3273,7 @@ SOA Membrane
 \end_layout
 
 \begin_layout Standard
-SOA Membrane
+Open API (Swagger) 
 \begin_inset Foot
 status open
 
@@ -3415,7 +3283,7 @@ status open
 
 \begin_layout Plain Layout
 
-https://www.membrane-soa.org/soa-model/
+https://swagger.io/specification/v2/
 \end_layout
 
 \end_inset
@@ -3425,236 +3293,30 @@ https://www.membrane-soa.org/soa-model/
 
 \end_inset
 
- es una API de Java que se utiliza documentos WSDL 2.0 y XML.
- Tiene varias funciones, entre las más importantes se encuentran las de
- crear, parsear, manipular y/o comparar dos documentos de la versión previamente
- descrita.
- Inicialmente, entre sus funciones se encuentra la comparación y manipulación
- de los elementos del documento WSDL.
-\end_layout
-
-\begin_layout Paragraph
-EasyWSDL
-\begin_inset Newline newline
-\end_inset
-
-
-\begin_inset space ~
-\end_inset
-
-
-\begin_inset Newline newline
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-EasyWSDL
+ es un estándard de especificación de interfaz de programación de aplicaciones
+ (API
 \begin_inset Foot
 status open
 
 \begin_layout Plain Layout
-\begin_inset Flex URL
-status open
-
-\begin_layout Plain Layout
-
-http://easywsdl.ow2.org/easywsdl-features.html
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
- permite a los usuarios leer, escribir, editar y crear documentos WSDL 1.1,
- WSDL 2.0 y esquemas XML (siguiendo las recomendaciones de la W3C) en el
- lenguaje Java.
- Provee los bindings mas usados por las dos versiones del WSDL, al igual
- que todos los métodos necesarios para retornarlos.
- Una característica que lo identifica es que permite no usar conversiones
- de objetos, estrategia que lo diferencia de la herramienta WODEN.
- 
-\end_layout
-
-\begin_layout Paragraph
-\begin_inset CommandInset label
-LatexCommand label
-name "par:WODEN"
-
-\end_inset
-
-WODEN
-\begin_inset Newline newline
-\end_inset
-
-
-\begin_inset space ~
-\end_inset
-
-
-\begin_inset Newline newline
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-WODEN
-\begin_inset Foot
-status open
-
-\begin_layout Plain Layout
-\begin_inset Flex URL
-status open
-
-\begin_layout Plain Layout
-
-http://ws.apache.org/woden/
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
- es una herramienta que provee una API Java, que permite la lectura, manipulació
-n creación y escritura de documentos WSDL, soportando versiones 1.1 y 2.0.
- Adicionalmente, posee un componente validador que permite una validación
- estructural y semántica de los WSDL.
- El proyecto se encuentra en desarrollo, y todavía no está en su etapa madura
- de producción.
- 
-\end_layout
-
-\begin_layout Paragraph
-\begin_inset CommandInset label
-LatexCommand label
-name "par:DOM"
-
-\end_inset
-
-DOM 
-\begin_inset Newline newline
-\end_inset
-
-
-\begin_inset space ~
-\end_inset
-
-
-\begin_inset Newline newline
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Document Object Model
-\begin_inset Foot
-status open
-
-\begin_layout Plain Layout
-\begin_inset Flex URL
-status open
-
-\begin_layout Plain Layout
-
-https://docs.oracle.com/javase/7/docs/api/org/w3c/dom/package-summary.html
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
- es una plataforma y un lenguaje neutral que permite a los programas y scripts
- acceder dinámicamente y modificar el contenido, estructura y estilo de
- un documento.
- Proporciona un conjunto estándar de objetos para representar documentos
- HTML, XHTML y XML, un modelo estándar sobre cómo pueden combinarse dichos
- objetos, y una interfaz estándar para acceder a ellos y manipularlos.
- DOM define el estándar de acceso y manipulación de documentos.
- Conforme a DOM, el contenido del documento se representa como una estructura
- de árbol conformado de nodos, interconectados y relacionados de acuerdo
- con una jerarquía.
- DOM, define como nodo padre (tambien llamado inicial o principal) al tag
- 
+API: 
 \emph on
-document
-\emph default
- (en WSDL versión 2.0)
-\emph on
-.
- Document, 
-\emph default
-es el nodo que encapsula todas las estructuras definidas dentro de un documento
- XML.
- A su vez, cada nodo puede tener uno o varios hijos hasta llegar a los nodos
- hoja (puntos terminales que no poseen más descendientes).
-\end_layout
-
-\begin_layout Paragraph
-
-\series bold
-WORDNET
-\begin_inset Newline newline
-\end_inset
-
-
-\begin_inset space ~
-\end_inset
-
-
-\begin_inset Newline newline
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-WordNet
-\begin_inset Foot
-status open
-
-\begin_layout Plain Layout
-\begin_inset Flex URL
-status open
-
-\begin_layout Plain Layout
-
-http://wordnet.princeton.edu
+Application Programming Interface
 \end_layout
 
 \end_inset
 
-
-\end_layout
-
-\end_inset
-
- es una base de datos léxico-semántica del idioma inglés.
- Sustantivos, verbos, adjetivos y adverbios se agrupan en conjuntos de sinónimos
- cognitivos (synsets), cada una expresando un concepto distinto.
- Estos conjuntos están vinculados entre sí por medio de relaciones semánticas
- y léxicas.
- El árbol resultante de las palabras y los conceptos relacionados por su
- semántica queda a disposición para ser utilizado.
- Esta base de datos se encuentra presente en todo el trabajo realizado,
- por ser de condición base para realizar comparaciones.
- La principal relación que se tiene en cuenta es la sinonimia, donde dos
- palabras son sinónimos si denotan el mismo significado.
- Además, se pueden establecer relaciones jerárquicas (del tipo todo-partes
- o es-un) como la hiponimia y la hiperonimia.
- La estructura de WordNet hace que sea una herramienta útil para la lingüística
- computacional y procesamiento del lenguaje natural.
+), permitiendo que la misma API describa su propia estructura, con esta
+ estructura se pueden generar documentaciones interactivas de manera automática,
+ librerías que consuman esta API en varios lenguajes, o, una suite de tests
+ automatizados, entre otras cosas.
+ La descripción de la API se puede realizar bajo los protocolos JSON o YAML.
+ Esta descripción se puede escribir manualmente, o generarla a partir de
+ anotaciones en el código fuente de la API.
+ Definirla manualmente permite validar y refinar la funcionalidad que la
+ misma va a brindar y que tanto el desarrollo del servicio proveedor de
+ la interfaz como de los servicios consumidores de la misma se puedan realizar
+ en paralelo, agilizando esta etapa.
 \end_layout
 
 \begin_layout Section
