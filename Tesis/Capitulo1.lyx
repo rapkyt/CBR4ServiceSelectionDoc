@@ -2476,16 +2476,17 @@ key "fielding2000architectural"
 \end_layout
 
 \begin_layout Standard
-En relación con WADL, el objetivo del mismo es definir contratos, que especifica
-n cómo es la comunicación entre los socios de negocios.
+En relación con WADL y Open API, el objetivo de las mismas es definir contratos,
+ que especifiquen cómo es la comunicación entre los socios de negocios.
  Si se crease una aplicación hogareña desde cero, no sería necesario definir
- contratos mediante WADL; pero el enfoque que se espera en el presente trabajo
- es para desarrollos de software extensos tipo empresariales o gubernamentales,
+ contratos; pero el enfoque que se espera en el presente trabajo es para
+ desarrollos de software extensos tipo empresariales o gubernamentales,
  donde sí es necesario contratos que definan lo más estrictamente posible
  la manera en que los mensajes serán eviados/recibidos.
- Además de definir contratos, mediante los documentos WADL se permite generar
- código, testeo y documentación con herramientas de software ya disponibles
- como lo sería un generador de cliente REST en base a un documento WADL
+ Además de definir contratos, mediante las especificaciones, se permite
+ generar código, testeo y documentación con herramientas de software ya
+ disponibles como lo sería un generador de cliente REST en base a un documento
+ WADL o especificación Open API
 \begin_inset space ~
 \end_inset
 
