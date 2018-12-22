@@ -491,191 +491,70 @@ o de palabras clave, considerando que las mismas fueron utilizadas para
 \end_layout
 
 \begin_layout Standard
+La motivación de esta tesis es alcanzar un enfoque que facilite el desarrollo
+ de aplicaciones orientadas a servicios, asistiendo a los desarrolladores
+ en la tarea de selección de servicios candidatos.
+ Para ello, es necesaria una evaluación de dichos servicios, fundamentalmente
+ a nivel de contrato – i.e., analizando los elementos que forman las funcionalidad
+ ofrecida por el servicio.
+ Además, se requiere que dicho enfoque incorpore algún mecanismo de aprendizaje
+ semi- automático para mejorar su performance incorporando información a
+ partir del uso 
 \begin_inset Note Note
 status open
 
 \begin_layout Plain Layout
-Actualizar: 
+[ADR16].
 \end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-La motivación de esta tesis se basa en que, por un lado, cada proveedor
- de servicios utiliza diferentes versiones de WSDL para especificar las
- interfaces de sus servicios, las cuales presentan una gran diferencia en
- estructuras y elementos de marcado
-\begin_inset space ~
-\end_inset
-
-
-\begin_inset CommandInset citation
-LatexCommand cite
-key "chinnici2007web,christensen2001web"
 
 \end_inset
 
 .
- Por otro lado, al experimentar con diferentes herramientas – tal como EasyWSDL
-\begin_inset Foot
+ Es por esto que se decidió incorporar lo realizado en trabajos previos
+\begin_inset Note Note
 status open
 
 \begin_layout Plain Layout
-\begin_inset Flex URL
+[ADR2014, SC2016, LC18]
+\end_layout
+
+\end_inset
+
+, donde se definió la evaluación a nivel de contrato de servicios considerando
+ aspectos estructurales y semánticos, en el marco de la metodología Razonamiento
+ Basado en Casos.
+ Sin embargo, existen aún limitaciones con respecto al tipo de descripciones
+ de origen que se soportan, por la falta de herramientas automatizadas para
+ realizar la derivación desde otro tipo de descripciones hacia el Metamodelo
+ de servicios, se agrega el desafio de aumentar las mismas incorporando
+ al estándar de especificación Open API, utilizada para especificar servicios
+ REST (de REpresentational State Transfer)
+\begin_inset Note Note
 status open
 
 \begin_layout Plain Layout
-
-http://easywsdl.ow2.org/easywsdl-features.html
+[RF14]
 \end_layout
 
 \end_inset
 
-
-\end_layout
-
-\end_inset
-
-, JWSDL
-\begin_inset Foot
+ y microservicios
+\begin_inset Note Note
 status open
 
 \begin_layout Plain Layout
-\begin_inset Flex URL
-status open
-
-\begin_layout Plain Layout
-
-http://www.w3.org/TR/2001/NOTE-wsdl-20010315
+[MF14]
 \end_layout
 
 \end_inset
 
-
-\end_layout
-
-\end_inset
-
-, WODEN
-\begin_inset Foot
-status open
-
-\begin_layout Plain Layout
-\begin_inset Flex URL
-status open
-
-\begin_layout Plain Layout
-
-http://ws.apache.org/woden/
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-, y SOA Membrane
-\begin_inset Foot
-status open
-
-\begin_layout Plain Layout
-\begin_inset Flex URL
-status open
-
-\begin_layout Plain Layout
-
-https://www.membrane-soa.org/soa-model/
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
- entre otras – hemos detectado que debido a las variaciones en versiones
- de especificación, en algunos casos resulta imposible explorar los documentos
- WSDL para un proceso de evaluación de Servicios Web.
- En general estos procesos requieren que se deriven estructuras intermedias
- en el lenguaje de desarrollo del proceso de evaluación (por ejemplo, en
- la plataforma Java).
- Sin embargo, tales estructuras intermedias (tal como, interfaces Java),
- se derivan en forma parcial, errónea, o directamente se frustra la derivación.
- Por lo tanto, las diferencias en versiones de WSDLs producen importantes
- inconvenientes en su tratamiento generalizado y limitan la evaluación y
- consumo de un gran número de servicios.
- 
-\end_layout
-
-\begin_layout Standard
-A estos desafíos, se le agrega una necesidad creciente en el paradigma SOC,
- que conduce al desarrollo y utilización de servicios heterogéneos.
- Además del modelo de servicios con descripciones WSDL, ha surgido en los
- últimos años otro modelo que posee una descripción distintiva: los servicios
- RESTful (Representational State Transfer) 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "fielding2000architectural,garriga2015web"
-
-\end_inset
-
-.
- Los servicios RESTful proveen una alternativa ligera y económica debido
- a su escalabilidad y la simplicidad para ser publicado y consumido 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "pautasso2009restful"
-
-\end_inset
-
-.
- Las interfaces de servicios RESTful se describen con métodos sencillos
- del protocolo HTTP 
-\begin_inset Foot
-status open
-
-\begin_layout Plain Layout
-HTTP: Hyper Text Transfer Protocol
-\end_layout
-
-\end_inset
-
-, y en algunas propuestas se utiliza WADL 
-\begin_inset Foot
-status open
-
-\begin_layout Plain Layout
-WADL: Web Application Description Language
-\end_layout
-
-\end_inset
-
-
-\begin_inset space ~
-\end_inset
-
-
-\begin_inset CommandInset citation
-LatexCommand cite
-key "hadley2006web"
-
-\end_inset
-
-.
- Por lo tanto, es necesario contar con una especificación de contratos de
- Servicios Web, que sea independiente de cualquier tecnología de implementación,
- y que cubra convenientemente la existencia de servicios heterogéneos.
+, que son consumidos a través de métodos HTTP tradicionales (típicamente
+ GET, PUT, POST y DELETE).
  Esto permitiría ampliar la oferta de servicios accesibles a un proceso
- de evaluación, evitando las limitaciones tanto en versiones de WSDL como
- de cualquier otro formato de descripción en servicios heterogéneos, permitiendo
- una amplia gama de servicios que podrían ser integrados, compuestos y consumido
-s para satisfacer los requerimientos de las Aplicaciones Orientadas a Servicios.
+ de evaluación, evitando las limitaciones de los formatos de descripción
+ en servicios heterogéneos, permitiendo una amplia gama de servicios que
+ podrían ser integrados, compuestos y consumidos para satisfacer los requerimien
+tos de las Aplicaciones Orientadas a Servicios.
 \end_layout
 
 \begin_layout Subsection
