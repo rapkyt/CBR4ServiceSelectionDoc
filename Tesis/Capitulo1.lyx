@@ -3458,11 +3458,15 @@ Capítulo 2
  Se presenta la descripción general del enfoque completo para asistir a
  un ingeniero de software en la construcción de Aplicaciones Orientadas
  a Servicios.
- Este enfoque consiste de un Método de 
+ Este enfoque consiste de definir e implementar un proceso de 
+\emph on
+Evaluación
+\emph default
+ y 
 \emph on
 Selección
 \emph default
- de Servicios Web, que posee una herramienta de soporte semi-automático.
+ de Servicios Web utilizando Razonamiento Basado en Casos (CBR).
 \end_layout
 
 \begin_layout Description
@@ -3476,11 +3480,11 @@ Capítulo 3
 
 \end_inset
 
- Se presenta el Metamodelo para Descripción de Contratos de Servicios Web,
- y cómo el mismo fue integrado a la herramienta de evaluación de servicios.
- Además, se detalla el dieseño e implementación del componente conversor
- de descripciones WSDL de Servicios Web para derivar instanciaciones del
- metamodelo propuesto.
+ Se presenta la metodología Razonamiento Basado en Casos, y cómo la misma
+ fue integrada a la herramienta de evaluación de servicios.
+ Además, se detalla el diseño e implementación del componente conversor
+ de descripciones Open API de Servicios Web para derivar instanciaciones
+ del metamodelo utilizado.
 \end_layout
 
 \begin_layout Description
@@ -3494,7 +3498,7 @@ Capítulo 4
 
 \end_inset
 
- Se presenta una evaluación experimental de la herramienta de evaluación
+ Se presenta la evaluación experimental realizada a la herramienta de evaluación
  de Servicios Web, en función de las extensiones desarrolladas.
 \end_layout
 
@@ -3509,11 +3513,10 @@ Capítulo 5
 
 \end_inset
 
- Finalmente, se presentan las conclusiones de todo el trabajo de tesis,
- las inferencias que surgen de la evaluación experimental, y la posibilidad
- efectiva de utilización de la herramienta de evaluación de Servicios Web.
+ Finalmente, se presentan las conclusiones de todo el trabajo de tesis y
+ la posibilidad efectiva de utilización de la herramienta de evaluación
+ de Servicios Web.
  Se identifican futuras líneas de acción basadas en los resultados obtenidos.
- 
 \change_deleted 1894756425 1522271193
 
 \begin_inset CommandInset bibtex
