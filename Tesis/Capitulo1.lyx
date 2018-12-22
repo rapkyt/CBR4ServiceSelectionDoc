@@ -583,158 +583,199 @@ key "castro16,Cors12,DeRenzis13,Garriga10"
 
 , cuyo objetivo es la mejora del desarrollo de Aplicaciones Orientadas a
  Servicios; asistiendo a los ingenieros de software por medio de una serie
- de procesos semi-automáticos para la Selección de Servicios Web, que posee
- soporte de una herramienta desarrollada en la plataforma Java.
- En este sentido, el trabajo de esta tesis propone una extensión del proceso
- de selección y de su herramienta de soporte, enfocando en la especificación
- de contratos de Servicios Web para lograr una independencia respecto de
- la tecnología y que se pudieran abarcar servicios heterogéneos.
- Para ello se ha decidido desarrollar un Metamodelo utilizando como base
+ de procesos semi-automáticos para la Selección de Servicios Web, y el enfoque
+ que se ha definido en 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Lucas
+\end_layout
+
+\end_inset
+
+, cuyo objetivo es la especificación de contratos de Servicios Web para
+ lograr una independencia respecto de la tecnología y que se pudieran abarcar
+ servicios heterogéneos, desarrollando un Metamodelo que utiliza como base
  un conjunto de estándares para descripción de contratos/responsabilidades
  de Servicios Web heterogéneos.
- La propuesta consiste de tres actividades: 
+ En este sentido, el trabajo de esta tesis propone una extensión del proceso
+ de selección y de su herramienta de soporte, enfocando en la estandarización
+ del proceso de selección, y la incorporación de un nuevo estándar de descripció
+n de servicios para aumentar la independencia respecto de la tecnología
+ y que se puedan abarcar cada vez más servicios heterogéneo.
+\end_layout
+
+\begin_layout Standard
+La propuesta consiste de tres actividades: 
 \emph on
-desarrollo e implementación del Metamodelo para Descripción de Contratos
- de Servicios Web, integración a la herramienta de evaluación de Servicios
- Web y construcción de un Conversor de descripciones WSDL 
-\begin_inset Foot
+definir un proceso de evaluación de servicios utilizando Razonamiento Basado
+ en Casos (CBR), desarrollar los componentes necesarios para la evaluación
+ de servicios heterogéneos.
+ En particular, un conversor de descripciones OpenAPI a instancias del Metamodel
+o de servicios, y una Base de Conocimiento (KB) persistente, 
+\emph default
+y
+\emph on
+ realizar la integración de los componentes desarrollados en la primera
+ actividad ajustando los mecanismos existentes de evaluación y selección
+ de servicios al contexto de CBR, de acuerdo al proceso definido en la segunda
+ actividad.
+\begin_inset Note Note
 status open
 
 \begin_layout Plain Layout
-WSDL: Web Service Description Language
+
+\emph on
+actualizar actividades==objetivos?
 \end_layout
 
 \end_inset
 
- hacia instanciaciones del metamodelo.
+
 \end_layout
 
 \begin_layout Itemize
 
 \emph on
-Desarrollo e implementación del Metamodelo para Descripción de Contratos
- de Servicios Web: 
+Definir un proceso de evaluación de servicios utilizando Razonamiento Basado
+ en Casos (CBR): 
 \emph default
-establecer una base estructurada, que permita definir la interrelación entre
- los elementos involucrados en la descripción del conjunto de responsabilidades
- (operaciones y mensajes de entrada/salida simples/complejos) de los contratos
- de servicios.
- Para ello, se tomar como base distintos estándares de descripción de servicios,
- tales como el Perfil UML SoaML
-\begin_inset Foot
+En primer lugar proponemos utilizar la metodología de Razonamiento basado
+ en casos (Case-based Reasoning o CBR) para evaluación de servicios.
+ CBR proviene del campo de la Inteligencia Artificial y aporta algunos aspectos
+ cruciales para resolver los problemas antes mencionados en la evaluación
+ y selección de Servicios Web.
+ Un razonador basado en casos resuelve nuevos problemas mediante el uso
+ y la adaptación de soluciones existentes para problemas anteriores y recurrente
+s.
+ A veces llamados sistemas de búsqueda por similitud, su efectividad viene
+ dada por la función de similitud que se utiliza para cuantificar el grado
+ de cercanía entre un par de casos 
+\begin_inset Note Note
 status open
 
 \begin_layout Plain Layout
-SoaML: Service oriented architecture Modeling Language 
-\begin_inset Flex URL
-status open
-
-\begin_layout Plain Layout
-
-http://www.omg.org/spec/SoaML/About-SoaML/
-\end_layout
-
-\end_inset
-
- 
-\end_layout
-
-\end_inset
-
-, y el lenguaje WSDL versión 2.0 
-\begin_inset Foot
-status open
-
-\begin_layout Plain Layout
-WSDL versión 2.0 
-\begin_inset Flex URL
-status open
-
-\begin_layout Plain Layout
-
-https://www.w3.org/TR/2007/REC-wsdl20-20070626/
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
- – ambos son estándares de OMG
-\begin_inset Foot
-status open
-
-\begin_layout Plain Layout
-OMG: Object Management Group 
-\begin_inset Flex URL
-status open
-
-\begin_layout Plain Layout
-
-http://www.omg.org/
-\end_layout
-
-\end_inset
-
-
+[ADR16]
 \end_layout
 
 \end_inset
 
 .
- Al contar con un metamodelo donde se describen contratos ofrecidos por
- Servicios Web, resulta necesario que la evaluación de servicios candidatos
- se realice en función de instanciaciones del metamodelo.
- Para que esto sea posible, es necesario desarrollar un componente de software
- que contenga el metamodelo, y que permita la exploración de la información
- de contratos de servicios sobre las instancias del metamodelo mismo.
-
-\emph on
- 
+ Luego, nuestra propuesta implica trazar un paralelo entre el problema de
+ descubrimiento, selección y evaluación de servicios [CZC08, ADR2014], y
+ los pasos de la metodología CBR.
+ CBR se compone de una serie de pasos bien establecidos, conocidos como
+ las cuatro R [AAA94]: (1) Recuperar los casos más similares a un problema;
+ (2) Reusar la información y el conocimiento disponible para intentar resolver
+ el problema, (3) Revisar la solución propuesta si fuera necesario, y (4)
+ Retener las partes de esta experiencia que sirvan para aprendizaje y utilizació
+n para resolución de problemas futuros.
+ Para ello se requiere por un lado definir una representación de los casos
+ (problema-solución) que capture la información relevante presente en las
+ especificaciones de servicios (descriptas según el Metamodelo de servicios);
+ y además definir la función de similitud, que utilice los aspectos estructurale
+s y semánticos en dichas descripciones de servicios.
+ Finalmente, en base a dicha función de similitud se requiere definir la(s)
+ estrategia(s) de clasificación de casos – es decir, cuáles son los casos
+ relevantes para cada problema.
+ Se utilizarán desde estrategias clásicas de clasificación como la de K
+ vecinos más cercanos (KNN) hasta otras más avanzadas como WKNN (KNN con
+ pesos) y DWKNN (KNN con pesos y distancias) [AAA94].
 \end_layout
 
 \begin_layout Itemize
 
 \emph on
-Integración a la herramienta de evaluación de Servicios Web: 
+Desarrollar los componentes necesarios para la evaluación de servicios heterogén
+eos.
+ En particular, un conversor de descripciones OpenAPI a instancias del Metamodel
+o de servicios, y una Base de Conocimiento (KB) persistente: 
 \emph default
-en el nuevo enfoque, tanto los requerimientos funcionales por parte de desarroll
-adores de Aplicaciones Orientadas a Servicios, como los propios servicios
- candidatos, son representados y comparados mediante instanciaciones del
- metamodelo desarrollado.
- Para realizar la integración del nuevo componente de software es necesario
- adaptar las estrategias de evaluación subyacentes, que incluyen dos niveles:
- estructural o de tipos de datos en los mensajes de entrada/salida; y semántica
- o de nombres en los identificadores de operaciones y mensajes
-\begin_inset space ~
+Al contar con un Metamodelo de servicios donde se describen contratos ofrecidos
+ por Servicios Web, resulta necesario que la representación y evaluación
+ de casos (de acuerdo al esquema CBR) se realice en función de instanciaciones
+ del Metamodelo, que proveen la capacidad de describir servicios heterogéneos.
+ Pensar en generar casos manualmente para un gran número de servicios (cientos
+ o miles), resulta completamente impracticable.
+ Por ello, se debe en primer lugar generar las instancias del Metamodelo
+ de servicios de manera automática, para luego generar los pares problema-soluci
+ón que poblarán la base de conocimiento.
+ Se cuenta con diferentes datasets para este propósito: un dataset WSDL
+ extraído de la plataforma mashape
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+ 6
+\end_layout
+
 \end_inset
 
+ ; y un dataset de especificaciones OpenAPI, extraído de la plataforma APIs
+ Guru
+\begin_inset Note Note
+status open
 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "castro16,Garriga10"
+\begin_layout Plain Layout
+ 7
+\end_layout
 
 \end_inset
 
-.
- Esta adaptación se realiza de acuerdo a los elementos del metamodelo definido
- y su correspondencia respecto a la descripción sencilla de contratos de
- servicios, mediante interfaces Java, utilizadas en el enfoque anterior.
+ .
+ En tesis anteriores, se desarrolló un componente que a, partir de una descripci
+ón WSDL correspondiente a un Servicio Web, genera una instancia del Metamodelo
+ [LC18].
+ Luego, es necesario desarrollar un componente análogo que permita realizar
+ dicha instanciación del Metamodelo en base a otras especificaciones comunes
+ en la industria.
+ Entre ellas, el estándar OpenAPI goza de amplia adopción (en particular
+ para describir servicios REST) y no existen aún herramientas automatizadas
+ de conversión.
+ Así, este componente deberá explorar dentro de cada descripción las operaciones
+ ofrecidas por el servicio, tipos de datos embebidos, identificadores utilizados
+, etc., para instanciar automáticamente cada clase del Metamodelo de servicios,
+ según corresponda.
+ Una vez que se dispone de los datasets de servicios heterogéneos, descriptos
+ como instancias del Metamodelo de servicios, se debe desarrollar un componente
+ que permita utilizar los mismos para popular la base de conocimiento (KB).
+ El principal objetivo de contar con una KB es capturar el conocimiento
+ obtenido de la experiencia, es decir, de los servicios seleccionados con
+ anterioridad; para luego reutilizar dicho conocimiento en la solución de
+ problemas futuros.
+ Por ello, se requiere que la KB sea persistente, así la información almacenada
+ puede utilizarse posteriormente.
+ Así, la KB se compondrá de casos, que son pares problema-solución: el problema
+ es una instancia del Metamodelo de servicios, mientras que la solución
+ viene dada por cierta información asociada al servicio que provee una interfaz
+ similar a la anterior, por ejemplo, su URL y un enlace a su descripción.
+ Finalmente, contar con una KB persistente que almacene casos basados en
+ instancias del Metamodelo de servicios, nos permitirá validar el esquema
+ de evaluación y selección propuesto así como los mecanismos de aprendizaje
+ (Retención, paso 4 de la metodología CBR) de casos.
 \end_layout
 
 \begin_layout Itemize
 
 \emph on
-Construcción de un Conversor de descripciones WSDL hacia instanciaciones
- del metamodelo: 
+Realizar la integración de los componentes desarrollados en el objetivo
+ O2, ajustando los mecanismos de evaluación existentes para selección de
+ servicios al contexto de CBR, de acuerdo al proceso definido en el objetivo
+ O1: 
 \emph default
-como primera aproximación hacia servicios heterogéneos se considera la conversió
-n de Servicios Web descriptos en el lenguaje WSDL.
- Así el conversor recibe como entrada un documento WSDL (generalmente por
- medio de la URL) y devuelve como salida una instanciación del metamodelo.
- 
+como último objetivo, se deben integrar los componentes desarrollados como
+ parte del objetivo O2 (generador de instancias del metamodelo, KB) con
+ los mecanismos de evaluación y selección de servicios presentados a lo
+ largo de trabajos previos [C12, G10, ADR2014, SC2016, LC18], para conformar
+ una herramienta de soporte automatizado al proceso de CBR para evaluación
+ y selección de servicios, definido en el objetivo O1.
+ Para ello, se debe extraer y reutilizar la lógica subyacente a los componentes
+ de evaluación de servicios existentes.
+ Entre otras, es de vital importancia reutilizar los mecanismos de evaluación
+ semántico-estructural de elementos de signatura (nombres de operaciones,
+ parámetros de entrada/salida, tipos de datos complejos, etc.) que constituirá
+ la función de similitud en el esquema CBR.
 \end_layout
 
 \begin_layout Paragraph
@@ -791,8 +832,8 @@ status open
 \begin_inset Quotes eld
 \end_inset
 
-Evaluación de Servicios Web, mediante un Metamodelo de Contratos de servicios,
- basado en el estándar SoaML
+Definir e implementar un proceso de evaluación y selección de Servicios
+ Web utilizando Razonamiento Basado en Casos (CBR)
 \begin_inset Quotes erd
 \end_inset
 
@@ -810,18 +851,20 @@ Para la consecución de este objetivo general, se propusieron los siguientes
 \end_layout
 
 \begin_layout Enumerate
-Desarrollar un Metamodelo para especificación de Servicios Web basado en
- el estándar OMG SoaML, con su implementación en la plataforma Java.
+Definir un proceso de evaluación de servicios utilizando CBR.
 \end_layout
 
 \begin_layout Enumerate
-Modificar la herramienta para evaluación de Servicios Web integrando el
- Metamodelo de Servicios Web.
+Desarrollar los componentes necesarios para la evaluación de servicios heterogén
+eos.
+ En particular, un conversor de descripciones OpenAPI a instancias del Metamodel
+o de servicios, y una Base de Conocimiento (KB) persistente.
 \end_layout
 
 \begin_layout Enumerate
-Desarrollar un Componente Conversor de descripciones WSDL hacia instanciaciones
- del Metamodelo propuesto.
+Realizar la integración de los componentes desarrollados en el objetivo
+ O2, ajustando los mecanismos existentes de evaluación y selección de servicios
+ al contexto de CBR, de acuerdo al proceso definido en el objetivo O1.
 \end_layout
 
 \begin_layout Standard
