@@ -3114,6 +3114,7 @@ sideways false
 status open
 
 \begin_layout Plain Layout
+\align center
 \begin_inset Graphics
 	filename ImgChapter1/schema-of-passage.png
 	lyxscale 30
@@ -3293,8 +3294,8 @@ https://swagger.io/specification/v2/
 
 \end_inset
 
- es un estándard de especificación de interfaz de programación de aplicaciones
- (API
+ es un estándard de especificación libre de interfaz de programación de
+ aplicaciones (API
 \begin_inset Foot
 status open
 
@@ -3306,10 +3307,28 @@ Application Programming Interface
 
 \end_inset
 
-), permitiendo que la misma API describa su propia estructura, con esta
- estructura se pueden generar documentaciones interactivas de manera automática,
- librerías que consuman esta API en varios lenguajes, o, una suite de tests
- automatizados, entre otras cosas.
+), dirigida por la comunidad en conjunto con la Iniciativa Open API, un
+ proyecto colaborativo de la Fundación Linux.
+\end_layout
+
+\begin_layout Standard
+Open API define un estándard de descripciones de interfáz independiente
+ del lenguaje de programación para las API REST, que permite que tanto los
+ humanos como las computadoras descubran y entiendan las capacidades de
+ un servicio sin requerir acceso al código fuente o documentación adicional.
+ Cuando se define correctamente una especificación Open API, el consumidor
+ puede comprender e interactuar con el servicio remoto con una cantidad
+ mínima de lógica de implementación.
+ Similar a lo que se ha hecho en las descripciones de interfaz en la programació
+n de bajo nivel, una especificación Open API elimina las conjeturas a la
+ hora de utilizar un servicio.
+\end_layout
+
+\begin_layout Standard
+Algunos de los casos de uso al contar con una descripción que las computadoras
+ pueden entender incluyen, pero no están limitados a: documentacion interactiva,
+ generación de librerías que consuman esta API en varios lenguajes, o, una
+ suite de tests automatizados.
  La descripción de la API se puede realizar bajo los protocolos JSON o YAML.
  Esta descripción se puede escribir manualmente, o generarla a partir de
  anotaciones en el código fuente de la API.
@@ -3317,6 +3336,92 @@ Application Programming Interface
  misma va a brindar y que tanto el desarrollo del servicio proveedor de
  la interfaz como de los servicios consumidores de la misma se puedan realizar
  en paralelo, agilizando esta etapa.
+\end_layout
+
+\begin_layout Standard
+Siendo la misma API la que describe su propia estructura, es importante
+ destacar que incorporar una especificación Open API no requiere reescribir
+ la API ya existente, no requiere vincular ningún software a un servicio;
+ el servicio que se describe puede que ni siquiera sea propiedad del creador
+ de la descripción.
+\end_layout
+
+\begin_layout Standard
+Una especificación Open API permite describir el comportamiento total de
+ tu API, incluyendo:
+\end_layout
+
+\begin_layout Itemize
+Endpoints disponibles (por ejemplo 
+\family typewriter
+/users
+\family default
+) y las operaciones sobre cada endpoint (
+\family typewriter
+GET /users
+\family default
+, 
+\family typewriter
+POST /users
+\family default
+).
+\end_layout
+
+\begin_layout Itemize
+Parámetros de entrada y salida para cada operación.
+\end_layout
+
+\begin_layout Itemize
+Métodos de autenticación.
+\end_layout
+
+\begin_layout Itemize
+Información de contacto, licencia, términos de uso y otra información.
+\end_layout
+
+\begin_layout Standard
+Las partes principales de la estructura de una especificación Open API se
+ encuentran representadas en la figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Estructura-de-Open-API"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Estructura-de-Open-API"
+
+\end_inset
+
+Estructura de una especificación Open API.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
