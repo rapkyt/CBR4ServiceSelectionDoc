@@ -1,4 +1,4 @@
-#LyX 2.2 created this file. For more info see http://www.lyx.org/
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
 \lyxformat 508
 \begin_document
 \begin_header
@@ -78,7 +78,7 @@
 \begin_body
 
 \begin_layout Chapter
-Propuesta
+Razonamiento Basado en Casos para Selección de Servicios
 \begin_inset CommandInset label
 LatexCommand label
 name "chap:Proposal"
@@ -3138,7 +3138,8 @@ Swagger vs.
 \end_layout
 
 \begin_layout Standard
-En el fragmento de Swagger – Listado de Código
+En el fragmento de Swagger \twohyphens
+ Listado de Código
 \begin_inset space ~
 \end_inset
 
@@ -3186,7 +3187,9 @@ Por un lado,
 \emph on
 parameters 
 \emph default
-– línea 17 – define la entrada de dicha operación.
+\twohyphens
+ línea 17 \twohyphens
+ define la entrada de dicha operación.
  La misma está compuesta por un objeto del tipo entero (
 \emph on
 integer - int64
@@ -3200,7 +3203,9 @@ integer - int64
 \emph on
 response 
 \emph default
-– línea 27 – se tiene un objeto que encapsula la salida de la operación,
+\twohyphens
+ línea 27 \twohyphens
+ se tiene un objeto que encapsula la salida de la operación,
  cuyo esquema es una referencia a 
 \emph on
 #/definitions/Pet
@@ -5459,10 +5464,12 @@ reference "alg:Convertir-especificación-Open"
 
 \end_inset
 
- la función propuesta recibe como entrada una especificación Swagger – línea
+ la función propuesta recibe como entrada una especificación Swagger \twohyphens
+ línea
  1.
  El primer paso es parsearlo a un objeto que posee la estructura de la especific
-ación Swagger – línea 2.
+ación Swagger \twohyphens
+ línea 2.
  Luego por cada método HTTP perteneciente a cada 
 \emph on
 path
