@@ -1,4 +1,4 @@
-#LyX 2.2 created this file. For more info see http://www.lyx.org/
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
 \lyxformat 508
 \begin_document
 \begin_header
@@ -7,6 +7,9 @@
 \textclass myBook
 \begin_preamble
 
+% Added by lyx2lyx
+\renewcommand{\textendash}{--}
+\renewcommand{\textemdash}{---}
 \end_preamble
 \use_default_options false
 \maintain_unincluded_children false
@@ -4090,11 +4093,13 @@ reference "fig:Esquema-propuesto"
  partir de los documentos WSDL correspondientes a los Servicios Web candidatos.
  En el Paso 1.1 se generan las instancias del metamodelo que corresponden
  al requerimiento funcional del servicio que se espera consumir por la aplicació
-n – denominadas 
+n \twohyphens
+ denominadas 
 \begin_inset Formula $I_{C}$
 \end_inset
 
- (Interfaz a Consumir) – a partir de la cual se generan consultas (
+ (Interfaz a Consumir) \twohyphens
+ a partir de la cual se generan consultas (
 \emph on
 queries
 \emph default
@@ -4102,12 +4107,14 @@ queries
  Luego en el Paso 1.2 se realizan las consultas en el registro de descubrimiento
  (tal como el de EasySOC), para obtener los documentos WSDL de los servicios
  del Proveedor, que pueden corresponder a versiones 1.1 y 2.0.
- Con estos documentos, se generan las instancias del metamodelo – denominadas
+ Con estos documentos, se generan las instancias del metamodelo \twohyphens
+ denominadas
  
 \begin_inset Formula $I_{P}$
 \end_inset
 
- (Interfaz Provista) – utilizando el componente Conversor para obtener el
+ (Interfaz Provista) \twohyphens
+ utilizando el componente Conversor para obtener el
  conjunto que servirá de entrada al Paso 2, que es la selección del servicio
  candidato más apto.
  
@@ -4300,7 +4307,8 @@ Respecto a los nombres de operaciones, se generan las listas de términos
 
  que se estén comparando, se eliminan términos sin significado (stop words)
  y finalmente se identifica la raíz o lema (stem) de los términos significativos
- – en un proceso denominado stemming.
+ \twohyphens
+ en un proceso denominado stemming.
  De manera similar, se procesan los identificadores y se extraen los tipos
  de cada parámetro incorporando además el análisis exhaustivo de parámetros
  de tipo complejo.
@@ -5453,7 +5461,8 @@ El objetivo de esta matriz es almacenar el valor de compatibilidad entre
 \begin_inset Formula $N_{ij}$
 \end_inset
 
- – luego: 
+ \twohyphens
+ luego: 
 \begin_inset Formula $C_{ij}=T_{ij}*N_{ij}$
 \end_inset
 
@@ -5471,7 +5480,8 @@ Luego de calcular la matriz
 \end_inset
 
 , se debe seleccionar el mejor mapeo de parámetros entre todas las posibles
- combinaciones de pares de parámetros – es decir, la asignación de parámetros
+ combinaciones de pares de parámetros \twohyphens
+ es decir, la asignación de parámetros
  que maximiza la compatibilidad entre 
 \begin_inset Formula $op_{P}$
 \end_inset
@@ -5514,7 +5524,8 @@ key "Kuhn55"
 \begin_inset Formula $n*m$
 \end_inset
 
- – en este caso 
+ \twohyphens
+ en este caso 
 \begin_inset Formula $n$
 \end_inset
 
@@ -6035,7 +6046,8 @@ El análisis del tipo de retorno primero verifica si el tipo de retorno de
 \begin_inset Formula $op_{C}$
 \end_inset
 
- – de acuerdo a los criterios de subtipificación para el lenguaje Java (Tabla
+ \twohyphens
+ de acuerdo a los criterios de subtipificación para el lenguaje Java (Tabla
  
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -6422,7 +6434,8 @@ la distancia de adaptabilidad entre
 \end_inset
 
 , y que la correspondencia entre ambas requiere de un esfuerzo de adaptación
- nulo o trivial – por ejemplo, conversiones (
+ nulo o trivial \twohyphens
+ por ejemplo, conversiones (
 \emph on
 casting
 \emph default
@@ -6451,17 +6464,17 @@ orientado a la adaptabilidad
 \end_layout
 
 \begin_layout Section
-Open Challenges
+Problemas abiertos
 \end_layout
 
 \begin_layout Standard
-A lo largo del presente capítulo se pudieron observar una serie de oportunidades
- de mejora:
+A lo largo del presente capítulo se pudieron observar una serie de problemas
+ abiertos y oportunidades de mejora del proceso actual.
 \end_layout
 
 \begin_layout Standard
-El propósito y funcionamiento del Metamodelo fue diseñado basándose en los
- estándares SoaML, WSDL 2.0 y WADL.
+Por un lado, el propósito y funcionamiento del Metamodelo fue diseñado basándose
+ en los estándares SoaML, WSDL 2.0 y WADL.
  Con el fin de no tener que realizar las instanciaciones de las diferentes
  clases del Metamodelo manualmente, una pieza de software fue provista para
  poder realizar instancias del Metamodelo basándose en especificaciones
@@ -6473,7 +6486,7 @@ El propósito y funcionamiento del Metamodelo fue diseñado basándose en los
 \end_layout
 
 \begin_layout Standard
-El Metamodelo utilizado carece de un proceso automatizado de selección,
+Además, el Metamodelo utilizado carece de un proceso automatizado de selección,
  siendo el ingeniero el que tiene que desarrollar éste algoritmo.
  Así mismo el ingeniero experto también debe decidir como resolver si en
  un experimento existiesen varios servicios candidatos (
@@ -6492,12 +6505,12 @@ El Metamodelo utilizado carece de un proceso automatizado de selección,
 \end_layout
 
 \begin_layout Standard
-Cada experimento posee un entorno de conocimiento aislado y volátil a lo
- largo de los experimentos, es decir, las instancias del Metamodelo pertenecient
-es al dataset, o Base de Conocimientos, deben ser generadas antes de realizar
- cada experimento, significando que cada servicio que se requiera en el
- dataset debe ser instanciado por el Software conversor anteriormente mencionado
- antes de cada experimento.
+Finalmente, el experimento posee un entorno de conocimiento aislado y volátil
+ a lo largo de los experimentos, es decir, las instancias del Metamodelo
+ pertenecientes al dataset, o Base de Conocimientos, deben ser generadas
+ antes de realizar cada experimento, significando que cada servicio que
+ se requiera en el dataset debe ser instanciado por el Software conversor
+ anteriormente mencionado antes de cada experimento.
  Esto, además de hacer que cada prólogo al experimento sea repetitivo, no
  aprovecha ni reutiliza la información obtenida de cada ejecución, razón
  por la cual es necesario almacenar esta base de conocimientos en un sistema

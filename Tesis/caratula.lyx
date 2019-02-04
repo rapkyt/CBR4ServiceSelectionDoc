@@ -1,4 +1,4 @@
-#LyX 2.2 created this file. For more info see http://www.lyx.org/
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
 \lyxformat 508
 \begin_document
 \begin_header
@@ -7,6 +7,9 @@
 \textclass myBook
 \begin_preamble
 \thispagestyle{empty}
+% Added by lyx2lyx
+\renewcommand{\textendash}{--}
+\renewcommand{\textemdash}{---}
 \end_preamble
 \use_default_options false
 \maintain_unincluded_children false
@@ -219,8 +222,8 @@ Tesis de Licenciado en Ciencias de la Computación
 
 \series bold
 \size largest
-Evaluación de Servicios Web mediante un Metamodelo de Contratos de servicios,
- basado en el estándar SoaML
+Evaluación y selección de servicios heterogéneos utilizando Razonamiento
+ Basado en Casos (CBR) y un Metamodelo SoaML
 \end_layout
 
 \begin_layout Standard
@@ -236,7 +239,7 @@ Evaluación de Servicios Web mediante un Metamodelo de Contratos de servicios,
 \align center
 
 \size largest
-Lucas Nahuel Cavaliere
+Cristian Mora
 \size default
 
 \begin_inset Newline newline
@@ -267,7 +270,7 @@ Directores:
 \series bold
 \size larger
 Dr.
- Andrés Flores
+ Martin Garriga
 \size default
 
 \begin_inset space \hspace*{}
@@ -341,9 +344,7 @@ Argentina
 \align center
 
 \size large
-Abril 2018
-\size default
- 
+Febrero 2019
 \end_layout
 
 \end_body
