@@ -1,15 +1,10 @@
 #LyX 2.3 created this file. For more info see http://www.lyx.org/
-\lyxformat 508
+\lyxformat 544
 \begin_document
 \begin_header
 \save_transient_properties true
 \origin unavailable
 \textclass myBook
-\begin_preamble
-% Added by lyx2lyx
-\renewcommand{\textendash}{--}
-\renewcommand{\textemdash}{---}
-\end_preamble
 \use_default_options false
 \maintain_unincluded_children false
 \language spanish
@@ -26,6 +21,8 @@
 \font_osf false
 \font_sf_scale 100 100
 \font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
 \graphics default
 \default_output_format default
 \output_sync 0
@@ -55,6 +52,7 @@
 \suppress_date false
 \justification true
 \use_refstyle 0
+\use_minted 0
 \index Index
 \shortcut idx
 \color #008000
@@ -63,7 +61,10 @@
 \tocdepth 3
 \paragraph_separation indent
 \paragraph_indentation default
-\quotes_language english
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
 \papercolumns 1
 \papersides 2
 \paperpagestyle default
@@ -448,51 +449,9 @@ I: el lenguaje más utilizado para especificar servicios REST.
 \end_layout
 
 \begin_layout Standard
-
-\emph on
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Plain Layout
-En particular, se propusieron mejoras sobre el procedimiento de análisis
- de interfaces (validación contractual) completamente basado en la especificació
-n funcional (descripta en WSDL versiones 1.1 y 2.0) de los Servicios Web,
- que permite extraer toda la información disponible en dicha especificación
- sin requerir de un marcado semántico adicional.
- En la actualidad, es necesario contar con una especificación de contratos
- de Servicios Web, que sea independiente de cualquier tecnología de implementaci
-ón, y que cubra convenientemente la existencia de servicios heterogéneos.
- En consecuencia, se ha decidido como primera etapa del trabajo, desarrollar
- un Metamodelo utilizando como base un conjunto de estándares para descripción
- de contratos/responsabilidades de Servicios Web heterogéneos.
- Se tomaron como base distintos estándares de descripción de servicios,
- tal como el Perfil UML SoaML, y el lenguaje WSDL versión 2.0 ambos estándares
- de OMG
-\emph on
-.
-
-\emph default
- Al contar con un Metamodelo donde se describen contratos ofrecidos por
- Servicios Web, resultaba necesario que la evaluación de servicios candidatos
- se realizara en función de instanciaciones del Metamodelo.
- Para ello, se diseñó e implementó un componente de software en la plataforma
- Java que contiene el Metamodelo permitiendo la exploración de la información
- de contratos de servicios sobre las instancias de este último.
-
-\emph on
- 
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
 Finalmente se realizó una evaluación experimental a partir de la cual comprobamo
 s que la utilización de CBR para evaluación y selección de Servicios Web
- mejora la visibilidad de los servicios relevantes \twohyphens
- estas mejoras se expresan
+ mejora la visibilidad de los servicios relevantes – estas mejoras se expresan
  en términos de métricas del campo de Recuperación de Información como 
 \emph on
 precision
@@ -580,8 +539,7 @@ Additionally, in previous work we extended assessment mechanisms to support
 
 \lang english
 Finally, we performed experimental validation to assess whether CBR improves
- retrievability of relevant services \twohyphens
- in terms of well-known metrics from
+ retrievability of relevant services – in terms of well-known metrics from
  the Information Retrieval field, namely 
 \emph on
 precision 

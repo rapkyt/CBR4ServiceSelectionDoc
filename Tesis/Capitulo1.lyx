@@ -1,5 +1,5 @@
-#LyX 2.2 created this file. For more info see http://www.lyx.org/
-\lyxformat 508
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
 \begin_document
 \begin_header
 \save_transient_properties true
@@ -21,6 +21,8 @@
 \font_osf false
 \font_sf_scale 100 100
 \font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
 \graphics default
 \default_output_format default
 \output_sync 0
@@ -50,6 +52,7 @@
 \suppress_date false
 \justification true
 \use_refstyle 1
+\use_minted 0
 \index Index
 \shortcut idx
 \color #008000
@@ -58,7 +61,10 @@
 \tocdepth 2
 \paragraph_separation indent
 \paragraph_indentation default
-\quotes_language french
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style swiss
+\dynamic_quotes 0
 \papercolumns 1
 \papersides 1
 \paperpagestyle default
@@ -67,7 +73,6 @@
 \html_math_output 0
 \html_css_as_file 0
 \html_be_strict false
-\author 1894756425 "lenovo1"
 \end_header
 
 \begin_body
@@ -121,15 +126,17 @@ em
 
 \end_inset
 
-) se percibe como un campo interdisciplinar para el estudio, diseño, e implement
-ación de sistemas orientados a servicios, y actúa como un paraguas que cubre
- todos los aspectos de computación utilizados – especificación y diseño
- orientado a servicios, Arquitectura Orientada a Servicios (SOA
+) es un campo interdisciplinar para el estudio, diseño, e implementación
+ de sistemas distribuidos, y actúa como un paraguas que cubre todos los
+ aspectos de computación utilizados – especificación y diseño orientado
+ a servicios, Arquitectura Orientada a Servicios (SOA
 \begin_inset Foot
 status open
 
 \begin_layout Plain Layout
-SOA: Service Oriented Architecture
+SOA: 
+\emph on
+Service Oriented Architecture
 \end_layout
 
 \end_inset
@@ -137,19 +144,7 @@ SOA: Service Oriented Architecture
 ), Servicios Web, etc.
  – siendo actualmente una de las áreas de investigación más activas en el
  ámbito de la informática.
- La provisión de servicios y la innovación de los mismos están basadas sobre
- todo en las tecnologías de la información
-\begin_inset space ~
-\end_inset
-
-
-\begin_inset CommandInset citation
-LatexCommand cite
-key "ruiz2011ingenieria"
-
-\end_inset
-
-.
+ 
 \end_layout
 
 \begin_layout Standard
@@ -169,6 +164,7 @@ Una práctica común para el desarrollo de software es reusar funcionalidad
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Bichler06"
+literal "true"
 
 \end_inset
 
@@ -195,6 +191,7 @@ o de una lógica basada en el producto a una basada en el servicio
 \begin_inset CommandInset citation
 LatexCommand cite
 key "vargo2004evolving"
+literal "true"
 
 \end_inset
 
@@ -210,6 +207,7 @@ key "vargo2004evolving"
 \begin_inset CommandInset citation
 LatexCommand cite
 key "ruiz2011ingenieria"
+literal "true"
 
 \end_inset
 
@@ -229,6 +227,7 @@ vo, principalmente porque permite exponer las competencias de una organización
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Papazoglou07"
+literal "true"
 
 \end_inset
 
@@ -248,6 +247,7 @@ En general, las Aplicaciones Orientadas a Servicios se basan en la tecnología
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Bichler06"
+literal "true"
 
 \end_inset
 
@@ -263,6 +263,7 @@ key "Bichler06"
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Sivashanmugam03"
+literal "true"
 
 \end_inset
 
@@ -279,6 +280,7 @@ key "Sivashanmugam03"
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Erickson08"
+literal "true"
 
 \end_inset
 
@@ -287,9 +289,8 @@ key "Erickson08"
  por SOA, donde se define la interacción entre clientes o consumidores y
  los proveedores de servicios a través del intercambio de mensajes.
  Una entidad de descubrimiento puede ser vista como un registro o directorio
- de servicios.
- Permite que un proveedor publique sus servicios y que luego un consumidor
- pueda realizar un descubrimiento de tales servicios.
+ de servicios, y permite que un proveedor publique sus servicios y que luego
+ un consumidor pueda realizar un descubrimiento de tales servicios.
 \end_layout
 
 \begin_layout Standard
@@ -305,6 +306,7 @@ El paradigma SOC provee ventajas muy claras, dado que genera un bajo grado
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Huhns05"
+literal "true"
 
 \end_inset
 
@@ -364,6 +366,7 @@ status collapsed
 \begin_inset CommandInset citation
 LatexCommand cite
 key "UDDI04"
+literal "true"
 
 \end_inset
 
@@ -392,6 +395,7 @@ contaminada
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Erickson08"
+literal "true"
 
 \end_inset
 
@@ -427,6 +431,7 @@ em
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Duftler01"
+literal "true"
 
 \end_inset
 
@@ -450,6 +455,7 @@ contaminadas
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Mateos10"
+literal "true"
 
 \end_inset
 
@@ -467,6 +473,7 @@ Si bien existen esfuerzos actuales en la identificación de servicios
 \begin_inset CommandInset citation
 LatexCommand cite
 key "garriga2015web"
+literal "true"
 
 \end_inset
 
@@ -493,58 +500,99 @@ o de palabras clave, considerando que las mismas fueron utilizadas para
 \begin_layout Standard
 La motivación de esta tesis es alcanzar un enfoque que facilite el desarrollo
  de aplicaciones orientadas a servicios, asistiendo a los desarrolladores
- en la tarea de selección de servicios candidatos.
- Para ello, es necesaria una evaluación de dichos servicios, fundamentalmente
- a nivel de contrato – i.e., analizando los elementos que forman las funcionalidad
- ofrecida por el servicio.
+ en la tarea de evaluación y selección de servicios candidatos.
+ Para ello es necesario un análisis a nivel de contrato – i.e., de los elementos
+ que forman las funcionalidad ofrecida por el servicio.
  Además, se requiere que dicho enfoque incorpore algún mecanismo de aprendizaje
- semi- automático para mejorar su performance incorporando información a
- partir del uso 
-\begin_inset Note Note
-status open
+ semi-automático para mejorar su performance incorporando información a
+ partir del uso
+\begin_inset space ~
+\end_inset
 
-\begin_layout Plain Layout
-[ADR16].
-\end_layout
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "de2016case"
+literal "false"
 
 \end_inset
 
 .
  Es por esto que se decidió incorporar lo realizado en trabajos previos
-\begin_inset Note Note
-status open
+\begin_inset space ~
+\end_inset
 
-\begin_layout Plain Layout
-[ADR2014, SC2016, LC18]
-\end_layout
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "castro16,cava18,DeRenzis13"
+literal "false"
 
 \end_inset
 
 , donde se definió la evaluación a nivel de contrato de servicios considerando
  aspectos estructurales y semánticos, en el marco de la metodología Razonamiento
- Basado en Casos.
- Sin embargo, existen aún limitaciones con respecto al tipo de descripciones
- de origen que se soportan, por la falta de herramientas automatizadas para
- realizar la derivación desde otro tipo de descripciones hacia el Metamodelo
- de servicios, se agrega el desafio de aumentar las mismas incorporando
- al estándar de especificación Open API, utilizada para especificar servicios
- REST (de REpresentational State Transfer)
-\begin_inset Note Note
+ Basado en Casos (CBR
+\begin_inset Foot
 status open
 
 \begin_layout Plain Layout
-[RF14]
+CBR: 
+\emph on
+Case Based Reasoning
 \end_layout
 
 \end_inset
 
- y microservicios
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-[MF14]
+) desarrollada en la presente tesis.
+ CBR proviene del campo de la Inteligencia Artificial y aporta algunos aspectos
+ cruciales para resolver los problemas antes mencionados en la evaluación
+ y selección de Servicios Web.
+ Un razonador basado en casos resuelve nuevos problemas mediante el uso
+ y la adaptación de soluciones existentes para problemas anteriores y recurrente
+s.
+ 
 \end_layout
+
+\begin_layout Standard
+Sin embargo, existen además limitaciones con respecto al tipo de descripciones
+ de origen que se soportan, por la falta de herramientas automatizadas para
+ realizar la derivación desde otro tipo de descripciones hacia el Metamodelo
+ de servicios.
+ Se agrega entonces el desafio de aumentar el cubrimiento de las mismas
+ incorporando al estándar de especificación Open API
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "IANA"
+literal "false"
+
+\end_inset
+
+, utilizada para especificar servicios REST (de REpresentational State Transfer)
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "fielding2000architectural"
+literal "false"
+
+\end_inset
+
+ y microservicios
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "lewis2014microservices"
+literal "false"
 
 \end_inset
 
@@ -578,19 +626,22 @@ En esta tesis se profundiza la investigación sobre el enfoque que ha sido
 \begin_inset CommandInset citation
 LatexCommand cite
 key "castro16,Cors12,DeRenzis13,Garriga10"
+literal "true"
 
 \end_inset
 
 , cuyo objetivo es la mejora del desarrollo de Aplicaciones Orientadas a
  Servicios; asistiendo a los ingenieros de software por medio de una serie
  de procesos semi-automáticos para la Selección de Servicios Web, y el enfoque
- que se ha definido en 
-\begin_inset Note Note
-status open
+ que se ha definido en
+\begin_inset space ~
+\end_inset
 
-\begin_layout Plain Layout
-Lucas
-\end_layout
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "cava18"
+literal "false"
 
 \end_inset
 
@@ -642,7 +693,7 @@ Definir un proceso de evaluación de servicios utilizando Razonamiento Basado
  en Casos (CBR): 
 \emph default
 En primer lugar proponemos utilizar la metodología de Razonamiento basado
- en casos (Case-based Reasoning o CBR) para evaluación de servicios.
+ en casos para evaluación de servicios.
  CBR proviene del campo de la Inteligencia Artificial y aporta algunos aspectos
  cruciales para resolver los problemas antes mencionados en la evaluación
  y selección de Servicios Web.
@@ -940,6 +991,7 @@ servicio
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Erl08"
+literal "true"
 
 \end_inset
 
@@ -956,6 +1008,7 @@ key "Erl08"
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Massuthe05"
+literal "true"
 
 \end_inset
 
@@ -973,6 +1026,7 @@ Desde una perspectiva de negocios, una Aplicación Orientada a Servicios
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Sprott04"
+literal "true"
 
 \end_inset
 
@@ -996,6 +1050,7 @@ externos
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Mateos10"
+literal "true"
 
 \end_inset
 
@@ -1016,6 +1071,7 @@ tercerización
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Papazoglou07"
+literal "true"
 
 \end_inset
 
@@ -1044,6 +1100,7 @@ integración
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Huhns05,Bichler06"
+literal "true"
 
 \end_inset
 
@@ -1074,6 +1131,7 @@ La arquitectura básica de un sistema orientado a servicios (SOA) incluye
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Stevens03"
+literal "true"
 
 \end_inset
 
@@ -1113,6 +1171,7 @@ reference "fig:SOA"
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Erickson08,Gorton06"
+literal "true"
 
 \end_inset
 
@@ -1244,6 +1303,7 @@ En su mayoría, la industria del software ha adoptado el paradigma SOC utilizand
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Massuthe05,Papazoglou07"
+literal "true"
 
 \end_inset
 
@@ -1278,6 +1338,7 @@ s de la Web
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Booth04"
+literal "true"
 
 \end_inset
 
@@ -1290,6 +1351,7 @@ key "Booth04"
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Weerawarana05"
+literal "true"
 
 \end_inset
 
@@ -1527,6 +1589,7 @@ integración
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Heineman01,Cechich03"
+literal "true"
 
 \end_inset
 
@@ -1542,6 +1605,7 @@ s y cualidades explícitamente especificadas, que denota una abstracción
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Szyperski02,Gross05"
+literal "true"
 
 \end_inset
 
@@ -1611,6 +1675,7 @@ Modelo de Componentes
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Kung07"
+literal "true"
 
 \end_inset
 
@@ -1626,6 +1691,7 @@ key "Kung07"
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Stuckenholz05,Kung07"
+literal "true"
 
 \end_inset
 
@@ -2111,6 +2177,7 @@ es que son en realidad clases Java, el lenguaje de definición coincide con
 \begin_inset CommandInset citation
 LatexCommand cite
 key "J2EE"
+literal "true"
 
 \end_inset
 
@@ -2151,6 +2218,7 @@ em
 \begin_inset CommandInset citation
 LatexCommand cite
 key "COM03"
+literal "true"
 
 \end_inset
 
@@ -2162,6 +2230,7 @@ key "COM03"
 \begin_inset CommandInset citation
 LatexCommand cite
 key "OMGCORBA02"
+literal "true"
 
 \end_inset
 
@@ -2173,6 +2242,7 @@ key "OMGCORBA02"
 \begin_inset CommandInset citation
 LatexCommand cite
 key "NET"
+literal "true"
 
 \end_inset
 
@@ -2232,6 +2302,7 @@ contrato
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Erl08"
+literal "true"
 
 \end_inset
 
@@ -2278,6 +2349,7 @@ En los últimos años, los servicios RESTful – REpresentational State Transfer
 \begin_inset CommandInset citation
 LatexCommand cite
 key "fielding2000architectural"
+literal "true"
 
 \end_inset
 
@@ -2302,6 +2374,7 @@ mashups
 \begin_inset CommandInset citation
 LatexCommand cite
 key "fielding2000architectural"
+literal "true"
 
 \end_inset
 
@@ -2359,6 +2432,7 @@ reference "fig:swProtocols"
 \begin_inset CommandInset citation
 LatexCommand cite
 key "pautasso2008restful"
+literal "true"
 
 \end_inset
 
@@ -2368,6 +2442,7 @@ key "pautasso2008restful"
 \begin_inset CommandInset citation
 LatexCommand cite
 key "lanthaler2010towards"
+literal "true"
 
 \end_inset
 
@@ -2385,6 +2460,7 @@ key "lanthaler2010towards"
 \begin_inset CommandInset citation
 LatexCommand cite
 key "fielding2000architectural"
+literal "true"
 
 \end_inset
 
@@ -2616,8 +2692,6 @@ name "DiferenciaEntreWSDL1.1YWSDL2.0"
 
 \begin_layout Paragraph
 WSDL Versión 1.1
-\change_inserted 1894756425 1522271060
-
 \begin_inset Newline newline
 \end_inset
 
@@ -2625,8 +2699,6 @@ WSDL Versión 1.1
 \begin_inset Newline newline
 \end_inset
 
-
-\change_unchanged
 
 \end_layout
 
@@ -2720,8 +2792,6 @@ Service: una colección de punto de acceso relacionados.
 
 \begin_layout Paragraph
 WSDL 2.0
-\change_inserted 1894756425 1522271063
-
 \begin_inset Newline newline
 \end_inset
 
@@ -2729,8 +2799,6 @@ WSDL 2.0
 \begin_inset Newline newline
 \end_inset
 
-
-\change_unchanged
 
 \end_layout
 
@@ -2789,8 +2857,6 @@ Service: describe un conjunto de puntos de acceso en el cual se desarrolla
 
 \begin_layout Paragraph
 WADL
-\change_inserted 1894756425 1522270686
-
 \begin_inset Newline newline
 \end_inset
 
@@ -2798,8 +2864,6 @@ WADL
 \begin_inset Newline newline
 \end_inset
 
-
-\change_unchanged
 
 \end_layout
 
@@ -2926,8 +2990,6 @@ lstparams "caption={Ejemplo de Estructura WADL},label={Ejemplo de Estructura WAD
 
 \begin_layout Paragraph
 SoaML
-\change_inserted 1894756425 1522270710
-
 \begin_inset Newline newline
 \end_inset
 
@@ -2935,8 +2997,6 @@ SoaML
 \begin_inset Newline newline
 \end_inset
 
-
-\change_unchanged
  
 \end_layout
 
@@ -3346,10 +3406,6 @@ Estructura de una especificación Open API.
 
 \end_layout
 
-\begin_layout Plain Layout
-
-\end_layout
-
 \end_inset
 
 
@@ -3448,17 +3504,17 @@ Capítulo 5
  la posibilidad efectiva de utilización de la herramienta de evaluación
  de Servicios Web.
  Se identifican futuras líneas de acción basadas en los resultados obtenidos.
-\change_deleted 1894756425 1522271193
+\end_layout
 
+\begin_layout Standard
 \begin_inset CommandInset bibtex
 LatexCommand bibtex
+btprint "btPrintCited"
 bibfiles "Biblio_Lic"
 options "plain"
 
 \end_inset
 
-
-\change_unchanged
 
 \end_layout
 
