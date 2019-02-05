@@ -1,4 +1,4 @@
-#LyX 2.2 created this file. For more info see http://www.lyx.org/
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
 \lyxformat 508
 \begin_document
 \begin_header
@@ -7,6 +7,9 @@
 \textclass myBook
 \begin_preamble
 \usepackage{fancyhdr}
+% Added by lyx2lyx
+\renewcommand{\textendash}{--}
+\renewcommand{\textemdash}{---}
 \end_preamble
 \use_default_options false
 \maintain_unincluded_children false
@@ -100,12 +103,12 @@ name "sec:Generacion-de-consultas"
 En la presente tesis se profundizó acerca del Método de Evaluación y Selección
  de Servicios Web, que tiene como objetivo asistir a los ingenieros de software
  en la construcción de Aplicaciones Orientadas a Servicios.
- En particular, se propusieron mejoras sobre el procedimiento de Selección
- de Servicios Web, formalizando sus pasos dentro de la metodología Razonamiento
- Basado en Casos, incorporando un mecanismo de aprendizaje semi-automático
- que mejora su performance adquiriendo información a partir del uso además
- de estandarizar y automatizar el proceso, lo que facilitó la búsqueda de
- un Servicio requerido basado en la descripción de las necesidades del ingeniero.
+ En particular, se mapearon los pasos del proceso dentro de la metodología
+ Razonamiento Basado en Casos, incorporando un mecanismo de aprendizaje
+ semi-automático que mejora su performance adquiriendo información a partir
+ del uso además de estandarizar y automatizar el proceso, lo que facilita
+ las tareas de evaluación y selección de Servicios Web en base a la descripción
+ de las necesidades de un ingeniero software.
  
 \end_layout
 
@@ -119,9 +122,13 @@ Actualmente, los servicios están siendo fuertemente considerados como la
  sus funcionalidades, y las operaciones soportadas, para luego identificar
  la forma de invocación, la interconexión de operaciones, y los mapeos de
  mensajes.
- Sumado a esto, los documentos WSDL y Swagger en general carecen de información
+ Sumado a esto, los documentos WSDL y OpenAPI en general carecen de información
  significativa para soportar este proceso, debido a la proliferación de
- los Servicios Web
+ los Servicios Web 
+\emph on
+code-first
+\emph default
+ 
 \begin_inset space ~
 \end_inset
 
@@ -132,9 +139,8 @@ key "mateos2011detecting"
 
 \end_inset
 
- cuyas especificaciones se generan de manera automática, disminuyendo su
- expresividad y por ende la precisión de los registros de descubrimiento
- de servicios.
+, cuyas especificaciones se generan de manera automática, disminuyendo su
+ expresividad y por ende la precisión de la búsqueda.
  
 \begin_inset Newline newline
 \end_inset
@@ -146,8 +152,11 @@ reference "sec:Objetivos-Alcanzados"
 
 \end_inset
 
- el alcance de los objetivos planteados en el Capítulo 1, en función del
- desarrollo del trabajo que se describe en esta tesis.
+ la consecución de los objetivos planteados en el Capítulo
+\begin_inset space ~
+\end_inset
+
+1, en función del desarrollo del trabajo que se describe en esta tesis.
  Luego en la Sección 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -171,8 +180,7 @@ name "sec:Objetivos-Alcanzados"
 \end_layout
 
 \begin_layout Standard
-En función de lo anteriormente expuesto, se definió el objetivo general
- de esta tesis, de la siguiente manera:
+Retomando el objetivo general de esta tesis:
 \begin_inset Newline newline
 \end_inset
 
@@ -234,38 +242,26 @@ Objetivo 1: Definir un proceso de evaluación de servicios utilizando CBR.
 \end_layout
 
 \begin_layout Standard
-Como se mencionó en el Capítulo 3, resultaba necesario contar con una especifica
-ción de contratos de Servicios Web que sea independiente de cualquier tecnología
- de implementación.
- Por este motivo el Metamodelo de descripciones de Servicios Web presentado
- en el Capítulo 2 fue extendido, incorporándolo en una nueva estructura
- llamada “Caso”.
- Esto nos permitió enfocar la evaluación y selección de servicios dentro
- del marco del Razonamiento Basado en Casos.
- Un razonador basado en casos resuelve nuevos problemas mediante el uso
- y la adaptación de soluciones existentes para problemas anteriores y recurrente
-s.
-\end_layout
+A lo largo de esta tesis se logró trazar un paralelo entre el problema de
+ descubrimiento, selección y evaluación de servicios
+\begin_inset space ~
+\end_inset
 
-\begin_layout Standard
-En la tesis propuesta se logró trazar un paralelo entre el problema de descubrim
-iento, selección y evaluación de servicios 
-\begin_inset Note Note
-status open
 
-\begin_layout Plain Layout
-[CZC08, ADR2014]
-\end_layout
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Garriga2018isf"
 
 \end_inset
 
-, y los pasos de la metodología CBR, conocidos como las cuatro R
-\begin_inset Note Note
-status open
+ y los pasos de la metodología CBR, conocidos como las cuatro R
+\begin_inset space ~
+\end_inset
 
-\begin_layout Plain Layout
- [AAA94]
-\end_layout
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "aamodt1994case"
 
 \end_inset
 
@@ -278,43 +274,46 @@ status open
  Web.
 \end_layout
 
+\begin_layout Standard
+Además, como se mencionó en el Capítulo 3, resultaba necesario contar con
+ una especificación de contratos de Servicios Web que sea independiente
+ de cualquier tecnología de implementación.
+ Por este motivo el Metamodelo de descripciones de Servicios Web presentado
+ en el Capítulo 2 fue extendido, incorporándolo en una nueva estructura
+ llamada “Caso”.
+ 
+\end_layout
+
 \begin_layout Paragraph*
 Objetivo 2: Desarrollar los componentes necesarios para la evaluación de
  servicios heterogéneos.
- En particular, un conversor de descripciones OpenAPI a instancias del Metamodel
-o de servicios, y una Base de Conocimiento (KB) persistente.
 \end_layout
 
 \begin_layout Standard
 Al contar con el Metamodelo desarrollado, resultó necesario que la evaluación
  de servicios candidatos especificados bajo el estándar OpenAPI/Swagger
- se realice en función de instanciaciones del Metamodelo.
- Para ello, se diseño y desarrolló un componente Conversor que recibe como
- entrada una especificación Swagger (generalmente un archivo tipo JSON)
- y devuelve como salida una instancia del Metamodelo.
+ se realice en función de instancias del Metamodelo.
+ Para ello, se diseño y desarrolló un componente conversor que recibe como
+ entrada una especificación OpenAPI/Swagger (generalmente un archivo tipo
+ JSON) y devuelve como salida una instancia del Metamodelo.
  Contar con este conversor nos permitió trabajar tanto con servicios SOAP
- como con servicios REST de una manera transparente, sin necesidad de generar
- una instancia, de acuerdo al metamodelo desarrollado, por cada descripción
- del servicio de forma manual.
+ como con servicios REST de una manera transparente.
 \end_layout
 
 \begin_layout Standard
 El primer beneficio concreto de contar con el componente conversor se obtuvo
  a la hora de realizar la evaluación experimental, ya que fueron generadas
  las instancias correspondientes del Metamodelo para las 550 especificaciones
- Swagger utilizadas como datasets en unos pocos minutos, tiempo que se considera
- ínfimo en comparación a realizar esta tarea manualmente, es decir, generar
- la instancia de cada componente del Metamodelo de forma manual.
- Este tiempo también es considero ínfimo en comparación a reescribir todas
- estas especificaciones a su equivalente WSDL y utilizar el conversor existente.
+ utilizadas como dataset en unos pocos minutos, un esfuerzo ínfimo en comparació
+n a realizar esta tarea manualmente, o bien a reescribir todas estas especificac
+iones a su equivalente WSDL y utilizar el conversor existente.
 \end_layout
 
 \begin_layout Standard
-Para permitir el aprendizaje mencionado en el Objetivo 1 fue necesario almacenar
- la Base de Conocimiento (KB) de manera persistente, para que los casos
- retenidos prosperen en futuras ejecuciones y además no tener que realizar
- la conversión al Metamodelo del dataset de Servicios Web WSDL o Swagger
- en cada una de las ejecuciones.
+Para permitir el reuso, fue necesario almacenar la Base de Conocimiento
+ (KB) de manera persistente, para que los casos retenidos se mantengan en
+ futuras ejecuciones, y además no tener que realizar la conversión al Metamodelo
+ de los servicios en cada una de las ejecuciones.
  Para esto se decidió almacenar cada Caso en un Sistema Gestor de Base de
  Datos basado en documentos llamado MongoDB.
  Fue de gran utilidad contar con esta Base de Conocimiento persistente a
@@ -325,44 +324,51 @@ Para permitir el aprendizaje mencionado en el Objetivo 1 fue necesario almacenar
 \end_layout
 
 \begin_layout Paragraph*
-Objetivo 3: Realizar la integración de los componentes desarrollados en
- el Objetivo 2, ajustando los mecanismos de evaluación existentes para selección
- de servicios al contexto de CBR, de acuerdo al proceso definido en el objetivo
- 1.
+Objetivo 3: Realizar la integración de los componentes desarrollados, ajustando
+ los mecanismos de evaluación existentes para selección de servicios al
+ contexto de CBR.
 \end_layout
 
 \begin_layout Standard
 Fue necesario integrar los componentes desarrollados como parte del Objetivo
  2 (Conversor de descripciones Swagger y Base de conocimientos persistente)
  con los mecanismos de evaluación y selección de servicios presentado a
- lo largo de los trabajos previos
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-[C12, G10, ADR2014, SC2016, LC18]
-\end_layout
-
-\end_inset
-
-, conformando una herramienta de soporte automatizado al proceso de CBR
- para evaluación y selección de servicios, definido en el Objetivo 1.
+ lo largo de los trabajos previos, conformando una herramienta de soporte
+ automatizado al proceso de CBR para evaluación y selección de servicios,
+ definido en el Objetivo 1.
  Para ello, se extrajo y reutilizó la lógica subyacente a los componentes
  de la evaluación de servicios existente.
- Entre otras, los mecanismos de evaluación semántico-estructura de elementos
+ Entre otras, los mecanismos de evaluación semántico-estructural de elementos
  de signatura (nombres de operaciones, parámetros de entrada/salida, tipos
  de datos complejos, etc.), que constituyó la función de similitud en el
  esquema CBR.
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Mencionar Kotlin de cap 3 y Docker, reusable como se vio en la hackathon
+ 
 \end_layout
 
+\begin_layout Standard
+La integración de los mecanismos de evaluación existentes (implementados
+ en Java) con los nuevos componentes se realizó utilizando Kotlin, otro
+ lenguaje que se ejecuta sobre la JVM (Java Virtual Machine).
+ El mismo simplifica el trabajo del desarrollador ya que es más actual y
+ totalmente interoperable con Java.
+ Además, para la fácil y rápida replicación del entorno se utilizó Docker,
+ una tecnología de virtualización a través de contenedores (
+\emph on
+containers
+\emph default
+) que engloba su propia aplicación, herramientas, librería y archivos de
+ configuración.
+ Esto permite de ahora en más ejecutar el Razonador Basado en Casos en distintas
+ arquitecturas (Windows, Linux y Mac OS), sin realizar ninguna instalación
+ (p.
+ ej.
+ Java, MongoDB, etc.) ni modificación, sólo con la ejecución de un comando
+ \threehyphens
+ como se vió en la validación experimental del Capítulo
+\begin_inset space ~
 \end_inset
 
-
+4.
 \end_layout
 
 \begin_layout Section
@@ -378,8 +384,8 @@ name "sec:Trabajo-Futuro"
 
 \begin_layout Standard
 En función de lo estudiado en esta tesis, se identificaron algunos aspectos
- para continuar la optimización del Método de Selección de Servicios Web
- utilizando la metodología CBR.
+ para continuar la optimización del Método de Evaluación y Selección de
+ Servicios Web utilizando la metodología CBR.
  Estos aspectos se detallan a continuación: 
 \end_layout
 
@@ -457,16 +463,19 @@ https://apiblueprint.org/
 \end_inset
 
 , le daría un valor agregado a la herramienta ya que aumentaría aún mas
- la heterogeneidad de la misma.
+ el soporte de servicios heterogéneos.
 \end_layout
 
 \begin_layout Itemize
-Desarrollar un módulo desconversor o un conversor inverso que a partir de
- una instancia del Metamodelo de descripciones de Servicios Web genere una
- de las especificación disponibles (actualmente WSDL y Swagger), lo cual
- permitiría hacer conversiones entre cualquier tipo de especificación soportada,
- es decir, a partir de una especificación WSDL existente, generar su especificac
-ión análoga Swagger y viceversa.
+Desarrollar un módulo 
+\emph on
+desconversor 
+\emph default
+o un conversor inverso que a partir de una instancia del Metamodelo de descripci
+ones de Servicios Web genere una de las especificación disponibles (actualmente
+ WSDL y OpenAPI), lo cual permitiría hacer conversiones entre cualquier
+ tipo de especificación soportada, es decir, a partir de una especificación
+ WSDL existente, generar su especificación análoga OpenAPI y viceversa.
 \end_layout
 
 \begin_layout Itemize
@@ -556,18 +565,8 @@ Automatizar y permitir la Composición de Servicios cuando se realice una
  Para ello es necesario implementar un módulo de software que genere estos
  Casos candidatos compuestos permitiendo expandir aún más el universo de
  soluciones posibles.
- 
-\end_layout
-
-\begin_layout Standard
-\begin_inset CommandInset bibtex
-LatexCommand bibtex
-bibfiles "Biblio_Lic"
-options "plain"
-
-\end_inset
-
-
+ Este aspecto crucial está siendo abordado actualmente en las tesis en desarroll
+o.
 \end_layout
 
 \end_body
