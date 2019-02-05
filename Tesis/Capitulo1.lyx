@@ -2562,17 +2562,5 @@ Capítulo 5
  Se identifican futuras líneas de acción basadas en los resultados obtenidos.
 \end_layout
 
-\begin_layout Standard
-\begin_inset CommandInset bibtex
-LatexCommand bibtex
-btprint "btPrintCited"
-bibfiles "Biblio_Lic"
-options "plain"
-
-\end_inset
-
-
-\end_layout
-
 \end_body
 \end_document
