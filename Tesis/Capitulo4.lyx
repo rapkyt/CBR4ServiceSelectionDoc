@@ -1,4 +1,4 @@
-#LyX 2.2 created this file. For more info see http://www.lyx.org/
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
 \lyxformat 508
 \begin_document
 \begin_header
@@ -3386,7 +3386,8 @@ reference "fig:precision-hackathon"
 
 \begin_layout Standard
 En conclusión, los experimentos muestran que la utilización del Razonador
- Basado en Casos mejora la visibilidad de los servicios relevantes – estas
+ Basado en Casos mejora la visibilidad de los servicios relevantes \twohyphens
+ estas
  mejoras se expresan en términos de ganancias en Precisión y Recall.
  Esto incrementa la visibilidad de los casos candidatos más adecuados puede
  facilitar en gran medida el desarrollo de Aplicaciones Orientadas a Servicios.

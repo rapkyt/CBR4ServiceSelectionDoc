@@ -1,10 +1,15 @@
-#LyX 2.2 created this file. For more info see http://www.lyx.org/
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
 \lyxformat 508
 \begin_document
 \begin_header
 \save_transient_properties true
 \origin unavailable
 \textclass myBook
+\begin_preamble
+% Added by lyx2lyx
+\renewcommand{\textendash}{--}
+\renewcommand{\textemdash}{---}
+\end_preamble
 \use_default_options false
 \maintain_unincluded_children false
 \language spanish
@@ -67,7 +72,6 @@
 \html_math_output 0
 \html_css_as_file 0
 \html_be_strict false
-\author 1894756425 "lenovo1"
 \end_header
 
 \begin_body
@@ -121,35 +125,27 @@ em
 
 \end_inset
 
-) se percibe como un campo interdisciplinar para el estudio, diseño, e implement
-ación de sistemas orientados a servicios, y actúa como un paraguas que cubre
- todos los aspectos de computación utilizados – especificación y diseño
- orientado a servicios, Arquitectura Orientada a Servicios (SOA
+) es un campo interdisciplinar para el estudio, diseño, e implementación
+ de sistemas distribuidos, y actúa como un paraguas que cubre todos los
+ aspectos de computación utilizados \twohyphens
+ especificación y diseño orientado
+ a servicios, Arquitectura Orientada a Servicios (SOA
 \begin_inset Foot
 status open
 
 \begin_layout Plain Layout
-SOA: Service Oriented Architecture
+SOA: 
+\emph on
+Service Oriented Architecture
 \end_layout
 
 \end_inset
 
 ), Servicios Web, etc.
- – siendo actualmente una de las áreas de investigación más activas en el
+ \twohyphens
+ siendo actualmente una de las áreas de investigación más activas en el
  ámbito de la informática.
- La provisión de servicios y la innovación de los mismos están basadas sobre
- todo en las tecnologías de la información
-\begin_inset space ~
-\end_inset
-
-
-\begin_inset CommandInset citation
-LatexCommand cite
-key "ruiz2011ingenieria"
-
-\end_inset
-
-.
+ 
 \end_layout
 
 \begin_layout Standard
@@ -159,7 +155,8 @@ Una práctica común para el desarrollo de software es reusar funcionalidad
  del sistema.
  En este contexto, el crecimiento de la Web habilita a los desarrolladores
  a ofrecer software no sólo en forma de bibliotecas, sino como servicios
- – componentes software que se pueden invocar de forma dinámica.
+ \twohyphens
+ componentes software que se pueden invocar de forma dinámica.
  En particular, la tecnología de Servicios Web es uno de los principales
  motivos para la adopción del paradigma SOC
 \begin_inset space ~
@@ -287,9 +284,8 @@ key "Erickson08"
  por SOA, donde se define la interacción entre clientes o consumidores y
  los proveedores de servicios a través del intercambio de mensajes.
  Una entidad de descubrimiento puede ser vista como un registro o directorio
- de servicios.
- Permite que un proveedor publique sus servicios y que luego un consumidor
- pueda realizar un descubrimiento de tales servicios.
+ de servicios, y permite que un proveedor publique sus servicios y que luego
+ un consumidor pueda realizar un descubrimiento de tales servicios.
 \end_layout
 
 \begin_layout Standard
@@ -493,58 +489,93 @@ o de palabras clave, considerando que las mismas fueron utilizadas para
 \begin_layout Standard
 La motivación de esta tesis es alcanzar un enfoque que facilite el desarrollo
  de aplicaciones orientadas a servicios, asistiendo a los desarrolladores
- en la tarea de selección de servicios candidatos.
- Para ello, es necesaria una evaluación de dichos servicios, fundamentalmente
- a nivel de contrato – i.e., analizando los elementos que forman las funcionalidad
- ofrecida por el servicio.
+ en la tarea de evaluación y selección de servicios candidatos.
+ Para ello es necesario un análisis a nivel de contrato \twohyphens
+ i.e., de los elementos
+ que forman las funcionalidad ofrecida por el servicio.
  Además, se requiere que dicho enfoque incorpore algún mecanismo de aprendizaje
- semi- automático para mejorar su performance incorporando información a
- partir del uso 
-\begin_inset Note Note
-status open
+ semi-automático para mejorar su performance incorporando información a
+ partir del uso
+\begin_inset space ~
+\end_inset
 
-\begin_layout Plain Layout
-[ADR16].
-\end_layout
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "de2016case"
 
 \end_inset
 
 .
  Es por esto que se decidió incorporar lo realizado en trabajos previos
-\begin_inset Note Note
-status open
+\begin_inset space ~
+\end_inset
 
-\begin_layout Plain Layout
-[ADR2014, SC2016, LC18]
-\end_layout
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "castro16,cava18,DeRenzis13"
 
 \end_inset
 
 , donde se definió la evaluación a nivel de contrato de servicios considerando
  aspectos estructurales y semánticos, en el marco de la metodología Razonamiento
- Basado en Casos.
- Sin embargo, existen aún limitaciones con respecto al tipo de descripciones
- de origen que se soportan, por la falta de herramientas automatizadas para
- realizar la derivación desde otro tipo de descripciones hacia el Metamodelo
- de servicios, se agrega el desafio de aumentar las mismas incorporando
- al estándar de especificación Open API, utilizada para especificar servicios
- REST (de REpresentational State Transfer)
-\begin_inset Note Note
+ Basado en Casos (CBR
+\begin_inset Foot
 status open
 
 \begin_layout Plain Layout
-[RF14]
+CBR: 
+\emph on
+Case Based Reasoning
 \end_layout
 
 \end_inset
 
- y microservicios
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-[MF14]
+) adoptada en la presente tesis.
+ CBR proviene del campo de la Inteligencia Artificial y aporta algunos aspectos
+ cruciales para resolver los problemas antes mencionados en la evaluación
+ y selección de Servicios Web, mediante el uso y la adaptación de soluciones
+ existentes para problemas recurrentes.
+ 
 \end_layout
+
+\begin_layout Standard
+Sin embargo, existen además limitaciones con respecto al tipo de descripciones
+ de origen que se soportan, por la falta de herramientas automatizadas para
+ realizar la derivación desde otro tipo de descripciones hacia el Metamodelo
+ de servicios.
+ Se agrega entonces el desafio de aumentar el cubrimiento de las mismas
+ incorporando al estándar de especificación OpenAPI
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "IANA"
+
+\end_inset
+
+, utilizada para especificar servicios REST (de REpresentational State Transfer)
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "fielding2000architectural"
+
+\end_inset
+
+ y microservicios
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "lewis2014microservices"
 
 \end_inset
 
@@ -570,7 +601,7 @@ name "subsec:Solución-propuesta"
 
 \begin_layout Standard
 En esta tesis se profundiza la investigación sobre el enfoque que ha sido
- definido en
+ definido en tesis anteriores
 \begin_inset space ~
 \end_inset
 
@@ -583,224 +614,30 @@ key "castro16,Cors12,DeRenzis13,Garriga10"
 
 , cuyo objetivo es la mejora del desarrollo de Aplicaciones Orientadas a
  Servicios; asistiendo a los ingenieros de software por medio de una serie
- de procesos semi-automáticos para la Selección de Servicios Web, y el enfoque
- que se ha definido en 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Lucas
-\end_layout
-
-\end_inset
-
-, cuyo objetivo es la especificación de contratos de Servicios Web para
- lograr una independencia respecto de la tecnología y que se pudieran abarcar
- servicios heterogéneos, desarrollando un Metamodelo que utiliza como base
- un conjunto de estándares para descripción de contratos/responsabilidades
- de Servicios Web heterogéneos.
- En este sentido, el trabajo de esta tesis propone una extensión del proceso
- de selección y de su herramienta de soporte, enfocando en la estandarización
- del proceso de selección, y la incorporación de un nuevo estándar de descripció
-n de servicios para aumentar la independencia respecto de la tecnología
- y que se puedan abarcar cada vez más servicios heterogéneo.
-\end_layout
-
-\begin_layout Standard
-La propuesta consiste de tres actividades: 
-\emph on
-definir un proceso de evaluación de servicios utilizando Razonamiento Basado
- en Casos (CBR), desarrollar los componentes necesarios para la evaluación
- de servicios heterogéneos.
- En particular, un conversor de descripciones OpenAPI a instancias del Metamodel
-o de servicios, y una Base de Conocimiento (KB) persistente, 
-\emph default
-y
-\emph on
- realizar la integración de los componentes desarrollados en la primera
- actividad ajustando los mecanismos existentes de evaluación y selección
- de servicios al contexto de CBR, de acuerdo al proceso definido en la segunda
- actividad.
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-
-\emph on
-actualizar actividades==objetivos?
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-
-\emph on
-Definir un proceso de evaluación de servicios utilizando Razonamiento Basado
- en Casos (CBR): 
-\emph default
-En primer lugar proponemos utilizar la metodología de Razonamiento basado
- en casos (Case-based Reasoning o CBR) para evaluación de servicios.
- CBR proviene del campo de la Inteligencia Artificial y aporta algunos aspectos
- cruciales para resolver los problemas antes mencionados en la evaluación
- y selección de Servicios Web.
- Un razonador basado en casos resuelve nuevos problemas mediante el uso
- y la adaptación de soluciones existentes para problemas anteriores y recurrente
-s.
- A veces llamados sistemas de búsqueda por similitud, su efectividad viene
- dada por la función de similitud que se utiliza para cuantificar el grado
- de cercanía entre un par de casos 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-[ADR16]
-\end_layout
-
-\end_inset
-
-.
- Luego, nuestra propuesta implica trazar un paralelo entre el problema de
- descubrimiento, selección y evaluación de servicios [CZC08, ADR2014], y
- los pasos de la metodología CBR.
- CBR se compone de una serie de pasos bien establecidos, conocidos como
- las cuatro R [AAA94]: (1) Recuperar los casos más similares a un problema;
- (2) Reusar la información y el conocimiento disponible para intentar resolver
- el problema, (3) Revisar la solución propuesta si fuera necesario, y (4)
- Retener las partes de esta experiencia que sirvan para aprendizaje y utilizació
-n para resolución de problemas futuros.
- Para ello se requiere por un lado definir una representación de los casos
- (problema-solución) que capture la información relevante presente en las
- especificaciones de servicios (descriptas según el Metamodelo de servicios);
- y además definir la función de similitud, que utilice los aspectos estructurale
-s y semánticos en dichas descripciones de servicios.
- Finalmente, en base a dicha función de similitud se requiere definir la(s)
- estrategia(s) de clasificación de casos – es decir, cuáles son los casos
- relevantes para cada problema.
- Se utilizarán desde estrategias clásicas de clasificación como la de K
- vecinos más cercanos (KNN) hasta otras más avanzadas como WKNN (KNN con
- pesos) y DWKNN (KNN con pesos y distancias) [AAA94].
-\end_layout
-
-\begin_layout Itemize
-
-\emph on
-Desarrollar los componentes necesarios para la evaluación de servicios heterogén
-eos.
- En particular, un conversor de descripciones OpenAPI a instancias del Metamodel
-o de servicios, y una Base de Conocimiento (KB) persistente: 
-\emph default
-Al contar con un Metamodelo de servicios donde se describen contratos ofrecidos
- por Servicios Web, resulta necesario que la representación y evaluación
- de casos (de acuerdo al esquema CBR) se realice en función de instanciaciones
- del Metamodelo, que proveen la capacidad de describir servicios heterogéneos.
- Pensar en generar casos manualmente para un gran número de servicios (cientos
- o miles), resulta completamente impracticable.
- Por ello, se debe en primer lugar generar las instancias del Metamodelo
- de servicios de manera automática, para luego generar los pares problema-soluci
-ón que poblarán la base de conocimiento.
- Se cuenta con diferentes datasets para este propósito: un dataset WSDL
- extraído de la plataforma mashape
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
- 6
-\end_layout
-
-\end_inset
-
- ; y un dataset de especificaciones OpenAPI, extraído de la plataforma APIs
- Guru
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
- 7
-\end_layout
-
-\end_inset
-
- .
- En tesis anteriores, se desarrolló un componente que a, partir de una descripci
-ón WSDL correspondiente a un Servicio Web, genera una instancia del Metamodelo
- [LC18].
- Luego, es necesario desarrollar un componente análogo que permita realizar
- dicha instanciación del Metamodelo en base a otras especificaciones comunes
- en la industria.
- Entre ellas, el estándar OpenAPI goza de amplia adopción (en particular
- para describir servicios REST) y no existen aún herramientas automatizadas
- de conversión.
- Así, este componente deberá explorar dentro de cada descripción las operaciones
- ofrecidas por el servicio, tipos de datos embebidos, identificadores utilizados
-, etc., para instanciar automáticamente cada clase del Metamodelo de servicios,
- según corresponda.
- Una vez que se dispone de los datasets de servicios heterogéneos, descriptos
- como instancias del Metamodelo de servicios, se debe desarrollar un componente
- que permita utilizar los mismos para popular la base de conocimiento (KB).
- El principal objetivo de contar con una KB es capturar el conocimiento
- obtenido de la experiencia, es decir, de los servicios seleccionados con
- anterioridad; para luego reutilizar dicho conocimiento en la solución de
- problemas futuros.
- Por ello, se requiere que la KB sea persistente, así la información almacenada
- puede utilizarse posteriormente.
- Así, la KB se compondrá de casos, que son pares problema-solución: el problema
- es una instancia del Metamodelo de servicios, mientras que la solución
- viene dada por cierta información asociada al servicio que provee una interfaz
- similar a la anterior, por ejemplo, su URL y un enlace a su descripción.
- Finalmente, contar con una KB persistente que almacene casos basados en
- instancias del Metamodelo de servicios, nos permitirá validar el esquema
- de evaluación y selección propuesto así como los mecanismos de aprendizaje
- (Retención, paso 4 de la metodología CBR) de casos.
-\end_layout
-
-\begin_layout Itemize
-
-\emph on
-Realizar la integración de los componentes desarrollados en el objetivo
- O2, ajustando los mecanismos de evaluación existentes para selección de
- servicios al contexto de CBR, de acuerdo al proceso definido en el objetivo
- O1: 
-\emph default
-como último objetivo, se deben integrar los componentes desarrollados como
- parte del objetivo O2 (generador de instancias del metamodelo, KB) con
- los mecanismos de evaluación y selección de servicios presentados a lo
- largo de trabajos previos [C12, G10, ADR2014, SC2016, LC18], para conformar
- una herramienta de soporte automatizado al proceso de CBR para evaluación
- y selección de servicios, definido en el objetivo O1.
- Para ello, se debe extraer y reutilizar la lógica subyacente a los componentes
- de evaluación de servicios existentes.
- Entre otras, es de vital importancia reutilizar los mecanismos de evaluación
- semántico-estructural de elementos de signatura (nombres de operaciones,
- parámetros de entrada/salida, tipos de datos complejos, etc.) que constituirá
- la función de similitud en el esquema CBR.
-\end_layout
-
-\begin_layout Paragraph
-Objetivos
-\begin_inset Newline newline
-\end_inset
-
-
+ de procesos semi-automáticos para la Selección de Servicios Web.
+ Se retoma además el enfoque que se ha definido en tesis recientes
 \begin_inset space ~
 \end_inset
 
 
-\begin_inset Newline newline
+\begin_inset CommandInset citation
+LatexCommand cite
+key "cava18"
+
 \end_inset
 
-
+, para la especificación de contratos de Servicios Web independientes de
+ la tecnología, desarrollando un Metamodelo que utiliza como base un conjunto
+ de estándares para descripción de contratos/responsabilidades de Servicios
+ Web heterogéneos.
+ En este sentido, el trabajo de esta tesis propone una reingeniería del
+ proceso de selección y de su herramienta de soporte de acuerdo a CBR, enfocando
+ en la estandarización de la descripción de servicios para aumentar la independe
+ncia respecto de la tecnología.
 \end_layout
 
-\begin_layout Standard
-En función de lo anteriormente expuesto, se puede entonces enunciar el objetivo
- general de esta tesis, de la siguiente manera:
-\begin_inset Separator latexpar
-\end_inset
-
-
+\begin_layout Paragraph
+Objetivo
 \end_layout
 
 \begin_layout Standard
@@ -846,29 +683,209 @@ Definir e implementar un proceso de evaluación y selección de Servicios
 \end_layout
 
 \begin_layout Standard
-Para la consecución de este objetivo general, se propusieron los siguientes
- objetivos específicos:
+El mismo se desglosa en tres objetivos específicos que se abordarán a lo
+ largo de la tesis:
 \end_layout
 
-\begin_layout Enumerate
-Definir un proceso de evaluación de servicios utilizando CBR.
-\end_layout
+\begin_layout Paragraph
 
-\begin_layout Enumerate
-Desarrollar los componentes necesarios para la evaluación de servicios heterogén
-eos.
- En particular, un conversor de descripciones OpenAPI a instancias del Metamodel
-o de servicios, y una Base de Conocimiento (KB) persistente.
-\end_layout
-
-\begin_layout Enumerate
-Realizar la integración de los componentes desarrollados en el objetivo
- O2, ajustando los mecanismos existentes de evaluación y selección de servicios
- al contexto de CBR, de acuerdo al proceso definido en el objetivo O1.
+\emph on
+Definir un proceso de evaluación de servicios utilizando Razonamiento Basado
+ en Casos (CBR).
 \end_layout
 
 \begin_layout Standard
-En la Sección
+En primer lugar proponemos utilizar la metodología de Razonamiento basado
+ en casos para evaluación de servicios.
+ Un razonador basado en casos resuelve nuevos problemas mediante el uso
+ y la adaptación de soluciones existentes para problemas anteriores y recurrente
+s.
+ A veces llamados sistemas de búsqueda por similitud, su efectividad viene
+ dada por la función de similitud que se utiliza para cuantificar el grado
+ de cercanía entre un par de casos
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "de2016case"
+
+\end_inset
+
+.
+ Luego, nuestra propuesta implica trazar un paralelo entre el problema de
+ descubrimiento, selección y evaluación de servicios
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Garriga2018isf"
+
+\end_inset
+
+, y los pasos de la metodología CBR, conocidos como las cuatro R
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "aamodt1994case"
+
+\end_inset
+
+: 
+\end_layout
+
+\begin_layout Enumerate
+Recuperar los casos más similares a un problema; 
+\end_layout
+
+\begin_layout Enumerate
+Reusar la información y el conocimiento disponible para intentar resolver
+ el problema, 
+\end_layout
+
+\begin_layout Enumerate
+Revisar la solución propuesta si fuera necesario, y 
+\end_layout
+
+\begin_layout Enumerate
+Retener las partes de esta experiencia que sirvan para aprendizaje y utilización
+ para resolución de problemas futuros.
+\end_layout
+
+\begin_layout Standard
+Para ello se requiere por un lado definir una representación de los casos
+ (problema-solución) que capture la información relevante presente en las
+ especificaciones de servicios (descriptas según el Metamodelo de servicios);
+ y además definir la función de similitud, que utilice los aspectos estructurale
+s y semánticos en dichas descripciones de servicios.
+ Finalmente, en base a dicha función de similitud se requiere definir la(s)
+ estrategia(s) de clasificación de casos \twohyphens
+ es decir, cuáles son los casos
+ relevantes para cada problema.
+ Se utilizarán desde estrategias clásicas de clasificación como la de K
+ vecinos más cercanos (KNN) hasta otras más avanzadas como WKNN (KNN con
+ pesos) y DWKNN (KNN con pesos y distancias)
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "aamodt1994case"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Paragraph
+
+\emph on
+Desarrollar los componentes necesarios para la evaluación de servicios heterogén
+eos.
+ 
+\end_layout
+
+\begin_layout Standard
+En particular, un conversor de descripciones OpenAPI a instancias del Metamodelo
+ de servicios, y una Base de Conocimiento (KB) persistente.
+ Al contar con un Metamodelo de servicios donde se describen contratos ofrecidos
+ por Servicios Web, resulta necesario que la representación y evaluación
+ de casos (de acuerdo al esquema CBR) se realice en función de instancias
+ del Metamodelo, que proveen la capacidad de describir servicios heterogéneos.
+ Pensar en generar casos manualmente para un gran número de servicios (cientos
+ o miles), resulta completamente impracticable.
+ Por ello, se debe en primer lugar generar las instancias del Metamodelo
+ de servicios de manera automática, para luego generar los pares problema-soluci
+ón que poblarán la base de conocimiento.
+ En tesis anteriores, se desarrolló un componente que a, partir de una descripci
+ón WSDL correspondiente a un Servicio Web, genera una instancia del Metamodelo
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "cava18"
+
+\end_inset
+
+.
+ Luego, es necesario desarrollar un componente análogo en base a otras especific
+aciones comunes en la industria.
+ Entre ellas, el estándar OpenAPI goza de amplia adopción (en particular
+ para describir servicios REST) y no existen aún herramientas automatizadas
+ de conversión.
+ 
+\end_layout
+
+\begin_layout Standard
+Una vez que se dispone de los datasets de servicios heterogéneos, descriptos
+ como instancias del Metamodelo de servicios, se debe desarrollar un componente
+ que permita utilizar los mismos para popular la base de conocimiento (KB),
+ de acuerdo a la metodología de CBR.
+ Una KB captura el conocimiento obtenido de la experiencia, es decir, de
+ los servicios seleccionados con anterioridad; para luego reutilizar dicho
+ conocimiento en la solución de problemas futuros.
+ Por ello, se requiere que sea persistente, así la información almacenada
+ puede utilizarse posteriormente.
+ Así, la KB se compondrá de casos, que son pares problema-solución: el problema
+ es una instancia del Metamodelo de servicios, mientras que la solución
+ viene dada por cierta información asociada al servicio que provee una interfaz
+ similar.
+ Finalmente, contar con una KB persistente que almacene casos basados en
+ instancias del Metamodelo de servicios, nos permitirá validar el esquema
+ de evaluación y selección propuesto así como los mecanismos de aprendizaje
+ (Retención, paso 4 de la metodología CBR).
+\end_layout
+
+\begin_layout Paragraph
+
+\emph on
+Realizar la integración de los componentes desarrollados ajustando los mecanismo
+s de evaluación existentes.
+\end_layout
+
+\begin_layout Standard
+Finalmente, se deben integrar los componentes desarrollados (generador de
+ instancias del metamodelo, KB) con los mecanismos de evaluación y selección
+ de servicios presentados a lo largo de trabajos previos
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Garriga2018isf,cava18"
+
+\end_inset
+
+ para conformar una herramienta de soporte automatizado al proceso de CBR
+ para evaluación y selección de servicios.
+ Para ello, se debe extraer y reutilizar la lógica subyacente a los componentes
+ de evaluación de servicios existentes.
+ Entre otras, es de vital importancia reutilizar los mecanismos de evaluación
+ semántico-estructural de elementos de signatura (nombres de operaciones,
+ parámetros de entrada/salida, tipos de datos complejos, etc.) que constituirán
+ la función de similitud en el esquema CBR.
+\end_layout
+
+\begin_layout Paragraph
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Lo que resta del presente capítulo se organiza de la siguiente manera.
+ En la Sección
 \begin_inset space ~
 \end_inset
 
@@ -880,7 +897,7 @@ reference "sec:soc"
 \end_inset
 
  se introducen algunos conceptos relacionados a Aplicaciones Orientadas
- a Servicios y el paradigma SOC, y la tecnología de Servicios Web.
+ a Servicios, el paradigma SOC, y la tecnología de Servicios Web.
  En la Sección 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -987,8 +1004,9 @@ internos
 \emph on
 externos
 \emph default
-, que se encuentran estática ó dinámicamente vinculados al servicio – ambos
- exponiendo una clara interfaz de sus capacidades funcionales
+, que se encuentran estática o dinámicamente vinculados \threehyphens
+ ambos exponiendo
+ una clara interfaz de sus capacidades funcionales
 \begin_inset space ~
 \end_inset
 
@@ -1002,7 +1020,7 @@ key "Mateos10"
 .
  Cuando se construye una nueva aplicación, el ingeniero de software debe
  tomar la decisión de proveer una implementación para algún componente de
- la aplicación, ó bien, utilizar una implementación ya existente.
+ la aplicación, o bien, utilizar una implementación ya existente.
  Esto se denomina 
 \emph on
 tercerización
@@ -1020,19 +1038,16 @@ key "Papazoglou07"
 \end_inset
 
 .
-\end_layout
-
-\begin_layout Standard
-El paradigma SOC reemplaza el desarrollo de un componente software dado
- con una combinación de distintas actividades: 
+ Así, el paradigma SOC reemplaza el desarrollo de un componente software
+ dado con una combinación de distintas actividades: 
 \emph on
 descubrimiento
 \emph default
- de servicios, 
+, 
 \emph on
 selección
 \emph default
- de servicios e 
+ e 
 \emph on
 integración
 \emph default
@@ -1052,21 +1067,9 @@ key "Huhns05,Bichler06"
 \end_layout
 
 \begin_layout Standard
-SOA es una manera de describir y entender a las organizaciones, comunidades
- y sistemas que buscan agilidad, escalabilidad e interoperabilidad.
- El enfoque SOA es simple: personas, organizaciones y sistemas proveen servicios
- unos a los otros.
- Estos servicios permiten acceder a funcionalidades sin la necesidad de
- conocer la implementación de las mismas, asegurando el encapsulamiento
- de dichas funcionalidades.
- SOA es un paradigma arquitectural para definir como las personas, sistemas
- y organizaciones proveen y usan servicios para alcanzar resultados.
-\end_layout
-
-\begin_layout Standard
-La arquitectura básica de un sistema orientado a servicios (SOA) incluye
- componentes capaces de: 1) intercambiar mensajes, 2) describir los servicios,
- 3) publicar y descubrir las descripciones de los servicios
+La Arquitectura Orientada a Servicios (SOA) incluye componentes capaces
+ de: 1) intercambiar mensajes, 2) describir los servicios, 3) publicar y
+ descubrir las descripciones de los servicios
 \begin_inset space ~
 \end_inset
 
@@ -1078,10 +1081,7 @@ key "Stevens03"
 \end_inset
 
 .
-\end_layout
-
-\begin_layout Standard
-En SOA se define la interacción entre componentes software como un intercambio
+ En SOA se define la interacción entre componentes software como un intercambio
  de mensajes entre 
 \emph on
 solicitantes
@@ -1235,8 +1235,8 @@ name "subsec:Tecnología-de-Servicios"
 \begin_layout Standard
 En su mayoría, la industria del software ha adoptado el paradigma SOC utilizando
  la tecnología de Servicios Web, donde el concepto de servicio se implementa
- mediante una interfaz especificada en WSDL y un identificador dado por
- un URI
+ mediante una interfaz (típicamente especificada en WSDL) y un identificador
+ dado por un URI
 \begin_inset space ~
 \end_inset
 
@@ -1418,835 +1418,7 @@ Descubrimiento
 \shape default
  de servicios es la responsable de centralizar servicios y proveer una interfaz
  para la búsqueda y publicación de servicios.
- Actualmente, el descubrimiento de servicios se encuentra materializado
- por UDDI.
- En la Figura
-\begin_inset space ~
-\end_inset
-
-
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:swSOA"
-
-\end_inset
-
- se muestra la implementación de la arquitectura SOA, utilizando las tecnologías
- de Servicios Web, UDDI, WSDL y SOAP.
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-placement ht
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename ImgChapter1/SOA_.pdf
-	width 70text%
-
-\end_inset
-
  
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset VSpace -0.3cm*
-\end_inset
-
- 
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-Infraestructura estándar de un Sistema orientado a Servicios
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:swSOA"
-
-\end_inset
-
- 
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Subsection
-Componentes Software y Servicios Web
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset CommandInset label
-LatexCommand label
-name "sec:dscb-1-1"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-Un paradigma ampliamente relacionado a SOC y SOA es el 
-\emph on
-Desarrollo de Software basado en Componentes
-\emph default
- (CBSD
-\begin_inset Foot
-status open
-
-\begin_layout Plain Layout
-CBSD:
-\emph on
- Component-based Software Development
-\end_layout
-
-\end_inset
-
-), donde la construcción de sistemas se basa principalmente en la 
-\emph on
-selección
-\emph default
- e 
-\emph on
-integración
-\emph default
- de componentes software
-\begin_inset space ~
-\end_inset
-
-
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Heineman01,Cechich03"
-
-\end_inset
-
-.
- Un componente software es una unidad reutilizable de composición, con interface
-s y cualidades explícitamente especificadas, que denota una abstracción
- simple y puede ser sujeto de composición por terceras partes, sin necesidad
- de modificación
-\begin_inset space ~
-\end_inset
-
-
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Szyperski02,Gross05"
-
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Plain Layout
-Dado que los componentes están completamente desarrollados y se encuentran
- disponibles para su reutilización, se los conoce comúnmente como 
-\emph on
-off-the-shelf
-\emph default
- (OTS).
- Los componentes OTS poseen una variada procedencia: aquellos desarrollados
- en algún proyecto previo, denominados 
-\emph on
-in-house
-\emph default
-, entre los cuales se pueden mencionar los sistemas heredados (
-\emph on
-legacy
-\emph default
-), y en conjunto con los componentes de código abierto denominados FOSS
- (
-\emph on
-free open source software
-\emph default
-), presentan como posibilidad el acceso al código fuente.
- Mientras que otros componentes OTS que se adquieren de terceras partes
- (usualmente de proveedores comerciales), denominados COTS
-\begin_inset space ~
-\end_inset
-
-(
-\emph on
-commercial-off-the-shelf
-\emph default
-), no cuentan en general con tal disponibilidad de código fuente.
-\end_layout
-
-\begin_layout Paragraph
-Modelo de Componentes
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset space ~
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-Existe una amplia diversidad de tecnologías involucradas en la construcción
- de sistemas basados en componentes, cada una con requisitos y restricciones
- particulares que establecen el aspecto concreto que adopta un componente
- y los mecanismos para su integración en un sistema software.
- El 
-\emph on
-Modelo de Componentes
-\emph default
- define la estructura y morfología de los componentes, así como también
- las reglas de creación, composición y comunicación de los mismos
-\begin_inset space ~
-\end_inset
-
-
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Kung07"
-
-\end_inset
-
-.
- Los modelos establecen por ejemplo la forma de definición e invocación
- de las interfaces de los componentes, estableciendo en algunos casos una
- clara separación entre las interfaces y la implementación (encapsulada)
- del comportamiento de un componente
-\begin_inset space ~
-\end_inset
-
-
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Stuckenholz05,Kung07"
-
-\end_inset
-
-.
- La Tabla
-\begin_inset space ~
-\end_inset
-
-
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "tab:ComponentModels-1-1"
-
-\end_inset
-
- presenta una clasificación de los modelos de componentes según una base
- de orientación a objetos
-\begin_inset space ~
-\end_inset
-
-(OO).
- 
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Float figure
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-setlength{
-\backslash
-extrarowheight}{.07cm}
-\end_layout
-
-\end_inset
-
- 
-\end_layout
-
-\begin_layout Plain Layout
-\align center
-
-\size small
-\begin_inset Tabular
-<lyxtabular version="3" rows="8" columns="4">
-<features tabularvalignment="middle">
-<column alignment="center" valignment="top">
-<column alignment="center" valignment="top">
-<column alignment="center" valignment="top">
-<column alignment="center" valignment="top">
-<row>
-<cell multirow="3" alignment="center" valignment="middle" topline="true" bottomline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\series bold
-\size small
-Tipo
-\end_layout
-
-\end_inset
-</cell>
-<cell multirow="3" alignment="center" valignment="middle" topline="true" bottomline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\series bold
-\size small
-Modelo
-\end_layout
-
-\end_inset
-</cell>
-<cell multicolumn="1" alignment="center" valignment="top" topline="true" usebox="none" special="c">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\series bold
-\size small
-Lenguaje
-\end_layout
-
-\end_inset
-</cell>
-<cell multicolumn="2" alignment="center" valignment="top" topline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell multirow="4" alignment="center" valignment="top" topline="true" bottomline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell multirow="4" alignment="center" valignment="top" topline="true" bottomline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size small
-\emph on
-Definición
-\emph default
- 
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size small
-\emph on
-Implementación
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell multirow="3" alignment="left" valignment="middle" topline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size small
-Clase
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\family sans
-\size small
-EJB 
-\end_layout
-
-\end_inset
-</cell>
-<cell multirow="3" alignment="center" valignment="middle" topline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\family sans
-\size small
-Java 
-\end_layout
-
-\end_inset
-</cell>
-<cell multirow="3" alignment="center" valignment="middle" topline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\family sans
-\size small
-Java
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell multirow="4" alignment="center" valignment="top" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\family sans
-\size small
-J2EE 
-\end_layout
-
-\end_inset
-</cell>
-<cell multirow="4" alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell multirow="4" alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell multirow="3" alignment="left" valignment="middle" topline="true" bottomline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size small
-Objeto
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\family sans
-\size small
-CCM 
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\family sans
-\size small
-OMG IDL 
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\family sans
-\size small
-CORBA 
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell multirow="4" alignment="center" valignment="top" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\family sans
-\size small
-COM 
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\family sans
-\size small
-Microsoft IDL 
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size small
-actualmente 
-\family sans
-C
-\family default
-, 
-\family sans
-C
-\family default
-++ y 
-\family sans
-Ada
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell multirow="4" alignment="center" valignment="top" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\family sans
-\size small
-.Net 
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\family sans
-\size small
-Microsoft IDL 
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size small
-cualquier lenguaje 
-\family sans
-.Net
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell multirow="4" alignment="center" valignment="top" bottomline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" bottomline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\family sans
-\size small
-Servicios Web 
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" bottomline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\family sans
-\size small
-WSDL 
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" bottomline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size small
-cualquier lenguaje 
-\end_layout
-
-\end_inset
-</cell>
-</row>
-</lyxtabular>
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-
-\size small
-\begin_inset CommandInset label
-LatexCommand label
-name "tab:ComponentModels-1-1"
-
-\end_inset
-
-Modelos de Componentes Orientados a Objetos
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-Considerando la separación entre interfaces e implementación, para los component
-es que son en realidad clases Java, el lenguaje de definición coincide con
- el de implementación, como en el caso de EJB y J2EE (Java 2 Enterprise
- Edition)
-\begin_inset space ~
-\end_inset
-
-
-\begin_inset CommandInset citation
-LatexCommand cite
-key "J2EE"
-
-\end_inset
-
-.
- Por otro lado, para el caso donde los componentes son en realidad objetos,
- puede existir un lenguaje de descripción de interfaces
-\begin_inset space ~
-\end_inset
-
-(IDL
-\begin_inset Foot
-status collapsed
-
-\begin_layout Plain Layout
-IDL: 
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-
-\backslash
-em
-\end_layout
-
-\end_inset
-
- Interface Description Language
-\end_layout
-
-\end_inset
-
-) y otro de implementación, como en el caso de COM (Component Object Model)
-\begin_inset space ~
-\end_inset
-
-
-\begin_inset CommandInset citation
-LatexCommand cite
-key "COM03"
-
-\end_inset
-
-, CCM (Corba Component Model)
-\begin_inset space ~
-\end_inset
-
-
-\begin_inset CommandInset citation
-LatexCommand cite
-key "OMGCORBA02"
-
-\end_inset
-
-, la tecnología .Net
-\begin_inset space ~
-\end_inset
-
-
-\begin_inset CommandInset citation
-LatexCommand cite
-key "NET"
-
-\end_inset
-
-, y los Servicios Web.
-\end_layout
-
-\begin_layout Plain Layout
-Aquí se observa claramente la vinculación de la tecnología de componentes
- software con el paradigma SOC, a través de la tecnología de Servicios Web,
- que justamente se considera una forma específica de componente software.
- La interfaz de un Servicio Web que se describe en WSDL es comparable a
- una interfaz de programación de aplicaciones
-\begin_inset space ~
-\end_inset
-
-(API
-\begin_inset Foot
-status open
-
-\begin_layout Plain Layout
-API: 
-\emph on
-Application Programming Interface
-\end_layout
-
-\end_inset
-
-), pero sin ataduras a frameworks de comunicación propietarios.
- La lógica encapsulada por un Servicio Web (su implementación) podría además
- adoptar la forma de un componente software o bien de una aplicación heredada
- (
-\emph on
-legacy
-\emph default
-).
- 
-\end_layout
-
-\begin_layout Plain Layout
-La interfaz pública de un Servicio Web se define como un 
-\emph on
-contrato
-\emph default
- que permite su integración en una Aplicación Orientada a Servicios a través
- del uso de componentes adaptadores.
- El contrato de un Servicio Web es esencialmente una colección de metadatos
- que describe varios aspectos del programa software subyacente, que incluye
- el propósito y función de sus operaciones; los mensajes que necesitan ser
- intercambiados para activar las operaciones; los modelos de datos usados
- para definir la estructura de los mensajes; un conjunto de condiciones
- bajo las cuales se proveen las operaciones; e información acerca de cómo
- y dónde puede ser accedido el servicio
-\begin_inset space ~
-\end_inset
-
-
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Erl08"
-
-\end_inset
-
-.
- 
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Paragraph
@@ -2273,28 +1445,31 @@ name "par:Servicios-RESTFul"
 \end_layout
 
 \begin_layout Standard
-En los últimos años, los servicios RESTful – REpresentational State Transfer
- – 
+En los últimos años, los servicios RESTful \twohyphens
+ REpresentational State Transfer
+ \twohyphens
+ 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "fielding2000architectural"
 
 \end_inset
 
- aparecieron como una alternativa ligera y rentable para los servicios basados
- en SOAP.
+ aparecieron como una alternativa ligera y rentable para los servicios tradicion
+ales basados en SOAP, descriptos en la sección anterior.
  Los servicios RESTful livianos están diseñados para facilitar el consumo,
- la composición y la creación de servicios dirigidos por la comunidad (denominad
-os 
+ la composición y la creación de servicios por la comunidad (denominados
+ 
 \emph on
 mashups
 \emph default
 ).
- Los servicios REST ofrecen una alternativa simple, liviana y escalable
- a los servicios basados en SOAP.
- REST utiliza los métodos intrínsecos básicos integrados HTTP (PUT, POST,
- GET y DELETE) que aplican su semántica intencionada para acceder a cualquier
- recurso referenciable mediante un identificador unificado (URI)
+ REST utiliza los métodos HTTP (PUT, POST, GET y DELETE) para acceder a
+ cualquier 
+\emph on
+recurso
+\emph default
+ (servicio) referenciable mediante un identificador unificado (URI)
 \begin_inset space ~
 \end_inset
 
@@ -2305,34 +1480,23 @@ key "fielding2000architectural"
 
 \end_inset
 
-, por ejemplo, un recurso puede ser cualquier pieza de datos de la Web,
- como un documento, un tweet o un pronóstico del tiempo.
- Además, los servicios RESTful exhiben cuatro propiedades: 
-\end_layout
+.
+ Así, los métodos HTTP se convierten en una suerte de API
+\begin_inset Foot
+status open
 
-\begin_layout Enumerate
-Los recursos representan una abstracción para las aplicaciones de estado
- del servidor, es decir, un elemento puede ser una referencia de hipertexto.
- 
-\end_layout
-
-\begin_layout Enumerate
-Cada recurso se puede enviar usando su URI.
- 
-\end_layout
-
-\begin_layout Enumerate
-Todos los recursos comparten una interfaz uniforme – métodos HTTP – para
- interactuar con aplicaciones cliente.
- 
-\end_layout
-
-\begin_layout Enumerate
-La interacción con un recurso es sin estado (
+\begin_layout Plain Layout
+API: 
 \emph on
-stateless
-\emph default
-) 
+Application Programming Interface
+\end_layout
+
+\end_inset
+
+ estándar para interactuar con cualquier recurso, por ejemplo, cualquier
+ pieza de datos de la Web, como un documento, un tweet o un pronóstico del
+ tiempo.
+ 
 \end_layout
 
 \begin_layout Standard
@@ -2354,8 +1518,7 @@ reference "fig:swProtocols"
  Los clientes y servidores HTTP están disponibles para todos los principales
  lenguajes de programación y sistemas operativos/plataformas de hardware.
  Esto lleva a la segunda fortaleza de los servicios RESTful, ligereza, donde
- los servicios se pueden construir con herramientas mínimas y poco costosas
- de adquirir 
+ los servicios se pueden construir e invocar con herramientas mínimas 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "pautasso2008restful"
@@ -2363,25 +1526,26 @@ key "pautasso2008restful"
 \end_inset
 
 .
- Los servicios son fáciles de consumir y son interesantes para los servicios
- de la comunidad 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "lanthaler2010towards"
-
+ Los servicios son fáciles de consumir, donde los dispositivos móviles con
+ diferentes capacidades pueden actuar como clientes e incluso servidores
+ o hosts para Servicios Web.
+ Las nociones de simplicidad y ligereza hacen que sea escalable, para mantener
+ un gran número de clientes, gracias al soporte integrado para el almacenamiento
+ de caché y el manejo de carga (
+\emph on
+load balance
+\emph default
+) de REST.
+ El hecho de no tener que almacenar el estado (
+\emph on
+stateless
+\emph default
+) entre las solicitudes permite que el servidor libere rápidamente los recursos
+ y simplifique la implementación
+\begin_inset space ~
 \end_inset
 
-, dado el creciente entorno informático generalizado, donde los dispositivos
- móviles con diferentes capacidades pueden actuar como clientes e incluso
- servidores o hosts para Servicios Web.
- Las nociones de simplicidad y ligereza hacen que sea escalable, ya que
- un servicio RESTful puede escalar para mantener un gran número de clientes,
- gracias al soporte integrado para el almacenamiento de caché y el manejo
- de carga – load balance – de REST.
- El hecho de no tener que almacenar el estado entre las solicitudes permite
- que el servidor libere rápidamente los recursos de la empresa y simplifique
- la implementación porque el mismo no tiene que ceder con el uso de recursos
- “conversacionales” a través de solicitudes 
+
 \begin_inset CommandInset citation
 LatexCommand cite
 key "fielding2000architectural"
@@ -2390,15 +1554,22 @@ key "fielding2000architectural"
 
 .
  Además, los servidores sin estado permiten al usuario del servicio (humano
- o máquina) manipular directamente el estado de la aplicación a través del
- hipervínculo, lo que se conoce como el principio de HATEOAS (Hypermedia
- As The Engine of the Application State).
- La Web, como la arquitectura RESTful por excelencia, potencia la escalabilidad
- de REST.
+ o máquina) manipular directamente el estado de la aplicación a través de
+ la navegación por hipervínculos, lo que se conoce como el principio HATEOAS
+ (
+\emph on
+Hypermedia As The Engine of the Application State
+\emph default
+).
+ 
 \end_layout
 
 \begin_layout Standard
-En relación con WADL y Open API, el objetivo de las mismas es definir contratos,
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+En relación con WADL y OpenAPI, el objetivo de las mismas es definir contratos,
  que especifiquen cómo es la comunicación entre los socios de negocios.
  Si se crease una aplicación hogareña desde cero, no sería necesario definir
  contratos; pero el enfoque que se espera en el presente trabajo es para
@@ -2408,13 +1579,13 @@ En relación con WADL y Open API, el objetivo de las mismas es definir contratos
  Además de definir contratos, mediante las especificaciones, se permite
  generar código, testeo y documentación con herramientas de software ya
  disponibles como lo sería un generador de cliente REST en base a un documento
- WADL o especificación Open API
+ WADL o especificación OpenAPI
 \begin_inset space ~
 \end_inset
 
 
 \begin_inset Foot
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Flex URL
@@ -2433,6 +1604,11 @@ https://www.npmjs.com/package/rest-client-generator
 \end_inset
 
 .
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
@@ -2454,12 +1630,11 @@ name "subsec:Background"
 \end_layout
 
 \begin_layout Standard
-Este trabajo posee como eje principal la necesidad de seleccionar contratos
- de servicios heterogéneos, para lo cual, de base se propuso extender el
- Metamodelo, añadiendo un generador de instancias a partir de especificaciones
- Open API, con esto, los estándares que fueron considerados para la selección
- de contratos pertenecen a OMG: WSDL, WADL y SoaML y a OpenAPI Initiative:
- Swagger.
+Este trabajo está motivado por la necesidad de evaluar y seleccionar contratos
+ de servicios heterogéneos, para lo cual se propuso extender el Metamodelo,
+ añadiendo un generador de instancias a partir de especificaciones OpenAPI.
+ Con esto, los estándares que fueron considerados para definir el metamodelo
+ (o cubiertos por el mismo) son: WSDL, WADL, SoaML (estándares OMG) y OpenAPI.
  A continuación se detallan los aspectos principales de cada uno.
 \end_layout
 
@@ -2503,10 +1678,13 @@ https://www.w3.org/TR/wsdl
  Un documento WSDL proporciona una descripción de la interfaz de un Servicio
  Web entendible por la máquina, indicando cómo se debe invocar al servicio,
  qué parámetros espera, y qué estructuras de datos retorna.
- Un documento WSDL define servicios como una colección de puertos de la
- red.
+ Un documento WSDL define un servicio como una colección de puertos (
+\emph on
+porttypes
+\emph default
+), que son a su vez colecciones abstractas de operaciones.
  En el WSDL la definición abstracta de los puertos y mensajes son separados
- de su red concreta o ligadura (
+ de su implementación concreta o ligadura (
 \emph on
 binding
 \emph default
@@ -2514,18 +1692,9 @@ binding
  Esto permite el reuso de definiciones abstractas.
  Los mensajes son descripciones abstractas de los datos que serán intercambiados
  en los distintos tipos de puertos que existen.
- Estos últimos son colecciones abstractas de operaciones.
  Al usar un lenguaje de programación, se puede crear la parte concreta implement
 ando la parte abstracta.
- De esta manera, los WSDL tendrán dos componentes principales: 
-\end_layout
-
-\begin_layout Standard
-• Información de ligadura sobre el protocolo a utilizar
-\end_layout
-
-\begin_layout Standard
-• La dirección en donde localizar el servicio
+ 
 \end_layout
 
 \begin_layout Standard
@@ -2549,12 +1718,7 @@ https://www.w3.org/TR/wsdl20/
 
 \end_inset
 
-, donde se cambió el significado de 
-\emph on
-Definition,
-\emph default
- y se plantearon cambios de nomenclatura y estructura del archivo XML que
- contiene la descripción del servicio.
+.
  En la Figura
 \begin_inset space ~
 \end_inset
@@ -2569,8 +1733,18 @@ reference "DiferenciaEntreWSDL1.1YWSDL2.0"
  se muestra la estructura que siguen los archivos WSDL en las versiones
  1.1 y 2.0, en donde se observa el cambio de nomenclatura para la versión
  2.0.
- Además, en WSDL 2.0 puede usarse para servicios REST de ser requeridos/necesario
-s.
+ Además, WSDL 2.0 puede usarse para describir servicios REST
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "pautasso2009restful"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard
@@ -2614,10 +1788,12 @@ name "DiferenciaEntreWSDL1.1YWSDL2.0"
 
 \end_layout
 
-\begin_layout Paragraph
+\begin_layout Standard
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
 WSDL Versión 1.1
-\change_inserted 1894756425 1522271060
-
 \begin_inset Newline newline
 \end_inset
 
@@ -2625,17 +1801,15 @@ WSDL Versión 1.1
 \begin_inset Newline newline
 \end_inset
 
-
-\change_unchanged
 
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 En concreto, un documento WSDL versión 1.1 usa los siguientes elementos para
  la definición de los servicios de red: 
 \end_layout
 
-\begin_layout Itemize
+\begin_layout Plain Layout
 Types: un contenedor para la definición de tipos que posteriormente se utiliza
  en el intercambio de mensajes usando algún sistema de tipos.
  Podemos definir dichos tipos directamente dentro de este elemento, o importar
@@ -2648,7 +1822,7 @@ es) e incluyen tipos simples tales como string, int, double, etc.
  
 \end_layout
 
-\begin_layout Itemize
+\begin_layout Plain Layout
 Message: una definición abstracta de tipos de datos que van a a ser comunicados.
  Un mensaje consiste en partes lógicas, cada una asociada con una definición
  encuadrada en un sistema de tipos.
@@ -2657,12 +1831,12 @@ Message: una definición abstracta de tipos de datos que van a a ser comunicados
  
 \end_layout
 
-\begin_layout Itemize
+\begin_layout Plain Layout
 Operation: una descripción abstracta de las acciones que soporta el servicio.
  
 \end_layout
 
-\begin_layout Itemize
+\begin_layout Plain Layout
 Port Type: colecciones abstractas de operaciones soportadas por más de un
  punto de acceso (
 \emph on
@@ -2680,7 +1854,7 @@ endpoint
  
 \end_layout
 
-\begin_layout Itemize
+\begin_layout Plain Layout
 Binding: especifica el protocolo de red concreto y el formato de los datos
  para las operaciones y mensajes definidos en un PortType en particular.
  Un portType puede tener múltiples bindings asociados.
@@ -2705,7 +1879,7 @@ https://technet.microsoft.com/en-us/library/cc787851(v=ws.10).aspx
  
 \end_layout
 
-\begin_layout Itemize
+\begin_layout Plain Layout
 Port: un punto de acceso definido como una combinación de ligadura y dirección
  de red.
  Dicha dirección de red es la dirección (URL) donde el servicio actúa, y
@@ -2714,14 +1888,17 @@ Port: un punto de acceso definido como una combinación de ligadura y dirección
  
 \end_layout
 
-\begin_layout Itemize
+\begin_layout Plain Layout
 Service: una colección de punto de acceso relacionados.
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Paragraph
 WSDL 2.0
-\change_inserted 1894756425 1522271063
-
 \begin_inset Newline newline
 \end_inset
 
@@ -2729,68 +1906,88 @@ WSDL 2.0
 \begin_inset Newline newline
 \end_inset
 
-
-\change_unchanged
 
 \end_layout
 
 \begin_layout Standard
 Un documento WSDL versión 2.0 usa los siguientes elementos para la definición
- de los servicios de red:
+ de los servicios:
 \end_layout
 
 \begin_layout Itemize
-Interface: describe una secuencia de mensajes que un servicio envía y/o
- recibe.
+
+\emph on
+Interface
+\emph default
+: describe una secuencia de mensajes que un servicio envía y/o recibe.
  Esto lo hace agrupando los mensajes relacionados en las operaciones.
  
 \end_layout
 
 \begin_layout Itemize
-Operation: es una secuencia de mensajes de entrada y salida, y una Interface
- es un conjunto de operaciones.
+
+\emph on
+Operation
+\emph default
+: es un conjunto de mensajes de entrada y salida.
  
 \end_layout
 
 \begin_layout Itemize
-Interface Fault: provee un claro mecanismo para nombrar y describir un conjunto
- de faltas que una interfaz puede generar.
- Esto permite a las operaciones identificar de manera sencilla las faltas
- individuales que puedan generar por el nombre.
- Este mecanismo permite la identificación de la misma falta a través de
- múltiples operaciones y referenciados por la ligadura así como también
- reducir la duplicación de descripciones de una falta individual.
+
+\emph on
+Fault
+\emph default
+: provee un mecanismo para nombrar y describir un conjunto de errores que
+ una interfaz puede generar.
+ Esto permite a las operaciones identificar y reusar de manera sencilla
+ los errores individuales que puedan generar.
+\end_layout
+
+\begin_layout Itemize
+
+\emph on
+Binding
+\emph default
+: describe concretamente el formato de mensajes que pueden ser usados.
+ Es decir, define la implementación necesaria para acceder al servicio.
  
 \end_layout
 
 \begin_layout Itemize
-Binding: describe concretamente el formato de mensajes de transmisión de
- protocolos que pueden ser usados para definir el punto final.
- Es decir definir la implementación necesaria para acceder al servicio.
+
+\emph on
+Type
+\emph default
+: define el contenido de mensajes y 
+\emph on
+faults
+\emph default
+, que se basan en un modelo de datos específico, y se expresan usando un
+ lenguaje de esquema en particular (XSD).
  
 \end_layout
 
 \begin_layout Itemize
-Type: define el contenido de mensajes y faltas, que se basan en un modelo
- de dato específico, y se expresan usando un lenguaje de esquema en particular.
- Aunque una variedad de modelos de datos pueden ser expresados mediante
- extensiones WSDL 2.0, esta especificación sólo define restricciones basadas
- en esquema XML.
- 
-\end_layout
 
-\begin_layout Itemize
-Service: describe un conjunto de puntos de acceso en el cual se desarrolla
- una implementación del servicio.
- Estos endpoints son lugares alternativos donde el servicio es provisto.
- Los servicios son llamados constructores y pueden ser referenciados por
- su nombre que debe ser único.
+\emph on
+Service
+\emph default
+: describe un conjunto de 
+\emph on
+endpoints
+\emph default
+ (URIs) para una implementación del servicio.
+ Estos 
+\emph on
+endpoints 
+\emph default
+son lugares alternativos donde el servicio es provisto.
+ 
 \end_layout
 
 \begin_layout Paragraph
 WADL
-\change_inserted 1894756425 1522270686
-
 \begin_inset Newline newline
 \end_inset
 
@@ -2798,8 +1995,6 @@ WADL
 \begin_inset Newline newline
 \end_inset
 
-
-\change_unchanged
 
 \end_layout
 
@@ -2824,14 +2019,11 @@ https://www.w3.org/Submission/wadl/
 
 \end_inset
 
- es una descripción XML entendible por la computadora, utilizada en aplicaciones
+ es una descripción XML entendible por máquina, utilizada en aplicaciones
  Web basadas en HTTP -- con un uso más orientado hacia los servicios REST.
  WADL es independiente de la plataforma y del lenguaje de programación que
  se quiera usar, y su objetivo es promover la reutilización de aplicaciones
  más allá del uso básico en un navegador Web.
- WADL permite modelar los recursos proporcionados por un servicio y las
- relaciones entre ellos, y está definido para simplificar la reutilización
- de Servicios Web basados en la arquitectura HTTP existente de la Web.
  WADL es el equivalente de REST al lenguaje WSDL de SOAP y su aspecto distintivo
  es que los Servicios Web se describen mediante un conjunto de elementos
  
@@ -2926,8 +2118,6 @@ lstparams "caption={Ejemplo de Estructura WADL},label={Ejemplo de Estructura WAD
 
 \begin_layout Paragraph
 SoaML
-\change_inserted 1894756425 1522270710
-
 \begin_inset Newline newline
 \end_inset
 
@@ -2935,13 +2125,15 @@ SoaML
 \begin_inset Newline newline
 \end_inset
 
-
-\change_unchanged
  
 \end_layout
 
 \begin_layout Standard
-SoaML (Service-oriented architecture Modelling Language)
+SoaML (
+\emph on
+Service-oriented architecture Modelling Language
+\emph default
+)
 \begin_inset Foot
 status open
 
@@ -2951,18 +2143,16 @@ http://www.omg.org/spec/SoaML/1.0.1/PDF
 
 \end_inset
 
- es un Perfil UML (Unified Modelling Language) de reciente desarrollo, que
- provee una manera estándar para definir la arquitectura y modelado de solucione
-s SOA.
+ es un Perfil UML (
+\emph on
+Unified Modelling Language
+\emph default
+) de reciente desarrollo, que provee una manera estándar para definir la
+ arquitectura y modelado de soluciones SOA.
  El Perfil SoaML permite crear un modelo de servicios como una derivación
  de un modelo de proceso de negocio.
- Un analista de negocio puede crear un modelo de proceso de negocio como
- forma de comunicar requisitos a un equipo de Tecnologías de la Información
- (TI) y puede utilizar este modelo para comprobar la forma en que los requisitos
- de negocio a nivel genérico pueden convertirse en un modelo más detallado
- orientado a TI.
- Cuando se manipula un modelo de SoaML y sus artefactos relacionados, se
- pueden explorar y examinar los elementos siguientes: 
+ Un modelo de SoaML permite explorar y examinar los siguientes elementos:
+ 
 \end_layout
 
 \begin_layout Itemize
@@ -2997,7 +2187,7 @@ El Perfil UML SoaML se enfoca en los conceptos básicos de SOA y en el modelado
  Además permite especificar cómo tales capacidades funcionales de servicios
  (requeridas/provistas) son consistentes con los protocolos de interacción
  de los mismos.
- Un modelo de Diagrama de Modelado SoaML es representado en la Figura
+ Un ejemplo de diagrama SoaML es representado en la Figura
 \begin_inset space ~
 \end_inset
 
@@ -3010,7 +2200,7 @@ reference "fig:Schema-of-Passage"
 
 .
  En la misma se muestra un modelo de negocios relacionado a la industria
- de barcos cargueros, en la cual hay organizadores (
+ de barcos cargueros, en la cual hay organizaciones (
 \emph on
 dealer
 \emph default
@@ -3070,79 +2260,22 @@ Diagrama de Modelo SoaML para industria de transporte marítimo
 
 \begin_layout Standard
 Cada servicio definido en la arquitectura posee información específica de
- sí mismo que suele ser representada en el modelo de negocio.
- A través de un contrato de servicio (
+ sí mismo que suele ser representada a través de un contrato de servicio
+ (
 \emph on
 ServiceContract
 \emph default
-) se puede definir tanto la coreografía del servicio como su contrato de
- invocación e interfaces – como se muestra en la Figura 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:Schema-of-Passage-1"
-
-\end_inset
-
-.
- Se puede apreciar que el recuadro “Opt” dentro de la coreografía representa
- que el componente 
-\emph on
-Quote
-\emph default
- es opcional, a diferencia de 
-\emph on
-Order
-\emph default
- que no lo es.
- Las líneas existentes en la coreografía corresponden a los diferentes tipos
- de mensajes que participan de la invocación del servicio (Figura 
+), donde se puede definir tanto la coreografía (interacción) de servicios
+ como su contrato de invocación e interfaces \twohyphens
+ esto último se muestra en
+ la Figura 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Schema-of-Passage-1-1"
 
 \end_inset
 
-), que pueden ser representados a través de un modelo de clases.
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-placement H
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\noindent
-\align center
-\begin_inset Graphics
-	filename ImgChapter1/schema-of-pasagge-1.png
-	lyxscale 40
-	width 110text%
-
-\end_inset
-
-
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:Schema-of-Passage-1"
-
-\end_inset
-
-Esquema de coreografías y contratos de invocación
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
+ a través de un modelo de clases.
 \end_layout
 
 \begin_layout Standard
@@ -3185,7 +2318,7 @@ Modelo de Diagrama SoaML
 \end_layout
 
 \begin_layout Paragraph
-Open API
+OpenAPI
 \begin_inset Newline newline
 \end_inset
 
@@ -3197,7 +2330,7 @@ Open API
 \end_layout
 
 \begin_layout Standard
-Open API (Swagger) 
+OpenAPI (Swagger) 
 \begin_inset Foot
 status open
 
@@ -3217,42 +2350,18 @@ https://swagger.io/specification/v2/
 
 \end_inset
 
- es un estándard de especificación libre de interfaz de programación de
- aplicaciones (API
-\begin_inset Foot
-status open
-
-\begin_layout Plain Layout
-API: 
-\emph on
-Application Programming Interface
-\end_layout
-
-\end_inset
-
-), dirigida por la comunidad en conjunto con la Iniciativa Open API, un
- proyecto colaborativo de la Fundación Linux.
+ es un estándar de especificación libre de APIs de servicios, dirigida por
+ la comunidad en conjunto con la Iniciativa OpenAPI, un proyecto colaborativo
+ de la Fundación Linux.
+ Diseñado en particular para servicios REST, permite que tanto los humanos
+ como las computadoras descubran y entiendan las capacidades de un servicio
+ sin requerir acceso al código fuente o documentación adicional.
+ OpenAPI elimina las conjeturas a la hora de utilizar un servicio ya que
+ define sus interfaces de manera completa y unívoca.
 \end_layout
 
 \begin_layout Standard
-Open API define un estándard de descripciones de interfáz independiente
- del lenguaje de programación para las API REST, que permite que tanto los
- humanos como las computadoras descubran y entiendan las capacidades de
- un servicio sin requerir acceso al código fuente o documentación adicional.
- Cuando se define correctamente una especificación Open API, el consumidor
- puede comprender e interactuar con el servicio remoto con una cantidad
- mínima de lógica de implementación.
- Similar a lo que se ha hecho en las descripciones de interfaz en la programació
-n de bajo nivel, una especificación Open API elimina las conjeturas a la
- hora de utilizar un servicio.
-\end_layout
-
-\begin_layout Standard
-Algunos de los casos de uso al contar con una descripción que las computadoras
- pueden entender incluyen, pero no están limitados a: documentacion interactiva,
- generación de librerías que consuman esta API en varios lenguajes, o, una
- suite de tests automatizados.
- La descripción de la API se puede realizar bajo los protocolos JSON o YAML.
+La descripción de la API se puede realizar bajo los protocolos JSON o YAML.
  Esta descripción se puede escribir manualmente, o generarla a partir de
  anotaciones en el código fuente de la API.
  Definirla manualmente permite validar y refinar la funcionalidad que la
@@ -3263,23 +2372,31 @@ Algunos de los casos de uso al contar con una descripción que las computadoras
 
 \begin_layout Standard
 Siendo la misma API la que describe su propia estructura, es importante
- destacar que incorporar una especificación Open API no requiere reescribir
+ destacar que incorporar una especificación OpenAPI no requiere reescribir
  la API ya existente, no requiere vincular ningún software a un servicio;
  el servicio que se describe puede que ni siquiera sea propiedad del creador
  de la descripción.
 \end_layout
 
 \begin_layout Standard
-Una especificación Open API permite describir el comportamiento total de
+Una especificación OpenAPI permite describir el comportamiento total de
  tu API, incluyendo:
 \end_layout
 
 \begin_layout Itemize
-Endpoints disponibles (por ejemplo 
+
+\emph on
+Endpoints
+\emph default
+ disponibles (por ejemplo 
 \family typewriter
 /users
 \family default
-) y las operaciones sobre cada endpoint (
+) y las operaciones sobre cada 
+\emph on
+endpoint
+\emph default
+ (
 \family typewriter
 GET /users
 \family default
@@ -3303,7 +2420,7 @@ Información de contacto, licencia, términos de uso y otra información.
 \end_layout
 
 \begin_layout Standard
-Las partes principales de la estructura de una especificación Open API se
+Las partes principales de la estructura de una especificación OpenAPI se
  encuentran representadas en la figura 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -3338,15 +2455,11 @@ name "fig:Estructura-de-Open-API"
 
 \end_inset
 
-Estructura de una especificación Open API.
+Estructura de una especificación OpenAPI.
 \end_layout
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Plain Layout
 
 \end_layout
 
@@ -3386,10 +2499,7 @@ Capítulo 2
 
 \end_inset
 
- Se presenta la descripción general del enfoque completo para asistir a
- un ingeniero de software en la construcción de Aplicaciones Orientadas
- a Servicios.
- Este enfoque consiste de definir e implementar un proceso de 
+ Se presenta la descripción general del enfoque existente de 
 \emph on
 Evaluación
 \emph default
@@ -3397,7 +2507,11 @@ Evaluación
 \emph on
 Selección
 \emph default
- de Servicios Web utilizando Razonamiento Basado en Casos (CBR).
+ de Servicios Web para asistir a un ingeniero de software en la construcción
+ de Aplicaciones Orientadas a Servicios.
+ Además, se presenta el metamodelo de descripción de servicios heterogéneos
+ basado en estándares.
+ 
 \end_layout
 
 \begin_layout Description
@@ -3411,11 +2525,10 @@ Capítulo 3
 
 \end_inset
 
- Se presenta la metodología Razonamiento Basado en Casos, y cómo la misma
- fue integrada a la herramienta de evaluación de servicios.
+ Se presenta la metodología de Razonamiento Basado en Casos aplicada al
+ contexto de evaluación y selección de Servicios Web.
  Además, se detalla el diseño e implementación del componente conversor
- de descripciones Open API de Servicios Web para derivar instanciaciones
- del metamodelo utilizado.
+ de descripciones OpenAPI para derivar instancias del metamodelo.
 \end_layout
 
 \begin_layout Description
@@ -3430,7 +2543,8 @@ Capítulo 4
 \end_inset
 
  Se presenta la evaluación experimental realizada a la herramienta de evaluación
- de Servicios Web, en función de las extensiones desarrolladas.
+ y selección de Servicios Web con CBR, en función de las extensiones desarrollad
+as.
 \end_layout
 
 \begin_layout Description
@@ -3444,22 +2558,8 @@ Capítulo 5
 
 \end_inset
 
- Finalmente, se presentan las conclusiones de todo el trabajo de tesis y
- la posibilidad efectiva de utilización de la herramienta de evaluación
- de Servicios Web.
+ Finalmente, se presentan las conclusiones del trabajo de tesis.
  Se identifican futuras líneas de acción basadas en los resultados obtenidos.
-\change_deleted 1894756425 1522271193
-
-\begin_inset CommandInset bibtex
-LatexCommand bibtex
-bibfiles "Biblio_Lic"
-options "plain"
-
-\end_inset
-
-
-\change_unchanged
-
 \end_layout
 
 \end_body
