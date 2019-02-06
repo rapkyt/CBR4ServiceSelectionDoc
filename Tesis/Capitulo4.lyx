@@ -90,35 +90,10 @@ name "cap:evaluacion experimental"
 
 \begin_layout Standard
 En el presente capítulo se detalla la evaluación experimental realizada
- a la plataforma de selección de servicios luego de integrar el Metamodelo
- para descripción de Servicios Web en el marco de la metodología Razonamiento
- Basado en Casos, en adelante CBR (
-\emph on
-Case Based Reasoning
-\emph default
-).
- Esta evaluación experimental ha permitido estudiar el alcance del Metamodelo
- detallado en la Sección 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "sec:Metamodelo-para-descripción"
-
-\end_inset
-
- (Capítulo 2), en la respectiva integración con la metodología CBR detallada
- en la Sección 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "sec:CBR-para-selección"
-
-\end_inset
-
- (Capítulo 3).
-\end_layout
-
-\begin_layout Standard
-Para esta evaluación se utilizó un conjunto de servicios compuesto por 1192
- descripciones WSDL de Servicios Web obtenidos de la plataforma Mashape
+ para validar la integración del Metamodelo para descripción de Servicios
+ Web en el marco de la metodología de Razonamiento Basado en Casos (CBR).
+ Para esta evaluación se utilizó un conjunto de servicios compuesto por
+ 1192 descripciones WSDL de Servicios Web obtenidos de la plataforma Mashape
  y 550 especificaciones Swagger obtenidas de la plataforma APIs.Guru.
  En la Figura
 \begin_inset space ~
@@ -176,8 +151,7 @@ reference "sec:Limitaciones"
 
 \end_inset
 
- se discuten las distintas limitaciones de la evaluación experimental llevada
- a cabo.
+ se discuten las distintas limitaciones de la evaluación experimental.
 \end_layout
 
 \begin_layout Section
@@ -193,8 +167,8 @@ name "sec:Pasos-para-la-validacion"
 
 \begin_layout Standard
 Para llevar a cabo un experimento, inicialmente dos grupos de ingenieros
- de software seleccionan aleatoriamente una cantidad de descripciones de
- servicios (de las 1742 disponibles anteriormente mencionadas).
+ de software eligen aleatoriamente una cantidad arbitraria de descripciones
+ de servicios (de las 1742 disponibles anteriormente mencionadas).
  Estas descripciones son consideradas como servicios relevantes en el contexto
  del experimento (Fase de Generación de Consultas de la Figura 
 \begin_inset CommandInset ref
@@ -223,8 +197,7 @@ reference "sec:Generacion-de-consultas"
 
 \end_inset
 
-, utilizando como base los servicios relevantes seleccionados en primer
- instancia.
+, utilizando como base los servicios relevantes elegidos en primer instancia.
 \end_layout
 
 \begin_layout Standard
@@ -251,7 +224,7 @@ ruido
  por los grupos de expertos y se procede a ejecutar el algoritmo del Razonamient
 o Basado en Casos, indicando, mediante parámetros, el nombre de cada una
  de estas bases de datos, o colecciones.
- De ser posible, se analiza con otro método de descubrimiento/selección
+ De ser posible, se compara contra otro método de descubrimiento/selección
  de Servicios Web.
 \end_layout
 
@@ -282,26 +255,6 @@ Recall-at-n
 \emph default
 ), y se analizan las mejores obtenidas respecto a los resultados con las
  consultas originales y/o el registro de descubrimiento si corresponde.
-\end_layout
-
-\begin_layout Standard
-Cabe destacar que la presente validación experimental realizada y detallada
- en la Figura 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:Proceso-experimental"
-
-\end_inset
-
- presenta ciertas limitaciones, las mismas se encuentran explicadas en la
- Sección 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "sec:Limitaciones"
-
-\end_inset
-
-.
 \end_layout
 
 \begin_layout Standard
@@ -377,7 +330,7 @@ reference "subsec:Experimento-2-(Hackathon)"
 
 ), donde cada uno representa una funcionalidad esperada por una aplicación
  cliente (consumidor).
- Estos casos nuevos no han sido automáticamente generadas por un algoritmo
+ Estos casos nuevos no han sido automáticamente generados por un algoritmo
  de mutación (a diferencia de trabajos anteriores
 \begin_inset space ~
 \end_inset
@@ -390,12 +343,27 @@ key "DeRenzis13,garriga2013service"
 \end_inset
 
 ), sino que fueron construidos por dos grupos de ingenieros de software
- (Grupo-A y Grupo-B).
- El dataset utilizado está compuesto por más de 1146 descripciones de Servicios
+ (Grupo-A y Grupo-B), otra metodología utilizada en estudios similares
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "de2016case"
+
+\end_inset
+
+.
+ El dataset utilizado está compuesto por 1192 descripciones de Servicios
  Web en formato WSDL 2.0 y 550 especificaciones Swagger en formato JSON.
  Estas especificaciones fueron entregadas a los grupos de expertos, donde
- cada grupo seleccionó un número de servicios como los servicios candidatos
- para generar los casos nuevos (Paso 1 de la Figura 
+ cada grupo eligió arbitrariamente servicios candidatos para generar los
+ casos nuevos (Paso
+\begin_inset space ~
+\end_inset
+
+1 de la Figura 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Proceso-experimental"
@@ -404,18 +372,22 @@ reference "fig:Proceso-experimental"
 
 ).
  Con el objetivo de ser lo más imparcial posible, los expertos se intercambiaron
- los documentos seleccionados por cada grupo (Paso 2).
+ los documentos elegidos por cada grupo (Paso 2).
  
 \end_layout
 
 \begin_layout Standard
 Luego, cada grupo, reescribió sus documentos (descripciones de servicios)
  asignados, alterando los elementos de signatura incluidos en los mismos
- (Paso 3).
+ (Paso
+\begin_inset space ~
+\end_inset
+
+3).
  La única condición a la hora de reescribirlos fue que la semántica tenía
  que ser preservada, es decir, la reescritura de la descripción no debería
- cambiar las funcionalidades que ofrecía el servicio ni la intencionalidad
- de las funciones involucradas.
+ cambiar las funcionalidades que ofrecía el servicio ni el propósito de
+ las funciones involucradas.
  Los elementos alterados incluyeron identificadores (por ejemplo los nombres
  de las operaciones, nombres de parámetros, campos de los tipos complejos,
  entre otros) y los tipos de datos (incluidos en parámetros, retornos y
@@ -522,10 +494,7 @@ El siguiente paso es modificar la sintaxis, pero sin cambiar la semántica.
  Además, estaba permitido modificar las estructuras de datos, agregando
  atributos que resultasen necesarios o eliminando los que ellos consideraron
  prescindibles.
-\end_layout
-
-\begin_layout Standard
-La Tabla 
+ La Tabla 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "tab:Comparativa-entre-identificadores"
@@ -537,7 +506,7 @@ reference "tab:Comparativa-entre-identificadores"
 
 \begin_layout Standard
 \begin_inset Float table
-placement h
+placement H
 wide false
 sideways false
 status open
@@ -545,8 +514,8 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Tabular
-<lyxtabular version="3" rows="16" columns="5">
-<features tabularvalignment="middle">
+<lyxtabular version="3" rows="13" columns="5">
+<features booktabs="true" tabularvalignment="middle">
 <column alignment="center" valignment="top" width="22col%">
 <column alignment="center" valignment="top" width="22col%">
 <column alignment="center" valignment="top" width="18col%">
@@ -615,7 +584,7 @@ Id modificado
 </cell>
 </row>
 <row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -626,7 +595,7 @@ POST_/pet
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -637,7 +606,7 @@ POST_/pet
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -648,7 +617,7 @@ Nombre de operación
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -659,7 +628,7 @@ Si
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+<cell alignment="center" valignment="top" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -672,7 +641,7 @@ POST_/pets
 </cell>
 </row>
 <row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -683,7 +652,7 @@ GET_/pet/{petId}
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -694,7 +663,7 @@ GET_/pet/{petId}
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -705,7 +674,7 @@ Nombre de operación
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -716,7 +685,7 @@ Si
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+<cell alignment="center" valignment="top" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -729,7 +698,7 @@ GET_/pets/{petNumber}
 </cell>
 </row>
 <row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -741,7 +710,7 @@ petId
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -752,7 +721,7 @@ GET_/pet/{petId}
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -763,7 +732,7 @@ Nombre parámetro entrada
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -774,7 +743,7 @@ Si
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+<cell alignment="center" valignment="top" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -788,7 +757,7 @@ petNumber
 </cell>
 </row>
 <row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -799,7 +768,7 @@ POST_/pet/{petId}
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -810,7 +779,7 @@ POST_/pet/{petId}
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -821,7 +790,7 @@ Nombre de operación
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -832,7 +801,7 @@ Si
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+<cell alignment="center" valignment="top" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -845,7 +814,7 @@ POST_/pets/{petNumber}
 </cell>
 </row>
 <row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -857,7 +826,7 @@ petId
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -868,7 +837,7 @@ POST_/pet/{petId}
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -879,7 +848,7 @@ Nombre parámetro entrada
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -890,7 +859,7 @@ Si
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+<cell alignment="center" valignment="top" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -904,7 +873,7 @@ petNumber
 </cell>
 </row>
 <row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -915,7 +884,7 @@ DELETE_/pet/{petId}
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -926,7 +895,7 @@ DELETE_/pet/{petId}
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -937,7 +906,7 @@ Nombre de operación
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -948,7 +917,7 @@ Si
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+<cell alignment="center" valignment="top" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -961,7 +930,7 @@ DELETE_/pets/{petNumber}
 </cell>
 </row>
 <row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -973,7 +942,7 @@ petId
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -984,7 +953,7 @@ DELETE_/pet/{petId}
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -995,7 +964,7 @@ Nombre parámetro entrada
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -1006,7 +975,7 @@ Si
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+<cell alignment="center" valignment="top" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -1020,7 +989,7 @@ petNumber
 </cell>
 </row>
 <row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -1031,7 +1000,7 @@ POST_/pet/{petId}/ uploadImage
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -1042,7 +1011,7 @@ POST_/pet/{petId}/ uploadImage
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -1053,7 +1022,7 @@ Nombre de operación
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -1064,7 +1033,7 @@ Si
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+<cell alignment="center" valignment="top" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -1077,7 +1046,7 @@ POST_/pets/{petNumber}/ uploadPicture
 </cell>
 </row>
 <row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -1089,7 +1058,7 @@ petId
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -1100,7 +1069,7 @@ POST_/pet/{petId}/ uploadImage
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -1111,7 +1080,7 @@ Nombre parámetro entrada
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -1122,7 +1091,7 @@ Si
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+<cell alignment="center" valignment="top" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -1136,7 +1105,66 @@ petNumber
 </cell>
 </row>
 <row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+\emph on
+id, photoUrls
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+Pet
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+Atributo del tipo
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+Si
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+\emph on
+number, PictureUrls
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -1148,18 +1176,18 @@ id
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
 
 \size scriptsize
-Pet
+Category
 \end_layout
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -1170,7 +1198,7 @@ Atributo del tipo
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -1181,7 +1209,7 @@ Si
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+<cell alignment="center" valignment="top" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -1195,19 +1223,19 @@ number
 </cell>
 </row>
 <row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
 
 \size scriptsize
 \emph on
-name
+name, category
 \end_layout
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -1218,7 +1246,7 @@ Pet
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -1229,7 +1257,7 @@ Atributo del tipo
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -1240,247 +1268,13 @@ No
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
 
 \size scriptsize
 \emph on
--
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-\emph on
-category
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-Pet
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-Atributo del tipo
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-No
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-- 
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-\emph on
-photoUrls
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-Pet
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-Atributo del tipo
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-Si
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-\emph on
-PictureUrls
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-\emph on
-id
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-Category
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-Atributo del tipo
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-Si
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-\emph on
-number
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-\emph on
-name
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-Category
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-Atributo del tipo
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-No
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
 -
 \end_layout
 
@@ -1504,7 +1298,7 @@ name "tab:Comparativa-entre-identificadores"
 
 \end_inset
 
-Modificación de identificadores
+Modificación de identificadores para el ejemplo PetStore.
 \end_layout
 
 \end_inset
@@ -1551,15 +1345,15 @@ POST_/pets/{petNumber}/uploadPicture (petNumber, Image) : (Pet).
 \begin_layout Standard
 Finalmente, para cada caso nuevo generado se registró el 
 \emph on
-gold standard
+gold-standard
 \emph default
- (la solución más relevante) de la misma, siendo esta la 
+ (la solución más relevante) de la misma, siendo ésta la 
 \emph on
 solución
 \emph default
  del Caso original.
  Con esta metodología, podemos simular que la funcionalidad requerida por
- el desarrollador (Caso nuevo) se satisface con el servicio web que ofrece
+ el desarrollador (Caso nuevo) se satisface con el Servicio Web que ofrece
  la misma funcionalidad, evaluando si dicho servicio es retornado por el
  razonador.
  
@@ -1744,7 +1538,8 @@ En la presente sección, se detalla la ejecución de los dos experimentos
 \end_layout
 
 \begin_layout Subsection
-Experimento 1: Comparativa con Registro de Descubrimiento de Servicios Web.
+Experimento 1: Comparación con Registro de Descubrimiento.
+ 
 \begin_inset CommandInset label
 LatexCommand label
 name "subsec:Experimento-1:-Comparativa"
@@ -1755,9 +1550,9 @@ name "subsec:Experimento-1:-Comparativa"
 \end_layout
 
 \begin_layout Standard
-En el presente experimento se utilizó el conjunto de 1192 Casos generados
- a partir de especificaciones WSDL para utilizar en un registro de descubrimient
-o de servicios 
+En el presente experimento se utilizó el conjunto de 1192 casos generados
+ a partir de especificaciones WSDL para comparar con un registro de descubrimien
+to de servicios 
 \begin_inset Quotes eld
 \end_inset
 
@@ -1765,7 +1560,11 @@ tradicional
 \begin_inset Quotes erd
 \end_inset
 
-, el registro EasySOC 
+, el registro EasySOC
+\begin_inset space ~
+\end_inset
+
+
 \begin_inset CommandInset citation
 LatexCommand cite
 key "crasso2014easysoc"
@@ -1792,13 +1591,13 @@ Vector Space Model
 
 \begin_layout Standard
 El registro de descubrimiento fue poblado con los 1192 servicios obtenidos
- de la plataforma Mashape (Paso 4).
+ de la plataforma Mashape.
  Las consultas sintácticas (que son las que se le hacen a los registros
  de descubrimiento) fueron generadas concatenando los nombres de las operaciones
  extraídas de las instancias del metamodelo (particularmente de las consultas
  generadas por los expertos).
  Estas consultas sintácticas luego se convirtieron en la entrada para el
- registro de descubrimiento de servicios (Paso 5).
+ registro de descubrimiento de servicios.
 \end_layout
 
 \begin_layout Standard
@@ -1838,13 +1637,13 @@ reference "sec:CBR-para-selección"
 \begin_inset space ~
 \end_inset
 
-3 (Paso 6).
+3.
  
 \end_layout
 
 \begin_layout Standard
 Finalmente, los resultados obtenidos, tanto para los casos nuevos ejecutados
- sobre el registros de descubrimiento de servicios (EasySOC), como sobre
+ sobre el registro de descubrimiento de servicios (EasySOC), como sobre
  la herramienta de Razonamiento Basado en Casos, fueron evaluados utilizando
  las métricas (
 \emph on
@@ -1854,24 +1653,14 @@ y
 \emph on
 Recall-at-n
 \emph default
-) que se presentaron en la Sección
-\begin_inset space ~
-\end_inset
-
-
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "subsec:Métricas-Utilizadas"
-
-\end_inset
-
- (Paso 7), considerando los 
+) considerando los 
 \emph on
 gold standard 
 \emph default
-para cada consulta, de esta manera, se puede realizar una comparación de
- los resultados en términos de visibilidad del servicio relevante entre
- nuestro enfoque y el registro de descubrimiento de servicios.
+para cada consulta.
+ De esta manera, se puede realizar una comparación de los resultados en
+ términos de visibilidad del servicio relevante entre nuestro enfoque y
+ el registro de descubrimiento de servicios.
 \end_layout
 
 \begin_layout Paragraph
@@ -1879,8 +1668,8 @@ Ejemplo:
 \end_layout
 
 \begin_layout Standard
-Consideremos una extracción de 8 servicios de muestra del dataset de 550
- especificaciones Swagger.
+Consideremos ocho servicios aleatorios de muestra del dataset de 550 especificac
+iones Swagger.
  Estos servicios se compararon con el dataset completo en su versión original,
  que debería obtener el mismo servicio en la primer posición de casos candidatos
 , y en su versión modificada.
@@ -1920,7 +1709,7 @@ reference "tab:ejemplo-evaluacion"
 
 \begin_layout Standard
 \begin_inset Float table
-placement h
+placement H
 wide false
 sideways false
 status open
@@ -2694,8 +2483,12 @@ Resultados:
 
 \begin_layout Standard
 Finalmente, ejecutamos el procedimiento de evaluación del servicio utilizando
- las consultas originales (como gold standard) y las modificaciones, y las
- comparamos con los servicios en la Base de Conocimientos (el dataset completo).
+ las consultas originales (como
+\emph on
+ gold standard
+\emph default
+) y las modificaciones, y las comparamos con los servicios en la Base de
+ Conocimientos (el dataset completo).
  Para fines comparativos, también ejecutamos las consultas contra EasySOC.
  La Figura
 \begin_inset space ~
@@ -2709,8 +2502,12 @@ reference "fig:Recall-acumulado-experimento-1"
 \end_inset
 
  ilustra los valores promedio de Recall-at-n para las consultas originales,
- las consultas modificadas y el registro EasySOC con las consultas modificadas,
- mientras que en la Tabla 
+ las consultas modificadas y el registro EasySOC con las consultas modificadas.
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+, mientras que en la Tabla 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "tab:recall-acumulada-experimento-1"
@@ -2718,6 +2515,10 @@ reference "tab:recall-acumulada-experimento-1"
 \end_inset
 
  se expresan dichos valores obtenidos.
+\end_layout
+
+\end_inset
+
  
 \end_layout
 
@@ -2772,10 +2573,14 @@ name "fig:Recall-acumulado-experimento-1"
 \end_layout
 
 \begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
 \begin_inset Float table
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -2799,7 +2604,9 @@ status open
 \begin_inset Text
 
 \begin_layout Plain Layout
-Razonador Basado en Casos
+
+\size footnotesize
+CBR
 \end_layout
 
 \end_inset
@@ -2808,7 +2615,9 @@ Razonador Basado en Casos
 \begin_inset Text
 
 \begin_layout Plain Layout
-Registro EasySOC
+
+\size footnotesize
+EasySOC
 \end_layout
 
 \end_inset
@@ -2819,6 +2628,8 @@ Registro EasySOC
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 Recall en 1
 \end_layout
 
@@ -2828,6 +2639,8 @@ Recall en 1
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 0.85
 \end_layout
 
@@ -2837,6 +2650,8 @@ Recall en 1
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 0.5
 \end_layout
 
@@ -2848,6 +2663,8 @@ Recall en 1
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 Recall en 2
 \end_layout
 
@@ -2857,6 +2674,8 @@ Recall en 2
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 0.85
 \end_layout
 
@@ -2866,6 +2685,8 @@ Recall en 2
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 0.55
 \end_layout
 
@@ -2877,6 +2698,8 @@ Recall en 2
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 Recall en 3
 \end_layout
 
@@ -2886,6 +2709,8 @@ Recall en 3
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 0.85
 \end_layout
 
@@ -2895,6 +2720,8 @@ Recall en 3
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 0.65
 \end_layout
 
@@ -2906,6 +2733,8 @@ Recall en 3
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 Recall en 4
 \end_layout
 
@@ -2915,6 +2744,8 @@ Recall en 4
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 0.9
 \end_layout
 
@@ -2924,6 +2755,8 @@ Recall en 4
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 0.65
 \end_layout
 
@@ -2935,6 +2768,8 @@ Recall en 4
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 Recall en 5
 \end_layout
 
@@ -2944,6 +2779,8 @@ Recall en 5
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 0.9
 \end_layout
 
@@ -2953,6 +2790,8 @@ Recall en 5
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 0.7
 \end_layout
 
@@ -2964,6 +2803,8 @@ Recall en 5
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 Recall en 6
 \end_layout
 
@@ -2973,6 +2814,8 @@ Recall en 6
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 0.9
 \end_layout
 
@@ -2982,6 +2825,8 @@ Recall en 6
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 0.75
 \end_layout
 
@@ -2993,6 +2838,8 @@ Recall en 6
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 Recall en 7
 \end_layout
 
@@ -3002,6 +2849,8 @@ Recall en 7
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 0.95
 \end_layout
 
@@ -3011,6 +2860,8 @@ Recall en 7
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 0.8
 \end_layout
 
@@ -3022,6 +2873,8 @@ Recall en 7
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 Recall en 8
 \end_layout
 
@@ -3031,6 +2884,8 @@ Recall en 8
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 0.95
 \end_layout
 
@@ -3040,6 +2895,8 @@ Recall en 8
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 0.8
 \end_layout
 
@@ -3051,6 +2908,8 @@ Recall en 8
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 Recall en 9
 \end_layout
 
@@ -3060,6 +2919,8 @@ Recall en 9
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 0.95
 \end_layout
 
@@ -3069,6 +2930,8 @@ Recall en 9
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 0.8
 \end_layout
 
@@ -3080,6 +2943,8 @@ Recall en 9
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 Recall en 10
 \end_layout
 
@@ -3089,6 +2954,8 @@ Recall en 10
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 1
 \end_layout
 
@@ -3099,17 +2966,7 @@ Recall en 10
 
 \begin_layout Plain Layout
 
-\family roman
-\series medium
-\shape up
-\size normal
-\emph off
-\bar no
-\strikeout off
-\uuline off
-\uwave off
-\noun off
-\color none
+\size footnotesize
 0.85
 \end_layout
 
@@ -3146,8 +3003,13 @@ Recall acumulado del experimento 1.
 
 \end_layout
 
+\end_inset
+
+
+\end_layout
+
 \begin_layout Subsection
-Experimento 2 (Hackathon)
+Experimento 2: Hackathon
 \begin_inset CommandInset label
 LatexCommand label
 name "subsec:Experimento-2-(Hackathon)"
@@ -3188,19 +3050,19 @@ https://hackathon.guide
 status open
 
 \begin_layout Plain Layout
-Pertenecientes a las empresas Patagonian Tech, FidTech y a la Universidad
- del Comahue
+Pertenecientes a las empresas Patagonian Tech, FidTech y a la Facultad de
+ Informática
 \end_layout
 
 \end_inset
 
 .
- A este grupo se le dio una introducción sobre mutación y selección de servicios
- web, junto con instrucciones sobre como modificar las especificaciones
- disponibles, así mismo se les dio la libertad de modificar la semántica
+ A este grupo se le brindó una introducción sobre mutación y selección de
+ servicios web, junto con instrucciones sobre cómo modificar las especificacione
+s disponibles, así mismo se les dio la libertad de modificar la semántica
  de algún identificador si lo creían conveniente y se les indicó realizar
  las mutaciones de manera incremental e iterativa, para poder visualizar
- cuales modificaciones tienen más incidencia a la hora de mutar el servicio,
+ cuáles modificaciones tienen más incidencia a la hora de mutar el servicio,
  haciendo que sea más difícil de identificar para el Razonador Basado en
  Casos.
 \end_layout
@@ -3226,11 +3088,12 @@ https://www.docker.com/
 
 \end_inset
 
-, un programa que ofrece 
+, un programa que ofrece contenedores (
 \emph on
-containers 
+containers
 \emph default
-(virtualización) a nivel de sistema operativo y Docker Compose 
+), una solución de virtualización a nivel de sistema operativo, y Docker
+ Compose 
 \begin_inset Foot
 status open
 
@@ -3255,11 +3118,14 @@ https://docs.docker.com/compose/
 Containers 
 \emph default
 para que se comuniquen entre ellos de una manera más sencilla.
- Cada container se encuentra aislado y contiene su propia aplicación, herramient
-as, librería y archivos de configuración.
+ Cada 
+\emph on
+container
+\emph default
+ se encuentra aislado y contiene su propia aplicación, herramientas, librería
+ y archivos de configuración.
  Esto nos permitió ejecutar el Razonador Basado en Casos en distintas arquitectu
-ras (Windows, Linux y Mac OS), sin realizar ninguna instalación (p.
- ej.
+ras (Windows, Linux y Mac OS), sin realizar ninguna instalación (por ejemplo,
  Java, MongoDB, etc.) ni modificación, sólo con la ejecución de un comando.
  Como beneficio adicional se tiene la fácil 
 \begin_inset Quotes eld
@@ -3269,7 +3135,7 @@ limpieza
 \begin_inset Quotes erd
 \end_inset
 
- en el equipo del experto una vez finalizado el experimento.
+ en el equipo una vez finalizado el experimento.
  Los archivos 
 \emph on
 Dockerfile
@@ -3289,7 +3155,7 @@ status open
 
 \begin_layout Plain Layout
 
-https://github.com/aderenzis/cbr4SSPlatform/tree/master
+https://github.com/aderenzis/cbr4SSPlatform/
 \end_layout
 
 \end_inset
@@ -3345,14 +3211,14 @@ precisión
 \end_layout
 
 \begin_layout Standard
-La Tabla
+La Figura
 \begin_inset space ~
 \end_inset
 
 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "tab:recall-acumulada-hackathon"
+reference "fig:recall-acumulado-hackathon"
 
 \end_inset
 
@@ -3362,18 +3228,7 @@ reference "tab:recall-acumulada-hackathon"
 \end_inset
 
 ) de los resultados obtenidos.
- Estos valores fueron utilizados para trazar la Figura 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:recall-acumulado-hackathon"
-
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Standard
-La Figura 
+ La Figura 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:precision-hackathon"
@@ -3385,19 +3240,14 @@ reference "fig:precision-hackathon"
 \end_layout
 
 \begin_layout Standard
-En conclusión, los experimentos muestran que la utilización del Razonador
- Basado en Casos mejora la visibilidad de los servicios relevantes \twohyphens
- estas
- mejoras se expresan en términos de ganancias en Precisión y Recall.
- Esto incrementa la visibilidad de los casos candidatos más adecuados puede
- facilitar en gran medida el desarrollo de Aplicaciones Orientadas a Servicios.
-\end_layout
+\begin_inset Note Note
+status open
 
-\begin_layout Standard
+\begin_layout Plain Layout
 \begin_inset Float table
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -3557,7 +3407,18 @@ Recall acumulada para el Razonador Basado en Casos en el experimento 2.
 
 \end_layout
 
+\end_inset
+
+
+\end_layout
+
 \begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
 \begin_inset Float figure
 wide false
 sideways false
@@ -3568,7 +3429,7 @@ status open
 \begin_inset Graphics
 	filename ImgChapter4/usadas/Recall hackathon.pdf
 	lyxscale 40
-	width 70text%
+	width 49text%
 
 \end_inset
 
@@ -3582,7 +3443,7 @@ name "fig:recall-acumulado-hackathon"
 
 \end_inset
 
-Recall acumulado del experimento 2.
+Recall acumulado.
 \end_layout
 
 \end_inset
@@ -3593,9 +3454,6 @@ Recall acumulado del experimento 2.
 \end_inset
 
 
-\end_layout
-
-\begin_layout Standard
 \begin_inset Float figure
 wide false
 sideways false
@@ -3606,7 +3464,7 @@ status open
 \begin_inset Graphics
 	filename ImgChapter4/usadas/Presición chico.pdf
 	lyxscale 40
-	width 70text%
+	width 49text%
 
 \end_inset
 
@@ -3620,7 +3478,24 @@ name "fig:precision-hackathon"
 
 \end_inset
 
-Precisión obtenida en el experimento 2.
+Precisión.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Resultados para el experimento 2 (consultas originales y mutadas).
 \end_layout
 
 \end_inset
@@ -3641,9 +3516,14 @@ reference "fig:evolucion-distancias-1"
 
 \end_inset
 
- ilustra los distintos valores de distancia obtenidos por los ingenieros
- expertos en este experimento, donde se dedica un gráfico para cada servicio
- mutado y una barra para cada iteración de mutación realizada.
+ ilustra en detalle los distintos valores de distancia obtenidos para cada
+ servicio mutado y para cada iteración de mutación realizada por cada ingeniero
+ de software.
+ Se puede apreciar cómo la distancia aumenta con las sucesivas iteraciones
+ de las consultas mutadas (cada vez son más diferentes a los servicios originale
+s).
+ Sin embargo, esto no afecta de manera significativa a la precisión y el
+ recall obtenido por el razonador.
 \end_layout
 
 \begin_layout Standard
@@ -3849,6 +3729,15 @@ Distancia obtenida en las distintas ejecuciones para cada servicio mutado
 
 \end_layout
 
+\begin_layout Standard
+En conclusión, los experimentos muestran que la utilización del Razonador
+ Basado en Casos mejora la visibilidad de los servicios relevantes \twohyphens
+ estas
+ mejoras se expresan en términos de ganancias en Precisión y Recall.
+ Esto incrementa la visibilidad de los casos candidatos más adecuados puede
+ facilitar en gran medida el desarrollo de Aplicaciones Orientadas a Servicios.
+\end_layout
+
 \begin_layout Section
 Limitaciones
 \begin_inset CommandInset label
@@ -3863,9 +3752,9 @@ name "sec:Limitaciones"
 \begin_layout Standard
 Se podría pensar que es una limitación partir dos datasets distintos y disjuntos
  (Mashape y APIS.guru, en formato WSDL y Swagger respectivamente).
- Pero a la hora de la ejecución experimental, o la búsqueda del caso candidato,
- mediante un parámetro es posible decidir si se desea realizar la consulta
- utilizando únicamente uno de los dos dataset, o ambos.
+ Sin embargo, a la hora de la ejecución de la herramienta, mediante un parámetro
+ es posible decidir si se desea realizar la consulta utilizando únicamente
+ uno de los dos dataset, o ambos.
  Esta flexibilidad permite que el caso candidato se adapte mejor a las restricci
 ones definidas por el experto: si el mismo tiene una restricción en cuanto
  al protocolo requerido, la solución se adaptará a ella, caso contrario,
@@ -3899,12 +3788,12 @@ aprendizaje
 \end_layout
 
 \begin_layout Standard
-El aprendizaje del Razonador Basado en casos no fue evaluado, esta evaluación
- se debería realizar generando casos nuevos, populando la Base de Conocimientos
- con un dataset inicial y realizando consultas de tal manera que se vayan
- incorporando estos casos con su solución a la Base de Conocimientos anteriormen
-te mencionada, y sea uno de éstos casos nuevos la solución de una consulta
- futura.
+El aprendizaje del Razonador Basado en casos no fue evaluado.
+ Esta evaluación se debería realizar generando casos nuevos, populando la
+ Base de Conocimientos con un dataset inicial y realizando consultas de
+ tal manera que se vayan incorporando estos casos con su solución a la Base
+ de Conocimientos anteriormente mencionada, y sea uno de éstos casos nuevos
+ la solución de una consulta futura.
  Realizar esto en un entorno simulado es difícil como demostración, ya que
  se requiere del uso prolongado y sostenido del Razonador en un entorno
  real.
@@ -3916,11 +3805,11 @@ te mencionada, y sea uno de éstos casos nuevos la solución de una consulta
 \end_layout
 
 \begin_layout Standard
-Generar casos nuevos manualmente en base a servicios ya existentes para
- los distintos datasets no refleja exactamente el caso de uso real para
- un Razonador Basado en Casos, puesto a que si un experto decide mutar la
- especificación de un servicio existente, lo mas probable es que directamente
- utilice éste servicio.
+Por otra parte, generar casos nuevos manualmente en base a servicios ya
+ existentes para los distintos datasets no refleja exactamente el caso de
+ uso real para un Razonador Basado en Casos, puesto a que si un experto
+ decide mutar la especificación de un servicio existente, lo mas probable
+ es que directamente utilice dicho servicio.
  Por otro lado, en un entorno real el usuario redactaría la especificación
  del servicio requerido sin tener en cuenta ninguna otra especificación
  de servicio existente.
@@ -3929,8 +3818,8 @@ Generar casos nuevos manualmente en base a servicios ya existentes para
 creación
 \emph default
  de especificaciones es difícil de hacer en cantidad y puede que el caso
- nuevo resultante no se corresponda con ninguna de las especificaciones
- (o con demasiadas) pertenecientes a la Base de Conocimientos.
+ nuevo resultante no se corresponda con ninguna (o con demasiadas) de las
+ especificaciones pertenecientes a la Base de Conocimientos.
  Por lo tanto, esto no sirve para esta evaluación experimental, es por eso
  que se decidió realizar mutaciones de servicios existentes cuyos Casos
  pertenezcan a la Base de Conocimientos, este tipo de mutación fue utilizada
@@ -3978,18 +3867,6 @@ User
 , lo más probable es que cuando un experto cree una especificación del servicio
  requerido, utilice el termino original, ya que es el nombre por defecto
  que se le atribuye.
-\end_layout
-
-\begin_layout Standard
-\begin_inset CommandInset bibtex
-LatexCommand bibtex
-btprint "btPrintCited"
-bibfiles "Biblio_Lic"
-options "plain"
-
-\end_inset
-
-
 \end_layout
 
 \end_body
