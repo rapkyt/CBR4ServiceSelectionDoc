@@ -18,11 +18,7 @@
               "name": "petId",
               "type": {
                 "@type": "SimpleType",
-                "name": "long"
-              }
-            }
-          ]
-        },
+                "name": "long"}}]},
         "output": {
           "name": "response",
           "parameters": [
@@ -37,8 +33,7 @@
                     "type": {
                       "@type": "SimpleType",
                       "name": "long"
-                    }
-                  },
+                    }},
                   {
                     "name": "category",
                     "type": {
@@ -50,25 +45,19 @@
                           "type": {
                             "@type": "SimpleType",
                             "name": "long"
-                          }
-                        },
+                          }},
                         {
                           "name": "name",
                           "type": {
                             "@type": "SimpleType",
                             "name": "string"
-                          }
-                        }
-                      ]
-                    }
-                  },
+                          }}]}},
                   {
                     "name": "name",
                     "type": {
                       "@type": "SimpleType",
                       "name": "string"
-                    }
-                  },
+                    }},
                   {
                     "name": "photoUrls",
                     "type": {
@@ -77,14 +66,7 @@
                       "contentType": {
                         "@type": "SimpleType",
                         "name": "string"
-                      }
-                    }
-                  }
-                ]
-              }
-            }
-          ]
-        },
+                      }}}]}}]},
         "faults": [
           {
             "name": "400",
@@ -93,9 +75,7 @@
           {
             "name": "404",
             "type": null
-          }
-        ]
-      },
+          }]},
       {
         "name": "POST_/pet/{petId}",
         "input": {...},
@@ -113,8 +93,6 @@
         "input": {...},
         "output": {...},
         "faults": [...]
-      }
-    ]
-  },
+      }]},
   "solution": "Swagger Petstore - petStore.json"
 }
