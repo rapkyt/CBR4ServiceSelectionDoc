@@ -5411,18 +5411,20 @@ reference "alg:Convertir-especificación-Open"
 \end_layout
 
 \begin_layout Standard
-Cada response de la operación se analiza, ya que la misma puede ser una
- respuesta exitosa o fallida.
- En caso de ser la primera, el 
+Cada respuesta (
+\emph on
+response
+\emph default
+) de la operación puede ser exitosa o fallida.
+ El 
 \emph on
 status code 
 \emph default
-de la misma comenzará con el número 
+de la respuesta exitosa comenzará con el número 
 \emph on
 2
 \emph default
-, si la respuesta tiene tipo entonces se creará un parámetro que luego será
- usado en el 
+, y si tiene un tipo se creará un parámetro que luego será usado en el 
 \emph on
 output
 \emph default
@@ -5436,12 +5438,12 @@ con el tipo de la respuesta, y se agregará a la lista de
 faults
 \emph default
  - línea 26 y 27.
- Una vez terminado de recorrer las operaciones de cada 
+ Una vez recorridas las operaciones de cada 
 \emph on
 path,
 \emph default
- se crea la interfaz del metamodelo con el listado de operaciones - línea
- 34.
+ se crea la interfaz del metamodelo con las mismas \twohyphens
+ línea 34.
  
 \end_layout
 
@@ -6447,11 +6449,10 @@ Conclusión
 A lo largo de este capítulo se detalló como se utilizó la metodología CBR
  dentro del contexto de evaluación y selección de Servicios Web y qué decisiones
  se tomaron a la hora de su implementación.
- Además se describió como se llevó a cabo el módulo de Software necesario
- para la adaptación de las especificaciones Swagger al Metamodelo de descripcion
-es de Servicios Web que permitió que esta selección de Servicios se volviera
- heterogénea, abarcando tanto especificaciones WSDL como especificaciones
- Swagger.
+ Además se describió como se llevó a cabo el módulo conversor necesario
+ para las especificaciones Swagger al Metamodelo, lo que permitió que esta
+ selección de Servicios se volviera heterogénea, abarcando tanto especificacione
+s WSDL como especificaciones Swagger.
  A continuación (Capítulo 4) se presentará la validación experimental 
 \begin_inset Note Note
 status open
@@ -6477,10 +6478,6 @@ Falta conclusión: Qué se vio en el capítulo (CBR, Conversor), y que a continu
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Standard
 
 \end_layout
 
