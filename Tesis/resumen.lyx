@@ -1,4 +1,4 @@
-#LyX 2.3 created this file. For more info see http://www.lyx.org/
+#LyX 2.2 created this file. For more info see http://www.lyx.org/
 \lyxformat 508
 \begin_document
 \begin_header
@@ -585,7 +585,34 @@ Agradecimientos
 \begin_inset Newline newline
 \end_inset
 
+Quiero dar un especial agradecimiento a mis madre Silvia Piccotto y a mi
+ esposa Eluney Sol Avila que en muchas ocaciones insistieron en que desarrolle
+ la presente tesis, para poder dar por finalizada la carrera de Licenciatura
+ en Ciencias de la Computación y, que junto a mi padre Daniel Mora, me brindaron
+ todo el apoyo que necesité tanto para la realización de la tesis, como
+ para la carrera universitaria en sí misma.
+\end_layout
 
+\begin_layout Standard
+A todos mis amigos y compañeros con los cuales compartí distintos momentos
+ universitarios y que supieron entender mi ausencia en distintos momentos,
+ sobre todo en esta última etapa.
+\end_layout
+
+\begin_layout Standard
+Al Dr.
+ Martin Garriga por permitirme realizar este trabajo bajo su dirección,
+ por el tiempo dedicado y por estar siempre atento y disponible en cada
+ momento requerido, aportando distintos puntos de vista y correcciones a
+ la altura esperada.
+\end_layout
+
+\begin_layout Standard
+Al Lic.
+ Alan de Renziz, por su gran dedicación y arduo esfuerzo tanto en tiempos
+ de corrección y consulta, como de guía en el desarrollo de la tesis.
+ Por la asistencia técnica, tiempo dedicado fuera del horario laboral y
+ excelente predisposición por sobre todas las cosas.
 \end_layout
 
 \begin_layout Standard
