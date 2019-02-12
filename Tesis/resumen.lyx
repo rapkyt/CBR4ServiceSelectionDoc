@@ -585,12 +585,12 @@ Agradecimientos
 \begin_inset Newline newline
 \end_inset
 
-Quiero dar un especial agradecimiento a mis madre Silvia Piccotto y a mi
- esposa Eluney Sol Avila que en muchas ocaciones insistieron en que desarrolle
- la presente tesis, para poder dar por finalizada la carrera de Licenciatura
- en Ciencias de la Computación y, que junto a mi padre Daniel Mora, me brindaron
- todo el apoyo que necesité tanto para la realización de la tesis, como
- para la carrera universitaria en sí misma.
+Quiero dar un especial agradecimiento a mi madre Silvia Piccotto y a mi
+ esposa Eluney Sol Avila quienes con su amor, paciencia y esfuerzo insistieron
+ en que desarrolle la presente tesis, para poder dar por finalizada la carrera
+ de Licenciatura en Ciencias de la Computación y, que junto a mi padre Daniel
+ Mora, me dieron el apoyo y la contención que necesité tanto para la realización
+ de la tesis, como para recorrer la carrera universitaria en sí misma.
 \end_layout
 
 \begin_layout Standard
@@ -600,33 +600,36 @@ A todos mis amigos y compañeros con los cuales compartí distintos momentos
 \end_layout
 
 \begin_layout Standard
+A la empresa Patagonian Tech por brindarme el espacio y refrigerio para
+ poder realizar la Hackathon que me permitió realizar una validación experimenta
+l de la solución propuesta, y a Ezequiel Cortes, Julian Bianqui, Maximiliano
+ Arias y Rodrigo Falco por participar de la misma con la mejor de las voluntades.
+ 
+\end_layout
+
+\begin_layout Standard
 Al Dr.
  Martin Garriga por permitirme realizar este trabajo bajo su dirección,
- por el tiempo dedicado y por estar siempre atento y disponible en cada
- momento requerido, aportando distintos puntos de vista y correcciones a
- la altura esperada.
+ por el tiempo dedicado, por participar de la Hackathon de validación y
+ por estar siempre atento y disponible en cada momento requerido, aportando
+ distintos puntos de vista y correcciones a la altura esperada.
 \end_layout
 
 \begin_layout Standard
 Al Lic.
- Alan de Renziz, por su gran dedicación y arduo esfuerzo tanto en tiempos
+ Alan de Renzis, por su gran dedicación y arduo esfuerzo tanto en tiempos
  de corrección y consulta, como de guía en el desarrollo de la tesis.
- Por la asistencia técnica, tiempo dedicado fuera del horario laboral y
- excelente predisposición por sobre todas las cosas.
+ Por la asistencia técnica, tiempo dedicado fuera del horario laboral, por
+ participar de la Hackathon de validación y excelente predisposición por
+ sobre todas las cosas.
 \end_layout
 
 \begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Completar los agradecimientos! dejé la nota con los de Lucas por si te sirve
- de inspiración :)
+A la Facultad de Informática y a todos los profesores pertenecientes a la
+ misma, por ayudarme en mi formación académica.
 \end_layout
 
-\end_inset
-
-
+\begin_layout Standard
 \begin_inset Note Note
 status collapsed
 
