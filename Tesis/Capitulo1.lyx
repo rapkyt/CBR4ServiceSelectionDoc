@@ -1,4 +1,4 @@
-#LyX 2.3 created this file. For more info see http://www.lyx.org/
+#LyX 2.2 created this file. For more info see http://www.lyx.org/
 \lyxformat 508
 \begin_document
 \begin_header
@@ -127,8 +127,7 @@ em
 
 ) es un campo interdisciplinar para el estudio, diseño, e implementación
  de sistemas distribuidos, y actúa como un paraguas que cubre todos los
- aspectos de computación utilizados \twohyphens
- especificación y diseño orientado
+ aspectos de computación utilizados – especificación y diseño orientado
  a servicios, Arquitectura Orientada a Servicios (SOA
 \begin_inset Foot
 status open
@@ -142,8 +141,7 @@ Service Oriented Architecture
 \end_inset
 
 ), Servicios Web, etc.
- \twohyphens
- siendo actualmente una de las áreas de investigación más activas en el
+ – siendo actualmente una de las áreas de investigación más activas en el
  ámbito de la informática.
  
 \end_layout
@@ -155,8 +153,7 @@ Una práctica común para el desarrollo de software es reusar funcionalidad
  del sistema.
  En este contexto, el crecimiento de la Web habilita a los desarrolladores
  a ofrecer software no sólo en forma de bibliotecas, sino como servicios
- \twohyphens
- componentes software que se pueden invocar de forma dinámica.
+ – componentes software que se pueden invocar de forma dinámica.
  En particular, la tecnología de Servicios Web es uno de los principales
  motivos para la adopción del paradigma SOC
 \begin_inset space ~
@@ -175,9 +172,9 @@ key "Bichler06"
 \begin_layout Standard
 El sector de los servicios representa el mayor porcentaje de la economía
  en los países desarrollados, y es innegable que una gran parte de la innovación
- en servicios se basa en la tecnología informática, que ha contribuido con
- aportes concretos que configuran la base tecnológica para la implementación
- de servicios: SOA, Servicios Web o Computación en la Nube (
+ en servicios se basa en la tecnología informática con aportes concretos
+ configurando la base tecnológica para la implementación de servicios: SOA,
+ Servicios Web o Computación en la Nube (
 \emph on
 Cloud Computing
 \emph default
@@ -490,8 +487,7 @@ o de palabras clave, considerando que las mismas fueron utilizadas para
 La motivación de esta tesis es alcanzar un enfoque que facilite el desarrollo
  de aplicaciones orientadas a servicios, asistiendo a los desarrolladores
  en la tarea de evaluación y selección de servicios candidatos.
- Para ello es necesario un análisis a nivel de contrato \twohyphens
- i.e., de los elementos
+ Para ello es necesario un análisis a nivel de contrato – i.e., de los elementos
  que forman las funcionalidad ofrecida por el servicio.
  Además, se requiere que dicho enfoque incorpore algún mecanismo de aprendizaje
  semi-automático para mejorar su performance incorporando información a
@@ -507,7 +503,8 @@ key "de2016case"
 \end_inset
 
 .
- Es por esto que se decidió incorporar lo realizado en trabajos previos
+ Consecuentemente se decidió adaptar en la presete tesis los aportes de
+ trabajos previos
 \begin_inset space ~
 \end_inset
 
@@ -518,7 +515,7 @@ key "castro16,cava18,DeRenzis13"
 
 \end_inset
 
-, donde se definió la evaluación a nivel de contrato de servicios considerando
+ donde se definió la evaluación a nivel de contrato de servicios considerando
  aspectos estructurales y semánticos, en el marco de la metodología Razonamiento
  Basado en Casos (CBR
 \begin_inset Foot
@@ -535,14 +532,14 @@ Case Based Reasoning
 ) adoptada en la presente tesis.
  CBR proviene del campo de la Inteligencia Artificial y aporta algunos aspectos
  cruciales para resolver los problemas antes mencionados en la evaluación
- y selección de Servicios Web, mediante el uso y la adaptación de soluciones
+ y selección de Servicios Web mediante el uso y la adaptación de soluciones
  existentes para problemas recurrentes.
  
 \end_layout
 
 \begin_layout Standard
-Sin embargo, existen además limitaciones con respecto al tipo de descripciones
- de origen que se soportan, por la falta de herramientas automatizadas para
+Sin embargo, existen limitaciones con respecto al tipo de descripciones
+ de origen que se soportan por la falta de herramientas automatizadas para
  realizar la derivación desde otro tipo de descripciones hacia el Metamodelo
  de servicios.
  Se agrega entonces el desafio de aumentar el cubrimiento de las mismas
@@ -692,11 +689,17 @@ El mismo se desglosa en tres objetivos específicos que se abordarán a lo
 \emph on
 Definir un proceso de evaluación de servicios utilizando Razonamiento Basado
  en Casos (CBR).
+\emph default
+
+\begin_inset Newline newline
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
-En primer lugar proponemos utilizar la metodología de Razonamiento basado
- en casos para evaluación de servicios.
+En primer lugar proponemos utilizar la metodología de Razonamiento Basado
+ en Casos para evaluación de servicios.
  Un razonador basado en casos resuelve nuevos problemas mediante el uso
  y la adaptación de soluciones existentes para problemas anteriores y recurrente
 s.
@@ -714,8 +717,8 @@ key "de2016case"
 \end_inset
 
 .
- Luego, nuestra propuesta implica trazar un paralelo entre el problema de
- descubrimiento, selección y evaluación de servicios
+ Nuestra propuesta implica trazar un paralelo entre el problema de descubrimient
+o, selección y evaluación de servicios
 \begin_inset space ~
 \end_inset
 
@@ -741,36 +744,35 @@ key "aamodt1994case"
 \end_layout
 
 \begin_layout Enumerate
-Recuperar los casos más similares a un problema; 
+Recuperar los casos más similares a un problema.
 \end_layout
 
 \begin_layout Enumerate
 Reusar la información y el conocimiento disponible para intentar resolver
- el problema, 
+ el problema.
 \end_layout
 
 \begin_layout Enumerate
-Revisar la solución propuesta si fuera necesario, y 
+Revisar la solución propuesta si fuera necesario.
 \end_layout
 
 \begin_layout Enumerate
-Retener las partes de esta experiencia que sirvan para aprendizaje y utilización
- para resolución de problemas futuros.
+Retener las partes de esta experiencia que sirvan para aprendizaje y empleo
+ en la resolución de problemas futuros.
 \end_layout
 
 \begin_layout Standard
-Para ello se requiere por un lado definir una representación de los casos
- (problema-solución) que capture la información relevante presente en las
- especificaciones de servicios (descriptas según el Metamodelo de servicios);
- y además definir la función de similitud, que utilice los aspectos estructurale
-s y semánticos en dichas descripciones de servicios.
- Finalmente, en base a dicha función de similitud se requiere definir la(s)
- estrategia(s) de clasificación de casos \twohyphens
- es decir, cuáles son los casos
+Para ello se requiere definir una representación de los casos (problema-solución
+) que capture la información relevante presente en las especificaciones
+ de servicios (descriptas según el Metamodelo de servicios) y además, definir
+ la función de similitud, que utilice los aspectos estructurales y semánticos
+ de estas descripciones de servicios.
+ Finalmente, en base a esta función de similitud se requiere definir la(s)
+ estrategia(s) de clasificación de casos – es decir, cuáles son los casos
  relevantes para cada problema.
- Se utilizarán desde estrategias clásicas de clasificación como la de K
- vecinos más cercanos (KNN) hasta otras más avanzadas como WKNN (KNN con
- pesos) y DWKNN (KNN con pesos y distancias)
+ Se propone utilizar desde estrategias clásicas de clasificación como la
+ de K vecinos más cercanos (KNN) hasta otras más avanzadas como WKNN (KNN
+ con pesos) y DWKNN (KNN con pesos y distancias)
 \begin_inset space ~
 \end_inset
 
@@ -789,22 +791,27 @@ key "aamodt1994case"
 \emph on
 Desarrollar los componentes necesarios para la evaluación de servicios heterogén
 eos.
- 
+\emph default
+
+\begin_inset Newline newline
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
 En particular, un conversor de descripciones OpenAPI a instancias del Metamodelo
- de servicios, y una Base de Conocimiento (KB) persistente.
+ de servicios y una Base de Conocimiento (KB) persistente.
  Al contar con un Metamodelo de servicios donde se describen contratos ofrecidos
  por Servicios Web, resulta necesario que la representación y evaluación
  de casos (de acuerdo al esquema CBR) se realice en función de instancias
- del Metamodelo, que proveen la capacidad de describir servicios heterogéneos.
+ del Metamodelo que proveen la capacidad de describir servicios heterogéneos.
  Pensar en generar casos manualmente para un gran número de servicios (cientos
  o miles), resulta completamente impracticable.
- Por ello, se debe en primer lugar generar las instancias del Metamodelo
+ Por ello, en primer lugar se debe generar las instancias del Metamodelo
  de servicios de manera automática, para luego generar los pares problema-soluci
 ón que poblarán la base de conocimiento.
- En tesis anteriores, se desarrolló un componente que a, partir de una descripci
+ En tesis anteriores, se desarrolló un componente que, a partir de una descripci
 ón WSDL correspondiente a un Servicio Web, genera una instancia del Metamodelo
 \begin_inset space ~
 \end_inset
@@ -817,11 +824,11 @@ key "cava18"
 \end_inset
 
 .
- Luego, es necesario desarrollar un componente análogo en base a otras especific
-aciones comunes en la industria.
+ Es por esto que resulta necesario desarrollar un componente análogo en
+ base a otras especificaciones comunes en la industria.
  Entre ellas, el estándar OpenAPI goza de amplia adopción (en particular
  para describir servicios REST) y no existen aún herramientas automatizadas
- de conversión.
+ de conversión al Metamodelo.
  
 \end_layout
 
@@ -1004,8 +1011,7 @@ internos
 \emph on
 externos
 \emph default
-, que se encuentran estática o dinámicamente vinculados \threehyphens
- ambos exponiendo
+, que se encuentran estática o dinámicamente vinculados — ambos exponiendo
  una clara interfaz de sus capacidades funcionales
 \begin_inset space ~
 \end_inset
@@ -1445,10 +1451,8 @@ name "par:Servicios-RESTFul"
 \end_layout
 
 \begin_layout Standard
-En los últimos años, los servicios RESTful \twohyphens
- REpresentational State Transfer
- \twohyphens
- 
+En los últimos años, los servicios RESTful – REpresentational State Transfer
+ – 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "fielding2000architectural"
@@ -2266,8 +2270,7 @@ Cada servicio definido en la arquitectura posee información específica de
 ServiceContract
 \emph default
 ), donde se puede definir tanto la coreografía (interacción) de servicios
- como su contrato de invocación e interfaces \twohyphens
- esto último se muestra en
+ como su contrato de invocación e interfaces – esto último se muestra en
  la Figura 
 \begin_inset CommandInset ref
 LatexCommand ref
