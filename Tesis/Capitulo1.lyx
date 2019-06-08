@@ -695,6 +695,10 @@ Definir un proceso de evaluación de servicios utilizando Razonamiento Basado
 \end_inset
 
 
+\begin_inset Newline newline
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -797,6 +801,10 @@ eos.
 \end_inset
 
 
+\begin_inset Newline newline
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -811,8 +819,8 @@ En particular, un conversor de descripciones OpenAPI a instancias del Metamodelo
  Por ello, en primer lugar se debe generar las instancias del Metamodelo
  de servicios de manera automática, para luego generar los pares problema-soluci
 ón que poblarán la base de conocimiento.
- En tesis anteriores, se desarrolló un componente que, a partir de una descripci
-ón WSDL correspondiente a un Servicio Web, genera una instancia del Metamodelo
+ En tesis anteriores se desarrolló un componente que, a partir de una descripció
+n WSDL correspondiente a un Servicio Web, genera una instancia del Metamodelo
 \begin_inset space ~
 \end_inset
 
@@ -824,11 +832,10 @@ key "cava18"
 \end_inset
 
 .
- Es por esto que resulta necesario desarrollar un componente análogo en
- base a otras especificaciones comunes en la industria.
- Entre ellas, el estándar OpenAPI goza de amplia adopción (en particular
- para describir servicios REST) y no existen aún herramientas automatizadas
- de conversión al Metamodelo.
+ Por esta razón resulta necesario desarrollar un componente análogo en base
+ a otras especificaciones comunes en la industria, entre ellas, el estándar
+ OpenAPI goza de amplia adopción (en particular para describir servicios
+ REST) y no existen aún herramientas automatizadas de conversión al Metamodelo.
  
 \end_layout
 
@@ -842,10 +849,10 @@ Una vez que se dispone de los datasets de servicios heterogéneos, descriptos
  conocimiento en la solución de problemas futuros.
  Por ello, se requiere que sea persistente, así la información almacenada
  puede utilizarse posteriormente.
- Así, la KB se compondrá de casos, que son pares problema-solución: el problema
- es una instancia del Metamodelo de servicios, mientras que la solución
- viene dada por cierta información asociada al servicio que provee una interfaz
- similar.
+ De esta manera, la KB se compondrá de casos, que son pares problema-solución:
+ el problema es una instancia del Metamodelo de servicios, mientras que
+ la solución viene dada por cierta información asociada al servicio que
+ provee una interfaz similar.
  Finalmente, contar con una KB persistente que almacene casos basados en
  instancias del Metamodelo de servicios, nos permitirá validar el esquema
  de evaluación y selección propuesto así como los mecanismos de aprendizaje
@@ -857,6 +864,16 @@ Una vez que se dispone de los datasets de servicios heterogéneos, descriptos
 \emph on
 Realizar la integración de los componentes desarrollados ajustando los mecanismo
 s de evaluación existentes.
+\emph default
+
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -884,9 +901,6 @@ key "Garriga2018isf,cava18"
 \end_layout
 
 \begin_layout Paragraph
-\begin_inset space ~
-\end_inset
-
 
 \end_layout
 
@@ -967,8 +981,8 @@ key "Erl08"
 
 \end_inset
 
-, y se encuentran encapsuladas como funciones autónomas que interactúan
- a través de una interfaz bien definida.
+ y se encuentran encapsuladas como funciones autónomas que interactúan a
+ través de una interfaz bien definida.
  Una definición de servicio debe incluir un identificador (ID), la interfaz
  (que describe los medios para comunicarse con el entorno del servicio)
  y su comportamiento operacional (un conjunto de operaciones a ser ejecutadas
@@ -1074,8 +1088,19 @@ key "Huhns05,Bichler06"
 
 \begin_layout Standard
 La Arquitectura Orientada a Servicios (SOA) incluye componentes capaces
- de: 1) intercambiar mensajes, 2) describir los servicios, 3) publicar y
- descubrir las descripciones de los servicios
+ de:
+\end_layout
+
+\begin_layout Itemize
+Intercambiar mensajes.
+\end_layout
+
+\begin_layout Itemize
+Describir servicios.
+\end_layout
+
+\begin_layout Itemize
+Publicar y descubrir las descripciones de los servicios
 \begin_inset space ~
 \end_inset
 
@@ -1087,7 +1112,11 @@ key "Stevens03"
 \end_inset
 
 .
- En SOA se define la interacción entre componentes software como un intercambio
+ 
+\end_layout
+
+\begin_layout Standard
+En SOA se define la interacción entre componentes software como un intercambio
  de mensajes entre 
 \emph on
 solicitantes
@@ -1268,7 +1297,7 @@ World Wide Web Consortium
 
  define que ``
 \emph on
-un servicio Web es un sistema software (identificado por un URI), diseñado
+Un servicio Web es un sistema software (identificado por un URI), diseñado
  para soportar la interacción máquina-a-maquina sobre una red interoperable.
  Tiene una interfaz descripta en un formato procesable por máquina (específicame
 nte WSDL), y otros sistemas interactúan con el Servicio Web de la manera
@@ -1440,10 +1469,6 @@ name "par:Servicios-RESTFul"
 \end_inset
 
 
-\begin_inset space ~
-\end_inset
-
-
 \begin_inset Newline newline
 \end_inset
 
@@ -1497,17 +1522,16 @@ Application Programming Interface
 
 \end_inset
 
- estándar para interactuar con cualquier recurso, por ejemplo, cualquier
- pieza de datos de la Web, como un documento, un tweet o un pronóstico del
- tiempo.
+ estándar para interactuar con un recurso dado, por ejemplo, cualquier pieza
+ de datos de la Web, como un documento, un tweet o un pronóstico del tiempo.
  
 \end_layout
 
 \begin_layout Standard
 La primer fortaleza de los servicios RESTful es que son más simples que
  los servicios SOAP porque REST aprovecha los estándares Web conocidos,
- como son HTTP de la capa de aplicación o transporte y XML de la capa de
- sesión (Figura
+ como HTTP de la capa de aplicación o transporte y XML de la capa de sesión
+ (Figura
 \begin_inset space ~
 \end_inset
 
@@ -1522,7 +1546,11 @@ reference "fig:swProtocols"
  Los clientes y servidores HTTP están disponibles para todos los principales
  lenguajes de programación y sistemas operativos/plataformas de hardware.
  Esto lleva a la segunda fortaleza de los servicios RESTful, ligereza, donde
- los servicios se pueden construir e invocar con herramientas mínimas 
+ los servicios se pueden construir e invocar con herramientas mínimas
+\begin_inset space ~
+\end_inset
+
+
 \begin_inset CommandInset citation
 LatexCommand cite
 key "pautasso2008restful"
@@ -1533,9 +1561,9 @@ key "pautasso2008restful"
  Los servicios son fáciles de consumir, donde los dispositivos móviles con
  diferentes capacidades pueden actuar como clientes e incluso servidores
  o hosts para Servicios Web.
- Las nociones de simplicidad y ligereza hacen que sea escalable, para mantener
- un gran número de clientes, gracias al soporte integrado para el almacenamiento
- de caché y el manejo de carga (
+ Las nociones de simplicidad y ligereza hacen que sea escalable para mantener
+ un gran número de clientes, gracias al soporte integrado de almacenamiento
+ en caché y el manejo de carga (
 \emph on
 load balance
 \emph default
@@ -1635,7 +1663,7 @@ name "subsec:Background"
 
 \begin_layout Standard
 Este trabajo está motivado por la necesidad de evaluar y seleccionar contratos
- de servicios heterogéneos, para lo cual se propuso extender el Metamodelo,
+ de servicios heterogéneos, para lo cual se propone extender el Metamodelo,
  añadiendo un generador de instancias a partir de especificaciones OpenAPI.
  Con esto, los estándares que fueron considerados para definir el metamodelo
  (o cubiertos por el mismo) son: WSDL, WADL, SoaML (estándares OMG) y OpenAPI.
@@ -1693,7 +1721,7 @@ porttypes
 binding
 \emph default
 ) al formato.
- Esto permite el reuso de definiciones abstractas.
+ Esto permite el reuso de definiciones.
  Los mensajes son descripciones abstractas de los datos que serán intercambiados
  en los distintos tipos de puertos que existen.
  Al usar un lenguaje de programación, se puede crear la parte concreta implement
@@ -1703,6 +1731,20 @@ ando la parte abstracta.
 
 \begin_layout Standard
 La versión actual del estándar WSDL es la 2.0
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+espacio intencional, sinó el número queda muy pegado al 0
+\end_layout
+
+\end_inset
+
+
 \begin_inset Foot
 status open
 
@@ -2047,40 +2089,39 @@ reference "Ejemplo de Estructura WADL"
 \end_inset
 
  muestra un ejemplo de la estructura de un documento WADL, donde se pueden
- desatacar los siguientes elementos:
+ destacar los siguientes elementos:
 \end_layout
 
 \begin_layout Itemize
-un elemento 
+
 \emph on
 resources
 \emph default
- que actúa como contenedor de los recursos que provee el servicio.
+: Actúa como contenedor de los recursos que provee el servicio.
 \end_layout
 
 \begin_layout Itemize
-elementos
+
 \emph on
- resource
+resource
 \emph default
- que representan a cada uno de los recursos del servicio y contienen su
- descripción
+: Representan a cada uno de los recursos del servicio y contienen su descripción.
 \end_layout
 
 \begin_layout Itemize
-elementos 
+
 \emph on
 param
 \emph default
- (parámetros) que describen las entradas 
+: Describen las entradas.
 \end_layout
 
 \begin_layout Itemize
-elementos 
+
 \emph on
 method
 \emph default
- que describen la 
+: Describen la 
 \emph on
 request
 \emph default
@@ -2088,7 +2129,7 @@ request
 \emph on
 response
 \emph default
- del recurso
+ del recurso.
 \end_layout
 
 \begin_layout Itemize
@@ -2096,7 +2137,7 @@ response
 \emph on
 request
 \emph default
-: especifica cómo representar la entrada, qué tipos son requeridos y las
+: Especifica cómo representar la entrada, qué tipos son requeridos y las
  cabeceras HTTP específicas que son requeridas
 \end_layout
 
@@ -2105,8 +2146,8 @@ request
 \emph on
 response
 \emph default
- (respuesta) describe la representación de la respuesta del servicio, así
- como cualquier información de fallos, para hacer frente a errores.
+: Describe la representación de la respuesta del servicio, así como cualquier
+ información de fallos, para hacer frente a errores.
 \end_layout
 
 \begin_layout Standard
@@ -2185,9 +2226,8 @@ Servicios atómicos, que muestran cómo deben ensamblarse los servicios para
 \begin_layout Standard
 El Perfil UML SoaML se enfoca en los conceptos básicos de SOA y en el modelado
  de servicios, incluyendo sus capacidades funcionales, aquellas que deberían
- proveer los consumidores de servicios, los protocolos o reglas para el
- uso de los servicios, y la información a intercambiar entre consumidores
- y proveedores de servicios.
+ proveer los consumidores, los protocolos o reglas para su uso, y la información
+ a intercambiar entre consumidores y proveedores de los mismos.
  Además permite especificar cómo tales capacidades funcionales de servicios
  (requeridas/provistas) son consistentes con los protocolos de interacción
  de los mismos.
@@ -2208,7 +2248,7 @@ reference "fig:Schema-of-Passage"
 \emph on
 dealer
 \emph default
-), estados del translado (
+), estados del traslado (
 \emph on
 Ship
 \emph default
@@ -2333,7 +2373,7 @@ OpenAPI
 \end_layout
 
 \begin_layout Standard
-OpenAPI (Swagger) 
+OpenAPI (Swagger)
 \begin_inset Foot
 status open
 
@@ -2443,8 +2483,8 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename ImgChapter1/estructura OpenAPI.pdf
-	scale 40
+	filename ImgChapter1/estructura OpenAPI horiz.pdf
+	scale 50
 
 \end_inset
 
