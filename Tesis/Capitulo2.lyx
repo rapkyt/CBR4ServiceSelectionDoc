@@ -1,4 +1,4 @@
-#LyX 2.3 created this file. For more info see http://www.lyx.org/
+#LyX 2.2 created this file. For more info see http://www.lyx.org/
 \lyxformat 508
 \begin_document
 \begin_header
@@ -109,12 +109,12 @@ En el capítulo previo se describió la motivación principal de esta tesis
  de la Base de Conocimientos y una pieza de software capaz de generar instancias
  del Metamodelo a partir de una especificación OpenAPI.
  El Metamodelo se basa actualmente en especificaciones sencillas derivadas
- de las descripciones WSDL de servicios; para evaluar el nivel de compatibilidad
+ de las descripciones WSDL de servicios para evaluar el nivel de compatibilidad
  y también estimar el esfuerzo de adaptación de un servicio candidato para
  su integración en una aplicación en desarrollo específica.
  Las especificaciones actuales de servicios son descripciones WSDL, las
  cuales van perdiendo uso en la industria actual de tecnologías de Servicios
- Web, que está adoptando estándares de descripción modernos, como OpenAPI
+ Web que está adoptando estándares de descripción modernos, como OpenAPI
  entre otros, cada vez con mayor frecuencia.
 \end_layout
 
@@ -130,9 +130,13 @@ Component-based Software Development
 
 \end_inset
 
-), y gran parte del trabajo alcanzado en este área ha sido adaptado para
+) y gran parte del trabajo alcanzado en este área ha sido adaptado para
  la evaluación de interfaces de servicios.
- Un ejemplo es el Algoritmo de Stroulia-Wang analizado en 
+ Un ejemplo es el Algoritmo de Stroulia-Wang analizado en
+\begin_inset space ~
+\end_inset
+
+
 \begin_inset CommandInset citation
 LatexCommand cite
 key "stroulia2005structural,Wang03b,Wang03a"
@@ -206,7 +210,7 @@ reference "sec:Compatibilidad-InterfacesOld"
 \end_inset
 
  detalla, dentro del proceso de selección, los criterios de equivalencia
- de elementos de signatura, un aspecto clave en la presente tesis.
+ de elementos de signatura, un aspecto clave para el presente trabajo.
  Finalmente, la Sección
 \begin_inset space ~
 \end_inset
@@ -236,7 +240,11 @@ Metamodelo para descripción de Servicios Web
 Es necesario contar con una especificación de contratos de Servicios Web
  que sea independiente de cualquier tecnología de implementación.
  Por este motivo, utilizando como base los estándares mencionados en la
- Sección 
+ Sección
+\begin_inset space ~
+\end_inset
+
+
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "subsec:Background"
@@ -274,7 +282,11 @@ reference "fig:Diagrama-de-clases"
 \end_inset
 
  muestra el diagrama de clases del metamodelo utilizado, que se explicará
- en la Sección 
+ en la Sección
+\begin_inset space ~
+\end_inset
+
+
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "subsec:Vision-Detallada"
@@ -331,7 +343,11 @@ name "fig:Diagrama-de-clases"
 \begin_layout Standard
 El metamodelo surge de la conjunción de estándares y criterios, a partir
  de los cuales se han definido las clases involucradas.
- En la Figura 
+ En la Figura
+\begin_inset space ~
+\end_inset
+
+
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Diagrama-de-Venn"
@@ -725,7 +741,11 @@ La clase
 \emph on
 Interface
 \emph default
- (Figura 
+ (Figura
+\begin_inset space ~
+\end_inset
+
+
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Diagrama-de-Interfaz Interface"
@@ -781,8 +801,7 @@ Operation
 representa a cada una de las funciones provistas/solicitadas por cada proveedor/
 consumidor de un servicio.
  Cada operación está compuesta por su nombre (un identificador que describe
- semánticamente la función de la operación), puede o no tener una entrada
- (
+ semánticamente la función de la operación), podría tener una entrada (
 \emph on
 Input
 \emph default
@@ -797,7 +816,7 @@ reference "fig:Diagrama-de-Interfaz-Input"
 
 \end_inset
 
-) y puede o no tener una salida (
+) y podría tener una salida (
 \emph on
 Output
 \emph default
@@ -813,7 +832,7 @@ reference "fig:Diagrama-de-Interfaz-output"
 \end_inset
 
 ).
- A su vez, podría o no tener una o más excepciones o fallas (
+ A su vez, también podría tener una o más excepciones o fallas (
 \emph on
 Faults
 \emph default
@@ -837,7 +856,11 @@ La clase
 \emph on
 Input
 \emph default
- (Figura 
+ (Figura
+\begin_inset space ~
+\end_inset
+
+
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Diagrama-de-Interfaz-Input"
@@ -865,7 +888,11 @@ reference "fig:Diagrama-de-Interfaz-parameter"
 \emph on
 Output
 \emph default
- (Figura 
+ (Figura
+\begin_inset space ~
+\end_inset
+
+
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Diagrama-de-Interfaz-output"
@@ -890,7 +917,11 @@ En el contexto de los Servicios Web, la definición de excepciones representadas
 \emph on
  Fault
 \emph default
- no se han convertido en una práctica común 
+ no se han convertido en una práctica común
+\begin_inset space ~
+\end_inset
+
+
 \begin_inset CommandInset citation
 LatexCommand cite
 key "rodriguez2013best"
@@ -1162,7 +1193,11 @@ Para los tipos de datos se define una clase abstracta llamada
 \emph on
 Type
 \emph default
- (Figura 
+ (Figura
+\begin_inset space ~
+\end_inset
+
+
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Diagrama-de-Interfaz-type"
@@ -1182,7 +1217,11 @@ Type
 \emph on
 SimpleType
 \emph default
- (Figura 
+ (Figura
+\begin_inset space ~
+\end_inset
+
+
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Diagrama-de-Interfaz-sympletype"
@@ -1589,7 +1628,11 @@ Correspondencia entre los estándares de descripción y el Metamodelo.
 
 \begin_layout Standard
 El Metamodelo utilizado fue desarrollado basado en los estándares vistos
- en la Sección 
+ en la Sección
+\begin_inset space ~
+\end_inset
+
+
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "subsec:Background"
@@ -1629,7 +1672,7 @@ response
 \end_layout
 
 \begin_layout Standard
-Las Tablas 
+Las Tablas
 \lang english
 
 \begin_inset space ~
@@ -1666,33 +1709,56 @@ reference "tab:WADL-n-Metamodel"
 
 \end_inset
 
- presentan esta correspondencia, donde 
+ presentan esta correspondencia, donde:
+\end_layout
+
+\begin_layout Itemize
 \begin_inset Formula $+$
 \end_inset
 
- significa que más de un elemento es considerado, 
-\begin_inset Formula $|$
+ Significa que más de un elemento es considerado.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\:|\:$
 \end_inset
 
- significa que se pueden alternar entre los elementos, 
+ Significa que se pueden alternar entre los elementos.
+\end_layout
+
+\begin_layout Itemize
 \begin_inset Formula $@$
 \end_inset
 
- indica un atributo del elemento, y 
+ Indica un atributo del elemento.
+\end_layout
+
+\begin_layout Itemize
 \begin_inset Formula $=$
 \end_inset
 
- significa un valor específico del atributo.
- De manera similar, también se presentan correspondencias con otros formatos
+ Significa un valor específico del atributo.
+\end_layout
+
+\begin_layout Standard
+De manera similar, también se presentan correspondencias con otros formatos
  de descripción de servicios actualmente disponibles: OpenAPI y RAML.
- Las tablas 
+ Las tablas
+\begin_inset space ~
+\end_inset
+
+
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "tab:OpenAPI-n-Metamodel"
 
 \end_inset
 
- y 
+ y
+\begin_inset space ~
+\end_inset
+
+
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "tab:RAML-n-Metamodel"
@@ -1704,6 +1770,10 @@ reference "tab:RAML-n-Metamodel"
 
 \begin_layout Paragraph
 Correspondencia con SoaML
+\begin_inset Newline newline
+\end_inset
+
+
 \begin_inset Newline newline
 \end_inset
 
@@ -2172,17 +2242,25 @@ Correspondencia con WSDL 2.0
 \end_inset
 
 
+\begin_inset Newline newline
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
-En la Tabla 
+En la Tabla
+\begin_inset space ~
+\end_inset
+
+
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "tab:WSDL2-n-Metamodel"
 
 \end_inset
 
- se considera que una especificación WSDL 2.0 especifica un 
+ se considera que una especificación WSDL 2.0 describe un 
 \emph on
 Service
 \emph default
@@ -2635,10 +2713,18 @@ Correspondencia con WADL
 \end_inset
 
 
+\begin_inset Newline newline
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
-En la Tabla 
+En la Tabla
+\begin_inset space ~
+\end_inset
+
+
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "tab:WADL-n-Metamodel"
@@ -2664,7 +2750,7 @@ Interface
 \emph on
 Resources
 \emph default
-) en los que se les pueden aplicar métodos HTTP.
+) en los que se pueden aplicar métodos HTTP.
  Como tal, una especificación WADL se puede separar en dos partes: el esquema
  y los recursos.
  El esquema contiene gramáticas (
@@ -2708,7 +2794,7 @@ Output
 Fault
 \emph default
 ).
- los parámetros (
+ Los parámetros (
 \emph on
 Param
 \emph default
@@ -2729,7 +2815,7 @@ Header
 Query
 \emph default
 ).
- los parámetros de la respuesta describen la representación (Representation)
+ Los parámetros de la respuesta describen la representación (Representation)
  de los mensajes con un tipo de datos (
 \emph on
 MediaType
@@ -3151,10 +3237,18 @@ Correspondencia con OpenAPI
 \end_inset
 
 
+\begin_inset Newline newline
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
-En la Tabla 
+En la Tabla
+\begin_inset space ~
+\end_inset
+
+
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "tab:OpenAPI-n-Metamodel"
@@ -3577,10 +3671,18 @@ Correspondencia con RAML
 \end_inset
 
 
+\begin_inset Newline newline
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
-En la Tabla 
+En la Tabla
+\begin_inset space ~
+\end_inset
+
+
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "tab:RAML-n-Metamodel"
@@ -3593,7 +3695,7 @@ reference "tab:RAML-n-Metamodel"
 title
 \emph default
 ).
- La interfaz es definida por los recursos (
+ La interfaz se encuentra compuesta por los recursos (
 \emph on
 Resources
 \emph default
@@ -3601,7 +3703,7 @@ Resources
 \emph on
 resource types
 \emph default
-), o características (
+) o características (
 \emph on
 traits
 \emph default
@@ -4032,8 +4134,8 @@ in-house
  Sin embargo, para otras piezas del sistema se podría optar por la adquisición
  de componentes de terceras partes, que a su vez podrían ser resueltos por
  medio de Servicios Web.
- Luego, una Aplicación Orientada a Servicios generalmente posee funcionalidades
- que no están implementadas de manera local.
+ Por lo tanto, una Aplicación Orientada a Servicios generalmente posee funcional
+idades que no están implementadas de manera local.
 \end_layout
 
 \begin_layout Standard
@@ -4063,7 +4165,11 @@ Proceso de selección y descubrimiento
 \end_layout
 
 \begin_layout Standard
-En la Figura 
+En la Figura
+\begin_inset space ~
+\end_inset
+
+
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Esquema-propuesto"
@@ -4076,13 +4182,11 @@ reference "fig:Esquema-propuesto"
  partir de los documentos WSDL correspondientes a los Servicios Web candidatos.
  En el Paso 1.1 se generan las instancias del metamodelo que corresponden
  al requerimiento funcional del servicio que se espera consumir por la aplicació
-n \twohyphens
- denominadas 
+n – denominadas 
 \begin_inset Formula $I_{C}$
 \end_inset
 
- (Interfaz a Consumir) \twohyphens
- a partir de la cual se generan consultas (
+ (Interfaz a Consumir) – a partir de la cual se generan consultas (
 \emph on
 queries
 \emph default
@@ -4107,14 +4211,12 @@ cite{Crasso10}
 
 ), para obtener los documentos WSDL que pueden corresponder a versiones
  1.1 y 2.0.
- Con estos documentos, se generan las instancias del metamodelo \twohyphens
- denominadas
+ Con estos documentos, se generan las instancias del metamodelo – denominadas
  
 \begin_inset Formula $I_{P}$
 \end_inset
 
- (Interfaz Provista) \twohyphens
- utilizando el componente Conversor para obtener el
+ (Interfaz Provista) – utilizando el componente Conversor para obtener el
  conjunto que servirá de entrada al Paso 2, que es la selección del servicio
  candidato más apto.
  
@@ -4305,15 +4407,14 @@ Respecto a los nombres de operaciones, se generan las listas de términos
 
  que se estén comparando, se eliminan términos sin significado (stop words)
  y finalmente se identifica la raíz o lema (stem) de los términos significativos
- \twohyphens
- en un proceso denominado stemming.
+ – en un proceso denominado stemming.
  De manera similar, se procesan los identificadores y se extraen los tipos
  de cada parámetro incorporando además el análisis exhaustivo de parámetros
  de tipo complejo.
  
-\begin_inset Newline newline
-\end_inset
+\end_layout
 
+\begin_layout Standard
 Para el análisis estructural se comparan los tipos de datos de los elementos
  de signatura de las operaciones 
 \begin_inset Formula $op_{P}$
@@ -4332,7 +4433,7 @@ Para el análisis estructural se comparan los tipos de datos de los elementos
 \end_inset
 
 .
- Para la comparación entre dos tipos de datos entre sí se utilizan las nociones
+ Para la comparación de dos tipos de datos entre sí se utilizan las nociones
  de equivalencia de tipos de datos y subtipificación, definidas en la Sección
 \begin_inset space ~
 \end_inset
@@ -4430,7 +4531,7 @@ Sea
 \begin_inset Formula $I_{C}$
 \end_inset
 
- las interfaces bajo análisis, para cada par de operaciones 
+ las interfaces bajo análisis para cada par de operaciones 
 \begin_inset Formula $(op_{P},op_{C})$
 \end_inset
 
@@ -4519,7 +4620,7 @@ reference "tab:Equivalencia-de-Subtipos"
 \begin_inset space ~
 \end_inset
 
- 
+
 \begin_inset CommandInset citation
 LatexCommand cite
 key "castro16"
@@ -4580,7 +4681,7 @@ key "Pasley06"
 
 .
  En el contexto del Metamodelo se decidió agregar el tipo ANY_TYPE para
- representar ésto con un mayor significado semántico.
+ representar esto con un mayor significado semántico.
  Los tipos no especificados en esta tabla no poseen ningún otro tipo compatible
  con tanta precisión.
 \end_layout
@@ -5034,7 +5135,11 @@ Eliminación de Stop Words:
 es el nombre que reciben las palabras sin significado tales como artículos,
  pronombres, preposiciones, etc.
  Estas palabras son filtradas antes o después del procesamiento de datos
- (texto) en lenguaje natural 
+ (texto) en lenguaje natural
+\begin_inset space ~
+\end_inset
+
+
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Casamayor10"
@@ -5143,7 +5248,15 @@ reference "eq:nameComp"
 \begin_inset Formula $op_{C}$
 \end_inset
 
- (terms = #({termsOpR} ∪ {termsOpS})), 
+ (i.e.
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset Formula $terms=\#(\left\{ termsOpR\right\} ∪\left\{ termsOpS\right\} )$
+\end_inset
+
+), 
 \begin_inset Formula $exact$
 \end_inset
 
@@ -5191,7 +5304,7 @@ name "subsec:Parámetros"
 \end_layout
 
 \begin_layout Standard
-Para la comparación de parámetros, la cantidad de parámetros no constituye
+Para la comparación de parámetros, la cantidad de los mismos no constituye
  un factor de incompatibilidad cuando 
 \begin_inset Formula $op_{P}\in I_{P}$
 \end_inset
@@ -5211,7 +5324,11 @@ Para la comparación de parámetros, la cantidad de parámetros no constituye
 
 \begin_layout Itemize
 La matriz de compatibilidad de tipos (T): se utilizan las nociones de equivalenc
-ias de tipos de datos y subtipificación detalladas en la Tabla 
+ias de tipos de datos y subtipificación detalladas en la Tabla
+\begin_inset space ~
+\end_inset
+
+
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "tab:Equivalencia-de-Subtipos"
@@ -5327,8 +5444,7 @@ El objetivo de esta matriz es almacenar el valor de compatibilidad entre
 \begin_inset Formula $N_{ij}$
 \end_inset
 
- \twohyphens
- luego: 
+ – luego: 
 \begin_inset Formula $C_{ij}=T_{ij}*N_{ij}$
 \end_inset
 
@@ -5346,8 +5462,7 @@ Luego de calcular la matriz
 \end_inset
 
 , se debe seleccionar el mejor mapeo de parámetros entre todas las posibles
- combinaciones de pares de parámetros \twohyphens
- es decir, la asignación de parámetros
+ combinaciones de pares de parámetros – es decir, la asignación de parámetros
  que maximiza la compatibilidad entre 
 \begin_inset Formula $op_{P}$
 \end_inset
@@ -5372,8 +5487,7 @@ key "Kuhn55"
 \begin_inset Formula $n*m$
 \end_inset
 
- \twohyphens
- en este caso 
+ – en este caso 
 \begin_inset Formula $n$
 \end_inset
 
@@ -5536,9 +5650,9 @@ Compatibilidad de campos
 \end_layout
 
 \begin_layout Standard
-Para poder realizar una comparación entre parámetros complejos, es necesario
- conocer la estructura interna de cada uno de ellos y realizar una comparación
- entre los nombres y tipos de cada uno de los campos que lo componen.
+Para poder realizar una comparación entre parámetros complejos es necesario
+ conocer la estructura interna de cada uno de ellos comparando los nombres
+ y tipos de cada uno de los campos que lo componen.
  Si la cantidad de campos del parámetro complejo de la 
 \begin_inset Formula $op_{P}$
 \end_inset
@@ -5614,7 +5728,11 @@ Se compara directamente parámetro contra parámetro o campo contra campo
 \begin_layout Standard
 Una vez determinado el caso que corresponda, la comparación entre los nombres
  propiamente dichos se realiza de acuerdo al algoritmo de comparación de
- identificadores presentado en la Sección 
+ identificadores presentado en la Sección
+\begin_inset space ~
+\end_inset
+
+
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "subsec:Algoritmo-para-Evaluacion-Identificadores"
@@ -5807,9 +5925,11 @@ El análisis del tipo de retorno primero verifica si el tipo de retorno de
 \begin_inset Formula $op_{C}$
 \end_inset
 
- \twohyphens
- de acuerdo a los criterios de subtipificación para el lenguaje Java (Tabla
- 
+ – de acuerdo a los criterios de subtipificación para el lenguaje Java (Tabla
+\begin_inset space ~
+\end_inset
+
+
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "tab:Equivalencia-de-Subtipos"
@@ -5902,16 +6022,20 @@ name "par:Comparación-de-tipos"
 \end_layout
 
 \begin_layout Standard
-Para poder realizar una comparación entre tipos de retorno complejo, en
- un principio es necesario conocer la estructura interna de cada uno de
- ellos y realizar una comparación del tipo “todos contra todos” entre los
- nombres y tipos de cada uno de los campos que lo componen.
+Para poder realizar una comparación entre tipos de retorno complejo, es
+ necesario conocer la estructura interna de cada uno de ellos y realizar
+ una comparación del tipo “todos contra todos” entre los nombres y tipos
+ de cada uno de los campos que lo componen.
  La 
 \emph on
 compatibilidad de nombres para tipos de retornos complejos
 \emph default
  se evalúa utilizando el algoritmo de evaluación de identificadores presentado
- en la Sección 
+ en la Sección
+\begin_inset space ~
+\end_inset
+
+
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "subsec:Algoritmo-para-Evaluacion-Identificadores"
@@ -5995,7 +6119,11 @@ El valor final de compatibilidad entre los tipos de retorno complejo para
 \begin_inset Formula $op_{C}$
 \end_inset
 
- se calcula de acuerdo a la Fórmula 
+ se calcula de acuerdo a la Fórmula
+\begin_inset space ~
+\end_inset
+
+
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "eq:compRetComplejo"
@@ -6194,8 +6322,7 @@ la distancia de adaptabilidad entre
 \end_inset
 
 , y que la correspondencia entre ambas requiere de un esfuerzo de adaptación
- nulo o trivial \twohyphens
- por ejemplo, conversiones (
+ nulo o trivial – por ejemplo, conversiones (
 \emph on
 casting
 \emph default
@@ -6274,13 +6401,13 @@ s (
 Finalmente, el proceso de selección se basa en un entorno de conocimiento
  aislado y volátil a lo largo de las sucesivas ejecuciones.
  Esto es, las instancias del Metamodelo deben ser generadas al momento de
- realizar cada ejecución, significando que cada servicio que se requiera
- debe ser instanciado por el conversor en tiempo de ejecución.
- Esto, además de hacer que cada la ejecución sea repetitiva y poco eficiente,
- no aprovecha ni reutiliza la información obtenida de las ejecuciones pasadas,
- razón por la cual es necesario almacenar esta base de conocimientos de
- manera persistente, con el fin de ahorrar tiempo en cada ejecución y nutrirse
- de experiencia obtenida de ejecuciones pasadas.
+ realizar cada consulta, significando que cada servicio que se requiera
+ debe ser instanciado por el conversor en tiempo de ejecución, haciendo
+ que cada búsqueda sea repetitiva y poco eficiente, impidiendo aprovechar
+ o reutilizar la información obtenida de las ejecuciones pasadas, razón
+ por la cual es necesario almacenar esta base de conocimientos de manera
+ persistente con el fin de ahorrar tiempo en cada ejecución y nutrirse de
+ experiencia obtenida de ejecuciones pasadas.
 \end_layout
 
 \end_body
