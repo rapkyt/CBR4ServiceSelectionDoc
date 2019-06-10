@@ -1,4 +1,4 @@
-#LyX 2.2 created this file. For more info see http://www.lyx.org/
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
 \lyxformat 508
 \begin_document
 \begin_header
@@ -127,7 +127,8 @@ em
 
 ) es un campo interdisciplinar para el estudio, diseño, e implementación
  de sistemas distribuidos, y actúa como un paraguas que cubre todos los
- aspectos de computación utilizados – especificación y diseño orientado
+ aspectos de computación utilizados \twohyphens
+ especificación y diseño orientado
  a servicios, Arquitectura Orientada a Servicios (SOA
 \begin_inset Foot
 status open
@@ -141,7 +142,8 @@ Service Oriented Architecture
 \end_inset
 
 ), Servicios Web, etc.
- – siendo actualmente una de las áreas de investigación más activas en el
+ \twohyphens
+ siendo actualmente una de las áreas de investigación más activas en el
  ámbito de la informática.
  
 \end_layout
@@ -153,7 +155,8 @@ Una práctica común para el desarrollo de software es reusar funcionalidad
  del sistema.
  En este contexto, el crecimiento de la Web habilita a los desarrolladores
  a ofrecer software no sólo en forma de bibliotecas, sino como servicios
- – componentes software que se pueden invocar de forma dinámica.
+ \twohyphens
+ componentes software que se pueden invocar de forma dinámica.
  En particular, la tecnología de Servicios Web es uno de los principales
  motivos para la adopción del paradigma SOC
 \begin_inset space ~
@@ -487,7 +490,8 @@ o de palabras clave, considerando que las mismas fueron utilizadas para
 La motivación de esta tesis es alcanzar un enfoque que facilite el desarrollo
  de aplicaciones orientadas a servicios, asistiendo a los desarrolladores
  en la tarea de evaluación y selección de servicios candidatos.
- Para ello es necesario un análisis a nivel de contrato – i.e., de los elementos
+ Para ello es necesario un análisis a nivel de contrato \twohyphens
+ i.e., de los elementos
  que forman las funcionalidad ofrecida por el servicio.
  Además, se requiere que dicho enfoque incorpore algún mecanismo de aprendizaje
  semi-automático para mejorar su performance incorporando información a
@@ -503,7 +507,7 @@ key "de2016case"
 \end_inset
 
 .
- Consecuentemente se decidió adaptar en la presete tesis los aportes de
+ Consecuentemente se decidió adaptar en la presente tesis los aportes de
  trabajos previos
 \begin_inset space ~
 \end_inset
@@ -542,7 +546,7 @@ Sin embargo, existen limitaciones con respecto al tipo de descripciones
  de origen que se soportan por la falta de herramientas automatizadas para
  realizar la derivación desde otro tipo de descripciones hacia el Metamodelo
  de servicios.
- Se agrega entonces el desafio de aumentar el cubrimiento de las mismas
+ Se agrega entonces el desafío de aumentar el cubrimiento de las mismas
  incorporando al estándar de especificación OpenAPI
 \begin_inset space ~
 \end_inset
@@ -772,7 +776,8 @@ Para ello se requiere definir una representación de los casos (problema-soluci�
  la función de similitud, que utilice los aspectos estructurales y semánticos
  de estas descripciones de servicios.
  Finalmente, en base a esta función de similitud se requiere definir la(s)
- estrategia(s) de clasificación de casos – es decir, cuáles son los casos
+ estrategia(s) de clasificación de casos \twohyphens
+ es decir, cuáles son los casos
  relevantes para cada problema.
  Se propone utilizar desde estrategias clásicas de clasificación como la
  de K vecinos más cercanos (KNN) hasta otras más avanzadas como WKNN (KNN
@@ -1025,7 +1030,8 @@ internos
 \emph on
 externos
 \emph default
-, que se encuentran estática o dinámicamente vinculados — ambos exponiendo
+, que se encuentran estática o dinámicamente vinculados \threehyphens
+ ambos exponiendo
  una clara interfaz de sus capacidades funcionales
 \begin_inset space ~
 \end_inset
@@ -1476,8 +1482,10 @@ name "par:Servicios-RESTFul"
 \end_layout
 
 \begin_layout Standard
-En los últimos años, los servicios RESTful – REpresentational State Transfer
- – 
+En los últimos años, los servicios RESTful \twohyphens
+ REpresentational State Transfer
+ \twohyphens
+ 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "fielding2000architectural"
@@ -1607,7 +1615,7 @@ En relación con WADL y OpenAPI, el objetivo de las mismas es definir contratos,
  contratos; pero el enfoque que se espera en el presente trabajo es para
  desarrollos de software extensos tipo empresariales o gubernamentales,
  donde sí es necesario contratos que definan lo más estrictamente posible
- la manera en que los mensajes serán eviados/recibidos.
+ la manera en que los mensajes serán enviados/recibidos.
  Además de definir contratos, mediante las especificaciones, se permite
  generar código, testeo y documentación con herramientas de software ya
  disponibles como lo sería un generador de cliente REST en base a un documento
@@ -1739,7 +1747,7 @@ La versión actual del estándar WSDL es la 2.0
 status open
 
 \begin_layout Plain Layout
-espacio intencional, sinó el número queda muy pegado al 0
+espacio intencional, sino el número queda muy pegado al 0
 \end_layout
 
 \end_inset
@@ -2310,7 +2318,8 @@ Cada servicio definido en la arquitectura posee información específica de
 ServiceContract
 \emph default
 ), donde se puede definir tanto la coreografía (interacción) de servicios
- como su contrato de invocación e interfaces – esto último se muestra en
+ como su contrato de invocación e interfaces \twohyphens
+ esto último se muestra en
  la Figura 
 \begin_inset CommandInset ref
 LatexCommand ref

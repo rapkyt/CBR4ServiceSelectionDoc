@@ -93,7 +93,11 @@ Introducción
 \end_layout
 
 \begin_layout Standard
-Como se mencionó en la Sección 
+Como se mencionó en la Sección
+\begin_inset space ~
+\end_inset
+
+
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "subsec:Solución-propuesta"
@@ -177,7 +181,11 @@ reference "sec:CBR-para-selección"
 
  presenta nuestra propuesta de CBR para selección de Servicios Web utilizando
  el Metamodelo propuesto.
- Finalmente, la Sección 
+ Finalmente, la Sección
+\begin_inset space ~
+\end_inset
+
+
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sec:-Conversor de OAS"
@@ -186,7 +194,6 @@ reference "sec:-Conversor de OAS"
 
  se detalla el Componente Conversor de Swagger para instanciar el Metamodelo
  de Servicios Web.
- 
 \end_layout
 
 \begin_layout Section
@@ -230,8 +237,11 @@ reference "fig: caso de estudio-1"
 \emph on
 {petId}, 
 \emph default
-se reemplazará por el id de la mascota deseada.
- 
+se reemplazará por el 
+\emph on
+id
+\emph default
+ de la mascota deseada.
 \end_layout
 
 \begin_layout Standard
@@ -406,7 +416,11 @@ Metamodelo
 \emph on
  
 \emph default
-la cual se detalla en la Sección 
+la cual se detalla en la Sección
+\begin_inset space ~
+\end_inset
+
+
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "subsec:Similitud-de-casos"
@@ -418,7 +432,7 @@ reference "subsec:Similitud-de-casos"
 .
  
 \emph default
-La distancia entre dos casos nos indica cuán parecidas son sus parte problema,
+La distancia entre dos casos nos indica cuán parecidas son sus partes problema,
  y el esfuerzo que va a requerir integrarlas, en términos de la complejidad
  de los artefactos de adaptación
 \begin_inset space ~
@@ -454,9 +468,9 @@ consiste en tomar las
 \emph on
 K
 \emph default
- soluciones de los casos con menor distancia distancia y seleccionar la
- mas frecuente (puesto que dos casos en la base de conocimiento pueden tener
- la misma solución).
+ soluciones de los casos con menor distancia y seleccionar la más frecuente
+ (puesto que dos casos en la base de conocimiento pueden tener la misma
+ solución).
  En caso de empate se elige la solución del caso con menor distancia.
  La misma pasa a ser la solución 
 \emph on
@@ -505,7 +519,7 @@ threshold
 threshold
 \emph default
  establecido, el nuevo caso con su solución son agregados a la base de conocimie
-nto y, de ésta manera, es tomada en cuenta para futuras consultas.
+nto y, de esta manera, es tomada en cuenta para futuras consultas.
  En caso de que el valor sea menor que el establecido, este caso no se agrega,
  debido a que generaría ruido y posiblemente haría 
 \emph on
@@ -566,7 +580,11 @@ Representación del Caso
 \end_layout
 
 \begin_layout Standard
-Como primer paso (Paso 1 Figura 
+Como primer paso (Paso 1 Figura
+\begin_inset space ~
+\end_inset
+
+
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Esquema-de-proceso"
@@ -630,7 +648,11 @@ Caso
 Caso
 \emph default
  con la solución más próxima que satisfaga las necesidades del problema.
- En la Figura 
+ En la Figura
+\begin_inset space ~
+\end_inset
+
+
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:EjemploVersionCaseInstanciada"
@@ -726,8 +748,12 @@ Base de conocimiento
 \end_layout
 
 \begin_layout Standard
-Para el Razonamiento basado en casos es de suma importancia poseer una base
- de conocimiento relevante (Paso 2, Figura 
+Para el Razonamiento Basado en Casos es de suma importancia poseer una base
+ de conocimiento relevante (Paso 2, Figura
+\begin_inset space ~
+\end_inset
+
+
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Esquema-de-proceso"
@@ -749,7 +775,7 @@ CBR
  Inicialmente, se puede popular la KB con servicios reales obtenidos de
  la Web
 \begin_inset Foot
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Flex URL
@@ -767,25 +793,15 @@ https://apis.guru/openapi-directory
 
 \end_inset
 
-, generando una instancia del metamodelo con su especificación por cada
- uno.
- Para ello se toma la 
+.
+ Para ello se itera sobre estos servicios y, con la especificación de cada
+ uno, se genera una instancia del metamodelo, se toma la 
 \emph on
 interface
 \emph default
- de la misma y se le asigna como 
-\emph on
-problema 
-\emph default
-a un nuevo 
-\emph on
-caso
-\emph default
-, se le asigna la URL donde se encuentra actualmente el servicio como 
-\emph on
-solución
-\emph default
- y luego el caso es cargado en la base de conocimiento.
+ de esta instancia, y junto con la URL donde se encuentra actualmente el
+ servicio se compone un nuevo caso con este par problema y solución respectivame
+nte, luego este caso es cargado en la base de conocimiento.
  De esta manera, el CBR posee una base de conocimiento inicial, con la cual
  comenzar la comparación e ir incorporando nuevos casos según sea necesario.
 \end_layout
@@ -1008,9 +1024,9 @@ Atomicity, Consistency, Isolation, Durability
 ) en un bloque transaccional.
  Sin embargo, MongoDB asegura la transaccionalidad a nivel documento.
  Así, como todas las operaciones en el SGBD realizadas en nuestro enfoque
- no tienen bloques transaccionales, esta no es una desventaja para nuestro
+ no tienen bloques transaccionales, ésta no es una desventaja para nuestro
  enfoque.
- Por otro lado, la version 4.0 de MongoDB asegura incluir bloques transaccionales
+ Por otro lado, la versión 4.0 de MongoDB asegura incluir bloques transaccionales
 \begin_inset Foot
 status open
 
@@ -1031,9 +1047,9 @@ https://www.mongodb.com/transactions
 \end_inset
 
  donde se respetan las propiedades ACID.
- Por lo cual, si en un futuro fuera necesario actualizar más de un documento,
- asegurando estas propiedades, sólo habría que actualizar la versión de
- MongoDB.
+ Por lo cual, si en un futuro fuera necesario actualizar más de un documento
+ simultáneamente asegurando estas propiedades, sólo habría que actualizar
+ la versión de MongoDB.
 \end_layout
 
 \begin_layout Standard
@@ -1063,7 +1079,7 @@ reference "sec:Ejemplo-Ilustrativo"
 
 \end_inset
 
-) un fragmento de objeto JSON conteniendo un 
+), un fragmento de objeto JSON conteniendo un 
 \emph on
 Caso
 \emph default
@@ -1071,13 +1087,13 @@ Caso
 \emph on
 problema
 \emph default
- es la especificación la instancia del metamodelo.
+ es la instancia del Metamodelo correspondiente a la especificación ilustrada.
  Dicho objeto JSON es almacenado bajo el mismo formato en la Base de Conocimient
 o 
 \emph on
 KB
 \emph default
- en el Sistema de Base de Datos MongoDB.
+ en el Sistema Gestor de Base de Datos MongoDB.
 \end_layout
 
 \begin_layout Standard
@@ -1104,7 +1120,11 @@ A continuación, para obtener una solución a un
 \emph on
 Nuevo Caso
 \emph default
- (Paso 3, Figura 
+ (Paso 3, Figura
+\begin_inset space ~
+\end_inset
+
+
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Esquema-de-proceso"
@@ -1120,7 +1140,11 @@ y cada caso perteneciente a la base de conocimientos
 \emph on
 KB
 \emph default
-, de acuerdo a la Fórmula 
+, de acuerdo a la Fórmula
+\begin_inset space ~
+\end_inset
+
+
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "eq:DIST"
@@ -1206,7 +1230,11 @@ Por cada atributo en la representación del caso definimos funciones de similitu
 \begin_inset Formula $w_{i}$
 \end_inset
 
- que serán detalladas en la Sección 
+ que serán detalladas en la Sección
+\begin_inset space ~
+\end_inset
+
+
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "subsec:Similitud-de-casos"
@@ -1258,7 +1286,11 @@ reference "fig: UML-CasoCandidatoPetStoreFull"
 
 \end_inset
 
-, al aplicar la función de distancia nos da un valor de 
+, al aplicar la función de distancia nos da un valor de
+\begin_inset space ~
+\end_inset
+
+
 \begin_inset Formula $0.153333$
 \end_inset
 
@@ -1347,7 +1379,7 @@ reference "fig:Esquema-de-proceso"
 \begin_inset Formula $(Solución,\,Distancia)$
 \end_inset
 
-, luego ésta lista es ordenada según la distancia y utilizada con el fin
+, luego esta lista es ordenada según la distancia y utilizada con el fin
  de encontrar el Caso Candidato final.
 \end_layout
 
@@ -1401,7 +1433,7 @@ soluciones con menor distancia y tomar la
 \emph on
 Solución
 \emph default
- mas frecuente entre las mismas, en caso de empate se toma la 
+ más frecuente entre las mismas; en caso de empate se toma la 
 \emph on
 Solución
 \emph default
@@ -1550,16 +1582,16 @@ feedback
  o ponderación manual.
  Además, en CBR se puede realizar una adaptación de la solución para que
  concuerde con el problema ingresado.
- En este dominio, esta adaptación se realizaría de forma manual por el desarroll
-ador, que busca una solución a su problema.
- El mismo deberá realizar los cambios necesarios en su interfaz para que
- la misma sea compatible con la interfaz de la solución brindada.
+ En este dominio, esta adaptación se realiza de forma manual por el desarrollado
+r que busca una solución a su problema.
+ Él mismo deberá realizar los cambios necesarios en su interfaz para que
+ sea compatible con la interfaz de la solución brindada.
  La adaptación automática de 
 \emph on
 Casos
 \emph default
- es un proceso complejo que queda fuera del alcance de esta tesis, como
- trabajo a futuro.
+ es un proceso complejo que se encuentra fuera del alcance de esta tesis,
+ y se propone como trabajo a futuro.
 \end_layout
 
 \begin_layout Standard
@@ -1571,7 +1603,11 @@ Caso
 \emph on
 PetStore
 \emph default
- indicado en 
+ indicado en
+\begin_inset space ~
+\end_inset
+
+
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sec:Ejemplo-Ilustrativo"
@@ -1679,7 +1715,11 @@ WK-nn
 \emph on
 PetStoreFull
 \emph default
- ya que es la solución con mayor peso ponderado según la fórmula 
+ ya que es la solución con mayor peso ponderado según la fórmula
+\begin_inset space ~
+\end_inset
+
+
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "eq:WKNN"
@@ -1713,7 +1753,11 @@ Seleccionaría
 \emph on
 PetStoreFull
 \emph default
- ya que es la solución con mayor peso ponderado según la fórmula 
+ ya que es la solución con mayor peso ponderado según la fórmula
+\begin_inset space ~
+\end_inset
+
+
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "eq:DWKNN"
@@ -1744,7 +1788,11 @@ Evaluar (Retener)
 \end_layout
 
 \begin_layout Standard
-En esta instancia (Paso 5, Figura 
+En esta instancia (Paso 5, Figura
+\begin_inset space ~
+\end_inset
+
+
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Esquema-de-proceso"
@@ -1770,7 +1818,7 @@ caso probado
 
 \begin_layout Standard
 El siguiente paso consiste en tomar la decisión respecto a si este caso
- probado será añadido a la base de conocimientos, o no.
+ probado será añadido a la base de conocimientos.
  Por un lado, retener demasiados casos puede generar ruido en la evaluación,
  disminuyendo la performance del razonador a largo plazo.
  Por otro lado, si no se agregan casos nuevos, no hay aprendizaje, y el
@@ -1845,7 +1893,11 @@ Caso probado
 \emph on
 PetStore
 \emph default
-, definido en 
+, definido en
+\begin_inset space ~
+\end_inset
+
+
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sec:Ejemplo-Ilustrativo"
@@ -1880,7 +1932,11 @@ A continuación explicaremos en detalle como se evalúa, para cada atributo,
 \begin_inset Formula $sim$
 \end_inset
 
- presentada en la Fórmula 
+ presentada en la Fórmula
+\begin_inset space ~
+\end_inset
+
+
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "eq:DIST"
@@ -1892,6 +1948,10 @@ reference "eq:DIST"
 
 \begin_layout Paragraph
 Nombre de servicios
+\begin_inset Newline newline
+\end_inset
+
+
 \begin_inset Newline newline
 \end_inset
 
@@ -1920,14 +1980,18 @@ Caso
 \emph on
 Identificadores
 \emph default
- (Fórmula 
+ (Fórmula
+\begin_inset space ~
+\end_inset
+
+
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "eq:sim-nombre-de-servicio"
 
 \end_inset
 
-), que considera la semántica en termino de identificadores, la misma tiene
+), que considera la semántica en término de identificadores, la misma tiene
  en cuenta los exactos, sinónimos, hipónimos e hiperónimos
 \begin_inset space ~
 \end_inset
@@ -2009,6 +2073,10 @@ Cantidad de Operaciones
 \end_inset
 
 
+\begin_inset Newline newline
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -2026,7 +2094,11 @@ Caso candidato
 Caso
 \emph default
  a evaluar.
- La Similitud es calculada de acuerdo a la Fórmula 
+ La Similitud es calculada de acuerdo a la Fórmula
+\begin_inset space ~
+\end_inset
+
+
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "eq:sim-cantidad-operaciones"
@@ -2049,7 +2121,7 @@ Cantidad de operaciones
 \begin_inset Formula $w=0.3$
 \end_inset
 
-) puesto a que expresa de manera directa aspectos funcionales (i.e., el número
+) puesto que expresa de manera directa aspectos funcionales (i.e., el número
  de operaciones requeridas).
 \end_layout
 
@@ -2128,6 +2200,10 @@ Operaciones
 \end_inset
 
 
+\begin_inset Newline newline
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -2160,18 +2236,26 @@ icación), mientras que los aspectos semánticos implican conceptos de términos
 \end_layout
 
 \begin_layout Standard
-Esta similitud se calcula de acuerdo a la Fórmula 
+Esta similitud se calcula de acuerdo a la Fórmula
+\begin_inset space ~
+\end_inset
+
+
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "eq:sim-operaciones"
 
 \end_inset
 
-, el calculo de similitud de elementos de signatura (
+, el cálculo de similitud de elementos de signatura (
 \begin_inset Formula $Retorno+Nombre+Parámetros$
 \end_inset
 
-) se detalló oportunamente en las Fórmulas 
+) se detalló oportunamente en las Fórmulas
+\begin_inset space ~
+\end_inset
+
+
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "eq:nameComp"
@@ -2189,14 +2273,22 @@ reference "eq:compParam"
 
 \end_inset
 
- y 
+ y
+\begin_inset space ~
+\end_inset
+
+
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "eq:compRetComplejo"
 
 \end_inset
 
- (Sección 
+ (Sección
+\begin_inset space ~
+\end_inset
+
+
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "subsec:Condiciones-de-Equivalencia"
@@ -2211,8 +2303,8 @@ reference "subsec:Condiciones-de-Equivalencia"
 \end_layout
 
 \begin_layout Standard
-Puesto a que el criterio principal de nuestro enfoque en la selección de
- servicios es la similitud funcional, el peso 
+Puesto que el criterio principal de nuestro enfoque en la selección de servicios
+ es la similitud funcional, el peso 
 \begin_inset Formula $w$
 \end_inset
 
@@ -2273,7 +2365,7 @@ Donde
 \begin_inset Formula $n$
 \end_inset
 
- es el numero de operaciones en 
+ es el número de operaciones en 
 \begin_inset Formula $C^{C}$
 \end_inset
 
@@ -5056,7 +5148,7 @@ KaiZen OpenAPI Parser
 \series default
 : Ésta herramienta es la principal competencia de la seleccionada, incluso
  se podría considerar mejor en algunos aspectos, como la performance (que
- segun los desarrolladores es tres a cuatro veces superior) y que posee
+ según los desarrolladores es tres a cuatro veces superior) y que posee
  un validador semántico para OpenAPI.
  Además acepta especificaciones en JSON o YAML.
  Su principal desventaja es que al momento sólo sirve para especificaciones
