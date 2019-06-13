@@ -1,4 +1,4 @@
-#LyX 2.2 created this file. For more info see http://www.lyx.org/
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
 \lyxformat 508
 \begin_document
 \begin_header
@@ -428,23 +428,22 @@ CBR proviene del campo de la Inteligencia Artificial y aporta algunos aspectos
  Web, principalmente en cuanto a la posibilidad de reusar la información
  y el conocimiento disponible de sucesivas ejecuciones para mejorar la solución
  de problemas futuros.
- Para ello se combinaron los mecanismos de evaluación de servicios existentes
+ Esto permitió combinar los mecanismos de evaluación de servicios existentes
  con la metodología CBR, dando lugar a un nuevo proceso de selección de
  servicios.
 \end_layout
 
 \begin_layout Standard
-Además, en trabajos previos, se extendieron los mecanismos de evaluación
- para tratar los contratos de servicio como especificaciones independientes
- de la tecnología.
+En trabajos previos se extendieron los mecanismos de evaluación para tratar
+ los contratos de servicio como especificaciones independientes de la tecnología.
  Para ello, además de considerar las soluciones tradicionales como WSDL
  o WADL, se adoptó un Metamodelo basado en estándares (principalmente el
  perfil UML SoaML) para descripción de contratos de servicios.
  Sin embargo, existen aún limitaciones con respecto al tipo de descripciones
  de origen que se soportan (típicamente documentos WSDL).
- Por ello en la presente tesis se implementaron herramientas automatizadas
- para realizar la derivación hacia el metamodelo de descripciones Swagger/OpenAP
-I: el lenguaje más utilizado para especificar servicios REST.
+ Por este motivo, en la presente tesis se implementaron herramientas automatizad
+as para realizar la derivación hacia el metamodelo de descripciones Swagger/Open
+API: el lenguaje más utilizado para especificar servicios REST.
 \end_layout
 
 \begin_layout Standard
@@ -461,8 +460,9 @@ precision
 recall
 \emph default
 .
- Así, contar con herramientas de evaluación y selección más precisas contribuye
- en gran medida a facilitar el desarrollo de Aplicaciones Orientadas a Servicios.
+ Definitivamente, contar con herramientas de evaluación y selección más
+ precisas contribuye en gran medida a facilitar el desarrollo de Aplicaciones
+ Orientadas a Servicios.
 \end_layout
 
 \begin_layout Standard
